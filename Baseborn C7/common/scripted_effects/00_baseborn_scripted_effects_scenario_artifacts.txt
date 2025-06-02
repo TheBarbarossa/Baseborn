@@ -1,0 +1,93 @@
+﻿### SETUP EFFECTS ###
+
+baseborn_historical_artifacts_setup = {
+	if = {
+		limit = {
+			exists = character:Vanguard_1
+			character:Vanguard_1 = { is_alive = yes }
+		}
+		character:Vanguard_1 = {
+			agot_create_artifact_vs_banhammer_effect = {
+				OWNER = this
+			}
+		}
+	}
+
+	if = {
+		limit = {
+			exists = character:Fyreside_2
+			character:Fyreside_2 = { is_alive = yes }
+			game_start_date >= 8077.2.18
+		}
+		character:Fyreside_2 = {
+			agot_create_artifact_thunderguard_effect = {
+				OWNER = this
+			}
+		}
+	}
+
+	if = {
+		limit = {
+			exists = character:Fyreside_2
+			character:Fyreside_2 = { is_alive = yes }
+			game_start_date >= 8077.2.18
+		}
+		character:Fyreside_2 = {
+			agot_create_artifact_lil_thunder_effect = {
+				OWNER = this
+			}
+		}
+	}
+
+	if = {
+		limit = {
+			exists = character:Vanguard_1
+			character:Vanguard_1 = { is_alive = yes }
+			game_start_date >= 8075.1.1
+		}
+		character:Vanguard_1 = {
+			agot_create_artifact_dildo_of_consequences_effect = {
+				OWNER = this
+			}
+		}
+	}
+
+	if = {
+		limit = {
+			exists = character:Baseborn_hh_1
+			character:Baseborn_hh_1 = { is_alive = yes }
+			game_start_date >= 8080.12.1
+		}
+		character:Baseborn_hh_1 = {
+			agot_create_artifact_slander_1_effect = {
+				OWNER = this
+			}
+		}
+	}
+
+	if = {
+		limit = {
+			exists = character:Baseborn_hh_1
+			character:Baseborn_hh_1 = { is_alive = yes }
+			game_start_date >= 8081.1.31
+		}
+		character:Baseborn_hh_1 = {
+			agot_create_artifact_slander_2_effect = {
+				OWNER = this
+			}
+		}
+	}
+
+	if = {
+		limit = {
+			exists = character:Baseborn_hh_1
+			character:Baseborn_hh_1 = { is_alive = yes }
+			game_start_date >= 8081.4.13
+		}
+		character:Baseborn_hh_1 = {
+			agot_create_artifact_slander_3_effect = {
+				OWNER = this
+			}
+		}
+	}
+}

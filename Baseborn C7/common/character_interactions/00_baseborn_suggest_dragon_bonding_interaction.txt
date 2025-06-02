@@ -1,0 +1,772 @@
+﻿suggest_dragon_bond_interaction = {
+    category = interaction_category_friendly
+    icon = icon_scheme_dragon
+    desc = suggest_dragon_bond_interaction_desc
+    interface_priority = 92
+    common_interaction = yes
+
+    send_name = SUGGEST_BONDING_TOOLTIP
+
+    ai_maybe = yes
+
+    cooldown_against_recipient = { years = 5 }
+
+    is_shown = {
+        # Restrict to characters within the actor's realm: either direct vassal, courtier, or indirect vassal (vassal of vassals) with any type of dragonblood 
+        scope:recipient = {
+            OR = {
+                is_vassal_of = scope:actor
+                is_courtier_of = scope:actor
+                any_liege_or_above = { # Check for vassals of vassals
+                    is_vassal_of = scope:actor
+                }
+            }
+            OR = {
+                agot_is_dragonblood_character = yes
+                agot_has_dragonblood_heritage = yes
+                has_game_rule = dragons_anyone
+            }
+        }
+        
+
+        # This will not show if the actor has the nightswatch trait but the recipient doesn't. This way the actor cannot use this outside of the Wall.
+        NOT = {
+            AND = {
+                scope:actor = {
+                    has_trait = nightswatch
+                }
+                scope:recipient = {
+                    NOT = {
+                        has_trait = nightswatch
+                    }
+                }
+            }
+        }
+        scope:recipient = {
+            NOT = { this = scope:actor }
+            is_human = yes
+        }
+    }
+
+    is_valid_showing_failures_only = {
+        agot_suggest_dragon_bond_population_extinct = no
+
+        AND = {
+            scope:actor = {
+                is_imprisoned = no
+                age >= 10
+                custom_tooltip = {
+                    text = dragon_beyond_the_wall
+                    NOR = {
+                        capital_county.title_province ?= {
+                            geographical_region = world_westeros_beyond_the_wall
+                        }
+                        AND = {
+                            exists = liege_or_court_owner
+                            liege.capital_county.title_province ?= {
+                                geographical_region = world_westeros_beyond_the_wall
+                            }
+                        }
+                    }
+                }
+            }
+            custom_tooltip = {
+                text = SUGGEST_BOND_NONE_ELIGIBLE
+                OR = {
+                    scope:actor = {
+                        OR = {
+                            any_liege_or_above = {
+                                every_courtier = {
+                                    limit = {
+                                        has_trait = dragon
+                                        is_alive = yes
+                                        any_relation = {
+                                            type = agot_dragon
+                                            count = 0
+                                        }
+                                    }
+                                }
+                            }
+
+                            any_courtier = {
+                                has_trait = dragon
+                                is_alive = yes
+                                any_relation = {
+                                    type = agot_dragon
+                                    count = 0
+                                }
+                            }
+
+                            # Add dragons from the courts of all vassals and indirect vassals
+                            every_vassal = {
+                                any_courtier = {
+                                    has_trait = dragon
+                                    is_alive = yes
+                                    any_relation = {
+                                        type = agot_dragon
+                                        count = 0
+                                    }
+                                }
+                            }
+                            # Check vassals of vassals for dragons as well
+                            every_vassal = {
+                                every_vassal = {
+                                    any_courtier = {
+                                        has_trait = dragon
+                                        is_alive = yes
+                                        any_relation = {
+                                            type = agot_dragon
+                                            count = 0
+                                        }
+                                    }
+                                }
+                            }
+                            every_vassal = {
+                                every_vassal = {
+                                    every_vassal = {
+                                        any_courtier = {
+                                            has_trait = dragon
+                                            is_alive = yes
+                                            any_relation = {
+                                                type = agot_dragon
+                                                count = 0
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            every_vassal = {
+                                every_vassal = {
+                                    every_vassal = {
+                                        every_vassal = {
+                                            any_courtier = {
+                                                has_trait = dragon
+                                                is_alive = yes
+                                                any_relation = {
+                                                    type = agot_dragon
+                                                    count = 0
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    any_living_dragon = {
+                        NOT = {
+                            has_character_flag = owned_dragon
+                        }
+                    }
+                }
+            }
+        }
+
+        # Check if the recipient meets all conditions   
+        scope:recipient = {
+			custom_tooltip = {
+				text = SUGGEST_BOND_DRAGON_ALREADY_BONDING
+				NOT = {
+					any_scheme = {
+						scheme_type = bond_with_dragon_scheme
+					}
+				}
+			}
+			custom_tooltip = {
+				text = dragon_beyond_the_wall
+				NOR = {
+					capital_county.title_province ?= {
+						geographical_region = world_westeros_beyond_the_wall
+					}
+					AND = {
+						exists = liege_or_court_owner
+						liege.capital_county.title_province ?= {
+							geographical_region = world_westeros_beyond_the_wall
+						}
+					}
+				}
+			}
+			NOT = { has_trait = dragonwidowed }
+            NOT = {
+			    has_trait = septon
+                has_trait = maester
+            }
+            is_imprisoned = no
+            is_busy_in_events_localised = yes
+            age >= 6
+            agot_suggest_dragon_already_bonded = no 
+            OR = {
+                agot_is_dragonblood_character = yes
+                agot_has_dragonblood_heritage = yes
+                agot_has_dragonblood_culture = yes
+                has_game_rule = dragons_anyone
+            }
+        }
+    }
+
+    prompt = {
+        first_valid = {
+            triggered_desc = {
+                trigger = {
+                    exists = scope:secondary_actor
+                    scope:actor = scope:recipient
+                }
+                desc = CHOOSE_DRAGON_TO_SUGGEST
+            }
+            triggered_desc = {
+                trigger = {
+                    exists = scope:secondary_actor
+                }
+                desc = CHOOSE_DRAGON_TO_SUGGEST
+            }
+            desc = CHOOSE_DRAGON_TO_SUGGEST
+        }
+    }
+
+    # Populating the list with dragons only, ensuring these are distinct from recipient conditions
+    populate_actor_list = {
+        every_living_dragon = {
+            limit = {
+                NOT = {
+                    has_character_flag = owned_dragon
+                }
+            }
+            add_to_list = characters
+        }
+        scope:actor = {
+            if = {
+                limit = {
+                    has_trait = dragon
+                    is_alive = yes
+                    any_relation = {
+                        type = agot_dragon
+                        count = 0
+                    }
+                }
+                add_to_list = characters
+            }
+            every_liege_or_above = {
+                every_courtier = {
+                    limit = {
+                        has_trait = dragon
+                        is_alive = yes
+                        any_relation = {
+                            type = agot_dragon
+                            count = 0
+                        }
+                    }
+                    add_to_list = characters
+                }
+            }
+
+            every_courtier = {
+                limit = {
+                    has_trait = dragon
+                    is_alive = yes
+                    any_relation = {
+                        type = agot_dragon
+                        count = 0
+                    }
+                }
+                add_to_list = characters
+            }
+
+            # Add dragons from the courts of all vassals and indirect vassals
+            every_vassal = {
+                every_courtier = {
+                    limit = {
+                        has_trait = dragon
+                        is_alive = yes
+                        any_relation = {
+                            type = agot_dragon
+                            count = 0
+                        }
+                    }
+                    add_to_list = characters
+                }
+            }
+            # Check vassals of vassals for dragons as well
+            every_vassal = {
+                every_vassal = {
+                    every_courtier = {
+                        limit = {
+                            has_trait = dragon
+                            is_alive = yes
+                            any_relation = {
+                                type = agot_dragon
+                                count = 0
+                            }
+                        }
+                        add_to_list = characters
+                    }
+                }
+            }
+            every_vassal = {
+                every_vassal = {
+                    every_vassal = {
+                        every_courtier = {
+                            limit = {
+                                has_trait = dragon
+                                is_alive = yes
+                                any_relation = {
+                                    type = agot_dragon
+                                    count = 0
+                                }
+                            }
+                            add_to_list = characters
+                        }
+                    }
+                }
+            }
+            every_vassal = {
+                every_vassal = {
+                    every_vassal = {
+                        every_vassal = {
+                            every_courtier = {
+                                limit = {
+                                    has_trait = dragon
+                                    is_alive = yes
+                                    any_relation = {
+                                        type = agot_dragon
+                                        count = 0
+                                    }
+                                }
+                                add_to_list = characters
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    greeting = positive
+    notification_text = {
+        desc = SUGGEST_BONDING
+    }
+
+    # Modified on_accept block: Starts bond_with_dragon_scheme against the dragon
+    on_accept = {
+        scope:actor = {
+            trigger_event = agot_suggest_char_interaction.0083
+        }
+        scope:recipient = {
+            start_scheme = {
+                type = bond_with_dragon_scheme
+                target_character = scope:secondary_actor # Start scheme against the dragon
+            }
+        }
+    }
+
+    on_decline = {
+        scope:actor = {
+            trigger_event = agot_suggest_char_interaction.0082
+        }
+    }
+
+
+    ai_accept = {
+        base = -50 # Base chance to accept the interaction
+
+        modifier = {
+            add = -1000
+            desc = SUGGEST_BOND_DRAGON_AGE
+            scope:secondary_actor = {
+                age < 6
+            }
+        }
+
+        modifier = {
+            add = -1000
+            desc = SUGGEST_BOND_DRAGON_DISINTEREST
+            scope:recipient = {
+                has_character_modifier = agot_dragon_disinterest
+            }
+        }
+
+        modifier = {
+            AND = {
+                NOR = {
+                    scope:recipient = { has_character_modifier = agot_dragon_disinterest }
+                    scope:secondary_actor = { age < 6 }
+                }
+                NOT = {
+                    scope:recipient = {
+                        can_start_scheme = {
+                            type = bond_with_dragon_scheme
+                            target_character = scope:secondary_actor
+                        }
+                    }
+                }
+            }
+            add = -1000
+            desc = SUGGEST_BOND_DRAGON_BANNED_FROM_PIT
+        }
+
+        modifier = { 
+			desc = SUGGEST_BOND_EXTREMELY_FAR_AWAY
+			trigger = {
+			    scope:recipient.host.capital_province = { squared_distance = { target = scope:secondary_actor.host.capital_province value >= 3000000 } }
+			}
+			add = -60
+        }
+
+        modifier = { 
+			desc = SUGGEST_BOND_VERY_FAR_AWAY
+			AND = {
+			    scope:recipient.host.capital_province = { squared_distance = { target = scope:secondary_actor.host.capital_province value >= 1000000 } }
+                scope:recipient.host.capital_province = { squared_distance = { target = scope:secondary_actor.host.capital_province value < 3000000 } }
+			}
+			add = -20
+        }
+        
+        modifier = { 
+			desc = SUGGEST_BOND_FAR_AWAY
+			AND = {
+			    scope:recipient.host.capital_province = { squared_distance = { target = scope:secondary_actor.host.capital_province value >= 500000 } }
+                scope:recipient.host.capital_province = { squared_distance = { target = scope:secondary_actor.host.capital_province value < 1000000 } }
+			}
+			add = -10
+        }
+
+        modifier = {
+            NOT = { scope:recipient.dragonblood_percent = 0 }
+            add = {
+                value = scope:recipient.dragonblood_percent
+                divide = 2
+            }
+            desc = "SUGGEST_DRAGON_BOND_DRAGON_BLOOD"
+        }
+
+        modifier = {
+            add = 20
+            trigger = {
+                scope:recipient = {
+                    dynasty ?= { has_dynasty_perk = dragonrider_dynasty_legacy_2 }
+                }
+            }
+            desc = "SUGGEST_DRAGON_BOND_DYNASTY_LEGACY"
+        }
+
+        modifier = {
+            add = 5
+            trigger = {
+                scope:recipient = { has_character_modifier = agot_taught_dragonlore }
+            }
+            desc = "SUGGEST_BOND_TAUGHT_DRAGONLORE"
+        }
+
+        modifier = {
+            add = 50
+            desc = SUGGEST_BOND_CHILD_FASCINATED
+            scope:recipient = {
+                has_character_modifier = agot_child_interested_in_dragons
+            }
+        }
+
+        modifier = {
+            NOT = { suggest_dragon_bond_traits_in_common = 0 }
+            add = {
+                value = suggest_dragon_bond_traits_in_common
+                multiply = dragon_scheme_base_common_traits_value
+            }
+            desc = SUGGEST_DRAGON_BOND_BOTH_TRAIT
+        }
+
+        modifier = {
+            add = 30
+            desc = SUGGEST_BOND_AMBITIOUS
+            scope:recipient = {has_trait = ambitious}
+        }
+
+        modifier = {
+            add = 15
+            desc = SUGGEST_BOND_BRAVE
+            scope:recipient = { has_trait = brave}
+        }
+
+        # Diligent / Lazy
+        modifier = {
+            add = 5
+            trigger = {
+                scope:recipient = { has_trait = diligent }
+            }
+            desc = "SUGGEST_DRAGON_BOND_DILIGENT"
+        }
+        modifier = {
+            add = -5
+            trigger = {
+                scope:recipient = { has_trait = lazy }
+            }
+            desc = "SUGGEST_DRAGON_BOND_LAZY"
+        }
+
+        modifier = {
+            add = -30
+            desc = SUGGEST_BOND_CRAVEN
+            scope:recipient = {has_trait = craven}
+        }
+
+        # Ex-dragonrider
+        modifier = {
+            add = -30
+            trigger = {
+                scope:recipient = { has_trait = dragonless_dragonrider }
+            }
+            desc = "SUGGEST_DRAGON_BOND_EX_DRAGONRIDER"
+        }
+
+        modifier = {
+            add = -100
+            desc = SUGGEST_BOND_CHILD_TERRIFIED
+            scope:recipient = {
+                has_character_modifier = agot_child_terrified_by_dragons
+            }
+        }
+
+        # Dragon is pitted
+        modifier = {
+            add = 15
+            trigger = {
+                scope:secondary_actor = {
+                    has_character_flag = in_dragonpit
+                }
+            }
+            desc = "SUGGEST_DRAGON_BOND_PITTED_DRAGON"
+        }
+
+        # Base dragon values
+        modifier = {
+            add = scope:secondary_actor.temperament # Assuming an average base value
+            desc = "SUGGEST_DRAGON_BOND_TEMPERAMENT"
+        }
+        modifier = {
+            add = scope:secondary_actor.taming_chance # Assuming an average taming chance
+            desc = "SUGGEST_DRAGON_BOND_TAMING_CHANCE"
+        }
+
+        # Dragon is wild
+        modifier = {
+            add = -25 # Adjust this value accordingly
+            trigger = {
+                scope:secondary_actor = {
+                    NOT = { has_character_flag = owned_dragon }
+                }
+            }
+            desc = "SUGGEST_DRAGON_BOND_WILD"
+        }
+
+		compare_modifier = {
+			trigger = {
+				scope:actor = {
+					diplomacy >= 11
+				}
+			}
+			target = actor
+			value = scope:actor.diplomacy
+			multiplier = 0.2
+			desc = SUGGEST_BOND_DRAGON_DIPLOMACY
+		}
+        
+        opinion_modifier = {
+			opinion_target = scope:actor
+			who = scope:recipient
+			multiplier = 0.1
+        }
+
+        modifier = {
+			add = intimidated_external_reason_value
+            multiplier = 0.1
+			scope:recipient = {
+				has_dread_level_towards = {
+					target = scope:actor
+					level = 1
+				}
+			}
+			desc = SUGGEST_BOND_INTIMIDATED
+		}
+		modifier = {
+			add = cowed_external_reason_value
+            multiplier = 0.1
+			scope:recipient = {
+				has_dread_level_towards = {
+					target = scope:actor
+					level = 2
+				}
+			}
+			desc = SUGGEST_BOND_COWED
+		}
+
+        modifier = {
+            add = 5
+            desc = SUGGEST_BOND_CHILD
+            scope:recipient = {
+                is_child_of = scope:actor
+            }
+        }
+
+        modifier = {
+            add = 5
+            desc = SUGGEST_BOND_SPOUSE
+            scope:recipient = {
+                is_spouse_of = scope:actor
+            }
+        }
+
+        modifier = { #Lover modifier.
+			desc = SUGGEST_BOND_LOVER
+			trigger = {
+				scope:recipient = {
+					has_relation_lover = scope:actor
+					NOT = { has_relation_soulmate = scope:actor }
+				}
+			}
+			add = 5
+		}
+		modifier = { #Soulmate modifier.
+			desc = SUGGEST_BOND_SOULMATE
+			trigger = {
+				scope:recipient = {
+					has_relation_soulmate = scope:actor
+				}
+			}
+			add = 8
+		}
+
+        modifier = { 
+		    desc = SUGGEST_BOND_BEST_FRIEND
+			trigger = {
+				scope:recipient = {
+					has_relation_best_friend = scope:actor
+				}
+			}
+			add = 5
+		}
+
+
+        modifier = { 
+		    desc = SUGGEST_BOND_FRIEND
+			trigger = {
+				scope:recipient = {
+					has_relation_friend = scope:actor
+                    NOT = { has_relation_best_friend = scope:actor }
+				}
+			}
+			add = 2
+		}
+
+        modifier = {
+            add = 5
+            desc = SUGGEST_BOND_CLOSE_RELATIVE
+            scope:recipient = {
+                is_close_family_of = scope:actor
+                NOT = { is_child_of = scope:actor}
+            }
+        }
+
+        modifier = { 
+			add = 3
+			desc = SUGGEST_BOND_RELATIVE
+			scope:recipient = {
+				OR = {
+					is_close_or_extended_family_of = scope:actor
+					is_cousin_of = scope:actor
+				}
+				NOR = { 
+                    is_child_of = scope:actor 
+                    is_sibling_of = scope:actor
+                    is_parent_of = scope:actor
+                }
+			}
+		}
+
+        modifier = {
+			add = 2
+			desc = SUGGEST_BOND_HOUSE
+			scope:recipient = {
+				is_lowborn = no
+				house = scope:actor.house
+				NOR = {
+					is_close_or_extended_family_of = scope:actor
+					is_cousin_of = scope:actor
+					is_child_of = scope:actor
+				}
+			}
+		}
+
+		modifier = { #Same Dynasty modifier.
+			desc = SUGGEST_BOND_DYNASTY
+			trigger = {
+				scope:recipient = {
+					dynasty = scope:actor.dynasty
+                    NOR = {
+                        is_close_or_extended_family_of = scope:actor
+                        is_cousin_of = scope:actor
+                        house = scope:actor.house
+                    }
+				}
+			}
+			add = 1
+		}
+
+        modifier = { # I am a Kinslayer
+			add = -15
+			desc = SUGGEST_BOND_KINSLAYER
+            AND = {
+			    scope:actor = {
+				    has_trait_rank = {
+					    trait = kinslayer
+					    rank >= 1
+                    }
+                }
+                scope:recipient = {
+                    is_close_or_extended_family_of = scope:actor
+                }
+			}
+		}
+
+		modifier = { #Rivalry modifier.
+			desc = SUGGEST_BOND_RIVAL
+			trigger = {
+				scope:recipient = {
+					has_relation_rival = scope:actor
+					NOT = { has_relation_nemesis = scope:actor }
+				}
+			}
+			add = -200
+		}
+		modifier = { #Nemesis modifier.
+			desc = SUGGEST_BOND_NEMESIS
+			trigger = {
+				scope:recipient = {
+					has_relation_nemesis = scope:actor
+				}
+			}
+			add = -1000
+		}
+
+        modifier = {
+            add = 15 # Adjust this value to change how much the acceptance is increased
+            trigger = {
+                scope:hook = yes # This checks if the hook flag is set
+            }
+            desc = SUGGEST_BOND_HOOK
+        }
+    }
+
+    send_option = {
+        is_shown = {
+            NOT = { scope:actor = scope:recipient }
+        }
+        is_valid = {
+            scope:actor = {
+                has_usable_hook = scope:recipient
+            }
+        }
+        flag = hook
+        localization = GENERIC_SPEND_A_HOOK
+    }
+
+    send_options_exclusive = no
+}

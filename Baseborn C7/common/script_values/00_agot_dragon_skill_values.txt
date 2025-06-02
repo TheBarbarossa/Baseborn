@@ -1,0 +1,979 @@
+﻿###############
+# Personality values
+###############
+# Traits
+# NOTE: If you change these, you must also change the flagged value in the traits file
+#       If you add anything, you must add it to the calculations at the end
+#       Order is draconic_dread, temperament, taming_chance, dragon_size
+
+# Dragon trait
+dragon_base_draconic_dread_value = 0
+dragon_base_temperament_value = 0
+dragon_base_taming_chance_value = 0
+dragon_base_dragon_size_value = 0
+
+# Personality
+dragon_aggressive_draconic_dread_value = 10
+dragon_aggressive_temperament_value = -12
+dragon_aggressive_taming_chance_value = -10
+dragon_aggressive_dragon_size_value = 0
+
+dragon_friendly_draconic_dread_value = -5
+dragon_friendly_temperament_value = 12
+dragon_friendly_taming_chance_value = 25
+dragon_friendly_dragon_size_value = 0
+
+dragon_solitary_draconic_dread_value = -10
+dragon_solitary_temperament_value = 0
+dragon_solitary_taming_chance_value = -20
+dragon_solitary_dragon_size_value = 0
+
+dragon_cooperative_draconic_dread_value = 0
+dragon_cooperative_temperament_value = 4
+dragon_cooperative_taming_chance_value = 5
+dragon_cooperative_dragon_size_value = 0
+
+dragon_imperious_draconic_dread_value = 2
+dragon_imperious_temperament_value = -5
+dragon_imperious_taming_chance_value = -4
+dragon_imperious_dragon_size_value = 0
+
+dragon_supporting_draconic_dread_value = -2
+dragon_supporting_temperament_value = 9
+dragon_supporting_taming_chance_value = 8
+dragon_supporting_dragon_size_value = 0
+
+dragon_impulsive_draconic_dread_value = 0
+dragon_impulsive_temperament_value = -4
+dragon_impulsive_taming_chance_value = -6
+dragon_impulsive_dragon_size_value = 0
+
+dragon_calculating_draconic_dread_value = 0
+dragon_calculating_temperament_value = 10
+dragon_calculating_taming_chance_value = 5
+dragon_calculating_dragon_size_value = 0
+
+dragon_voracious_draconic_dread_value = 4
+dragon_voracious_temperament_value = -5
+dragon_voracious_taming_chance_value = 9
+dragon_voracious_dragon_size_value = 0
+
+dragon_restrained_draconic_dread_value = 0
+dragon_restrained_temperament_value = 4
+dragon_restrained_taming_chance_value = -4
+dragon_restrained_dragon_size_value = 0
+
+dragon_defiant_draconic_dread_value = 0
+dragon_defiant_temperament_value = -7
+dragon_defiant_taming_chance_value = -15
+dragon_defiant_dragon_size_value = 0
+
+dragon_accepting_draconic_dread_value = 0
+dragon_accepting_temperament_value = 5
+dragon_accepting_taming_chance_value = 8
+dragon_accepting_dragon_size_value = 0
+
+dragon_bloodthirsty_draconic_dread_value = 15
+dragon_bloodthirsty_temperament_value = -10
+dragon_bloodthirsty_taming_chance_value = -25
+dragon_bloodthirsty_dragon_size_value = 0
+
+dragon_skittish_draconic_dread_value = 0
+dragon_skittish_temperament_value = 11
+dragon_skittish_taming_chance_value = 20
+dragon_skittish_dragon_size_value = 0
+
+# Other
+dragon_cannibal_draconic_dread_value = 7
+dragon_cannibal_temperament_value = -25
+dragon_cannibal_taming_chance_value = -10
+dragon_cannibal_dragon_size_value = 0
+
+dragon_physique_good_3_size_mult = 1.3
+dragon_physique_good_2_size_mult = 1.2
+dragon_physique_good_1_size_mult = 1.1
+dragon_physique_bad_1_size_mult = 0.9
+dragon_physique_bad_2_size_mult = 0.8
+dragon_physique_bad_3_size_mult = 0.7
+
+dragon_spindly_size_mult = 0.90
+dragon_spindly_draconic_dread_value = 15
+
+dragon_ancient_beast_size_mult = 0.5 # Edited
+
+# Education
+education_dragon_1_draconic_dread_value = 0
+education_dragon_1_temperament_value = -8
+education_dragon_1_taming_chance_value = -15
+education_dragon_1_dragon_size_value = 0
+
+education_dragon_2_draconic_dread_value = 0
+education_dragon_2_temperament_value = -4
+education_dragon_2_taming_chance_value = 0
+education_dragon_2_dragon_size_value = 0
+
+education_dragon_3_draconic_dread_value = 0
+education_dragon_3_temperament_value = 0
+education_dragon_3_taming_chance_value = 10
+education_dragon_3_dragon_size_value = 0
+
+education_dragon_4_draconic_dread_value = 0
+education_dragon_4_temperament_value = 8
+education_dragon_4_taming_chance_value = 15
+education_dragon_4_dragon_size_value = 0
+
+education_dragon_5_draconic_dread_value = 0
+education_dragon_5_temperament_value = 12
+education_dragon_5_taming_chance_value = 20
+education_dragon_5_dragon_size_value = 0
+
+###############
+# Draconic Dread calculation
+draconic_dread_base = {
+	value = 0
+	if = {
+		limit = { exists = var:draconic_dread_base }
+		add = var:draconic_dread_base
+	}
+}
+
+draconic_dread = {
+	value = draconic_dread_base
+	# Add size * 0.8
+	add = {
+		value = dragon_size
+		multiply = 0.8
+	}
+	# Dragon trait
+	if = {
+		limit = { has_trait = dragon }
+		add = {
+			value = dragon_base_draconic_dread_value
+			desc = trait_dragon_desc
+		}
+	}
+	# Personality
+	if = {
+		limit = { has_trait = dragon_aggressive }
+		add = {
+			value = dragon_aggressive_draconic_dread_value
+			desc = trait_dragon_aggressive_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_friendly }
+		add = {
+			value = dragon_friendly_draconic_dread_value
+			desc = trait_dragon_friendly_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_solitary }
+		add = {
+			value = dragon_solitary_draconic_dread_value
+			desc = trait_dragon_solitary_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_cooperative }
+		add = {
+			value = dragon_cooperative_draconic_dread_value
+			desc = trait_dragon_cooperative_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_imperious }
+		add = {
+			value = dragon_imperious_draconic_dread_value
+			desc = trait_dragon_imperious_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_supporting }
+		add = {
+			value = dragon_supporting_draconic_dread_value
+			desc = trait_dragon_supporting_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_impulsive }
+		add = {
+			value = dragon_impulsive_draconic_dread_value
+			desc = trait_dragon_impulsive_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_calculating }
+		add = {
+			value = dragon_calculating_draconic_dread_value
+			desc = trait_dragon_calculating_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_voracious }
+		add = {
+			value = dragon_voracious_draconic_dread_value
+			desc = trait_dragon_voracious_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_restrained }
+		add = {
+			value = dragon_restrained_draconic_dread_value
+			desc = trait_dragon_restrained_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_defiant }
+		add = {
+			value = dragon_defiant_draconic_dread_value
+			desc = trait_dragon_defiant_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_accepting }
+		add = {
+			value = dragon_accepting_draconic_dread_value
+			desc = trait_dragon_accepting_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_bloodthirsty }
+		add = {
+			value = dragon_bloodthirsty_draconic_dread_value
+			desc = trait_dragon_bloodthirsty_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_skittish }
+		add = {
+			value = dragon_skittish_draconic_dread_value
+			desc = trait_dragon_skittish_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_cannibal }
+		add = {
+			value = dragon_cannibal_draconic_dread_value
+			desc = trait_dragon_cannibal_desc
+		}
+	}
+	# Education
+	if = {
+		limit = { has_trait = education_dragon_1 }
+		add = {
+			value = education_dragon_1_draconic_dread_value
+			desc = trait_education_dragon_1_desc
+		}
+	}
+	else_if = {
+		limit = { has_trait = education_dragon_2 }
+		add = {
+			value = education_dragon_2_draconic_dread_value
+			desc = trait_education_dragon_2_desc
+		}
+	}
+	else_if = {
+		limit = { has_trait = education_dragon_3 }
+		add = {
+			value = education_dragon_3_draconic_dread_value
+			desc = trait_education_dragon_3_desc
+		}
+	}
+	else_if = {
+		limit = { has_trait = education_dragon_4 }
+		add = {
+			value = education_dragon_4_draconic_dread_value
+			desc = trait_education_dragon_4_desc
+		}
+	}
+	else_if = {
+		limit = { has_trait = education_dragon_5 }
+		add = {
+			value = education_dragon_5_draconic_dread_value
+			desc = trait_education_dragon_5_desc
+		}
+	}
+	# Other
+	if = {
+		limit = { has_trait = dragon_spindly }
+		add = {
+			value = dragon_spindly_draconic_dread_value
+			desc = trait_dragon_spindly_desc
+		}
+	}
+}
+
+# Temperament calculation
+temperament_base = {
+	value = 0
+	if = {
+		limit = { exists = var:temperament_base }
+		add = var:temperament_base
+	}
+}
+
+temperament = {
+	value = temperament_base
+	# Dragon trait
+	if = {
+		limit = { has_trait = dragon }
+		add = {
+			value = dragon_base_temperament_value
+			desc = trait_dragon_desc
+		}
+	}
+	# Personality
+	if = {
+		limit = { has_trait = dragon_aggressive }
+		add = {
+			value = dragon_aggressive_temperament_value
+			desc = trait_dragon_aggressive_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_friendly }
+		add = {
+			value = dragon_friendly_temperament_value
+			desc = trait_dragon_friendly_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_solitary }
+		add = {
+			value = dragon_solitary_temperament_value
+			desc = trait_dragon_solitary_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_cooperative }
+		add = {
+			value = dragon_cooperative_temperament_value
+			desc = trait_dragon_cooperative_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_imperious }
+		add = {
+			value = dragon_imperious_temperament_value
+			desc = trait_dragon_imperious_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_supporting }
+		add = {
+			value = dragon_supporting_temperament_value
+			desc = trait_dragon_supporting_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_impulsive }
+		add = {
+			value = dragon_impulsive_temperament_value
+			desc = trait_dragon_impulsive_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_calculating }
+		add = {
+			value = dragon_calculating_temperament_value
+			desc = trait_dragon_calculating_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_voracious }
+		add = {
+			value = dragon_voracious_temperament_value
+			desc = trait_dragon_voracious_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_restrained }
+		add = {
+			value = dragon_restrained_temperament_value
+			desc = trait_dragon_restrained_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_defiant }
+		add = {
+			value = dragon_defiant_temperament_value
+			desc = trait_dragon_defiant_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_accepting }
+		add = {
+			value = dragon_accepting_temperament_value
+			desc = trait_dragon_accepting_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_bloodthirsty }
+		add = {
+			value = dragon_bloodthirsty_temperament_value
+			desc = trait_dragon_bloodthirsty_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_skittish }
+		add = {
+			value = dragon_skittish_temperament_value
+			desc = trait_dragon_skittish_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_cannibal }
+		add = {
+			value = dragon_cannibal_temperament_value
+			desc = trait_dragon_cannibal_desc
+		}
+	}
+	# Education
+	if = {
+		limit = { has_trait = education_dragon_1 }
+		add = {
+			value = education_dragon_1_temperament_value
+			desc = trait_education_dragon_1_desc
+		}
+	}
+	else_if = {
+		limit = { has_trait = education_dragon_2 }
+		add = {
+			value = education_dragon_2_temperament_value
+			desc = trait_education_dragon_2_desc
+		}
+	}
+	else_if = {
+		limit = { has_trait = education_dragon_3 }
+		add = {
+			value = education_dragon_3_temperament_value
+			desc = trait_education_dragon_3_desc
+		}
+	}
+	else_if = {
+		limit = { has_trait = education_dragon_4 }
+		add = {
+			value = education_dragon_4_temperament_value
+			desc = trait_education_dragon_4_desc
+		}
+	}
+	else_if = {
+		limit = { has_trait = education_dragon_5 }
+		add = {
+			value = education_dragon_5_temperament_value
+			desc = trait_education_dragon_5_desc
+		}
+	}
+}
+
+# Taming chance calculation
+taming_chance_base = {
+	value = 0
+	if = {
+		limit = { exists = var:taming_chance_base }
+		add = var:taming_chance_base
+	}
+}
+
+taming_chance = {
+	value = taming_chance_base
+	# Dragon trait
+	if = {
+		limit = { has_trait = dragon }
+		add = {
+			value = dragon_base_temperament_value
+			desc = trait_dragon_desc
+		}
+	}
+	# Personality
+	if = {
+		limit = { has_trait = dragon_aggressive }
+		add = {
+			value = dragon_aggressive_taming_chance_value
+			desc = trait_dragon_aggressive_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_friendly }
+		add = {
+			value = dragon_friendly_taming_chance_value
+			desc = trait_dragon_friendly_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_solitary }
+		add = {
+			value = dragon_solitary_taming_chance_value
+			desc = trait_dragon_solitary_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_cooperative }
+		add = {
+			value = dragon_cooperative_taming_chance_value
+			desc = trait_dragon_cooperative_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_imperious }
+		add = {
+			value = dragon_imperious_taming_chance_value
+			desc = trait_dragon_imperious_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_supporting }
+		add = {
+			value = dragon_supporting_taming_chance_value
+			desc = trait_dragon_supporting_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_impulsive }
+		add = {
+			value = dragon_impulsive_taming_chance_value
+			desc = trait_dragon_impulsive_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_calculating }
+		add = {
+			value = dragon_calculating_taming_chance_value
+			desc = trait_dragon_calculating_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_voracious }
+		add = {
+			value = dragon_voracious_taming_chance_value
+			desc = trait_dragon_voracious_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_restrained }
+		add = {
+			value = dragon_restrained_taming_chance_value
+			desc = trait_dragon_restrained_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_defiant }
+		add = {
+			value = dragon_defiant_taming_chance_value
+			desc = trait_dragon_defiant_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_accepting }
+		add = {
+			value = dragon_accepting_taming_chance_value
+			desc = trait_dragon_accepting_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_bloodthirsty }
+		add = {
+			value = dragon_bloodthirsty_taming_chance_value
+			desc = trait_dragon_bloodthirsty_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_skittish }
+		add = {
+			value = dragon_skittish_taming_chance_value
+			desc = trait_dragon_skittish_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_cannibal }
+		add = {
+			value = dragon_cannibal_taming_chance_value
+			desc = trait_dragon_cannibal_desc
+		}
+	}
+	# Education
+	if = {
+		limit = { has_trait = education_dragon_1 }
+		add = {
+			value = education_dragon_1_taming_chance_value
+			desc = trait_education_dragon_1_desc
+		}
+	}
+	else_if = {
+		limit = { has_trait = education_dragon_2 }
+		add = {
+			value = education_dragon_2_taming_chance_value
+			desc = trait_education_dragon_2_desc
+		}
+	}
+	else_if = {
+		limit = { has_trait = education_dragon_3 }
+		add = {
+			value = education_dragon_3_taming_chance_value
+			desc = trait_education_dragon_3_desc
+		}
+	}
+	else_if = {
+		limit = { has_trait = education_dragon_4 }
+		add = {
+			value = education_dragon_4_taming_chance_value
+			desc = trait_education_dragon_4_desc
+		}
+	}
+	else_if = {
+		limit = { has_trait = education_dragon_5 }
+		add = {
+			value = education_dragon_5_taming_chance_value
+			desc = trait_education_dragon_5_desc
+		}
+	}
+}
+
+# Dragon size calculation
+dragon_size_base = {
+	value = 0
+	#if = {
+	#	limit = { exists = var:dragon_size_base }
+	#	add = var:dragon_size_base
+	#}
+	if = {
+		limit = {
+			agot_ruins_has_dragon_storage_system = yes
+		}
+		save_temporary_scope_as = dragon_key_for_parsing_values
+		title:c_ruins.holder = {
+			every_owned_story = {
+				limit = {
+					story_type = story_dragon_variable_storage
+					var:dragon_id ?= scope:dragon_key_for_parsing_values
+				}
+				save_temporary_scope_as = dragon_var_story
+			}
+		}
+		add = scope:dragon_var_story.var:dragon_size_base
+	}
+}
+
+dragon_size = {
+	value = dragon_size_base
+	# Dragon trait
+	if = {
+		limit = { has_trait = dragon }
+		add = {
+			value = dragon_base_dragon_size_value
+			desc = trait_dragon_desc
+		}
+	}
+	# Physical
+	if = {
+		limit = { has_trait = dragon_physique_good_3 }
+		multiply = {
+			value = dragon_physique_good_3_size_mult
+			desc = trait_dragon_physique_good_3_desc
+		}
+	}
+	else_if = {
+		limit = { has_trait = dragon_physique_good_2 }
+		multiply = {
+			value = dragon_physique_good_2_size_mult
+			desc = trait_dragon_physique_good_2_desc
+		}
+	}
+	else_if = {
+		limit = { has_trait = dragon_physique_good_1 }
+		multiply = {
+			value = dragon_physique_good_1_size_mult
+			desc = trait_dragon_physique_good_1_desc
+		}
+	}
+	else_if = {
+		limit = { has_trait = dragon_physique_bad_1 }
+		multiply = {
+			value = dragon_physique_bad_1_size_mult
+			desc = trait_dragon_physique_bad_1_desc
+		}
+	}
+	else_if = {
+		limit = { has_trait = dragon_physique_bad_2 }
+		multiply = {
+			value = dragon_physique_bad_2_size_mult
+			desc = trait_dragon_physique_bad_2_desc
+		}
+	}
+	else_if = {
+		limit = { has_trait = dragon_physique_bad_3 }
+		multiply = {
+			value = dragon_physique_bad_3_size_mult
+			desc = trait_dragon_physique_bad_3_desc
+		}
+	}
+	if = {
+		limit = { has_trait = dragon_spindly }
+		multiply = {
+			value = dragon_spindly_size_mult
+			desc = trait_dragon_spindly_desc
+		}
+	}
+	if = { # Edited
+		limit = { has_trait = dragon_ancient_beast }
+		multiply = {
+			value = dragon_ancient_beast_size_mult
+			desc = trait_dragon_ancient_beast_desc
+		}
+	}
+}
+
+#clutches
+clutches_subtract_script_val = {
+	value = 0
+	if = {
+		limit = {
+			NOT = { has_trait = dragon_fertile }
+			exists = var:clutches
+		}
+		add = var:clutches
+	}
+	else_if = {
+		limit = {
+			has_trait = dragon_fertile
+			exists = var:clutches
+		}
+		add = var:clutches
+		add = -2
+	}
+	multiply = -6
+}
+
+#Dragons in Realm
+wild_dragons_in_realm = {
+	value = 0
+	if = {
+		limit = {
+			any_courtier = {
+				has_trait = dragon
+			}
+		}
+		every_courtier = {
+			limit = {
+				AND = {
+					has_trait = dragon
+					NOR = {
+						has_character_flag = owned_dragon
+						has_character_flag = in_dragonpit
+						has_variable = current_rider
+					}
+				}
+			}
+			add = 1
+		}
+	}
+}
+owned_dragons_in_realm = {
+	value = 0
+	if = {
+		limit = {
+			any_courtier = {
+				has_trait = dragon
+			}
+		}
+		every_courtier = {
+			limit = {
+				has_character_flag = owned_dragon
+				NOT = {
+					has_variable = current_rider
+				}
+			}
+			add = 1
+		}
+	}
+}
+#Dragons in Realm
+tamed_dragons_in_realm = {
+	value = 0
+	if = {
+		limit = {
+			any_courtier = {
+				has_trait = dragon
+			}
+		}
+		every_courtier = {
+			limit = {
+				has_variable = current_rider
+			}
+			add = 1
+		}
+	}
+}
+
+#Dragons in military view
+individual_dragons_in_army = {
+	value = 0
+	if = {
+		limit = { is_current_dragonrider = yes }
+		add = 1
+	}
+	if = {
+		limit = {
+			any_courtier = {
+				is_current_dragonrider = yes
+			}
+		}
+		every_courtier = {
+			limit = { is_current_dragonrider = yes }
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			any_vassal = {
+				is_current_dragonrider = yes
+			}
+		}
+		every_vassal = {
+			limit = { is_current_dragonrider = yes }
+			add = 1
+		}
+	}
+}
+
+tamed_dragons_in_army = {
+	value = 0
+	if = {
+		limit = {
+			any_war_participant = {
+				is_current_dragonrider = yes
+			}
+		}
+		every_war_participant = {
+			limit = {
+				is_current_dragonrider = yes
+			}
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			any_war_participant = {
+				any_courtier = {
+					is_current_dragonrider = yes
+				}
+			}
+		}
+		every_war_participant = {
+			every_courtier = {
+				limit = { is_current_dragonrider = yes }
+				add = 1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_war_participant = {
+				any_vassal = {
+					is_current_dragonrider = yes
+				}
+			}
+		}
+		every_war_participant = {
+			every_vassal = {
+				limit = { is_current_dragonrider = yes }
+				add = 1
+			}
+		}
+	}
+}
+
+tamed_dragons_in_army_attacker = {
+	value = 0
+	if = {
+		limit = {
+			any_war_attacker = {
+				is_current_dragonrider = yes
+			}
+		}
+		every_war_attacker = {
+			limit = {
+				is_current_dragonrider = yes
+			}
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			any_war_attacker = {
+				any_courtier = {
+					is_current_dragonrider = yes
+				}
+			}
+		}
+		every_war_attacker = {
+			every_courtier = {
+				limit = { is_current_dragonrider = yes }
+				add = 1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_war_attacker = {
+				any_vassal = {
+					is_current_dragonrider = yes
+				}
+			}
+		}
+		every_war_attacker = {
+			every_vassal = {
+				limit = { is_current_dragonrider = yes }
+				add = 1
+			}
+		}
+	}
+}
+
+tamed_dragons_in_army_defender = {
+	value = 0
+	if = {
+		limit = {
+			any_war_defender = {
+				is_current_dragonrider = yes
+			}
+		}
+		every_war_defender = {
+			limit = {
+				is_current_dragonrider = yes
+			}
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			any_war_defender = {
+				any_courtier = {
+					is_current_dragonrider = yes
+				}
+			}
+		}
+		every_war_defender = {
+			every_courtier = {
+				limit = { is_current_dragonrider = yes }
+				add = 1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_war_defender = {
+				any_vassal = {
+					is_current_dragonrider = yes
+				}
+			}
+		}
+		every_war_defender = {
+			every_vassal = {
+				limit = { is_current_dragonrider = yes }
+				add = 1
+			}
+		}
+	}
+}

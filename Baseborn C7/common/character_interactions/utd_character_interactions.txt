@@ -1,0 +1,331 @@
+utd_make_peace_interaction = {
+	category = interaction_category_friendly
+	desc = utd_make_peace_interaction.desc
+    interface_priority = 1	
+	auto_accept = yes
+
+	is_shown = {
+		scope:recipient = { NOT = { this = scope:actor } }
+		scope:actor = {
+			has_trait = humble
+			has_relation_rival = scope:recipient
+		}
+
+		scope:actor = { is_human = yes }
+		scope:recipient = { is_human = yes }
+	}
+	is_valid_showing_failures_only = {
+		scope:recipient = { is_diplomatically_available = yes }
+		scope:recipient = {
+			NOT = {
+				has_trait = incapable
+				has_trait = vengeful
+				has_trait = stubborn
+				has_trait = wrathful
+			}
+		}
+	}
+
+	on_accept = {
+		scope:actor = {
+			remove_relation_rival = scope:recipient
+		}
+	}
+	
+	ai_will_do = {
+		base = 0
+	}
+}
+
+utd_renounce_claims_interaction = {
+	category = interaction_category_diplomacy
+	desc = utd_renounce_claims_interaction.desc
+    interface_priority = 1	
+	auto_accept = yes
+
+	is_shown = {
+		scope:recipient = { NOT = { this = scope:actor } }
+		scope:actor = {
+			has_trait = content
+            any_claim = { holder = scope:recipient }
+		}
+
+		scope:actor = { is_human = yes }
+		scope:recipient = { is_human = yes }
+	}
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			has_trait = content
+            any_claim = { holder = scope:recipient }
+		}
+	}
+
+	on_accept = {
+		scope:actor = {
+	    	every_claim = {
+				limit = {
+					holder = scope:recipient
+				}
+				scope:actor = { 
+					remove_claim = prev
+				}
+				if = {
+					limit = {
+						tier = tier_barony
+					}
+					scope:actor = { add_piety = 20 }
+					scope:recipient = { add_opinion = { modifier = renounced_claim_barony_opinion target = scope:actor } }
+				}
+				if = {
+					limit = {
+						tier = tier_county
+					}
+					scope:actor = { add_piety = 40 }
+					scope:recipient = { add_opinion = { modifier = renounced_claim_county_opinion target = scope:actor } }
+				}
+				if = {
+					limit = {
+						tier = tier_duchy
+					}
+					scope:actor = { add_piety = 80 }
+					#scope:recipient = { add_opinion = { modifier = renounced_claim_duchy_opinion target = scope:actor } }
+				}
+				if = {
+					limit = {
+						tier = tier_kingdom
+					}
+					scope:actor = { add_piety = 150 }
+					#scope:recipient = { add_opinion = { modifier = renounced_claim_kingdom_opinion target = scope:actor } }
+				}
+				if = {
+					limit = {
+						tier = tier_empire
+					}
+					scope:actor = { add_piety = 400 }
+					scope:recipient = { add_opinion = { modifier = renounced_claim_empire_opinion target = scope:actor } }
+				}
+			}
+		}
+	}
+	
+	ai_will_do = {
+		base = 0
+	}
+}
+
+utd_threaten_heretic_interaction = {
+	category = interaction_category_religion
+	desc = utd_threaten_heretic_interaction.desc
+    interface_priority = 1	
+	auto_accept = yes
+
+	is_shown = {
+		scope:recipient = { NOT = { this = scope:actor } }
+		scope:actor = {
+			has_trait = zealous
+			NOT = { has_character_modifier = utd_proselytizer }
+		}
+	    scope:recipient = {
+		    OR = {
+		        is_vassal_of = scope:actor
+				is_courtier_of = scope:actor
+		    }
+	        NOT = { scope:recipient = { has_faith = scope:actor.faith } }
+		}
+
+		scope:actor = { is_human = yes }
+		scope:recipient = { is_human = yes }
+	}
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			has_trait = zealous
+		}
+        NOT = { 
+	        scope:recipient = { 
+		        has_trait = zealous
+		        has_trait = brave
+		        has_trait = stubborn
+	         }
+	    }
+	}
+
+	on_accept = {
+		scope:recipient = { 
+			add_opinion = { modifier = threatened_me_for_heresy_opinion target = scope:actor } 
+			set_character_faith_with_conversion = scope:actor.faith
+		}
+		scope:actor = { 
+			add_character_modifier = { modifier = utd_proselytizer years = 5 }
+		}
+	}
+	
+	ai_will_do = {
+		base = 0
+	}
+}
+
+utd_declare_rival_interaction = {
+	category = interaction_category_diplomacy
+	desc = utd_declare_rival_interaction.desc
+    interface_priority = 1	
+	auto_accept = yes
+
+	is_shown = {
+		scope:recipient = { NOT = { this = scope:actor } }
+		scope:actor = {
+			has_trait = vengeful
+			NOT = { has_character_modifier = utd_instigator }
+		}
+
+		scope:actor = { is_human = yes }
+		scope:recipient = { is_human = yes }
+	}
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			has_trait = vengeful
+		}
+        NOT = { scope:recipient = { has_relation_rival = scope:actor } }
+	}
+
+	on_accept = {
+		scope:actor = { 
+			set_relation_rival = scope:recipient
+			add_character_modifier = { modifier = utd_instigator years = 5 }
+		}
+	}
+	
+	ai_will_do = {
+		base = 0
+	}
+}
+
+utd_declare_friend_interaction = {
+	category = interaction_category_friendly
+	desc = utd_declare_friend_interaction.desc
+    interface_priority = 1	
+	auto_accept = yes
+
+	is_shown = {
+		scope:recipient = { NOT = { this = scope:actor } }
+		scope:actor = {
+			has_trait = gregarious
+		}
+        NOT = { scope:recipient = { has_relation_friend = scope:actor } }
+        scope:recipient = {
+	        opinion = {
+				target = scope:actor
+				value > 75
+			}
+        }
+
+		scope:actor = { is_human = yes }
+		scope:recipient = { is_human = yes }
+	}
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			has_trait = gregarious
+			NOT = { has_character_modifier = utd_socialite }
+		}
+        NOT = { scope:recipient = { has_relation_friend = scope:actor } }
+        scope:recipient = {
+	        opinion = {
+				target = scope:actor
+				value > 75
+			}
+			NOT = {has_trait = shy}
+        }
+
+	}
+
+	on_accept = {
+		scope:actor = { 
+			set_relation_friend = scope:recipient
+			add_character_modifier = { modifier = utd_socialite years = 5 }
+		}
+	}
+	
+	ai_will_do = {
+		base = 0
+	}
+}
+
+utd_comfort_interaction = {
+	category = interaction_category_friendly
+	desc = utd_comfort_interaction.desc
+    interface_priority = 1	
+	auto_accept = yes
+
+	is_shown = {
+		scope:recipient = { NOT = { this = scope:actor } }
+		scope:actor = {
+			has_trait = compassionate
+		}
+
+		scope:actor = { is_human = yes }
+		scope:recipient = { is_human = yes }
+	}
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			has_trait = compassionate
+		    NOT = { has_character_modifier = utd_listener }
+		}
+
+	}
+
+	on_accept = {
+		scope:recipient = {
+			add_stress = -40
+		}
+		scope:actor = { 
+			add_character_modifier = { modifier = utd_listener years = 5 }
+		}
+		scope:recipient = { add_opinion = { modifier = comforted_me_opinion target = scope:actor } }
+	}
+	
+	ai_will_do = {
+		base = 0
+	}
+}
+
+utd_tumble_interaction = {
+	category = interaction_category_friendly
+	desc = utd_tumble_interaction.desc
+    interface_priority = 1	
+	auto_accept = yes
+
+	is_shown = {
+		scope:recipient = { NOT = { this = scope:actor } }
+		scope:actor = {
+			has_trait = lustful
+			NOT = { has_character_modifier = utd_tumble }
+		}
+        scope:recipient = { has_relation_lover = scope:actor }
+
+		scope:actor = { is_human = yes }
+		scope:recipient = { is_human = yes }
+	}
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			has_trait = lustful
+		}
+	}
+
+	on_accept = {
+        scope:actor = {
+            show_as_tooltip = {
+                had_sex_with_effect = {
+                    CHARACTER = scope:recipient
+                    PREGNANCY_CHANCE = seduce_pregnancy_chance
+                }
+            }
+        }
+		scope:actor = {	
+			add_stress = -20
+			add_character_modifier = { modifier = utd_tumble years = 5 }
+		}
+	}
+	
+	ai_will_do = {
+		base = 0
+	}
+}

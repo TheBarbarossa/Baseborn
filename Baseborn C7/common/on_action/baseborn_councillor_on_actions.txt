@@ -1,0 +1,83 @@
+councillor_action_marshal = {
+
+    on_actions = {
+		councillor_trait_assign_action
+	}
+    effect = {
+        councillor_position_marshal_effect = yes
+    }
+}
+
+councillor_action_chancellor = {
+
+    on_actions = {
+		councillor_trait_assign_action
+	}
+    effect = {
+        councillor_position_chancellor_effect = yes
+    }
+}
+
+councillor_action_steward = {
+
+    on_actions = {
+		councillor_trait_assign_action
+	}
+    effect = {
+        councillor_position_steward_effect = yes
+    }
+}
+
+councillor_action_chaplain = {
+
+    on_actions = {
+		councillor_trait_assign_action
+	}
+    effect = {
+        councillor_position_effect = yes
+    }
+}
+
+councillor_action_spymaster= {
+
+    on_actions = {
+		councillor_trait_assign_action
+	}
+    effect = {
+        councillor_position_effect = yes
+    }
+}
+
+councillor_action_admiral = {
+
+    on_actions = {
+		councillor_trait_assign_action
+	}
+    effect = {
+        councillor_position_admiral_effect = yes
+    }
+}
+
+councillor_action_castellan = {
+
+    on_actions = {
+		councillor_trait_assign_action
+	}
+    effect = {
+        councillor_position_castellan_effect = yes
+    }
+}
+
+councillor_trait_assign_action = {
+
+    trigger = {
+        any_councillor = {
+            NOT = { has_trait = lifestyle_councillor }
+            is_alive = yes
+        }
+    }
+
+    effect = {
+        councillor_lifestyle_set_up_effects = yes
+    }
+}
