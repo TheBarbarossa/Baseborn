@@ -1,0 +1,149 @@
+﻿# standard costs
+@maa_buy_cost = 150
+@maa_low_maintenance_cost = 1.0
+@maa_high_maintenance_cost = 5.0
+
+# Must be synced between files with the values located at "# Provisions Costs #".
+@provisions_cost_infantry_cheap = 3
+@provisions_cost_infantry_moderate = 7
+@provisions_cost_infantry_expensive = 12
+@provisions_cost_infantry_bankrupting = 15
+
+@provisions_cost_cavalry_cheap = 7
+@provisions_cost_cavalry_moderate = 15
+@provisions_cost_cavalry_expensive = 21
+@provisions_cost_cavalry_bankrupting = 30
+
+@provisions_cost_special_cheap = 6
+@provisions_cost_special_moderate = 12
+@provisions_cost_special_expensive = 18
+@provisions_cost_special_bankrupting = 24
+
+@cultural_maa_extra_ai_score = 80
+
+#King's Landing
+goldcloaks = { # Edited
+	type = heavy_infantry
+
+	damage = 16.0
+	toughness = 18.0
+	pursuit = 0.0
+	screen = 0.0
+
+	counters = {
+		pikemen = 1
+	}
+
+	terrain_bonus = {
+		urban = { damage = 5 toughness = 5 screen = 10 }
+		majorroad_urban = { damage = 5 toughness = 5 screen = 10 }
+		minorroad_urban = { damage = 5 toughness = 5 screen = 10 }
+
+		floodplains = { toughness = -5 }
+		majorroad_floodplains = { toughness = -5 }
+		minorroad_floodplains = { toughness = -5 }
+		wetlands = { toughness = -5 }
+		majorroad_wetlands = { toughness = -5 }
+		minorroad_wetlands = { toughness = -5 }
+		taiga_bog = { toughness = -5 }
+		majorroad_taiga_bog = { toughness = -5 }
+		minorroad_taiga_bog = { toughness = -5 }
+
+		the_bog = { toughness = -10 }
+		majorroad_the_bog = { toughness = -10 }
+		minorroad_the_bog = { toughness = -10 }
+	}
+
+	can_recruit = {
+		has_title = title:c_kings_landing
+		is_target_in_global_variable_list = {
+			name = agot_goldcloaks_founded
+			target = flag:goldcloaks_founded
+		}
+	}
+
+	buy_cost = { gold = goldcloaks_recruitment_cost }
+	low_maintenance_cost = { gold = goldcloaks_low_maint_cost }
+	high_maintenance_cost = { gold = goldcloaks_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_expensive
+
+	stack = 120.0
+	ai_quality = { value = @cultural_maa_extra_ai_score }
+	icon = heavy_infantry
+}
+
+# Edited - removed sea_watch
+
+# Edited - removed redcloaks
+
+# Edited - removed greycloaks
+
+#Moat Cailin
+cailin_archers = { # Edited
+	type = archers
+
+	damage = 42.0
+	toughness = 10.0
+	pursuit = 0.0
+	screen = 5.0
+
+	terrain_bonus = {
+		the_bog = { damage = 8 toughness = 12 }
+		majorroad_the_bog = { damage = 8 toughness = 12 }
+		minorroad_the_bog = { damage = 8 toughness = 12 }
+		taiga_bog = { damage = 8 toughness = 12 }
+		majorroad_taiga_bog = { damage = 8 toughness = 12 }
+		minorroad_taiga_bog = { damage = 8 toughness = 12 }
+
+		steppe = { damage = 4 toughness = 4 }
+		majorroad_steppe = { damage = 4 toughness = 4 }
+		minorroad_steppe = { damage = 4 toughness = 4 }
+		wetlands = { damage = 4 toughness = 4 }
+		majorroad_wetlands = { damage = 4 toughness = 4 }
+		minorroad_wetlands = { damage = 4 toughness = 4 }
+
+		forest = { damage = -4 toughness = 4 }
+		majorroad_forest = { damage = -4 toughness = 4 }
+		minorroad_forest = { damage = -4 toughness = 4 }
+		cloudforest = { damage = -4 toughness = 4 }
+		majorroad_cloudforest = { damage = -4 toughness = 4 }
+		minorroad_cloudforest = { damage = -4 toughness = 4 }
+		taiga = { damage = -4 toughness = 4 }
+		majorroad_taiga = { damage = -4 toughness = 4 }
+		minorroad_taiga = { damage = -4 toughness = 4 }
+
+		oasis = { damage = -4 toughness = -4 }
+		majorroad_oasis = { damage = -4 toughness = -4 }
+		minorroad_oasis = { damage = -4 toughness = -4 }
+		drylands = { damage = -4 toughness = -4 }
+		majorroad_drylands = { damage = -4 toughness = -4 }
+		minorroad_drylands = { damage = -4 toughness = -4 }
+
+		desert = { damage = -8 toughness = -8 }
+		majorroad_desert = { damage = -8 toughness = -8 }
+		minorroad_desert = { damage = -8 toughness = -8 }
+		desert_mountains = { damage = -8 toughness = -8 }
+		majorroad_desert_mountains = { damage = -8 toughness = -8 }
+		minorroad_desert_mountains = { damage = -8 toughness = -8 }
+		canyon = { damage = -8 toughness = -8 }
+		majorroad_canyon = { damage = -8 toughness = -8 }
+		minorroad_canyon = { damage = -8 toughness = -8 }
+	}
+
+	counters = {
+		skirmishers = 1
+	}
+
+	can_recruit = {
+		has_title = title:c_moat_cailin
+	}
+
+	buy_cost = { gold = cailin_archers_recruitment_cost }
+	low_maintenance_cost = { gold = cailin_archers_low_maint_cost }
+	high_maintenance_cost = { gold = cailin_archers_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
+
+	stack = 100.0
+	ai_quality = { value = @cultural_maa_extra_ai_score }
+	icon = vigmen
+}

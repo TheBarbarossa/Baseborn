@@ -1,0 +1,251 @@
+﻿task_admiral_fleet = {
+	position = councillor_admiral
+	default_task = yes
+
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	effect_desc = {
+		### Do Boat Shit
+		desc = task_admiral_fleet_effect_desc
+		triggered_desc = {
+			trigger = {
+				councillor_liege_has_erudition_legacy_5_perk = yes
+			}
+			desc = task_admiral_fleet_erudition_bonus
+		}
+		triggered_desc = {
+			trigger = {
+				councillor_liege_has_family_business_bonus = yes
+			}
+			desc = task_admiral_fleet_family_business_bonus
+		}
+	}
+
+	council_owner_modifier = {
+		name = task_admiral_fleet_modifier
+		naval_movement_speed_mult = 1
+		supply_duration = 1
+		scale = {
+			value = task_admiral_fleet_modifier_value
+			divide = 10
+		}
+	}
+
+#	monthly_on_action = admiral_fleet_monthly_on_action         - press gang, naval officers, trees for ships etc.
+	monthly_on_action = task_admiral_fleet_side_effects
+
+
+	ai_will_do = {
+		value = 50 # Always a good backup
+	}
+}
+
+
+task_admiral_maritime = {
+	position = councillor_admiral
+	skill = stewardship
+
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	effect_desc = {
+		desc = task_admiral_maritime_effect_desc
+		triggered_desc = {
+			trigger = {
+				councillor_liege_has_erudition_legacy_5_perk = yes
+			}
+			desc = task_admiral_maritime_erudition_bonus
+		}
+		triggered_desc = {
+			trigger = {
+				councillor_liege_has_family_business_bonus = yes
+			}
+			desc = task_admiral_maritime_family_business_bonus
+		}
+	}
+
+
+	council_owner_modifier = {
+		name = task_admiral_maritime_modifier
+		supply_limit_mult = 1
+		scale = {
+			value = task_admiral_maritime_modifier_value
+			divide = 100
+		}
+	}
+
+	council_owner_modifier = {
+		name = task_admiral_maritime_tax_modifier
+		domain_tax_mult = 1
+		scale = {
+			value = task_admiral_maritime_tax_modifier_value
+			divide = 100
+		}
+	}
+
+#	monthly_on_action = admiral_maritime_monthly_on_action
+	monthly_on_action = task_admiral_maritime_side_effects
+
+
+
+ai_will_do = {
+	value = 1 # Always a good backup
+
+	if = { # Very greedy rulers prefer this over increasing Acceptance, in most cases
+		limit = {
+			scope:councillor_liege.ai_greed > 0
+		}
+		add = {
+			value = scope:councillor_liege.ai_greed
+			divide = 5
+		}
+	}
+
+	if = {
+		# Wealth Focused characters like this
+		limit = {
+			scope:councillor_liege = {
+				has_focus = stewardship_wealth_focus
+			}
+		}
+		add = 15
+	}
+
+	if = {
+		# And those with the Tax Man perk
+		limit = {
+			scope:councillor_liege = {
+				has_perk = tax_man_perk
+			}
+		}
+		add = 15
+	}
+	if = {
+		limit = {
+			scope:councillor_liege.primary_title.tier >= tier_duchy
+			scope:councillor_liege.gold < 100
+		}
+		add = 500
+	}
+	else_if = {
+		limit = {
+			scope:councillor_liege.gold < 10
+		}
+		add = 500
+	}
+}
+}
+
+
+
+
+task_admiral_raid = {
+	position = councillor_admiral
+	skill = martial
+
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	effect_desc = {
+		### Do Boat Shit
+		desc = task_admiral_raid_effect_desc
+		triggered_desc = {
+			trigger = {
+				councillor_liege_has_erudition_legacy_5_perk = yes
+			}
+			desc = task_admiral_raid_erudition_bonus
+		}
+		triggered_desc = {
+			trigger = {
+				councillor_liege_has_family_business_bonus = yes
+			}
+			desc = task_admiral_raid_family_business_bonus
+		}
+	}
+
+	is_valid_showing_failures_only =  {
+		custom_description = {
+			text = "cannot_raid"
+			liege = {
+			can_raid_trigger = yes
+			}
+		}
+	}
+
+
+	council_owner_modifier = {
+		name = task_admiral_raid_modifier
+		raid_speed = 1
+		max_loot_mult = 1
+		movement_speed = 1
+		scale = {
+			value = task_admiral_raid_modifier_value
+			divide = 100
+		}
+	}
+
+
+#	monthly_on_action = admiral_rid_monthly_on_action
+	monthly_on_action = task_admiral_raid_side_effects
+
+
+ai_will_do = {
+	value = 1 # Always a good backup
+
+	if = { # Very greedy rulers prefer this over increasing Acceptance, in most cases
+		limit = {
+			scope:councillor_liege.ai_greed > 0
+		}
+		add = {
+			value = scope:councillor_liege.ai_greed
+			divide = 5
+		}
+	}
+
+	if = {
+		# Wealth Focused characters like this
+		limit = {
+			scope:councillor_liege = {
+				has_focus = stewardship_wealth_focus
+			}
+		}
+		add = 15
+	}
+
+	if = {
+		# And those with the Tax Man perk
+		limit = {
+			scope:councillor_liege = {
+				has_perk = tax_man_perk
+			}
+		}
+		add = 15
+	}
+	if = {
+		limit = {
+			scope:councillor_liege.primary_title.tier >= tier_duchy
+			scope:councillor_liege.gold < 100
+		}
+		add = 500
+	}
+	else_if = {
+		limit = {
+			scope:councillor_liege.gold < 10
+		}
+		add = 500
+	}
+}
+}
+
+
+#Potantial modifiers
+#recently_disembarked_advantage
+#naval_movement_speed_mult = 0.25
+#no_disembark_penalty
+#supply_duration = 2
+#coastal_advantage = 5
+#no_water_crossing_penalty = yes
+#raid_speed = 0.005
+#hostile_county_attrition = -0.005
+#supply_capacity_mult = 0.008

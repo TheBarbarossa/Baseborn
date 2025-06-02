@@ -1,0 +1,5138 @@
+﻿# These buildings are only for showing background graphics, e.g. the walls around holdings
+
+# No Walls
+walls_00 = {
+	is_graphical_background = yes
+
+	asset = {
+		type = pdxmesh
+		name = "western_walls_00_mesh"
+	}
+
+	is_enabled = {
+		OR = {
+			AND = {
+				is_county_capital = no
+				fort_level < 1
+			}
+			# Using the no_wall holding graphics for cities with special walls so that they don't have double walls
+			#AGOT Disabled
+			# has_building_or_higher = "city_wall_of_toledo_01"
+			# has_building_or_higher = "roman_wall_of_lugo_01"
+			#AGOT Added
+			this = province:4153
+			has_holding_type = ruin_holding
+			barony = title:b_middlefort # Edited
+			barony = title:b_florynn # Edited
+			barony = title:b_lentshield # Edited
+		}
+	}
+}
+
+# Any city that must be sieged gets the basic walls
+walls_01_tribal = {
+	is_graphical_background = yes
+
+	asset = {
+		type = pdxmesh
+		names = {
+			"tribal_walls_01_a_mesh"
+		}
+	}
+
+	is_enabled = {
+		OR = {
+			is_county_capital = yes
+			fort_level > 0
+		}
+		NOR = {
+			# disabling this level of walled graphics for holdings with special walls and other fortifications so that they always look appropriately fortified. Note: If any of these buildings are given unique 3D assets, this should be looked at again.
+			has_building_or_higher = "palisades_01"
+			has_building_or_higher = "curtain_walls_01"
+			has_building_or_higher = "hill_forts_01"
+			has_building_or_higher = "ramparts_01"
+			has_building_or_higher = "watchtowers_01"
+			#AGOT Added
+			has_building_or_higher = "building_moat_01"
+			has_building_or_higher = "city_walls_01"
+			this = province:4153
+			#AGOT Disabled
+			# has_building_or_higher = "theodosian_walls_01"
+			# has_building_or_higher = "walls_of_benin_01"
+			# has_building_or_higher = "walls_of_genoa_01"
+			# has_building_or_higher = "aurelian_walls_01"
+			# has_building_or_higher = "city_wall_of_toledo_01"
+			# has_building_or_higher = "roman_wall_of_lugo_01"
+		}
+	}
+}
+
+# Here the Fort Level building chains take control of the visuals
+walls_01 = {
+	is_graphical_background = yes
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_regions = { graphical_western graphical_mediterranean graphical_india }
+	}
+
+	#AGOT Added, Stone Dornish
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		names = {
+			"fp2_building_iberian_wall_01_mesh"
+		}
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		names = {
+			"fp2_building_iberian_wall_01_mesh"
+		}
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		names = {
+			"fp2_building_iberian_wall_01_mesh"
+		}
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		names = {
+			"fp2_building_iberian_wall_01_mesh"
+		}
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		names = {
+			"fp2_building_iberian_wall_01_mesh"
+		}
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, High Valyrians
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { high_valyrian_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { high_valyrian_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { high_valyrian_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { high_valyrian_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { high_valyrian_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Crownlands
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { crownlands_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { crownlands_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { crownlands_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { crownlands_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { crownlands_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Stormlands
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { stormlands_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { stormlands_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { stormlands_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { stormlands_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { stormlands_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Iron Islands
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { ironmen_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { ironmen_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { ironmen_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { ironmen_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { ironmen_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Westerlands
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { westerman_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { westerman_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { westerman_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { westerman_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { westerman_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Riverlands
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_riverlands_01_mesh"
+		}
+		graphical_cultures = { riverlander_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_riverlands_01_mesh"
+		}
+		graphical_cultures = { riverlander_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_riverlands_01_mesh"
+		}
+		graphical_cultures = { riverlander_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_riverlands_01_mesh"
+		}
+		graphical_cultures = { riverlander_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_riverlands_01_mesh"
+		}
+		graphical_cultures = { riverlander_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Reach 
+	asset = {
+		type = pdxmesh
+		names = {
+			"agot_walls_northern_reach_01_mesh"
+			"agot_walls_northern_reach_01_mesh"
+		}
+		graphical_cultures = { reach_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"agot_walls_reach_01_mesh"
+			"agot_walls_reach_01_mesh"
+		}
+		graphical_cultures = { reach_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"agot_walls_desert_reach_01_mesh"
+			"agot_walls_desert_reach_01_mesh"
+		}
+		graphical_cultures = { reach_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"agot_walls_desert_reach_01_mesh"
+			"agot_walls_desert_reach_01_mesh"
+		}
+		graphical_cultures = { reach_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"agot_walls_northern_reach_01_mesh"
+			"agot_walls_northern_reach_01_mesh"
+		}
+		graphical_cultures = { reach_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Rhoynar
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		names = {
+			"fp3_building_persian_walls_01_a_01_mesh" 
+		}
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		names = {
+			"fp3_building_persian_walls_01_a_01_mesh" 
+		}
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		names = {
+			"fp3_building_persian_walls_01_a_01_mesh" 
+		}
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		names = {
+			"fp3_building_persian_walls_01_a_01_mesh" 
+		}
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		names = {
+			"fp3_building_persian_walls_01_a_01_mesh" 
+		}
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Braavos
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { braavosi_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { braavosi_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { braavosi_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { braavosi_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { braavosi_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Pentos
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { pentoshi_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { pentoshi_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { pentoshi_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { pentoshi_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { pentoshi_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Tyrosh
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		names = {
+			"fp1_norse_walls_01_mesh"
+		}
+		graphical_cultures = { tyrosh_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		names = {
+			"fp1_norse_walls_01_mesh"
+		}
+		graphical_cultures = { tyrosh_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		names = {
+			"fp1_norse_walls_01_mena_mesh"
+		}
+		graphical_cultures = { tyrosh_building_gfx }
+		graphical_regions = { graphical_mena graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		names = {
+			"fp1_norse_walls_01_mena_mesh"
+		}
+		graphical_cultures = { tyrosh_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		names = {
+			"fp1_norse_walls_01_mena_mesh"
+		}
+		graphical_cultures = { tyrosh_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Volantis
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { volantene_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { volantene_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { volantene_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { volantene_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { volantene_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Norvos
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_01_mesh"
+			"slavic_wall_01_mesh"
+		}
+		graphical_cultures = { norvoshi_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_01_mesh"
+			"slavic_wall_01_mesh"
+		}
+		graphical_cultures = { norvoshi_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_01_mesh"
+			"slavic_wall_01_mesh"
+		}
+		graphical_cultures = { norvoshi_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_01_mesh"
+			"slavic_wall_01_mesh"
+		}
+		graphical_cultures = { norvoshi_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_01_mesh"
+			"slavic_wall_01_mesh"
+		}
+		graphical_cultures = { norvoshi_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Lys
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { lyseni_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { lyseni_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { lyseni_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { lyseni_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { lyseni_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Summer Islanders
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_01_sea_mesh"
+			"walls_01_sea_mesh"
+		}
+		graphical_cultures = { summer_islander_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_01_sea_mesh"
+			"walls_01_sea_mesh"
+		}
+		graphical_cultures = { summer_islander_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_01_sea_mesh"
+			"walls_01_sea_mesh"
+		}
+		graphical_cultures = { summer_islander_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_01_sea_mesh"
+			"walls_01_sea_mesh"
+		}
+		graphical_cultures = { summer_islander_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_01_sea_mesh"
+			"walls_01_sea_mesh"
+		}
+		graphical_cultures = { summer_islander_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Andal
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { andal_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { andal_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { andal_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { andal_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { andal_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Mountains of the Moon
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_01_mesh"
+			"slavic_wall_01_mesh"
+		}
+		graphical_cultures = { red_andal_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_01_mesh"
+			"slavic_wall_01_mesh"
+		}
+		graphical_cultures = { red_andal_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_01_mesh"
+			"slavic_wall_01_mesh"
+		}
+		graphical_cultures = { red_andal_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_01_mesh"
+			"slavic_wall_01_mesh"
+		}
+		graphical_cultures = { red_andal_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_01_mesh"
+			"slavic_wall_01_mesh"
+		}
+		graphical_cultures = { red_andal_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Barrow
+	asset = {
+		type = pdxmesh
+		names = {
+			"celtic_wall_01_a_mesh"
+			"celtic_wall_01_a_mesh"
+		}
+		graphical_cultures = { barrow_building_gfx first_man_building_gfx crannogman_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"celtic_wall_01_a_mesh"
+			"celtic_wall_01_a_mesh"
+		}
+		graphical_cultures = { barrow_building_gfx first_man_building_gfx crannogman_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"celtic_wall_01_a_mesh"
+			"celtic_wall_01_a_mesh"
+		}
+		graphical_cultures = { barrow_building_gfx first_man_building_gfx crannogman_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"celtic_wall_01_a_mesh"
+			"celtic_wall_01_a_mesh"
+		}
+		graphical_cultures = { barrow_building_gfx first_man_building_gfx crannogman_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"celtic_wall_01_a_mesh"
+			"celtic_wall_01_a_mesh"
+		}
+		graphical_cultures = { barrow_building_gfx first_man_building_gfx crannogman_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Ghis
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_01_mesh"
+			"chinese_walls_01_mesh"
+		}
+		graphical_cultures = { ghis_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_01_mesh"
+			"chinese_walls_01_mesh"
+		}
+		graphical_cultures = { ghis_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_01_mesh"
+			"chinese_walls_01_mesh"
+		}
+		graphical_cultures = { ghis_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_01_mesh"
+			"chinese_walls_01_mesh"
+		}
+		graphical_cultures = { ghis_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_01_mesh"
+			"chinese_walls_01_mesh"
+		}
+		graphical_cultures = { ghis_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, YiTish
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_01_mesh"
+			"chinese_walls_01_mesh"
+		}
+		graphical_cultures = { yitish_building_gfx hyrkoon_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_01_mesh"
+			"chinese_walls_01_mesh"
+		}
+		graphical_cultures = { yitish_building_gfx hyrkoon_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_01_mesh"
+			"chinese_walls_01_mesh"
+		}
+		graphical_cultures = { yitish_building_gfx hyrkoon_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_01_mesh"
+			"chinese_walls_01_mesh"
+		}
+		graphical_cultures = { yitish_building_gfx hyrkoon_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_01_mesh"
+			"chinese_walls_01_mesh"
+		}
+		graphical_cultures = { yitish_building_gfx hyrkoon_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Qartheen
+	asset = {
+		type = pdxmesh
+		names = {
+			"ethiopian_walls_01_mesh"
+			"ethiopian_walls_01_mesh"
+		}
+		graphical_cultures = { qartheen_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"ethiopian_walls_01_mesh"
+			"ethiopian_walls_01_mesh"
+		}
+		graphical_cultures = { qartheen_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"ethiopian_walls_01_mesh"
+			"ethiopian_walls_01_mesh"
+		}
+		graphical_cultures = { qartheen_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"ethiopian_walls_01_mesh"
+			"ethiopian_walls_01_mesh"
+		}
+		graphical_cultures = { qartheen_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"ethiopian_walls_01_mesh"
+			"ethiopian_walls_01_mesh"
+		}
+		graphical_cultures = { qartheen_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, MENA
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { mena_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { mena_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { mena_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { mena_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { mena_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Norse
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		names = {
+			"fp1_norse_walls_01_mesh"
+		}
+		graphical_cultures = { norse_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		names = {
+			"fp1_norse_walls_01_mesh"
+		}
+		graphical_cultures = { norse_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		names = {
+			"fp1_norse_walls_01_mena_mesh"
+		}
+		graphical_cultures = { norse_building_gfx }
+		graphical_regions = { graphical_mena graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		names = {
+			"fp1_norse_walls_01_mena_mesh"
+		}
+		graphical_cultures = { norse_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		names = {
+			"fp1_norse_walls_01_mena_mesh"
+		}
+		graphical_cultures = { norse_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Frozen Wildlings
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { igloos_building_gfx }
+	}
+
+	#AGOT Added, Frozen Wildlings
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_01_a_mesh"
+			"western_walls_01_b_mesh"
+		}
+		graphical_cultures = { igloos_building_gfx }
+	}
+
+	#AGOT Added, 
+
+	#AGOT Disabled 
+	# asset = {
+	# 	type = pdxmesh
+	# 	graphical_cultures = { mena_building_gfx }
+	# 	graphical_regions = { graphical_mena graphical_steppe }
+	# 	names = {
+	# 		"mena_walls_01_a_mesh"
+	# 		"mena_walls_01_b_mesh"
+
+	# 	}
+	# }
+
+	#AGOT Disabled	
+	# asset = {
+	# 	type = pdxmesh
+	# 	requires_dlc_flag = the_northern_lords
+	# 	graphical_cultures = { norse_building_gfx }
+	# 	names = {
+	# 		"fp1_norse_walls_01_mesh"
+	# 	}
+	# }
+
+	#AGOT Disabled
+	# asset = {
+	# 	type = pdxmesh
+	# 	requires_dlc_flag = the_northern_lords
+	# 	graphical_cultures = { norse_building_gfx }
+	# 	graphical_regions = { graphical_mena }
+	# 	names = {
+	# 		"fp1_norse_walls_01_mena_mesh"
+	# 	}
+	# }
+
+	#AGOT Disabled
+	# asset = {
+	# 	type = pdxmesh
+	# 	requires_dlc_flag = the_fate_of_iberia
+	# 	graphical_cultures = { iberian_building_gfx }
+	# 	graphical_regions = { graphical_mediterranean }
+	# 	names = {
+	# 		"fp2_building_iberian_wall_01_mesh"
+	# 	}
+	# }
+
+	#AGOT Disabled
+	# asset = {
+	# 	type = pdxmesh
+	# 	requires_dlc_flag = legacy_of_persia
+	# 	graphical_cultures = { iranian_building_gfx }
+	# 	graphical_regions = { graphical_mena graphical_india graphical_steppe }
+	# 	names = {
+	# 		"fp3_building_persian_walls_01_a_01_mesh" 
+	# 	}
+	# }
+
+	is_enabled = {
+		OR = {
+			# These buildings will trigger the visual "upgrade" to this wall asset
+			has_building_or_higher = "palisades_01"
+			has_building_or_higher = "curtain_walls_01"
+			has_building_or_higher = "hill_forts_01"
+			has_building_or_higher = "ramparts_01"
+			has_building_or_higher = "watchtowers_01"
+			#AGOT Added
+			has_building_or_higher = "building_moat_01"
+			has_building_or_higher = "city_walls_01"
+		}
+		NOR = {
+			# Disabling this level of walled graphics for holdings with special walls and other fortifications so that they always look appropriately fortified. Note: If any of these buildings are given unique 3D assets, this should be looked at again.
+			has_building_or_higher = "palisades_02"
+			has_building_or_higher = "curtain_walls_02"
+			has_building_or_higher = "hill_forts_02"
+			has_building_or_higher = "ramparts_02"
+			has_building_or_higher = "watchtowers_02"
+			#AGOT Added
+			has_building_or_higher = "building_moat_02"
+			has_building_or_higher = "city_walls_02"
+			this = province:4153
+			#AGOT Disabled
+			# has_building_or_higher = "theodosian_walls_01"
+			# has_building_or_higher = "walls_of_benin_01"
+			# has_building_or_higher = "walls_of_genoa_01"
+			# has_building_or_higher = "aurelian_walls_01"
+			# has_building_or_higher = "city_wall_of_toledo_01"
+			# has_building_or_higher = "roman_wall_of_lugo_01"
+		}
+	}
+}
+
+walls_02 = {
+	is_graphical_background = yes
+
+	asset = {
+		type = pdxmesh
+		graphical_regions = { graphical_western graphical_mediterranean graphical_india }
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+	}
+
+	#AGOT Added, Stone Dornish
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		names = {
+			"fp2_building_iberian_wall_02_mesh"
+		}
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		names = {
+			"fp2_building_iberian_wall_02_mesh"
+		}
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		names = {
+			"fp2_building_iberian_wall_02_mesh"
+		}
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		names = {
+			"fp2_building_iberian_wall_02_mesh"
+		}
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		names = {
+			"fp2_building_iberian_wall_02_mesh"
+		}
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, High Valyrians
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { high_valyrian_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { high_valyrian_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { high_valyrian_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { high_valyrian_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { high_valyrian_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Crownlands
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { crownlands_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { crownlands_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { crownlands_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { crownlands_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { crownlands_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Stormlands
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { stormlands_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { stormlands_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { stormlands_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { stormlands_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { stormlands_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Iron Islands
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { ironmen_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { ironmen_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { ironmen_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { ironmen_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { ironmen_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Westerlands
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { westerman_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { westerman_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { westerman_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { westerman_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { westerman_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Riverlands
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_riverlands_02_mesh"
+		}
+		graphical_cultures = { riverlander_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_riverlands_02_mesh"
+		}
+		graphical_cultures = { riverlander_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_riverlands_02_mesh"
+		}
+		graphical_cultures = { riverlander_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_riverlands_02_mesh"
+		}
+		graphical_cultures = { riverlander_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_riverlands_02_mesh"
+		}
+		graphical_cultures = { riverlander_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Reach 
+	asset = {
+		type = pdxmesh
+		names = {
+			"agot_walls_northern_reach_02_mesh"
+			"agot_walls_northern_reach_02_mesh"
+		}
+		graphical_cultures = { reach_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"agot_walls_reach_02_mesh"
+			"agot_walls_reach_02_mesh"
+		}
+		graphical_cultures = { reach_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"agot_walls_desert_reach_02_mesh"
+			"agot_walls_desert_reach_02_mesh"
+		}
+		graphical_cultures = { reach_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"agot_walls_desert_reach_02_mesh"
+			"agot_walls_desert_reach_02_mesh"
+		}
+		graphical_cultures = { reach_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"agot_walls_northern_reach_02_mesh"
+			"agot_walls_northern_reach_02_mesh"
+		}
+		graphical_cultures = { reach_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Rhoynar
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		names = {
+			"fp3_building_persian_walls_02_a_01_mesh" 
+		}
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		names = {
+			"fp3_building_persian_walls_02_a_01_mesh" 
+		}
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		names = {
+			"fp3_building_persian_walls_02_a_01_mesh" 
+		}
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		names = {
+			"fp3_building_persian_walls_02_a_01_mesh" 
+		}
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		names = {
+			"fp3_building_persian_walls_02_a_01_mesh" 
+		}
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Braavos
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { braavosi_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { braavosi_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { braavosi_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { braavosi_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { braavosi_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Pentos
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { pentoshi_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { pentoshi_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { pentoshi_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { pentoshi_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { pentoshi_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Tyrosh
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		names = {
+			"fp1_norse_walls_02_mesh"
+		}
+		graphical_cultures = { tyrosh_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		names = {
+			"fp1_norse_walls_02_mesh"
+		}
+		graphical_cultures = { tyrosh_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		names = {
+			"fp1_norse_walls_02_mena_mesh"
+		}
+		graphical_cultures = { tyrosh_building_gfx }
+		graphical_regions = { graphical_mena graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		names = {
+			"fp1_norse_walls_02_mena_mesh"
+		}
+		graphical_cultures = { tyrosh_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		names = {
+			"fp1_norse_walls_02_mena_mesh"
+		}
+		graphical_cultures = { tyrosh_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Volantis
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { volantene_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { volantene_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { volantene_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { volantene_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { volantene_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Norvos
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_02_mesh"
+			"slavic_wall_02_mesh"
+		}
+		graphical_cultures = { norvoshi_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_02_mesh"
+			"slavic_wall_02_mesh"
+		}
+		graphical_cultures = { norvoshi_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_02_mesh"
+			"slavic_wall_02_mesh"
+		}
+		graphical_cultures = { norvoshi_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_02_mesh"
+			"slavic_wall_02_mesh"
+		}
+		graphical_cultures = { norvoshi_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_02_mesh"
+			"slavic_wall_02_mesh"
+		}
+		graphical_cultures = { norvoshi_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Lys
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { lyseni_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { lyseni_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { lyseni_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { lyseni_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { lyseni_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Summer Islanders
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_02_sea_mesh"
+			"walls_02_sea_mesh"
+		}
+		graphical_cultures = { summer_islander_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_02_sea_mesh"
+			"walls_02_sea_mesh"
+		}
+		graphical_cultures = { summer_islander_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_02_sea_mesh"
+			"walls_02_sea_mesh"
+		}
+		graphical_cultures = { summer_islander_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_02_sea_mesh"
+			"walls_02_sea_mesh"
+		}
+		graphical_cultures = { summer_islander_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_02_sea_mesh"
+			"walls_02_sea_mesh"
+		}
+		graphical_cultures = { summer_islander_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Andal
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { andal_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { andal_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { andal_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { andal_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_02_a_mesh"
+			"western_walls_02_a_mesh"
+		}
+		graphical_cultures = { andal_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Mountains of the Moon
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_02_mesh"
+			"slavic_wall_02_mesh"
+		}
+		graphical_cultures = { red_andal_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_02_mesh"
+			"slavic_wall_02_mesh"
+		}
+		graphical_cultures = { red_andal_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_02_mesh"
+			"slavic_wall_02_mesh"
+		}
+		graphical_cultures = { red_andal_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_02_mesh"
+			"slavic_wall_02_mesh"
+		}
+		graphical_cultures = { red_andal_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_02_mesh"
+			"slavic_wall_02_mesh"
+		}
+		graphical_cultures = { red_andal_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Barrow
+	asset = {
+		type = pdxmesh
+		names = {
+			"celtic_wall_02_mesh"
+			"celtic_wall_02_mesh"
+		}
+		graphical_cultures = { barrow_building_gfx first_man_building_gfx crannogman_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"celtic_wall_02_mesh"
+			"celtic_wall_02_mesh"
+		}
+		graphical_cultures = { barrow_building_gfx first_man_building_gfx crannogman_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"celtic_wall_02_mesh"
+			"celtic_wall_02_mesh"
+		}
+		graphical_cultures = { barrow_building_gfx first_man_building_gfx crannogman_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"celtic_wall_02_mesh"
+			"celtic_wall_02_mesh"
+		}
+		graphical_cultures = { barrow_building_gfx first_man_building_gfx crannogman_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"celtic_wall_02_mesh"
+			"celtic_wall_02_mesh"
+		}
+		graphical_cultures = { barrow_building_gfx first_man_building_gfx crannogman_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Ghis
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_02_mesh"
+			"chinese_walls_02_mesh"
+		}
+		graphical_cultures = { ghis_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_02_mesh"
+			"chinese_walls_02_mesh"
+		}
+		graphical_cultures = { ghis_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_02_mesh"
+			"chinese_walls_02_mesh"
+		}
+		graphical_cultures = { ghis_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_02_mesh"
+			"chinese_walls_02_mesh"
+		}
+		graphical_cultures = { ghis_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_02_mesh"
+			"chinese_walls_02_mesh"
+		}
+		graphical_cultures = { ghis_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, YiTish
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_02_mesh"
+			"chinese_walls_02_mesh"
+		}
+		graphical_cultures = { yitish_building_gfx hyrkoon_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_02_mesh"
+			"chinese_walls_02_mesh"
+		}
+		graphical_cultures = { yitish_building_gfx hyrkoon_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_02_mesh"
+			"chinese_walls_02_mesh"
+		}
+		graphical_cultures = { yitish_building_gfx hyrkoon_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_02_mesh"
+			"chinese_walls_02_mesh"
+		}
+		graphical_cultures = { yitish_building_gfx hyrkoon_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_02_mesh"
+			"chinese_walls_02_mesh"
+		}
+		graphical_cultures = { yitish_building_gfx hyrkoon_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Qartheen
+	asset = {
+		type = pdxmesh
+		names = {
+			"ethiopian_walls_02_mesh"
+			"ethiopian_walls_02_mesh"
+		}
+		graphical_cultures = { qartheen_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"ethiopian_walls_02_mesh"
+			"ethiopian_walls_02_mesh"
+		}
+		graphical_cultures = { qartheen_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"ethiopian_walls_02_mesh"
+			"ethiopian_walls_02_mesh"
+		}
+		graphical_cultures = { qartheen_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"ethiopian_walls_02_mesh"
+			"ethiopian_walls_02_mesh"
+		}
+		graphical_cultures = { qartheen_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"ethiopian_walls_02_mesh"
+			"ethiopian_walls_02_mesh"
+		}
+		graphical_cultures = { qartheen_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, MENA
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_02_a_mesh"
+			"mena_walls_02_a_mesh"
+		}
+		graphical_cultures = { mena_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_02_a_mesh"
+			"mena_walls_02_a_mesh"
+		}
+		graphical_cultures = { mena_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_02_a_mesh"
+			"mena_walls_02_a_mesh"
+		}
+		graphical_cultures = { mena_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_02_a_mesh"
+			"mena_walls_02_a_mesh"
+		}
+		graphical_cultures = { mena_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_02_a_mesh"
+			"mena_walls_02_a_mesh"
+		}
+		graphical_cultures = { mena_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Norse
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		names = {
+			"fp1_norse_walls_02_mesh"
+		}
+		graphical_cultures = { norse_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		names = {
+			"fp1_norse_walls_02_mesh"
+		}
+		graphical_cultures = { norse_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		names = {
+			"fp1_norse_walls_02_mena_mesh"
+		}
+		graphical_cultures = { norse_building_gfx }
+		graphical_regions = { graphical_mena graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		names = {
+			"fp1_norse_walls_02_mena_mesh"
+		}
+		graphical_cultures = { norse_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_northern_lords
+		names = {
+			"fp1_norse_walls_02_mena_mesh"
+		}
+		graphical_cultures = { norse_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Byzantine
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = roads_to_power
+		names = {
+			"ep3_byzantine_walls_02_mesh" 
+		}
+		graphical_cultures = { byzantine_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = roads_to_power
+		names = {
+			"ep3_byzantine_walls_02_mesh" 
+		}
+		graphical_cultures = { byzantine_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = roads_to_power
+		names = {
+			"ep3_byzantine_walls_02_mesh" 
+		}
+		graphical_cultures = { byzantine_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = roads_to_power
+		names = {
+			"ep3_byzantine_walls_02_mesh" 
+		}
+		graphical_cultures = { byzantine_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = roads_to_power
+		names = {
+			"ep3_byzantine_walls_02_mesh" 
+		}
+		graphical_cultures = { byzantine_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Disabled
+	# asset = {
+	# 	type = pdxmesh
+	# 	graphical_regions = { graphical_mena graphical_steppe }
+	# 	graphical_cultures = { mena_building_gfx }
+	# 	names = {
+	# 		"mena_walls_02_a_mesh"
+	# 		"mena_walls_02_a_mesh"
+	# 	}
+	# }
+
+	#AGOT Disabled
+	# asset = {
+	# 	type = pdxmesh
+	# 	requires_dlc_flag = the_northern_lords
+	# 	graphical_cultures = { norse_building_gfx }
+	# 	names = {
+	# 		"fp1_norse_walls_02_mesh"
+	# 	}
+	# }
+
+	#AGOT Disabled
+	# asset = {
+	# 	type = pdxmesh
+	# 	requires_dlc_flag = the_northern_lords
+	# 	graphical_cultures = { norse_building_gfx }
+	# 	graphical_regions = { graphical_mena }
+	# 	names = {
+	# 		"fp1_norse_walls_02_mena_mesh"
+	# 	}
+	# }
+
+	#AGOT Disabled
+	# asset = {
+	# 	type = pdxmesh
+	# 	requires_dlc_flag = the_fate_of_iberia
+	# 	graphical_cultures = { iberian_building_gfx }
+	# 	graphical_regions = { graphical_mediterranean }
+	# 	names = {
+	# 		"fp2_building_iberian_wall_02_mesh"
+	# 	}
+	# }
+
+	#AGOT Disabled
+	# asset = {
+	# 	type = pdxmesh
+	# 	requires_dlc_flag = legacy_of_persia
+	# 	graphical_cultures = { iranian_building_gfx }
+	# 	graphical_regions = { graphical_mena graphical_india graphical_steppe }
+	# 	names = {
+	# 		"fp3_building_persian_walls_02_a_01_mesh" 
+	# 	}
+	# }
+
+	#AGOT Disabled
+	# asset = {
+	# 	type = pdxmesh
+	# 	requires_dlc_flag = roads_to_power
+	# 	graphical_cultures = { byzantine_building_gfx }
+	# 	graphical_regions = { graphical_mediterranean }
+	# 	names = {
+	# 		"ep3_byzantine_walls_02_mesh" 
+	# 	}
+	# }
+
+	is_enabled = {
+		OR = {
+			# These buildings will trigger the visual "upgrade" to this wall asset
+			has_building_or_higher = "palisades_02"
+			has_building_or_higher = "curtain_walls_02"
+			has_building_or_higher = "hill_forts_02"
+			has_building_or_higher = "ramparts_02"
+			has_building_or_higher = "watchtowers_02"
+			#AGOT Added
+			has_building_or_higher = "building_moat_02"
+			has_building_or_higher = "city_walls_02"
+		}
+		NOR = {
+			# Disabling this level of walled graphics for holdings with special walls and other fortifications so that they always look appropriately fortified. Note: If any of these buildings are given unique 3D assets, this should be looked at again.
+			has_building_or_higher = "curtain_walls_03"
+			has_building_or_higher = "hill_forts_03"
+			has_building_or_higher = "ramparts_03"
+			has_building_or_higher = "watchtowers_03"
+			#AGOT Added
+			has_building_or_higher = "building_moat_03"
+			has_building_or_higher = "city_walls_03"
+			this = province:4153
+			#AGOT Disabled
+			# has_building_or_higher = "theodosian_walls_01"
+			# has_building_or_higher = "walls_of_benin_01"
+			# has_building_or_higher = "walls_of_genoa_01"
+			# has_building_or_higher = "aurelian_walls_01"
+			# has_building_or_higher = "city_wall_of_toledo_01"
+			# has_building_or_higher = "roman_wall_of_lugo_01"
+		}
+	}
+}
+
+walls_03 = {
+	is_graphical_background = yes
+
+	asset = {
+		type = pdxmesh
+		#AGOT Disabled
+		#graphical_regions = { graphical_western }
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+	}
+
+	#AGOT Added, Stone Dornish
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		names = {
+			"fp2_building_iberian_wall_03_mesh"
+		}
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		names = {
+			"fp2_building_iberian_wall_03_mesh"
+		}
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		names = {
+			"fp2_building_iberian_wall_03_mesh"
+		}
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		names = {
+			"fp2_building_iberian_wall_03_mesh"
+		}
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		names = {
+			"fp2_building_iberian_wall_03_mesh"
+		}
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, High Valyrians
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { high_valyrian_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { high_valyrian_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { high_valyrian_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { high_valyrian_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { high_valyrian_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Crownlands
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { crownlands_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_03_a_mesh"
+			"mediterranean_walls_03_a_mesh"
+		}
+		graphical_cultures = { crownlands_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_03_a_mesh"
+			"mena_walls_03_a_mesh"
+		}
+		graphical_cultures = { crownlands_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_03_a_mesh"
+			"india_walls_03_a_mesh"
+		}
+		graphical_cultures = { crownlands_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { crownlands_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Stormlands
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { stormlands_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_03_a_mesh"
+			"mediterranean_walls_03_a_mesh"
+		}
+		graphical_cultures = { stormlands_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_03_a_mesh"
+			"mena_walls_03_a_mesh"
+		}
+		graphical_cultures = { stormlands_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_03_a_mesh"
+			"india_walls_03_a_mesh"
+		}
+		graphical_cultures = { stormlands_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { stormlands_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Iron Islands
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { ironmen_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_03_a_mesh"
+			"mediterranean_walls_03_a_mesh"
+		}
+		graphical_cultures = { ironmen_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_03_a_mesh"
+			"mena_walls_03_a_mesh"
+		}
+		graphical_cultures = { ironmen_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_03_a_mesh"
+			"india_walls_03_a_mesh"
+		}
+		graphical_cultures = { ironmen_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { ironmen_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Westerlands
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { westerman_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_03_a_mesh"
+			"mediterranean_walls_03_a_mesh"
+		}
+		graphical_cultures = { westerman_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_03_a_mesh"
+			"mena_walls_03_a_mesh"
+		}
+		graphical_cultures = { westerman_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_03_a_mesh"
+			"india_walls_03_a_mesh"
+		}
+		graphical_cultures = { westerman_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { westerman_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Riverlands
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_riverlands_03_mesh"
+		}
+		graphical_cultures = { riverlander_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_riverlands_03_mesh"
+		}
+		graphical_cultures = { riverlander_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_riverlands_03_mesh"
+		}
+		graphical_cultures = { riverlander_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_riverlands_03_mesh"
+		}
+		graphical_cultures = { riverlander_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_riverlands_03_mesh"
+		}
+		graphical_cultures = { riverlander_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Reach 
+	asset = {
+		type = pdxmesh
+		names = {
+			"agot_walls_northern_reach_03_mesh"
+			"agot_walls_northern_reach_03_mesh"
+		}
+		graphical_cultures = { reach_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"agot_walls_reach_03_mesh"
+			"agot_walls_reach_03_mesh"
+		}
+		graphical_cultures = { reach_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"agot_walls_desert_reach_03_mesh"
+			"agot_walls_desert_reach_03_mesh"
+		}
+		graphical_cultures = { reach_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"agot_walls_desert_reach_03_mesh"
+			"agot_walls_desert_reach_03_mesh"
+		}
+		graphical_cultures = { reach_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"agot_walls_northern_reach_03_mesh"
+			"agot_walls_northern_reach_03_mesh"
+		}
+		graphical_cultures = { reach_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Rhoynar
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		names = {
+			"fp3_building_persian_walls_03_a_01_mesh" 
+		}
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		names = {
+			"fp3_building_persian_walls_03_a_01_mesh" 
+		}
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		names = {
+			"fp3_building_persian_walls_03_a_01_mesh" 
+		}
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		names = {
+			"fp3_building_persian_walls_03_a_01_mesh" 
+		}
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		names = {
+			"fp3_building_persian_walls_03_a_01_mesh" 
+		}
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Braavos
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { braavosi_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_03_a_mesh"
+			"mediterranean_walls_03_a_mesh"
+		}
+		graphical_cultures = { braavosi_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_03_a_mesh"
+			"mena_walls_03_a_mesh"
+		}
+		graphical_cultures = { braavosi_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_03_a_mesh"
+			"india_walls_03_a_mesh"
+		}
+		graphical_cultures = { braavosi_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { braavosi_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Pentos
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { pentoshi_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_03_a_mesh"
+			"mediterranean_walls_03_a_mesh"
+		}
+		graphical_cultures = { pentoshi_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_03_a_mesh"
+			"mena_walls_03_a_mesh"
+		}
+		graphical_cultures = { pentoshi_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_03_a_mesh"
+			"india_walls_03_a_mesh"
+		}
+		graphical_cultures = { pentoshi_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { pentoshi_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Tyrosh
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { tyrosh_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_03_a_mesh"
+			"mediterranean_walls_03_a_mesh"
+		}
+		graphical_cultures = { tyrosh_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_03_a_mesh"
+			"mena_walls_03_a_mesh"
+		}
+		graphical_cultures = { tyrosh_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_03_a_mesh"
+			"india_walls_03_a_mesh"
+		}
+		graphical_cultures = { tyrosh_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { tyrosh_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Volantis
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { volantene_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_03_a_mesh"
+			"mediterranean_walls_03_a_mesh"
+		}
+		graphical_cultures = { volantene_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_03_a_mesh"
+			"mena_walls_03_a_mesh"
+		}
+		graphical_cultures = { volantene_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_03_a_mesh"
+			"india_walls_03_a_mesh"
+		}
+		graphical_cultures = { volantene_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { volantene_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Norvos
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_03_mesh"
+			"slavic_wall_03_mesh"
+		}
+		graphical_cultures = { norvoshi_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_03_mesh"
+			"slavic_wall_03_mesh"
+		}
+		graphical_cultures = { norvoshi_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_03_mesh"
+			"slavic_wall_03_mesh"
+		}
+		graphical_cultures = { norvoshi_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_03_mesh"
+			"slavic_wall_03_mesh"
+		}
+		graphical_cultures = { norvoshi_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_03_mesh"
+			"slavic_wall_03_mesh"
+		}
+		graphical_cultures = { norvoshi_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Lys
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { lyseni_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_03_a_mesh"
+			"mediterranean_walls_03_a_mesh"
+		}
+		graphical_cultures = { lyseni_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_03_a_mesh"
+			"mena_walls_03_a_mesh"
+		}
+		graphical_cultures = { lyseni_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_03_a_mesh"
+			"india_walls_03_a_mesh"
+		}
+		graphical_cultures = { lyseni_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { lyseni_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Summer Islanders
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_03_sea_mesh"
+			"walls_03_sea_mesh"
+		}
+		graphical_cultures = { summer_islander_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_03_sea_mesh"
+			"walls_03_sea_mesh"
+		}
+		graphical_cultures = { summer_islander_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_03_sea_mesh"
+			"walls_03_sea_mesh"
+		}
+		graphical_cultures = { summer_islander_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_03_sea_mesh"
+			"walls_03_sea_mesh"
+		}
+		graphical_cultures = { summer_islander_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_03_sea_mesh"
+			"walls_03_sea_mesh"
+		}
+		graphical_cultures = { summer_islander_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Andal
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { andal_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_03_a_mesh"
+			"mediterranean_walls_03_a_mesh"
+		}
+		graphical_cultures = { andal_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_03_a_mesh"
+			"mena_walls_03_a_mesh"
+		}
+		graphical_cultures = { andal_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_03_a_mesh"
+			"india_walls_03_a_mesh"
+		}
+		graphical_cultures = { andal_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { andal_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Mountains of the Moon
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_03_mesh"
+			"slavic_wall_03_mesh"
+		}
+		graphical_cultures = { red_andal_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_03_mesh"
+			"slavic_wall_03_mesh"
+		}
+		graphical_cultures = { red_andal_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_03_mesh"
+			"slavic_wall_03_mesh"
+		}
+		graphical_cultures = { red_andal_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_03_mesh"
+			"slavic_wall_03_mesh"
+		}
+		graphical_cultures = { red_andal_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_03_mesh"
+			"slavic_wall_03_mesh"
+		}
+		graphical_cultures = { red_andal_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Barrow
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { barrow_building_gfx first_man_building_gfx crannogman_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_03_a_mesh"
+			"mediterranean_walls_03_a_mesh"
+		}
+		graphical_cultures = { barrow_building_gfx first_man_building_gfx crannogman_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_03_a_mesh"
+			"mena_walls_03_a_mesh"
+		}
+		graphical_cultures = { barrow_building_gfx first_man_building_gfx crannogman_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_03_a_mesh"
+			"india_walls_03_a_mesh"
+		}
+		graphical_cultures = { barrow_building_gfx first_man_building_gfx crannogman_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { barrow_building_gfx first_man_building_gfx crannogman_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Ghis
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_03_mesh"
+			"chinese_walls_03_mesh"
+		}
+		graphical_cultures = { ghis_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_03_mesh"
+			"chinese_walls_03_mesh"
+		}
+		graphical_cultures = { ghis_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_03_mesh"
+			"chinese_walls_03_mesh"
+		}
+		graphical_cultures = { ghis_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_03_mesh"
+			"chinese_walls_03_mesh"
+		}
+		graphical_cultures = { ghis_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_03_mesh"
+			"chinese_walls_03_mesh"
+		}
+		graphical_cultures = { ghis_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, YiTish
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_03_mesh"
+			"chinese_walls_03_mesh"
+		}
+		graphical_cultures = { yitish_building_gfx hyrkoon_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_03_mesh"
+			"chinese_walls_03_mesh"
+		}
+		graphical_cultures = { yitish_building_gfx hyrkoon_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_03_mesh"
+			"chinese_walls_03_mesh"
+		}
+		graphical_cultures = { yitish_building_gfx hyrkoon_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_03_mesh"
+			"chinese_walls_03_mesh"
+		}
+		graphical_cultures = { yitish_building_gfx hyrkoon_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_03_mesh"
+			"chinese_walls_03_mesh"
+		}
+		graphical_cultures = { yitish_building_gfx hyrkoon_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Qartheen
+	asset = {
+		type = pdxmesh
+		names = {
+			"ethiopian_walls_03_mesh"
+			"ethiopian_walls_03_mesh"
+		}
+		graphical_cultures = { qartheen_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"ethiopian_walls_03_mesh"
+			"ethiopian_walls_03_mesh"
+		}
+		graphical_cultures = { qartheen_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"ethiopian_walls_03_mesh"
+			"ethiopian_walls_03_mesh"
+		}
+		graphical_cultures = { qartheen_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"ethiopian_walls_03_mesh"
+			"ethiopian_walls_03_mesh"
+		}
+		graphical_cultures = { qartheen_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"ethiopian_walls_03_mesh"
+			"ethiopian_walls_03_mesh"
+		}
+		graphical_cultures = { qartheen_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, MENA
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_03_a_mesh"
+			"mena_walls_03_a_mesh"
+		}
+		graphical_cultures = { mena_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_03_a_mesh"
+			"mena_walls_03_a_mesh"
+		}
+		graphical_cultures = { mena_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_03_a_mesh"
+			"mena_walls_03_a_mesh"
+		}
+		graphical_cultures = { mena_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_03_a_mesh"
+			"mena_walls_03_a_mesh"
+		}
+		graphical_cultures = { mena_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_03_a_mesh"
+			"mena_walls_03_a_mesh"
+		}
+		graphical_cultures = { mena_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Norse
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { norse_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_03_a_mesh"
+			"mediterranean_walls_03_a_mesh"
+		}
+		graphical_cultures = { norse_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_03_a_mesh"
+			"mena_walls_03_a_mesh"
+		}
+		graphical_cultures = { norse_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_03_a_mesh"
+			"india_walls_03_a_mesh"
+		}
+		graphical_cultures = { norse_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { norse_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Byzantine
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = roads_to_power
+		names = {
+			"ep3_byzantine_walls_03_mesh" 
+		}
+		graphical_cultures = { byzantine_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = roads_to_power
+		names = {
+			"ep3_byzantine_walls_03_mesh" 
+		}
+		graphical_cultures = { byzantine_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = roads_to_power
+		names = {
+			"ep3_byzantine_walls_03_mesh" 
+		}
+		graphical_cultures = { byzantine_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = roads_to_power
+		names = {
+			"ep3_byzantine_walls_03_mesh" 
+		}
+		graphical_cultures = { byzantine_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = roads_to_power
+		names = {
+			"ep3_byzantine_walls_03_mesh" 
+		}
+		graphical_cultures = { byzantine_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Disabled
+	# asset = {
+	# 	type = pdxmesh
+	# 	graphical_regions = { graphical_mediterranean }
+	# 	graphical_cultures = { mediterranean_building_gfx }
+	# 	names = {
+	# 		"mediterranean_walls_03_a_mesh"
+	# 		"mediterranean_walls_03_a_mesh"
+	# 	}
+	# }
+
+	# asset = {
+	# 	type = pdxmesh
+	# 	graphical_regions = { graphical_mena graphical_steppe }
+	# 	graphical_cultures = { mena_building_gfx }
+	# 	names = {
+	# 		"mena_walls_03_a_mesh"
+	# 		"mena_walls_03_a_mesh"
+	# 	}
+	# }
+
+	# asset = {
+	# 	type = pdxmesh
+	# 	graphical_regions = { graphical_india }
+	# 	graphical_cultures = { indian_building_gfx }
+	# 	names = {
+	# 		"india_walls_03_a_mesh"
+	# 		"india_walls_03_a_mesh"
+	# 	}
+	# }
+
+	# asset = {
+	# 	type = pdxmesh
+	# 	requires_dlc_flag = the_fate_of_iberia
+	# 	graphical_cultures = { iberian_building_gfx }
+	# 	graphical_regions = { graphical_mediterranean }
+	# 	names = {
+	# 		"fp2_building_iberian_wall_03_mesh"
+	# 	}
+	# }
+
+	# asset = {
+	# 	type = pdxmesh
+	# 	requires_dlc_flag = legacy_of_persia
+	# 	graphical_cultures = { iranian_building_gfx steppe_building_gfx }
+	# 	graphical_regions = { graphical_mena graphical_india graphical_steppe }
+	# 	names = {
+	# 		"fp3_building_persian_walls_03_a_01_mesh"  
+	# 	}
+	# }
+
+	# asset = {
+	# 	type = pdxmesh
+	# 	requires_dlc_flag = roads_to_power
+	# 	graphical_cultures = { byzantine_building_gfx }
+	# 	graphical_regions = { graphical_mediterranean }
+	# 	names = {
+	# 		"ep3_byzantine_walls_03_mesh" 
+	# 	}
+	# }
+	
+	is_enabled = {
+		scope:holder = {
+			NOT = { government_has_flag = government_is_tribal }
+		}
+		OR = {
+			# These buildings will trigger the visual "upgrade" to this wall asset
+			has_building_or_higher = "curtain_walls_03"
+			has_building_or_higher = "hill_forts_03"
+			has_building_or_higher = "ramparts_03"
+			has_building_or_higher = "watchtowers_03"
+			#AGOT Added
+			has_building_or_higher = "building_moat_03"
+			has_building_or_higher = "city_walls_03"
+			#AGOT Disabled
+			# has_building_or_higher = "walls_of_benin_01"
+			# has_building_or_higher = "walls_of_genoa_01"
+			# has_building_or_higher = "aurelian_walls_01"
+		}
+		NOR = {
+			# Disabling this level of walled graphics for holdings with special walls and other fortifications so that they always look appropriately fortified. Note: If any of these buildings are given unique 3D assets, this should be looked at again.
+			has_building_or_higher = "curtain_walls_06"
+			has_building_or_higher = "hill_forts_06"
+			has_building_or_higher = "ramparts_06"
+			has_building_or_higher = "watchtowers_06"
+			#AGOT Added
+			has_building_or_higher = "building_moat_06"
+			has_building_or_higher = "city_walls_04"
+			this = province:4153
+			#AGOT Disabled
+			# has_building_or_higher = "theodosian_walls_01"
+			# has_building_or_higher = "city_wall_of_toledo_01"
+			# has_building_or_higher = "roman_wall_of_lugo_01"
+		}
+	}
+}
+
+walls_04 = {
+	is_graphical_background = yes
+
+	asset = {
+		type = pdxmesh
+		#AGOT Disabled
+		# graphical_regions = { graphical_western }
+		names = {
+			"western_walls_04_a_mesh"
+			"western_walls_04_a_mesh"
+		}
+	}
+
+	#AGOT Added, Stone Dornish
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		names = {
+			"fp2_building_iberian_wall_04_mesh"
+		}
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		names = {
+			"fp2_building_iberian_wall_04_mesh"
+		}
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		names = {
+			"fp2_building_iberian_wall_04_mesh"
+		}
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		names = {
+			"fp2_building_iberian_wall_04_mesh"
+		}
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = the_fate_of_iberia
+		names = {
+			"fp2_building_iberian_wall_04_mesh"
+		}
+		graphical_cultures = { iberian_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, High Valyrians
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_04_a_mesh"
+			"western_walls_04_a_mesh"
+		}
+		graphical_cultures = { high_valyrian_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_04_a_mesh"
+			"mediterranean_walls_04_a_mesh"
+		}
+		graphical_cultures = { high_valyrian_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_04_a_mesh"
+			"mena_walls_04_a_mesh"
+		}
+		graphical_cultures = { high_valyrian_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_04_a_mesh"
+			"india_walls_04_a_mesh"
+		}
+		graphical_cultures = { high_valyrian_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { high_valyrian_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Crownlands
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_04_a_mesh"
+			"western_walls_04_a_mesh"
+		}
+		graphical_cultures = { crownlands_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_04_a_mesh"
+			"mediterranean_walls_04_a_mesh"
+		}
+		graphical_cultures = { crownlands_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_04_a_mesh"
+			"mena_walls_04_a_mesh"
+		}
+		graphical_cultures = { crownlands_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_04_a_mesh"
+			"india_walls_04_a_mesh"
+		}
+		graphical_cultures = { crownlands_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { crownlands_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Stormlands
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_04_a_mesh"
+			"western_walls_04_a_mesh"
+		}
+		graphical_cultures = { stormlands_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_04_a_mesh"
+			"mediterranean_walls_04_a_mesh"
+		}
+		graphical_cultures = { stormlands_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_04_a_mesh"
+			"mena_walls_04_a_mesh"
+		}
+		graphical_cultures = { stormlands_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_04_a_mesh"
+			"india_walls_04_a_mesh"
+		}
+		graphical_cultures = { stormlands_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { stormlands_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Iron Islands
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_04_a_mesh"
+			"western_walls_04_a_mesh"
+		}
+		graphical_cultures = { ironmen_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_04_a_mesh"
+			"mediterranean_walls_04_a_mesh"
+		}
+		graphical_cultures = { ironmen_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_04_a_mesh"
+			"mena_walls_04_a_mesh"
+		}
+		graphical_cultures = { ironmen_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_04_a_mesh"
+			"india_walls_04_a_mesh"
+		}
+		graphical_cultures = { ironmen_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { ironmen_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Westerlands
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_04_a_mesh"
+			"western_walls_04_a_mesh"
+		}
+		graphical_cultures = { westerman_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_04_a_mesh"
+			"mediterranean_walls_04_a_mesh"
+		}
+		graphical_cultures = { westerman_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_04_a_mesh"
+			"mena_walls_04_a_mesh"
+		}
+		graphical_cultures = { westerman_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_04_a_mesh"
+			"india_walls_04_a_mesh"
+		}
+		graphical_cultures = { westerman_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { westerman_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Riverlands
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_riverlands_04_mesh"
+		}
+		graphical_cultures = { riverlander_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_riverlands_04_mesh"
+		}
+		graphical_cultures = { riverlander_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_riverlands_04_mesh"
+		}
+		graphical_cultures = { riverlander_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_riverlands_04_mesh"
+		}
+		graphical_cultures = { riverlander_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_riverlands_04_mesh"
+		}
+		graphical_cultures = { riverlander_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Reach 
+	asset = {
+		type = pdxmesh
+		names = {
+			"agot_walls_northern_reach_04_mesh"
+			"agot_walls_northern_reach_04_mesh"
+		}
+		graphical_cultures = { reach_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"agot_walls_reach_04_mesh"
+			"agot_walls_reach_04_mesh"
+		}
+		graphical_cultures = { reach_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"agot_walls_desert_reach_04_mesh"
+			"agot_walls_desert_reach_04_mesh"
+		}
+		graphical_cultures = { reach_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"agot_walls_desert_reach_04_mesh"
+			"agot_walls_desert_reach_04_mesh"
+		}
+		graphical_cultures = { reach_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"agot_walls_northern_reach_04_mesh"
+			"agot_walls_northern_reach_04_mesh"
+		}
+		graphical_cultures = { reach_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Rhoynar
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		names = {
+			"fp3_building_persian_walls_04_a_01_mesh" 
+		}
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		names = {
+			"fp3_building_persian_walls_04_a_01_mesh" 
+		}
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		names = {
+			"fp3_building_persian_walls_04_a_01_mesh" 
+		}
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		names = {
+			"fp3_building_persian_walls_04_a_01_mesh" 
+		}
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = legacy_of_persia
+		names = {
+			"fp3_building_persian_walls_04_a_01_mesh" 
+		}
+		graphical_cultures = { iranian_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Braavos
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_04_a_mesh"
+			"western_walls_04_a_mesh"
+		}
+		graphical_cultures = { braavosi_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_04_a_mesh"
+			"mediterranean_walls_04_a_mesh"
+		}
+		graphical_cultures = { braavosi_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_04_a_mesh"
+			"mena_walls_04_a_mesh"
+		}
+		graphical_cultures = { braavosi_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_04_a_mesh"
+			"india_walls_04_a_mesh"
+		}
+		graphical_cultures = { braavosi_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { braavosi_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Pentos
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_04_a_mesh"
+			"western_walls_04_a_mesh"
+		}
+		graphical_cultures = { pentoshi_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_04_a_mesh"
+			"mediterranean_walls_04_a_mesh"
+		}
+		graphical_cultures = { pentoshi_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_04_a_mesh"
+			"mena_walls_04_a_mesh"
+		}
+		graphical_cultures = { pentoshi_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_04_a_mesh"
+			"india_walls_04_a_mesh"
+		}
+		graphical_cultures = { pentoshi_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { pentoshi_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Tyrosh
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_04_a_mesh"
+			"western_walls_04_a_mesh"
+		}
+		graphical_cultures = { tyrosh_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_04_a_mesh"
+			"mediterranean_walls_04_a_mesh"
+		}
+		graphical_cultures = { tyrosh_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_04_a_mesh"
+			"mena_walls_04_a_mesh"
+		}
+		graphical_cultures = { tyrosh_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_04_a_mesh"
+			"india_walls_04_a_mesh"
+		}
+		graphical_cultures = { tyrosh_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { tyrosh_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+
+	#AGOT Added, Volantis
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_04_a_mesh"
+			"western_walls_04_a_mesh"
+		}
+		graphical_cultures = { volantene_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_04_a_mesh"
+			"mediterranean_walls_04_a_mesh"
+		}
+		graphical_cultures = { volantene_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_04_a_mesh"
+			"mena_walls_04_a_mesh"
+		}
+		graphical_cultures = { volantene_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_04_a_mesh"
+			"india_walls_04_a_mesh"
+		}
+		graphical_cultures = { volantene_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { volantene_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Norvos
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_04_mesh"
+			"slavic_wall_04_mesh"
+		}
+		graphical_cultures = { norvoshi_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_04_mesh"
+			"slavic_wall_04_mesh"
+		}
+		graphical_cultures = { norvoshi_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_04_mesh"
+			"slavic_wall_04_mesh"
+		}
+		graphical_cultures = { norvoshi_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_04_mesh"
+			"slavic_wall_04_mesh"
+		}
+		graphical_cultures = { norvoshi_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_04_mesh"
+			"slavic_wall_04_mesh"
+		}
+		graphical_cultures = { norvoshi_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Lys
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_04_a_mesh"
+			"western_walls_04_a_mesh"
+		}
+		graphical_cultures = { lyseni_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_04_a_mesh"
+			"mediterranean_walls_04_a_mesh"
+		}
+		graphical_cultures = { lyseni_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_04_a_mesh"
+			"mena_walls_04_a_mesh"
+		}
+		graphical_cultures = { lyseni_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_04_a_mesh"
+			"india_walls_04_a_mesh"
+		}
+		graphical_cultures = { lyseni_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { lyseni_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Summer Islanders
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_04_sea_mesh"
+			"walls_04_sea_mesh"
+		}
+		graphical_cultures = { summer_islander_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_04_sea_mesh"
+			"walls_04_sea_mesh"
+		}
+		graphical_cultures = { summer_islander_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_04_sea_mesh"
+			"walls_04_sea_mesh"
+		}
+		graphical_cultures = { summer_islander_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_04_sea_mesh"
+			"walls_04_sea_mesh"
+		}
+		graphical_cultures = { summer_islander_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"walls_04_sea_mesh"
+			"walls_04_sea_mesh"
+		}
+		graphical_cultures = { summer_islander_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Andal
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_04_a_mesh"
+			"western_walls_04_a_mesh"
+		}
+		graphical_cultures = { andal_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_04_a_mesh"
+			"mediterranean_walls_04_a_mesh"
+		}
+		graphical_cultures = { andal_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_04_a_mesh"
+			"mena_walls_04_a_mesh"
+		}
+		graphical_cultures = { andal_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_04_a_mesh"
+			"india_walls_04_a_mesh"
+		}
+		graphical_cultures = { andal_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { andal_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Mountains of the Moon
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_04_mesh"
+			"slavic_wall_04_mesh"
+		}
+		graphical_cultures = { red_andal_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_04_mesh"
+			"slavic_wall_04_mesh"
+		}
+		graphical_cultures = { red_andal_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_04_mesh"
+			"slavic_wall_04_mesh"
+		}
+		graphical_cultures = { red_andal_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_04_mesh"
+			"slavic_wall_04_mesh"
+		}
+		graphical_cultures = { red_andal_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"slavic_wall_04_mesh"
+			"slavic_wall_04_mesh"
+		}
+		graphical_cultures = { red_andal_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Barrow
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_04_a_mesh"
+			"western_walls_04_a_mesh"
+		}
+		graphical_cultures = { barrow_building_gfx first_man_building_gfx crannogman_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_04_a_mesh"
+			"mediterranean_walls_04_a_mesh"
+		}
+		graphical_cultures = { barrow_building_gfx first_man_building_gfx crannogman_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_04_a_mesh"
+			"mena_walls_04_a_mesh"
+		}
+		graphical_cultures = { barrow_building_gfx first_man_building_gfx crannogman_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_04_a_mesh"
+			"india_walls_04_a_mesh"
+		}
+		graphical_cultures = { barrow_building_gfx first_man_building_gfx crannogman_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { barrow_building_gfx first_man_building_gfx crannogman_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Ghis
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_04_mesh"
+			"chinese_walls_04_mesh"
+		}
+		graphical_cultures = { ghis_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_04_mesh"
+			"chinese_walls_04_mesh"
+		}
+		graphical_cultures = { ghis_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_04_mesh"
+			"chinese_walls_04_mesh"
+		}
+		graphical_cultures = { ghis_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_04_mesh"
+			"chinese_walls_04_mesh"
+		}
+		graphical_cultures = { ghis_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_04_mesh"
+			"chinese_walls_04_mesh"
+		}
+		graphical_cultures = { ghis_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, YiTish
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_04_mesh"
+			"chinese_walls_04_mesh"
+		}
+		graphical_cultures = { yitish_building_gfx hyrkoon_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_04_mesh"
+			"chinese_walls_04_mesh"
+		}
+		graphical_cultures = { yitish_building_gfx hyrkoon_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_04_mesh"
+			"chinese_walls_04_mesh"
+		}
+		graphical_cultures = { yitish_building_gfx hyrkoon_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_04_mesh"
+			"chinese_walls_04_mesh"
+		}
+		graphical_cultures = { yitish_building_gfx hyrkoon_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"chinese_walls_04_mesh"
+			"chinese_walls_04_mesh"
+		}
+		graphical_cultures = { yitish_building_gfx hyrkoon_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Qartheen
+	asset = {
+		type = pdxmesh
+		names = {
+			"ethiopian_walls_04_mesh"
+			"ethiopian_walls_04_mesh"
+		}
+		graphical_cultures = { qartheen_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"ethiopian_walls_04_mesh"
+			"ethiopian_walls_04_mesh"
+		}
+		graphical_cultures = { qartheen_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"ethiopian_walls_04_mesh"
+			"ethiopian_walls_04_mesh"
+		}
+		graphical_cultures = { qartheen_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"ethiopian_walls_04_mesh"
+			"ethiopian_walls_04_mesh"
+		}
+		graphical_cultures = { qartheen_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"ethiopian_walls_04_mesh"
+			"ethiopian_walls_04_mesh"
+		}
+		graphical_cultures = { qartheen_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, MENA
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_04_a_mesh"
+			"western_walls_04_a_mesh"
+		}
+		graphical_cultures = { mena_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_04_a_mesh"
+			"mediterranean_walls_04_a_mesh"
+		}
+		graphical_cultures = { mena_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_04_a_mesh"
+			"mena_walls_04_a_mesh"
+		}
+		graphical_cultures = { mena_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_04_a_mesh"
+			"india_walls_04_a_mesh"
+		}
+		graphical_cultures = { mena_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { mena_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Norse
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_04_a_mesh"
+			"western_walls_04_a_mesh"
+		}
+		graphical_cultures = { norse_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mediterranean_walls_04_a_mesh"
+			"mediterranean_walls_04_a_mesh"
+		}
+		graphical_cultures = { norse_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"mena_walls_04_a_mesh"
+			"mena_walls_04_a_mesh"
+		}
+		graphical_cultures = { mena_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"india_walls_04_a_mesh"
+			"india_walls_04_a_mesh"
+		}
+		graphical_cultures = { norse_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_walls_03_a_mesh"
+			"western_walls_03_a_mesh"
+		}
+		graphical_cultures = { norse_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Added, Byzantine
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = roads_to_power
+		names = {
+			"ep3_byzantine_walls_04_mesh" 
+		}
+		graphical_cultures = { byzantine_building_gfx }
+		graphical_regions = { graphical_western }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = roads_to_power
+		names = {
+			"ep3_byzantine_walls_04_mesh" 
+		}
+		graphical_cultures = { byzantine_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = roads_to_power
+		names = {
+			"ep3_byzantine_walls_04_mesh" 
+		}
+		graphical_cultures = { byzantine_building_gfx }
+		graphical_regions = { graphical_mena }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = roads_to_power
+		names = {
+			"ep3_byzantine_walls_04_mesh" 
+		}
+		graphical_cultures = { byzantine_building_gfx }
+		graphical_regions = { graphical_india }
+	}
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = roads_to_power
+		names = {
+			"ep3_byzantine_walls_04_mesh" 
+		}
+		graphical_cultures = { byzantine_building_gfx }
+		graphical_regions = { graphical_steppe }
+	}
+
+	#AGOT Disabled
+	# asset = {
+	# 	type = pdxmesh
+	# 	graphical_regions = { graphical_mediterranean }
+	# 	graphical_cultures = { mediterranean_building_gfx }
+	# 	names = {
+	# 		"mediterranean_walls_04_a_mesh"
+	# 		"mediterranean_walls_04_a_mesh"
+	# 	}
+	# }
+
+	# asset = {
+	# 	type = pdxmesh
+	# 	graphical_regions = { graphical_mena graphical_steppe }
+	# 	graphical_cultures = { mena_building_gfx }
+	# 	names = {
+	# 		"mena_walls_04_a_mesh"
+	# 		"mena_walls_04_a_mesh"
+	# 	}
+	# }
+
+	# asset = {
+	# 	type = pdxmesh
+	# 	graphical_regions = { graphical_india }
+	# 	graphical_cultures = { indian_building_gfx }
+	# 	names = {
+	# 		"india_walls_04_a_mesh"
+	# 		"india_walls_04_a_mesh"
+	# 	}
+	# }
+
+	# asset = {
+	# 	type = pdxmesh
+	# 	requires_dlc_flag = the_fate_of_iberia
+	# 	graphical_cultures = { iberian_building_gfx }
+	# 	graphical_regions = { graphical_mediterranean }
+	# 	names = {
+	# 		"fp2_building_iberian_wall_04_mesh"
+	# 	}
+	# }
+
+	# asset = {
+	# 	type = pdxmesh
+	# 	requires_dlc_flag = legacy_of_persia
+	# 	graphical_cultures = { iranian_building_gfx steppe_building_gfx }
+	# 	graphical_regions = { graphical_mena graphical_india graphical_steppe }
+	# 	names = {
+	# 		"fp3_building_persian_walls_04_a_01_mesh" 
+	# 	}
+	# }
+
+	# asset = {
+	# 	type = pdxmesh
+	# 	requires_dlc_flag = roads_to_power
+	# 	graphical_cultures = { byzantine_building_gfx }
+	# 	graphical_regions = { graphical_mediterranean }
+	# 	names = {
+	# 		"ep3_byzantine_walls_04_mesh" 
+	# 	}
+	# }
+	
+	is_enabled = {
+		scope:holder = {
+			NOT = { government_has_flag = government_is_tribal }
+		}
+		OR = {
+			# These buildings will trigger the visual "upgrade" to this wall asset
+			has_building_or_higher = "curtain_walls_06"
+			has_building_or_higher = "hill_forts_06"
+			has_building_or_higher = "ramparts_06"
+			has_building_or_higher = "watchtowers_06"
+			has_building_or_higher = "city_walls_04"
+			#AGOT Added
+			has_building_or_higher = "building_moat_06"
+			#AGOT Disabled
+			# has_building_or_higher = "theodosian_walls_01"
+		}
+	}
+}

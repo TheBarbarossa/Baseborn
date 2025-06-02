@@ -1,0 +1,430 @@
+﻿baseborn_call_vassal_to_war_interaction = {
+	category = interaction_category_diplomacy
+	icon = alliance
+	
+
+	interface_priority = 60
+
+	desc = baseborn_call_vassal_to_war_interaction_desc
+	
+	# ai_maybe = yes
+	interface = call_ally
+	special_interaction = call_ally_interaction
+	can_send_despite_rejection = yes
+	popup_on_receive = yes
+	pause_on_receive = yes
+	
+	notification_text = BASEBORN_CALL_VASSAL_TO_WAR_NOTIFICATION
+	
+	is_shown = {
+		NOT = { scope:recipient = scope:actor }
+
+		scope:actor = {
+			is_at_war = yes
+		}
+
+		scope:recipient = {
+			is_landed = yes
+			is_vassal_of = scope:actor
+			OR = {
+				scope:recipient.primary_title.tier = tier_kingdom
+				scope:recipient.primary_title.tier = tier_duchy
+			}
+		}
+	}
+	
+	has_valid_target = {
+		exists = scope:target
+	}
+	
+	has_valid_target_showing_failures_only = {
+		joiner_not_already_in_another_war_with_any_target_war_participants_trigger = {
+			WARRIOR = scope:actor
+			JOINER = scope:recipient
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		custom_description = {
+			text = "is_already_in_all_wars"
+			scope:actor = {
+				any_character_war = {
+					NOR = {
+						is_participant = scope:recipient
+						was_called = scope:recipient
+					}
+				}
+			}
+		}
+		scope:recipient = {
+			custom_description = {
+				text = call_to_war_rejected_desc
+				object = scope:recipient
+				NOT = {
+					has_character_flag = call_to_war_rejected
+				}
+			}
+		}
+	}
+
+	can_be_picked = {
+		always = yes # Revert later
+	}
+
+	on_auto_accept = {
+		scope:recipient = {
+			trigger_event = call_ally.0001
+		}
+	}
+	
+	on_accept = {
+		call_house_member_to_war_interaction_effect = yes
+
+		save_scope_value_as = {
+			name = call_house_member_to_war_interaction
+			value = yes
+		}
+
+		if = {
+			limit = {
+				exists = scope:target
+			}
+
+			scope:actor = {
+				trigger_event = call_ally.0100
+			}
+		}
+
+		scope:actor = {
+			add_prestige = medium_prestige_loss
+		}
+	}
+	
+	on_decline = {
+		#The war could theoretically end on the day the decline is sent
+		if = {
+			limit = {
+				exists = scope:target
+			}
+
+			scope:target = {
+				if = {
+					limit = {
+						is_attacker = scope:actor
+					}
+					scope:actor = {
+						add_opinion = {
+							modifier = vassal_rejected_call_to_offensive_war
+							target = scope:recipient
+						}
+					}
+				}
+				else = {
+					scope:actor = {
+						add_opinion = {
+							modifier = vassal_rejected_call_to_defensive_war
+							target = scope:recipient
+						}
+					}
+				}
+				scope:actor = {
+					trigger_event = call_ally.0101
+				}
+			}
+
+			if = {
+				limit = {
+					scope:actor = { has_realm_law_flag = vassal_refusal_is_treason }
+				}
+				scope:actor = {
+					add_opinion = {
+						target = scope:recipient
+						modifier = treasonous_rejection_of_call_to_arms
+					}
+				}
+			}
+
+			# If we're a clan this interaction affects unity
+			refuse_call_to_arms_add_clan_unity_effect = yes
+		}
+		scope:recipient = {
+			add_character_flag = {
+				call_to_war_rejected
+				days = 365
+			}
+		}
+	}
+	
+	ai_accept = {
+		base = 0
+
+		modifier = {  # Refuse call to conflicts of little benefit
+			add = -1000
+			desc = WONT_FIGHT_MEANINGLESS_REASON
+			trigger_if = {
+				limit = { exists = scope:target }
+				scope:target = { using_cb = fp2_border_raid }
+				scope:recipient = { # Unless they like going on raids
+					NOR = {
+						has_trait = viking
+						has_trait = reaver
+					}
+				}
+			}
+			trigger_else = { always = no }
+		}
+
+		modifier = {  # Refuse call against Heir
+			add = -1000
+			exists = scope:recipient.player_heir
+			trigger_if = {
+				limit = { scope:target.casus_belli.primary_defender = scope:actor }
+				scope:target.casus_belli.primary_attacker = scope:recipient.player_heir
+			}
+			trigger_else = {
+				scope:target.casus_belli.primary_defender = scope:recipient.player_heir
+			}
+			desc = WONT_FIGHT_HEIR_REASON
+		}
+
+		modifier = {  # Refuse call against Spouse
+			add = -1000
+			scope:recipient = {
+				trigger_if = {
+					limit = { scope:target.casus_belli.primary_defender = scope:actor }
+					any_spouse = {
+						this = scope:target.casus_belli.primary_attacker
+					}
+				}
+				trigger_else = {
+					any_spouse = {
+						this = scope:target.casus_belli.primary_defender
+					}
+				}
+				
+			}
+			desc = WONT_FIGHT_SPOUSE_REASON
+		}
+
+		modifier = {  # Refuse call to attack another ally
+			add = -500
+			scope:target.casus_belli.primary_attacker = scope:actor
+			scope:recipient = {
+				is_allied_to = scope:target.casus_belli.primary_defender
+			}
+			desc = ATTACK_ON_ALLY_REASON
+		}
+
+		modifier = {  # Refuse call to defend against another ally
+			add = -500
+			scope:target.casus_belli.primary_defender = scope:actor
+			scope:recipient = {
+				is_allied_to = scope:target.casus_belli.primary_attacker
+			}
+			desc = WAR_WITH_ALLY_REASON
+		}
+
+		modifier = {  # Accept call to defend an ally
+			add = 100
+			scope:target.casus_belli.primary_defender = scope:actor
+			scope:recipient = {
+				is_allied_to = scope:target.casus_belli.primary_defender
+			}
+			desc = HAS_YOUR_SUPPORT_REASON
+		}
+
+		modifier = {  # Accept call to help an ally
+			add = 100
+			scope:target.casus_belli.primary_attacker = scope:actor
+			scope:recipient = {
+				is_allied_to = scope:target.casus_belli.primary_attacker
+			}
+			desc = HAS_YOUR_SUPPORT_REASON
+		}
+
+		opinion_modifier = { # Opinion Factor
+			who = scope:recipient
+			opinion_target = scope:actor
+			multiplier = 0.5
+			desc = AI_OPINION_REASON
+		}
+
+		# Honor factor
+		ai_value_modifier = {
+			ai_honor = 1
+		}
+
+		compare_modifier = { # Likes fighting infidels
+			trigger = {
+				scope:recipient.faith = scope:actor.faith
+				OR = {
+					AND = {
+						scope:target.casus_belli.primary_attacker = {
+							this = scope:actor
+							faith = {
+								faith_hostility_level = {
+									target = scope:target.casus_belli.primary_defender.faith
+									value >= religious_cb_enabled_hostility_level
+								}
+							}
+						}
+					}
+					AND = {
+						scope:target.casus_belli.primary_defender = {
+							this = scope:actor
+							faith = {
+								faith_hostility_level = {
+									target = scope:target.casus_belli.primary_defender.faith
+									value >= religious_cb_enabled_hostility_level
+								}
+							}
+						}
+					}
+				}
+			}
+			target = scope:recipient
+			value = ai_zeal
+			desc = "ZEAL_AGAINST_INFIDELS"
+			min = 0
+			multiplier = 0.1
+		}
+
+		modifier = {
+			add = 20
+			scope:actor = {
+				has_realm_law_flag = vassal_refusal_is_treason
+			}
+			desc = AI_REFUSAL_IS_TREASON
+		}
+
+		modifier = { # Reluctant to join against Friends
+			add = -100
+			trigger_if = {
+				limit = {
+					scope:target.casus_belli.primary_defender = scope:actor
+				}
+				has_relation_friend = scope:target.casus_belli.primary_attacker
+			}
+			trigger_else = {
+				has_relation_friend = scope:target.casus_belli.primary_defender
+			}
+			desc = WONT_FIGHT_FRIEND
+		}
+
+		modifier = { # Reluctant to join against Best Friends
+			add = -200
+			trigger_if = {
+				limit = {
+					scope:target.casus_belli.primary_defender = scope:actor
+				}
+				has_relation_best_friend = scope:target.casus_belli.primary_attacker
+			}
+			trigger_else = {
+				has_relation_best_friend = scope:target.casus_belli.primary_defender
+			}
+			desc = WONT_FIGHT_BEST_FRIEND
+		}
+
+		modifier = { # Reluctant to join against Lovers
+			add = -100
+			trigger_if = {
+				limit = {
+					scope:target.casus_belli.primary_defender = scope:actor
+				}
+				has_relation_lover = scope:target.casus_belli.primary_attacker
+			}
+			trigger_else = {
+				has_relation_lover = scope:target.casus_belli.primary_defender
+			}
+			desc = WONT_FIGHT_LOVER
+		}
+
+		modifier = { # Reluctant to join against Soulmate
+			add = -200
+			trigger_if = {
+				limit = {
+					scope:target.casus_belli.primary_defender = scope:actor
+				}
+				has_relation_soulmate = scope:target.casus_belli.primary_attacker
+			}
+			trigger_else = {
+				has_relation_soulmate = scope:target.casus_belli.primary_defender
+			}
+			desc = WONT_FIGHT_SOULMATE
+		}
+
+		modifier = {  # Refuse call for hostages' safety
+			any_home_court_hostage = {
+				warden = {
+					OR = {
+						is_at_war_with = scope:actor
+						any_ally = { is_at_war_with = scope:actor }
+					}
+				}
+			}
+			add = {
+				value = 0
+				every_home_court_hostage = {
+					limit = {
+						warden = {
+							OR = {
+								is_at_war_with = scope:actor
+								any_ally = { is_at_war_with = scope:actor }
+							}
+						}
+					}
+					subtract = call_to_arms_hostage_value
+				}
+				multiply = 0.5
+			}
+			desc = HOSTAGE_ENEMY_CALL_TO_ARMS_REASON
+		}
+
+		# Reluctance to join wars for rival
+		modifier = {
+			add = -100
+			scope:recipient = {
+				has_relation_rival = scope:actor
+				NOT = { has_relation_nemesis = scope:actor }
+			}
+			desc = "ACTOR_RIVAL_TO_ME_REASON"
+		}
+
+		modifier = { # Say no to nemesis
+			add = -200
+			scope:recipient = {
+				has_relation_nemesis = scope:actor
+			}
+			desc = "ACTOR_NEMESIS_TO_ME_REASON"
+		}
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+
+	auto_accept = {
+		custom_description = {
+			text = "spending_hook"
+			subject = scope:actor
+			object = scope:recipient
+			scope:hook = yes
+		}
+	}
+
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				has_usable_hook = scope:recipient
+			}
+		}
+		flag = hook
+		localization = SCHEME_HOOK
+	}
+	should_use_extra_icon = {
+		scope:actor = { has_usable_hook = scope:recipient }
+	}
+	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
+
+	send_options_exclusive = no
+}
