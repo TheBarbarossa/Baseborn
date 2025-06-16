@@ -1,4 +1,204 @@
-﻿gift_interaction_100 = {
+gift_interaction_500 = {  # Edited - Sleepingcafe - 16/6
+	icon = icon_gold
+	category = interaction_category_friendly
+	interface_priority = 10
+	desc = gift_interaction_desc
+
+	greeting = positive
+	notification_text = SEND_GIFT_PROPOSAL
+
+	answer_accept_key = SEND_GIFT_ACCEPT
+	answer_reject_key = SEND_GIFT_REJECT
+
+	is_shown = {
+		NOT = {
+			scope:recipient = scope:actor
+		}
+
+		# Prioritize paying back loans first
+		scope:actor = {
+			trigger_if = {
+				limit = {
+					exists = var:loan_amount_owed
+					exists = var:loan_holder
+				}
+				NOT = { var:loan_holder = scope:recipient }
+			}
+		}
+
+		scope:actor = { is_human = yes }
+		scope:recipient = { is_human = yes }
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor.gold >= 500
+		scope:recipient = { is_diplomatically_available = yes }
+	}
+
+	on_auto_accept = {
+		scope:recipient = {
+			trigger_event = char_interaction.0100
+		}
+	}
+
+	on_accept = {
+		scope:actor = {
+			send_interface_message = {
+				type = event_generic_neutral
+				title = gift_interaction_notification
+				right_icon = scope:recipient
+				pay_short_term_gold = {
+					gold = 500
+					target = scope:recipient
+				}
+				stress_impact = {
+					greedy = 50
+					generous = -50
+				}
+				scope:recipient = {
+					add_opinion = {
+						target = scope:actor
+						modifier = gift_opinion
+						opinion = 33
+					}
+				}
+			}
+
+			# Warning for multiple gifts
+			if = {
+				limit = {
+					scope:recipient = {
+						has_opinion_modifier = {
+							target = scope:actor
+							modifier = gift_opinion
+						}
+					}
+				}
+				custom_tooltip = ALREADY_SENT_GIFT_WARNING
+			}
+		}
+	}
+	
+	auto_accept = {
+		custom_description = {
+			text = auto_accept_interaction_ai	
+			object = scope:recipient
+			scope:recipient = {
+				is_ai = yes
+			}
+		}
+	}
+	
+	ai_min_reply_days = 1
+	ai_max_reply_days = 1
+	
+	ai_will_do = {
+		base = 0
+	}
+	
+}
+
+gift_interaction_250 = { # Edited - Sleepingcafe - 16/6
+	icon = icon_gold
+	category = interaction_category_friendly
+	interface_priority = 10
+	desc = gift_interaction_desc
+
+	greeting = positive
+	notification_text = SEND_GIFT_PROPOSAL
+
+	answer_accept_key = SEND_GIFT_ACCEPT
+	answer_reject_key = SEND_GIFT_REJECT
+
+	is_shown = {
+		NOT = {
+			scope:recipient = scope:actor
+		}
+
+		# Prioritize paying back loans first
+		scope:actor = {
+			trigger_if = {
+				limit = {
+					exists = var:loan_amount_owed
+					exists = var:loan_holder
+				}
+				NOT = { var:loan_holder = scope:recipient }
+			}
+		}
+
+		scope:actor = { is_human = yes }
+		scope:recipient = { is_human = yes }
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor.gold >= 250
+		scope:recipient = { is_diplomatically_available = yes }
+	}
+
+	on_auto_accept = {
+		scope:recipient = {
+			trigger_event = char_interaction.0100
+		}
+	}
+
+	on_accept = {
+		scope:actor = {
+			send_interface_message = {
+				type = event_generic_neutral
+				title = gift_interaction_notification
+				right_icon = scope:recipient
+				pay_short_term_gold = {
+					gold = 250
+					target = scope:recipient
+				}
+				stress_impact = {
+					greedy = 40
+					generous = -40
+				}
+				scope:recipient = {
+					add_opinion = {
+						target = scope:actor
+						modifier = gift_opinion
+						opinion = 33
+					}
+				}
+			}
+
+			# Warning for multiple gifts
+			if = {
+				limit = {
+					scope:recipient = {
+						has_opinion_modifier = {
+							target = scope:actor
+							modifier = gift_opinion
+						}
+					}
+				}
+				custom_tooltip = ALREADY_SENT_GIFT_WARNING
+			}
+		}
+	}
+	
+	auto_accept = {
+		custom_description = {
+			text = auto_accept_interaction_ai	
+			object = scope:recipient
+			scope:recipient = {
+				is_ai = yes
+			}
+		}
+	}
+	
+	ai_min_reply_days = 1
+	ai_max_reply_days = 1
+	
+	ai_will_do = {
+		base = 0
+	}
+	
+}
+
+gift_interaction_100 = {
 	icon = icon_gold
 	category = interaction_category_friendly
 	interface_priority = 10
