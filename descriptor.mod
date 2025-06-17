@@ -3,4 +3,5 @@ tags={
 	"Character Interactions"
 }
 name="Baseborn C7"
-supported_version="1.16.2.*"
+supported_version="1.15.*.*"
+
