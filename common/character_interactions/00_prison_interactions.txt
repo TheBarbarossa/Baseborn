@@ -8213,15 +8213,21 @@ prison_break_contract_interaction = {
 	auto_accept = yes
 }
 
-systematically_maim_character_interaction = {
+systematically_maim_character_interaction = { # Edited - Sleepingcafe - 18/06
 	interface_priority = 30
 	icon = torture_interaction
-	category = interaction_category_diarch
+	category = interaction_category_prison
 	common_interaction = yes
 	desc = systematically_maim_character_interaction_desc
 
 	is_shown = {
-		scope:actor = { liege_should_systematically_maim_co_ruler_trigger = yes }
+		scope:recipient = {
+			is_imprisoned_by = scope:actor
+		}
+		scope:actor = {
+			adult = yes
+			is_ai = no
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -8314,13 +8320,6 @@ systematically_maim_character_interaction = {
 		# Stress & dread
 		blind_castrate_and_disfigure_effect = yes
 		# Our diarchy will be destroyed.
-		save_scope_value_as = {
-			name = destroy_diarchy
-			value = yes
-		}
-		show_as_tooltip = {
-			scope:actor = { maiming_destroy_diarchy_effect = yes }
-		}
 
 		#TODO_CD_EP3_POLISH; the copy in the below events could _really_ use some polishing up. It's okay but it's a bit meh, and it'd be nice if it reacted more to who you're maiming and why.
 
@@ -8339,12 +8338,10 @@ systematically_maim_character_interaction = {
 					else = {
 						ep3_youth_castration_effect = yes
 					}
-					release_from_prison = yes
 				}
 			}
 			torture_blind_castrate_disfigure_opinion_effect = { VERB = castrated }
 			scope:actor = {
-				clear_designated_heir = yes
 				trigger_event = {
 					id = prison.1025
 					days = 1
@@ -8364,12 +8361,10 @@ systematically_maim_character_interaction = {
 			show_as_tooltip = {
 				scope:recipient = {
 					add_trait = blind
-					release_from_prison = yes
 				}
 			}
 			torture_blind_castrate_disfigure_opinion_effect = { VERB = blinded }
 			scope:actor = {
-				clear_designated_heir = yes
 				# Merciful Blindings
 				if = {
 					limit = {
@@ -8415,12 +8410,10 @@ systematically_maim_character_interaction = {
 			show_as_tooltip = {
 				scope:recipient = {
 					add_trait = disfigured
-					release_from_prison = yes
 				}
 			}
 			torture_blind_castrate_disfigure_opinion_effect = { VERB = disfigured }
 			scope:actor = {
-				clear_designated_heir = yes
 				trigger_event = {
 					id = prison.1030
 					days = 1
@@ -8440,12 +8433,10 @@ systematically_maim_character_interaction = {
 			show_as_tooltip = {
 				scope:recipient = {
 					apply_maimed_trait_and_modifier_effect = yes
-					release_from_prison = yes
 				}
 			}
 			torture_blind_castrate_disfigure_opinion_effect = { VERB = maimed }
 			scope:actor = {
-				clear_designated_heir = yes
 				save_scope_value_as = {
 					name = maim_type
 					value = flag:arm
@@ -8469,12 +8460,10 @@ systematically_maim_character_interaction = {
 			show_as_tooltip = {
 				scope:recipient = {
 					add_trait = one_legged
-					release_from_prison = yes
 				}
 			}
 			torture_blind_castrate_disfigure_opinion_effect = { VERB = maimed }
 			scope:actor = {
-				clear_designated_heir = yes
 				save_scope_value_as = {
 					name = maim_type
 					value = flag:leg
