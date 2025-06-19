@@ -1,0 +1,538 @@
+﻿namespace = agot_dragon_hatching_dragonlore
+
+###                                ###
+#                                    #
+# Dragon Hatching Dragonlore Events  #
+#        by TypicalCrusader          #
+#                                    #
+###                                ###
+
+#You stumble on Dragon hatching notes done by dragonkeeper inside Rhaenys Hill
+agot_dragon_hatching_dragonlore.0001 = {
+	type = character_event
+	title = agot_dragon_hatching_dragonlore.0001.t
+	desc = agot_dragon_hatching_dragonlore.0001.desc
+	theme = dragon
+	left_portrait = root
+
+	artifact = { # To display the artifact in the event-window
+		trigger = { exists = scope:egg }
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	trigger = {
+		location = province:4152 #Rhaenys Hill
+		current_travel_plan.travel_plan_owner = root
+		is_ruler = yes
+		is_location_valid_for_travel_event_on_land = yes #Should not be needed...
+		NOT = { exists = var:agot_dragon_hatching_dragonlore_0001_triggered }
+		location = {
+			OR = {
+				has_building = dragonpit_ruins_01
+				has_building = dragonpit_ruins_02
+			}
+		}
+	}
+
+	immediate = {
+		agot_debug_log_effect = { MSG = agot_debug_msg_dragon_hatching_dragonlore_0001 }
+		random_character_artifact = {
+			limit = {
+				has_variable = dragon_egg
+			}
+			save_scope_as = egg
+		}
+	}
+
+	option = {
+		name = agot_dragon_hatching_dragonlore.0001.opt
+
+		custom_tooltip = {
+			text = agot_dragon_hatching_dragonlore_increase
+
+			if = {
+				limit = {
+					exists = var:dragonlore
+				}
+				change_variable = {
+					name = dragonlore
+					add = 2
+				}
+			}
+			else = {
+				set_variable = {
+					name = dragonlore
+					value = 2
+				}
+			}
+
+			set_variable = agot_dragon_hatching_dragonlore_0001_triggered
+		}
+	}
+}
+
+#You stumble on Ancient valyrian scroll on dragons in dragonstone
+agot_dragon_hatching_dragonlore.0002 = {
+	type = character_event
+	title = agot_dragon_hatching_dragonlore.0002.t
+	desc = agot_dragon_hatching_dragonlore.0002.desc
+	theme = dragon
+	left_portrait = root
+
+	artifact = { # To display the artifact in the event-window
+		trigger = { exists = scope:egg }
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	immediate = {
+		agot_debug_log_effect = { MSG = agot_debug_msg_dragon_hatching_dragonlore_0002 }
+		random_character_artifact = {
+			limit = {
+				has_variable = dragon_egg
+			}
+			save_scope_as = egg
+		}
+	}
+
+	trigger = {
+		location = province:4415 #Dragonstone
+		current_travel_plan.travel_plan_owner = root
+		is_ruler = yes
+		is_location_valid_for_travel_event_on_land = yes #Should not be needed...
+		NOT = { exists = var:agot_dragon_hatching_dragonlore_0002_triggered }
+	}
+
+	option = {
+		name = agot_dragon_hatching_dragonlore.0002.opt
+
+		custom_tooltip = {
+			text = agot_dragon_hatching_dragonlore_increase
+
+			if = {
+				limit = {
+					exists = var:dragonlore
+				}
+				change_variable = {
+					name = dragonlore
+					add = 2
+				}
+			}
+			else = {
+				set_variable = {
+					name = dragonlore
+					value = 2
+				}
+			}
+
+			set_variable = agot_dragon_hatching_dragonlore_0002_triggered
+		}
+	}
+}
+
+#You read books on dragons inside of Citadel
+agot_dragon_hatching_dragonlore.0003 = {
+	type = character_event
+	title = agot_dragon_hatching_dragonlore.0003.t
+	desc = agot_dragon_hatching_dragonlore.0003.desc
+	theme = dragon
+	left_portrait = root
+
+	artifact = { # To display the artifact in the event-window
+		trigger = { exists = scope:egg }
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	immediate = {
+		agot_debug_log_effect = { MSG = agot_debug_msg_dragon_hatching_dragonlore_0003 }
+		random_character_artifact = {
+			limit = {
+				has_variable = dragon_egg
+			}
+			save_scope_as = egg
+		}
+	}
+
+	trigger = {
+		location = province:3499 #Citadel
+		current_travel_plan.travel_plan_owner = root
+		is_ruler = yes
+		is_location_valid_for_travel_event_on_land = yes #Should not be needed...
+		NOT = { exists = var:agot_dragon_hatching_dragonlore_0003_triggered }
+	}
+
+	option = {
+		name = agot_dragon_hatching_dragonlore.0003.opt
+
+		custom_tooltip = {
+			text = agot_dragon_hatching_dragonlore_increase
+
+			if = {
+				limit = {
+					exists = var:dragonlore
+				}
+				change_variable = {
+					name = dragonlore
+					add = 1
+				}
+			}
+			else = {
+				set_variable = {
+					name = dragonlore
+					value = 1
+				}
+			}
+
+			set_variable = agot_dragon_hatching_dragonlore_0003_triggered
+		}
+	}
+}
+
+#While searching scorched ruins of Summerhall you find remnants of notes and tools used by Aegon the Unlikely during his hatching attempt
+agot_dragon_hatching_dragonlore.0004 = {
+	type = character_event
+	title = agot_dragon_hatching_dragonlore.0004.t
+	desc = agot_dragon_hatching_dragonlore.0004.desc
+	theme = dragon
+	left_portrait = root
+
+	artifact = { # To display the artifact in the event-window
+		trigger = { exists = scope:egg }
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	immediate = {
+		agot_debug_log_effect = { MSG = agot_debug_msg_dragon_hatching_dragonlore_0004 }
+		random_character_artifact = {
+			limit = {
+				has_variable = dragon_egg
+			}
+			save_scope_as = egg
+		}
+	}
+
+	trigger = {
+		location = province:4797 #Summerhall
+		current_travel_plan.travel_plan_owner = root
+		is_ruler = yes
+		is_location_valid_for_travel_event_on_land = yes #Should not be needed...
+		NOT = { exists = var:agot_dragon_hatching_dragonlore_0004_triggered }
+		location = {
+			has_building = agot_summerhall_ruins_01
+		}
+	}
+
+	option = {
+		name = agot_dragon_hatching_dragonlore.0004.opt
+
+		custom_tooltip = {
+			text = agot_dragon_hatching_dragonlore_increase
+
+			if = {
+				limit = {
+					exists = var:dragonlore
+				}
+				change_variable = {
+					name = dragonlore
+					add = 1
+				}
+			}
+			else = {
+				set_variable = {
+					name = dragonlore
+					value = 1
+				}
+			}
+
+			set_variable = agot_dragon_hatching_dragonlore_0004_triggered
+		}
+	}
+}
+
+#Will see the scorced ruins of Harrenhal, a mortal reminder of when Aegon came knocking
+agot_dragon_hatching_dragonlore.0005 = {
+	type = character_event
+	title = agot_dragon_hatching_dragonlore.0005.t
+	desc = agot_dragon_hatching_dragonlore.0005.desc
+	theme = dragon
+	left_portrait = root
+
+	artifact = { # To display the artifact in the event-window
+		trigger = { exists = scope:egg }
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	immediate = {
+		agot_debug_log_effect = { MSG = agot_debug_msg_dragon_hatching_dragonlore_0005 }
+		random_character_artifact = {
+			limit = {
+				has_variable = dragon_egg
+			}
+			save_scope_as = egg
+		}
+	}
+
+	trigger = {
+		location = province:1934 #Harrenhall
+		current_travel_plan.travel_plan_owner = root
+		is_ruler = yes
+		is_location_valid_for_travel_event_on_land = yes #Should not be needed...
+		NOT = { exists = var:agot_dragon_hatching_dragonlore_0005_triggered }
+		game_start_date > 7999.8.15
+	}
+
+	option = {
+		name = agot_dragon_hatching_dragonlore.0005.opt
+
+		custom_tooltip = {
+			text = agot_dragon_hatching_dragonlore_increase
+
+			if = {
+				limit = {
+					exists = var:dragonlore
+				}
+				change_variable = {
+					name = dragonlore
+					add = 1
+				}
+			}
+			else = {
+				set_variable = {
+					name = dragonlore
+					value = 1
+				}
+			}
+
+			set_variable = agot_dragon_hatching_dragonlore_0005_triggered
+		}
+	}
+}
+
+
+#Ponder on the fields of fire, a vibrant expanse which became a graveyard
+agot_dragon_hatching_dragonlore.0006 = {
+	type = character_event
+	title = agot_dragon_hatching_dragonlore.0006.t
+	desc = agot_dragon_hatching_dragonlore.0006.desc
+	theme = dragon
+	left_portrait = root
+
+	artifact = { # To display the artifact in the event-window
+		trigger = { exists = scope:egg }
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	immediate = {
+		agot_debug_log_effect = { MSG = agot_debug_msg_dragon_hatching_dragonlore_0006 }
+		random_character_artifact = {
+			limit = {
+				has_variable = dragon_egg
+			}
+			save_scope_as = egg
+		}
+	}
+
+	trigger = {
+		location = province:3953 #Fields of fire
+		current_travel_plan.travel_plan_owner = root
+		is_ruler = yes
+		is_location_valid_for_travel_event_on_land = yes #Should not be needed...
+		NOT = { exists = var:agot_dragon_hatching_dragonlore_0006_triggered }
+		game_start_date > 8000.5.1
+	}
+
+	option = {
+		name = agot_dragon_hatching_dragonlore.0006.opt
+
+		custom_tooltip = {
+			text = agot_dragon_hatching_dragonlore_increase
+
+			if = {
+				limit = {
+					exists = var:dragonlore
+				}
+				change_variable = {
+					name = dragonlore
+					add = 1
+				}
+			}
+			else = {
+				set_variable = {
+					name = dragonlore
+					value = 1
+				}
+			}
+
+			set_variable = agot_dragon_hatching_dragonlore_0006_triggered
+		}
+	}
+}
+
+#Visit the Red Lake, Silverwing's post-dance lair
+agot_dragon_hatching_dragonlore.0007 = {
+	title = agot_dragon_hatching_dragonlore.0007.t
+	desc = agot_dragon_hatching_dragonlore.0007.desc
+	type = character_event
+	theme = dragon
+	left_portrait = {
+		character = root
+		animation = throne_room_writer
+	}
+	artifact = {
+		trigger = { exists = scope:egg }
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	override_background = {
+		reference = ocean
+	}
+
+	trigger = {
+		location = province:3655 #Red Lake/Silverwing's Lair
+		current_travel_plan.travel_plan_owner = root
+		is_ruler = yes
+		is_location_valid_for_travel_event_on_land = yes #Should not be needed...
+		NOT = { exists = var:had_event_dragonlore_0007 }
+		game_start_date > 8142.1.1
+	}
+
+	immediate = {
+		agot_debug_log_effect = { MSG = agot_debug_msg_dragon_hatching_dragonlore_0007 }
+		random_character_artifact = {
+			limit = {
+				has_variable = dragon_egg
+			}
+			save_scope_as = egg
+		}
+		set_variable = had_event_dragonlore_0007
+		character:dragon_silverwing = { save_scope_as = silverwing } #for loc
+		character:White_1 = { save_scope_as = ulf }
+	}
+
+	option = {
+		name = agot_dragon_hatching_dragonlore.0007.a
+		custom_tooltip = { text = agot_dragon_hatching_dragonlore_increase }
+		if = {
+			limit = {
+				exists = var:dragonlore
+			}
+			change_variable = {
+				name = dragonlore
+				add = 1
+			}
+		}
+		else = {
+			set_variable = {
+				name = dragonlore
+				value = 1
+			}
+		}
+
+		#Slim chances to find eggs
+		if = {
+			limit = {
+				NOT = { has_global_variable = red_lake_egg_found }
+			}
+			hidden_effect = {
+				random_list = {
+					1 = {
+						modifier = {
+							add = 10
+							has_trait = dragon_dreams
+						}
+						trigger_event = agot_dragon_hatching_dragonlore.0008
+					}
+					299 = { } #Nothing happens
+				}
+			}
+		}
+	}
+}
+
+agot_dragon_hatching_dragonlore.0008 = {
+	title = agot_dragon_hatching_dragonlore.0008.t
+	desc = {
+		desc = agot_dragon_hatching_dragonlore.0008.desc_intro
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:egg_number ?= flag:three }
+				desc = agot_dragon_hatching_dragonlore.0008.desc_clutch
+			}
+			triggered_desc = {
+				trigger = { scope:egg_number ?= flag:two }
+				desc = agot_dragon_hatching_dragonlore.0008.desc_pair
+			}
+			desc = agot_dragon_hatching_dragonlore.0008.desc_single
+		}
+	}
+	type = character_event
+	theme = dragon
+	left_portrait = {
+		character = root
+		animation = ecstasy
+	}
+	artifact = {
+		target = scope:found_dragon_egg
+		position = lower_right_portrait
+	}
+	
+	override_background = {
+		reference = fp3_cave
+	}
+
+	immediate = {
+		set_global_variable = { name = red_lake_egg_found }
+		character:dragon_silverwing = { save_scope_as = dragon_parent }
+		random_list = {
+			90 = {
+				create_artifact_dragon_egg_silver_effect = { OWNER = root }
+				
+			}
+			9 = {
+				save_scope_value_as = {
+					name = egg_number
+					value = flag:two
+				}
+				create_artifact_dragon_egg_silver_effect = { OWNER = root }
+				create_artifact_dragon_egg_bronze_effect = { OWNER = root }
+				
+			}
+			1 = {
+				save_scope_value_as = {
+					name = egg_number
+					value = flag:three
+				}
+				create_artifact_dragon_egg_silver_effect = { OWNER = root }
+				create_artifact_dragon_egg_bronze_effect = { OWNER = root }
+				create_artifact_dragon_egg_iceFire_effect = { OWNER = root }
+			}
+		}
+		scope:newly_created_artifact = {
+			save_scope_as = found_dragon_egg
+		}
+	}
+
+	option = {
+		name = agot_dragon_hatching_dragonlore.0008.a
+	}
+}
+
+#location events will go here
+#Asshai, peruse some old books -> 2 dragonlore
+#Sallosh, find some old books -> 1 dragonlore
+#Old City of Volantis, find some old books -> 1.5 dragonlore
+
+#artifact event will go here
+#AGOT-TODO: ADD EVENT HERE ONCE ARTIFACTS ARE ADDED
+#Blood and Fire (Book) -> 3 Dragonlore
+#Any of the Portions of The Fires of the Freehold, and a completed version (Books) -> 0.5 Dragonlore for each fragment, 2 Dragonlore for entire book
+#Dragons, Wyrms, and Wyverns: Their Unnatural History (Book) -> 1.5 Dragonlore
+#Signs and Portents (Book) -> 2 dragonlore
+#Ancient Prophecy of Azor Ahai Reborn (Book) -> 1 Dragonlore
+#Dragonkin, Being a History of House Targaryen from Exile to Apotheosis, with a Consideration of the Life and Death of Dragons (Book) -> 1 Dragonlore

@@ -1,0 +1,1070 @@
+﻿namespace = agot_hold_court
+##################################################
+
+##################################################
+
+##################################################
+# Lord Paramount Petition
+# Badger
+# 1001 - 1010
+##################################################
+
+scripted_trigger lord_paramount_title_trigger = {
+	holder = { has_title = title:e_the_iron_throne }
+	tier = tier_kingdom
+	trigger_if = {
+		limit = { holder.dynasty ?= dynasty:dynn_Targaryen }
+		NOT = { this = title:k_dragonstone }
+	}
+}
+
+#scripted_trigger lord_paramount_petitioner_trigger = {
+#	exists = primary_title.de_jure_liege
+#	primary_title.de_jure_liege = {
+#		exists = holder
+#		holder = prev.liege
+#		NOT = { THIS = prev.liege.primary_title }
+#		tier < prev.liege.primary_title.tier
+#	}
+#	primary_title.tier = tier_duchy
+#	has_government = lp_feudal_government
+#	is_available_adult = yes
+#}
+scripted_trigger lord_paramount_petitioner_trigger = {
+	is_available_adult = yes
+	highest_held_title_tier = tier_duchy
+	has_government = lp_feudal_government
+	liege ?= { has_title = title:e_the_iron_throne }
+	primary_title.de_jure_liege = {
+		holder ?= prev.liege
+		NOT = { this = prev.top_liege.capital_county.kingdom }
+		lord_paramount_title_trigger = yes
+	}
+}
+
+# Lord Paramount Request
+agot_hold_court.1001 = {
+	type = court_event
+	title = agot_hold_court.1001.t
+	desc = agot_hold_court.1001.desc
+	theme = realm
+	override_sound = { reference = event:/SFX/Events/Themes/sfx_event_theme_type_generic }
+	lower_right_portrait = scope:paramount_petitioner
+	court_scene = {
+		button_position_character = scope:paramount_petitioner
+		court_event_force_open = yes
+		show_timeout_info = no
+		should_pause_time = yes
+		roles = {
+			scope:paramount_petitioner = {
+				group = petitioners_group
+				animation = personality_greedy
+			}
+		}
+	}
+
+	widget = {
+		gui = "event_window_widget_event_chain_progress"
+		container = "custom_widgets_container"
+		controller = event_chain_progress
+	}
+
+	trigger = {
+		has_government = lp_feudal_government
+		any_held_title = {
+			lord_paramount_title_trigger = yes
+		}
+		any_vassal = { lord_paramount_petitioner_trigger = yes }
+	}
+
+	weight_multiplier = {
+		base = 1
+	}
+
+	immediate = {
+		random_vassal= {
+			limit = {
+				lord_paramount_petitioner_trigger = yes
+			}
+			weight = {
+				base = 1
+				modifier = {
+					add = 5
+					is_powerful_vassal = yes
+				}
+			}
+			save_scope_as = paramount_petitioner
+			court_event_character_flag_effect = yes
+		}
+		random_held_title = {
+			limit = {
+				this = scope:paramount_petitioner.primary_title.de_jure_liege
+			}
+			save_scope_as = paramount_title
+		}
+		# Trigger next event in chain.
+		hold_court_queue_next_event_effect = yes
+	}
+
+	option = {
+		name = agot_hold_court.1001.a
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+		}
+		scope:paramount_title = {
+			change_title_holder = {
+				holder = scope:paramount_petitioner
+				change = scope:change
+			}
+			every_in_de_jure_hierarchy = {
+				limit = {
+					exists = holder
+					NOT = { holder ?= scope:petition_vassal }
+					NOT = { holder ?= scope:petition_liege }
+					holder = { liege = root }
+				}
+				holder = { add_to_temporary_list = vassals_taken }
+			}
+		}
+		scope:paramount_petitioner = {
+			add_opinion = {
+				target = root
+				modifier = received_title_kingdom
+			}
+			set_relation_potential_friend = root
+		}
+		hidden_effect = { #Less ugly tooltip
+			every_in_list = {
+				list = vassals_taken
+				change_liege = {
+					liege = scope:paramount_petitioner
+					change = scope:change
+				}
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	option = {
+		name = agot_hold_court.1001.b
+
+		add_tyranny = medium_tyranny_gain
+		stress_impact = {
+			just = medium_stress_impact_gain
+			compassionate = medium_stress_impact_gain
+		}
+
+		scope:paramount_petitioner = {
+			add_opinion = {
+				modifier = refusal_opinion
+				target = root
+				opinion = -30
+			}
+			set_relation_potential_rival = root
+		}
+	}
+
+	after = {
+		scope:paramount_petitioner = {
+			clear_court_event_participation = yes
+		}
+
+		# Finish up the chain if relevant.
+		hold_court_queue_post_event_effect = yes
+	}
+}
+
+
+##################################################
+# Fix DeJure Borders Petition
+# Badger
+# 1011 - 10
+##################################################
+
+
+scripted_trigger agot_hold_court_1011_claim_trigger = {
+	tier >= tier_county
+	holder = {
+		NOT = { this = root }
+		NOT = { this = $VASSAL$ }
+		NOT = { liege = $VASSAL$ }
+		is_vassal_or_below_of = root
+		NOR = {
+			is_parent_of = $VASSAL$
+			is_spouse_of = $VASSAL$
+		}
+		NOT = {
+			has_variable = small_council
+		}
+	}
+}
+
+scripted_trigger agot_hold_court_1011_vassal_trigger = {
+	#has_court_event_flag = no
+	is_available_ai_adult = yes
+	NOT = { has_trait = content }
+	is_at_war = no
+	NOT = { is_close_family_of = root }
+	save_temporary_scope_as = vassal_temp
+	any_de_jure_claim = {
+		agot_hold_court_1011_claim_trigger = { VASSAL = scope:vassal_temp }
+	}
+}
+
+# A vassal wants a dejure from another vassal
+
+agot_hold_court.1011 = {
+	type = court_event
+	title = agot_hold_court.1011.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = scope:defender_vassal_vassal
+				}
+				desc = agot_hold_court.1011.desc_paramount
+			}
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = scope:defender_vassal_vassal }
+				}
+				desc = agot_hold_court.1011.desc_direct
+			}
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = scope:historic_claimant
+					NOR = {
+						scope:dynasty = scope:defender_vassal.dynasty
+						scope:dynasty = scope:defender_vassal_vassal.dynasty
+					}
+				}
+				desc = agot_hold_court.1011.desc_historic_claimant
+			}
+			triggered_desc = {
+				trigger = {
+					exists = scope:historic_claimant
+					OR = {
+						scope:dynasty = scope:defender_vassal.dynasty
+						scope:dynasty = scope:defender_vassal_vassal.dynasty
+					}
+				}
+				desc = agot_hold_court.1011.desc_historic_same
+			}
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = scope:historic_claimant }
+				}
+				desc = agot_hold_court.1011.desc_default
+			}
+		}
+		random_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = scope:defender_vassal_vassal
+					scope:defender_vassal_vassal = { #Only if you multiple titles in different places
+					any_held_title = {
+						NOT = { this = scope:vassal_claim }
+						NOT = { target_is_de_jure_liege_or_above = scope:aggressor_vassal.primary_title }
+						}
+					}
+				}
+				desc = agot_hold_court.1011.desc_paramount_titles
+			}
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = scope:defender_vassal_vassal }
+					scope:defender_vassal = { #Only if you multiple titles in different places
+					any_held_title = {
+						NOT = { this = scope:vassal_claim }
+						NOT = { target_is_de_jure_liege_or_above = scope:aggressor_vassal.primary_title }
+						}
+					}
+				}
+				desc = agot_hold_court.1011.desc_titles
+			}
+		}
+	}
+	theme = court
+	court_scene = {
+		button_position_character = scope:aggressor_vassal
+		court_event_force_open = yes
+		show_timeout_info = no
+		should_pause_time = yes
+		roles = {
+			scope:aggressor_vassal = {
+				group = petitioners_group
+				animation = disapproval
+			}
+			scope:defender_vassal = {
+				group = petitioners_group
+				animation = disapproval
+			}
+		}
+	}
+
+	widget = {
+		gui = "event_window_widget_event_chain_progress"
+		container = "custom_widgets_container"
+		controller = event_chain_progress
+	}
+
+	cooldown = { years = 10 }
+
+	trigger = {
+		any_vassal = { agot_hold_court_1011_vassal_trigger = yes } # Is there a vassal with a de jure claim on a title held by another vassal?
+	}
+
+	weight_multiplier = {
+		base = 1
+	}
+
+	immediate = {
+		random_vassal = {
+			limit = { agot_hold_court_1011_vassal_trigger = yes }
+			save_scope_as = aggressor_vassal
+			court_event_character_flag_effect = yes
+			if = {
+				limit = {
+					any_de_jure_claim = {
+						agot_hold_court_1011_claim_trigger = { VASSAL = scope:aggressor_vassal }
+						tier >= tier_duchy
+					}
+				}
+				random_de_jure_claim = {
+					limit = {
+						agot_hold_court_1011_claim_trigger = { VASSAL = scope:aggressor_vassal }
+						tier >= tier_duchy
+					}
+					if = {
+						limit = {
+							holder = { liege = root }
+						}
+						save_scope_as = vassal_claim
+						holder = {
+							save_scope_as = defender_vassal
+							court_event_character_flag_effect = yes
+						}
+						court_event_character_flag_effect = yes
+					}
+					else = {
+						save_scope_as = vassal_claim
+						holder.liege = {
+							save_scope_as = defender_vassal
+							court_event_character_flag_effect = yes
+						}
+						holder = { save_scope_as = defender_vassal_vassal }
+					}
+				}
+			}
+			else = {
+				random_de_jure_claim = {
+					limit = {
+						agot_hold_court_1011_claim_trigger = { VASSAL = scope:aggressor_vassal }
+					}
+					if = {
+						limit = {
+							holder = { liege = root }
+						}
+						save_scope_as = vassal_claim
+						holder = {
+							save_scope_as = defender_vassal
+							court_event_character_flag_effect = yes
+						}
+					}
+					else = {
+						save_scope_as = vassal_claim
+						holder.liege = {
+							save_scope_as = defender_vassal
+							court_event_character_flag_effect = yes
+						}
+						holder = { save_scope_as = defender_vassal_vassal }
+					}
+				}
+			}
+		}
+		agot_has_historical_claim_effect = { TITLE = scope:vassal_claim }
+		random_living_character = {
+			limit = {
+				dynasty = scope:dynasty
+				is_available_ai_adult = yes
+				is_landed = no
+				can_be_knight_trigger = { ARMY_OWNER = scope:aggressor_vassal }
+				is_human = yes # Better safe than sorry
+				NOR = {
+					this = scope:vassal_claim.holder
+					has_trait = maester
+					has_trait = kingsguard
+					has_trait = nightswatch
+					has_trait = septon
+					has_trait = silent_sister
+				}
+			}
+			save_scope_as = historic_claimant
+		}
+		#Trigger next event in chain.
+		hold_court_queue_next_event_effect = yes
+	}
+
+
+	option = { # Change liege Directly Sworn
+		name = agot_hold_court.1011.a.direct
+
+		trigger = {
+			NOT = { exists = scope:defender_vassal_vassal }
+			scope:aggressor_vassal = {
+				any_de_jure_claim = { this = scope:vassal_claim }
+			}
+			scope:defender_vassal.primary_title.tier < scope:aggressor_vassal.primary_title.tier
+			scope:defender_vassal = { #Don't swear Fealty if you have multiple titles in different places
+				NOT = { any_held_title = { NOT = { target_is_de_jure_liege_or_above = scope:aggressor_vassal.primary_title } } }
+			}
+		}
+
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		scope:defender_vassal = {
+			change_liege = {
+				liege = scope:aggressor_vassal
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+
+		scope:defender_vassal = {
+			add_opinion = {
+				target = root
+				modifier = disappointed_opinion
+				opinion = -5
+			}
+		}
+
+		scope:aggressor_vassal = {
+			add_opinion = {
+				target = root
+				modifier = grateful_opinion
+				opinion = 20
+			}
+		}
+
+		stress_impact = {
+			just = minor_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_honor = -2
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = just
+			}
+			modifier = {	#Weight up for relatives.
+				add = 2
+				scope:aggressor_vassal = { is_close_family_of = root }
+				NOT = {
+					scope:defender_vassal = { is_close_family_of = root }
+				}
+			}
+		}
+	}
+
+	option = { # Change liege Indirectly Sworn
+		name = agot_hold_court.1011.a.indirect
+		trigger = {
+			exists = scope:defender_vassal_vassal
+			scope:aggressor_vassal = {
+				any_de_jure_claim = { this = scope:vassal_claim }
+			}
+			scope:defender_vassal_vassal.primary_title.tier < scope:aggressor_vassal.primary_title.tier
+			scope:defender_vassal_vassal = { #Don't swear Fealty if you have multiple titles in different places
+				NOT = { any_held_title = { NOT = { target_is_de_jure_liege_or_above = scope:aggressor_vassal.primary_title } } }
+			}
+		}
+
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		scope:defender_vassal_vassal = {
+			change_liege = {
+				liege = scope:aggressor_vassal
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		scope:defender_vassal_vassal = {
+			progress_towards_rival_effect = {
+				CHARACTER = scope:aggressor_vassal
+				REASON = rival_claimant_fight
+				OPINION = 0
+			}
+			add_opinion = {
+				target = root
+				modifier = angry_opinion
+				opinion = -30
+			}
+		}
+
+		scope:aggressor_vassal = {
+			add_opinion = {
+				target = root
+				modifier = grateful_opinion
+				opinion = 20
+			}
+		}
+
+		stress_impact = {
+			just = minor_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_honor = -2
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = just
+			}
+			modifier = {	#Weight up for relatives.
+				add = 2
+				scope:aggressor_vassal = { is_close_family_of = root }
+				NOT = {
+					scope:defender_vassal = { is_close_family_of = root }
+				}
+			}
+		}
+	}
+
+	option = { #Split up Realm - Direct
+		name = agot_hold_court.1011.b.direct
+
+		trigger = {
+			NOT = { exists = scope:defender_vassal_vassal }
+			scope:aggressor_vassal = {
+				any_de_jure_claim = { this = scope:vassal_claim }
+			}
+			scope:defender_vassal.primary_title.tier < scope:aggressor_vassal.primary_title.tier
+			scope:defender_vassal = { #Only if you multiple titles in different places
+				any_held_title = {
+					NOT = { this = scope:vassal_claim }
+					NOT = { target_is_de_jure_liege_or_above = scope:aggressor_vassal.primary_title }
+				}
+			}
+		}
+
+		scope:vassal_claim = {
+			every_in_de_jure_hierarchy = {
+				if = {
+					limit = { holder = scope:defender_vassal }
+					add_to_list = titles_taken
+				}
+			}
+		}
+		every_in_list = {
+			list = titles_taken
+			change_title_holder = {
+				holder = scope:aggressor_vassal
+				change = scope:change
+			}
+		}
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		scope:vassal_claim = {
+			change_title_holder_include_vassals = {
+				holder = scope:aggressor_vassal
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+	}
+
+	option = { #Split up Realm - Indirect
+		name = agot_hold_court.1011.b.indirect
+
+		trigger = {
+			exists = scope:defender_vassal_vassal
+			scope:aggressor_vassal = {
+				any_de_jure_claim = { this = scope:vassal_claim }
+			}
+			scope:defender_vassal_vassal.primary_title.tier < scope:aggressor_vassal.primary_title.tier
+			scope:defender_vassal_vassal = { #Only if you multiple titles in different places
+				any_held_title = {
+					NOT = { this = scope:vassal_claim }
+					NOT = { target_is_de_jure_liege_or_above = scope:aggressor_vassal.primary_title }
+				}
+			}
+		}
+
+		if = {
+			limit = { scope:vassal_claim = scope:defender_vassal_vassal.primary_title }
+
+			scope:defender_vassal_vassal = {
+				ordered_held_title = {
+					order_by = tier
+					limit = {
+						trigger_if = {
+							limit = { scope:defender_vassal_vassal.dynasty = scope:dynasty } #check for ancestral claim
+							NOT = { this = scope:vassal_claim }
+							NOT = { target_is_de_jure_liege_or_above = scope:aggressor_vassal.primary_title }
+						}
+						trigger_else = {
+							NOT = { target_is_de_jure_liege_or_above = scope:aggressor_vassal.primary_title }
+						}
+					}
+					max = 1
+					every_in_de_jure_hierarchy = {
+						if = {
+							limit = { holder = scope:defender_vassal_vassal }
+							add_to_temporary_list = titles_taken
+						}
+						else_if = {
+							limit = {
+								exists = holder
+								holder = { liege = scope:defender_vassal_vassal }
+							}
+							holder = { add_to_temporary_list = vassals_taken }
+						}
+					}
+				}
+			}
+			create_title_and_vassal_change = {
+				type = created
+				save_scope_as = change
+				add_claim_on_loss = no
+			}
+			every_in_list = {
+				list = vassals_taken
+				change_liege = {
+					liege = root
+					change = scope:change
+				}
+			}
+			every_in_list = {
+				list = titles_taken
+				change_title_holder = {
+					holder = root
+					change = scope:change
+				}
+			}
+			scope:defender_vassal_vassal = {
+				change_liege = {
+					liege = scope:aggressor_vassal
+					change = scope:change
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+		else = {
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = change
+			}
+			scope:vassal_claim = {
+				change_title_holder_include_vassals = {
+					holder = scope:aggressor_vassal
+					change = scope:change
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+	}
+
+
+	option = { # Split Up Realm for Meeee Direct
+		name = agot_hold_court.1011.c
+
+		trigger = {
+			NOT = { exists = scope:defender_vassal_vassal }
+			scope:aggressor_vassal = {
+				any_de_jure_claim = { this = scope:vassal_claim }
+			}
+			scope:defender_vassal.primary_title.tier < scope:aggressor_vassal.primary_title.tier
+			scope:defender_vassal = { #Only if you multiple titles in different places
+				any_held_title = {
+					NOT = { this = scope:vassal_claim }
+					NOT = { target_is_de_jure_liege_or_above = scope:aggressor_vassal.primary_title }
+				}
+			}
+		}
+
+		create_title_and_vassal_change = {
+			type = revoked
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+
+		scope:vassal_claim = {
+			change_title_holder_include_vassals = {
+				holder = root
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+
+		# scope:defender_vassal = {
+		# 	ordered_held_title = {
+		# 		limit = {
+		# 			if = {
+		# 				limit = { scope:defender_vassal.dynasty = scope:dynasty } #check for ancestral claim
+		# 				NOT = { this = scope:vassal_claim }
+		# 				NOT = { target_is_de_jure_liege_or_above = scope:aggressor_vassal.primary_title }
+		# 			}
+		# 			else = {
+		# 				NOT = { target_is_de_jure_liege_or_above = scope:aggressor_vassal.primary_title }
+		# 			}
+		# 		}
+		# 		order_by = tier
+		# 		max = 1
+		# 		every_in_de_jure_hierarchy = {
+		# 			if = {
+		# 				limit = { holder = scope:defender_vassal }
+		# 				add_to_temporary_list = titles_taken
+		# 			}
+		# 			else_if = {
+		# 				limit = {
+		# 					exists = holder
+		# 					holder = { liege = scope:defender_vassal }
+		# 				}
+		# 				holder = { add_to_temporary_list = vassals_taken }
+		# 			}
+		# 		}
+		# 	}
+		# }
+		# create_title_and_vassal_change = {
+		# 	type = created
+		# 	save_scope_as = change
+		# 	add_claim_on_loss = no
+		# }
+		# 	every_in_list = {
+		# 		list = vassals_taken
+		# 		change_liege = {
+		# 			liege = root
+		# 			change = scope:change
+		# 		}
+		# 	}
+
+		# every_in_list = {
+		# 	list = titles_taken
+		# 	change_title_holder = {
+		# 		holder = root
+		# 		change = scope:change
+		# 	}
+		# }
+		# scope:defender_vassal = {
+		# 	change_liege = {
+		# 		liege = root
+		# 		change = scope:change
+		# 	}
+		# }
+		# resolve_title_and_vassal_change = scope:change
+
+		add_tyranny = major_tyranny_gain
+		stress_impact = {
+			just = major_stress_impact_gain
+			compassionate = major_stress_impact_gain
+		}
+	}
+
+	option = { # Split Up Realm for Meeee Indirect
+	name = agot_hold_court.1011.c
+
+	trigger = {
+		exists = scope:defender_vassal_vassal
+		scope:aggressor_vassal = {
+			any_de_jure_claim = { this = scope:vassal_claim }
+		}
+		scope:defender_vassal_vassal.primary_title.tier < scope:aggressor_vassal.primary_title.tier
+		scope:defender_vassal_vassal = { #Only if you multiple titles in different places
+			any_held_title = {
+				NOT = { this = scope:vassal_claim }
+				NOT = { target_is_de_jure_liege_or_above = scope:aggressor_vassal.primary_title }
+			}
+		}
+	}
+
+	scope:defender_vassal_vassal = {
+		ordered_held_title = {
+			limit = {
+				trigger_if = {
+					limit = { scope:defender_vassal_vassal.dynasty = scope:dynasty } #check for ancestral claim
+					NOT = { this = scope:vassal_claim }
+					NOT = { target_is_de_jure_liege_or_above = scope:aggressor_vassal.primary_title }
+				}
+				trigger_else = {
+					NOT = { target_is_de_jure_liege_or_above = scope:aggressor_vassal.primary_title }
+				}
+			}
+			order_by = tier
+			max = 1
+			every_in_de_jure_hierarchy = {
+				add_to_temporary_list = titles_taken
+				}
+			}
+		}
+
+	create_title_and_vassal_change = {
+		type = created
+		save_scope_as = change
+		add_claim_on_loss = no
+	}
+	every_in_list = {
+		list = titles_taken
+		change_liege = {
+			liege = root
+			change = scope:change
+		}
+	}
+	scope:defender_vassal_vassal = {
+		change_liege = {
+			liege = root
+			change = scope:change
+		}
+	}
+
+	resolve_title_and_vassal_change = scope:change
+
+	add_tyranny = major_tyranny_gain
+	stress_impact = {
+		just = major_stress_impact_gain
+		compassionate = major_stress_impact_gain
+		}
+	}
+
+	option = { #Historical Claimant gets title
+		name = agot_hold_court.1011.d
+
+		trigger = {
+			exists = scope:historic_claimant
+			trigger_if = {
+				limit = { exists = scope:defender_vassal_vassal }
+				NOT = { scope:defender_vassal_vassal.dynasty = scope:historic_claimant.dynasty }
+			}
+			trigger_else = {
+				NOT = { scope:defender_vassal.dynasty = scope:historic_claimant.dynasty }
+			}
+		}
+
+		scope:vassal_claim.holder = {
+			every_held_title = {
+				limit = {
+					OR = {
+						de_jure_liege = scope:vassal_claim
+						this = scope:vassal_claim
+					}
+				}
+				add_to_list = titles_taken
+			}
+		}
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		scope:vassal_claim = {
+			change_title_holder_include_vassals = {
+				holder = scope:historic_claimant
+				change = scope:change
+			}
+		}
+		every_in_list = {
+			list = titles_taken
+			change_title_holder_include_vassals = {
+				holder = scope:historic_claimant
+				change = scope:change
+			}
+		}
+		scope:historic_claimant = {
+			change_liege = {
+				liege = scope:aggressor_vassal
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+	}
+
+	option = { # I shall do nothing
+		name = hold_court.8210.d
+		trigger = {
+			NOT = { scope:defender_vassal = root }
+		}
+		add_prestige = minor_prestige_gain
+		scope:aggressor_vassal = {
+			add_opinion = {
+				target = root
+				modifier = angry_opinion
+				opinion = -15
+			}
+		}
+		scope:defender_vassal = {
+			add_opinion = {
+				target = root
+				modifier = respect_opinion
+				opinion = 15
+			}
+			progress_towards_friend_effect = {
+				REASON = friend_took_side_in_dispute
+				CHARACTER = root
+				OPINION = 0
+			}
+		}
+		stress_impact = {
+			arrogant = medium_stress_impact_gain
+			diligent = medium_stress_impact_gain
+			just = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = 1
+				ai_honor = 2
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = arrogant
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = diligent
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = just
+			}
+		}
+	}
+
+	after = {
+		scope:aggressor_vassal = {
+			clear_court_event_participation = yes
+		}
+		scope:defender_vassal = {
+			clear_court_event_participation = yes
+		}
+		# Finish up the chain if relevant.
+		hold_court_queue_post_event_effect = yes
+	}
+}
+
+
+
+##################################################
+# Dispossessed Character asks for land return
+# Badger
+# 1021 - 29
+##################################################
+
+scripted_trigger agot_hold_court_1021_claim_trigger = {
+	tier >= tier_county
+	NOR = {
+		this = root.primary_title
+		this = root.capital_barony
+		is_de_jure_liege_or_above_target = root.capital_barony
+	}
+}
+
+scripted_trigger agot_hold_court_1021_claimant_trigger = {
+	dynasty = scope:dynasty
+	is_available_ai_adult = yes
+	is_landed = no
+	NOT = {
+		dynasty = {
+			any_dynasty_member = {
+				is_landed = yes
+			}
+		}
+	}
+	can_be_knight_trigger = { ARMY_OWNER = root }
+}
+
+# Lord Paramount Request
+agot_hold_court.1021 = {
+	type = court_event
+	title = agot_hold_court.1021.t
+	desc = agot_hold_court.1021.desc
+	theme = realm
+
+	orphan = yes #remove when added to court events
+
+	override_sound = { reference = event:/SFX/Events/Themes/sfx_event_theme_type_generic }
+	lower_right_portrait = scope:historic_claimant
+	court_scene = {
+		button_position_character = scope:historic_claimant
+		court_event_force_open = yes
+		show_timeout_info = no
+		should_pause_time = yes
+		roles = {
+			scope:historic_claimant = {
+				group = petitioners_group
+				animation = personality_greedy
+			}
+		}
+	}
+
+	widget = {
+		gui = "event_window_widget_event_chain_progress"
+		container = "custom_widgets_container"
+		controller = event_chain_progress
+	}
+
+	trigger = {
+		NOT = { root.dynasty = scope:dynasty }
+		any_living_character = {
+			agot_hold_court_1021_claimant_trigger = yes
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+	}
+
+	immediate = {
+		random_held_title = {
+			limit = { agot_hold_court_1021_claim_trigger = yes }
+			agot_has_historical_claim_effect = { TITLE = this }
+			save_scope_as = claim_title
+		}
+		random_living_character = {
+			limit = {
+				agot_hold_court_1021_claimant_trigger = yes
+			}
+			save_scope_as = historic_claimant
+		}
+		# Trigger next event in chain.
+		hold_court_queue_next_event_effect = yes
+	}
+
+	option = { #Sure
+	}
+
+	option = { #No title but you can stay here
+
+	}
+
+	option = { #Throw this Vagrant in prison
+	}
+
+	option = { #Please leave whoever you are
+	}
+
+	after = {
+		# scope:historic_claimant = {
+		# 	clear_court_event_participation = yes
+		# }
+
+		# Finish up the chain if relevant.
+		hold_court_queue_post_event_effect = yes
+	}
+}

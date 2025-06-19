@@ -1,0 +1,1316 @@
+﻿#AGOT Rebuilding
+
+# namespace = agot_rebuilding_castle
+
+# agot_rebuilding_castle.0001 = {
+# 	type = character_event
+# 	hidden = yes
+# 	orphan = yes
+
+# 	immediate = {
+# 		trigger_event = {
+# 			id = agot_rebuilding_castle.9001
+# 			days = 365
+# 		}
+# 	}
+# }
+
+
+# ################################
+# # Invitation and Start Events
+# # 1001-1009
+# # Gaytriarch
+# ################################
+
+# ## Invitee is double booked!
+# agot_rebuilding_castle.1000 = {
+# 	type = letter_event
+# 	opening = {
+# 		desc = agot_rebuilding_castle.1002.opening
+# 	}
+# 	desc = agot_rebuilding_castle.1000.desc
+# 	sender = scope:activity.activity_owner
+
+# 	immediate = {
+# 		var:booked_for_a_party = {
+# 			save_scope_as = other_host
+# 		}
+# 		scope:activity = {
+# 			decline_invitation_for_character = root
+# 		}
+# 		scope:activity.activity_owner = {
+# 			add_opinion = {
+# 				target = root
+# 				modifier = insult_opinion
+# 				opinion = -10
+# 			}
+# 		}
+# 	}
+
+# 	option = {
+# 		name = agot_rebuilding_castle.1000.a
+# 	}
+# }
+
+# agot_rebuilding_castle.1001 = {
+# 	hidden = yes
+
+# 	immediate = {
+# 	#Give all participants start events
+# 		scope:activity_owner = {
+# 			agot_castle_rebuilding_setup_effect = yes
+# 		}
+# 		scope:activity = {
+# 			every_participant = {
+# 				if = { #You're busy at another party! (invites were sent the same day, but you agreed to another party after this one )
+# 					limit = {
+# 						exists = var:booked_for_a_party
+# 						var:booked_for_a_party = { NOT = { this = scope:activity.activity_owner } }
+# 					}
+# 					trigger_event = agot_rebuilding_castle.1000
+# 				}
+# 			}
+# 		}
+# 	}
+# }
+
+# #Vassals / Courtiers
+# agot_rebuilding_castle.1002 = {
+# 	type = letter_event
+# 	opening = {
+# 		desc = agot_rebuilding_castle.1002.opening
+# 	}
+# 	desc = {
+# 		desc = agot_rebuilding_castle.1002.opening_desc
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					reverse_opinion = {
+# 						target = scope:sender
+# 						value > 50
+# 					}
+# 				}
+# 				desc = agot_rebuilding_castle.1002.host_likes_me
+# 			}
+# 			triggered_desc = {
+# 				trigger = {
+# 					reverse_opinion = {
+# 						target = scope:sender
+# 						value > -1
+# 					}
+# 				}
+# 				desc = agot_rebuilding_castle.1002.host_gets_along_with_me
+# 			}
+# 			desc = agot_rebuilding_castle.1002.host_dislikes_me
+# 		}
+# 	}
+# 	sender = scope:sender
+
+# 	trigger = {
+# 		is_available_for_activity_trigger = yes
+# 		exists = scope:activity.activity_owner
+# 		target_is_liege_or_above = scope:activity.activity_owner
+# 		NOT = { exists = var:is_handling_rebuilding_castle_invitation }
+# 	}
+
+# 	on_trigger_fail = { #Trigger invitation again if it was blocked because the character was handling another invitation
+# 		if = {
+# 			limit = {
+# 				is_available_for_activity_trigger = yes
+# 				exists = var:is_handling_rebuilding_castle_invitation
+# 			}
+# 			trigger_event = {
+# 				id =  agot_rebuilding_castle.1002
+# 				days = 1
+# 			}
+# 		}
+# 	}
+
+# 	immediate = {
+# 		scope:activity.activity_owner = {
+# 			save_scope_as = sender
+# 		}
+# 		scope:activity.activity_province = {
+# 			barony = {
+# 				save_scope_as = barony
+# 			}
+# 		}
+# 		set_variable = {
+# 			name = is_handling_rebuilding_castle_invitation
+# 			value = scope:sender
+# 			days = 20
+# 		}
+# 	}
+
+# 	option = {
+# 		name = agot_rebuilding_castle.1002.a
+# 		trigger = {
+# 			opinion = {
+# 				target = liege
+# 				value >= 0
+# 			}
+# 		}
+# 		play_music_cue = mx_cue_banquet
+# 		scope:activity = {
+# 			accept_invitation_for_character = prev
+# 		}
+# 		set_variable = {
+# 			name = booked_for_a_party
+# 			value = scope:sender
+# 			days = 20
+# 		}
+# 		stress_impact = {
+# 			brave = minor_stress_loss
+# 			viking = minor_stress_loss
+# 		}
+# 		ai_chance = {
+# 			base = 100
+# 			opinion_modifier = {
+# 				opinion_target = scope:sender
+# 			}
+# 			ai_value_modifier = {
+# 				ai_boldness = 0.5
+# 				ai_vengefulness = 0.2
+# 			}
+# 		}
+# 		# scope:sender = {   #AGOT Added
+# 		# 	primary_title = {
+# 		# 		add_to_variable_list = {
+# 		# 			name = activity_accepted
+# 		# 			target = root
+# 		# 		}
+# 		# 	}
+# 		# }
+# 	}
+
+# 	option = {
+# 		name = agot_rebuilding_castle.1002.b
+# 		trigger = {
+# 			opinion = {
+# 				target = liege
+# 				value < 0
+# 			}
+# 		}
+# 		play_music_cue = mx_cue_banquet
+# 		scope:activity = {
+# 			accept_invitation_for_character = prev
+# 		}
+# 		set_variable = {
+# 			name = booked_for_a_party
+# 			value = scope:sender
+# 			days = 20
+# 		}
+# 		stress_impact = {
+# 			comfort_eater = minor_stress_loss
+# 			drunkard = minor_stress_loss
+# 		}
+# 		ai_chance = {
+# 			base = 100
+# 			opinion_modifier = {
+# 				opinion_target = scope:sender
+# 			}
+# 			ai_value_modifier = {
+# 				ai_boldness = 0.5
+# 				ai_vengefulness = 0.2
+# 			}
+# 		}
+# 		# scope:sender = {   #AGOT Added
+# 		# 	primary_title = {
+# 		# 		add_to_variable_list = {
+# 		# 			name = activity_accepted
+# 		# 			target = root
+# 		# 		}
+# 		# 	}
+# 		# }
+# 	}
+
+# 	option = {
+# 		name = agot_rebuilding_castle.1002.c
+# 		trigger = {
+# 			opinion = {
+# 				target = liege
+# 				value > -1
+# 			}
+# 		}
+# 		scope:activity = {
+# 			decline_invitation_for_character = prev
+# 		}
+# 		stress_impact = {
+# 			craven = minor_stress_loss
+# 		}
+# 		add_piety = minor_piety_loss
+
+# 		# scope:sender = {   #AGOT Added
+# 		# 	primary_title = {
+# 		# 		add_to_variable_list = {
+# 		# 			name = activity_declined
+# 		# 			target = root
+# 		# 		}
+# 		# 	}
+# 		# }
+
+# 		ai_chance = {
+# 			base = 10
+# 			modifier = {
+# 				add = 50
+# 				OR = {
+# 					has_trait = craven
+# 					prowess < low_skill_rating
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	option = {
+# 		name = agot_rebuilding_castle.1002.d
+# 		trigger = {
+# 			opinion = {
+# 				target = liege
+# 				value < 0
+# 			}
+# 		}
+# 		scope:activity = {
+# 			decline_invitation_for_character = prev
+# 		}
+# 		stress_impact = {
+# 			craven = minor_stress_loss
+# 		}
+# 		add_piety = minor_piety_loss
+# 		ai_chance = {
+# 			base = 10
+# 			modifier = {
+# 				add = 50
+# 				OR = {
+# 					has_trait = craven
+# 					prowess < low_skill_rating
+# 				}
+# 			}
+# 		}
+
+# 		# scope:sender = {   #AGOT Added
+# 		# 	primary_title = {
+# 		# 		add_to_variable_list = {
+# 		# 			name = activity_declined
+# 		# 			target = root
+# 		# 		}
+# 		# 	}
+# 		# }
+# 	}
+
+# 	after = {
+# 		remove_variable = is_handling_rebuilding_castle_invitation
+# 	}
+# }
+
+# #Liege
+# agot_rebuilding_castle.1003 = {
+# 	type = letter_event
+# 	opening = {
+# 		desc = agot_rebuilding_castle.1002.opening
+# 	}
+# 	desc = agot_rebuilding_castle.1003.desc
+# 	sender = scope:sender
+
+# 	trigger = {
+# 		is_available_for_activity_trigger = yes
+# 		NOT = { exists = var:is_handling_rebuilding_castle_invitation }
+# 		exists = scope:activity.activity_owner #In case the activity owner dies waiting...
+# 	}
+
+# 	on_trigger_fail = { #Trigger invitation again if it was blocked because the character was handling another invitation
+# 		if = {
+# 			limit = {
+# 				is_available_for_activity_trigger = yes
+# 				exists = var:is_handling_rebuilding_castle_invitation
+# 			}
+# 			trigger_event = {
+# 				id = agot_rebuilding_castle.1003
+# 				days = 1
+# 			}
+# 		}
+# 	}
+
+# 	immediate = {
+# 		scope:activity.activity_owner = {
+# 			save_scope_as = sender
+# 		}
+# 		scope:activity.activity_province = {
+# 			barony = {
+# 				save_scope_as = barony
+# 			}
+# 		}
+# 		set_variable = {
+# 			name = is_handling_rebuilding_castle_invitation
+# 			value = scope:sender
+# 			days = 20
+# 		}
+# 	}
+
+# 	option = {
+# 		name = agot_rebuilding_castle.1003.a
+# 		play_music_cue = mx_cue_banquet
+# 		scope:activity = {
+# 			accept_invitation_for_character = prev
+# 		}
+# 		set_variable = {
+# 			name = booked_for_a_party
+# 			value = scope:sender
+# 			days = 20
+# 		}
+# 		stress_impact = {
+# 			comfort_eater = minor_stress_loss
+# 			drunkard = minor_stress_loss
+# 		}
+# 		ai_chance = {
+# 			base = 100
+# 			opinion_modifier = {
+# 				opinion_target = scope:sender
+# 			}
+# 		}
+
+# 		# scope:sender = {   #AGOT Added
+# 		# 	primary_title = {
+# 		# 		add_to_variable_list = {
+# 		# 			name = activity_accepted
+# 		# 			target = root
+# 		# 		}
+# 		# 	}
+# 		# }
+# 	}
+
+# 	option = {
+# 		name = agot_rebuilding_castle.1003.b
+# 		ai_chance = {
+# 			base = 10
+# 			modifier = {
+# 				add = 15
+# 				target_is_liege_or_above = scope:sender
+# 			}
+# 			ai_value_modifier = {
+# 				ai_boldness = 0.2
+# 			}
+# 		}
+# 		scope:activity = {
+# 			decline_invitation_for_character = prev
+# 		}
+# 		stress_impact = {
+# 			inappetetic = minor_stress_loss
+# 			reclusive = minor_stress_loss
+# 		}
+
+# 		# scope:sender = {   #AGOT Added
+# 		# 	primary_title = {
+# 		# 		add_to_variable_list = {
+# 		# 			name = activity_declined
+# 		# 			target = root
+# 		# 		}
+# 		# 	}
+# 		# }
+# 	}
+
+# 	after = {
+# 		remove_variable = is_handling_rebuilding_castle_invitation
+# 	}
+# }
+
+
+# #Other relations
+# agot_rebuilding_castle.1004 = {
+# 	type = letter_event
+# 	opening = {
+# 		desc = agot_rebuilding_castle.1002.opening
+# 	}
+# 	desc = agot_rebuilding_castle.1004.desc
+# 	sender = scope:sender
+
+# 	trigger = {
+# 		is_available_for_activity_trigger = yes
+# 		NOT = { exists = var:is_handling_rebuilding_castle_invitation }
+# 	}
+
+# 	on_trigger_fail = { #Trigger invitation again if it was blocked because the character was handling another invitation
+# 		if = {
+# 			limit = {
+# 				is_available_for_activity_trigger = yes
+# 				exists = var:is_handling_rebuilding_castle_invitation
+# 			}
+# 			trigger_event = {
+# 				id = agot_rebuilding_castle.1004
+# 				days = 1
+# 			}
+# 		}
+# 	}
+
+# 	immediate = {
+# 		scope:activity.activity_owner = {
+# 			save_scope_as = sender
+# 		}
+# 		scope:activity.activity_province = {
+# 			barony = {
+# 				save_scope_as = barony
+# 			}
+# 		}
+# 		set_variable = {
+# 			name = is_handling_rebuilding_castle_invitation
+# 			value = scope:sender
+# 			days = 20
+# 		}
+# 	}
+
+# 	option = {
+# 		name = agot_rebuilding_castle.1004.a
+# 		play_music_cue = mx_cue_banquet
+# 		scope:activity = {
+# 			accept_invitation_for_character = prev
+# 		}
+# 		set_variable = {
+# 			name = booked_for_a_party
+# 			value = scope:sender
+# 			days = 20
+# 		}
+# 		stress_impact = {
+# 			comfort_eater = minor_stress_loss
+# 			drunkard = minor_stress_loss
+# 		}
+# 		ai_chance = {
+# 			base = 100
+# 			opinion_modifier = {
+# 				opinion_target = scope:sender
+# 			}
+# 		}
+
+# 		# scope:sender = {   #AGOT Added
+# 		# 	primary_title = {
+# 		# 		add_to_variable_list = {
+# 		# 			name = activity_accepted
+# 		# 			target = root
+# 		# 		}
+# 		# 	}
+# 		# }
+# 	}
+
+# 	option = {
+# 		name = agot_rebuilding_castle.1004.b
+# 		scope:activity = {
+# 			decline_invitation_for_character = prev
+# 		}
+# 		stress_impact = {
+# 			inappetetic = minor_stress_loss
+# 			reclusive = minor_stress_loss
+# 		}
+# 		ai_chance = {
+# 			base = 10
+# 			modifier = {
+# 				add = 15
+# 				scope:sender = {
+# 					target_is_liege_or_above = scope:sender
+# 				}
+# 			}
+# 			ai_value_modifier = {
+# 				ai_boldness = 0.2
+# 			}
+# 		}
+
+# 		# scope:sender = {   #AGOT Added
+# 		# 	primary_title = {
+# 		# 		add_to_variable_list = {
+# 		# 			name = activity_declined
+# 		# 			target = root
+# 		# 		}
+# 		# 	}
+# 		# }
+# 	}
+
+# 	after = {
+# 		remove_variable = is_handling_rebuilding_castle_invitation
+# 	}
+# }
+
+# agot_rebuilding_castle.1008 = {
+# 	type = character_event
+# 	title = agot_reaving.1008.t
+# 	desc = {
+# 		desc = agot_reaving.1008.desc.opening
+# 		first_valid = {
+# 			desc = agot_reaving.1008.desc.short
+# 		}
+# 	}
+# 	trigger = {
+# 		this = scope:activity.activity_owner
+# 	}
+# 	theme = reaving
+# 	override_background = {
+# 		event_background = fp1_beached_longships
+# 	}
+
+# 	left_portrait = {
+# 		character = root
+# 		animation = throne_room_one_handed_passive_2
+# 	}
+
+# 	weight_multiplier = {
+# 		base = 1
+# 	}
+
+# 	option = {
+# 		name = agot_reaving.1008.a
+# 	}
+
+# 	# after = {
+# 	# 	agot_set_up_next_reaving_event_effect = yes
+# 	# }
+
+# 	immediate = {
+# 		play_music_cue = "mx_cue_epic_sacral_moment"
+# 	}
+
+# }
+
+# agot_rebuilding_castle.1009 = {
+# 	type = character_event
+# 	title = agot_reaving.1009.t
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					OR = {
+# 						has_relation_rival = scope:activity.activity_owner
+# 					}
+# 					reverse_opinion = {
+# 						target = scope:activity.activity_owner
+# 						value < -40
+# 					}
+# 				}
+# 				desc = agot_reaving.1009.dislikes_host
+# 			}
+# 			desc = agot_reaving.1009.likes_host
+# 		}
+# 	}
+
+# 	trigger = {
+# 		# Guests only.
+# 		NOT = { this = scope:activity.activity_owner }
+# 	}
+
+# 	theme = reaving
+# 	override_background = {
+# 		event_background = fp1_beached_longships
+# 	}
+
+# 	left_portrait = {
+# 		character = scope:activity.activity_owner
+# 		animation = throne_room_one_handed_passive_2
+# 	}
+
+# 	right_portrait = {
+# 		character = root
+# 		animation = throne_room_one_handed_passive_2
+# 	}
+
+# 	immediate = {
+# 		play_music_cue = mx_cue_banquet
+# 	}
+
+# 	option = {
+# 		name = {
+# 			trigger = { has_trait = gluttonous }
+# 			text = feast.2501.a.gluttonous
+# 		}
+# 		name = {
+# 			trigger = { has_trait = drunkard }
+# 			text = feast.2501.a.drunkard
+# 		}
+# 		name = {
+# 			trigger = { has_trait = gregarious }
+# 			text = feast.2501.a.gregarious
+# 		}
+# 		name = {
+# 			trigger = { has_trait = shy }
+# 			text = feast.2501.a.shy
+# 		}
+# 		name = {
+# 			text = feast.2501.a
+# 		}
+# 	}
+
+# 	option = {
+# 		trigger = {
+# 			opinion = {
+# 				target = scope:activity.activity_owner
+# 				value < 0
+# 			}
+# 		}
+# 		exclusive = yes
+# 		name = agot_reaving.1009.b
+# 	}
+
+# 	# after = {
+# 	# 	agot_set_up_next_reaving_event_effect = yes
+# 	# }
+# }
+
+# ################################
+# # Events
+# # 2001-2008
+# # ZombieSchrodCat
+# ################################
+
+# ####################################
+# # 		    Charcoal Sellers	   #
+# #        ZombieSchrodCat		   #
+# #              2001  	           #
+# ####################################
+
+# agot_rebuilding_castle.2001 = { #start
+# 	type = character_event
+# 	title = agot_rebuilding_castle.2001.t
+# 	desc = agot_rebuilding_castle.2001.desc
+
+# 	theme = stewardship_domain_focus
+# 	override_background = {
+# 		event_background = corridor_night
+# 	}
+
+# 	right_portrait = {
+# 		character = root
+# 		animation = personality_rational
+# 	}
+
+# 	lower_center_portrait = {
+# 		character = scope:agot_rebuilding_charcoal
+# 		animation = personality_rational
+# 	}
+
+# 	trigger = {
+# 		exists = scope:activity
+# 	}
+
+# 	immediate = {
+# 		create_character = {
+# 			location = root.capital_province
+# 			template = agot_northman_character
+# 			dynasty = no
+# 			gender = male
+# 			save_scope_as = agot_rebuilding_charcoal
+# 		}
+# 	}
+
+# 	option = { #
+# 		name = agot_rebuilding_castle.2001.a
+# 		add_dread = minor_dread_gain
+# 		add_prestige = minor_prestige_loss
+# 		scope:agot_rebuilding_charcoal = {
+# 			death = {
+# 				death_reason = death_execution
+# 				killer = root
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				number_of_personality_traits < personality_trait_limit
+# 				NOT = {
+# 					has_trait = wrathful
+# 				}
+# 			}
+# 			random = {
+# 				chance = 10
+# 				add_trait = wrathful
+# 			}
+# 		}
+# 	}
+
+# 	option = {
+# 		name = agot_rebuilding_castle.2001.b
+# 		duel = {
+# 			skill = diplomacy
+# 			target = scope:agot_rebuilding_charcoal
+# 			50 = { #success
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = 3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 					add_prestige = minor_prestige_gain
+# 				}
+# 			}
+# 			50 = { #failure
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = -3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 					remove_short_term_gold = 50
+# 					add_prestige = minor_prestige_loss
+# 				}
+# 			}
+# 		}
+
+# 	}
+
+# 	option = {
+# 		name = agot_rebuilding_castle.2001.c
+# 		remove_short_term_gold = 50
+# 		if = {
+# 			limit = {
+# 				number_of_personality_traits < personality_trait_limit
+# 				NOT = {
+# 					has_trait = generous
+# 				}
+# 			}
+# 			random = {
+# 				chance = 10
+# 				add_trait = generous
+# 			}
+# 		}
+# 	}
+
+# 	after = {
+# 		hidden_effect = {
+# 			scope:agot_rebuilding_charcoal = {
+# 				death = { death_reason = death_vanished }
+# 			}
+# 		}
+# 	}
+# }
+
+# ####################################
+# # 		   Dark Pasts       	   #
+# #        ZombieSchrodCat		   #
+# #              2002  	           #
+# ####################################
+
+# agot_rebuilding_castle.2002 = { #start
+# 	type = character_event
+# 	title = agot_rebuilding_castle.2002.t
+# 	desc = agot_rebuilding_castle.2002.desc
+
+# 	theme = stewardship_domain_focus
+# 	override_background = {
+# 		event_background = dungeon
+# 	}
+
+# 	left_portrait = {
+# 		character = root
+# 		animation = shock
+# 	}
+
+# 	trigger = {
+# 		exists = scope:activity
+# 	}
+
+# 	option = {
+# 		name = agot_rebuilding_castle.2002.a
+# 		if = {
+# 			limit = {
+# 				OR = {
+# 					has_trait = just
+# 					has_trait = compassionate
+# 				}
+# 			}
+# 			add_stress = minor_stress_gain
+# 		}
+# 		add_prestige = medium_prestige_loss
+# 	}
+
+# 	option = {
+# 		name = agot_rebuilding_castle.2002.b
+# 		trigger = {
+# 			OR = {
+# 				has_trait = callous
+# 				has_trait = wrathful
+# 				has_trait = vengeful
+# 			}
+# 		}
+# 		add_dread = minor_dread_gain
+# 		add_stress = minor_stress_loss
+# 	}
+# }
+
+# ####################################
+# # 		   Buried Treasure     	   #
+# #        ZombieSchrodCat		   #
+# #              2003  	           #
+# ####################################
+
+# agot_rebuilding_castle.0003 = { #start
+# 	type = character_event
+# 	title = agot_rebuilding_castle.2003.t
+# 	desc = agot_rebuilding_castle.2003.desc
+
+# 	theme = stewardship_domain_focus
+# 	override_background = {
+# 		event_background = corridor_night
+# 	}
+
+# 	left_portrait = {
+# 		character = root
+# 		animation = happiness
+# 	}
+
+# 	trigger = {
+# 		exists = scope:activity
+# 	}
+
+# 	option = {
+# 		name = agot_rebuilding_castle.2003.a
+# 		add_gold = 50
+# 	}
+# }
+
+# ####################################
+# # 		   Wildling Attack  	   #
+# #        ZombieSchrodCat		   #
+# #              2004  	           #
+# ####################################
+
+# agot_rebuilding_castle.2004 = { #start
+# 	type = character_event
+# 	title = agot_rebuilding_castle.2004.t
+# 	desc = agot_rebuilding_castle.2004.desc
+
+# 	theme = stewardship_domain_focus
+# 	override_background = {
+# 		event_background = burning_building
+# 	}
+
+# 	right_portrait = {
+# 		character = root
+# 		animation = aggressive_sword
+# 	}
+
+# 	left_portrait = {
+# 		character = scope:agot_rebuilding_wildling_attack
+# 		animation = aggressive_axe
+# 	}
+
+# 	trigger = {
+# 		exists = scope:activity
+# 	}
+
+# 	immediate = {
+# 		create_character = {
+# 			location = root.capital_province
+# 			template = agot_wildling_character
+# 			gender = male
+# 			save_scope_as = agot_rebuilding_wildling_attack
+# 		}
+
+# 	}
+
+# 	option = { #
+# 		name = agot_rebuilding_castle.2004.a
+# 		duel = {
+# 			skill = martial
+# 			target = scope:agot_rebuilding_wildling_attack
+# 			50 = { #success
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = 3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 					add_prestige = minor_prestige_gain
+# 				}
+# 			}
+# 			50 = { #failure
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = -3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 					remove_short_term_gold = 100
+# 					add_prestige = minor_prestige_loss
+# 				}
+# 			}
+# 		}
+# 		hidden_effect = {
+# 			scope:agot_rebuilding_wildling_attack = {
+# 				death = { death_reason = death_vanished }
+# 			}
+# 		}
+# 	}
+
+# 	option = {
+# 		name = agot_rebuilding_castle.2004.b
+# 		duel = {
+# 			skill = prowess
+# 			target = scope:agot_rebuilding_wildling_attack
+# 			50 = { #success
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = 3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 					add_prestige = minor_prestige_gain
+# 					scope:agot_rebuilding_wildling_attack = {
+# 						death = { death_reason = death_attacked }
+# 					}
+# 				}
+# 			}
+# 			50 = { #failure
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = -3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 					remove_short_term_gold = 100
+# 					add_prestige = minor_prestige_loss
+# 				}
+# 			}
+# 		}
+
+# 	}
+
+# 	option = {
+# 		name = agot_rebuilding_castle.2004.c
+# 		remove_short_term_gold = 100
+# 		add_prestige = medium_prestige_loss
+# 		hidden_effect = {
+# 			scope:agot_rebuilding_wildling_attack = {
+# 				death = { death_reason = death_vanished }
+# 			}
+# 		}
+
+# 	}
+# }
+
+# ####################################
+# # 		   A Quick Decision  	   #
+# #        ZombieSchrodCat		   #
+# #              2005  	           #
+# ####################################
+
+# agot_rebuilding_castle.2005 = { #start
+# 	type = character_event
+# 	title = agot_rebuilding_castle.2005.t
+# 	desc = agot_rebuilding_castle.2005.desc
+
+# 	theme = stewardship_domain_focus
+# 	override_background = {
+# 		event_background = corridor_night
+# 	}
+
+# 	right_portrait = {
+# 		character = root
+# 		animation = paranoia
+# 	}
+
+# 	lower_center_portrait = {
+# 		character = scope:agot_rebuilding_block_head
+# 		animation = worry
+# 	}
+
+# 	trigger = {
+# 		exists = scope:activity
+# 	}
+
+# 	immediate = {
+# 		random_courtier = {
+# 			limit = {
+# 				is_adult = yes
+# 			}
+# 			save_scope_as = agot_rebuilding_block_head
+# 		}
+
+# 	}
+
+# 	option = { #
+# 		name = agot_rebuilding_castle.2005.a
+# 		custom_tooltip = agot_rebuilding_castle.2005.a.tt
+# 		add_piety = minor_piety_loss
+# 		scope:agot_rebuilding_block_head ={
+# 			random = {
+# 				chance = 25
+# 				increase_wounds_effect = { REASON = fall }
+# 			}
+# 		}
+# 	}
+
+# 	option = {
+# 		name = agot_rebuilding_castle.2005.b
+# 		custom_tooltip = agot_rebuilding_castle.2005.b.tt
+# 		add_prestige = minor_prestige_gain
+# 		add_piety = minor_piety_gain
+# 		random = {
+# 			chance = 25
+# 			increase_wounds_effect = { REASON = fall }
+# 		}
+# 		add_hook = {
+# 			target = scope:agot_rebuilding_block_head
+# 			type = favor_hook
+# 		}
+# 	}
+# }
+
+# ####################################
+# # 		   Old Habits, Die Hard	   #
+# #        ZombieSchrodCat		   #
+# #              2006  	           #
+# ####################################
+
+# agot_rebuilding_castle.2006 = { #start
+# 	type = character_event
+# 	title = agot_rebuilding_castle.2006.t
+# 	desc = agot_rebuilding_castle.2006.desc
+
+# 	theme = stewardship_domain_focus
+# 	override_background = {
+# 		event_background = corridor_night
+# 	}
+
+# 	right_portrait = {
+# 		character = scope:agot_rebuilding_noble_hostile
+# 		animation = anger
+# 	}
+
+# 	left_portrait = {
+# 		character = scope:agot_rebuilding_commoner_hostile
+# 		animation = anger
+# 	}
+
+# 	trigger = {
+# 		exists = scope:activity
+# 		root = {
+# 			any_courtier = {
+# 				is_adult = yes
+# 				has_dynasty = yes
+# 				NOT = {
+# 					has_trait = septon
+# 				}
+# 			}
+# 		}
+# 		root = {
+# 			any_courtier = {
+# 				is_adult = yes
+# 				has_dynasty = no
+# 				NOT = {
+# 					has_trait = septon
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	immediate = {
+# 		random_courtier = {
+# 			limit = {
+# 				is_adult = yes
+# 				has_dynasty = yes
+# 				NOT = {
+# 					has_trait = septon
+# 				}
+# 			}
+# 			save_scope_as = agot_rebuilding_noble_hostile
+# 		}
+# 		random_courtier = {
+# 			limit = {
+# 				is_adult = yes
+# 				has_dynasty = no
+# 				NOT = {
+# 					has_trait = septon
+# 				}
+# 			}
+# 			save_scope_as = agot_rebuilding_commoner_hostile
+# 		}
+# 	}
+
+# 	option = { #back the commoner
+# 		name = agot_rebuilding_castle.2006.a
+# 		reverse_add_opinion = {
+# 			modifier = insulted_opinion
+# 			target = scope:agot_rebuilding_noble_hostile
+# 			opinion = -20
+# 		}
+# 		reverse_add_opinion = {
+# 			modifier = grateful_opinion
+# 			target = scope:agot_rebuilding_commoner_hostile
+# 			opinion = 20
+# 		}
+# 	}
+
+# 	option = { #back the noble
+# 		name = agot_rebuilding_castle.2006.b
+# 		reverse_add_opinion = {
+# 			modifier = grateful_opinion
+# 			target = scope:agot_rebuilding_noble_hostile
+# 			opinion = 20
+# 		}
+# 		reverse_add_opinion = {
+# 			modifier = insulted_opinion
+# 			target = scope:agot_rebuilding_commoner_hostile
+# 			opinion = -20
+# 		}
+# 	}
+
+# 	option = { #
+# 		name = agot_rebuilding_castle.2006.c
+# 		remove_short_term_gold = 100
+# 		add_prestige = minor_prestige_gain
+# 		reverse_add_opinion = {
+# 			modifier = grateful_opinion
+# 			target = scope:agot_rebuilding_noble_hostile
+# 			opinion = 20
+# 		}
+# 		reverse_add_opinion = {
+# 			modifier = grateful_opinion
+# 			target = scope:agot_rebuilding_commoner_hostile
+# 			opinion = 20
+# 		}
+# 	}
+
+# 	option = { #
+# 		name = agot_rebuilding_castle.2006.d
+# 		add_dread = minor_dread_gain
+# 		reverse_add_opinion = {
+# 			modifier = insulted_opinion
+# 			target = scope:agot_rebuilding_noble_hostile
+# 			opinion = -20
+# 		}
+# 		reverse_add_opinion = {
+# 			modifier = insulted_opinion
+# 			target = scope:agot_rebuilding_commoner_hostile
+# 			opinion = -20
+# 		}
+# 	}
+# }
+
+# ####################################
+# # 		  Options Set in Stone	   #
+# #        ZombieSchrodCat		   #
+# #              2007  	           #
+# ####################################
+
+# agot_rebuilding_castle.2007 = { #start
+# 	type = character_event
+# 	title = agot_rebuilding_castle.2007.t
+# 	desc = agot_rebuilding_castle.2007.desc
+
+# 	theme = stewardship_domain_focus
+# 	override_background = {
+# 		event_background = corridor_night
+# 	}
+
+# 	right_portrait = {
+# 		character = root
+# 		animation = steward
+# 	}
+
+# 	trigger = {
+# 		exists = scope:activity
+# 	}
+
+# 	option = { #back the commoner
+# 		name = agot_rebuilding_castle.2007.a
+# 		remove_short_term_gold = 100
+# 		add_character_modifier = {
+# 			modifier = agot_rebuilding_new_stone
+# 			years = 5
+# 		}
+# 	}
+
+# 	option = {
+# 		name = agot_rebuilding_castle.2007.b
+# 	}
+
+# }
+
+# ####################################
+# # 		  In the Details    	   #
+# #        ZombieSchrodCat		   #
+# #              2008  	           #
+# ####################################
+
+# agot_rebuilding_castle.2008 = { #start
+# 	type = character_event
+# 	title = agot_rebuilding_castle.2008.t
+# 	desc = agot_rebuilding_castle.2008.desc
+
+# 	theme = stewardship_domain_focus
+# 	override_background = {
+# 		event_background = corridor_night
+# 	}
+
+# 	right_portrait = {
+# 		character = root
+# 		animation = throne_room_writer
+# 	}
+
+# 	trigger = {
+# 		exists = scope:activity
+# 	}
+
+# 	option = {
+# 		name = agot_rebuilding_castle.2008.a
+# 		add_prestige = minor_prestige_gain
+# 		add_character_modifier = {
+# 			modifier = agot_rebuilding_focused
+# 			years = 5
+# 		}
+# 		if = {
+# 			limit = {
+# 				number_of_personality_traits < personality_trait_limit
+# 				NOT = {
+# 					has_trait = diligent
+# 				}
+# 			}
+# 			random = {
+# 				chance = 10
+# 				add_trait = diligent
+# 			}
+# 		}
+# 	}
+
+# }
+
+# ## Yeet event when no one accepts invite
+# agot_rebuilding_castle.0999 = {
+# 	type = character_event
+# 	title = agot_rebuilding_castle.0999.t
+# 	desc = agot_rebuilding_castle.0999.desc
+# 	theme = stewardship_domain_focus
+# 	left_portrait = {
+# 		character = root
+# 		animation = stress
+# 	}
+
+# 	immediate = {
+# 		scope:activity = {
+# 			complete_activity = no
+# 		}
+# 	}
+
+# 	option = {
+# 		name = agot_rebuilding_castle.0999.a
+# 		stress_impact = {
+# 			base = minor_stress_impact_gain
+# 			diligent = minor_stress_impact_gain
+# 		}
+# 	}
+# }
+
+# ## End Events ## Host
+# agot_rebuilding_castle.9001 = {
+# 	type = character_event
+# 	title = feast_default.9001.t
+# 	desc = feast_default.9001.no_spouse
+
+# 	theme = feast_activity
+# 	left_portrait = {
+# 		character = root
+# 		animation = happiness
+# 	}
+
+# 	option = {
+# 		name = feast_default.9001.a
+# 	}
+
+# 	after = {
+# 		scope:activity = {
+# 			complete_activity = yes
+# 		}
+# 	}
+# }

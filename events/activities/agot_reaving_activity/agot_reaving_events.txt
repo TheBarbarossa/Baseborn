@@ -1,0 +1,3185 @@
+﻿#AGOT Reaving
+
+# namespace = agot_reaving
+
+
+# ################################
+# # TARGET SELECTION EVENTS
+# # 0001-0999
+# # Badger
+# ################################
+
+# # Player Selection Event
+# agot_reaving.0001 = {
+# 	type = character_event
+# 	title = agot_reaving.0001.t
+# 	desc = agot_reaving.0001.desc
+# 	theme = war
+# 	override_background = {
+# 		event_background = docks
+# 	}
+# 	left_portrait = {
+# 		character = root
+# 		animation = throne_room_one_handed_passive_2
+# 	}
+
+# 	immediate = {
+# 		# Stop characters from planning multiple activities at once.
+# 		add_character_flag = {
+# 			flag = planning_an_activity
+# 			days = 30
+# 		}
+# 	}
+
+# 	option = { #Disputed Lands are ripe for Pillage
+# 		name = agot_reaving.0001.a
+# 		set_variable = {
+# 			name = reaving_destination
+# 			value = flag:disputed_lands
+# 		}
+# 		agot_reaving_selection_event_option_effect = yes
+# 		custom_tooltip = short_pilgrimage_tt
+# 		agot_select_reaving_effect = {
+# 			REAVING_DISTANCE = short
+# 		}
+# 	}
+
+# 	option = { #Northern Essos shall suffer
+# 		name = agot_reaving.0001.b
+# 		set_variable = {
+# 			name = reaving_destination
+# 			value = flag:north_essos
+# 		}
+# 		agot_reaving_selection_event_option_effect = yes
+# 		custom_tooltip = long_pilgrimage_tt
+# 		agot_select_reaving_effect = {
+# 			REAVING_DISTANCE = long
+# 		}
+# 	}
+
+# 	option = {  #Lands of the Summer Sea are weak
+# 		name = agot_reaving.0001.c
+# 		set_variable = {
+# 			name = reaving_destination
+# 			value = flag:summer_sea
+# 		}
+# 		agot_reaving_selection_event_option_effect = yes
+# 		custom_tooltip = medium_pilgrimage_tt
+# 		agot_select_reaving_effect = {
+# 			REAVING_DISTANCE = medium
+# 		}
+# 	}
+
+# 	option = {  #Slaver's Bay has much plunder
+# 		name = agot_reaving.0001.d
+# 		set_variable = {
+# 			name = reaving_destination
+# 			value = flag:slavers_bay
+# 		}
+# 		agot_reaving_selection_event_option_effect = yes
+# 		custom_tooltip = very_long_pilgrimage_tt
+# 		agot_select_reaving_effect = {
+# 			REAVING_DISTANCE = very_long
+# 		}
+# 	}
+
+# 	option = { # On second thought, let us not go to Essos, 'tis a silly place
+# 		name = agot_reaving.0001.e
+
+# 		remove_decision_cooldown = agot_go_on_reaving_decision
+
+# 		remove_character_flag = planning_an_activity
+# 	}
+# }
+
+
+# # Double booked - cancellation event
+
+# agot_reaving.0010 = {
+# 	type = letter_event
+# 	opening = {
+# 		desc = agot_reaving.1002.opening
+# 	}
+# 	desc = agot_reaving.0010.desc
+# 	sender = scope:activity.activity_owner
+
+# 	immediate = {
+# 		var:booked_for_a_party = {
+# 			save_scope_as = other_host
+# 		}
+# 		scope:activity = {
+# 			decline_invitation_for_character = root
+# 		}
+# 		scope:activity.activity_owner = {
+# 			add_opinion = {
+# 				target = root
+# 				modifier = insult_opinion
+# 				opinion = -10
+# 			}
+# 		}
+# 	}
+
+# 	option = {
+# 		name = agot_reaving.0010.a
+
+# 	}
+# }
+
+
+# # AI Desitnation selection event
+# agot_reaving.0999 = {
+# 	hidden = yes
+
+# 	immediate = {
+# 		# Stop characters from planning multiple activities at once.
+# 		add_character_flag = {
+# 			flag = planning_an_activity
+# 			days = 30
+# 		}
+
+# 		if = {
+# 			# Instead of spawning an actual pilgrimage activity for barons, we just give them the pilgrim trait to save on processing power.
+# 			limit = {
+# 				primary_title.tier = tier_barony
+# 			}
+# 			remove_short_term_gold = pilgrimage_medium_extra_cost
+# 			add_trait = viking
+# 		}
+# 		else = {
+# 			set_up_holy_sites_for_selection_effect = yes
+# 			random_list = {
+# 				100 = {
+# 					holy_site_selection_event_option_effect = {
+# 						HOLY_SITE = scope:holy_site_1
+# 					}
+# 				}
+# 				100 = {
+# 					trigger = { exists = scope:holy_site_2 }
+# 					holy_site_selection_event_option_effect = {
+# 						HOLY_SITE = scope:holy_site_2
+# 					}
+# 				}
+# 				100 = {
+# 					trigger = { exists = scope:holy_site_3 }
+# 					holy_site_selection_event_option_effect = {
+# 						HOLY_SITE = scope:holy_site_3
+# 					}
+# 				}
+# 				100 = {
+# 					trigger = { exists = scope:holy_site_4 }
+# 					holy_site_selection_event_option_effect = {
+# 						HOLY_SITE = scope:holy_site_4
+# 					}
+# 				}
+# 				100 = {
+# 					trigger = { exists = scope:holy_site_5 }
+# 					holy_site_selection_event_option_effect = {
+# 						HOLY_SITE = scope:holy_site_5
+# 					}
+# 				}
+# 				100 = {
+# 					trigger = { exists = scope:holy_site_6 }
+# 					holy_site_selection_event_option_effect = {
+# 						HOLY_SITE = scope:holy_site_6
+# 					}
+# 				}
+# 				100 = {
+# 					trigger = { exists = scope:holy_site_7 }
+# 					holy_site_selection_event_option_effect = {
+# 						HOLY_SITE = scope:holy_site_7
+# 					}
+# 				}
+# 				100 = {
+# 					trigger = { exists = scope:holy_site_8 }
+# 					holy_site_selection_event_option_effect = {
+# 						HOLY_SITE = scope:holy_site_8
+# 					}
+# 				}
+# 				100 = {
+# 					trigger = { exists = scope:holy_site_9 }
+# 					holy_site_selection_event_option_effect = {
+# 						HOLY_SITE = scope:holy_site_9
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	after = {
+# 		remove_character_flag = planning_an_activity
+# 	}
+# }
+
+
+# ################################
+# # Invitation and Start Events
+# # 1001-1009
+# # Badger
+# ################################
+
+
+# agot_reaving.1001 = {
+# 	hidden = yes
+
+# 	immediate = {
+# 	#Give all participants start feast events
+# 		scope:activity_owner = {
+# 				reaving_setup_effect = yes
+# 		}
+# 		scope:activity = {
+# 			every_participant = {
+# 				if = { #You're busy at another party! (invites were sent the same day, but you agreed to another party after this one )
+# 					limit = {
+# 						exists = var:booked_for_a_party
+# 						var:booked_for_a_party = { NOT = { this = scope:activity.activity_owner } }
+# 					}
+# 					trigger_event = agot_reaving.0010
+# 				}
+# 			}
+# 		}
+# 	}
+# }
+
+# #Vassals
+# agot_reaving.1002 = {
+# 	type = letter_event
+# 	opening = {
+# 		desc = agot_reaving.1002.opening
+# 	}
+# 	desc = {
+# 		desc = agot_reaving.1002.opening_desc
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					reverse_opinion = {
+# 						target = scope:sender
+# 						value > 50
+# 					}
+# 				}
+# 				desc = agot_reaving.1002.host_likes_me
+# 			}
+# 			triggered_desc = {
+# 				trigger = {
+# 					reverse_opinion = {
+# 						target = scope:sender
+# 						value > -1
+# 					}
+# 				}
+# 				desc = agot_reaving.1002.host_gets_along_with_me
+# 			}
+# 			desc = agot_reaving.1002.host_dislikes_me
+# 		}
+# 	}
+# 	sender = scope:sender
+
+# 	trigger = {
+# 		is_available_for_activity_trigger = yes
+# 		exists = scope:activity.activity_owner
+# 		target_is_liege_or_above = scope:activity.activity_owner
+# 		NOT = { exists = var:is_handling_reaving_invitation }
+# 	}
+
+# 	on_trigger_fail = { #Trigger invitation again if it was blocked because the character was handling another invitation
+# 		if = {
+# 			limit = {
+# 				is_available_for_activity_trigger = yes
+# 				exists = var:is_handling_reaving_invitation
+# 			}
+# 			trigger_event = {
+# 				id =  agot_reaving.1002
+# 				days = 1
+# 			}
+# 		}
+# 	}
+
+# 	immediate = {
+# 		scope:activity.activity_owner = {
+# 			save_scope_as = sender
+# 		}
+# 		scope:activity.activity_province = {
+# 			barony = {
+# 				save_scope_as = barony
+# 			}
+# 		}
+# 		set_variable = {
+# 			name = is_handling_reaving_invitation
+# 			value = scope:sender
+# 			days = 20
+# 		}
+# 	}
+
+# 	option = {
+# 		name = agot_reaving.1002.a
+# 		trigger = {
+# 			opinion = {
+# 				target = liege
+# 				value >= 0
+# 			}
+# 		}
+# 		play_music_cue = mx_cue_banquet
+# 		scope:activity = {
+# 			accept_invitation_for_character = prev
+# 		}
+# 		set_variable = {
+# 			name = booked_for_a_party
+# 			value = scope:sender
+# 			days = 20
+# 		}
+# 		stress_impact = {
+# 			brave = minor_stress_loss
+# 			viking = minor_stress_loss
+# 		}
+# 		ai_chance = {
+# 			base = 100
+# 			opinion_modifier = {
+# 				opinion_target = scope:sender
+# 			}
+# 			ai_value_modifier = {
+# 				ai_boldness = 0.5
+# 				ai_vengefulness = 0.2
+# 			}
+# 		}
+# 	}
+
+# 	option = {
+# 		name = agot_reaving.1002.b
+# 		trigger = {
+# 			opinion = {
+# 				target = liege
+# 				value < 0
+# 			}
+# 		}
+# 		play_music_cue = mx_cue_banquet
+# 		scope:activity = {
+# 			accept_invitation_for_character = prev
+# 		}
+# 		set_variable = {
+# 			name = booked_for_a_party
+# 			value = scope:sender
+# 			days = 20
+# 		}
+# 		stress_impact = {
+# 			comfort_eater = minor_stress_loss
+# 			drunkard = minor_stress_loss
+# 		}
+# 		ai_chance = {
+# 			base = 100
+# 			opinion_modifier = {
+# 				opinion_target = scope:sender
+# 			}
+# 			ai_value_modifier = {
+# 				ai_boldness = 0.5
+# 				ai_vengefulness = 0.2
+# 			}
+# 		}
+# 	}
+
+# 	option = {
+# 		name = agot_reaving.1002.c
+# 		trigger = {
+# 			opinion = {
+# 				target = liege
+# 				value > -1
+# 			}
+# 		}
+# 		scope:activity = {
+# 			decline_invitation_for_character = prev
+# 		}
+# 		stress_impact = {
+# 			craven = minor_stress_loss
+# 		}
+# 		add_piety = minor_piety_loss
+# 		ai_chance = {
+# 			base = 10
+# 			modifier = {
+# 				add = 50
+# 				OR = {
+# 					has_trait = craven
+# 					prowess < low_skill_rating
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	option = {
+# 		name = agot_reaving.1002.d
+# 		trigger = {
+# 			opinion = {
+# 				target = liege
+# 				value < 0
+# 			}
+# 		}
+# 		scope:activity = {
+# 			decline_invitation_for_character = prev
+# 		}
+# 		stress_impact = {
+# 			craven = minor_stress_loss
+# 		}
+# 		add_piety = minor_piety_loss
+# 		ai_chance = {
+# 			base = 10
+# 			modifier = {
+# 				add = 50
+# 				OR = {
+# 					has_trait = craven
+# 					prowess < low_skill_rating
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	after = {
+# 		remove_variable = is_handling_reaving_invitation
+# 	}
+# }
+
+
+# #Liege
+# agot_reaving.1003 = {
+# 	type = letter_event
+# 	opening = {
+# 		desc = agot_reaving.1002.opening
+# 	}
+# 	desc = agot_reaving.1003.desc
+# 	sender = scope:sender
+
+# 	trigger = {
+# 		is_available_for_activity_trigger = yes
+# 		NOT = { exists = var:is_handling_reaving_invitation }
+# 		exists = scope:activity.activity_owner #In case the activity owner dies waiting...
+# 	}
+
+# 	on_trigger_fail = { #Trigger invitation again if it was blocked because the character was handling another invitation
+# 		if = {
+# 			limit = {
+# 				is_available_for_activity_trigger = yes
+# 				exists = var:is_handling_reaving_invitation
+# 			}
+# 			trigger_event = {
+# 				id = agot_reaving.1003
+# 				days = 1
+# 			}
+# 		}
+# 	}
+
+# 	immediate = {
+# 		scope:activity.activity_owner = {
+# 			save_scope_as = sender
+# 		}
+# 		scope:activity.activity_province = {
+# 			barony = {
+# 				save_scope_as = barony
+# 			}
+# 		}
+# 		set_variable = {
+# 			name = is_handling_reaving_invitation
+# 			value = scope:sender
+# 			days = 20
+# 		}
+# 	}
+
+# 	option = {
+# 		name = agot_reaving.1003.a
+# 		play_music_cue = mx_cue_banquet
+# 		scope:activity = {
+# 			accept_invitation_for_character = prev
+# 		}
+# 		set_variable = {
+# 			name = booked_for_a_party
+# 			value = scope:sender
+# 			days = 20
+# 		}
+# 		stress_impact = {
+# 			comfort_eater = minor_stress_loss
+# 			drunkard = minor_stress_loss
+# 		}
+# 		ai_chance = {
+# 			base = 100
+# 			opinion_modifier = {
+# 				opinion_target = scope:sender
+# 			}
+# 		}
+# 	}
+
+# 	option = {
+# 		name = agot_reaving.1003.b
+# 		ai_chance = {
+# 			base = 10
+# 			modifier = {
+# 				add = 15
+# 				target_is_liege_or_above = scope:sender
+# 			}
+# 			ai_value_modifier = {
+# 				ai_boldness = 0.2
+# 			}
+# 		}
+# 		scope:activity = {
+# 			decline_invitation_for_character = prev
+# 		}
+# 		stress_impact = {
+# 			inappetetic = minor_stress_loss
+# 			reclusive = minor_stress_loss
+# 		}
+# 	}
+
+# 	after = {
+# 		remove_variable = is_handling_reaving_invitation
+# 	}
+# }
+
+
+# #Other relations
+# agot_reaving.1004 = {
+# 	type = letter_event
+# 	opening = {
+# 		desc = agot_reaving.1002.opening
+# 	}
+# 	desc = agot_reaving.1004.desc
+# 	sender = scope:sender
+
+# 	trigger = {
+# 		is_available_for_activity_trigger = yes
+# 		NOT = { exists = var:is_handling_reaving_invitation }
+# 	}
+
+# 	on_trigger_fail = { #Trigger invitation again if it was blocked because the character was handling another invitation
+# 		if = {
+# 			limit = {
+# 				is_available_for_activity_trigger = yes
+# 				exists = var:is_handling_reaving_invitation
+# 			}
+# 			trigger_event = {
+# 				id = agot_reaving.1004
+# 				days = 1
+# 			}
+# 		}
+# 	}
+
+# 	immediate = {
+# 		scope:activity.activity_owner = {
+# 			save_scope_as = sender
+# 		}
+# 		scope:activity.activity_province = {
+# 			barony = {
+# 				save_scope_as = barony
+# 			}
+# 		}
+# 		set_variable = {
+# 			name = is_handling_reaving_invitation
+# 			value = scope:sender
+# 			days = 20
+# 		}
+# 	}
+
+# 	option = {
+# 		name = agot_reaving.1004.a
+# 		play_music_cue = mx_cue_banquet
+# 		scope:activity = {
+# 			accept_invitation_for_character = prev
+# 		}
+# 		set_variable = {
+# 			name = booked_for_a_party
+# 			value = scope:sender
+# 			days = 20
+# 		}
+# 		stress_impact = {
+# 			comfort_eater = minor_stress_loss
+# 			drunkard = minor_stress_loss
+# 		}
+# 		ai_chance = {
+# 			base = 100
+# 			opinion_modifier = {
+# 				opinion_target = scope:sender
+# 			}
+# 		}
+# 	}
+
+# 	option = {
+# 		name = agot_reaving.1004.b
+# 		scope:activity = {
+# 			decline_invitation_for_character = prev
+# 		}
+# 		stress_impact = {
+# 			inappetetic = minor_stress_loss
+# 			reclusive = minor_stress_loss
+# 		}
+# 		ai_chance = {
+# 			base = 10
+# 			modifier = {
+# 				add = 15
+# 				scope:sender = {
+# 					target_is_liege_or_above = scope:sender
+# 				}
+# 			}
+# 			ai_value_modifier = {
+# 				ai_boldness = 0.2
+# 			}
+# 		}
+# 	}
+
+# 	after = {
+# 		remove_variable = is_handling_reaving_invitation
+# 	}
+# }
+
+# agot_reaving.1008 = {
+# 	type = character_event
+# 	title = agot_reaving.1008.t
+# 	desc = {
+# 		desc = agot_reaving.1008.desc.opening
+# 		first_valid = {
+# 			#triggered_desc = {  For when Distance matters again
+# 			#	trigger = {
+# 			#		scope:activity.var:pilgrimage_distance >= very_long_pilgrimage_var
+# 			#	}
+# 			#	desc = agot_reaving.1008.desc.very_long
+# 			#}
+# 			#triggered_desc = {
+# 			#	trigger = {
+# 			#		scope:activity.var:pilgrimage_distance >= long_pilgrimage_var
+# 			#	}
+# 			#	desc = agot_reaving.1008.desc.long
+# 			#}
+# 			#triggered_desc = {
+# 			#	trigger = {
+# 			#		scope:activity.var:pilgrimage_distance >= medium_pilgrimage_var
+# 			#	}
+# 			#	desc = agot_reaving.1008.desc.medium
+# 			#}
+# 			desc = agot_reaving.1008.desc.short
+# 		}
+# 	}
+# 	trigger = {
+# 		this = scope:activity.activity_owner
+# 	}
+# 	theme = reaving
+# 	override_background = {
+# 		event_background = fp1_beached_longships
+# 	}
+
+# 	left_portrait = {
+# 		character = root
+# 		animation = throne_room_one_handed_passive_2
+# 	}
+
+# 	weight_multiplier = {
+# 		base = 1
+# 	}
+
+# 	option = {
+# 		name = agot_reaving.1008.a
+# 	}
+
+# 	after = {
+# 		hidden_effect = {
+# 			agot_set_up_next_reaving_event_effect = yes
+# 		}
+# 	}
+
+# 	immediate = {
+# 		play_music_cue = "mx_cue_epic_sacral_moment"
+# 	}
+
+# }
+
+# agot_reaving.1009 = {
+# 	type = character_event
+# 	title = agot_reaving.1009.t
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					OR = {
+# 						has_relation_rival = scope:activity.activity_owner
+# 					}
+# 					reverse_opinion = {
+# 						target = scope:activity.activity_owner
+# 						value < -40
+# 					}
+# 				}
+# 				desc = agot_reaving.1009.dislikes_host
+# 			}
+# 			desc = agot_reaving.1009.likes_host
+# 		}
+# 	}
+
+# 	trigger = {
+# 		# Guests only.
+# 		NOT = { this = scope:activity.activity_owner }
+# 	}
+
+# 	theme = reaving
+# 	override_background = {
+# 		event_background = fp1_beached_longships
+# 	}
+
+# 	left_portrait = {
+# 		character = scope:activity.activity_owner
+# 		animation = throne_room_one_handed_passive_2
+# 	}
+
+# 	right_portrait = {
+# 		character = root
+# 		animation = throne_room_one_handed_passive_2
+# 	}
+
+# 	immediate = {
+# 		play_music_cue = mx_cue_banquet
+# 	}
+
+# 	option = {
+# 		name = {
+# 			trigger = { has_trait = gluttonous }
+# 			text = feast.2501.a.gluttonous
+# 		}
+# 		name = {
+# 			trigger = { has_trait = drunkard }
+# 			text = feast.2501.a.drunkard
+# 		}
+# 		name = {
+# 			trigger = { has_trait = gregarious }
+# 			text = feast.2501.a.gregarious
+# 		}
+# 		name = {
+# 			trigger = { has_trait = shy }
+# 			text = feast.2501.a.shy
+# 		}
+# 		name = {
+# 			text = feast.2501.a
+# 		}
+# 	}
+
+# 	option = {
+# 		trigger = {
+# 			opinion = {
+# 				target = scope:activity.activity_owner
+# 				value < 0
+# 			}
+# 		}
+# 		exclusive = yes
+# 		name = agot_reaving.1009.b
+# 	}
+
+# 	after = {
+# 		hidden_effect = {
+# 			agot_set_up_next_reaving_event_effect = yes
+# 		}
+# 	}
+# }
+
+# ################################
+# # General Reaving Host Events
+# # 1010- 1999
+# # by Badger
+# ################################
+
+
+
+
+# ################################
+# # General Reaving Participants Events
+# # 2000 - 2999
+# # by Badger
+# ################################
+
+
+# ### Finger Dance Example
+# # by Badger
+# #  agot_reaving.2001 = {
+# # 	type = character_event
+# # 	title = agot_reaving.2001.t
+# # 	desc = agot_reaving.2001.desc
+# # 	theme = reaving
+# # 	override_background = {
+# # 		event_background = fp1_beached_longships
+# # 	}
+
+# # 	left_portrait = {
+# # 		character = root
+# # 		triggered_animation = {
+# # 			trigger = { ai_boldness > 0 }
+# # 			animation = anger
+# # 		}
+# # 		triggered_animation = {
+# # 			trigger = { ai_boldness <= 0 }
+# # 			animation = fear
+# # 		}
+# # 	}
+
+# # 	right_portrait = {
+# # 		character = scope:fingerdancer
+# # 		animation = fear
+# # 	}
+
+# # 	trigger = {
+# # 		exists = scope:activity
+# # 		#NOT = {
+# # 		#	exists = scope:activity.var:had_pilgrimage_2001
+# # 		#}
+# # 	}
+
+# # 	immediate = {
+# # 	#	scope:activity = {
+# # 	#		set_variable = {
+# # 	#			name = had_pilgrimage_2001
+# # 	#			value = yes
+# # 	#		}
+# # 	#	}
+# # 		scope:activity = {
+# # 			random_participant = {
+# # 				limit = {
+# # 					reaving_participant_trigger = yes
+# # 				}
+# # 				weight = {
+# # 					base = 5
+# # 					modifier = {
+# # 						add = 10
+# # 						is_of_major_interest_to_root_trigger = yes
+# # 					}
+# # 					modifier = {
+# # 						add = 15
+# # 						is_of_minor_interest_to_root_trigger = yes
+# # 					}
+# # 					modifier = {
+# # 						has_trait = brave
+# # 						add = 10
+# # 					}
+# # 				}
+# # 				save_scope_as = fingerdancer
+# # 			}
+# # 		}
+# # 		play_music_cue = "mx_cue_combat_stinger"
+# # 		hidden_effect = {
+# # 			if = {
+# # 				limit = {
+# # 					NOT = { has_trait = blademaster_3 }
+# # 				}
+# # 				random = {
+# # 					chance = 25
+# # 					save_scope_value_as = {
+# # 						name = increase_blademaster
+# # 						value = yes
+# # 					}
+# # 				}
+# # 			}
+# # 		}
+# # 	}
+
+# # 	option = { # Fight back
+# # 		name = pilgrimage.2001.a
+# # 		duel = {
+# # 			skill = prowess
+# # 			value = average_skill_rating
+# # 			15 = {
+# # 				desc = pilgrimage.2001.a.success
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = 0.5
+# # 					min = -14
+# # 				}
+# # 				send_interface_toast = {
+# # 					title = pilgrimage.2001.a.success_title
+# # 					left_icon = root
+# # 					add_prestige = minor_prestige_gain
+# # 					if = {
+# # 						limit = { exists = scope:increase_blademaster }
+# # 						change_trait_rank = {
+# # 							trait = lifestyle_blademaster
+# # 							rank = 1
+# # 						}
+# # 					}
+# # 				}
+# # 			}
+# # 			10 = {
+# # 				desc = pilgrimage.2001.a.failure
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = -0.5
+# # 					min = -9
+# # 				}
+# # 				send_interface_toast = {
+# # 					title = pilgrimage.2001.a.failure_title
+# # 					left_icon = root
+# # 					increase_wounds_effect = {
+# # 						REASON = pilgrimage_bandit_attack
+# # 					}
+# # 				}
+# # 			}
+# # 		}
+# # 		stress_impact = {
+# # 			craven = major_stress_impact_gain
+# # 		}
+# # 		ai_chance = {
+# # 			base = 100
+# # 			ai_value_modifier = {
+# # 				ai_boldness = 0.5
+# # 				ai_honor = 1
+# # 			}
+# # 			compare_modifier = { # Consider your Prowess
+# # 				trigger = {
+# # 					prowess > average_skill_rating
+# # 				}
+# # 				value = prowess
+# # 				multiplier = 10
+# # 			}
+# # 		}
+# # 	}
+
+# # 	option = { # Try to hide!
+# # 		name = pilgrimage.2001.b
+# # 		add_prestige = minor_prestige_loss
+# # 		duel = {
+# # 			skill = intrigue
+# # 			value = average_skill_rating
+# # 			15 = {
+# # 				desc = pilgrimage.2001.b.success
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = 0.5
+# # 					min = -14
+# # 				}
+# # 				send_interface_toast = {
+# # 					title = pilgrimage.2001.b.success_title
+# # 					left_icon = root
+# # 					custom_tooltip = pilgrimage.2001.b.success_tt
+# # 				}
+# # 			}
+# # 			10 = {
+# # 				desc = pilgrimage.2001.b.failure
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = -0.5
+# # 					min = -9
+# # 				}
+# # 				send_interface_toast = {
+# # 					title = pilgrimage.2001.b.failure_title
+# # 					left_icon = root
+# # 					increase_wounds_effect = {
+# # 						REASON = pilgrimage_bandit_attack
+# # 					}
+# # 				}
+# # 			}
+# # 		}
+# # 		stress_impact = {
+# # 			brave = major_stress_impact_gain
+# # 		}
+# # 		if = {
+# # 			limit = {
+# # 				faith = {
+# # 					trait_is_sin = craven
+# # 				}
+# # 			}
+# # 			add_piety = medium_piety_loss
+# # 		}
+# # 		ai_chance = {
+# # 			base = 100
+# # 			ai_value_modifier = {
+# # 				ai_rationality = 0.5
+# # 				ai_boldness = -0.5
+# # 				ai_honor = -1
+# # 			}
+# # 			compare_modifier = { # Consider your Intrigue
+# # 				trigger = {
+# # 					intrigue > average_skill_rating
+# # 				}
+# # 				value = intrigue
+# # 				multiplier = 10
+# # 			}
+# # 		}
+# # 	}
+
+# # 	option = { # Let them have whatever they want
+# # 		name = pilgrimage.2001.c
+# # 		add_prestige = minor_prestige_loss
+# # 		remove_short_term_gold = medium_gold_value
+# # 		stress_impact = {
+# # 			greedy = medium_stress_impact_gain
+# # 			brave = medium_stress_impact_gain
+# # 		}
+# # 		ai_chance = {
+# # 			base = 100
+# # 			ai_value_modifier = {
+# # 				ai_greed = -1
+# # 				ai_boldness = -0.5
+# # 			}
+# # 		}
+# # 	}
+
+# # 	after = {
+# # 		if = {
+# # 			limit = { exists = scope:increase_blademaster }
+# # 			clear_saved_scope = increase_blademaster
+# # 		}
+# # 		agot_set_up_next_reaving_event_effect = yes
+# # 	}
+# # }
+
+# ####################################
+# # 	Crippled Ship: Cannibal		   #
+# #        ZombieSchrodCat		   #
+# ####################################
+
+# agot_reaving.2002 = { #starved- cannibal
+# 	type = character_event
+# 	title = agot_reaving.2002.t
+# 	desc = agot_reaving.2002.desc
+
+# 	theme = reaving
+# 	override_background = {
+# 		event_background = AGOT_ocean_no_sound
+# 	}
+
+# 	left_portrait = {
+# 		character = root
+# 		triggered_animation = {
+# 			trigger = { ai_boldness > 0 }
+# 			animation = anger
+# 		}
+# 		triggered_animation = {
+# 			trigger = { always = yes }
+# 			animation = shock
+# 		}
+# 	}
+
+# 	right_portrait = {
+# 		character = scope:agot_crippled_ship_cannibal
+# 		animation = aggressive_sword
+# 	}
+
+# 	immediate = {
+# 		hidden_effect = {
+# 			create_character = {
+# 				location = root.capital_province
+# 				age = { 20 30 }
+# 				template = agot_pirate_character
+# 				trait = cannibal
+# 				trait = lunatic_1
+# 				trait = weak
+# 				dynasty = none
+# 				save_scope_as = agot_crippled_ship_cannibal
+# 			}
+# 			scope:agot_crippled_ship_cannibal = {
+# 				add_character_flag = single_combat_stripped_to_waist
+# 			}
+
+# 		}
+# 	}
+
+# 	option = {#attack!
+# 		name = agot_reaving.2002.a
+# 		custom_tooltip = agot_reaving.2002.a.tt
+# 		if = {
+# 			limit = {
+# 				number_of_personality_traits < personality_trait_limit
+# 				NOT = {
+# 					has_trait = brave
+# 				}
+# 			}
+# 			random = {
+# 				chance = 10
+# 				add_trait = brave
+# 			}
+# 		}
+# 			duel = {
+# 			skill = prowess
+# 			target = scope:agot_crippled_ship_cannibal
+# 			50 = { #success
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = 3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 				title = agot_reaving.2002.a.success_title
+# 					add_prestige = minor_prestige_gain
+# 					add_gold = 50
+# 					scope:agot_crippled_ship_cannibal = {
+# 						death = {
+# 							death_reason = death_execution
+# 							killer = root
+# 						}
+# 					}
+# 				}
+# 				hidden_effect = {
+# 					agot_viking_points_gain_effect = {
+# 						CHANGE = 1
+# 						RANDOM_CHANGE = 1
+# 					}
+# 				}
+# 			}
+# 			50 = { #failure
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = -3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 				title = agot_reaving.2002.a.failure_title
+# 					add_stress = minor_stress_gain
+# 					add_prestige = minor_prestige_loss
+# 					if = {
+# 						limit = {
+# 							NOT = {
+# 								OR = {
+# 									has_trait = wounded_1
+# 									has_trait = wounded_2
+# 									has_trait = wounded_3
+# 									has_trait = maimed
+# 								}
+# 							}
+# 						}
+# 						random = {
+# 							chance = 25
+# 							add_trait = wounded_1
+# 						}
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	option = {#flee
+# 		name = agot_reaving.2002.b
+# 		custom_tooltip = agot_reaving.2002.b.tt
+# 		add_prestige = minor_prestige_loss
+# 		if = {
+# 			limit = {
+# 				number_of_personality_traits < personality_trait_limit
+# 				NOT = {
+# 					has_trait = craven
+# 				}
+# 			}
+# 			random = {
+# 				chance = 5
+# 				add_trait = craven
+# 			}
+# 		}
+# 	}
+
+# 	after = {
+# 		hidden_effect = {
+# 			agot_set_up_next_reaving_event_effect = yes
+# 		}
+# 	}
+# }
+
+# ####################################
+# # 	Crippled Ship: Captains Gamble #
+# #        ZombieSchrodCat		   #
+# ####################################
+
+# agot_reaving.2003 = { #crippled ship - a captains dual
+# 	type = character_event
+# 	title = agot_reaving.2003.t
+# 	desc = agot_reaving.2003.desc
+
+# 	theme = reaving
+# 	override_background = {
+# 		event_background = AGOT_ocean_no_sound
+# 	}
+
+# 	left_portrait = {
+# 		character = root
+# 		animation = personality_dishonorable
+# 	}
+
+# 	right_portrait = {
+# 		character = scope:agot_crippled_ship_captain
+# 		animation = personality_callous
+# 	}
+
+# 	immediate = {
+# 		hidden_effect = {
+# 			create_character = {
+# 				location = root.capital_province
+# 				age = { 20 30 }
+# 				template = agot_pirate_character
+# 				gender_female_chance = 0
+# 				trait = blademaster_2
+# 				trait = just
+# 				trait = weak
+# 				save_scope_as = agot_crippled_ship_captain
+# 			}
+# 		}
+# 	}
+
+# 	option = {#attack!
+# 		name = agot_reaving.2003.a
+# 		custom_tooltip = agot_reaving.2003.a.tt
+# 		duel = {
+# 			skill = prowess
+# 			target = scope:agot_crippled_ship_captain
+# 			50 = { #success
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = 3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 				title = agot_reaving.2003.a.success_title
+# 					add_prestige = minor_prestige_gain
+# 					add_gold = 50
+# 				}
+# 				hidden_effect = {
+# 					agot_viking_points_gain_effect = {
+# 						CHANGE = 1
+# 						RANDOM_CHANGE = 1
+# 					}
+# 				}
+# 			}
+# 			50 = { #failure
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = -3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 				title = agot_reaving.2003.a.failure_title
+# 					add_stress = minor_stress_gain
+# 					add_prestige = minor_prestige_loss
+# 					remove_short_term_gold = 50
+# 					if = {
+# 						limit = {
+# 							NOT = {
+# 								OR = {
+# 									has_trait = wounded_1
+# 									has_trait = wounded_2
+# 									has_trait = wounded_3
+# 									has_trait = maimed
+# 								}
+# 							}
+# 						}
+# 						random = {
+# 							chance = 25
+# 							add_trait = wounded_1
+# 						}
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	option = {#Dice!
+# 		name = agot_reaving.2003.b
+# 		custom_tooltip = agot_reaving.2003.b.tt
+# 		duel = {
+# 			skill = intrigue
+# 			target = scope:agot_crippled_ship_captain
+# 			50 = { #success
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = 3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 				title = agot_reaving.2003.b.success_title
+# 					add_prestige = minor_prestige_gain
+# 					add_gold = 50
+# 				}
+# 			}
+# 			50 = { #failure
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = -3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 				title = agot_reaving.2003.b.failure_title
+# 					add_stress = minor_stress_gain
+# 					add_prestige = minor_prestige_loss
+# 					remove_short_term_gold = 50
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	option = {
+# 		name = agot_reaving.2003.c
+# 		add_piety = medium_piety_gain
+# 		add_prestige = medium_prestige_loss
+# 		remove_short_term_gold = 50
+# 	}
+
+# 	after = {
+# 		hidden_effect = {
+# 			agot_set_up_next_reaving_event_effect = yes
+# 		}
+# 	}
+# }
+
+# ####################################
+# # 	Crippled Ship: Ironborn        #
+# #        ZombieSchrodCat		   #
+# ####################################
+
+# agot_reaving.2004 = { #crippled ship - Ironborn
+# 	type = character_event
+# 	title = agot_reaving.2004.t
+# 	desc = agot_reaving.2004.desc
+
+# 	theme = reaving
+# 	override_background = {
+# 		event_background = AGOT_ocean_no_sound
+# 	}
+
+# 	left_portrait = {
+# 		character = root
+# 		animation = worry
+# 	}
+# 	right_portrait = {
+# 		character = scope:captain
+# 		animation = pain
+# 	}
+
+# 	immediate = {
+# 		create_character = {
+# 			location = root.capital_province
+# 			template = agot_pirate_character_leader
+# 			faith = root.faith
+# 			culture = root.culture
+# 			save_scope_as = captain
+# 			}
+#  		}
+
+# 	option = { #give supplies
+# 		name = agot_reaving.2004.a
+# 		custom_tooltip = agot_reaving.2004.a.tt
+# 		trigger = {
+# 			NOT = {
+# 				OR = {
+# 					has_trait = greedy
+# 					has_trait = callous
+# 				}
+# 			}
+# 		}
+# 		remove_short_term_gold = 50
+# 		add_piety = medium_piety_gain
+# 		recruit_courtier = scope:captain
+# 	}
+
+# 	option = { #give nothing
+# 		name = agot_reaving.2004.b
+# 		custom_tooltip = agot_reaving.2004.b.tt
+# 		add_piety = medium_piety_loss
+# 		if = {
+# 			limit = {
+# 				NOT = {
+# 					has_trait = greedy
+# 				}
+# 			number_of_personality_traits < personality_trait_limit
+# 			}
+# 			random = {
+# 				chance = 10
+# 				add_trait = greedy
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				NOT = {
+# 					has_trait = callous
+# 				}
+# 			number_of_personality_traits < personality_trait_limit
+# 			}
+# 			random = {
+# 				chance = 10
+# 				add_trait = callous
+# 			}
+# 		}
+# 		hidden_effect = {
+# 			scope:captain = {
+# 				death = {
+# 					death_reason = death_vanished #Ripperoni
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	after = {
+# 		hidden_effect = {
+# 			agot_set_up_next_reaving_event_effect = yes
+# 		}
+# 	}
+# }
+
+# ####################################
+# # 		    Empty Village  		   #
+# #        ZombieSchrodCat		   #
+# ####################################
+
+# agot_reaving.2005 = { #start
+# 	type = character_event
+# 	title = agot_reaving.2005.t
+# 	desc = agot_reaving.2005.desc
+
+# 	theme = reaving
+# 	override_background = {
+# 		event_background = AGOT_rowboat_night
+# 	}
+
+# 	left_portrait = {
+# 		character = root
+# 		animation = aggressive_sword
+# 	}
+
+# 	trigger = {
+# 		exists = scope:activity
+# 	}
+
+# 	option = { #loot
+# 		name = agot_reaving.2005.a
+# 		custom_tooltip =  agot_reaving.2005.b.tt
+# 		random_list = {
+# 			30 = {
+# 				add_gold = 10
+# 			}
+# 			50 = {
+# 				add_gold = 20
+# 			}
+# 			20 = {
+# 				add_gold = 50
+# 			}
+# 			10 = {
+# 				add_gold = 100
+# 			}
+# 		}
+# 		random = {
+# 			chance = 5
+# 			add_stress = medium_stress_gain
+# 			add_trait = greyscale
+# 		}
+# 		hidden_effect = {
+# 			agot_viking_points_gain_effect = {
+# 				CHANGE = 1
+# 				RANDOM_CHANGE = 1
+# 			}
+# 		}
+# 	}
+
+# 	option = { #not worth the risk
+# 		name = agot_reaving.2005.b
+# 		custom_tooltip =  agot_reaving.2005.b.tt
+# 		add_prestige = minor_prestige_loss
+# 		add_piety = minor_piety_loss
+# 	}
+
+# 	after = {
+# 		hidden_effect = {
+# 			agot_set_up_next_reaving_event_effect = yes
+# 		}
+# 	}
+# }
+
+
+# ####################################
+# #     Village: The Sacrifice  	   #
+# #        ZombieSchrodCat		   #
+# ####################################
+
+# agot_reaving.2006 = { #start
+# 	type = character_event
+# 	title = agot_reaving.2006.t
+# 	desc = agot_reaving.2006.desc
+
+# 	theme = reaving
+# 	override_background = {
+# 		event_background = AGOT_rowboat_night
+# 	}
+
+# 	left_portrait = {
+# 		character = root
+# 		animation = aggressive_sword
+# 	}
+
+# 	lower_center_portrait = {
+# 		character = scope:agot_sacrifice_woman
+# 		animation = fear
+# 	}
+
+# 	lower_right_portrait = {
+# 		character = scope:agot_sacrifice_fighter
+# 		animation = anger
+# 	}
+
+# 	trigger = {
+# 		exists = scope:activity
+# 	}
+
+# 	immediate = {
+# 		hidden_effect = {
+# 			create_character = {
+# 				location = root.capital_province
+# 				age = { 20 30 }
+# 				template = lyse_beauty_character
+# 				gender_female_chance = 100
+# 				dynasty = no
+# 				save_scope_as = agot_sacrifice_woman
+# 			}
+# 			create_character = {
+# 				location = root.capital_province
+# 				age = { 20 30 }
+# 				dynasty = no
+# 				template = agot_red_warrior_character
+# 				save_scope_as = agot_sacrifice_fighter
+# 			}
+# 		}
+# 	}
+
+
+# 	option = { #loot
+# 		name = agot_reaving.2006.a
+# 		custom_tooltip =  agot_reaving.2006.a.tt
+# 		random_list = {
+# 			30 = {
+# 				add_gold = 20
+# 			}
+# 			50 = {
+# 				add_gold = 35
+# 			}
+# 			20 = {
+# 				add_gold = 50
+# 			}
+# 			10 = {
+# 				add_gold = 100
+# 			}
+# 		}
+# 		hidden_effect = {
+# 			scope:agot_sacrifice_woman = {
+# 				death = {
+# 					death_reason = death_burned
+# 					killer = scope:agot_sacrifice_fighter
+# 						}
+# 					}
+# 					agot_viking_points_gain_effect = {
+# 						CHANGE = 1
+# 						RANDOM_CHANGE = 1
+# 					}
+# 			scope:agot_sacrifice_fighter = {
+# 				death = {
+# 					death_reason = death_vanished
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	option = { #salt-wife
+# 		name = agot_reaving.2006.b
+# 		custom_tooltip =  agot_reaving.2006.b.tt
+# 		duel = {
+# 			skill = prowess
+# 			target = scope:agot_sacrifice_fighter
+# 			50 = { #success
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = 3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 				title = agot_reaving.2006.b.success_title
+# 					add_prestige = minor_prestige_gain
+# 					scope:agot_sacrifice_fighter = {
+# 						death = {
+# 							death_reason = death_battle
+# 							killer = root
+# 						}
+# 					}
+# 					reverse_add_opinion = {
+# 						target = scope:agot_sacrifice_woman
+# 						modifier = fp1_saved_me_from_the_mob_opinion
+# 						opinion = 100
+
+# 					}
+# 					if = {
+# 						limit = {
+# 							allowed_concubines = yes
+# 							number_of_concubines < 3
+# 						}
+# 						make_concubine = scope:agot_sacrifice_woman
+# 					}
+# 					else = {
+# 						root = {
+# 							recruit_courtier = scope:agot_sacrifice_woman
+# 						}
+# 					}
+# 				}
+# 				hidden_effect = {
+# 					agot_viking_points_gain_effect = {
+# 						CHANGE = 1
+# 						RANDOM_CHANGE = 1
+# 					}
+# 				}
+# 			}
+# 			50 = { #failure
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = -3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 				title = agot_reaving.2006.b.failure_title
+# 					add_stress = minor_stress_gain
+# 					add_prestige = minor_prestige_loss
+# 					if = {
+# 						limit = {
+# 							NOT = {
+# 								OR = {
+# 									has_trait = wounded_1
+# 									has_trait = wounded_2
+# 									has_trait = wounded_3
+# 									has_trait = maimed
+# 								}
+# 							}
+# 						}
+# 						random = {
+# 							chance = 25
+# 							add_trait = wounded_1
+# 						}
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	after = {
+# 		hidden_effect = {
+# 			agot_set_up_next_reaving_event_effect = yes
+# 		}
+# 	}
+# }
+
+# ####################################
+# #     		Leviathan 	           #
+# #        ZombieSchrodCat		   #
+# ####################################
+
+# agot_reaving.2007 = {
+# 	type = character_event
+# 	title = agot_reaving.2007.t
+# 	desc = agot_reaving.2007.desc
+
+# 	theme = reaving
+# 	override_background = {
+# 		event_background = AGOT_ocean_no_sound
+# 	}
+
+# 	right_portrait = {
+# 		character = root
+# 		animation = aggressive_spear
+# 	}
+
+# 	option = { #it's following us
+# 		name = agot_reaving.2007.a
+# 		custom_tooltip = agot_reaving.2007.a.tt
+# 		random_list = {
+# 			5 = {
+# 				add_trait = wounded_2
+# 				add_prestige = medium_prestige_gain
+# 			}
+# 			20 = {
+# 				add_trait = wounded_1
+# 				add_prestige = medium_prestige_gain
+# 			}
+# 			75 = {
+# 				add_prestige = medium_prestige_gain
+# 			}
+# 		}
+# 	}
+
+# 	after = {
+# 		hidden_effect = {
+# 			agot_set_up_next_reaving_event_effect = yes
+# 		}
+# 	}
+# }
+
+# ####################################
+# #     Pursuit:Ibbenese    		   #
+# #        ZombieSchrodCat		   #
+# ####################################
+
+# agot_reaving.2008 = { #start
+# 	type = character_event
+# 	title = agot_reaving.2008.t
+# 	desc = agot_reaving.2008.desc
+
+# 	theme = reaving
+# 	override_background = {
+# 		event_background = AGOT_ocean_no_sound
+# 	}
+
+# 	left_portrait = {
+# 		character = root
+# 		animation = disgust
+# 	}
+
+# 	trigger = {
+# 		exists = scope:activity
+# 	}
+
+# 	option = { #attack ship
+# 		name = agot_reaving.2008.a
+# 		custom_tooltip = agot_reaving.2008.a.tt
+# 		random_list = {
+# 			30 = {
+# 				add_gold = 10
+# 			}
+# 			50 = {
+# 				add_gold = 20
+# 			}
+# 			20 = {
+# 				add_gold = 50
+# 			}
+# 			10 = {
+# 			add_gold = 100
+# 			}
+# 		}
+# 		random = {
+# 			chance = 5
+# 			add_character_modifier = {
+# 			modifier = agot_smell_bad
+# 			months = 3
+# 			}
+# 		}
+# 		hidden_effect = {
+# 			agot_viking_points_gain_effect = {
+# 				CHANGE = 1
+# 				RANDOM_CHANGE = 1
+# 			}
+# 		}
+# 	}
+
+# 	option = { #let ship go
+# 		name = agot_reaving.2008.b
+# 		custom_tooltip = agot_reaving.2008.b.tt
+# 		add_prestige = minor_prestige_loss
+# 	}
+
+# 	after = {
+# 		hidden_effect = {
+# 			agot_set_up_next_reaving_event_effect = yes
+# 		}
+# 	}
+# }
+
+# ####################################
+# # 		    No Wind     		   #
+# #        ZombieSchrodCat		   #
+# ####################################
+
+# agot_reaving.2009 = { #start
+# 	type = character_event
+# 	title = agot_reaving.2009.t
+# 	desc = agot_reaving.2009.desc
+
+# 	theme = reaving
+# 	override_background = {
+# 		event_background = AGOT_ocean_no_sound
+# 	}
+
+# 	left_portrait = {
+# 		character = root
+# 		animation = boredom
+# 	}
+
+# 	lower_center_portrait = {
+# 		character = scope:agot_windless
+# 		animation = happiness
+# 	}
+
+# 	trigger = {
+# 		exists = scope:activity
+# 	}
+
+# 	immediate = {
+# 		scope:activity = {
+# 			random_participant = {
+# 				limit = {
+# 					reaving_participant_trigger = yes
+# 				}
+# 				weight = {
+# 					base = 5
+# 					modifier = {
+# 						add = 10
+# 						is_of_major_interest_to_root_trigger = yes
+# 					}
+# 					modifier = {
+# 						add = 15
+# 						is_of_minor_interest_to_root_trigger = yes
+# 					}
+# 					modifier = {
+# 						has_trait = brave
+# 						add = 10
+# 					}
+# 				}
+# 				save_scope_as = agot_windless
+# 			}
+# 		}
+
+# 	}
+
+# 	option = { #row
+# 		name = agot_reaving.2009.a
+# 		random_list = {
+# 			80 = {
+# 				add_stress = minor_stress_gain
+# 			}
+# 			10 = {
+# 				add_trait = strong
+# 				add_stress = medium_stress_loss
+# 			}
+# 			10 = {
+# 				add_trait = athletic
+# 				add_stress = medium_stress_loss
+# 			}
+# 		}
+# 	}
+
+# 	option = { #finger dance
+# 		name = agot_reaving.2009.b
+# 		duel = {
+# 			skill = prowess
+# 			target = scope:agot_windless
+# 			50 = { #success
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = 3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 					add_prestige = minor_prestige_gain
+# 					add_stress = minor_stress_loss
+# 					reverse_add_opinion = {
+# 						modifier = grateful_opinion
+# 						target = scope:agot_windless
+# 						opinion = 15
+# 					}
+# 				}
+# 			}
+# 			50 = { #failure
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = -3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 					random_list = {
+# 						10 = {
+# 							add_trait = wounded_1
+# 							add_stress = minor_stress_gain
+# 							add_prestige = minor_prestige_loss
+# 						}
+# 						90 = {
+# 							add_stress = minor_stress_loss
+# 							add_prestige = minor_prestige_loss
+# 						}
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	option = { #gamble with men
+# 		name = agot_reaving.2009.c
+# 		duel = {
+# 			skill = intrigue
+# 			target = scope:agot_windless
+# 			50 = { #success
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = 3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 					add_stress = minor_stress_loss
+# 					random_list = {
+# 						30 = {
+# 							add_gold = 5
+# 						}
+# 						50 = {
+# 							add_gold = 15
+# 						}
+# 						20 = {
+# 							add_gold = 20
+# 						}
+# 						10 = {
+# 							add_gold = 50
+# 						}
+# 					}
+# 				}
+# 			}
+# 			50 = { #failure
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = -3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 					add_stress = minor_stress_loss
+# 					random_list = {
+# 						30 = {
+# 							remove_short_term_gold = 5
+# 						}
+# 						50 = {
+# 							remove_short_term_gold = 15
+# 						}
+# 						20 = {
+# 							remove_short_term_gold = 20
+# 						}
+# 						10 = {
+# 							remove_short_term_gold = 50
+# 						}
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	after = {
+# 		hidden_effect = {
+# 			agot_set_up_next_reaving_event_effect = yes
+# 		}
+# 	}
+# }
+
+# ####################################
+# #     Pursuit:Pentosi Ship         #
+# #        ZombieSchrodCat		   #
+# ####################################
+
+# agot_reaving.2010 = { #start
+# 	type = character_event
+# 	title = agot_reaving.2010.t
+# 	desc = agot_reaving.2010.desc
+
+# 	theme = reaving
+# 	override_background = {
+# 		event_background = AGOT_ocean_no_sound
+# 	}
+
+# 	left_portrait = {
+# 		character = root
+# 		animation = ecstasy
+# 	}
+
+# 	lower_center_portrait = {
+# 		character = scope:agot_pursuit_pentoshi_captain
+# 		animation = fear
+# 	}
+
+# 	trigger = {
+# 		exists = scope:activity
+# 	}
+
+# 	immediate = {
+# 		hidden_effect = {
+# 			create_character = {
+# 				location = root.capital_province
+# 				age = { 20 30 }
+# 				template = agot_pirate_character
+# 				gender_female_chance = 0
+# 				save_scope_as = agot_pursuit_pentoshi_captain
+# 			}
+# 		}
+# 	}
+
+
+# 	option = { #attack
+# 		name = agot_reaving.2010.a
+# 		duel = {
+# 			skill = martial
+# 			target = scope:agot_pursuit_pentoshi_captain
+# 			50 = { #success
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = 3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 				title = agot_reaving.2010.a.success_title
+# 					add_gold = 50
+# 					add_prestige = minor_prestige_gain
+# 					if = {
+# 						limit = {
+# 							NOT = {
+# 								has_trait = drunkard
+# 							}
+# 						}
+# 						random = {
+# 							chance = 5
+# 							add_trait = drunkard
+# 						}
+# 					}
+# 				}
+# 			}
+# 			50 = { #failure
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = -3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 				title = agot_reaving.2010.a.failure_title
+# 					add_prestige = minor_prestige_loss
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	option = { #let ship go
+# 		name = agot_reaving.2010.b
+# 		add_prestige = minor_prestige_loss
+# 	}
+
+# 	after = {
+# 		hidden_effect = {
+# 			agot_set_up_next_reaving_event_effect = yes
+# 		}
+# 	}
+# }
+
+# ####################################
+# #          Pursuit:Lys     		   #
+# #        ZombieSchrodCat		   #
+# ####################################
+
+# agot_reaving.2011 = { #start
+# 	type = character_event
+# 	title = agot_reaving.2011.t
+# 	desc = agot_reaving.2011.desc
+
+# 	theme = reaving
+# 	override_background = {
+# 		event_background = AGOT_ocean_no_sound
+# 	}
+
+# 	left_portrait = {
+# 		character = root
+# 		animation = ecstasy
+# 	}
+
+# 	lower_center_portrait = {
+# 		character = scope:agot_pursuit_lyse_slave
+# 		animation = fear
+# 	}
+
+# 	lower_right_portrait = {
+# 		character = scope:agot_pursuit_lyse_captain
+# 		animation = fear
+# 	}
+
+# 	trigger = {
+# 		exists = scope:activity
+# 	}
+
+# 	immediate = {
+# 		hidden_effect = {
+# 			create_character = {
+# 				location = root.capital_province
+# 				age = { 20 30 }
+# 				template = lyse_beauty_character
+# 				gender_female_chance = 0
+# 				save_scope_as = agot_pursuit_lyse_captain
+# 			}
+
+# 			create_character = {
+# 				location = root.capital_province
+# 				template = lyse_beauty_character
+# 				gender_female_chance = 100
+# 				save_scope_as = agot_pursuit_lyse_slave
+# 			}
+# 		}
+# 	}
+
+# 	option = { #salt-wife
+# 		name = agot_reaving.2011.a
+# 		custom_tooltip = agot_reaving.2011.a.tt
+# 		trigger = {
+# 			allowed_concubines = yes
+# 			number_of_concubines < 3
+# 		}
+# 		duel = {
+# 			skill = martial
+# 			target = scope:agot_pursuit_lyse_captain
+# 			50 = { #success
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = 3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 				title = agot_reaving.2011.a.success_title
+# 					add_prestige = minor_prestige_gain
+# 					make_concubine = scope:agot_pursuit_lyse_slave
+# 					reverse_add_opinion = {
+# 						modifier = hate_opinion
+# 						target = scope:agot_pursuit_lyse_slave
+# 						opinion = -100
+# 					}
+# 				}
+# 			}
+# 			50 = { #failure
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = -3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 				title = agot_reaving.2011.a.failure_title
+# 					add_stress = minor_stress_gain
+# 					add_prestige = minor_prestige_loss
+# 					if = {
+# 						limit = {
+# 							NOT = {
+# 								OR = {
+# 									has_trait = wounded_1
+# 									has_trait = wounded_2
+# 									has_trait = wounded_3
+# 									has_trait = maimed
+# 								}
+# 							}
+# 						}
+# 						random = {
+# 							chance = 25
+# 							add_trait = wounded_1
+# 						}
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	option = { #gold
+# 		name = agot_reaving.2011.b
+# 		custom_tooltip = agot_reaving.2011.b.tt
+# 		duel = {
+# 			skill = martial
+# 			target = scope:agot_pursuit_lyse_captain
+# 			50 = { #success
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = 3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 				title = agot_reaving.2011.b.success_title
+# 					add_prestige = minor_prestige_gain
+# 					random_list = {
+# 						30 = {
+# 							add_gold = 5
+# 						}
+# 						50 = {
+# 							add_gold = 15
+# 						}
+# 						20 = {
+# 							add_gold = 20
+# 						}
+# 						10 = {
+# 							add_gold = 50
+# 						}
+# 					}
+# 				}
+# 			}
+# 			50 = { #failure
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = -3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 				title = agot_reaving.2011.b.failure_title
+# 					add_prestige = minor_prestige_loss
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	option = { #let ship go
+# 		name = agot_reaving.2011.b
+# 		add_prestige = minor_prestige_loss
+# 	}
+
+# 	after = {
+# 		hidden_effect = {
+# 			agot_set_up_next_reaving_event_effect = yes
+# 		}
+# 	}
+# }
+
+# ####################################
+# #          Tyroshi Ship    		   #
+# #        ZombieSchrodCat		   #
+# ####################################
+
+# agot_reaving.2012 = { #start
+# 	type = character_event
+# 	title = agot_reaving.2012.t
+# 	desc = agot_reaving.2012.desc
+
+# 	theme = reaving
+# 	override_background = {
+# 		event_background = AGOT_ocean_no_sound
+# 	}
+
+# 	left_portrait = {
+# 		character = root
+# 		animation = marshal
+# 	}
+
+# 	lower_center_portrait = {
+# 		character = scope:agot_pursuit_tyroshi_captain
+# 		animation = marshal
+# 	}
+
+# 	trigger = {
+# 		exists = scope:activity
+# 	}
+
+# 	immediate = {
+# 		hidden_effect = {
+# 			create_character = {
+# 				location = root.capital_province
+# 				age = { 20 30 }
+# 				template = agot_pirate_character
+# 				gender_female_chance = 0
+# 				save_scope_as = agot_pursuit_tyroshi_captain
+# 			}
+# 		}
+# 	}
+
+# 	option = { #work as mercenary
+# 	name = agot_reaving.2012.a
+# 	custom_tooltip = agot_reaving.2012.a.tt
+# 		duel = {
+# 			skill = diplomacy
+# 			target = scope:agot_pursuit_tyroshi_captain
+# 			50 = { #success
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = 3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 				title = agot_reaving.2012.a.success_title
+# 					add_gold = 75
+# 					add_character_modifier = {
+# 						modifier = agot_sellsword_work
+# 						years = 2
+# 					}
+# 				}
+# 			}
+# 			50 = { #failure
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = -3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 				title = agot_reaving.2012.a.failure_title
+# 					add_stress = minor_stress_gain
+# 					add_prestige = minor_prestige_loss
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	option = { #let ship go
+# 		name = agot_reaving.2012.b
+# 	}
+
+# 	after = {
+# 		hidden_effect = {
+# 			agot_set_up_next_reaving_event_effect = yes
+# 		}
+# 	}
+# }
+
+# ####################################
+# #         Fishing Village      	   #
+# #        ZombieSchrodCat		   #
+# ####################################
+
+# agot_reaving.2013 = { #start
+# 	type = character_event
+# 	title = agot_reaving.2013.t
+# 	desc = agot_reaving.2013.desc
+
+# 	theme = reaving
+# 	override_background = {
+# 		event_background = docks
+# 	}
+
+# 	left_portrait = {
+# 		character = root
+# 		animation = celebrate_axe
+# 	}
+
+# 	lower_right_portrait = {
+# 		character = scope:agot_fishvillage_girl_3
+# 		animation = fear
+# 	}
+
+# 	lower_center_portrait = {
+# 		character = scope:agot_fishvillage_girl_2
+# 		animation = fear
+# 	}
+
+# 	lower_left_portrait = {
+# 		character = scope:agot_fishvillage_girl_1
+# 		animation = fear
+# 	}
+
+# 	trigger = {
+# 		exists = scope:activity
+# 	}
+
+# 	immediate = {
+# 		if = {
+# 			limit = {
+# 				scope:activity.activity_owner = {
+# 					var:reaving_destination = flag:slavers_bay
+# 				}
+# 			}
+# 			culture:ghiscari = {
+# 				save_scope_as = local_culture
+# 			}
+# 		}
+# 		else_if = {
+# 			limit = {
+# 				scope:activity.activity_owner = {
+# 					var:reaving_destination = flag:disputed_lands
+# 				}
+# 			}
+# 			culture:tyroshi = {
+# 				save_scope_as = local_culture
+# 			}
+# 		}
+# 		else_if = {
+# 			limit = {
+# 				scope:activity.activity_owner = {
+# 					var:reaving_destination = flag:summer_sea
+# 				}
+# 			}
+# 			culture:jhalani = {
+# 				save_scope_as = local_culture
+# 			}
+# 		}
+# 		else_if = {
+# 			limit = {
+# 				scope:activity.activity_owner = {
+# 					var:reaving_destination = flag:north_essos
+# 				}
+# 			}
+# 			culture:lorathi = {
+# 				save_scope_as = local_culture
+# 			}
+# 		}
+# 		else = { # Fallback but shouldn't happen
+# 			culture:pentoshi = {
+# 				save_scope_as = local_culture
+# 			}
+# 		}
+
+# 		create_character = {
+# 			location = root.capital_province
+# 			template = village_girl_character
+# 			dynasty = no
+# 			culture = scope:local_culture
+# 			save_scope_as = agot_fishvillage_girl_1
+# 		}
+# 		create_character = {
+# 			location = root.capital_province
+# 			template = village_girl_character
+# 			dynasty = no
+# 			culture = scope:local_culture
+# 			save_scope_as = agot_fishvillage_girl_2
+# 		}
+# 		create_character = {
+# 			location = root.capital_province
+# 			template = village_girl_character
+# 			dynasty = no
+# 			culture = scope:local_culture
+# 			save_scope_as = agot_fishvillage_girl_3
+# 		}
+# 	}
+
+# 	option = { #take gold
+# 		name = agot_reaving.2013.a
+# 		custom_tooltip = agot_reaving.2013.a.tt
+# 		random_list = {
+# 			30 = {
+# 				add_gold = 10
+# 			}
+# 			50 = {
+# 				add_gold = 20
+# 			}
+# 			10 = {
+# 				add_gold = 30
+# 			}
+# 			10 = {
+# 				add_gold = 40
+# 			}
+# 		}
+# 	}
+
+# 	option = { #girl 1
+# 		name = agot_reaving.2013.b
+# 		custom_tooltip = agot_reaving.2013.b.tt
+# 		trigger = {
+# 			allowed_concubines = yes
+# 			number_of_concubines < 3
+# 		}
+# 		make_concubine = scope:agot_fishvillage_girl_1
+# 		add_prestige = minor_prestige_gain
+# 		reverse_add_opinion = {
+# 			modifier = hate_opinion
+# 			target = scope:agot_fishvillage_girl_1
+# 			opinion = -100
+# 		}
+# 		hidden_effect = {
+# 			scope:agot_fishvillage_girl_2 = {
+# 				death = {
+# 					death_reason = death_vanished #Ripperoni
+# 				}
+# 			}
+# 			scope:agot_fishvillage_girl_3 = {
+# 				death = {
+# 					death_reason = death_vanished #Ripperoni
+# 				}
+# 			}
+# 		}
+# 	}
+# 	option = { #girl 2
+# 		name = agot_reaving.2013.c
+# 		custom_tooltip = agot_reaving.2013.c.tt
+# 		trigger = {
+# 			allowed_concubines = yes
+# 			number_of_concubines < 3
+# 		}
+# 		make_concubine = scope:agot_fishvillage_girl_2
+# 		add_prestige = minor_prestige_gain
+# 		reverse_add_opinion = {
+# 			modifier = hate_opinion
+# 			target = scope:agot_fishvillage_girl_2
+# 			opinion = -100
+# 		}
+# 		hidden_effect = {
+# 			scope:agot_fishvillage_girl_1 = {
+# 				death = {
+# 					death_reason = death_vanished #Ripperoni
+# 				}
+# 			}
+# 			scope:agot_fishvillage_girl_3 = {
+# 				death = {
+# 					death_reason = death_vanished #Ripperoni
+# 				}
+# 			}
+# 		}
+# 	}
+# 	option = { #girl 3
+# 		name = agot_reaving.2013.d
+# 		custom_tooltip = agot_reaving.2013.d.tt
+# 		trigger = {
+# 			allowed_concubines = yes
+# 			number_of_concubines < 3
+# 		}
+# 		make_concubine = scope:agot_fishvillage_girl_3
+# 		add_prestige = minor_prestige_gain
+# 		reverse_add_opinion = {
+# 			modifier = hate_opinion
+# 			target = scope:agot_fishvillage_girl_3
+# 			opinion = -100
+# 		}
+# 		hidden_effect = {
+# 			scope:agot_fishvillage_girl_2 = {
+# 				death = {
+# 					death_reason = death_vanished #Ripperoni
+# 				}
+# 			}
+# 			scope:agot_fishvillage_girl_1 = {
+# 				death = {
+# 					death_reason = death_vanished #Ripperoni
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	after = {
+# 		hidden_effect = {
+# 			agot_set_up_next_reaving_event_effect = yes
+# 		}
+# 	}
+# }
+
+# ####################################
+# #         Pirate Hide Out      	   #
+# #        ZombieSchrodCat		   #
+# ####################################
+
+# agot_reaving.2014 = { #start
+# 	type = character_event
+# 	title = agot_reaving.2014.t
+# 	desc = agot_reaving.2014.desc
+
+# 	theme = reaving
+# 	override_background = {
+# 		event_background = fp1_beached_longships
+# 	}
+
+# 	left_portrait = {
+# 		character = root
+# 		animation = celebrate_axe
+# 	}
+
+# 	lower_center_portrait = {
+# 		character = scope:agot_small_pirate_lord
+# 		animation = aggressive_sword
+# 	}
+
+# 	trigger = {
+# 		exists = scope:activity
+# 	}
+
+# 	immediate = {
+# 		create_character = {
+# 			location = root.capital_province
+# 			template = agot_pirate_character_leader
+# 			gender_female_chance = 0
+# 			save_scope_as = agot_small_pirate_lord
+# 		}
+# 	}
+
+# 	option = { #lead charge
+# 		name = agot_reaving.2014.a
+# 		custom_tooltip = agot_reaving.2014.a.tt
+# 		duel = {
+# 			skill = martial
+# 			target = scope:agot_small_pirate_lord
+# 			50 = { #success
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = 3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 				title = agot_reaving.2014.a.success_title
+# 					add_prestige = medium_piety_gain
+# 					random_list = {
+# 						30 = {
+# 							add_gold = 25
+# 						}
+# 						50 = {
+# 							add_gold = 50
+# 						}
+# 						10 = {
+# 							add_gold = 75
+# 						}
+# 						10 = {
+# 							add_gold = 100
+# 						}
+# 					}
+# 					scope:agot_small_pirate_lord = {
+# 						death = {
+# 							death_reason = death_execution
+# 							killer = root
+# 						}
+# 					}
+# 				}
+# 			}
+# 			50 = { #failure
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = -3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 					title = agot_reaving.2014.a.failure_title
+# 					add_prestige = minor_prestige_loss
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	option = { #intrigue
+# 		name = agot_reaving.2014.b
+# 		custom_tooltip = agot_reaving.2014.b.tt
+# 		duel = {
+# 			skill = intrigue
+# 			target = scope:agot_small_pirate_lord
+# 			50 = { #success
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = 3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 				title = agot_reaving.2014.b.success_title
+# 					random_list = {
+# 						30 = {
+# 							add_gold = 25
+# 						}
+# 						50 = {
+# 							add_gold = 50
+# 						}
+# 						10 = {
+# 							add_gold = 75
+# 						}
+# 						10 = {
+# 							add_gold = 100
+# 						}
+# 					}
+# 					scope:agot_small_pirate_lord = {
+# 						death = {
+# 							death_reason = death_execution
+# 							killer = root
+# 						}
+# 					}
+# 				}
+# 			}
+# 			50 = { #failure
+# 				compare_modifier = {
+# 					value = scope:duel_value
+# 					multiplier = -3.5
+# 					min = -49
+# 				}
+# 				send_interface_toast = {
+# 				title = agot_reaving.2014.b.failure_title
+# 					add_prestige = minor_prestige_loss
+# 				}
+# 			}
+# 		}
+# 	}
+# 	after = {
+# 		hidden_effect = {
+# 			agot_set_up_next_reaving_event_effect = yes
+# 		}
+# 	}
+# }
+
+# ####################################
+# #         Meal for the Crabs   	   #
+# #        ZombieSchrodCat		   #
+# ####################################
+
+# agot_reaving.2015 = { #start
+# 	type = character_event
+# 	title = agot_reaving.2015.t
+# 	desc = agot_reaving.2015.desc
+
+# 	theme = reaving
+# 	override_background = {
+# 		event_background = AGOT_ocean_no_sound
+# 	}
+
+# 	left_portrait = {
+# 		character = root
+# 		animation = worry
+# 	}
+
+# 	right_portrait = {
+# 		character = scope:agot_concerned_ironborn
+# 		animation = worry
+# 	}
+
+# 	lower_center_portrait = {
+# 		character = scope:agot_crab_food
+# 		animation = happiness
+# 	}
+
+# 	trigger = {
+# 		exists = scope:activity
+# 	}
+
+# 	immediate = {
+# 		scope:activity = {
+# 			random_participant = {
+# 				limit = {
+# 					reaving_participant_trigger = yes
+# 				}
+# 				weight = {
+# 					base = 5
+# 					modifier = {
+# 						add = 10
+# 						is_of_major_interest_to_root_trigger = yes
+# 					}
+# 					modifier = {
+# 						add = 15
+# 						is_of_minor_interest_to_root_trigger = yes
+# 					}
+# 					modifier = {
+# 						has_trait = brave
+# 						add = 10
+# 					}
+# 				}
+# 				save_scope_as = agot_concerned_ironborn
+# 			}
+# 		}
+# 		create_character = {
+# 			location = root.capital_province
+# 			template = agot_pirate_character_leader
+# 			dynasty = no
+# 			gender_female_chance = 0
+# 			save_scope_as = agot_crab_food
+# 		}
+
+# 	}
+
+# 	option = { #leave the fool
+# 		name = agot_reaving.2015.a
+# 		custom_tooltip = agot_reaving.2015.a.tt
+# 		reverse_add_opinion = {
+# 			modifier = grateful_opinion
+# 			target = scope:agot_concerned_ironborn
+# 			opinion = 15
+# 		}
+# 	}
+
+# 	option = { #save the fool
+# 		name = agot_reaving.2015.b
+# 		custom_tooltip = agot_reaving.2015.b.tt
+# 		add_courtier = scope:agot_crab_food
+# 		add_hook = {
+# 				target = scope:agot_crab_food
+# 				type = loyalty_hook
+# 		}
+# 		reverse_add_opinion = {
+# 			modifier = grateful_opinion
+# 			target = scope:agot_crab_food
+# 			opinion = 50
+# 		}
+# 		reverse_add_opinion = {
+# 			modifier = grateful_opinion
+# 			target = scope:agot_concerned_ironborn
+# 			opinion = 15
+# 		}
+# 		hidden_effect = {
+# 			random = {
+# 				chance = 25
+# 				scope:agot_crab_food ={
+# 					add_secret = {
+# 						type = secret_cannibal
+# 					}
+# 				}
+# 			}
+# 		}
+
+# 	}
+
+# 	after = {
+# 		hidden_effect = {
+# 			agot_set_up_next_reaving_event_effect = yes
+# 		}
+# 	}
+# }
+
+# ####################################
+# #        Debt of Life          	   #
+# #        ZombieSchrodCat		   #
+# ####################################
+
+# agot_reaving.2016 = { #start
+# 	type = character_event
+# 	title = agot_reaving.2016.t
+# 	desc = agot_reaving.2016.desc
+
+# 	theme = reaving
+# 	override_background = {
+# 		event_background = market_tribal
+# 	}
+
+# 	left_portrait = {
+# 		character = scope:agot_saved_ironborn
+# 		animation = severelywounded
+# 	}
+
+# 	right_portrait = {
+# 		character = scope:agot_debt_life_attacker
+# 		animation = aggressive_spear
+# 	}
+
+# 	trigger = {
+# 		exists = scope:activity
+# 	}
+
+# 	immediate = {
+# 		scope:activity = {
+# 			random_participant = {
+# 				limit = {
+# 					reaving_participant_trigger = yes
+# 				}
+# 				weight = {
+# 					base = 5
+# 					modifier = {
+# 						add = 10
+# 						is_of_major_interest_to_root_trigger = yes
+# 					}
+# 					modifier = {
+# 						add = 15
+# 						is_of_minor_interest_to_root_trigger = yes
+# 					}
+# 					modifier = {
+# 						has_trait = brave
+# 						add = 10
+# 					}
+# 				}
+# 				save_scope_as = agot_saved_ironborn
+# 			}
+# 		}
+# 		create_character = {
+# 			location = root.capital_province
+# 			template = agot_pirate_character_leader
+# 			gender_female_chance = 0
+# 			save_scope_as = agot_debt_life_attacker
+# 		}
+
+# 	}
+
+# 	option = { #save the fool
+# 		name = agot_reaving.2016.a
+# 		custom_tooltip = agot_reaving.2016.a.tt
+# 		add_hook = {
+# 				target = scope:agot_saved_ironborn
+# 				type = favor_hook
+# 		}
+# 		reverse_add_opinion = {
+# 			modifier = grateful_opinion
+# 			target = scope:agot_saved_ironborn
+# 			opinion = 25
+# 		}
+
+# 	}
+
+# 	after = {
+# 		hidden_effect = {
+# 			agot_set_up_next_reaving_event_effect = yes
+# 		}
+# 	}
+# }
+
+# ####################################
+# #    Shielmaidens in Diguise       #
+# #           Badger		           #
+# ####################################
+
+# agot_reaving.2017 = {
+# 	type = character_event
+# 	title = agot_reaving.2017.t
+# 	desc = agot_reaving.2017.desc
+
+# 	theme = reaving
+
+# 	override_background = { event_background = fp1_ocean }
+
+# 	left_portrait = {
+# 		character = scope:shieldmaiden
+# 		animation = aggressive_axe
+# 		outfit_tags = { military_outfit }
+# 	}
+
+# 	right_portrait = {
+# 		character = root
+# 		animation = personality_callous
+# 	}
+
+# 	trigger = {
+# 		exists = scope:activity
+# 	}
+
+# 	immediate = {
+# 		create_character = {
+# 			location = root.capital_province
+# 			template = agot_shieldmaiden_character
+# 			save_scope_as = shieldmaiden
+# 		}
+# 	}
+
+# 	option = { #keep her around
+# 		name = agot_reaving.2017.a
+
+# 		recruit_courtier = scope:shieldmaiden
+
+# 		add_hook = { #pledge to serve
+# 			target = scope:shieldmaiden
+# 			type = loyalty_hook
+# 		}
+# 		hidden_effect = { #Joins the reaving!
+# 			scope:activity = {
+# 				accept_invitation_for_character = scope:shieldmaiden
+# 			}
+# 		}
+# 		ai_chance = {
+# 			base = 100
+# 		}
+# 	}
+
+# 	option = { #Send her Away
+# 		name = agot_reaving.2017.b
+
+# 		scope:shieldmaiden = {
+# 			move_to_pool = yes
+# 		}
+# 	}
+
+# 	option = { #Chuck her overboard to the drowned god
+# 		name = agot_reaving.2017.c
+# 		trigger = {
+# 			religion = religion:drowned_god_religion
+# 		}
+# 		scope:shieldmaiden = { death = { death_reason = death_drowned } }
+# 		add_piety = major_piety_gain
+
+# 		ai_chance = {
+# 			base = 50
+# 			modifier = {
+# 				add = 150
+# 				ai_zeal >= high_positive_zeal
+# 			}
+# 		}
+# 	}
+
+# 	option = { #amighey
+# 		name = agot_reaving.2017.d
+# 		trigger = {
+# 			has_sexuality = heterosexual
+# 			scope:shieldmaiden = {
+# 				is_attracted_to_gender_of = ROOT
+# 			}
+# 		}
+# 		recruit_courtier = scope:shieldmaiden
+# 		had_sex_with_effect = {
+# 			CHARACTER = scope:shieldmaiden
+# 			PREGNANCY_CHANCE = pregnancy_chance
+# 		}
+# 		random_list = {
+# 			80 = {}
+# 			20 = { set_sexuality = bisexual }
+# 		}
+
+# 		hidden_effect = { #Joins the reaving!
+# 		scope:activity = {
+# 			accept_invitation_for_character = scope:shieldmaiden
+# 			}
+# 		}
+
+# 		ai_chance = {
+# 			base = 50
+# 			modifier = {
+# 				add = 150
+# 				has_trait = lustful
+# 			}
+# 		}
+# 	}
+
+# 	after = {
+# 		hidden_effect = {
+# 			agot_set_up_next_reaving_event_effect = yes
+# 		}
+# 	}
+# }
+
+
+
+# ################################
+# # Reaving Destination Events
+# # 3000 - 3999
+# # by Badger
+# ################################
+
+# ### Generic Destination
+# agot_reaving.3001 = {
+# 	type = character_event
+# 	title = pilgrimage.4001.t
+# 	desc = {
+# 		desc = pilgrimage.4001.desc
+# 		triggered_desc = {
+# 			trigger = { has_trait = cynical }
+# 			desc = pilgrimage.4001.cynical_end
+# 		}
+# 	}
+# 	theme = reaving
+# 	left_portrait = {
+# 		character = root
+# 		animation = ecstasy
+# 	}
+# 	artifact = {
+# 		target = scope:christian_saint_bone_scope
+# 		position = lower_right_portrait
+# 	}
+
+# 	trigger = {
+# 		exists = scope:activity
+# 	}
+
+# 	immediate = {
+# 		save_holy_site_for_loc_effect = yes
+# 		christian_saint_bone_creation_effect = yes
+# 		play_music_cue = "mx_cue_epic_sacral_moment"
+# 	}
+
+# 	option = {
+# 		name = pilgrimage.4001.a
+# 		trigger = {
+# 			NOT = { has_trait = cynical }
+# 		}
+# 		agot_give_reaving_reward_effect = yes
+# 	}
+
+# 	option = {
+# 		name = pilgrimage.4001.b
+# 		trigger = {
+# 			has_trait = cynical
+# 		}
+# 		agot_give_reaving_reward_effect = yes
+# 	}
+
+# 	after = {
+# 		trigger_event = {
+# 			on_action = reaving_return_events
+# 			days = 30
+# 		}
+# 	}
+# }
+
+# ################################
+# # Return Events
+# # 9001-9999
+# # by Badger
+# ################################
+
+# #Host Return Event
+# agot_reaving.9001 = {
+# 	type = character_event
+# 	title = pilgrimage.9001.t
+# 	desc = pilgrimage.9001.desc
+# 	left_portrait = root
+# 	theme = reaving
+# 	override_background = {
+# 		event_background = docks
+# 	}
+
+# 	trigger = {
+# 		exists = scope:activity
+# 	}
+
+# 	immediate = {
+# 		# Creates a character memory of the completed pilgrimage
+# 		if = {
+# 			limit = { exists = scope:activity.var:friend_companion }
+# 			create_character_memory = {
+# 				type = completed_pilgrimage_friend
+# 				participants = { friend = scope:activity.var:friend_companion }
+# 			}
+# 		}
+# 		else = {
+# 			create_character_memory = {
+# 				type = completed_pilgrimage
+# 			}
+# 		}
+
+# 		scope:new_memory = {
+# 			set_variable = {
+# 				name = destination
+# 				value = scope:activity.activity_province
+# 			}
+# 		}
+
+# 		scope:activity = {
+# 			every_participant = {
+# 			limit = { NOT = { this = scope:activity.activity_owner } }
+# 				trigger_event = agot_reaving.9002 #wrap it up for everybody
+# 			}
+# 		}
+# 	}
+
+# 	option = {
+# 		name = pilgrimage.9001.a
+# 		#hosted_successful_feast_effect = yes
+# 		scope:activity = {
+# 			complete_activity = yes
+# 		}
+# 	}
+# }
+
+
+# #Guest end event
+# agot_reaving.9002 = {
+# 	type = character_event
+# 	title = agot_reaving.9002.t
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					scope:host = {
+# 						has_royal_court = yes
+# 						amenity_level = { type = court_food_quality value >= 5 }
+# 					}
+# 				}
+# 				desc = feast_default.9002.desc_exotic
+# 			}
+# 			triggered_desc = {
+# 				trigger = {
+# 					scope:host = {
+# 						has_royal_court = yes
+# 						amenity_level = { type = court_food_quality value >= 3 }
+# 					}
+# 				}
+# 				desc = feast_default.9002.desc_lavish
+# 			}
+# 			triggered_desc = {
+# 				trigger = {
+# 					scope:host = {
+# 						has_royal_court = yes
+# 						amenity_level = { type = court_food_quality value <= 1 }
+# 					}
+# 				}
+# 				desc = feast_default.9002.desc_meager
+# 			}
+# 			desc = feast_default.9002.desc
+# 		}
+# 		desc = agot_reaving.9002.desc
+# 	}
+# 	theme = reaving
+# 	left_portrait = {
+# 		character = root
+# 		animation = throne_room_one_handed_passive_2
+# 	}
+# 	right_portrait = {
+# 		character = scope:host
+# 		animation = throne_room_one_handed_passive_2
+# 	}
+
+# 	immediate = {
+# 		scope:activity = {
+# 			activity_owner = {
+# 				save_scope_as = host
+# 			}
+# 		}
+# 	}
+
+# 	option = {
+# 		name = agot_reaving.9002.a
+# 		feast_end_guest_effect = yes
+# 		agot_reaving_participant_reward_effect = yes
+# 		reverse_add_opinion = {
+# 			target = scope:host
+# 			modifier = feast_attended_my_feast_opinion
+# 		}
+# 	}
+# }
+
+
+
+
+# #################
+# # Reaving Support
+# #################
+# # Reaving reroll event - in case no event is available
+# agot_reaving.9999 = {
+# 	hidden = yes
+
+# 	trigger = {
+# 		exists = scope:activity
+# 	}
+
+# 	immediate = {
+# 		agot_set_up_next_reaving_event_effect = yes
+# 	}
+# }

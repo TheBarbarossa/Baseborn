@@ -1,0 +1,4506 @@
+﻿namespace = agot_dragon_hatching
+
+###                             ###
+#                                 #
+# Dragon Hatching Activity Events #
+#       by Sililex & Typical      #
+#                                 #
+###                             ###
+
+scripted_effect end_sacrifice_choice_effect = {
+	scope:activity = {
+		every_attending_character = { # Send event to all attending players
+			limit = {
+				NOT = { this = scope:host }
+				trigger_if = {
+					limit = { exists = scope:ritual_leader_character }
+					NOT = { this = scope:ritual_leader_character }
+				}
+				is_ai = no
+			}
+			trigger_event = agot_dragon_hatching.0013
+		}
+	}
+	trigger_event = agot_dragon_hatching.0014
+}
+
+agot_dragon_hatching.0001 = { #knowledge activity hatch start
+	type = activity_event
+	title = agot_dragon_hatching.0001.t
+	desc = agot_dragon_hatching.0001.desc
+	theme = dragon
+
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_artifact_selection"
+		container = "custom_widgets_container"
+	}
+
+	left_portrait = {
+		character = root
+		animation = throne_room_writer
+	}
+
+	option = {
+		name = agot_dragon_hatching.0001.opt.a
+		custom_tooltip =  agot_dragon_hatching.preparations.tt
+		scope:activity = {
+			set_variable = {
+				name = selected_egg
+				value = root.var:selected_artifact
+			}
+		}
+		var:selected_artifact = {
+			set_variable = agot_artifact_cannot_gift
+		}
+	}
+
+	after = {
+		clear_variable_list = possible_artifacts
+		remove_variable = selected_artifact
+	}
+}
+
+agot_dragon_hatching.0002 = { #esoteric activity hatch start
+	type = activity_event
+	title = agot_dragon_hatching.0002.t
+	desc = agot_dragon_hatching.0002.desc
+	theme = dragon
+
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_artifact_selection"
+		container = "custom_widgets_container"
+	}
+
+	left_portrait = {
+		character = root
+		animation = throne_room_writer
+	}
+
+	option = {
+		name = agot_dragon_hatching.0002.opt.a
+		custom_tooltip =  agot_dragon_hatching.preparations.tt
+		scope:activity = {
+			set_variable = {
+				name = selected_egg
+				value = root.var:selected_artifact
+			}
+		}
+		var:selected_artifact = {
+			set_variable = agot_artifact_cannot_gift
+		}
+	}
+
+	after = {
+		clear_variable_list = possible_artifacts
+		remove_variable = selected_artifact
+	}
+}
+
+agot_dragon_hatching.0003 = { #normal hatching host travel start
+	type = activity_event
+	title = agot_dragon_hatching.0003.t
+	desc = agot_dragon_hatching.0003.desc
+	theme = dragon
+
+	trigger = {
+		scope:activity = {
+			NOT = { activity_location = root.location }
+		}
+	}
+
+	immediate = {
+		scope:activity.var:selected_egg = { save_scope_as = egg }
+	}
+
+	left_portrait = root
+
+	artifact = { # To display the artifact in the event-window
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	option = {
+		name = agot_dragon_hatching.0003.opt.a
+	}
+}
+
+# agot_dragon_hatching.0004 reserved for special host travel start event if we want to add one
+
+agot_dragon_hatching.0005 = { #other ppl travel start event
+	type = activity_event
+	title = agot_dragon_hatching.0005.t
+	desc = agot_dragon_hatching.0005.desc
+	theme = dragon
+
+	trigger = {
+		scope:activity = {
+			NOT = { activity_location = root.location }
+		}
+	}
+
+	left_portrait = scope:host
+	right_portrait = root
+
+	option = {
+		name = agot_dragon_hatching.0005.opt.a
+	}
+}
+
+agot_dragon_hatching.0006 = { #the ceremony - host pov
+	type = activity_event
+	title = agot_dragon_hatching.0006.t
+	desc = {
+		first_valid = {
+			triggered_desc ={
+				trigger = {
+					scope:activity = {
+						has_activity_option = {
+							category = hatching_type
+							option = hatching_type_knowledge
+						}
+					}
+				}
+				desc = agot_dragon_hatching.0006.desc_knowledge
+			}
+			desc = agot_dragon_hatching.0006.desc_esoteric
+		}
+	}
+	theme = dragon
+	left_portrait = {
+		character = root
+		animation = throne_room_writer
+		triggered_animation = {
+			trigger = {
+				scope:activity = {
+					has_activity_option = {
+						category = hatching_type
+						option = hatching_type_esoteric
+					}
+				}
+			}
+			animation = personality_irrational
+		}
+	}
+
+	immediate = {
+		scope:activity.var:selected_egg = { save_scope_as = egg }
+
+		# Get characters for ritual leader selection
+		if = {
+			limit = {
+				scope:activity = {
+					has_activity_option = {
+						category = hatching_type
+						option = hatching_type_esoteric
+					}
+				}
+			}
+			create_character = {
+				age = { 30 60 }
+				faith = faith:valyrian # Make Qarth religion when it exists
+				gender = male
+				dynasty = none
+				culture = culture:qartheen
+				random_traits = yes
+				trait = lifestyle_mystic
+				location = root.location
+				save_scope_as = warlock
+			}
+			create_character = {
+				template = pyromancer_character
+				location = root.location
+				save_scope_as = pyromancer
+			}
+			create_character = {
+				age = { 30 60 }
+				faith = faith:old_gods_btw
+				culture = culture:skagosi
+				gender = female
+				dynasty = none
+				random_traits = yes
+				trait = witch
+				location = root.location
+				save_scope_as = witch
+			}
+			if = {
+				limit = {
+					has_religion = religion:rhllor_religion
+					exists = cp:councillor_court_chaplain
+				}
+				cp:councillor_court_chaplain = {
+					save_scope_as = rhllor_priest
+				}
+			}
+			else = {
+				create_character = {
+					template = agot_red_priest_character
+					location = root.location
+					save_scope_as = rhllor_priest
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				scope:activity = {
+					has_activity_option = {
+						category = hatching_type
+						option = hatching_type_knowledge
+					}
+				}
+			}
+			if = {
+				limit = {
+					exists = court_position:maester_court_position
+				}
+				court_position:maester_court_position = {
+					save_scope_as = scholar
+				}
+			}
+			else = {
+				create_character = {
+					template = maester_character
+					location = root.location
+					save_scope_as = scholar
+				}
+			}
+			if = {
+				limit = {
+					has_religion = religion:faith_of_the_seven_religion
+					exists = cp:councillor_court_chaplain
+				}
+				cp:councillor_court_chaplain = {
+					save_scope_as = septon
+				}
+			}
+			# No else for FoTS as they don't really seem the type to help if not asked directly
+			if = {
+				limit = {
+					capital_province = {
+						geographical_region = world_westeros_seven_kingdoms
+					}
+				}
+				random_living_maester = {
+					limit = { has_inactive_trait = archmaester_vs }
+					save_scope_as = archmaester
+				}
+			}
+		}
+	}
+
+	artifact = { # To display the artifact in the event-window
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	option = { # Myself
+		name = agot_dragon_hatching.0006.opt.a
+		custom_tooltip = agot_dragon_hatching.0006.opt.a.tt
+		scope:activity = {
+			set_variable = {
+				name = ritual_leader_type
+				value = flag:myself
+			}
+		}
+		save_scope_as = ritual_leader
+	}
+
+	option = { # Scholar
+		name = agot_dragon_hatching.0006.opt.b
+		custom_tooltip = agot_dragon_hatching.0006.opt.b.tt
+		trigger = {
+			exists = scope:scholar
+		}
+		scope:activity = {
+			set_variable = {
+				name = ritual_leader_type
+				value = flag:scholar
+			}
+		}
+		scope:scholar = { save_scope_as = ritual_leader }
+	}
+
+	option = { # Septon
+		name = agot_dragon_hatching.0006.opt.c
+		custom_tooltip = agot_dragon_hatching.0006.opt.c.tt
+		trigger = {
+			exists = scope:septon
+		}
+		scope:activity = {
+			set_variable = {
+				name = ritual_leader_type
+				value = flag:septon
+			}
+		}
+		scope:septon = { save_scope_as = ritual_leader }
+	}
+
+	option = { # Warlock
+		name = agot_dragon_hatching.0006.opt.d
+		custom_tooltip = agot_dragon_hatching.0006.opt.d.tt
+		trigger = {
+			exists = scope:warlock
+		}
+		scope:activity = {
+			set_variable = {
+				name = ritual_leader_type
+				value = flag:warlock
+			}
+		}
+		scope:warlock = { save_scope_as = ritual_leader }
+	}
+
+	option = { # Pyromancer
+		name = agot_dragon_hatching.0006.opt.e
+		custom_tooltip = agot_dragon_hatching.0006.opt.e.tt
+		trigger = {
+			exists = scope:pyromancer
+		}
+		scope:activity = {
+			set_variable = {
+				name = ritual_leader_type
+				value = flag:pyromancer
+			}
+		}
+		scope:pyromancer = { save_scope_as = ritual_leader }
+	}
+
+	option = { # Woods witch
+		name = agot_dragon_hatching.0006.opt.f
+		custom_tooltip = agot_dragon_hatching.0006.opt.f.tt
+		trigger = {
+			exists = scope:witch
+		}
+		scope:activity = {
+			set_variable = {
+				name = ritual_leader_type
+				value = flag:witch
+			}
+		}
+		scope:witch = { save_scope_as = ritual_leader }
+	}
+
+	option = { # R'hllor Priest
+		name = agot_dragon_hatching.0006.opt.g
+		custom_tooltip = agot_dragon_hatching.0006.opt.g.tt
+		trigger = {
+			exists = scope:rhllor_priest
+		}
+		scope:activity = {
+			set_variable = {
+				name = ritual_leader_type
+				value = flag:rhllor_priest
+			}
+		}
+		scope:rhllor_priest = { save_scope_as = ritual_leader }
+	}
+
+	option = { # Archmaester
+		name = agot_dragon_hatching.0006.opt.h
+		custom_tooltip = agot_dragon_hatching.0006.opt.h.tt
+		trigger = {
+			exists = scope:archmaester
+		}
+		scope:activity = {
+			set_variable = {
+				name = ritual_leader_type
+				value = flag:scholar # Same as scholar but gets extra buff
+			}
+		}
+		scope:archmaester = { save_scope_as = ritual_leader }
+		remove_short_term_gold = 20
+	}
+
+	after = {
+		scope:activity = {
+			set_variable = {
+				name = ritual_leader_character
+				value = scope:ritual_leader
+			}
+		}
+	}
+}
+
+agot_dragon_hatching.0007 = { #the ceremony - human participant pov
+	type = activity_event
+	title = agot_dragon_hatching.0007.t
+
+	trigger = { NOT = { this = scope:host } }
+
+	desc = {
+		first_valid = {
+			triggered_desc ={
+				trigger = { scope:activity = { has_activity_option = { category = hatching_type option = hatching_type_knowledge } } }
+				desc = agot_dragon_hatching.0007.desc_knowledge
+			}
+			desc = agot_dragon_hatching.0007.desc_esoteric
+		}
+	}
+	theme = dragon
+	left_portrait = {
+		character = root
+		animation = admiration
+		triggered_animation = {
+			trigger = {
+				has_trait = craven
+			}
+			animation = fear
+		}
+	}
+	right_portrait = {
+		character = scope:host
+		animation = throne_room_writer
+		triggered_animation = {
+			trigger = {
+				scope:activity = {
+					has_activity_option = {
+						category = hatching_type
+						option = hatching_type_esoteric
+					}
+				}
+			}
+			animation = personality_irrational
+		}
+	}
+
+	immediate = {
+		scope:activity.var:selected_egg = { save_scope_as = egg }
+	}
+
+	artifact = { # To display the artifact in the event-window
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	option = {
+		name = {
+			trigger = { NOT = { has_trait = craven } }
+			text = agot_dragon_hatching.0007.opt.a
+		}
+		name = {
+			trigger = { has_trait = craven }
+			text = agot_dragon_hatching.0007.opt.a.fear
+		}
+		flavor = agot_dragon_hatching.0007.opt.a.flavor
+
+		if = {
+			limit = {
+				scope:host = {
+					is_ai = no
+					any_player = { count > 1 }
+					NOT = { exists = var:mp_blocker_1 }
+				}
+			}
+			scope:host = {
+				set_variable = mp_blocker_1
+				trigger_event = agot_dragon_hatching.0006
+			}
+		}
+	}
+}
+
+agot_dragon_hatching.0008 = { # host sacrifice choice event, animal
+	type = activity_event
+	title = agot_dragon_hatching.0006.t
+	desc = {
+		first_valid = {
+			triggered_desc ={
+				trigger = { scope:activity = { has_activity_option = { category = hatching_type option = hatching_type_knowledge } } }
+				desc = agot_dragon_hatching.0008.desc_knowledge
+			}
+			desc = agot_dragon_hatching.0008.desc_esoteric
+		}
+	}
+	theme = dragon
+
+	left_portrait = {
+		character = root
+		animation = personality_rational
+		triggered_animation = {
+			trigger = {
+				NOT = { exists = scope:right_portrait }
+				scope:activity = {
+					has_activity_option = {
+						category = hatching_type
+						option = hatching_type_esoteric
+					}
+				}
+			}
+			animation = spymaster
+		}
+	}
+
+	right_portrait = {
+		character = scope:right_portrait
+		animation = throne_room_writer
+		triggered_animation = {
+			trigger = {
+				scope:activity = {
+					has_activity_option = {
+						category = hatching_type
+						option = hatching_type_esoteric
+					}
+				}
+			}
+			animation = spymaster
+		}
+	}
+
+	artifact = { # To display the artifact in the event-window
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	immediate = {
+		scope:activity.var:selected_egg = { save_scope_as = egg }
+		scope:activity.var:ritual_leader_character = { save_scope_as = ritual_leader_character }
+		if = {
+			limit = {
+				NOT = { scope:ritual_leader_character = root }
+			}
+			scope:ritual_leader_character = {
+				save_scope_as = right_portrait
+			}
+		}
+	}
+
+	option = { # Pet dog
+		name = agot_dragon_hatching.0008.opt.a_dog
+		trigger = {
+			owns_story_of_type = story_cycle_pet_dog
+		}
+		ai_chance = {
+			base = 10
+			ai_value_modifier = {
+				ai_honor = -0.3
+				ai_compassion = -0.7
+			}
+		}
+		custom_tooltip = agot_dragon_hatching.0008.opt.a_dog_tt
+		scope:activity = {
+			set_variable = {
+				name = sacrifice_type
+				value = flag:animal_pet_dog
+			}
+		}
+		end_sacrifice_choice_effect = yes
+		if = { # If you're not a monster this will stress you out
+			limit = {
+				NOR = {
+					has_trait = callous
+					has_trait = sadistic
+				}
+			}
+			add_stress = medium_stress_gain
+		}
+		if = { # If you're compassionate this will REALLY stress you out
+			limit = {
+				has_trait = compassionate
+			}
+			add_stress = medium_stress_gain
+		}
+	}
+
+	option = { # Pet cat
+		name = agot_dragon_hatching.0008.opt.a_cat
+		trigger = {
+			owns_story_of_type = story_cycle_pet_cat
+		}
+		ai_chance = {
+			base = 10
+			ai_value_modifier = {
+				ai_honor = -0.3
+				ai_compassion = -0.7
+			}
+		}
+		custom_tooltip = agot_dragon_hatching.0008.opt.a_cat_tt
+		scope:activity = {
+			set_variable = {
+				name = sacrifice_type
+				value = flag:animal_pet_cat
+			}
+		}
+		end_sacrifice_choice_effect = yes
+		if = { # If you're not a monster this will stress you out
+			limit = {
+				NOR = {
+					has_trait = callous
+					has_trait = sadistic
+				}
+			}
+			add_stress = medium_stress_gain
+		}
+		if = { # If you're compassionate this will REALLY stress you out
+			limit = {
+				has_trait = compassionate
+			}
+			add_stress = medium_stress_gain
+		}
+	}
+
+	option = { # Livestock
+		name = agot_dragon_hatching.0008.opt.b
+		custom_tooltip = agot_dragon_hatching.0008.opt.b_tt
+		ai_chance = {
+			base = 20
+			modifier = {
+				gold < 20
+				factor = 0
+			}
+		}
+		remove_short_term_gold = 10
+		hidden_effect = {
+			select_local_farm_animal_effect = yes
+		}
+		scope:activity = {
+			set_variable = {
+				name = sacrifice_type
+				value = flag:animal_livestock
+			}
+			set_variable = {
+				name = local_farm_animal
+				value = prev.var:local_farm_animal
+			}
+		}
+		end_sacrifice_choice_effect = yes
+		stress_impact = {
+			eccentric = minor_stress_impact_gain # Wants to do something wacky
+			compassionate = minor_stress_impact_gain # Feels bad for the animals
+		}
+	}
+
+	option = { # Wild animal
+		name = agot_dragon_hatching.0008.opt.c
+		custom_tooltip = agot_dragon_hatching.0008.opt.c_tt
+		ai_chance = {
+			base = 30
+			modifier = {
+				gold < 40
+				factor = 0
+			}
+		}
+		remove_short_term_gold = 20
+		scope:activity = {
+			set_variable = {
+				name = sacrifice_type
+				value = flag:animal_wild
+			}
+		}
+		end_sacrifice_choice_effect = yes
+		stress_impact = {
+			compassionate = minor_stress_impact_gain
+		}
+	}
+
+	option = { # Exotic animal
+		name = agot_dragon_hatching.0008.opt.d
+		custom_tooltip = agot_dragon_hatching.0008.opt.d_tt
+		ai_chance = {
+			base = 20
+			modifier = {
+				gold < 100
+				factor = 0
+			}
+			modifier = {
+				gold < 200
+				factor = 0.5
+			}
+		}
+		remove_short_term_gold = 50
+		scope:activity = {
+			set_variable = {
+				name = sacrifice_type
+				value = flag:animal_exotic
+			}
+		}
+		end_sacrifice_choice_effect = yes
+		stress_impact = {
+			compassionate = minor_stress_impact_gain
+		}
+	}
+}
+
+agot_dragon_hatching.0009 = { # host sacrifice choice event, blood
+	type = activity_event
+	title = agot_dragon_hatching.0009.t
+	desc = {
+		first_valid = {
+			triggered_desc ={
+				trigger = { scope:activity = { has_activity_option = { category = hatching_type option = hatching_type_knowledge } } }
+				desc = agot_dragon_hatching.0009.desc_knowledge
+			}
+			desc = agot_dragon_hatching.0009.desc_esoteric
+		}
+	}
+	theme = dragon
+
+	left_portrait = {
+		character = root
+		animation = personality_rational
+		triggered_animation = {
+			trigger = {
+				NOT = { exists = scope:right_portrait }
+				scope:activity = {
+					has_activity_option = {
+						category = hatching_type
+						option = hatching_type_esoteric
+					}
+				}
+			}
+			animation = spymaster
+		}
+	}
+
+	right_portrait = {
+		character = scope:right_portrait
+		animation = throne_room_writer
+		triggered_animation = {
+			trigger = {
+				scope:activity = {
+					has_activity_option = {
+						category = hatching_type
+						option = hatching_type_esoteric
+					}
+				}
+			}
+			animation = spymaster
+		}
+	}
+
+	artifact = { # To display the artifact in the event-window
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	immediate = {
+		scope:activity.var:selected_egg = { save_scope_as = egg }
+		scope:activity.var:ritual_leader_character = { save_scope_as = ritual_leader_character }
+		if = {
+			limit = {
+				NOT = { scope:ritual_leader_character = root }
+			}
+			scope:ritual_leader_character = {
+				save_scope_as = right_portrait
+			}
+		}
+		random_prisoner = {
+			limit = {
+				is_ai = yes # Maybe players later but for now just AI
+				age > 4 # No babies - bit dark
+				is_lowborn = no # No peasants, not important enough
+			}
+			save_scope_as = prisoner_blood_sacrifice
+		}
+	}
+
+	option = { # Myself
+		name = agot_dragon_hatching.0009.opt.a
+		custom_tooltip = agot_dragon_hatching.0009.opt.a_tt
+		ai_chance = {
+			base = 25
+			ai_value_modifier = {
+				ai_honor = 0.1
+				ai_boldness = 0.9
+			}
+			modifier = {
+				factor = 0
+				health < 3
+			}
+		}
+		scope:activity = {
+			set_variable = {
+				name = sacrifice_type
+				value = flag:blood_myself
+			}
+		}
+		end_sacrifice_choice_effect = yes
+		increase_wounds_no_death_effect = { REASON = fight }
+		stress_impact = {
+			craven = minor_stress_impact_gain # Scary
+			brave = minor_stress_impact_loss # I'm tough
+		}
+	}
+
+	option = { # Ritual leader
+		name = agot_dragon_hatching.0009.opt.b
+		custom_tooltip = agot_dragon_hatching.0009.opt.b_tt
+		trigger = {
+			exists = scope:ritual_leader_character
+			NOT = { this = scope:ritual_leader_character }
+			scope:ritual_leader_character = {
+				is_alive = yes
+				is_ai = yes # 99% sure this is always the case but just in case
+			}
+		}
+		ai_chance = {
+			base = 25
+			ai_value_modifier = {
+				ai_honor = -0.3
+				ai_boldness = -0.4
+				ai_compassion = -0.3
+			}
+			modifier = {
+				factor = 0
+				scope:ritual_leader_character = {
+					health < 3
+				}
+			}
+		}
+		scope:activity = {
+			set_variable = {
+				name = sacrifice_type
+				value = flag:blood_leader
+			}
+		}
+		end_sacrifice_choice_effect = yes
+		stress_impact = {
+			craven = minor_stress_impact_loss # Scary
+			brave = minor_stress_impact_gain # I'm tough
+		}
+	}
+
+	option = { # Everyone
+		name = agot_dragon_hatching.0009.opt.c
+		custom_tooltip = agot_dragon_hatching.0009.opt.c_tt_1
+		ai_chance = {
+			base = 25
+			ai_value_modifier = {
+				ai_boldness = 0.2 # I'm involved
+				ai_sociability = 0.4 # Yay friends
+				ai_compassion = -0.4 # Bit rude
+			}
+		}
+		scope:activity = {
+			set_variable = {
+				name = sacrifice_type
+				value = flag:blood_everyone
+			}
+		}
+		end_sacrifice_choice_effect = yes
+		stress_impact = {
+			craven = minor_stress_impact_gain # Scary
+			brave = minor_stress_impact_loss # I'm tough
+			diligent = minor_stress_impact_loss # Do it properly
+			compassionate = minor_stress_impact_gain # I don't want to hurt anyone
+		}
+		increase_wounds_no_death_effect = { REASON = fight }
+		custom_tooltip = {
+			text = agot_dragon_hatching.0009.opt.c_tt_2
+			scope:activity = {
+				every_attending_character = {
+					if = {
+						limit = { is_ai = yes }
+						increase_wounds_no_death_effect = { REASON = fight }
+					}
+					else_if = {
+						limit = { NOT = { this = scope:host }}
+						trigger_event = agot_dragon_hatching.0010
+					}
+				}
+			}
+		}
+	}
+
+	option = { # Prisoner
+		name = agot_dragon_hatching.0009.opt.d
+		custom_tooltip = agot_dragon_hatching.0009.opt.d_tt
+		trigger = {
+			exists = scope:prisoner_blood_sacrifice
+		}
+		ai_chance = {
+			base = 25
+			ai_value_modifier = {
+				ai_honor = -0.3
+				ai_boldness = -0.4
+				ai_compassion = -0.3
+			}
+		}
+		scope:activity = {
+			set_variable = {
+				name = sacrifice_type
+				value = flag:blood_prisoner
+			}
+			set_variable = {
+				name = sacrifice_prisoner
+				value = scope:prisoner_blood_sacrifice
+			}
+		}
+		end_sacrifice_choice_effect = yes
+		stress_impact = {
+			craven = minor_stress_impact_gain # Scary
+			brave = minor_stress_impact_loss # I'm tough
+			compassionate = minor_stress_impact_gain # I don't want to hurt anyone
+		}
+	}
+
+	option = { # Folding, copying option in 14
+		name = agot_dragon_hatching.0009.opt.e
+		custom_tooltip = agot_dragon_hatching.0009.opt.e_tt
+		trigger_event = agot_dragon_hatching.0017
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+agot_dragon_hatching.0010 = { # Player blood sacrifice choice
+	type = activity_event
+	title = agot_dragon_hatching.0010.t
+	desc = agot_dragon_hatching.0010.desc
+	theme = dragon
+
+	left_portrait = {
+		character = root
+		animation = personality_rational
+		triggered_animation = {
+			trigger = {
+				has_trait = craven
+			}
+			animation = fear
+		}
+	}
+
+	right_portrait = {
+		character = scope:host
+		animation = personality_rational
+	}
+
+	option = {
+		name = agot_dragon_hatching.0010.opt.a
+		increase_wounds_no_death_effect = { REASON = fight }
+		remove_character_flag = refusing_dragon_hatching_blood_donation
+		stress_impact = {
+			brave = minor_stress_impact_loss
+			craven = minor_stress_impact_gain
+		}
+	}
+
+	option = {
+		name = agot_dragon_hatching.0010.opt.b
+		scope:host = {
+			add_opinion = {
+				modifier = disappointed_opinion
+				opinion = -10
+				target = root
+			}
+		}
+		add_prestige = -50 # It's in front of everyone
+		stress_impact = {
+			brave = minor_stress_impact_gain
+			craven = minor_stress_impact_loss
+		}
+		add_character_flag = {
+			flag = refusing_dragon_hatching_blood_donation
+			years = 5
+		}
+	}
+}
+
+agot_dragon_hatching.0011 = { # host sacrifice choice event, life
+	type = activity_event
+	title = agot_dragon_hatching.0011.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_character_flag = agot_attendee_escaped_dragon_sacrifice }
+				desc = agot_dragon_hatching.0011.desc_escaped_attendee
+			}
+			triggered_desc = {
+				trigger = { has_character_flag = agot_leader_refused_to_be_dragon_sacrifice }
+				desc = agot_dragon_hatching.0011.desc_refused_leader
+			}
+			triggered_desc = {
+				trigger = { has_character_flag = agot_attendee_refused_to_be_dragon_sacrifice }
+				desc = agot_dragon_hatching.0011.desc_refused_attendee
+			}
+			triggered_desc ={
+				trigger = { scope:activity = { has_activity_option = { category = hatching_type option = hatching_type_knowledge } } }
+				desc = agot_dragon_hatching.0011.desc_knowledge
+			}
+			desc = agot_dragon_hatching.0011.desc_esoteric
+		}
+	}
+	theme = dragon
+
+	left_portrait = {
+		character = root
+		animation = personality_rational
+		triggered_animation = {
+			trigger = {
+				NOT = { exists = scope:right_portrait }
+				scope:activity = {
+					has_activity_option = {
+						category = hatching_type
+						option = hatching_type_esoteric
+					}
+				}
+			}
+			animation = spymaster
+		}
+	}
+
+	right_portrait = {
+		character = scope:right_portrait
+		animation = throne_room_writer
+		triggered_animation = {
+			trigger = {
+				scope:activity = {
+					has_activity_option = {
+						category = hatching_type
+						option = hatching_type_esoteric
+					}
+				}
+			}
+			animation = spymaster
+		}
+	}
+
+	artifact = { # To display the artifact in the event-window
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	immediate = {
+
+		scope:activity.var:selected_egg = { save_scope_as = egg }
+		scope:activity.var:ritual_leader_character = { save_scope_as = ritual_leader_character }
+		if = {
+			limit = {
+				NOT = { scope:ritual_leader_character = root }
+			}
+			scope:ritual_leader_character = {
+				save_scope_as = right_portrait
+			}
+		}
+		scope:activity = {
+			random_attending_character = {
+				limit = {
+					is_ai = yes
+					is_adult = yes
+					is_lowborn = no
+					NOT = { this = scope:host }
+					NOT = { this = scope:ritual_leader_character }
+					NOT = { has_character_flag = agot_refused_to_be_dragon_sacrifice }
+					OR = {
+						# Has something that might make them a willing sacrifice
+						has_trait = loyal # I'm just that loyal
+						has_trait = lunatic_1 # I'm nuts
+						has_trait = lunatic_genetic
+						has_trait = depressed_1 # I want to die anyway
+						has_trait = depressed_genetic
+						has_relation_friend = root # I'll do anything for my friend
+						has_relation_lover = root # I'll do anything for my lover
+						root = { has_strong_hook = prev } # I owe them big time
+					}
+				}
+				save_scope_as = attendee_life_sacrifice_willing
+			}
+			random_attending_character = {
+				limit = {
+					is_adult = yes
+					is_lowborn = no
+					NOT = { this = scope:host }
+					NOT = { this = scope:ritual_leader_character }
+					NOT = { has_character_flag = agot_escaped_from_dragon_hatching_sacrifice }
+				}
+				save_scope_as = attendee_life_sacrifice_unwilling
+			}
+		}
+		random_prisoner = {
+			limit = {
+				is_ai = yes # Maybe players later but for now just AI
+				age > 4 # No babies - bit dark
+				is_lowborn = no # No peasants, not important enough
+			}
+			save_scope_as = prisoner_life_sacrifice # This is just to check there are valid candidates
+		}
+		# Make escapee hate me if exists and is first run
+		if = {
+			limit = {
+				has_character_flag = agot_attendee_escaped_dragon_sacrifice
+				exists = scope:escaped_unwilling_attendee
+			}
+			reverse_add_opinion = {
+				modifier = agot_tried_to_sacrifice_me
+				target = scope:escaped_unwilling_attendee
+			}
+		}
+	}
+
+	option = { # Myself
+		name = agot_dragon_hatching.0011.opt.a
+		custom_tooltip = agot_dragon_hatching.0011.opt.a_tt
+		ai_chance = {
+			base = 25
+			ai_value_modifier = {
+				ai_honor = 0.5
+				ai_boldness = 0.5
+			}
+		}
+		scope:activity = {
+			set_variable = {
+				name = sacrifice_type
+				value = flag:life_myself
+			}
+		}
+		end_sacrifice_choice_effect = yes
+	}
+
+	option = { # Leader
+		name = agot_dragon_hatching.0011.opt.b
+		trigger = {
+			NOT = { has_character_flag = agot_leader_refused_to_be_dragon_sacrifice }
+			exists = scope:ritual_leader_character
+			NOT = { this = scope:ritual_leader_character }
+			scope:ritual_leader_character = {
+				is_alive = yes
+				is_ai = yes
+				NOT = { has_character_flag = agot_refused_to_be_dragon_sacrifice }
+			}
+		}
+		ai_chance = {
+			base = 25
+			ai_value_modifier = {
+				ai_honor = 0.7
+				ai_boldness = -0.3
+			}
+		}
+		random_list = {
+			50 = {
+				modifier = {
+					add = {
+						value = scope:ritual_leader_character.ai_boldness
+						multiply = 0.5
+					}
+				}
+				modifier = {
+					add = diplomacy
+					add = learning
+				}
+				modifier = {
+					factor = 0.1
+					scope:ritual_leader_character = {
+						has_trait = craven
+					}
+				}
+				custom_tooltip = agot_dragon_hatching.0011.opt.b_accepts
+				scope:activity = {
+					set_variable = {
+						name = sacrifice_type
+						value = flag:life_leader
+					}
+				}
+				end_sacrifice_choice_effect = yes
+			}
+			50 = {
+				custom_tooltip = agot_dragon_hatching.0011.opt.b_declines
+				add_character_flag = agot_leader_refused_to_be_dragon_sacrifice
+				remove_character_flag = agot_attendee_refused_to_be_dragon_sacrifice
+				remove_character_flag = agot_attendee_escaped_dragon_sacrifice
+				scope:ritual_leader_character = {
+					add_character_flag = {
+						flag = agot_refused_to_be_dragon_sacrifice
+						years = 2
+					}
+				}
+				trigger_event = agot_dragon_hatching.0011 # Rerun the event
+			}
+		}
+	}
+
+	option = { # Prisoner
+		name = agot_dragon_hatching.0011.opt.c
+		custom_tooltip = agot_dragon_hatching.0011.opt.c_tt
+		trigger = {
+			exists = scope:prisoner_life_sacrifice
+		}
+		ai_chance = {
+			base = 25
+			ai_value_modifier = {
+				ai_honor = -0.3
+				ai_boldness = -0.4
+				ai_compassion = -0.3
+			}
+		}
+		trigger_event = agot_dragon_hatching.0012
+	}
+
+	option = { # Attendee - willing
+		name = agot_dragon_hatching.0011.opt.d
+		trigger = {
+			exists = scope:attendee_life_sacrifice_willing
+		}
+		ai_chance = {
+			base = 25
+			ai_value_modifier = {
+				ai_boldness = -0.4
+				ai_compassion = -0.6
+			}
+		}
+		random_list = {
+			50 = {
+				modifier = {
+					add = {
+						value = scope:attendee_life_sacrifice_willing.ai_boldness
+						multiply = 0.5
+					}
+				}
+				opinion_modifier = {
+					who = scope:attendee_life_sacrifice_willing
+					opinion_target = root
+					multiplier = 0.5
+				}
+				modifier = {
+					factor = 0.1
+					scope:attendee_life_sacrifice_willing = {
+						has_trait = craven
+					}
+				}
+				custom_tooltip = agot_dragon_hatching.0011.opt.d_accepts
+				scope:activity = {
+					set_variable = {
+						name = sacrifice_type
+						value = flag:life_attendee
+					}
+					set_variable = {
+						name = sacrifice_attendee
+						value = scope:attendee_life_sacrifice_willing
+					}
+				}
+				end_sacrifice_choice_effect = yes
+			}
+			50 = {
+				custom_tooltip = agot_dragon_hatching.0011.opt.d_declines
+				add_character_flag = agot_attendee_refused_to_be_dragon_sacrifice
+				remove_character_flag = agot_leader_refused_to_be_dragon_sacrifice
+				remove_character_flag = agot_attendee_escaped_dragon_sacrifice
+				scope:attendee_life_sacrifice_willing = {
+					save_scope_as = attendee_life_sacrifice_refusing # For loc
+					add_character_flag = {
+						flag = agot_refused_to_be_dragon_sacrifice
+						years = 2
+					}
+					reverse_add_opinion = {
+						modifier = disappointed_opinion
+						opinion = -10
+						target = root
+					}
+				}
+				trigger_event = agot_dragon_hatching.0011 # Rerun the event
+			}
+		}
+	}
+
+	option = { # Attendee - unwilling
+		name = agot_dragon_hatching.0011.opt.d_unwilling
+		custom_tooltip = agot_dragon_hatching.0011.opt.d_tt_unwilling
+		custom_tooltip = agot_dragon_hatching.0011.opt.d_tt_unwilling_may_escape
+		trigger = {
+			scope:attendee_life_sacrifice_unwilling ?= { # I would clear scope but it litterally doesn't work
+				is_alive = yes
+				NOT = { has_variable = agot_escaped_from_dragon_hatching_sacrifice }
+			}
+		}
+		ai_chance = {
+			base = 15
+			ai_value_modifier = {
+				ai_honor = -0.5
+				ai_boldness = 0.2
+				ai_compassion = -0.5
+			}
+		}
+		trigger_event = agot_dragon_hatching.0018
+	}
+
+	option = { # Everyone!
+		name = agot_dragon_hatching.0011.opt.e
+		custom_tooltip = agot_dragon_hatching.0011.opt.e_tt
+		trigger = {
+			OR = {
+				has_trait = lunatic_1
+				has_trait = lunatic_genetic
+			}
+		}
+		ai_chance = {
+			base = 25
+			ai_value_modifier = { # Only very bold and very cruel people will do this
+				ai_boldness = 0.5
+				ai_compassion = -0.8
+			}
+		}
+		scope:activity = {
+			set_variable = {
+				name = sacrifice_type
+				value = flag:life_everyone
+			}
+		}
+		end_sacrifice_choice_effect = yes
+	}
+
+	option = { # Folding, copying option in 14
+		name = agot_dragon_hatching.0011.opt.f
+		custom_tooltip = agot_dragon_hatching.0011.opt.f_tt
+		trigger_event = agot_dragon_hatching.0017
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+agot_dragon_hatching.0012 = { # host sacrifice choice event, life, prisoner selection
+	type = activity_event #character_event
+	title = agot_dragon_hatching.0012.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						has_activity_option = {
+							category = hatching_type
+							option = hatching_type_knowledge
+						}
+					}
+				}
+				desc = agot_dragon_hatching.0012.desc_knowledge
+			}
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						has_activity_option = {
+							category = hatching_type
+							option = hatching_type_esoteric
+						}
+					}
+				}
+				desc = agot_dragon_hatching.0012.desc_esoteric
+			}
+		}
+	}
+	theme = dragon
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_character_selection_short" # Presumably this will be detailed loc, change to tall if need be
+		container = "custom_widgets_container"
+	}
+
+	immediate = {
+		scope:activity.var:selected_egg = { save_scope_as = egg }
+		if = {
+			limit = {
+				is_ai = no
+			}
+			every_prisoner = {
+				root = {
+					add_to_variable_list = {
+						name = possible_characters
+						target = prev
+					}
+				}
+			}
+			ordered_in_list = {
+				variable = possible_characters
+				order_by = age
+				root = { set_variable = { name = si_selected_character value = prev } }
+			}
+		}
+		else = {
+			random_prisoner = {
+				root = { set_variable = { name = si_selected_character value = prev } }
+			}
+		}
+	}
+
+	artifact = { # To display the artifact in the event-window
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	left_portrait = {
+		character = root
+		animation = throne_room_writer
+		triggered_animation = {
+			trigger = {
+				scope:activity = {
+					has_activity_option = {
+						category = hatching_type
+						option = hatching_type_esoteric
+					}
+				}
+			}
+			animation = personality_irrational
+		}
+	}
+
+	option = { #You will do!
+		name = agot_dragon_hatching.0012.opt.a
+		custom_tooltip = agot_dragon_hatching.0012.opt.a_tt
+		ai_chance = {
+			base = 100
+		}
+		var:si_selected_character = {
+			save_scope_as = prisoner_life_sacrifice
+			remove_variable = si_selecting_character
+		}
+		clear_variable_list = possible_characters
+		scope:activity = {
+			set_variable = {
+				name = sacrifice_type
+				value = flag:life_prisoner
+			}
+			set_variable = {
+				name = sacrifice_prisoner
+				value = scope:prisoner_life_sacrifice
+			}
+		}
+		end_sacrifice_choice_effect = yes
+	}
+
+	option = { #go back
+		name = agot_dragon_hatching.0012.opt.b
+		custom_tooltip = agot_dragon_hatching.0012.opt.b_tt
+		ai_chance = {
+			base = 0
+		}
+		trigger_event = agot_dragon_hatching.0011
+	}
+
+	after = {
+		clear_variable_list = possible_characters
+		remove_variable = si_selected_character
+	}
+}
+
+agot_dragon_hatching.0013 = { # guest sacrifice reaction
+	type = activity_event
+	title = agot_dragon_hatching.0013.t
+	desc = {
+		# Opening
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						has_activity_option = {
+							category = hatching_type
+							option = hatching_type_knowledge
+						}
+					}
+				}
+				desc = agot_dragon_hatching.0013.desc_opening_knowledge
+			}
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						has_activity_option = {
+							category = hatching_type
+							option = hatching_type_esoteric
+						}
+					}
+				}
+				desc = agot_dragon_hatching.0013.desc_opening_esoteric
+			}
+		}
+		# Sacrifice type
+		first_valid = {
+			# Animal
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						var:sacrifice_type = flag:animal_pet_dog
+					}
+				}
+				desc = agot_dragon_hatching.0013.desc_animal_pet_dog
+			}
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						var:sacrifice_type = flag:animal_pet_cat
+					}
+				}
+				desc = agot_dragon_hatching.0013.desc_animal_pet_cat
+			}
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						var:sacrifice_type = flag:animal_livestock
+					}
+				}
+				desc = agot_dragon_hatching.0013.desc_animal_livestock
+			}
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						var:sacrifice_type = flag:animal_wild
+					}
+				}
+				desc = agot_dragon_hatching.0013.desc_animal_wild
+			}
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						var:sacrifice_type = flag:animal_exotic
+					}
+				}
+				desc = agot_dragon_hatching.0013.desc_animal_exotic
+			}
+			# Blood
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						var:sacrifice_type = flag:blood_myself
+					}
+				}
+				desc = agot_dragon_hatching.0013.desc_blood_myself
+			}
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						var:sacrifice_type = flag:blood_leader
+					}
+				}
+				desc = agot_dragon_hatching.0013.desc_blood_leader
+			}
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						var:sacrifice_type = flag:blood_everyone
+					}
+				}
+				desc = agot_dragon_hatching.0013.desc_blood_everyone
+			}
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						var:sacrifice_type = flag:blood_prisoner
+					}
+				}
+				desc = agot_dragon_hatching.0013.desc_blood_prisoner
+			}
+			# Life
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						var:sacrifice_type = flag:life_myself
+					}
+				}
+				desc = agot_dragon_hatching.0013.desc_life_myself
+			}
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						var:sacrifice_type = flag:life_leader
+					}
+				}
+				desc = agot_dragon_hatching.0013.desc_life_leader
+			}
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						var:sacrifice_type = flag:life_attendee
+					}
+				}
+				desc = agot_dragon_hatching.0013.desc_life_attendee
+			}
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						var:sacrifice_type = flag:life_prisoner
+					}
+				}
+				desc = agot_dragon_hatching.0013.desc_life_prisoner
+			}
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						var:sacrifice_type = flag:life_everyone
+					}
+				}
+				desc = agot_dragon_hatching.0013.desc_life_everyone
+			}
+		}
+		# Reaction
+		first_valid = {
+			triggered_desc = { # Happy
+				trigger = {
+					NOT = { has_trait = craven }
+					NOT = { ai_boldness < -75 }
+					OR = {
+						ai_boldness > 75
+						has_trait = brave
+						has_education_learning_trigger = yes
+						AND = { # Knowledge
+							scope:activity = {
+								has_activity_option = {
+									category = hatching_type
+									option = hatching_type_knowledge
+								}
+							}
+							OR = { # You're a smart / curious one
+								has_trait = scholar
+								has_trait = shrewd
+								has_trait = diligent
+								has_trait = pensive
+								has_trait = intellect_good_1
+								has_trait = intellect_good_2
+								has_trait = intellect_good_3
+								has_trait = lifestyle_physician
+							}
+						}
+						AND = { # Esoteric
+							scope:activity = {
+								has_activity_option = {
+									category = hatching_type
+									option = hatching_type_esoteric
+								}
+							}
+							AND = { # You're not religiously opposed
+								NOT = { has_strong_religious_conviction_trigger = yes }
+								NOT = { has_religion = religion:faith_of_the_seven_religion }
+							}
+							OR = { # And you're a bit of a weirdo
+								has_trait = lunatic_1
+								has_trait = lunatic_genetic
+								has_trait = lifestyle_mystic
+								has_trait = theologian
+								has_trait = eccentric
+							}
+						}
+						AND = { # Cruelty is its own reward
+							OR = {
+								has_trait = sadistic
+								has_trait = torturer
+							}
+							scope:activity = {
+								has_activity_option = {
+									category = hatching_sacrifice
+									option = hatching_sacrifice_blood
+								}
+							}
+						}
+					}
+				}
+				desc = agot_dragon_hatching.0013.desc_close_happy
+			}
+			desc = agot_dragon_hatching.0013.desc_close_worried
+		}
+	}
+	theme = dragon
+
+	right_portrait = {
+		character = scope:host
+		animation = throne_room_writer
+		triggered_animation = {
+			trigger = {
+				scope:activity = {
+					scope:activity = {
+						has_activity_option = {
+							category = hatching_sacrifice
+							option = hatching_sacrifice_blood
+						}
+					}
+				}
+			}
+			animation = spymaster
+		}
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_rational
+		triggered_animation = {
+			trigger = {
+				has_trait = craven
+			}
+			animation = fear
+		}
+	}
+
+	immediate = { # Grab scopes needed for loc
+		if = { # Prisoner
+			limit = {
+				OR = {
+					scope:activity = {
+						has_activity_option = {
+							category = sacrifice_type
+							option = flag:blood_prisoner
+						}
+					}
+					scope:activity = {
+						has_activity_option = {
+							category = sacrifice_type
+							option = flag:life_prisoner
+						}
+					}
+				}
+			}
+			scope:activity.var:sacrifice_prisoner = { save_scope_as = prisoner }
+		}
+		if = { # Attendee
+			limit = {
+				scope:activity = {
+					has_activity_option = {
+						category = sacrifice_type
+						option = flag:life_attendee
+					}
+				}
+			}
+			scope:activity.var:sacrifice_attendee = { save_scope_as = attendee }
+		}
+	}
+
+	artifact = { # To display the artifact in the event-window
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	option = {
+		name = agot_dragon_hatching.0013.opt.a
+	}
+}
+
+agot_dragon_hatching.0014 = { # host catalyst event / back out?
+	type = activity_event
+	title = agot_dragon_hatching.0014.t
+	desc = {
+		first_valid = { # Type of hatching
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						has_activity_option = {
+							category = hatching_type
+							option = hatching_type_knowledge
+						}
+					}
+				}
+				desc = agot_dragon_hatching.0014.desc_opening_knowledge
+			}
+			desc = agot_dragon_hatching.0014.desc_opening_esoteric
+		}
+		first_valid = { # Level of catalyst
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						has_activity_option = {
+							category = hatching_catalyst
+							option = hatching_catalyst_minor
+						}
+					}
+				}
+				desc = agot_dragon_hatching.0014.desc_minor
+			}
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						has_activity_option = {
+							category = hatching_catalyst
+							option = hatching_catalyst_medium
+						}
+					}
+				}
+				desc = agot_dragon_hatching.0014.desc_medium
+			}
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						has_activity_option = {
+							category = hatching_catalyst
+							option = hatching_catalyst_major
+						}
+					}
+				}
+				desc = agot_dragon_hatching.0014.desc_major
+			}
+			desc = agot_dragon_hatching.0014.desc_massive
+		}
+	}
+	theme = dragon
+
+	immediate = {
+		scope:activity.var:selected_egg = { save_scope_as = egg }
+		scope:activity.var:ritual_leader_character = { save_scope_as = ritual_leader_character }
+		if = {
+			limit = {
+				NOT = { scope:ritual_leader_character = root }
+			}
+			scope:ritual_leader_character = {
+				save_scope_as = right_portrait
+			}
+		}
+	}
+
+	artifact = { # To display the artifact in the event-window
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_rational
+		triggered_animation = {
+			trigger = {
+				NOT = { exists = scope:right_portrait }
+			}
+			animation = throne_room_writer
+		}
+	}
+
+	right_portrait = {
+		character = scope:right_portrait
+		animation = throne_room_writer
+		triggered_animation = {
+			trigger = {
+				scope:activity = {
+					has_activity_option = {
+						category = hatching_type
+						option = hatching_type_esoteric
+					}
+				}
+			}
+			animation = lantern
+		}
+	}
+
+	option = { # Wood
+		name = {
+			trigger = {
+				ai_rationality >= ai_boldness
+			}
+			text = agot_dragon_hatching.0014.opt.a_rational
+		}
+		name = {
+			trigger = {
+				ai_boldness > ai_rationality
+			}
+			text = agot_dragon_hatching.0014.opt.a_bold
+		}
+		custom_tooltip = agot_dragon_hatching.0014.opt.a_tt
+		custom_tooltip = agot_dragon_hatching.0014.opt.warning
+		scope:activity = {
+			set_variable = {
+				name = catalyst_type
+				value = flag:wood
+			}
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+
+	option = { # Coal
+		name = agot_dragon_hatching.0014.opt.b
+		custom_tooltip = agot_dragon_hatching.0014.opt.b_ttplsnohasherror
+		custom_tooltip = agot_dragon_hatching.0014.opt.warning
+		scope:activity = {
+			set_variable = {
+				name = catalyst_type
+				value = flag:coal
+			}
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+
+	option = { # Oil
+		name = agot_dragon_hatching.0014.opt.c
+		trigger = {
+			scope:activity = {
+				has_activity_option = {
+					category = hatching_type
+					option = hatching_type_knowledge
+				}
+			}
+		}
+		custom_tooltip = agot_dragon_hatching.0014.opt.c_tt
+		custom_tooltip = agot_dragon_hatching.0014.opt.warning
+		scope:activity = {
+			set_variable = {
+				name = catalyst_type
+				value = flag:oil
+			}
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+
+	option = { # Wildfire
+		name = agot_dragon_hatching.0014.opt.d
+		trigger = {
+			scope:activity = {
+				has_activity_option = {
+					category = hatching_type
+					option = hatching_type_esoteric
+				}
+			}
+		}
+		custom_tooltip = agot_dragon_hatching.0014.opt.d_tt
+		custom_tooltip = agot_dragon_hatching.0014.opt.warning
+		scope:activity = {
+			set_variable = {
+				name = catalyst_type
+				value = flag:wildfire
+			}
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+
+	option = { # Lava
+		name = agot_dragon_hatching.0014.opt.e
+		trigger = {
+			scope:activity.activity_location = {
+				has_building_or_higher = dragonstone_01
+			}
+		}
+		custom_tooltip = agot_dragon_hatching.0014.opt.e_tt
+		custom_tooltip = agot_dragon_hatching.0014.opt.warning
+		scope:activity = {
+			set_variable = {
+				name = catalyst_type
+				value = flag:lava
+			}
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+
+	option = { # Magnifying glass you weirdo
+		name = agot_dragon_hatching.0014.opt.f
+		trigger = {
+			has_trait = eccentric
+		}
+		custom_tooltip = agot_dragon_hatching.0014.opt.f_tt
+		custom_tooltip = agot_dragon_hatching.0014.opt.warning
+		scope:activity = {
+			set_variable = {
+				name = catalyst_type
+				value = flag:magnifying_glass
+			}
+		}
+		ai_chance = {
+			base = 10
+		}
+		stress_impact = {
+			eccentric = major_stress_impact_loss
+		}
+	}
+
+	option = { # Backing out
+		name = {
+			trigger = {
+				ai_boldness < 0
+			}
+			text = agot_dragon_hatching.0014.opt.leave_coward
+		}
+		name = {
+			trigger = {
+				ai_boldness >= 0
+				ai_boldness > ai_rationality
+			}
+			text = agot_dragon_hatching.0014.opt.leave_bold
+		}
+		name = {
+			trigger = {
+				ai_boldness >= 0
+				ai_rationality >= ai_boldness
+			}
+			text = agot_dragon_hatching.0014.opt.leave_rational
+		}
+		custom_tooltip = agot_dragon_hatching.0014.opt.leave_tt
+		hidden_effect = {
+			scope:activity = {
+				set_variable = host_folded
+				skip_activity_phase = yes
+				every_attending_character = {
+					limit = {
+						NOT = { this = scope:host }
+					}
+					trigger_event = agot_dragon_hatching.0015
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+
+	after = {
+		if = {
+			limit = {
+				NOT = { scope:activity = { has_variable = host_folded } }
+			}
+			trigger_event = agot_dragon_hatching.0016
+		}
+	}
+}
+
+agot_dragon_hatching.0015 = { # Host folded guest reaction
+	type = activity_event
+	title = agot_dragon_hatching.0015.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						has_activity_option = {
+							category = hatching_type
+							option = hatching_type_knowledge
+						}
+					}
+				}
+				desc = agot_dragon_hatching.0015.desc_knowledge
+			}
+			desc = agot_dragon_hatching.0015.desc_esoteric
+		}
+	}
+
+	theme = dragon
+	left_portrait = {
+		character = root
+		animation = boredom
+		triggered_animation = {
+			trigger = {
+				has_trait = craven
+			}
+			animation = admiration
+		}
+	}
+	right_portrait = {
+		character = scope:host
+		animation = dismissal
+	}
+
+	option = {
+		name = {
+			trigger = {
+				ai_rationality > ai_boldness
+			}
+			text = agot_dragon_hatching.0015.opt.a_rational
+		}
+		name = {
+			trigger = {
+				0 > ai_boldness
+			}
+			text = agot_dragon_hatching.0015.opt.a_coward
+		}
+		name = {
+			trigger = {
+				ai_boldness >= 0
+				ai_boldness >= ai_rationality
+			}
+			text = agot_dragon_hatching.0015.opt.a_bold
+		}
+		if = {
+			limit = {
+				NOT = { has_trait = craven }
+			}
+			add_stress = minor_stress_gain
+		}
+	}
+}
+
+agot_dragon_hatching.0016 = { # dragon hatching event
+	type = activity_event
+	title = agot_dragon_hatching.0016.t
+	desc = {
+		first_valid = { # Intro feeling
+			triggered_desc = {
+				trigger = {
+					ai_boldness < -75
+				}
+				desc = agot_dragon_hatching.0016.desc_opening_craven
+			}
+			triggered_desc = {
+				trigger = {
+					ai_boldness > 75
+				}
+				desc = agot_dragon_hatching.0016.desc_opening_bold
+			}
+			desc = agot_dragon_hatching.0016.desc_opening_normal
+		}
+		first_valid = { # Type of hatching
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						has_activity_option = {
+							category = hatching_type
+							option = hatching_type_knowledge
+						}
+					}
+				}
+				desc = {
+					triggered_desc = {
+						trigger = {
+							scope:ritual_leader_character = root
+						}
+						desc = agot_dragon_hatching.0016.desc_knowledge_opening_me
+					}
+					triggered_desc = {
+						trigger = {
+							NOT = { scope:ritual_leader_character = root }
+						}
+						desc = agot_dragon_hatching.0016.desc_knowledge_opening_other
+					}
+				}
+			}
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						has_activity_option = {
+							category = hatching_type
+							option = hatching_type_esoteric
+						}
+					}
+				}
+				desc = {
+					first_valid = {
+						triggered_desc = {
+							trigger = {
+								exists = scope:prisoner
+								this = scope:prisoner
+							}
+							desc = agot_dragon_hatching.0016.desc_esoteric_opening_other_prisoner
+						}
+						triggered_desc = {
+							trigger = {
+								scope:ritual_leader_character = root
+							}
+							desc = agot_dragon_hatching.0016.desc_esoteric_opening_me
+						}
+						triggered_desc = {
+							trigger = {
+								NOT = { scope:ritual_leader_character = root }
+							}
+							desc = agot_dragon_hatching.0016.desc_esoteric_opening_other
+						}
+					}
+				}
+			}
+		}
+		# Type of sacrifice
+		# Animal
+		triggered_desc = {
+			trigger = {
+				scope:activity = {
+					OR = {
+						var:sacrifice_type = flag:animal_pet_dog
+						var:sacrifice_type = flag:animal_pet_cat
+						var:sacrifice_type = flag:animal_livestock
+						var:sacrifice_type = flag:animal_wild
+						var:sacrifice_type = flag:animal_exotic
+					}
+				}
+			}
+			desc = {
+				first_valid = { # Type of animal
+					triggered_desc = {
+						trigger = {
+							scope:activity = {
+								var:sacrifice_type = flag:animal_pet_dog
+							}
+						}
+						desc = {
+							triggered_desc = {
+								trigger = {
+									NOT = { this = scope:host }
+								}
+								desc = agot_dragon_hatching.0016.desc_animal_pet_dog
+							}
+							triggered_desc = {
+								trigger = {
+									this = scope:host
+								}
+								desc = agot_dragon_hatching.0016.pet_dog_host
+							}
+						}
+					}
+					triggered_desc = {
+						trigger = {
+							scope:activity = {
+								var:sacrifice_type = flag:animal_pet_cat
+							}
+						}
+						desc = {
+							triggered_desc = {
+								trigger = {
+									NOT = { this = scope:host }
+								}
+								desc = agot_dragon_hatching.0016.desc_animal_pet_cat
+							}
+							triggered_desc = {
+								trigger = {
+									this = scope:host
+								}
+								desc = agot_dragon_hatching.0016.pet_cat_host
+							}
+						}
+					}
+					triggered_desc = {
+						trigger = {
+							scope:activity = {
+								var:sacrifice_type = flag:animal_livestock
+							}
+						}
+						desc = agot_dragon_hatching.0016.desc_animal_livestock
+					}
+					triggered_desc = {
+						trigger = {
+							scope:activity = {
+								var:sacrifice_type = flag:animal_wild
+							}
+						}
+						desc = agot_dragon_hatching.0016.desc_animal_wild
+					}
+					triggered_desc = {
+						trigger = {
+							scope:activity = {
+								var:sacrifice_type = flag:animal_exotic
+							}
+						}
+						desc = agot_dragon_hatching.0016.desc_animal_exotic
+					}
+				}
+				first_valid = { # Brought before me / not me
+					triggered_desc = {
+						trigger = {
+							this = scope:ritual_leader_character
+						}
+						desc = agot_dragon_hatching.0016.desc_me_stop
+					}
+					desc = agot_dragon_hatching.0016.desc_leader_stop
+				}
+				first_valid = { # Anything else to say?
+					triggered_desc = {
+						trigger = {
+							scope:activity = {
+								var:sacrifice_type = flag:animal_pet_dog
+							}
+							this = scope:host
+						}
+						desc = agot_dragon_hatching.0016.desc_animal_my_dog
+					}
+					triggered_desc = {
+						trigger = {
+							scope:activity = {
+								var:sacrifice_type = flag:animal_pet_cat
+							}
+							this = scope:host
+						}
+						desc = agot_dragon_hatching.0016.desc_animal_my_cat
+					}
+					triggered_desc = {
+						trigger = {
+							scope:activity = {
+								var:sacrifice_type = flag:animal_exotic
+							}
+						}
+						desc = agot_dragon_hatching.0016.desc_animal_exotic_end
+					}
+				}
+				triggered_desc = { # I kill
+					trigger = {
+						scope:activity = {
+							NOT = { var:sacrifice_type = flag:animal_wild } # Already dead
+						}
+						this = scope:ritual_leader_character
+					}
+					desc = agot_dragon_hatching.0016.desc_animal_kill_me
+				}
+				triggered_desc = { # Leader kills
+					trigger = {
+						scope:activity = {
+							NOT = { var:sacrifice_type = flag:animal_wild } # Already dead
+						}
+						NOT = { this = scope:ritual_leader_character }
+					}
+					desc = agot_dragon_hatching.0016.desc_animal_kill_leader
+				}
+			}
+		}
+		# Blood
+		triggered_desc = {
+			trigger = {
+				scope:activity = {
+					OR = {
+						var:sacrifice_type = flag:blood_myself
+						var:sacrifice_type = flag:blood_leader
+						var:sacrifice_type = flag:blood_everyone
+						var:sacrifice_type = flag:blood_prisoner
+					}
+				}
+			}
+			desc = {
+				first_valid = {
+					triggered_desc = { # Myself
+						trigger = {
+							scope:activity = {
+								OR = {
+									var:sacrifice_type = flag:blood_myself
+									AND = {
+										var:sacrifice_type = flag:blood_leader
+										root = scope:ritual_leader_character
+									}
+									AND = {
+										var:sacrifice_type = flag:blood_everyone
+										NOT = {
+											root = { has_character_flag = refusing_dragon_hatching_blood_donation }
+										}
+									}
+									AND = {
+										var:sacrifice_type = flag:blood_prisoner
+										root = scope:prisoner
+									}
+								}
+							}
+						}
+						desc = {
+							desc = agot_dragon_hatching.0016.desc_blood_me
+							first_valid = {
+								triggered_desc = {
+									trigger = {
+										scope:activity = {
+											var:sacrifice_type = flag:blood_prisoner
+										}
+										this = scope:prisoner
+									}
+									desc = agot_dragon_hatching.0016.desc_blood_me_prisoner
+								}
+								triggered_desc = {
+									trigger = {
+										OR = {
+											AND = {
+												scope:activity = {
+													var:sacrifice_type = flag:blood_leader
+												}
+												this = scope:ritual_leader_character
+											}
+											AND = {
+												scope:activity = {
+													var:sacrifice_type = flag:blood_everyone
+												}
+												this = scope:ritual_leader_character
+											}
+											AND = {
+												scope:activity = {
+													var:sacrifice_type = flag:blood_myself
+												}
+												this = scope:host
+											}
+										}
+									}
+									desc = agot_dragon_hatching.0016.desc_blood_me_me
+								}
+								desc = agot_dragon_hatching.0016.desc_blood_me_leader
+							}
+							first_valid = {
+								triggered_desc = {
+									trigger = {
+										scope:activity = {
+											var:sacrifice_type = flag:blood_everyone
+										}
+										NOT = {
+											this = scope:ritual_leader_character
+										}
+									}
+									desc = agot_dragon_hatching.0016.desc_blood_me_everyone
+								}
+								triggered_desc = {
+									trigger = {
+										scope:activity = {
+											var:sacrifice_type = flag:blood_everyone
+										}
+										this = scope:ritual_leader_character
+									}
+									desc = agot_dragon_hatching.0016.desc_blood_me_everyone_leader
+								}
+							}
+						}
+					}
+					triggered_desc = { # Leader
+						trigger = {
+							scope:activity = {
+								OR = {
+									var:sacrifice_type = flag:blood_myself
+									var:sacrifice_type = flag:blood_leader
+								}
+							}
+							NOT = {
+								this = scope:ritual_leader_character
+							}
+						}
+						desc = agot_dragon_hatching.0016.desc_blood_leader
+					}
+					triggered_desc = { # Prisoner
+						trigger = {
+							scope:activity = {
+								var:sacrifice_type = flag:blood_prisoner
+							}
+						}
+						desc = agot_dragon_hatching.0016.desc_blood_prisoner
+					}
+					triggered_desc = { # Everyone
+						trigger = {
+							scope:activity = {
+								var:sacrifice_type = flag:blood_everyone
+							}
+							has_character_flag = refusing_dragon_hatching_blood_donation
+						}
+						desc = agot_dragon_hatching.0016.desc_blood_everyone_refused
+					}
+				}
+			}
+		}
+		# Life
+		triggered_desc = {
+			trigger = {
+				scope:activity = {
+					OR = {
+						var:sacrifice_type = flag:life_myself
+						var:sacrifice_type = flag:life_leader
+						var:sacrifice_type = flag:life_attendee
+						var:sacrifice_type = flag:life_prisoner
+						var:sacrifice_type = flag:life_everyone
+					}
+				}
+			}
+			desc = {
+				first_valid = {
+					triggered_desc = { # Myself
+						trigger = {
+							scope:activity = {
+								var:sacrifice_type = flag:life_myself
+							}
+						}
+						desc = {
+							first_valid = {
+								triggered_desc = {
+									trigger = {
+										this = scope:host
+										scope:host = scope:ritual_leader_character
+									}
+									desc = agot_dragon_hatching.0016.desc_life_myself_me_self
+								}
+								triggered_desc = {
+									trigger = {
+										this = scope:host
+										NOT = {	scope:host = scope:ritual_leader_character }
+									}
+									desc = agot_dragon_hatching.0016.desc_life_myself_me_leader
+								}
+								triggered_desc = {
+									trigger = {
+										NOT = { this = scope:host }
+										scope:host = scope:ritual_leader_character
+									}
+									desc = agot_dragon_hatching.0016.desc_life_myself_other_self
+								}
+								desc = agot_dragon_hatching.0016.desc_life_myself_other_leader
+							}
+						}
+					}
+					triggered_desc = { # Leader
+						trigger = {
+							scope:activity = {
+								var:sacrifice_type = flag:life_leader
+							}
+						}
+						desc = {
+							first_valid = {
+								triggered_desc = {
+									trigger = {
+										# Host cannot be leader with this option so no need to check
+										this = scope:ritual_leader_character
+									}
+									desc = agot_dragon_hatching.0016.desc_life_leader_self
+								}
+								triggered_desc = {
+									trigger = {
+										this = scope:host
+									}
+									desc = agot_dragon_hatching.0016.desc_life_leader_host
+								}
+								desc = agot_dragon_hatching.0016.desc_life_leader_other
+							}
+						}
+					}
+					triggered_desc = { # Attendee - willing
+						trigger = {
+							scope:activity = {
+								var:sacrifice_type = flag:life_attendee
+								scope:attendee = { NOT = { has_character_flag = unwilling_sacrifice } }
+							}
+						}
+						desc = {
+							first_valid = {
+								# Attendee cannot be host or leader so no need to check
+								triggered_desc = {
+									trigger = {
+										this = scope:attendee
+									}
+									desc = agot_dragon_hatching.0016.desc_life_attendee_me
+								}
+								triggered_desc = {
+									trigger = {
+										this = scope:ritual_leader_character
+									}
+									desc = agot_dragon_hatching.0016.desc_life_attendee_leader
+								}
+								triggered_desc = {
+									trigger = {
+										this = scope:host
+									}
+									desc = agot_dragon_hatching.0016.desc_life_attendee_host
+								}
+								desc = agot_dragon_hatching.0016.desc_life_attendee_other
+							}
+						}
+					}
+					triggered_desc = { # Attendee - unwilling
+						trigger = {
+							scope:activity = {
+								var:sacrifice_type = flag:life_attendee
+								scope:attendee = { has_character_flag = unwilling_sacrifice }
+							}
+						}
+						desc = {
+							first_valid = {
+								# Attendee cannot be host or leader so no need to check
+								triggered_desc = {
+									trigger = {
+										this = scope:attendee
+									}
+									desc = agot_dragon_hatching.0016.desc_life_attendee_me_unwilling
+								}
+								triggered_desc = {
+									trigger = {
+										this = scope:ritual_leader_character
+									}
+									desc = agot_dragon_hatching.0016.desc_life_attendee_leader_unwilling
+								}
+								triggered_desc = {
+									trigger = {
+										this = scope:host
+									}
+									desc = agot_dragon_hatching.0016.desc_life_attendee_host_unwilling
+								}
+								desc = agot_dragon_hatching.0016.desc_life_attendee_other_unwilling
+							}
+						}
+					}
+					triggered_desc = { # Prisoner
+						trigger = {
+							scope:activity = {
+								var:sacrifice_type = flag:life_prisoner
+							}
+						}
+						desc = {
+							first_valid = {
+								# Prisoner cannot be host or leader so no need to check
+								triggered_desc = {
+									trigger = {
+										this = scope:prisoner
+									}
+									desc = agot_dragon_hatching.0016.desc_life_prisoner_me
+								}
+								triggered_desc = {
+									trigger = {
+										this = scope:ritual_leader_character
+									}
+									desc = agot_dragon_hatching.0016.desc_life_prisoner_leader
+								}
+								triggered_desc = {
+									trigger = {
+										this = scope:host
+									}
+									desc = agot_dragon_hatching.0016.desc_life_prisoner_host
+								}
+								desc = agot_dragon_hatching.0016.desc_life_prisoner_other
+							}
+						}
+					}
+					triggered_desc = { # Everyone
+						trigger = {
+							scope:activity = {
+								var:sacrifice_type = flag:life_everyone
+							}
+						}
+						desc = {
+							first_valid = {
+								# Leader is either host or knew so can be same
+								triggered_desc = {
+									trigger = {
+										this = scope:ritual_leader_character
+									}
+									desc = agot_dragon_hatching.0016.desc_life_everyone_me
+								}
+								desc = agot_dragon_hatching.0016.desc_life_everyone_oh_no
+							}
+						}
+					}
+				}
+			}
+		}
+		# I may be dead now, so lets only apply the rest of the event to the living
+		triggered_desc = {
+			trigger = {
+				has_character_flag = will_not_be_dead_for_dragon_hatching
+			}
+			desc = {
+				desc = agot_dragon_hatching.0016.desc_newline
+				first_valid = { # Level of catalyst, 1 per type
+					triggered_desc = {
+						trigger = {
+							scope:activity = {
+								has_activity_option = {
+									category = hatching_catalyst
+									option = hatching_catalyst_minor
+								}
+							}
+						}
+						desc = {
+							triggered_desc = {
+								trigger = {
+									scope:activity = {
+										var:catalyst_type = flag:wood
+									}
+								}
+								desc = agot_dragon_hatching.0016.desc_minor_wood
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = {
+										var:catalyst_type = flag:coal
+									}
+								}
+								desc = agot_dragon_hatching.0016.desc_minor_coal
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = {
+										var:catalyst_type = flag:oil
+									}
+								}
+								desc = agot_dragon_hatching.0016.desc_minor_oil
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = {
+										var:catalyst_type = flag:wildfire
+									}
+								}
+								desc = agot_dragon_hatching.0016.desc_minor_wildfire
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = {
+										var:catalyst_type = flag:lava
+									}
+								}
+								desc = agot_dragon_hatching.0016.desc_minor_lava
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = {
+										var:catalyst_type = flag:magnifying_glass
+									}
+								}
+								desc = agot_dragon_hatching.0016.desc_minor_magnifying_glass
+							}
+						}
+					}
+					triggered_desc = {
+						trigger = {
+							scope:activity = {
+								has_activity_option = {
+									category = hatching_catalyst
+									option = hatching_catalyst_medium
+								}
+							}
+						}
+						desc = {
+							triggered_desc = {
+								trigger = {
+									scope:activity = {
+										var:catalyst_type = flag:wood
+									}
+								}
+								desc = agot_dragon_hatching.0016.desc_medium_wood
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = {
+										var:catalyst_type = flag:coal
+									}
+								}
+								desc = agot_dragon_hatching.0016.desc_medium_coal
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = {
+										var:catalyst_type = flag:oil
+									}
+								}
+								desc = agot_dragon_hatching.0016.desc_medium_oil
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = {
+										var:catalyst_type = flag:wildfire
+									}
+								}
+								desc = agot_dragon_hatching.0016.desc_medium_wildfire
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = {
+										var:catalyst_type = flag:lava
+									}
+								}
+								desc = agot_dragon_hatching.0016.desc_medium_lava
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = {
+										var:catalyst_type = flag:magnifying_glass
+									}
+								}
+								desc = agot_dragon_hatching.0016.desc_medium_magnifying_glass
+							}
+						}
+					}
+					triggered_desc = {
+						trigger = {
+							scope:activity = {
+								has_activity_option = {
+									category = hatching_catalyst
+									option = hatching_catalyst_major
+								}
+							}
+						}
+						desc = {
+							triggered_desc = {
+								trigger = {
+									scope:activity = {
+										var:catalyst_type = flag:wood
+									}
+								}
+								desc = agot_dragon_hatching.0016.desc_major_wood
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = {
+										var:catalyst_type = flag:coal
+									}
+								}
+								desc = agot_dragon_hatching.0016.desc_major_coal
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = {
+										var:catalyst_type = flag:oil
+									}
+								}
+								desc = agot_dragon_hatching.0016.desc_major_oil
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = {
+										var:catalyst_type = flag:wildfire
+									}
+								}
+								desc = agot_dragon_hatching.0016.desc_major_wildfire
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = {
+										var:catalyst_type = flag:lava
+									}
+								}
+								desc = agot_dragon_hatching.0016.desc_major_lava
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = {
+										var:catalyst_type = flag:magnifying_glass
+									}
+								}
+								desc = agot_dragon_hatching.0016.desc_major_magnifying_glass
+							}
+						}
+					}
+					desc = {
+						triggered_desc = {
+							trigger = {
+								scope:activity = {
+									var:catalyst_type = flag:wood
+								}
+							}
+							desc = agot_dragon_hatching.0016.desc_massive_wood
+						}
+						triggered_desc = {
+							trigger = {
+								scope:activity = {
+									var:catalyst_type = flag:coal
+								}
+							}
+							desc = agot_dragon_hatching.0016.desc_massive_coal
+						}
+						triggered_desc = {
+							trigger = {
+								scope:activity = {
+									var:catalyst_type = flag:oil
+								}
+							}
+							desc = agot_dragon_hatching.0016.desc_massive_oil
+						}
+						triggered_desc = {
+							trigger = {
+								scope:activity = {
+									var:catalyst_type = flag:wildfire
+								}
+							}
+							desc = agot_dragon_hatching.0016.desc_massive_wildfire
+						}
+						triggered_desc = {
+							trigger = {
+								scope:activity = {
+									var:catalyst_type = flag:lava
+								}
+							}
+							desc = agot_dragon_hatching.0016.desc_massive_lava
+						}
+						triggered_desc = {
+							trigger = {
+								scope:activity = {
+									var:catalyst_type = flag:magnifying_glass
+								}
+							}
+							desc = agot_dragon_hatching.0016.desc_massive_magnifying_glass
+						}
+					}
+				}
+				# Now bring the sacrifice
+				first_valid = {
+					triggered_desc = { # Blood
+						trigger = {
+							scope:activity = {
+								OR = {
+									var:sacrifice_type = flag:blood_myself
+									var:sacrifice_type = flag:blood_leader
+									var:sacrifice_type = flag:blood_everyone
+									var:sacrifice_type = flag:blood_prisoner
+								}
+							}
+						}
+						desc = agot_dragon_hatching.0016.desc_blood_sacrifice
+					}
+					triggered_desc = { # Bodies
+						trigger = {
+							scope:activity = {
+								var:sacrifice_type = flag:animal_wild
+							}
+						}
+						desc = agot_dragon_hatching.0016.desc_bodies_sacrifice
+					}
+					desc = agot_dragon_hatching.0016.desc_body_sacrifice
+				}
+				# And put it where it belongs
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							scope:activity = {
+								has_activity_option = {
+									category = hatching_type
+									option = hatching_type_knowledge
+								}
+							}
+						}
+						desc = {
+							triggered_desc = {
+								trigger = {
+									scope:activity = { var:catalyst_type = flag:wood }
+								}
+								desc = agot_dragon_hatching.0016.desc_knowledge_wood
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = { var:catalyst_type = flag:coal }
+								}
+								desc = agot_dragon_hatching.0016.desc_knowledge_coal
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = { var:catalyst_type = flag:oil }
+								}
+								desc = agot_dragon_hatching.0016.desc_knowledge_oil
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = { var:catalyst_type = flag:wildfire }
+								}
+								desc = agot_dragon_hatching.0016.desc_knowledge_wildfire
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = { var:catalyst_type = flag:lava }
+								}
+								desc = agot_dragon_hatching.0016.desc_knowledge_lava
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = { var:catalyst_type = flag:magnifying_glass }
+								}
+								desc = agot_dragon_hatching.0016.desc_knowledge_magnifying_glass
+							}
+							desc = agot_dragon_hatching.0016.desc_knowledge_end
+						}
+					}
+					triggered_desc = {
+						trigger = {
+							scope:activity = {
+								has_activity_option = {
+									category = hatching_type
+									option = hatching_type_esoteric
+								}
+							}
+						}
+						desc = {
+							triggered_desc = {
+								trigger = {
+									scope:activity = { var:catalyst_type = flag:wood }
+								}
+								desc = agot_dragon_hatching.0016.desc_esoteric_wood
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = { var:catalyst_type = flag:coal }
+								}
+								desc = agot_dragon_hatching.0016.desc_esoteric_coal
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = { var:catalyst_type = flag:oil }
+								}
+								desc = agot_dragon_hatching.0016.desc_esoteric_oil
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = { var:catalyst_type = flag:wildfire }
+								}
+								desc = agot_dragon_hatching.0016.desc_esoteric_wildfire
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = { var:catalyst_type = flag:lava }
+								}
+								desc = agot_dragon_hatching.0016.desc_esoteric_lava
+							}
+							triggered_desc = {
+								trigger = {
+									scope:activity = { var:catalyst_type = flag:magnifying_glass }
+								}
+								desc = agot_dragon_hatching.0016.desc_esoteric_magnifying_glass
+							}
+							desc = agot_dragon_hatching.0016.desc_esoteric_end
+						}
+					}
+				}
+				desc = agot_dragon_hatching.0016.desc_newline
+				# Now to see the likely outcome
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							scope:activity = {
+								var:hatching_likelihood = flag:very_low
+							}
+						}
+						desc = agot_dragon_hatching.0016.desc_very_low
+					}
+					triggered_desc = {
+						trigger = {
+							scope:activity = {
+								var:hatching_likelihood = flag:low
+							}
+						}
+						desc = agot_dragon_hatching.0016.desc_low
+					}
+					triggered_desc = {
+						trigger = {
+							scope:activity = {
+								var:hatching_likelihood = flag:medium
+							}
+						}
+						desc = agot_dragon_hatching.0016.desc_medium
+					}
+					triggered_desc = {
+						trigger = {
+							scope:activity = {
+								var:hatching_likelihood = flag:high
+							}
+						}
+						desc = agot_dragon_hatching.0016.desc_high
+					}
+					desc = agot_dragon_hatching.0016.desc_very_high
+				}
+			}
+		}
+	}
+	theme = dragon
+
+	left_portrait = {
+		character = scope:ritual_leader_character
+		animation = throne_room_writer
+		triggered_animation = {
+			trigger = {
+				exists = scope:right_portrait_character
+			}
+			animation = spymaster
+		}
+		triggered_animation = {
+			trigger = {
+				scope:activity = {
+					has_activity_option = {
+						category = hatching_type
+						option = hatching_type_esoteric
+					}
+				}
+			}
+			animation = lantern
+		}
+	}
+
+	right_portrait = {
+		character = scope:right_portrait_character
+		animation = fear
+	}
+
+	artifact = {
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	immediate = {
+		# Get needed scopes
+		scope:activity.var:selected_egg = { save_scope_as = egg }
+		scope:activity.var:ritual_leader_character = { save_scope_as = ritual_leader_character }
+		if = {
+			limit = {
+				scope:activity = {
+					var:sacrifice_type = flag:animal_livestock
+				}
+			}
+			set_variable = {
+				name = local_farm_animal
+				value = scope:activity.var:local_farm_animal
+			}
+		}
+		if = {
+			limit = {
+				scope:activity = {
+					OR = {
+						var:sacrifice_type = flag:blood_prisoner
+						var:sacrifice_type = flag:life_prisoner
+					}
+				}
+			}
+			scope:activity.var:sacrifice_prisoner = { save_scope_as = prisoner }
+			scope:prisoner = { save_scope_as = right_portrait_character }
+		}
+		if = {
+			limit = {
+				scope:activity = {
+					var:sacrifice_type = flag:life_attendee
+				}
+			}
+			scope:activity.var:sacrifice_attendee = { save_scope_as = attendee }
+			scope:attendee = { save_scope_as = right_portrait_character }
+		}
+		# Check if will be dead
+		if = {
+			limit = {
+				scope:activity = {
+					NOR = {
+						AND = {
+							var:sacrifice_type = flag:life_myself
+							root = scope:host
+						}
+						AND = {
+							var:sacrifice_type = flag:life_leader
+							root = scope:ritual_leader_character
+						}
+						AND = {
+							var:sacrifice_type = flag:life_attendee
+							root = scope:attendee
+						}
+						AND = {
+							var:sacrifice_type = flag:life_prisoner
+							root = scope:prisoner
+						}
+						var:sacrifice_type = flag:life_everyone
+					}
+				}
+			}
+			add_character_flag = {
+				flag = will_not_be_dead_for_dragon_hatching
+				years = 5
+			}
+		}
+		# Calculate likelihood of success
+		# See agot_dragon_hatching_success_level script_value for max value
+		scope:activity = {
+			if = {
+				limit = { agot_dragon_hatching_success_level < 25 }
+				set_variable = {
+					name = hatching_likelihood
+					value = flag:very_low
+				}
+			}
+			else_if = {
+				limit = { agot_dragon_hatching_success_level < 40 }
+				set_variable = {
+					name = hatching_likelihood
+					value = flag:low
+				}
+			}
+			else_if = {
+				limit = { agot_dragon_hatching_success_level < 60 }
+				set_variable = {
+					name = hatching_likelihood
+					value = flag:medium
+				}
+			}
+			else_if = {
+				limit = { agot_dragon_hatching_success_level < 80 }
+				set_variable = {
+					name = hatching_likelihood
+					value = flag:high
+				}
+			}
+			else = {
+				set_variable = {
+					name = hatching_likelihood
+					value = flag:very_high
+				}
+			}
+		}
+	}
+
+	option = { # I am dead
+		name = {
+			trigger = {
+				OR = {
+					this = scope:host
+					this = scope:ritual_leader_character
+					AND = {
+						exists = scope:attendee
+						this = scope:attendee
+					}
+				}
+			}
+			text = agot_dragon_hatching.0016.opt.dead_willing
+		}
+		name = {
+			trigger = {
+				NOT = { this = scope:host }
+				NOT = { this = scope:ritual_leader_character }
+				NOT = {
+					exists = scope:attendee
+					this = scope:attendee
+				}
+			}
+			text = agot_dragon_hatching.0016.opt.dead_unwilling
+		}
+		trigger = {
+			NOT = { has_character_flag = will_not_be_dead_for_dragon_hatching }
+		}
+		if = {
+			limit = { # Hosts have to die after the resolution due to activity mechanics
+				NOT = { this = scope:host }
+			}
+			death = {
+				death_reason = death_dragon_hatching_sacrifice
+				killer = scope:host
+			}
+		}
+		else = {
+			show_as_tooltip = {
+				death = {
+					death_reason = death_dragon_hatching_sacrifice
+					killer = scope:host
+				}
+			}
+			add_character_flag = agot_should_be_dead_for_dragon_hatching_host
+		}
+	}
+
+	option = { # I am alive
+		name = agot_dragon_hatching.0016.opt.alive
+		trigger = {
+			has_character_flag = will_not_be_dead_for_dragon_hatching
+		}
+		# Resolve sacrifice type effects
+		if = {
+			limit = {
+				this = scope:host
+				exists = scope:prisoner
+				scope:activity.var:sacrifice_type = flag:life_prisoner
+			}
+			add_kinslayer_trait_or_nothing_effect = { VICTIM = scope:prisoner }
+		}
+		if = {
+			limit = {
+				this = scope:host
+				exists = scope:attendee
+				scope:activity.var:sacrifice_type = flag:life_attendee
+			}
+			add_kinslayer_trait_or_nothing_effect = { VICTIM = scope:attendee }
+			if = {
+				limit = { scope:attendee = { has_character_flag = unwilling_sacrifice } }
+				add_tyranny = execution_tyranny_gain
+			}
+		}
+		if = {
+			limit = {
+				this = scope:host
+				scope:activity.var:sacrifice_type = flag:life_leader
+			}
+			add_kinslayer_trait_or_nothing_effect = { VICTIM = scope:ritual_leader_character }
+		}
+		if = {
+			limit = {
+				this = scope:host
+				scope:activity.var:sacrifice_type = flag:life_everyone
+			}
+			scope:activity = {
+				every_attending_character = {
+					limit = { NOT = { this = scope:host } }
+					save_scope_as = victim
+					scope:host = {
+						add_kinslayer_trait_or_nothing_effect = { VICTIM = scope:victim }
+					}
+				}
+			}
+		}
+		# Tooltip for success chance
+		custom_tooltip = agot_dragon_hatching.0016.opt.alive_tt
+		if = { # Display chance of success contributions
+			limit = {
+				this = scope:host
+			}
+			# make sure this stays matching to agot_dragon_hatching_success_level to some extent, though
+			# it is also deliberately obfuscated to make it harder to game / more mysterious to the player
+			# Esoteric vs knowledge
+			if = {
+				limit = {
+					scope:activity = {
+						has_activity_option = {
+							category = hatching_type
+							option = hatching_type_esoteric
+						}
+					}
+				}
+				custom_tooltip = agot_dragon_hatching.0016.opt.base_esoteric_tt
+			}
+			else = {
+				custom_tooltip = agot_dragon_hatching.0016.opt.base_knowledge_tt
+			}
+			# Dragonlore
+			if = {
+				limit = { exists = var:dragonlore }
+				custom_tooltip = agot_dragon_hatching.0016.opt.dragonlore_tt
+				if = {
+					limit = {
+						scope:activity = {
+							has_activity_option = {
+								category = hatching_type
+								option = hatching_type_knowledge
+							}
+						}
+					}
+					custom_tooltip = agot_dragon_hatching.0016.opt.dragonlore_knowledge_tt
+				}
+			}
+			# Synergy of hatching type
+			if = {
+				limit = {
+					scope:activity = {
+						OR = {
+							AND = { # Knowledge likes animal
+								has_activity_option = {
+									category = hatching_type
+									option = hatching_type_knowledge
+								}
+								has_activity_option = {
+									category = hatching_sacrifice
+									option = hatching_sacrifice_animal
+								}
+							}
+							AND = { # Esoteric likes blood
+								has_activity_option = {
+									category = hatching_type
+									option = hatching_type_esoteric
+								}
+								has_activity_option = {
+									category = hatching_sacrifice
+									option = hatching_sacrifice_blood
+								}
+							}
+						}
+					}
+				}
+				custom_tooltip = agot_dragon_hatching.0016.opt.synergy_type_tt
+			}
+			# Leader quality
+			if = {
+				limit = {
+					scope:activity.var:ritual_leader_character = {
+						OR = {
+							learning > 30
+							has_inactive_trait = archmaester_vs
+							# Other traits can be added here
+						}
+					}
+				}
+				custom_tooltip = agot_dragon_hatching.0016.opt.leader_quality_tt
+			}
+			# Sacrifice level
+			if = {
+				limit = {
+					scope:activity = {
+						OR = {
+							var:sacrifice_type = flag:animal_pet_dog
+							var:sacrifice_type = flag:animal_pet_cat
+							var:sacrifice_type = flag:animal_wild
+							var:sacrifice_type = flag:animal_exotic
+							has_activity_option = {
+								category = hatching_sacrifice
+								option = hatching_sacrifice_blood
+							}
+						}
+					}
+				}
+				custom_tooltip = agot_dragon_hatching.0016.opt.sacrifice_level_tt
+			}
+			# Sacrifice synergy
+			if = {
+				limit = {
+					scope:activity = {
+						OR = {
+							AND = {
+								OR = {
+									var:sacrifice_type = flag:animal_pet_dog
+									var:sacrifice_type = flag:animal_pet_cat
+								}
+								has_activity_option = {
+									category = hatching_type
+									option = hatching_type_esoteric
+								}
+							}
+							AND = {
+								OR = {
+									var:sacrifice_type = flag:life_leader
+									var:sacrifice_type = flag:blood_leader
+								}
+								var:ritual_leader_character = {
+									OR = {
+										has_kingsblood = yes
+										has_paramountblood = yes
+										# Don't display blood levels below paramount just to keep it mysterious
+									}
+								}
+							}
+							AND = {
+								var:sacrifice_type = flag:life_attendee
+								scope:attendee = {
+									OR = {
+										has_kingsblood = yes
+										has_paramountblood = yes
+									}
+								}
+							}
+							AND = {
+								var:sacrifice_type = flag:life_prisoner
+								scope:prisoner = {
+									OR = {
+										has_kingsblood = yes
+										has_paramountblood = yes
+									}
+								}
+							}
+						}
+					}
+				}
+				custom_tooltip = agot_dragon_hatching.0016.opt.sacrifice_synergy_tt
+			}
+			# Catalyst level
+			if = {
+				limit = {
+					scope:activity = {
+						OR = {
+							has_activity_option = {
+								category = hatching_catalyst
+								option = hatching_catalyst_major
+							}
+							has_activity_option = {
+								category = hatching_catalyst
+								option = hatching_catalyst_massive
+							}
+						}
+					}
+				}
+				custom_tooltip = agot_dragon_hatching.0016.opt.catalyst_level_high_tt
+			}
+			else_if = {
+				limit = {
+					scope:activity = {
+						has_activity_option = {
+							category = hatching_catalyst
+							option = hatching_catalyst_medium
+						}
+					}
+				}
+				custom_tooltip = agot_dragon_hatching.0016.opt.catalyst_level_low_tt
+			}
+			# Sacrifice / catalyst synergy
+			if = {
+				limit = {
+					scope:activity = {
+						OR = {
+							AND = { # Animals and wood
+								var:sacrifice_type = flag:animal_wild
+								var:catalyst_type = flag:wood
+							}
+							AND = { # Blood and oil
+								OR = {
+									var:sacrifice_type = flag:blood_myself
+									var:sacrifice_type = flag:blood_leader
+									var:sacrifice_type = flag:blood_prisoner
+									var:sacrifice_type = flag:blood_everyone
+								}
+								var:catalyst_type = flag:oil
+							}
+							AND = { # Exotic and wildfire
+								var:sacrifice_type = flag:animal_exotic
+								var:catalyst_type = flag:wildfire
+							}
+							AND = { # Close and lava (Sad futurama reference)
+								OR = {
+									var:sacrifice_type = flag:animal_pet_dog
+									var:sacrifice_type = flag:animal_pet_cat
+								}
+								var:catalyst_type = flag:lava
+							}
+							AND = { # Magnifying glass and myself
+								OR = {
+									var:sacrifice_type = flag:life_myself
+									var:sacrifice_type = flag:blood_myself
+								}
+								var:catalyst_type = flag:magnifying_glass
+							}
+						}
+					}
+				}
+				custom_tooltip = agot_dragon_hatching.0016.opt.sacrifice_catalyst_synergy_tt
+			}
+			# Catalyst leader synergy
+			if = {
+				limit = {
+					scope:activity = {
+						OR = {
+							AND = { # Scholar and coal / magnifying glass
+								var:ritual_leader_type = flag:scholar
+								OR = {
+									var:catalyst_type = flag:coal
+									var:catalyst_type = flag:magnifying_glass
+								}
+							}
+							AND = { # Woods witch and wood
+								var:ritual_leader_type = flag:witch
+								var:catalyst_type = flag:wood
+							}
+							AND = { # Pyromancer and wildfire
+								var:ritual_leader_type = flag:pyromancer
+								var:catalyst_type = flag:wildfire
+							}
+							AND = { # Septon and oil
+								var:ritual_leader_type = flag:septon
+								var:catalyst_type = flag:oil
+							}
+							AND = { # Red priest and lava
+								var:ritual_leader_type = flag:rhllor_priest
+								var:catalyst_type = flag:lava
+							}
+							AND = { # Warlock / mystic and magnifying glass
+								OR = {
+									var:ritual_leader_type = flag:warlock
+									var:ritual_leader_type = flag:myself
+								}
+								var:catalyst_type = flag:magnifying_glass
+							}
+						}
+					}
+				}
+				custom_tooltip = agot_dragon_hatching.0016.opt.catalyst_leader_synergy_tt
+			}
+			# Leader and sacrifice synergy
+			if = {
+				limit = {
+					scope:activity = {
+						OR = {
+							AND = { # Animal synergy
+								has_activity_option = {
+									category = hatching_sacrifice
+									option = hatching_sacrifice_animal
+								}
+								OR = {
+									var:ritual_leader_type = flag:witch
+									var:ritual_leader_type = flag:scholar
+								}
+							}
+							AND = { # Blood synergy
+								OR = {
+									var:sacrifice_type = flag:blood_myself
+									var:sacrifice_type = flag:blood_leader
+									var:sacrifice_type = flag:blood_prisoner
+									var:sacrifice_type = flag:blood_everyone
+								}
+								OR = {
+									var:ritual_leader_type = flag:witch
+									var:ritual_leader_type = flag:warlock
+								}
+							}
+							AND = { # Life synergy
+								OR = {
+									var:sacrifice_type = flag:life_myself
+									var:sacrifice_type = flag:life_leader
+									var:sacrifice_type = flag:life_attendee
+									var:sacrifice_type = flag:life_prisoner
+									var:sacrifice_type = flag:life_everyone
+								}
+								OR = {
+									var:ritual_leader_type = flag:rhllor_priest
+									var:ritual_leader_type = flag:myself
+								}
+							}
+						}
+					}
+				}
+				custom_tooltip = agot_dragon_hatching.0016.opt.leader_sacrifice_synergy_tt
+			}
+		}
+	}
+	after = {
+		if = {
+			limit = { this = scope:host }
+			hidden_effect = {
+				# Prisoner won't be part of the activity so need to handle it here
+				# this should maybe be an event but IMO the extra complexity isn't worth it
+				# given how complex this event already is, how edge the case is for the player,
+				# and the need to fully replicate and maintain its loc resolutions
+				if = {
+					limit = { exists = scope:prisoner }
+					if = {
+						limit = { scope:activity.var:sacrifice_type = flag:life_prisoner }
+						scope:prisoner = {
+							death = {
+								death_reason = death_dragon_hatching_sacrifice
+								killer = scope:host
+							}
+						}
+					}
+					else_if = {
+						limit = { scope:activity.var:sacrifice_type = flag:blood_prisoner }
+						scope:prisoner = {
+							increase_wounds_no_death_effect = { REASON = fight }
+						}
+					}
+				}
+				# Send event to every attending character to show them / resolve their fate
+				scope:activity = {
+					every_attending_character = {
+						limit = { NOT = { this = scope:host } }
+						trigger_event = agot_dragon_hatching.0016
+					}
+					skip_activity_phase = yes
+				}
+			}
+		}
+	}
+}
+
+agot_dragon_hatching.0017 = { # Blood sacrifice chooses to do life instead
+	type = activity_event #character_event
+	title = agot_dragon_hatching.0017.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { scope:host = scope:ritual_leader_character }
+				}
+				desc = agot_dragon_hatching.0017.desc_leader
+			}
+			desc = agot_dragon_hatching.0017.desc_self
+		}
+	}
+	theme = dragon
+
+	left_portrait = {
+		character = scope:left_portrait_character
+		animation = personality_rational
+	}
+
+	right_portrait = {
+		character = scope:ritual_leader_character
+		animation = spymaster
+	}
+
+	artifact = {
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	immediate = {
+		# Get needed scopes
+		scope:activity.var:selected_egg = { save_scope_as = egg }
+		scope:activity.var:ritual_leader_character = { save_scope_as = ritual_leader_character }
+		if = {
+			limit = {
+				NOT = { scope:ritual_leader_character = scope:host }
+			}
+			save_scope_as = left_portrait_character
+		}
+	}
+
+	option = {
+		name = agot_dragon_hatching.0017.opt.a
+		custom_tooltip = agot_dragon_hatching.0017.opt.a_tt
+		trigger_event = agot_dragon_hatching.0011
+	}
+
+	option = {
+		name = agot_dragon_hatching.0017.opt.b
+		custom_tooltip = agot_dragon_hatching.0017.opt.b_tt
+		trigger_event = agot_dragon_hatching.0009
+	}
+}
+
+agot_dragon_hatching.0018 = { # host sacrifice choice event, life, attendee selection
+	type = activity_event #character_event
+	title = agot_dragon_hatching.0018.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						has_activity_option = {
+							category = hatching_type
+							option = hatching_type_knowledge
+						}
+					}
+				}
+				desc = agot_dragon_hatching.0018.desc_knowledge
+			}
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						has_activity_option = {
+							category = hatching_type
+							option = hatching_type_esoteric
+						}
+					}
+				}
+				desc = agot_dragon_hatching.0018.desc_esoteric
+			}
+		}
+	}
+	theme = dragon
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_character_selection_short" # Presumably this will be detailed loc, change to tall if need be
+		container = "custom_widgets_container"
+	}
+
+	immediate = {
+		scope:activity.var:selected_egg = { save_scope_as = egg }
+		if = {
+			limit = {
+				is_ai = no
+			}
+			scope:activity = {
+				every_attending_character = {
+					limit = {
+						is_adult = yes
+						is_lowborn = no
+						NOT = { this = scope:host }
+						NOT = { this = scope:ritual_leader_character }
+						NOT = { has_character_flag = agot_escaped_from_dragon_hatching_sacrifice }
+					}
+					root = {
+						add_to_variable_list = {
+							name = possible_characters
+							target = prev
+						}
+					}
+				}
+			}
+			ordered_in_list = {
+				variable = possible_characters
+				order_by = age
+				root = { set_variable = { name = si_selected_character value = prev } }
+			}
+		}
+		else = {
+			scope:activity = {
+				random_attending_character = {
+					limit = {
+						is_adult = yes
+						is_lowborn = no
+						NOT = { this = scope:host }
+						NOT = { this = scope:ritual_leader_character }
+						NOT = { has_character_flag = agot_escaped_from_dragon_hatching_sacrifice }
+					}
+					root = { set_variable = { name = si_selected_character value = prev } }
+				}
+			}
+		}
+	}
+
+	artifact = { # To display the artifact in the event-window
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	left_portrait = {
+		character = root
+		animation = scheme
+	}
+
+	option = { #You will do!
+		trigger = {
+			has_variable = si_selected_character
+		}
+		name = agot_dragon_hatching.0018.opt.a
+		custom_tooltip = agot_dragon_hatching.0018.opt.a_tt
+		custom_tooltip = agot_dragon_hatching.0011.opt.d_tt_unwilling_may_escape
+
+		var:si_selected_character ?= {
+			if = {
+				limit = {
+					is_alive = yes
+				}
+				remove_variable = si_selecting_character
+			}
+			save_scope_as = attendee_life_sacrifice_unwilling
+		}
+		remove_variable = si_selected_character
+		clear_variable_list = possible_characters
+		if = {
+			limit = {
+				NOT = {
+					scope:attendee_life_sacrifice_unwilling ?= { is_alive = yes }
+				}
+			}
+			send_interface_toast = {
+				title = agot_dragon_hatchling.0018.toast.sacrifice_dead
+				left_icon = scope:attendee_life_sacrifice_unwilling
+			}
+			trigger_event = agot_dragon_hatching.0011
+		}
+		else = {
+			scope:attendee_life_sacrifice_unwilling ?= {
+				trigger_event = agot_dragon_hatching.0019
+			}
+		}
+
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	option = { #go back
+		name = agot_dragon_hatching.0018.opt.b
+		custom_tooltip = agot_dragon_hatching.0018.opt.b_tt
+
+		clear_variable_list = possible_characters
+		remove_variable = si_selected_character
+		trigger_event = agot_dragon_hatching.0011
+
+		ai_chance = {
+			modifier = {
+				NOT = { has_variable = si_selected_character }
+				add = 1
+			}
+			base = 0
+		}
+	}
+}
+
+agot_dragon_hatching.0019 = {
+	type = activity_event #character_event
+	title = agot_dragon_hatching.0019.t
+	desc = agot_dragon_hatching.0019.desc
+	theme = dragon
+
+	left_portrait = {
+		character = scope:attendee_life_sacrifice_unwilling
+		animation = fear
+	}
+
+	right_portrait = {
+		character = scope:host
+		animation = scheme
+	}
+
+	artifact = {
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	immediate = {
+		scope:activity.var:selected_egg = { save_scope_as = egg }
+	}
+
+	# These need proper ai weights
+	option = {
+		name = agot_dragon_hatching.0019.opt.a
+		flavor = agot_dragon_hatching.0019.opt.a.f
+		random_list = {
+			80 = {
+				send_interface_toast = {
+					title = agot_dragon_hatching.0019.opt.caught.title
+					left_icon = root
+					right_icon = scope:host
+					custom_tooltip = agot_dragon_hatching.0019.opt.caught.a_tt
+				}
+				add_character_flag = {
+					flag = unwilling_sacrifice
+					weeks = 5
+				}
+				scope:activity = {
+					set_variable = {
+						name = sacrifice_type
+						value = flag:life_attendee
+					}
+					set_variable = {
+						name = sacrifice_attendee
+						value = root
+					}
+				}
+				scope:host = {
+					end_sacrifice_choice_effect = yes
+				}
+			}
+			20 = {
+				modifier = {
+					add = prowess
+				}
+				add_character_flag = agot_escaped_from_dragon_hatching_sacrifice
+				save_scope_as = escaped_unwilling_attendee
+				send_interface_toast = {
+					title = agot_dragon_hatching.0019.opt.escape.title
+					left_icon = root
+					right_icon = scope:host
+					custom_tooltip = agot_dragon_hatching.0019.opt.escape.a_tt
+				}
+				scope:host = {
+					add_character_flag = agot_attendee_escaped_dragon_sacrifice
+					remove_character_flag = agot_attendee_refused_to_be_dragon_sacrifice
+					remove_character_flag = agot_leader_refused_to_be_dragon_sacrifice
+					trigger_event = agot_dragon_hatching.0011
+				}
+			}
+		}
+
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = prowess
+			}
+		}
+	}
+
+	option = {
+		name = agot_dragon_hatching.0019.opt.b
+		flavor = agot_dragon_hatching.0019.opt.b.f
+		random_list = {
+			80 = {
+				send_interface_toast = {
+					title = agot_dragon_hatching.0019.opt.caught.title
+					left_icon = root
+					right_icon = scope:host
+					custom_tooltip = agot_dragon_hatching.0019.opt.caught.b_tt
+				}
+				add_character_flag = {
+					flag = unwilling_sacrifice
+					weeks = 5
+				}
+				scope:activity = {
+					set_variable = {
+						name = sacrifice_type
+						value = flag:life_attendee
+					}
+					set_variable = {
+						name = sacrifice_attendee
+						value = root
+					}
+				}
+				scope:host = {
+					end_sacrifice_choice_effect = yes
+				}
+			}
+			20 = {
+				modifier = {
+					add = intrigue
+				}
+				add_character_flag = agot_escaped_from_dragon_hatching_sacrifice
+				save_scope_as = escaped_unwilling_attendee
+				send_interface_toast = {
+					title = agot_dragon_hatching.0019.opt.escape.title
+					left_icon = root
+					right_icon = scope:host
+					custom_tooltip = agot_dragon_hatching.0019.opt.escape.b_tt
+				}
+				scope:host = {
+					add_character_flag = agot_attendee_escaped_dragon_sacrifice
+					remove_character_flag = agot_attendee_refused_to_be_dragon_sacrifice
+					remove_character_flag = agot_leader_refused_to_be_dragon_sacrifice
+					trigger_event = agot_dragon_hatching.0011
+				}
+			}
+		}
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = intrigue
+			}
+		}
+	}
+
+	option = {
+		name = agot_dragon_hatching.0019.opt.c
+		flavor = agot_dragon_hatching.0019.opt.c.f
+		custom_tooltip = agot_dragon_hatching.0019.opt.c_tt
+		scope:activity = {
+			set_variable = {
+				name = sacrifice_type
+				value = flag:life_attendee
+			}
+			set_variable = {
+				name = sacrifice_attendee
+				value = scope:attendee_life_sacrifice_unwilling
+			}
+		}
+		scope:host = {
+			end_sacrifice_choice_effect = yes
+		}
+
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+## Dragon Hatching Result Events
+scripted_effect display_hatching_bad_outcome_results = {
+	show_as_tooltip = {
+		scope:activity = {
+			every_in_list = {
+				variable = burned_characters
+				increase_wounds_no_death_effect = { REASON = fight }
+				add_trait = burned
+			}
+			every_in_list = {
+				variable = dead_characters
+				death = {
+					death_reason = death_dragon_hatching_accident
+					killer = scope:host
+				}
+			}
+		}
+	}
+}
+
+scripted_effect action_hatching_bad_outcome_results = {
+	hidden_effect = {
+		if = {
+			limit = {
+				has_character_flag = agot_burned_in_dragon_hatching
+			}
+			increase_wounds_no_death_effect = { REASON = fight }
+			add_trait = burned
+			add_trait_xp = {
+				trait = burned
+				value = {
+					integer_range = {
+						min = 5
+						max = 75
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { this = scope:host } # Host death is dealt with in the activity to avoid invalidation
+				has_character_flag = agot_dead_in_dragon_hatching
+			}
+			death = {
+				death_reason = death_dragon_hatching_accident
+				killer = scope:host
+			}
+		}
+	}
+}
+
+# agot_dragon_hatching.0100 series - catastrophy result events
+agot_dragon_hatching.0101 = { # Host
+	type = activity_event #character_event
+	title = agot_dragon_hatching.0101.t
+	desc = agot_dragon_hatching.0101.desc
+	theme = dragon
+	left_portrait = {
+		character = root
+		animation = fear
+	}
+	artifact = {
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	immediate = {
+		scope:activity.var:selected_egg = { save_scope_as = egg }
+	}
+
+	option = {
+		name = agot_dragon_hatching.0101.opt.a
+		display_hatching_bad_outcome_results = yes
+		action_hatching_bad_outcome_results = yes
+		destroy_artifact = scope:egg
+		stress_impact = {
+			base = medium_stress_impact_gain
+			arrogant = medium_stress_impact_gain
+			brave = minor_stress_impact_loss
+			ambitious = medium_stress_impact_gain
+			diligent = minor_stress_impact_gain
+		}
+		hidden_effect = {
+			scope:activity = { skip_activity_phase = yes }
+		}
+	}
+}
+agot_dragon_hatching.0102 = { # Guest
+	type = activity_event #character_event
+	title = agot_dragon_hatching.0102.t
+	desc = agot_dragon_hatching.0102.desc
+	theme = dragon
+	left_portrait = {
+		character = root
+		animation = fear
+	}
+	right_portrait = {
+		character = scope:host
+		animation = shock
+	}
+
+	option = {
+		name = agot_dragon_hatching.0102.opt.a
+		stress_impact = {
+			base = medium_stress_impact_gain
+			brave = minor_stress_impact_loss
+		}
+		display_hatching_bad_outcome_results = yes
+		action_hatching_bad_outcome_results = yes
+	}
+}
+# agot_dragon_hatching.0200 series - disaster result events
+agot_dragon_hatching.0201 = { # Host
+	type = activity_event #character_event
+	title = agot_dragon_hatching.0201.t
+	desc = agot_dragon_hatching.0201.desc
+	theme = dragon
+	left_portrait = {
+		character = root
+		animation = fear
+	}
+	artifact = {
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	immediate = {
+		scope:activity.var:selected_egg = { save_scope_as = egg }
+	}
+
+	option = {
+		name = agot_dragon_hatching.0201.opt.a
+		stress_impact = {
+			base = medium_stress_impact_gain
+			arrogant = medium_stress_impact_gain
+			brave = minor_stress_impact_loss
+			ambitious = medium_stress_impact_gain
+			diligent = minor_stress_impact_gain
+		}
+		display_hatching_bad_outcome_results = yes
+		action_hatching_bad_outcome_results = yes
+		destroy_artifact = scope:egg
+		hidden_effect = {
+			scope:activity = { skip_activity_phase = yes }
+		}
+	}
+}
+agot_dragon_hatching.0202 = { # Guest
+	type = activity_event #character_event
+	title = agot_dragon_hatching.0202.t
+	desc = agot_dragon_hatching.0202.desc
+	theme = dragon
+	left_portrait = {
+		character = root
+		animation = fear
+	}
+	right_portrait = {
+		character = scope:host
+		animation = shock
+	}
+
+	option = {
+		name = agot_dragon_hatching.0202.opt.a
+		stress_impact = {
+			base = medium_stress_impact_gain
+			brave = minor_stress_impact_loss
+		}
+		display_hatching_bad_outcome_results = yes
+		action_hatching_bad_outcome_results = yes
+	}
+}
+# agot_dragon_hatching.0300 series - nothing result events
+agot_dragon_hatching.0301 = { # Host, 50/50 egg is destroyed
+	type = activity_event
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				scope:activity.var:egg_status = flag:egg_cracked
+			}
+			trigger_event = agot_dragon_hatching.0303
+		}
+		else_if = {
+			limit = {
+				scope:activity.var:egg_status = flag:egg_intact
+			}
+			trigger_event = agot_dragon_hatching.0304
+		}
+	}
+}
+agot_dragon_hatching.0302 = { # Guest, 50/50 egg is destroyed
+	type = activity_event
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				scope:activity.var:egg_status = flag:egg_cracked
+			}
+			trigger_event = agot_dragon_hatching.0305
+		}
+		else_if = {
+			limit = {
+				scope:activity.var:egg_status = flag:egg_intact
+			}
+			trigger_event = agot_dragon_hatching.0306
+		}
+	}
+}
+
+agot_dragon_hatching.0303 = { # Host - egg is destroyed
+	type = activity_event #character_event
+	title = agot_dragon_hatching.0303.t
+	desc = agot_dragon_hatching.0303.desc
+	theme = dragon
+	left_portrait = {
+		character = root
+		animation = stress
+	}
+	artifact = {
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	immediate = {
+		scope:activity.var:selected_egg = { save_scope_as = egg }
+	}
+
+	option = {
+		name = agot_dragon_hatching.0303.opt.a
+		stress_impact = {
+			base = minor_stress_impact_gain
+			arrogant = minor_stress_impact_gain
+			ambitious = medium_stress_impact_gain
+			diligent = minor_stress_impact_gain
+		}
+		destroy_artifact = scope:egg
+		hidden_effect = {
+			scope:activity = { skip_activity_phase = yes }
+		}
+	}
+}
+
+
+agot_dragon_hatching.0304 = { # Host - egg is okay
+	type = activity_event #character_event
+	title = agot_dragon_hatching.0304.t
+	desc = agot_dragon_hatching.0304.desc
+	theme = dragon
+	left_portrait = {
+		character = root
+		animation = disbelief
+	}
+	artifact = {
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	immediate = {
+		scope:activity.var:selected_egg = { save_scope_as = egg }
+	}
+
+	option = {
+		name = agot_dragon_hatching.0304.opt.a
+		stress_impact = {
+			arrogant = minor_stress_impact_gain
+			ambitious = minor_stress_impact_gain
+			diligent = minor_stress_impact_gain
+		}
+		hidden_effect = {
+			scope:activity = { skip_activity_phase = yes }
+			scope:egg = { # Can now gift the egg again
+				remove_variable = agot_artifact_cannot_gift
+			}
+		}
+	}
+}
+
+agot_dragon_hatching.0305 = { # Guest - egg is destroyed
+	type = activity_event #character_event
+	title = agot_dragon_hatching.0305.t
+	desc = agot_dragon_hatching.0305.desc
+	theme = dragon
+	left_portrait = {
+		character = root
+		animation = disapproval
+	}
+	right_portrait = {
+		character = scope:host
+		animation = shock
+	}
+
+	option = {
+		name = agot_dragon_hatching.0305.opt.a
+		stress_impact = {
+			base = minor_stress_impact_gain
+		}
+	}
+}
+
+agot_dragon_hatching.0306 = { # Guest - egg is okay
+	type = activity_event #character_event
+	title = agot_dragon_hatching.0306.t
+	desc = agot_dragon_hatching.0306.desc
+	theme = dragon
+	left_portrait = {
+		character = root
+		animation = disapproval
+	}
+	right_portrait = {
+		character = scope:host
+		animation = shame
+	}
+	artifact = {
+		target = scope:egg
+		position = lower_center_portrait
+	}
+
+	immediate = {
+		scope:activity.var:selected_egg = { save_scope_as = egg }
+	}
+
+	option = {
+		name = agot_dragon_hatching.0306.opt.a
+		stress_impact = {
+			base = minor_stress_impact_gain
+		}
+	}
+}
+
+# agot_dragon_hatching.0400 series - success result events
+agot_dragon_hatching.0401 = { # Host
+	type = activity_event #character_event
+	title = agot_dragon_hatching.0401.t
+	desc = agot_dragon_hatching.0401.desc
+	theme = dragon
+	left_portrait = {
+		character = root
+		animation = admiration
+	}
+	right_portrait = {
+		character = scope:dragon
+		animation = dragon_main
+		camera = camera_dragon_event_standing_baby
+
+		#Add this so dragon fits within event window
+		outfit_tags = { linear_camera_zoom }
+	}
+
+	immediate = {
+		scope:activity.var:selected_egg = { save_scope_as = egg }
+		hidden_effect = {
+			agot_spawn_bonded_hatchling_from_egg_effect = {
+				OWNER = scope:host
+				EGG = scope:egg
+			}
+			if = {
+				limit = {
+					OR = {
+						scope:activity.var:sacrifice_type = flag:life_myself
+						scope:activity.var:sacrifice_type = flag:life_leader
+						scope:activity.var:sacrifice_type = flag:life_attendee
+						scope:activity.var:sacrifice_type = flag:life_prisoner
+						scope:activity.var:sacrifice_type = flag:life_everyone
+					}
+				}
+				scope:dragon = { add_trait = dragon_destined }
+			}
+		}
+		scope:activity = {
+			set_variable = {
+				name = hatched_dragon
+				value = scope:dragon
+			}
+		}
+		play_music_cue = mood_rhaenyra
+	}
+
+	option = {
+		name = agot_dragon_hatching.0401.opt.a
+		custom_tooltip = agot_dragon_hatching.0401.opt.a_tt
+		if = {
+			limit = {
+				has_activity_intent = hatch_dragon_intent
+			}
+			complete_activity_intent = yes
+		}
+		add_prestige = 10000
+		dynasty = { add_dynasty_prestige = 1000 }
+		add_legitimacy = 1000
+		gain_legitimizing_legend_seed_tooltip_effect = yes
+		stress_impact = {
+			base = major_stress_impact_loss
+		}
+		hidden_effect = {
+			legend_seed_great_deed_dynasty_effect = yes
+			agot_inform_dragon_egg_hatched_effect = yes
+			scope:activity = { skip_activity_phase = yes }
+		}
+	}
+}
+
+agot_dragon_hatching.0402 = { # Guest
+	type = activity_event #character_event
+	title = agot_dragon_hatching.0402.t
+	desc = agot_dragon_hatching.0402.desc
+	theme = dragon
+	left_portrait = {
+		character = root
+		animation = admiration
+	}
+	right_portrait = {
+		character = scope:dragon
+		animation = dragon_main
+		camera = camera_dragon_event_standing_baby
+
+		#Add this so dragon fits within event window
+		outfit_tags = { linear_camera_zoom }
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				exists = scope:activity.var:hatched_dragon
+			}
+			scope:activity.var:hatched_dragon = { save_scope_as = dragon }
+		}
+		play_music_cue = mood_rhaenyra
+	}
+
+	option = {
+		name = agot_dragon_hatching.0402.opt.a
+		custom_tooltip = agot_dragon_hatching.0402.opt.a_tt
+		if = {
+			limit = {
+				has_activity_intent = witness_hatch_dragon_intent
+			}
+			complete_activity_intent = yes
+		}
+		add_prestige = 150
+		stress_impact = {
+			base = medium_stress_impact_loss
+		}
+	}
+}
+
+# Debug / script delay events
+agot_dragon_hatching.9999 = { # Kill host via sacrifice if they should be dead
+	type = activity_event
+	hidden = yes
+	immediate = {
+		# Match this with the result of the events above
+		if = {
+			limit = {
+				OR = {
+					scope:activity.var:outcome = flag:catastrophe
+					scope:activity.var:outcome = flag:disaster
+					AND = {
+						scope:activity.var:outcome = flag:nothing
+						scope:activity.var:egg_status = flag:egg_cracked
+					}
+				}
+			}
+			# Destroy the egg if failed
+			destroy_artifact = scope:activity.var:selected_egg
+		}
+		if = {
+			limit = {
+				scope:activity.var:outcome = flag:success
+			}
+			# Hatch the dragon
+			agot_spawn_wild_hatchling_from_egg_effect = {
+				EGG = scope:activity.var:selected_egg
+			}
+			# Set the dragon as the hatched dragon
+			scope:activity = {
+				set_variable = {
+					name = hatched_dragon
+					value = scope:dragon
+				}
+			}
+			# Send notifications to players
+			agot_inform_dragon_egg_hatched_effect = yes
+		}
+		death = {
+			death_reason = death_dragon_hatching_sacrifice
+			killer = scope:host
+		}
+	}
+}

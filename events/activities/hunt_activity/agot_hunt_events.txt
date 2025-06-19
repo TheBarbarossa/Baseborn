@@ -1,0 +1,528 @@
+﻿namespace = agot_hunt_activity
+
+##################################################
+#by Dawid Popławski
+#agot_hunt_activity.001  - seeing escaping slave during hunt (if choose to run away, end event chain)
+#agot_hunt_activity.002 - not showing yourself to slave
+#agot_hunt_activity.003 - talking to salve
+#agot_hunt_activity.004 - leaving slave to opressors
+#agot_hunt_activity.005 - facing his oppressors (if decided to give him to oppressors, end event chain)
+#agot_hunt_activity.006 - coming form hiding (if decided to leave, end event chain)
+#agot_hunt_activity.007 - owning new slave (bought him out or killed all the oppressors, end event chain)
+##################################################
+
+# agot_hunt_activity.001 = { # Stranger on the road
+# 	type = character_event
+# 	title = agot_hunt_activity.001.t
+# 	desc = agot_hunt_activity.001.desc
+# 	theme = hunt_activity
+	
+# 	trigger = {
+# 		NOT = { has_character_flag = met_strenger_in_the_forest_agot_hunt_activity }
+		
+# 		scope:activity = {
+# 			has_variable_list = potential_hunt_participants
+# 			any_in_list = {
+# 				variable = potential_hunt_participants
+# 				is_alive = yes
+# 				count >= 1
+# 			}
+# 		}
+# 	}
+	
+
+# 	immediate = {
+# 		scope:activity.activity_province = {
+# 			county = {
+# 				save_scope_as = activity_place
+# 			}
+# 		}
+# 		#To create the slaveagot_hunt_activity
+# 		create_character = {
+# 			age = { 18 28 }
+# 			gender = male
+# 			trait = just
+# 			trait = humble
+# 			trait = brave
+			
+# 			trait = giant
+# 			trait = strong
+# 			trait = physique_good_2 
+# 			trait = wounded_1
+# 			trait = education_martial_3
+# 			random_traits_list = {
+# 				count = 1
+# 				shrewd = {}
+# 				hunter_1 = {}
+# 				blademaster_1 = {}
+# 			}
+# 			dynasty = none
+# 			faith = faith:old_gods_south
+# 			culture = culture:forestman
+# 			location = scope:activity.activity_province
+# 			save_scope_as = slaveagot_hunt_activity
+# 		}# TODO assign faith and culture that may be suitable for slave like summer islands
+# 	}
+	
+# 	left_portrait = scope:slaveagot_hunt_activity
+	
+	
+# 	right_portrait = {
+# 		character = ROOT
+#  	}
+
+# 	option = { #engage the stranger
+# 		name = agot_hunt_activity.001.a
+		
+# 		trigger_event = {
+# 			id = agot_hunt_activity.003
+# 		}	
+		
+# 		add_character_flag = {
+# 			flag = met_strenger_in_the_forest_agot_hunt_activity
+# 			years = 15
+# 		}
+# 	}
+	
+# 	option = { #Stay hidden
+# 		name = agot_hunt_activity.001.b
+			
+# 		trigger_event = {
+# 			id = agot_hunt_activity.002
+# 		}
+		
+# 		add_character_flag = {
+# 			flag = met_strenger_in_the_forest_agot_hunt_activity
+# 			years = 15
+# 		}
+# 	}
+	
+# 	option = { #Run away, we are both in danger!
+# 		name = agot_hunt_activity.001.c
+		
+# 		stress_impact = {
+# 			base = minor_stress_impact_gain
+# 		}
+		
+# 		trigger = {
+# 			prowess < 5
+# 		}	
+		
+# 		trigger_event = {
+# 			id = agot_hunt_activity.004
+# 		}
+# 	}
+# }
+
+# agot_hunt_activity.002 = { #Staying in hiding
+# 	type = character_event
+# 	title = agot_hunt_activity.002.t 
+# 	desc = agot_hunt_activity.002.desc
+# 	theme = hunt_activity
+
+# 	right_portrait = {
+# 		character = ROOT
+# 		animation = worry
+#  	}
+	
+# 	left_portrait = scope:slaveagot_hunt_activity
+	
+# 	option = { #Walk away
+# 		name = agot_hunt_activity.002.a
+		
+# 		stress_impact = {
+# 			brave = minor_stress_impact_gain
+# 			just = minor_stress_impact_gain
+# 			compassionate = major_stress_impact_gain
+# 			cynical = major_stress_impact_loss
+# 			lazy = major_stress_impact_loss
+# 			arbitrary = major_stress_impact_loss
+# 		}
+		
+# 		add_prestige = miniscule_prestige_loss
+	
+# 		trigger_event = {
+# 			id = agot_hunt_activity.004
+			
+# 		}
+# 	}
+	
+# 	option = { #Intervene
+# 		name = agot_hunt_activity.002.b
+		
+# 		stress_impact = {
+# 			brave = minor_stress_impact_loss
+# 			just = minor_stress_impact_loss
+# 			compassionate = major_stress_impact_loss
+# 			cynical = minor_stress_impact_gain
+# 			lazy = minor_stress_impact_gain
+# 			arbitrary = minor_stress_impact_gain
+# 		}
+		
+# 		add_prestige = miniscule_prestige_gain
+		
+# 		trigger_event = {
+# 			id = agot_hunt_activity.006
+			
+# 		}
+# 	}
+# }
+	
+# agot_hunt_activity.003 = { #Conversation with a stranger
+# 	type = character_event
+# 	title = agot_hunt_activity.003.t 
+# 	desc = agot_hunt_activity.003.desc #TODO adjust GOT culture to event desc 
+# 	theme = hunt_activity
+
+# 	right_portrait = {
+# 		character = ROOT
+# 		animation = worry
+#  	}
+	
+# 	left_portrait = scope:slaveagot_hunt_activity
+	
+# 	option = {
+# 		name = agot_hunt_activity.003.a
+		
+# 		stress_impact = { #Promise to help him
+# 			brave = minor_stress_impact_loss
+# 			just = minor_stress_impact_loss
+# 			compassionate = major_stress_impact_loss
+# 			cynical = minor_stress_impact_gain
+# 			lazy = minor_stress_impact_gain
+# 			arbitrary = minor_stress_impact_gain
+# 		}
+		
+# 		scope:slaveagot_hunt_activity = {
+# 			hidden_effect = {
+# 				add_opinion = {
+# 					modifier = friendly_interaction
+# 					target = root
+# 					opinion = 20
+# 				}
+# 			}
+# 		}
+		
+# 		add_prestige = miniscule_prestige_gain
+		
+# 		trigger_event = {
+# 			id = agot_hunt_activity.005
+			
+# 		}		
+# 	}
+	
+# 	option = { #Leave him to face his destiny
+# 		name = agot_hunt_activity.003.b
+		
+# 		trigger_event = {
+# 			id = agot_hunt_activity.004
+			
+# 		}
+		
+# 		scope:slaveagot_hunt_activity = {
+# 			hidden_effect = {
+# 				add_opinion = {
+# 					modifier = angry_opinion
+# 					target = root
+# 					opinion = -30
+# 				}
+# 			}
+# 		}
+		
+# 		scope:slaveagot_hunt_activity = {
+# 			hidden_effect = {
+# 				add_opinion = {
+# 					modifier = feast_saved_my_life_opinion #TODO
+# 					target = root
+# 					opinion = 20
+# 				}
+# 			}
+# 		}
+		
+# 		stress_impact = {
+# 			brave = minor_stress_impact_gain
+# 			just = minor_stress_impact_gain
+# 			compassionate = major_stress_impact_gain
+# 			cynical = major_stress_impact_loss
+# 			lazy = major_stress_impact_loss
+# 			arbitrary = major_stress_impact_loss
+# 		}
+		
+# 		add_prestige = miniscule_prestige_loss
+		
+# 	}
+# }	
+
+# agot_hunt_activity.006 = { #Confrontation with three men
+# 	type = character_event
+# 	title = agot_hunt_activity.006.t
+# 	desc = magot_hunt_activity.006.desc 
+# 	theme = hunt_activity
+
+# 	right_portrait = {
+# 		character = root
+# 		animation = disgust
+#  	}
+	
+# 	left_portrait = scope:slaveagot_hunt_activity
+	
+# 	option = { #Leave as he asks
+# 		name = agot_hunt_activity.006.a
+		
+# 		trigger_event = {
+# 			id = agot_hunt_activity.004
+# 		}
+		
+# 		stress_impact = {
+# 			brave = minor_stress_impact_gain
+# 			just = minor_stress_impact_gain
+# 			compassionate = major_stress_impact_gain
+# 			cynical = major_stress_impact_loss
+# 			lazy = major_stress_impact_loss
+# 			arbitrary = major_stress_impact_loss
+# 		}
+# 	}
+	
+# 	option = { #Buy him for yourself
+# 		name = agot_hunt_activity.006.b
+
+# 		remove_short_term_gold = minor_gold_value
+		
+# 		trigger_event = {
+# 			id = agot_hunt_activity.007
+# 		}			
+# 	}
+	
+# 	option = { #Kill them all
+# 		name = agot_hunt_activity.006.c
+# 		skill = prowess
+# 		trigger = {
+# 			OR = {
+# 				has_trait = blademaster_3
+# 				has_trait = blademaster_2
+# 				has_trait = blademaster_1
+# 				prowess >= average_skill_rating
+# 			}
+# 		}
+		
+# 		if = {
+# 			limit = { prowess <= medium_skill_rating }
+# 			hidden_effect = {
+# 				add_trait = wounded_1
+# 			}
+# 		}
+		
+# 		add_internal_flag = dangerous
+		
+# 		trigger_event = {
+# 			id = agot_hunt_activity.007
+# 		}
+		
+# 		add_prestige = miniscule_prestige_loss
+		
+# 	}	
+# }
+
+# agot_hunt_activity.004  = { #Leaving him behind
+# 	type = character_event
+# 	title = agot_hunt_activity.004.t
+# 	desc = agot_hunt_activity.004.desc 
+# 	theme = hunt_activity
+
+# 	right_portrait = {
+# 		character = ROOT
+# 		animation = shame
+#  	}
+	
+# 	option = { #That's the way she goes...
+# 		name = agot_hunt_activity.004.a
+
+# 		stress_impact = {
+# 			base = miniscule_stress_impact_loss
+# 		}
+		
+# 		change_variable = {
+# 			name = hunt_outcome
+# 			add = -1
+# 		}
+# 	}
+	
+# 	option = { #I should have saved him
+# 		name = agot_hunt_activity.004.b
+		
+# 		stress_impact = {
+# 			base = minor_stress_impact_gain
+# 		}
+		
+# 		change_variable = {
+# 			name = hunt_outcome
+# 			add = -1
+# 		}
+# 	}
+# }
+	
+# agot_hunt_activity.005 = { #Confrontation with slave masters
+# 	type = character_event
+# 	title = agot_hunt_activity.005.t 
+# 	desc = agot_hunt_activity.005.desc 
+# 	theme = hunt_activity
+
+# 	right_portrait = {
+# 		character = ROOT
+# 		animation = disgust
+#  	}
+	
+# 	left_portrait = scope:slaveagot_hunt_activity
+	
+# 	option = { #Give him back to them
+# 		name = agot_hunt_activity.005.a
+		
+# 		add_gold = tiny_gold_value
+		
+# 		trigger_event = {
+# 			id = agot_hunt_activity.004
+# 		}	
+# 	}
+# 	option = { #He is a warrior, they are precious
+# 		trait = greedy
+# 		trigger = {
+# 			has_trait = greedy
+# 		}
+# 		name = agot_hunt_activity.005.b
+		
+# 		scope:slaveagot_hunt_activity = {
+# 			hidden_effect = {
+# 				add_opinion = {
+# 					modifier = angry_opinion
+# 					target = root
+# 					opinion = -30
+# 				}
+# 			}
+# 		}
+		
+# 		add_gold = minor_gold_value
+		
+# 		trigger_event = {
+# 			id = agot_hunt_activity.004
+# 		}	
+# 	}
+	
+# 	option = { #Buy him for yourself
+# 		name = agot_hunt_activity.005.c
+
+# 		remove_short_term_gold = minor_gold_value
+		
+# 		trigger_event = {
+# 			id = agot_hunt_activity.007
+# 		}		
+# 	}
+	
+# 	option = { #Kill them all
+# 		name = agot_hunt_activity.006.c 
+# 		skill = prowess
+# 		trigger = {
+# 			OR = {
+# 				has_trait = blademaster_3
+# 				has_trait = blademaster_2
+# 				has_trait = blademaster_1
+# 				prowess >= average_skill_rating
+# 			}
+# 		}
+		
+# 		if = {
+# 			limit = { prowess <= medium_skill_rating }
+# 			hidden_effect = {
+# 				add_trait = wounded_1
+# 			}
+# 		}
+		
+# 		add_internal_flag = dangerous
+		
+# 		trigger_event = {
+# 			id = agot_hunt_activity.007	
+# 		}	
+
+# 		add_prestige = miniscule_prestige_loss
+		
+# 	}
+# }
+
+# agot_hunt_activity.007 = { #New owner of the slave
+# 	type = character_event
+# 	title = agot_hunt_activity.007.t
+# 	desc = agot_hunt_activity.007.desc 
+# 	theme = hunt_activity
+
+# 	right_portrait = {
+# 		character = ROOT
+# 		animation = happiness
+#  	}
+	
+# 	left_portrait = scope:slaveagot_hunt_activity
+	
+# 	option = { #Free him
+# 		name =  agot_hunt_activity.007.a
+		
+# 		add_prestige = medium_prestige_gain
+		
+# 		scope:slaveagot_hunt_activity = {
+# 			hidden_effect = {
+# 				add_opinion = {
+# 					modifier = feast_saved_my_life_opinion
+# 					target = root
+# 					opinion = 80
+# 				}
+# 			}
+# 		}
+		
+# 		change_variable = {
+# 			name = hunt_outcome
+# 			add = 1
+# 		}
+# 	}
+	
+# 	option = { #Take him with you
+# 		name = agot_hunt_activity.007.b
+		
+# 		add_courtier = scope:slaveagot_hunt_activity
+		
+# 		change_variable = {
+# 			name = hunt_outcome
+# 			add = 1
+# 		}
+# 	}
+	
+# 	option = { #Kill him
+# 		name = agot_hunt_activity.007.c
+# 		trait = sadistic
+# 		trigger = {
+# 			has_trait = sadistic
+# 		}
+		
+# 		scope:slaveagot_hunt_activity = {
+# 			death = {
+# 				death_reason = death_ripped_apart_limb_by_limb
+# 				killer = ROOT
+# 			}
+# 		}
+		
+# 		scope:slaveagot_hunt_activity = {
+# 			hidden_effect = {
+# 				add_opinion = {
+# 					modifier = angry_opinion
+# 					target = root
+# 					opinion = -30
+# 				}
+# 			}
+# 		}
+		
+# 		stress_impact = {
+# 			base = major_stress_impact_loss
+# 		}
+		
+# 		add_piety = miniscule_piety_loss
+		
+# 		clear_saved_scope = slaveagot_hunt_activity
+	
+# 	}
+# }

@@ -1,0 +1,144 @@
+﻿# agot petition liege vassal war events by Ronko
+
+namespace = agot_petition_liege
+
+agot_petition_liege.0001 = { 
+	type = letter_event
+	opening = agot_petition_liege.0001.t
+	desc = agot_petition_liege.0001.desc
+	sender = scope:petition_liege			
+	
+	option = {  # ok
+		name = agot_petition_liege.0001.a		
+
+		scope:petition_liege = {
+			trigger_event = {
+				id = agot_petition_liege.0004  
+			}	
+		}
+
+		scope:petition_vassal = {
+			every_character_war = {
+				limit = { 
+					OR = {
+						AND = {
+							primary_attacker = scope:petition_vassal
+							primary_defender = { is_vassal_of = scope:petition_liege }
+						}
+						AND = {
+							primary_defender = scope:petition_vassal
+							primary_attacker = { is_vassal_of = scope:petition_liege }
+						}
+					}
+				}
+				save_temporary_scope_as = this_war
+				show_as_tooltip = {	end_war = white_peace }
+				primary_attacker = {
+					add_truce_both_ways = {
+						character = scope:this_war.primary_defender
+						years = 5
+						war = scope:this_war
+						result = white_peace
+					}	
+				}
+				hidden_effect = { end_war = white_peace } # For tooltip ordering, so that we can display the addition of a truce after the war ends instead of before.
+			}
+		}
+		scope:second_party = {
+			hidden_effect = {
+				send_interface_toast = {
+					title = petition_liege.0101.t.end_war
+					left_icon = scope:petition_vassal
+					right_icon = scope:petition_liege
+					custom_tooltip = vassal_war_toast_desc_second_party
+				}
+			}
+		}	
+		
+		ai_chance = {
+			base = 100			
+		}		
+	}
+	
+	option = {   # no
+		name = agot_petition_liege.0001.b		
+
+		scope:petition_liege = {   # if refusing is illegal
+			add_opinion = {
+				target = scope:second_party
+				modifier = treachery_opinion
+			}			
+		}		
+
+		scope:petition_liege = {
+			trigger_event = {
+				id = agot_petition_liege.0002  
+			}	
+		}
+
+		scope:petition_vassal = {
+			trigger_event = {
+				id = agot_petition_liege.0003
+			}	
+		}
+		
+		ai_chance = {
+			base = 0
+			ai_value_modifier = {
+				ai_boldness = 0.5
+				ai_rationality = -1
+			}
+			opinion_modifier = {
+				opinion_target = scope:petition_liege
+				multiplier = -0.5
+			}			
+		}		
+	}	
+}
+
+agot_petition_liege.0002 = {   # refuse letter to liege
+	type = letter_event
+	opening = agot_petition_liege.0002.t
+	desc = agot_petition_liege.0002.desc
+	sender = scope:second_party	
+	
+	option = {  
+		name = agot_petition_liege.0002.a		
+	
+		add_prestige = -250
+	
+		ai_chance = {
+			base = 100
+		}		
+	}	
+}
+
+agot_petition_liege.0003 = {  # refuse letter to petitioner
+	type = letter_event
+	opening = agot_petition_liege.0003.t
+	desc = agot_petition_liege.0003.desc
+	sender = scope:petition_liege
+	
+	option = {  
+		name = agot_petition_liege.0003.a			
+		
+		ai_chance = {
+			base = 100
+		}		
+	}	
+}
+
+agot_petition_liege.0004 = {  # ok letter to liege
+	type = letter_event
+	opening = agot_petition_liege.0004.t
+	desc = agot_petition_liege.0004.desc
+	sender = scope:second_party
+	
+	option = {  
+		name = agot_petition_liege.0004.a			
+		
+		ai_chance = {
+			base = 100
+		}		
+	}	
+}

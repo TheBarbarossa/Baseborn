@@ -1,0 +1,158 @@
+﻿namespace = agot_contest_events
+
+agot_contest_events.9000 = { # QOLAB
+	type = activity_event
+	title = agot_contest_events.9000.t
+	desc = agot_contest_events.9000.desc
+	theme = tournament_contest
+	window = widget_activity_locale_fullscreen_event
+	left_portrait = {
+		character = root
+		animation = flirtation
+	}
+
+	trigger = {
+		#DLC check.
+		has_ep2_dlc_trigger = yes
+	}
+
+	#AGOT Added QoLaB selection
+	widget = {
+		gui = "event_window_character_selection_short"
+		container = "custom_widgets_container"
+	}
+
+	immediate = {
+		#build list
+		every_spouse = {
+			limit = {
+				location = prev.location
+			}
+			root = {
+				add_to_variable_list = {
+					name = possible_characters
+					target = prev
+				}
+			}
+		}
+		every_relation = {
+			type = lover
+			limit = {
+				location = prev.location
+			}
+			root = {
+				add_to_variable_list = {
+					name = possible_characters
+					target = prev
+				}
+			}
+		}
+		every_close_or_extended_family_member = {
+			limit = {
+				is_female = yes
+				location = prev.location
+			}
+			root = {
+				add_to_variable_list = {
+					name = possible_characters
+					target = prev
+				}
+			}
+		}
+		scope:activity = {
+			every_attending_character = {
+				if = {
+					limit = {
+						is_female = yes
+						is_adult = yes
+					}
+					root = {
+						add_to_variable_list = {
+							name = possible_characters
+							target = prev
+						}
+					}
+				}
+				current_travel_plan = {
+					every_entourage_character = {
+						limit = {
+							is_female = yes
+							is_adult = yes
+						}
+						root = {
+							add_to_variable_list = {
+								name = possible_characters
+								target = prev
+							}
+						}
+					}
+				}
+			}
+		}
+
+		ordered_in_list = {
+			variable = possible_characters
+			order_by = opinion_of_root
+			root = { set_variable = { name = si_selected_character value = prev } }
+			save_scope_as = chosen
+		}
+	}
+
+	#AGOT Added, player select from list
+	option = {
+		name = contest_events.qolab.selection
+		trigger = {
+			is_ai = no
+			exists = scope:chosen
+		}
+		var:si_selected_character = {
+			save_scope_as = chosen
+			remove_variable = si_selecting_character
+		}
+		scope:chosen = { agot_name_as_qolab_effect = yes }
+	}
+
+	#AGOT Added, player select from list and start scheme
+	option = {
+		name = contest_events.qolab.pursue_selection
+		trigger = {
+			is_ai = no
+			exists = scope:chosen
+			can_start_scheme = {
+				type = courting
+				target_character = scope:chosen
+			}
+		}
+		var:si_selected_character = {
+			save_scope_as = chosen
+			remove_variable = si_selecting_character
+		}
+		scope:chosen = { agot_name_as_qolab_effect = yes }
+		add_character_modifier = {
+			modifier = pursuing_queen_of_love_and_beauty_modifier
+			years = 1
+		}
+		start_scheme = {
+			type = courting
+			target_character = scope:chosen
+		}
+	}
+
+	#AGOT Added, you broke something
+	option = {
+		name = contest_events.qolab.selection
+		trigger = {
+			OR = {
+				is_ai = yes
+				NOT = { exists = scope:chosen }
+			}
+		}
+		agot_ai_choose_qolab_effect = yes
+	}
+
+	after = {
+		root = { clear_variable_list = possible_characters }
+		remove_variable = choosing_qolab
+		scope:host = { trigger_event = contest_events.0805 }
+	}
+}

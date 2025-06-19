@@ -1,0 +1,2082 @@
+﻿namespace = agot_activity_commission_crown
+
+agot_activity_commission_crown.0001 = { # Chose to create a crown based on Dynasty
+	type = activity_event
+	title = agot_commission_crown.0001.t
+	desc = {
+		first_valid = {
+			triggered_desc = { #Default
+				trigger = {
+					NOR = {
+						involved_activity ?= {
+							has_activity_type = activity_no_dlc_coronation
+						}
+						involved_activity ?= {
+							has_activity_type = activity_coronation
+						}
+					}
+				}
+				desc = agot_commission_crown.0001.desc
+			}
+			triggered_desc = { #Coronation
+				trigger = {
+					OR = {
+						involved_activity ?= {
+							has_activity_type = activity_no_dlc_coronation
+						}
+						involved_activity ?= {
+							has_activity_type = activity_coronation
+						}
+					}
+				}
+				desc = agot_commission_crown.0001.desc_coronation
+			}
+		}
+	}
+	theme = realm
+	override_background = {
+		reference = armory
+	}
+
+	left_portrait = {
+		character = root
+		animation = throne_room_conversation_3
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_artifact_selection"
+		container = "custom_widgets_container"
+	}
+
+	immediate = {
+		hidden_effect = {
+			title:c_ruins.holder = {
+				#Specific Character Crowns
+				if = {
+					limit = {
+						root = { agot_aegon_i_crown_trigger = yes }
+					}
+
+					agot_create_artifact_aegon_i_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_aenys_crown_trigger = yes }
+					}
+
+					agot_create_artifact_aenys_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_jaehaerys_crown_trigger = yes }
+					}
+
+					agot_create_artifact_jaehaerys_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_daemon_stepstones_crown_trigger = yes }
+					}
+
+					agot_create_artifact_daemon_stepstone_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_aegon_iii_crown_trigger = yes }
+					}
+
+					agot_create_artifact_aegon_iii_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_baelors_crown_trigger = yes }
+					}
+
+					agot_create_artifact_baelors_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_aegon_iv_crown_trigger = yes }
+					}
+
+					agot_create_artifact_aegon_iv_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_maekars_crown_trigger = yes }
+					}
+
+					agot_create_artifact_maekars_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_daenerys_crown_trigger = yes }
+					}
+
+					agot_create_artifact_daenerys_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_robertI_crown_trigger = yes }
+					}
+
+					agot_create_artifact_robertI_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_stannis_crown_trigger = yes }
+					}
+
+					agot_create_artifact_stannis_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_renly_crown_trigger = yes }
+					}
+
+					agot_create_artifact_renly_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_joffreyI_crown_trigger = yes }
+					}
+
+					agot_create_artifact_joffreyI_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_jeyne_westerling_crown_trigger = yes }
+					}
+
+					agot_create_artifact_crown_of_jeyne_westerling_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_lyanna_crown_trigger = yes }
+					}
+
+					agot_create_artifact_crown_of_winter_roses_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_rhaella_crown_trigger = yes }
+					}
+
+					agot_create_artifact_rhaella_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_visenya_crown_trigger = yes }
+					}
+
+					agot_create_artifact_visenya_circlet_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_rhaenys_crown_trigger = yes }
+					}
+
+					agot_create_artifact_rhaenys_circlet_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_daemon_stepstones_consort_crown_trigger = yes }
+					}
+
+					agot_create_artifact_daemon_queen_stepstone_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_alysanne_crown_trigger = yes }
+					}
+
+					agot_create_artifact_alysanne_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_night_king_crown_trigger = yes }
+					}
+
+					agot_create_artifact_crown_of_the_nights_king_replica_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_ice_crown_trigger = yes }
+					}
+
+					agot_create_artifact_crown_of_true_winter_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_blackfyre_crown_trigger = yes }
+					}
+
+					agot_create_artifact_daemonblackfyre_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_fire_and_blood_crown_trigger = yes }
+					}
+
+					agot_create_artifact_westerosi_valyrian_crown2_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_balon_crown_trigger = yes }
+					}
+
+					agot_create_artifact_driftwood_crown_1_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_ironborn_crown_trigger = yes }
+					}
+
+					agot_create_artifact_iron_isles_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				#Family Crowns
+				if = {
+					limit = {
+						root = { agot_blackwood_crown_trigger = yes }
+					}
+
+					agot_create_artifact_blackwood_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_bolton_crown_trigger = yes }
+					}
+
+					agot_create_artifact_bolton_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_cargyll_crown_trigger = yes }
+					}
+
+					agot_create_artifact_cargyll_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_swann_crown_trigger = yes }
+					}
+
+					agot_create_artifact_swann_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_stark_crown_trigger = yes }
+					}
+
+					agot_create_artifact_crown_of_winter_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_dayne_crown_trigger = yes }
+					}
+
+					agot_create_artifact_dayne_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_martell_crown_trigger = yes }
+					}
+
+					agot_create_artifact_dorne_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_dustin_crown_trigger = yes }
+					}
+
+					agot_create_artifact_dustin_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_arryn_crown_trigger = yes }
+					}
+
+					agot_create_artifact_falcon_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_florent_crown_trigger = yes }
+					}
+
+					agot_create_artifact_florent_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_frey_crown_trigger = yes }
+					}
+
+					agot_create_artifact_frey_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_greyjoy_crown_trigger = yes }
+					}
+
+					agot_create_artifact_greyjoy_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_harlaw_crown_trigger = yes }
+					}
+
+					agot_create_artifact_harlaw_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_hightower_crown_trigger = yes }
+					}
+
+					agot_create_artifact_hightower_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_manderly_crown_trigger = yes }
+					}
+
+					agot_create_artifact_manderly_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_tyrell_crown_trigger = yes }
+					}
+
+					agot_create_artifact_reach_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_redwyne_crown_trigger = yes }
+					}
+
+					agot_create_artifact_redwyne_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_reed_crown_trigger = yes }
+					}
+
+					agot_create_artifact_reed_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_royce_crown_trigger = yes }
+					}
+
+					agot_create_artifact_royce_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							root = { agot_baratheon_crown_storm_trigger = yes }
+							root = { agot_durrandon_crown_storm_trigger = yes }
+						}
+					}
+
+					agot_create_artifact_stormlands_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							root = { agot_baratheon_crown_stag_trigger = yes }
+							root = { agot_durrandon_crown_stag_trigger = yes }
+						}
+					}
+
+					agot_create_artifact_iron_stag_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_tarly_crown_trigger = yes }
+					}
+
+					agot_create_artifact_tarly_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_tarth_crown_trigger = yes }
+					}
+
+					agot_create_artifact_tarth_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_tully_crown_trigger = yes }
+					}
+
+					agot_create_artifact_tully_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_umber_crown_trigger = yes }
+					}
+
+					agot_create_artifact_umber_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_lannister_crown_2_trigger = yes }
+					}
+
+					agot_create_artifact_westerlands2_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_lannister_crown_trigger = yes }
+					}
+
+					agot_create_artifact_westerlands_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_westerling_crown_trigger = yes }
+					}
+
+					agot_create_artifact_crown_of_westerling_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_velaryon_crown_trigger = yes }
+					}
+
+					agot_create_artifact_crown_of_the_tides_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_gardener_crown_trigger = yes }
+					}
+
+					agot_create_artifact_crown_of_gardener_peace_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_gardener_crown_trigger = yes }
+					}
+
+					agot_create_artifact_crown_of_gardener_war_iron_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_mudd_crown_trigger = yes }
+					}
+
+					agot_create_artifact_crown_of_mudd_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_westerosi_valyrian1_crown_trigger = yes }
+					}
+
+					agot_create_artifact_westerosi_valyrian_crown1_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_westerosi_valyrian2_crown_trigger = yes }
+					}
+
+					agot_create_artifact_westerosi_valyrian_crown2_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				#Realm Crowns
+				if = {
+					limit = {
+						root = { agot_beyond_the_wall_crown_trigger = yes }
+					}
+
+					agot_create_artifact_beyondthewall_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_riverlands_crown_trigger = yes }
+					}
+
+					agot_create_artifact_riverlands_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_iron_islands_crown_trigger = yes }
+					}
+
+					agot_create_artifact_iron_isles_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_valeman_crown_trigger = yes }
+					}
+
+					agot_create_artifact_valeman_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_reachman_crown_trigger = yes }
+					}
+
+					agot_create_artifact_reachman_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_dornish_crown_trigger = yes }
+					}
+
+					agot_create_artifact_dornish_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_stormlander_crown_trigger = yes }
+					}
+
+					agot_create_artifact_stormlander_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_westerlander_crown_trigger = yes }
+					}
+
+					agot_create_artifact_westerlander2_crown_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_north_crown_trigger = yes }
+					}
+
+					agot_create_artifact_crown_of_winter_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_the_wall_crown_trigger = yes }
+					}
+
+					agot_create_artifact_crown_of_the_wall_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				#Religion Crowns
+				if = {
+					limit = {
+						root = { agot_drowned_god_crown_trigger = yes }
+					}
+
+					agot_create_artifact_driftwood_crown_1_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_valyrian_crown_trigger = yes }
+					}
+
+					agot_create_artifact_valyrian_crown1_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_valyrian2_crown_trigger = yes }
+					}
+
+					agot_create_artifact_valyrian_crown2_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_rhllor_crown_trigger = yes }
+					}
+
+					agot_create_artifact_crown_of_rhllor_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_rhllor2_crown_trigger = yes }
+					}
+
+					agot_create_artifact_circlet_of_rhllor_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_seven_crown_trigger = yes }
+					}
+
+					agot_create_artifact_crown_of_the_seven_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_old_gods_crown_trigger = yes }
+					}
+
+					agot_create_artifact_crown_of_the_old_gods_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+				if = {
+					limit = {
+						root = { agot_first_man_crown_trigger = yes }
+					}
+
+					agot_create_artifact_crown_of_first_men_effect = { OWNER = this }
+					root = {
+						add_to_variable_list = {
+							name = possible_artifacts
+							target = scope:newly_created_artifact
+						}
+						if = {
+							limit = {
+								NOT = { has_variable = selected_artifact }
+							}
+							set_variable = { name = selected_artifact value = scope:newly_created_artifact }
+						}
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = agot_commission_crown.0001.a
+		add_prestige = 150
+		#Specific Character Crowns
+		if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_aegon_i_artifact }
+			}
+			agot_create_artifact_aegon_i_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_aenys_artifact }
+			}
+			agot_create_artifact_aenys_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_jaehaerys_artifact }
+			}
+			agot_create_artifact_jaehaerys_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = daemon_stepstone_crown_artifact }
+			}
+			agot_create_artifact_daemon_stepstone_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_aegon_iii_artifact }
+			}
+			agot_create_artifact_aegon_iii_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_baelor_artifact }
+			}
+			agot_create_artifact_baelors_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_aegon_iv_artifact }
+			}
+			agot_create_artifact_aegon_iv_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_maekar_artifact }
+			}
+			agot_create_artifact_maekars_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = daenerys_crown_artifact }
+			}
+			agot_create_artifact_daenerys_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = robertI_crown_artifact }
+			}
+			agot_create_artifact_robertI_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = stannis_crown_artifact }
+			}
+			agot_create_artifact_stannis_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = renly_crown_artifact }
+			}
+			agot_create_artifact_renly_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = joffreyI_crown_artifact }
+			}
+			agot_create_artifact_joffreyI_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_of_jeyne_westerling_artifact }
+			}
+			agot_create_artifact_crown_of_jeyne_westerling_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_of_winter_roses_artifact }
+			}
+			agot_create_artifact_crown_of_winter_roses_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_rhaella_artifact }
+			}
+			agot_create_artifact_rhaella_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = circlet_visenya_artifact }
+			}
+			agot_create_artifact_visenya_circlet_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = circlet_rhaenys_artifact }
+			}
+			agot_create_artifact_rhaenys_circlet_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = daemon_queen_stepstone_crown_artifact }
+			}
+			agot_create_artifact_daemon_queen_stepstone_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_alysanne_artifact }
+			}
+			agot_create_artifact_alysanne_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_of_the_nights_king_replica_artifact }
+			}
+			agot_create_artifact_crown_of_the_nights_king_replica_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_of_true_winter_artifact }
+			}
+			agot_create_artifact_crown_of_true_winter_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_daemonblackfyre_artifact }
+			}
+			agot_create_artifact_daemonblackfyre_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = westerosi_valyrian_crown2_artifact }
+			}
+			agot_create_artifact_westerosi_valyrian_crown2_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = driftwood_crown_1_artifact }
+			}
+			agot_create_artifact_driftwood_crown_1_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = iron_isles_crown_artifact }
+			}
+			agot_create_artifact_iron_isles_crown_effect = { OWNER = this }
+		}
+		#Family Crowns
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = blackwood_crown_artifact }
+			}
+			agot_create_artifact_blackwood_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = bolton_crown_artifact }
+			}
+			agot_create_artifact_bolton_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = cargyll_crown_artifact }
+			}
+			agot_create_artifact_cargyll_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = swann_crown_artifact }
+			}
+			agot_create_artifact_swann_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_of_winter_artifact }
+			}
+			agot_create_artifact_crown_of_winter_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = dayne_crown_artifact }
+			}
+			agot_create_artifact_dayne_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = dorne_crown_artifact }
+			}
+			agot_create_artifact_dorne_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = dustin_crown_artifact }
+			}
+			agot_create_artifact_dustin_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = falcon_crown_artifact }
+			}
+			agot_create_artifact_falcon_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = florent_crown_artifact }
+			}
+			agot_create_artifact_florent_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = frey_crown_artifact }
+			}
+			agot_create_artifact_frey_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = greyjoy_crown_artifact }
+			}
+			agot_create_artifact_greyjoy_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = harlaw_crown_artifact }
+			}
+			agot_create_artifact_harlaw_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = hightower_crown_artifact }
+			}
+			agot_create_artifact_hightower_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = manderly_crown_artifact }
+			}
+			agot_create_artifact_manderly_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = reach_crown_artifact }
+			}
+			agot_create_artifact_reach_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = redwyne_crown_artifact }
+			}
+			agot_create_artifact_redwyne_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = reed_crown_artifact }
+			}
+			agot_create_artifact_reed_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = royce_crown_artifact }
+			}
+			agot_create_artifact_royce_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = stormlands_crown_artifact }
+			}
+			agot_create_artifact_stormlands_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = iron_stag_crown_artifact }
+			}
+			agot_create_artifact_iron_stag_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = tarly_crown_artifact }
+			}
+			agot_create_artifact_tarly_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = tarth_crown_artifact }
+			}
+			agot_create_artifact_tarth_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = tully_crown_artifact }
+			}
+			agot_create_artifact_tully_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = umber_crown_artifact }
+			}
+			agot_create_artifact_umber_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = westerlands2_crown_artifact }
+			}
+			agot_create_artifact_westerlands2_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = westerlands_crown_artifact }
+			}
+			agot_create_artifact_westerlands_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_of_westerling_artifact }
+			}
+			agot_create_artifact_crown_of_westerling_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_of_the_tides_artifact }
+			}
+			agot_create_artifact_crown_of_the_tides_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_of_gardener_peace_artifact }
+			}
+			agot_create_artifact_crown_of_gardener_peace_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_of_gardener_war_iron_artifact }
+			}
+			agot_create_artifact_crown_of_gardener_war_iron_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_of_mudd_artifact }
+			}
+			agot_create_artifact_crown_of_mudd_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = westerosi_valyrian_crown1_artifact }
+			}
+			agot_create_artifact_westerosi_valyrian_crown1_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = westerosi_valyrian_crown2_artifact }
+			}
+			agot_create_artifact_westerosi_valyrian_crown2_effect = { OWNER = this }
+		}
+		#Realm Crowns
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = beyondthewall_crown_artifact }
+			}
+			agot_create_artifact_beyondthewall_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = riverlands_crown_artifact }
+			}
+			agot_create_artifact_riverlands_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = iron_isles_crown_artifact }
+			}
+			agot_create_artifact_iron_isles_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = valeman_crown_artifact }
+			}
+			agot_create_artifact_valeman_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = reachman_crown_artifact }
+			}
+			agot_create_artifact_reachman_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = dornish_crown_artifact }
+			}
+			agot_create_artifact_dornish_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = stormlander_crown_artifact }
+			}
+			agot_create_artifact_stormlander_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = westerlander2_crown_artifact }
+			}
+			agot_create_artifact_westerlander2_crown_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_of_winter_artifact }
+			}
+			agot_create_artifact_crown_of_winter_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_of_first_men_artifact }
+			}
+			agot_create_artifact_crown_of_first_men_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_of_the_wall_artifact }
+			}
+			agot_create_artifact_crown_of_the_wall_effect = { OWNER = this }
+		}
+		#Religion Crowns
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = driftwood_crown_1_artifact }
+			}
+			agot_create_artifact_driftwood_crown_1_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = valyrian_crown1_artifact }
+			}
+			agot_create_artifact_valyrian_crown1_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = valyrian_crown2_artifact }
+			}
+			agot_create_artifact_valyrian_crown2_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_of_rhllor_artifact }
+			}
+			agot_create_artifact_crown_of_rhllor_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = circlet_of_rhllor_artifact }
+			}
+			agot_create_artifact_circlet_of_rhllor_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_of_the_seven_artifact }
+			}
+			agot_create_artifact_crown_of_the_seven_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_of_the_old_gods_artifact }
+			}
+			agot_create_artifact_crown_of_the_old_gods_effect = { OWNER = this }
+		}
+		else_if = {
+			limit = {
+				var:selected_artifact = { has_variable = crown_of_first_men_artifact }
+			}
+			agot_create_artifact_crown_of_first_men_effect = { OWNER = this }
+		}
+		else = {
+			random_dummy_gender_effect = yes
+			create_artifact_crown_effect = {
+				OWNER = root
+				SMITH = scope:dummy_gender
+			}
+		}
+
+		hidden_effect = {
+			scope:newly_created_artifact = {
+				equip_artifact_to_owner_replace = yes
+				set_variable = {
+					name = agot_new_historical_crown_by_decision
+					value = yes
+					years = 50
+				}
+			}
+		}
+	}
+
+	option = {
+		name = agot_commission_crown.0001.b
+		trigger = {
+			NOR = {
+				involved_activity ?= {
+					has_activity_type = activity_no_dlc_coronation
+				}
+				involved_activity ?= {
+					has_activity_type = activity_coronation
+				}
+			}
+		}
+		remove_decision_cooldown = agot_commission_crown_decision
+		add_gold = 250
+	}
+
+	after = {
+		remove_variable = selected_artifact
+		clear_variable_list = possible_artifacts
+
+		hidden_effect = {
+			title:c_ruins.holder = {
+				every_character_artifact = {
+					destroy_artifact = this
+				}
+			}
+		}
+	}
+}
