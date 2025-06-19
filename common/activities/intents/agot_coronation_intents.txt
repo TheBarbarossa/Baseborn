@@ -1,0 +1,389 @@
+﻿promote_rule_intent = {
+	icon = intent_legitimacy
+
+	is_shown = {
+		has_dlc_feature = advanced_activities
+		is_valid_for_legitimacy_change = yes #Needs to have proper government type
+	}
+
+	auto_complete = yes
+
+	on_invalidated = { trigger_event = activity_system.0090 }
+
+	ai_will_do = {
+		value = 50
+		if = {
+			limit = {
+				has_trait = just
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				has_trait = ambitious
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				has_trait = arrogant
+			}
+			add = 100
+		}
+	}
+
+	scripted_animation = {
+		animation = personality_bold
+	}
+}
+
+#DISABLED (For now)
+vie_for_council_seat_intent = {
+	icon = three_people
+	is_shown = {
+		is_adult = yes
+		exists = title:e_the_iron_throne
+		is_vassal_or_below_of = title:e_the_iron_throne.holder
+		always = no
+		has_dlc_feature = advanced_activities
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = council_iron_throne_not_valid_desc
+			NOT = { is_councillor_of = title:e_the_iron_throne.holder }
+		}
+	}
+
+	on_invalidated = { trigger_event = activity_system.0090 }
+
+	ai_will_do = {
+		value = 50
+		if = {
+			limit = {
+				has_trait = just
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				has_trait = ambitious
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				has_trait = arrogant
+			}
+			add = 100
+		}
+	}
+
+	scripted_animation = {
+		animation = personality_honorable
+	}
+}
+
+raise_dynasty_prestige_intent = {
+	icon = dynasty
+
+	auto_complete = yes
+
+	is_shown = {
+		is_adult = yes
+		has_dlc_feature = advanced_activities
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = raise_dynasty_prestige_intent_not_valid_desc
+			exists = house
+			is_house_head = yes
+		}
+	}
+
+	on_invalidated = { trigger_event = activity_system.0090 }
+
+	ai_will_do = {
+		value = 50
+		if = {
+			limit = {
+				has_trait = just
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				has_trait = ambitious
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				has_trait = arrogant
+			}
+			add = 100
+		}
+	}
+
+	scripted_animation = {
+		animation = personality_honorable
+	}
+}
+
+legitimize_bastard_intent = {
+	icon = legitimize_bastard_intent
+
+	is_shown = {
+		has_dlc_feature = advanced_activities
+		is_adult = yes
+		top_liege ?= {
+			has_character_flag = coronation_host
+			is_participant_in_activity = involved_activity
+		}
+	}
+
+	on_invalidated = {
+		trigger_event = activity_system.0090
+	}
+
+	ai_targets = {
+		ai_recipients = activity_guests
+		max = 10
+	}
+
+	# Handle target character invalidation
+	is_target_valid = {
+		scope:target = {
+			house = root.house
+			has_trait = bastard
+		}
+		scope:target = { # We want characters who may have distant relations to keep their lands in the family
+			OR = {
+				is_child_of = root
+				is_grandchild_of = root
+				is_sibling_of = root
+				is_cousin_of = root
+			}
+		}
+	}
+
+	on_target_invalidated = {
+		trigger_event = activity_system.0091
+	}
+
+	ai_will_do = {
+		value = 50
+		if = {
+			limit = {
+				root.primary_heir.dynasty ?= {
+					NOT = {
+						this = root.dynasty
+					}
+				}
+			}
+			add = 1000
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = just
+					has_trait = arbitrary # an arbitrary character would still think they're morally just
+				}
+			}
+			add = 50
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = shy
+					has_trait = callous
+				}
+			}
+			subtract = 50
+		}
+		if = {
+			limit = {
+				has_trait = compassionate
+			}
+			add = 200
+		}
+
+		if = {
+			limit = {
+				root.primary_heir.dynasty ?= {
+					this = root.dynasty
+				}
+			}
+			#factor = 0 # Using Factor is giving me errors, Error: "Unexpected token: factor, near line: 207", idk why it looks like the rest.
+			subtract = 10000
+		}
+	}
+
+	ai_target_score = {
+		value = 1
+		if = {
+			limit = {
+				scope:target = {
+					is_child_of = root
+				}
+			}
+			add = 1000
+		}
+		if = {
+			limit = {
+				scope:target = {
+					is_close_family_of = root
+				}
+			}
+			add = 250
+		}
+		if = {
+			limit = {
+				scope:target = {
+					is_extended_family_of = root
+				}
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				scope:target = {
+					dynasty = root.dynasty
+				}
+			}
+			add = 50
+		}
+		#Prevents AI who know the royal bastard's secret from legitmizing them (Looking at you Ned)
+		if = {
+			limit = {
+				OR = {
+					root = {
+						any_known_secret = { # Knows Jon Snow secret
+							secret_type = secret_agot_disputed_heritage
+							secret_target = {
+								real_paternal_held_iron_throne_claim = yes
+								scope:target = this
+							}
+						}
+					}
+					root = {
+						any_known_secret = { # Knows other claiment secret
+							secret_type = secret_disputed_heritage
+							secret_target = {
+								real_paternal_held_iron_throne_claim = yes
+								scope:target = this
+							}
+						}
+					}
+					root = {
+						any_known_secret = { # Knows other claiment unmarried secret
+							secret_type = secret_unmarried_illegitimate_child
+							secret_target = {
+								real_paternal_held_iron_throne_claim = yes
+								scope:target = this
+							}
+						}
+					}
+				}
+			}
+			add = -2000
+		}
+	}
+
+	scripted_animation = {
+		animation = personality_compassionate
+	}
+}
+
+sabotage_coronation_intent = {
+	icon = sabotage_coronation_intent
+	on_invalidated = { trigger_event = activity_system.0090 }
+
+	is_shown = {
+		NOR = {
+			has_character_flag = officiant
+			has_character_flag = officiant_on_start
+		}
+		has_dlc_feature = advanced_activities
+	}
+
+	is_valid = {
+		NOT = { is_in_list = special_guests }
+	}
+
+	is_target_valid = {
+		scope:target = {
+			this = involved_activity.activity_host
+		}
+	}
+
+	ai_targets = {
+		ai_recipients = scheme_targets
+		ai_recipients = activity_host
+	}
+
+	ai_will_do = {
+		value = 0
+		add = {
+			value = root.ai_honor
+			multiply = -1
+		}
+		add = {
+			value = root.ai_compassion
+			multiply = -1
+		}
+		if = {
+			limit = {
+				ai_honor >= high_positive_ai_value
+			}
+			add = -1000
+		}
+		if = {
+			limit = {
+				has_trait = sadistic
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				involved_activity ?= {
+					any_attending_character = {
+						has_character_flag = coronation_host
+						OR = {
+							has_relation_rival = root
+							reverse_opinion = {
+								target = root
+								value < 50
+							}
+						}
+					}
+				}
+			}
+			add = 250
+		}
+	}
+
+	ai_target_score = {
+		value = 0
+		if = {
+			limit = {
+				has_relation_rival = scope:target
+			}
+			add = 25
+		}
+		if = {
+			limit = {
+				any_scheme = {
+					scheme_type = murder
+					scheme_target_character = scope:target
+				}
+			}
+			add = 150
+		}
+	}
+
+	scripted_animation = {
+		animation = scheme
+	}
+}

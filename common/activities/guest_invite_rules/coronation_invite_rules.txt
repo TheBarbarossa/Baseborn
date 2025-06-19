@@ -1,0 +1,41 @@
+﻿### CORONATION INVITE RULES ###
+
+# High Lords - Dukes
+activity_invite_rule_high_lords = {
+	effect = {
+		every_vassal_or_below = {
+			limit = {
+				highest_held_title_tier = tier_duchy
+				# Remove diarchs from the list.
+				bannable_serving_diarch_trigger = no
+			}
+			add_to_list = characters
+		}
+	}
+}
+
+# Minor Lords - Counts
+activity_invite_rule_minor_lords = {
+	effect = {
+		every_vassal_or_below = {
+			limit = {
+				highest_held_title_tier = tier_county
+				# Remove diarchs from the list.
+				bannable_serving_diarch_trigger = no
+			}
+			add_to_list = characters
+		}
+	}
+}
+
+# Kingsguad
+activity_invite_kingsguard = {
+	effect = {
+		every_courtier = {
+			limit = {
+				has_trait = kingsguard
+			}
+			add_to_list = characters
+		}
+	}
+}
