@@ -1,0 +1,26 @@
+﻿sarsfield_legacy_track = {
+	is_shown = {
+		OR = {
+			dynasty = dynasty:dynn_Sarsfield
+			dynasty = { has_dynasty_perk = sarsfield_legacy_1 }
+		}
+	}
+}
+
+westerman_legacy_track = {
+	is_shown = {
+		OR = { 
+			culture = {
+				OR = {
+					this = culture:westerman
+					any_parent_culture_or_above = {
+						this = culture:westerman
+					}
+				}
+			}
+			dynasty = { has_dynasty_perk = westerman_legacy_1 }
+		}
+	}
+}
+
+

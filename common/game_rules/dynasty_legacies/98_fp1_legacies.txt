@@ -1,0 +1,86 @@
+﻿fp1_adventure_legacy_track = {
+	is_shown = {
+		has_dlc_feature = the_northern_lords
+		dynasty = {
+			OR = {
+				dynast = {
+					culture = {
+						OR = {
+							#AGOT Modified
+							# this = culture:norse
+							# any_parent_culture_or_above = {
+							# 	this = culture:norse
+							# }
+							has_cultural_pillar = heritage_ironborn
+							this = culture:westerosi_valyrian
+							any_parent_culture_or_above = {
+								this = culture:westerosi_valyrian
+							}
+							this = culture:vineman
+							any_parent_culture_or_above = {
+								this = culture:vineman
+							}
+						}
+					}
+				}
+				has_dynasty_perk = fp1_adventure_legacy_1
+
+				#AGOT Added
+				this = dynasty:dynn_Farman
+				this = dynasty:dynn_Estermont
+			}
+		}
+	}
+}
+
+fp1_pillage_legacy_track = {
+	is_shown = {
+		has_dlc_feature = the_northern_lords
+		dynasty = {
+			OR = {
+				#AGOT Modified
+				# dynast = {
+				# 	culture = {
+				# 		OR = {
+				# 			this = culture:norse
+				# 			any_parent_culture_or_above = {
+				# 				this = culture:norse
+				# 			}
+				# 		}
+				# 	}
+				# }
+				dynast = {
+					culture = {
+						OR = {
+							#No, you cannot use any scripted triggers here, it will crash the game
+							this = culture:fangman
+							this = culture:forestman
+							this = culture:nightrunner
+							this = culture:frozen_shoreman
+							this = culture:hornfoot
+							this = culture:ice_riverman
+							this = culture:lakeman
+							this = culture:thenn
+							any_parent_culture_or_above = {
+								OR = {
+									this = culture:fangman
+									this = culture:forestman
+									this = culture:nightrunner
+									this = culture:frozen_shoreman
+									this = culture:hornfoot
+									this = culture:ice_riverman
+									this = culture:lakeman
+									this = culture:thenn
+								}
+							}
+							has_cultural_pillar = heritage_ironborn
+							has_cultural_tradition = agot_tradition_wildling
+							has_cultural_tradition = tradition_practiced_pirates
+						}
+					}
+				}
+				has_dynasty_perk = fp1_pillage_legacy_1
+			}
+		}
+	}
+}

@@ -1,0 +1,18 @@
+﻿ironborn_legacy_track = {
+	is_shown = {
+		OR = { 
+			culture = {
+				OR = {
+					this = culture:ironborn
+					any_parent_culture_or_above = {
+						this = culture:ironborn
+						has_cultural_pillar = heritage_ironborn
+					}
+				}
+			}
+			dynasty = { has_dynasty_perk = ironborn_legacy_1 }
+		}
+	}
+}
+
+
