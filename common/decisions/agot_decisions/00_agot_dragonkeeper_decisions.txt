@@ -1,0 +1,147 @@
+﻿# Decision to employ new dragonkeeper head. # Copied from Maester Decision
+agot_appoint_dragonkeeper_head = {
+	title = agot_appoint_dragonkeeper_head
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+	decision_group_type = major
+	ai_goal = yes
+
+	selection_tooltip = agot_appoint_dragonkeeper_head_tooltip
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					has_dragonmont_dragonpit = yes
+				}
+				desc = agot_appoint_dragonkeeper_head_dragonmount_desc
+			}
+			desc = agot_appoint_dragonkeeper_head_desc # Fallback
+		}
+	}
+	confirm_text = agot_appoint_dragonkeeper_head_confirm
+
+	is_shown = {
+		is_landed = yes
+		agot_has_an_active_dragonpit = yes
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = tooltip_employ_dragonkeeper
+			NOT = {
+				any_courtier = {
+					has_court_position = head_dragonkeeper_court_position
+				}
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = agot_appoint_dragonkeeper_head_effect_tooltip
+		trigger_event = agot_dragonkeepers.0002
+	}
+
+	ai_potential = {
+		is_landed = yes
+		highest_held_title_tier > tier_barony
+		NOT = {
+			employs_court_position = head_dragonkeeper_court_position
+		}
+	}
+
+	ai_will_do = {
+		base = 0
+		modifier = {
+			NOT = {
+				any_courtier = {
+					has_court_position = head_dragonkeeper_court_position
+				}
+			}
+			add = 500
+		}
+	}
+}
+agot_restore_dragonstone_dragonkeepers = {
+	title = agot_restore_dragonstone_dragonkeepers
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+	decision_group_type = major
+	ai_goal = yes
+
+	selection_tooltip = agot_appoint_dragonkeeper_head_tooltip
+	desc = agot_restore_dragonstone_dragonkeepers_desc
+
+	confirm_text = agot_appoint_dragonkeeper_head_confirm
+
+	cost = {
+		prestige = 250
+	}
+
+	is_shown = {
+		is_landed = yes
+		any_held_title = {
+			this = title:c_dragonstone
+			NOT = {
+				has_variable = has_dragonkeeper_order
+			}
+		}
+	}
+
+	is_valid = {
+		highest_held_title_tier >= tier_kingdom
+		agot_has_dragonpit_requirements_trigger = yes
+	}
+
+	effect = {
+		custom_tooltip = agot_restore_dragonmont_dragonkeepers_effect_tooltip
+		trigger_event = agot_dragonkeepers.0101
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 0
+		modifier = {
+			add = 500
+			any_living_dragon = {
+				count > 0
+			}
+		}
+		modifier = {
+			add = 500
+			OR = {
+				any_relation = { # You have a tamed dragon
+					type = agot_dragon
+				}
+				AND = { # You have an egg + You are Ambitious + You have Valyrian Cultural Heritage
+					any_character_artifact = {
+						has_variable = dragon_egg
+					}
+					has_trait = ambitious
+					culture = {
+						has_cultural_pillar = heritage_valyrian
+					}
+				}
+			}
+		}
+		modifier = {
+			add = 500
+			any_courtier_or_guest = {
+				has_trait = dragon
+			}
+		}
+		modifier = {
+			add = 500
+			any_close_or_extended_family_member = {
+				any_relation = { # You have a tamed dragon
+					type = agot_dragon
+				}
+				is_courtier_of = root
+			}
+		}
+	}
+}

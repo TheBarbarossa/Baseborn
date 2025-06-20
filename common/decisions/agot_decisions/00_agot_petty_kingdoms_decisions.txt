@@ -1,0 +1,2794 @@
+﻿### Petty Kingdom Declarations
+
+## Iron Throne
+agot_proclaim_iron_throne = {
+	picture = {
+		reference = "gfx/interface/illustrations/event_scenes/ironthrone/throneroom_ironthrone.dds"
+	}
+	decision_group_type = major
+	desc = agot_proclaim_iron_throne_desc
+	ai_goal	= yes
+	ai_potential = { always = yes }
+	ai_will_do = { base = 10000 }
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier >= tier_kingdom
+		OR = {
+			has_title = title:e_blackwater_bay
+			has_title = title:e_the_north
+			has_title = title:e_the_riverlands
+			has_title = title:e_the_iron_islands
+			has_title = title:e_the_vale
+			has_title = title:e_the_westerlands
+			has_title = title:e_the_reach
+			has_title = title:e_the_stormlands
+			has_title = title:e_dorne
+			primary_title.title_capital_county = {
+				title_province = {
+					geographical_region = world_westeros_seven_kingdoms
+				}
+			}
+		}
+		NOT = { exists = title:e_the_iron_throne.holder }
+		NOT = { government_has_flag = government_is_nw }
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_it
+			any_held_title = {
+				title_capital_county.title_province = { geographical_region = world_westeros_seven_kingdoms }
+				tier = tier_empire
+				count >= 5
+				save_temporary_scope_as = de_jure_empire
+				root = { completely_controls = scope:de_jure_empire }
+			}
+		}
+		has_title = title:d_kings_landing
+		has_title = title:c_kings_landing
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	effect = {
+		hidden_effect = {
+			title:e_targaryen_it_title = {
+				if = {
+					limit = {
+						NOT = {
+							has_global_variable = pk_iron_throne_historic_copy
+						}
+					}
+				}
+				copy_title_history = title:e_the_iron_throne
+				set_coa = dynn_Targaryen
+				set_global_variable = pk_iron_throne_historic_copy
+			}
+		}
+		title:e_the_iron_throne = {
+			create_title_and_vassal_change = {
+				type = created
+				save_scope_as = change_it
+				add_claim_on_loss = no
+			}
+			change_title_holder = {
+				holder = root
+				change = scope:change_it
+			}
+			resolve_title_and_vassal_change = scope:change_it
+			hidden_effect = {
+				copy_title_history = root.primary_title
+			}
+		}
+		add_prestige = 7000
+		dynasty = { add_dynasty_prestige = 3500 }
+		add_legitimacy = 2100 #Max Legitimacy
+		add_dread = 100
+		add_tyranny	= -35
+		gain_legitimizing_legend_seed_tooltip_effect = yes
+		give_nickname = nick_the_conqueror
+		agot_create_fake_iron_throne_effect = { OWNER = this }
+		change_government = lp_feudal_government
+		hidden_effect = {
+			legend_seed_great_deed_dynasty_effect = yes
+			every_vassal_or_below = {
+				limit = {
+					agot_is_valid_lp_feudal_government_target = yes
+				}
+				change_government = lp_feudal_government
+			}
+		}
+		spawn_army = {
+			name = iron_throne_decision_troops
+			men_at_arms = {
+				type = westerosi_sellswords
+				men = 100
+			}
+			men_at_arms = {
+				type = barrow_knights #replace these with a riverlands cav MAA if they ever get one
+				men = 100
+			}
+			men_at_arms = {
+				type = winged_knights
+				men = 100
+			}
+			men_at_arms = {
+				type = summer_knights
+				men = 100
+			}
+			men_at_arms = {
+				type = storm_knights
+				men = 100
+			}
+			men_at_arms = {
+				type = westerlands_knights
+				men = 100
+			}
+			men_at_arms = {
+				type = sand_steeds
+				men = 100
+			}
+			inheritable = no
+			location = title:d_kings_landing.holder.capital_province
+			origin = title:d_kings_landing.holder.capital_province
+		}
+
+		hidden_effect = {
+			scope:fake_artifact = {
+				add_durability = -1000
+			}
+		}
+
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0001
+			}
+		}
+	}
+
+	cost = { gold = 7000 }
+}
+
+## Crownlands
+# Duskendale
+agot_proclaim_pk_duskendale = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_duskendale_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_duskendale
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_duskendale_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_duskendale
+
+		if = {
+			limit = {
+				title:e_blackwater_bay = { is_de_jure_liege_or_above_target = title:k_the_crownlands }
+			}
+			title:e_blackwater_bay = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_duskendale = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_duskendale
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_duskendale
+		}
+		set_global_variable = pk_duskendale_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0002
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# The Hook
+agot_proclaim_pk_the_hook = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_the_hook_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_masseys_hook
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_hook_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_the_hook
+		
+		if = {
+			limit = {
+				title:e_blackwater_bay = { is_de_jure_liege_or_above_target = title:k_the_crownlands }
+			}
+			title:e_blackwater_bay = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_the_hook = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_the_hook
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_the_hook
+		}
+		set_global_variable = pk_hook_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0010
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# The Claw
+agot_proclaim_pk_the_claw = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_the_claw_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_crackclaw_point
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_claw_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_the_claw
+		
+		if = {
+			limit = {
+				title:e_blackwater_bay = { is_de_jure_liege_or_above_target = title:k_the_crownlands }
+			}
+			title:e_blackwater_bay = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_the_claw = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_the_claw
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_the_claw
+		}
+		set_global_variable = pk_claw_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0011
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+
+
+## Valeman
+# Runestone
+agot_proclaim_pk_runestone = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_runestone_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_runestone
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_runestone_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_runestone
+		
+		if = {
+			limit = {
+				title:e_the_vale = { is_de_jure_liege_or_above_target = title:k_the_vale }
+			}
+			title:e_the_vale = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_runestone = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_runestone
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_runestone
+		}
+		set_global_variable = pk_runestone_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0004
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# Fingers
+agot_proclaim_pk_fingers = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_fingers_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_hearts_home
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_fingers_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_the_fingers
+		
+		if = {
+			limit = {
+				title:e_the_vale = { is_de_jure_liege_or_above_target = title:k_the_vale }
+			}
+			title:e_the_vale = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_the_fingers = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_the_fingers
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_the_fingers
+		}
+		set_global_variable = pk_fingers_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0013
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# The Sisters
+raise_pirate_kingdom_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = raise_pirate_kingdom_decision_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_the_sisters
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_sisters_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_the_sisters
+		
+		if = {
+			limit = {
+				title:e_the_vale = { is_de_jure_liege_or_above_target = title:k_the_vale }
+			}
+			title:e_the_vale = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_the_sisters = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_the_sisters
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_the_sisters
+		}
+		set_global_variable = pk_sisters_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0036
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+## Stormlander
+# Tarth
+agot_proclaim_pk_tarth = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_tarth_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_tarth
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_agot_proclaim_pk_tarth_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_tarth
+		
+		if = {
+			limit = {
+				title:e_the_stormlands = { is_de_jure_liege_or_above_target = title:k_the_stormlands }
+			}
+			title:e_the_stormlands = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_tarth = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_agot_proclaim_pk_tarth
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_agot_proclaim_pk_tarth
+		}
+		set_global_variable = pk_agot_proclaim_pk_tarth_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0031
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# The Marches - East
+agot_proclaim_pk_eastmarch = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_eastmarch_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		OR = {
+			has_title = title:d_nightsong
+			has_title = title:d_marchfields
+			has_title = title:d_blackhaven
+		}
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_eastmarch_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_eastmarch
+		
+		if = {
+			limit = {
+				title:e_the_stormlands = { is_de_jure_liege_or_above_target = title:k_the_stormlands }
+			}
+			title:e_the_stormlands = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_eastmarch = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_eastmarch
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_eastmarch
+		}
+		set_global_variable = pk_eastmarch_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0009
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+## Reachman
+# The Marches - West
+agot_proclaim_pk_westmarch = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_westmarch_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		OR = {
+			has_title = title:d_the_westmarch
+			has_title = title:d_palemarch
+		}
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_marches_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_westmarch
+		
+		if = {
+			limit = {
+				title:e_the_reach = { is_de_jure_liege_or_above_target = title:k_the_reach }
+			}
+			title:e_the_reach = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+		
+		title:k_westmarch = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_westmarch
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_westmarch
+		}
+		set_global_variable = pk_marches_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0008
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+#the High Tower
+agot_proclaim_pk_oldtown = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_oldtown_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_oldtown
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_high_tower_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_oldtown
+		
+		if = {
+			limit = {
+				title:e_the_reach = { is_de_jure_liege_or_above_target = title:k_the_reach }
+			}
+			title:e_the_reach = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+		
+		title:k_oldtown = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_oldtown
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_oldtown
+		}
+		set_global_variable = pk_high_tower_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0012
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# The Arbor
+agot_proclaim_pk_the_arbor = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_the_arbor_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_the_arbor
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_agot_proclaim_pk_the_arbor_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_the_arbor_straits
+		
+		if = {
+			limit = {
+				title:e_the_reach = { is_de_jure_liege_or_above_target = title:k_the_reach }
+			}
+			title:e_the_reach = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_the_arbor_straits = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_agot_proclaim_pk_the_arbor
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_agot_proclaim_pk_the_arbor
+		}
+		set_global_variable = pk_agot_proclaim_pk_the_arbor_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0034
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+## Northern
+# The Dreadfort
+agot_proclaim_pk_the_dreadlands = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_the_dreadlands_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_the_dreadfort
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_dreadfort_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_the_dreadlands
+		
+		if = {
+			limit = {
+				title:e_the_north = { is_de_jure_liege_or_above_target = title:k_the_north }
+			}
+			title:e_the_north = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_the_dreadlands = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_the_dreadlands
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_the_dreadlands
+		}
+		set_global_variable = pk_dreadfort_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0003
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# The Neck
+agot_proclaim_pk_the_neck = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_the_neck_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_the_neck
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_neck_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_the_neck
+		
+		if = {
+			limit = {
+				title:e_the_north = { is_de_jure_liege_or_above_target = title:k_the_north }
+			}
+			title:e_the_north = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_the_neck = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_the_neck
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_the_neck
+		}
+		set_global_variable = pk_neck_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0005
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# Bear Island
+agot_proclaim_pk_bear_island = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_bear_island_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_bear_island
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_agot_proclaim_pk_bear_island_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_bear_island
+		
+		if = {
+			limit = {
+				title:e_the_north = { is_de_jure_liege_or_above_target = title:k_the_north }
+			}
+			title:e_the_north = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_bear_island = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_agot_proclaim_pk_bear_island
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_agot_proclaim_pk_bear_island
+		}
+		set_global_variable = pk_agot_proclaim_pk_bear_island_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0035
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# The Last Lands
+agot_proclaim_pk_the_last_lands = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_the_last_lands_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_last_lands
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_agot_proclaim_pk_the_last_lands_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_last_lands
+		
+		if = {
+			limit = {
+				title:e_the_north = { is_de_jure_liege_or_above_target = title:k_the_north }
+			}
+			title:e_the_north = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_last_lands = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_agot_proclaim_pk_the_last_lands
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_agot_proclaim_pk_the_last_lands
+		}
+		set_global_variable = pk_agot_proclaim_pk_the_last_lands_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0027
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# The Stony Shore
+agot_proclaim_pk_the_stony_shore = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_the_stony_shore_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_grey_downs
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_agot_proclaim_pk_the_stony_shore_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_the_stony_shore
+		
+		if = {
+			limit = {
+				title:e_the_north = { is_de_jure_liege_or_above_target = title:k_the_north }
+			}
+			title:e_the_north = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_the_stony_shore = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_agot_proclaim_pk_the_stony_shore
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_agot_proclaim_pk_the_stony_shore
+		}
+		set_global_variable = pk_agot_proclaim_pk_the_stony_shore_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0021
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# The Barrows and Rills
+agot_proclaim_pk_barrows_and_rills = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_barrows_and_rills_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_the_barrowlands
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_agot_proclaim_pk_barrows_and_rills_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_barrows_and_rills
+		
+		if = {
+			limit = {
+				title:e_the_north = { is_de_jure_liege_or_above_target = title:k_the_north }
+			}
+			title:e_the_north = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_barrows_and_rills = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_agot_proclaim_pk_barrows_and_rills
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_agot_proclaim_pk_barrows_and_rills
+		}
+		set_global_variable = pk_agot_proclaim_pk_barrows_and_rills_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0015
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# The Wolfwood
+agot_proclaim_pk_the_wolfswood = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_the_wolfswood_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_the_wolfswood
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_agot_proclaim_pk_the_wolfswood_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_the_wolfswood
+		
+		if = {
+			limit = {
+				title:e_the_north = { is_de_jure_liege_or_above_target = title:k_the_north }
+			}
+			title:e_the_north = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_the_wolfswood = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_agot_proclaim_pk_the_wolfswood
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_agot_proclaim_pk_the_wolfswood
+		}
+		set_global_variable = pk_agot_proclaim_pk_the_wolfswood_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0017
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# The White Knife
+agot_proclaim_pk_the_white_knife = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_the_white_knife_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_white_harbor
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_agot_proclaim_pk_the_white_knife_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_the_white_knife
+		
+		if = {
+			limit = {
+				title:e_the_north = { is_de_jure_liege_or_above_target = title:k_the_north }
+			}
+			title:e_the_north = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_the_white_knife = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_agot_proclaim_pk_the_white_knife
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_agot_proclaim_pk_the_white_knife
+		}
+		set_global_variable = pk_agot_proclaim_pk_the_white_knife_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0018
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# Iron Islands
+# Great Wyk
+agot_proclaim_pk_great_wyk = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_great_wyk_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_hardstone_hills
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_agot_proclaim_pk_great_wyk_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_great_wyk
+		
+		if = {
+			limit = {
+				title:e_the_iron_islands = { is_de_jure_liege_or_above_target = title:k_the_iron_islands }
+			}
+			title:e_the_iron_islands = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_great_wyk = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_agot_proclaim_pk_great_wyk
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_agot_proclaim_pk_great_wyk
+		}
+		set_global_variable = pk_agot_proclaim_pk_great_wyk_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0016
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# Ironmans Bay
+agot_proclaim_pk_ironmans_bay = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_ironmans_bay_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_old_wyk
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_agot_proclaim_pk_ironmans_bay_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_ironmans_bay
+		
+		if = {
+			limit = {
+				title:e_the_iron_islands = { is_de_jure_liege_or_above_target = title:k_the_iron_islands }
+			}
+			title:e_the_iron_islands = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_ironmans_bay = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_agot_proclaim_pk_ironmans_bay
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_agot_proclaim_pk_ironmans_bay
+		}
+		set_global_variable = pk_agot_proclaim_pk_ironmans_bay_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0032
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# Riverlands
+# The Gods Eye
+agot_proclaim_pk_the_gods_eye = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_the_gods_eye_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_harrenhal
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_agot_proclaim_pk_the_gods_eye_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_the_gods_eye
+		
+		if = {
+			limit = {
+				title:e_the_riverlands = { is_de_jure_liege_or_above_target = title:k_the_riverlands }
+			}
+			title:e_the_riverlands = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_the_gods_eye = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_agot_proclaim_pk_the_gods_eye
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_agot_proclaim_pk_the_gods_eye
+		}
+		set_global_variable = pk_agot_proclaim_pk_the_gods_eye_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0014
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# The Blue Fork
+agot_proclaim_pk_the_blue_fork = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_the_blue_fork_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_blackwood_vale
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_agot_proclaim_pk_the_blue_fork_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_the_blue_fork
+		
+		if = {
+			limit = {
+				title:e_the_riverlands = { is_de_jure_liege_or_above_target = title:k_the_riverlands }
+			}
+			title:e_the_riverlands = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_the_blue_fork = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_agot_proclaim_pk_the_blue_fork
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_agot_proclaim_pk_the_blue_fork
+		}
+		set_global_variable = pk_agot_proclaim_pk_the_blue_fork_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0023
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# Southstone
+agot_proclaim_pk_southstone = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_southstone_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_southstone
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_agot_proclaim_pk_southstone_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_southstone
+		
+		if = {
+			limit = {
+				title:e_the_riverlands = { is_de_jure_liege_or_above_target = title:k_the_riverlands }
+			}
+			title:e_the_riverlands = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_southstone = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_agot_proclaim_pk_southstone
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_agot_proclaim_pk_southstone
+		}
+		set_global_variable = pk_agot_proclaim_pk_southstone_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0025
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# The Green Fork
+agot_proclaim_pk_the_green_fork = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_the_green_fork_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_the_crossing
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_agot_proclaim_pk_the_green_fork_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_the_green_fork
+		
+		if = {
+			limit = {
+				title:e_the_riverlands = { is_de_jure_liege_or_above_target = title:k_the_riverlands }
+			}
+			title:e_the_riverlands = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_the_green_fork = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_agot_proclaim_pk_the_green_fork
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_agot_proclaim_pk_the_green_fork
+		}
+		set_global_variable = pk_agot_proclaim_pk_the_green_fork_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0020
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# The Tidents Mouth
+agot_proclaim_pk_tridents_mouth = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_tridents_mouth_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_maidenpool
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_agot_proclaim_pk_tridents_mouth_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_tridents_mouth
+		
+		if = {
+			limit = {
+				title:e_the_riverlands = { is_de_jure_liege_or_above_target = title:k_the_riverlands }
+			}
+			title:e_the_riverlands = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_tridents_mouth = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_agot_proclaim_pk_tridents_mouth
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_agot_proclaim_pk_tridents_mouth
+		}
+		set_global_variable = pk_agot_proclaim_pk_tridents_mouth_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0026
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+## Dornish
+# Prince's Pass
+agot_proclaim_pk_stone_and_sky = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_stone_and_sky_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_the_princes_pass
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_sas_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_stone_and_sky
+		
+		if = {
+			limit = {
+				title:e_dorne = { is_de_jure_liege_or_above_target = title:k_dorne }
+			}
+			title:e_dorne = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+		
+		title:k_stone_and_sky = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_stone_and_sky
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_stone_and_sky
+		}
+		set_global_variable = pk_sas_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0006
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# The Brimstone
+agot_proclaim_pk_the_brimstone = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_the_brimstone_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_brimstone
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_agot_proclaim_pk_the_brimstone_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_the_brimstone
+		
+		if = {
+			limit = {
+				title:e_dorne = { is_de_jure_liege_or_above_target = title:k_dorne }
+			}
+			title:e_dorne = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_the_brimstone = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_agot_proclaim_pk_the_brimstone
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_agot_proclaim_pk_the_brimstone
+		}
+		set_global_variable = pk_agot_proclaim_pk_the_brimstone_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0019
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# The Torrentine
+agot_proclaim_pk_the_torrentine = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_the_torrentine_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_torrentine
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_agot_proclaim_pk_the_torrentine_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_the_torrentine
+		
+		if = {
+			limit = {
+				title:e_dorne = { is_de_jure_liege_or_above_target = title:k_dorne }
+			}
+			title:e_dorne = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_the_torrentine = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_agot_proclaim_pk_the_torrentine
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_agot_proclaim_pk_the_torrentine
+		}
+		set_global_variable = pk_agot_proclaim_pk_the_torrentine_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0022
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# Yronwood
+agot_proclaim_pk_yronwood = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_yronwood_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_yronwood
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_agot_proclaim_pk_yronwood_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_yronwood
+		
+		if = {
+			limit = {
+				title:e_dorne = { is_de_jure_liege_or_above_target = title:k_dorne }
+			}
+			title:e_dorne = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_yronwood = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_agot_proclaim_pk_yronwood
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_agot_proclaim_pk_yronwood
+		}
+		set_global_variable = pk_agot_proclaim_pk_yronwood_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0024
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# The Greenblood
+agot_proclaim_pk_the_greenblood = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_the_greenblood_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_godsgrace
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_agot_proclaim_pk_the_greenblood_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_the_greenblood
+		
+		if = {
+			limit = {
+				title:e_dorne = { is_de_jure_liege_or_above_target = title:k_dorne }
+			}
+			title:e_dorne = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_the_greenblood = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_agot_proclaim_pk_the_greenblood
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_agot_proclaim_pk_the_greenblood
+		}
+		set_global_variable = pk_agot_proclaim_pk_the_greenblood_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0030
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# The Tor
+agot_proclaim_pk_the_tor = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_the_tor_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_the_tor
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_agot_proclaim_pk_the_tor_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_the_tor
+		
+		if = {
+			limit = {
+				title:e_dorne = { is_de_jure_liege_or_above_target = title:k_dorne }
+			}
+			title:e_dorne = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_the_tor = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_agot_proclaim_pk_the_tor
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_agot_proclaim_pk_the_tor
+		}
+		set_global_variable = pk_agot_proclaim_pk_the_tor_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0029
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# The Red Mountains
+agot_proclaim_pk_the_red_mountains = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_the_red_mountains_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_redmarch
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_agot_proclaim_pk_the_red_mountains_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_the_red_mountains
+		
+		if = {
+			limit = {
+				title:e_dorne = { is_de_jure_liege_or_above_target = title:k_dorne }
+			}
+			title:e_dorne = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_the_red_mountains = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_agot_proclaim_pk_the_red_mountains
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_agot_proclaim_pk_the_red_mountains
+		}
+		set_global_variable = pk_agot_proclaim_pk_the_red_mountains_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0028
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+## Westerman
+# Banefort
+agot_proclaim_pk_withermoore = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_withermoore_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_withermoore
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_withermoore_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_withermoore
+		
+		if = {
+			limit = {
+				title:e_the_westerlands = { is_de_jure_liege_or_above_target = title:k_the_westerlands }
+			}
+			title:e_the_westerlands = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_withermoore = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_withermoore
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_withermoore
+		}
+		set_global_variable = pk_withermoore_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0007
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}
+
+# Fair Isle
+agot_proclaim_pk_fair_isle = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_proclaim_pk_fair_isle_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		primary_title.tier = tier_duchy
+		has_title = title:d_fair_isle
+		NOT = {
+			has_variable = pre_war_liege
+			has_global_variable = pk_agot_proclaim_pk_fair_isle_decision
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_proclaim_pk
+			any_held_title = {
+				tier = tier_duchy
+				count >= 2
+				save_temporary_scope_as = de_jure_duchy
+				root = { completely_controls = scope:de_jure_duchy }
+			}
+		}
+		gold >= 400
+		is_imprisoned = no
+		agot_is_independent_ruler = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+
+	effect = {
+		add_prestige = 400
+		get_title = title:k_fair_isle
+		
+		if = {
+			limit = {
+				title:e_the_westerlands = { is_de_jure_liege_or_above_target = title:k_the_westerlands }
+			}
+			title:e_the_westerlands = { save_temporary_scope_as = empire }
+		}
+		else = {
+			title:e_the_iron_throne = { save_temporary_scope_as = empire }
+		}
+
+		title:k_fair_isle = {
+			set_de_jure_liege_title = scope:empire
+			save_temporary_scope_as = k_agot_proclaim_pk_fair_isle
+		}
+		every_held_title = {
+			limit = { tier = tier_duchy }
+			set_de_jure_liege_title = scope:k_agot_proclaim_pk_fair_isle
+		}
+		set_global_variable = pk_agot_proclaim_pk_fair_isle_decision
+		every_player = {
+			trigger_event = {
+				id = agot_proclaim.0033
+			}
+		}
+	}
+
+	cost = { gold = 400 }
+}

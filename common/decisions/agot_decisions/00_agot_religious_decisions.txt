@@ -1,0 +1,149 @@
+﻿agot_look_into_the_flames_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+
+	desc = look_into_the_flames_decision_desc
+	selection_tooltip = look_into_the_flames_decision_tooltip
+
+	is_shown = {
+		faith = {
+			has_doctrine_parameter = flames_divination_active
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = decision_has_court_chaplain
+			root.cp:councillor_court_chaplain ?= {
+				has_trait = red_priest
+				is_available_adult = yes
+			}
+		}
+		custom_description = {
+			text = look_into_flames_decision_no_cooldown_requirement
+			NOT = { has_character_flag = look_into_flames_cooldown }
+		}
+	}
+
+	effect = {
+		custom_tooltip = look_into_flames_decision_effect
+		trigger_event = agot_look_into_flames.0001
+	}
+
+	cost = {
+		piety = 100
+	}
+
+	ai_check_interval = 60
+
+	ai_will_do = {
+		base = 50
+
+		# 100% chance at 50 zeal, 0% chance at -50 zeal.
+		ai_value_modifier = {
+			ai_zeal = 1
+		}
+	}
+}
+
+weirwood_meditate_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+
+	desc = weirwood_meditate_decision_desc
+	selection_tooltip = weirwood_meditate_decision_tooltip
+
+	cooldown = { months = 60 }
+
+	is_shown = {
+		faith = {
+			has_doctrine_parameter = can_visit_weirwood_groves
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		trigger_event = agot_weirwood_events.0001
+	}
+
+	cost = {
+		gold = visit_weirwood_cost_value
+	}
+
+	ai_check_interval = 60
+
+	ai_will_do = {
+		base = 20
+		modifier = {
+			add = -100
+			NOT = { short_term_gold >= visit_weirwood_cost_value }
+		}
+		modifier = {
+			add = 20
+			piety_level <= 2
+		}
+		modifier = {
+			add = 20
+			has_trait = zealous
+		}
+		modifier = {
+			add = -30
+			has_trait = cynical
+		}
+	}
+}
+
+create_crown_of_hugor_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = create_crown_of_hugor_decision_desc
+
+	is_shown = {
+		any_character_artifact = {
+			has_variable = stars_of_hugor_artifact
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = create_crown_of_hugor_all_stars
+			any_character_artifact = {
+				count = 7
+				has_variable = stars_of_hugor_artifact
+			}
+		}
+		religion = religion:faith_of_the_seven_religion
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+
+	effect = {
+		every_character_artifact = {
+			limit = { has_variable = stars_of_hugor_artifact }
+			root = { destroy_owned_artifact = prev }
+		}
+		agot_create_artifact_crown_of_hugor_effect = { OWNER = this }
+		add_piety_level = 1
+	}
+
+	cost = { piety = 1000 }
+}

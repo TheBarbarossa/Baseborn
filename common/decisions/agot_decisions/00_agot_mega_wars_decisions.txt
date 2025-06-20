@@ -1,0 +1,50 @@
+﻿# Declare independence whilst neutral in a mega war
+agot_mega_war_declare_independence_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_mega_war_declare_independence_decision_desc
+
+	is_shown = {
+		NOT = { has_character_flag = mw_declared_independence }
+		exists = var:pre_war_liege
+		NOT = { is_at_war_with = var:pre_war_liege }
+		var:pre_war_liege = {
+			any_owned_story = {
+				story_type = story_agot_mw_crown
+				is_target_in_variable_list = { name = mw_neutral_list target = root }
+			}
+		}
+		primary_title.tier = tier_kingdom
+		NOT = { any_character_war = { using_cb = agot_independence_war } }
+		is_ai = no
+	}
+
+	is_valid = {
+		is_ai = no
+	}
+
+	effect = {
+		# custom_tooltip = agot_mega_war_declare_independence_decision_tooltip
+
+		custom_tooltip = {
+			text = agot_mega_war_declare_independence_decision_tooltip
+			# text = MEGA_WARS_DECLARE_INDEPENDENCE_TOOLTIP
+		}
+
+		add_character_flag = { flag = mw_declared_independence days = 10 }
+
+		trigger_event = agot_mega_wars.0010
+	}
+
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}

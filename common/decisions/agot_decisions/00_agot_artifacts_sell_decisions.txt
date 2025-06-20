@@ -1,0 +1,166 @@
+﻿agot_sell_artifacts_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	desc = agot_sell_artifacts_decision_desc
+	sort_order = 75
+
+	is_shown = {
+		agot_can_trade_artifacts_trigger = yes
+	}
+
+	is_valid = {
+		custom_description = {
+			text = agot_stolen_artifact_from_artifact_keeper_dec_trigger
+			trigger_if = {
+				limit = {
+					exists = house
+				}
+				NOT = {
+					house = {
+						exists = var:agot_stolen_artifact_from_artifact_keeper
+					}
+				}
+			}
+		}
+		custom_description = {
+			text = agot_not_wilding_desc_trigger
+			culture = {
+				agot_is_wildling_culture = no
+			}
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_check_interval = 24
+
+	effect = {
+		custom_tooltip = agot_sell_artifacts_decision_custom_tooltip_1
+
+		# Compatibility with old save
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						exists = global_var:agot_artifact_keeper
+					}
+				}
+				agot_get_artifact_keeper = yes
+			}
+			else_if = {
+				limit = {
+					global_var:agot_artifact_keeper = {
+						OR = {
+							is_alive = no
+							is_ai = no
+						}
+					}
+				}
+				agot_reload_artifact_keeper = yes
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						global_var:agot_artifact_keeper_title.holder = global_var:agot_artifact_keeper
+					}
+				}
+				global_var:agot_artifact_keeper_title = {
+					create_title_and_vassal_change = {
+						type = conquest
+						save_scope_as = change
+						add_claim_on_loss = no
+					}
+					change_title_holder_include_vassals = {
+						holder = global_var:agot_artifact_keeper
+						change = scope:change
+					}
+			
+					resolve_title_and_vassal_change = scope:change
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						global_var:agot_artifact_keeper = {
+							is_independent_ruler = yes
+						}
+					}
+				}
+				global_var:agot_artifact_keeper = {
+					create_title_and_vassal_change = {
+						type = independency
+						save_scope_as = change
+						add_claim_on_loss = yes
+					}
+					becomes_independent = {
+						change = scope:change
+					}
+					resolve_title_and_vassal_change = scope:change
+				}
+			}
+		}
+
+		# Refersh market and owned artifacts
+		agot_get_market_artifacts_effect = yes
+		agot_get_owned_artifacts_effect = yes
+
+		if = {
+			limit = {
+				is_ai = yes
+			}
+
+			# Either sell or buy an artifact
+			random_list = {
+				1 = {} # Do nothing
+				50 = { # Sell artifact
+					trigger = {
+						agot_ai_may_sell_artifact_trigger = yes
+					}
+
+					agot_ai_get_artifact_to_sell_effect = {
+						ARTIFACT = artifact_to_sell
+					}
+
+					if = {
+						limit = { exists = scope:artifact_to_sell }
+						agot_sell_artifact_effect = {
+							ARTIFACT = scope:artifact_to_sell
+						}
+					}
+				}
+				50 = { # Buy artifact
+					trigger = {
+						# Performance: Limit buying of artifacts to dukes and above
+						highest_held_title_tier >= tier_duchy
+						agot_ai_may_buy_artifact_trigger = yes
+					}
+
+					agot_ai_get_artifact_to_buy_effect = {
+						ARTIFACT = artifact_to_buy
+					}
+
+					if = {
+						limit = { exists = scope:artifact_to_buy }
+						agot_buy_artifact_effect = {
+							ARTIFACT = scope:artifact_to_buy
+						}
+					}
+				}
+			}
+		}
+		else = {
+			# Show artifact market window
+			set_variable = {
+				name = agot_artifact_market_window_open
+				value = 1
+			}
+		}
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}

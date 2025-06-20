@@ -1,0 +1,444 @@
+﻿control_realm_borders_decision = {
+	picture = {
+		trigger = { # Non-Isolated Dorne
+			NOT = { global_var:epidemics_contained_via_decision_dorne ?= flag:blocked }
+			capital_county.title_province = { geographical_region = world_westeros_dorne }
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_black_plague.dds"
+	}
+	picture = {
+		trigger = { # Non-Isolated Vale
+			NOT = { global_var:epidemics_contained_via_decision_the_vale ?= flag:blocked }
+			capital_county.title_province = { geographical_region = world_westeros_the_vale }
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_black_plague.dds"
+	}
+	picture = {
+		trigger = { # Non-Isolated North
+			NOT = { global_var:epidemics_contained_via_decision_the_north ?= flag:blocked }
+			capital_county.title_province = { geographical_region =  world_westeros_the_north }
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_black_plague.dds"
+	}
+	picture = {
+		trigger = { # Non-Isolated Iron Islands
+			NOT = { global_var:epidemics_contained_via_decision_the_iron_islands ?= flag:blocked }
+			capital_county.title_province = { geographical_region =  world_westeros_the_iron_islands }
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_black_plague.dds"
+	}
+	picture = {
+		trigger = { # Isolated Dorne
+			global_var:epidemics_contained_via_decision_dorne ?= flag:blocked
+			capital_county.title_province = { geographical_region = world_westeros_dorne }
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_black_plague.dds"
+	}
+	picture = {
+		trigger = { # Isolated Vale
+			global_var:epidemics_contained_via_decision_the_vale ?= flag:blocked
+			capital_county.title_province = { geographical_region = world_westeros_the_vale }
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_black_plague.dds"
+	}
+	picture = {
+		trigger = { # Isolated North
+			global_var:epidemics_contained_via_decision_the_north ?= flag:blocked
+			capital_county.title_province = { geographical_region =  world_westeros_the_north }
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_black_plague.dds"
+	}
+	picture = {
+		trigger = { # Isolated Iron Islands
+			global_var:epidemics_contained_via_decision_the_iron_islands ?= flag:blocked
+			capital_county.title_province = { geographical_region =  world_westeros_the_iron_islands }
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_black_plague.dds"
+	}
+	decision_group_type = major
+	sort_order = 110
+
+	title = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { capital_county = { has_county_modifier = agot_containing_the_spread } }
+				desc = control_realm_borders_open_decision
+			}
+			desc = control_realm_borders_close_decision
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { # Non-Isolated Dorne
+					capital_county.title_province = { geographical_region = world_westeros_dorne }
+					NOT = { capital_county = { has_county_modifier = agot_containing_the_spread } }
+				}
+				desc = control_realm_borders_close_decision_opening_desc.dorne
+			}
+			triggered_desc = {
+				trigger = { # Non-Isolated Vale
+					capital_county.title_province = { geographical_region = world_westeros_the_vale }
+					NOT = { capital_county = { has_county_modifier = agot_containing_the_spread } }
+				}
+				desc = control_realm_borders_close_decision_opening_desc.vale
+			}
+			triggered_desc = {
+				trigger = { # Non-Isolated North
+					capital_county.title_province = { geographical_region = world_westeros_the_north }
+					NOT = { capital_county = { has_county_modifier = agot_containing_the_spread } }
+				}
+				desc = control_realm_borders_close_decision_opening_desc.north
+			}
+			triggered_desc = {
+				trigger = { # Non-Isolated Iron Islands
+					capital_county.title_province = { geographical_region = world_westeros_the_iron_islands }
+					NOT = { capital_county = { has_county_modifier = agot_containing_the_spread } }
+				}
+				desc = control_realm_borders_close_decision_opening_desc.iron_islands
+			}
+			triggered_desc = {
+				trigger = { # Isolated Dorne
+					capital_county.title_province = { geographical_region = world_westeros_dorne }
+					capital_county = { has_county_modifier = agot_containing_the_spread }
+				}
+				desc = control_realm_borders_open_decision_opening_desc.dorne
+			}
+			triggered_desc = {
+				trigger = { # Isolated Vale
+					capital_county.title_province = { geographical_region = world_westeros_the_vale }
+					capital_county = { has_county_modifier = agot_containing_the_spread }
+				}
+				desc = control_realm_borders_open_decision_opening_desc.vale
+			}
+			triggered_desc = {
+				trigger = { # Isolated North
+					capital_county.title_province = { geographical_region =  world_westeros_the_north }
+					capital_county = { has_county_modifier = agot_containing_the_spread }
+				}
+				desc = control_realm_borders_open_decision_opening_desc.north
+			}
+			triggered_desc = {
+				trigger = { # Isolated Iron Islands
+					capital_county.title_province = { geographical_region =  world_westeros_the_iron_islands }
+					capital_county = { has_county_modifier = agot_containing_the_spread }
+				}
+				desc = control_realm_borders_open_decision_opening_desc.iron_islands
+			}
+		}
+	}
+
+	confirm_text = { # Very important, do not disable
+		first_valid = {
+			triggered_desc = {
+				trigger = { capital_county = { has_county_modifier = agot_containing_the_spread } }
+				desc = uncontrol_realm_borders_decision_confirm
+			}
+			desc = control_realm_borders_decision_confirm
+		}
+	}
+
+	is_shown = {
+		is_landed = yes
+		exists = capital_county
+		highest_held_title_tier >= tier_kingdom
+		NOT = { primary_title = title:e_the_iron_throne }
+		trigger_if = { # Not Isolated
+			limit = { NOT = { capital_county = { has_county_modifier = agot_containing_the_spread } } }
+			agot_realm_is_not_isolated_trigger = yes
+		}
+		trigger_else = { # Isolated
+			limit = { capital_county = { has_county_modifier = agot_containing_the_spread } }
+			agot_realm_is_isolated_trigger = yes
+		}
+	}
+
+	widget = {
+		gui = "decision_view_widget_option_list_generic"
+		controller = decision_option_list_controller
+		decision_to_second_step_button = "SELECT_ACTION"
+		show_from_start = yes
+
+		item = { # Isolate your realm
+			value = control_realm_borders_decision
+			is_valid = { # Not Isolated
+				custom_tooltip = {
+					text = control_realm_borders_decision_alert_tt
+					agot_realm_is_not_isolated_trigger = yes
+				}
+				NOT = { has_character_flag = control_realm_borders_decision_cooldown }
+				capital_county ?= { NOT = { has_county_modifier = agot_containing_the_spread } }
+			}
+			current_description = control_realm_borders_decision_desc
+			localization = control_realm_borders_decision
+			icon = "gfx/interface/icons/message_feed/plague.dds"
+			ai_chance = {
+				value = 100
+			}
+		}
+
+		item = { # End isolation of your realm
+			value = uncontrol_realm_borders_decision
+			is_valid = { # Isolated
+				custom_tooltip = {
+					text = uncontrol_realm_borders_decision_alert_tt
+					agot_realm_is_isolated_trigger = yes
+				}
+				capital_county ?= { has_county_modifier = agot_containing_the_spread }
+			}
+			current_description = uncontrol_realm_borders_decision_desc
+			localization = uncontrol_realm_borders_decision
+			icon = "gfx/interface/icons/court_position_types/cave_hermit_court_position.dds"
+			ai_chance = {
+				value = 100
+			}
+		}
+	}
+
+	effect = {
+		if = { # Close option
+			limit = {
+				scope:control_realm_borders_decision = yes
+			}
+			add_character_flag = {
+				flag = control_realm_borders_decision_cooldown
+				years = 2
+			}
+			if = { # Enable blocking for Dorne
+				limit = { capital_county.title_province ?= { geographical_region = world_westeros_dorne } }
+				root.primary_title = { save_scope_as = title }
+				custom_tooltip = control_realm_borders_close_effect_tt.dorne
+				set_global_variable = {
+					name = epidemics_contained_via_decision_dorne
+					value = flag:blocked
+				}
+				every_sub_realm_duchy = {
+					holder.capital_county = {
+						if = {
+							limit = { NOT = { has_county_modifier = agot_containing_the_spread } }
+							add_county_modifier = { modifier = agot_containing_the_spread }
+						}
+					}
+				}
+			}
+			else_if = { # Enable blocking for Vale
+				limit = { capital_county.title_province ?= { geographical_region = world_westeros_the_vale } }
+				root.primary_title = { save_scope_as = title }
+				custom_tooltip = control_realm_borders_close_effect_tt.vale
+				set_global_variable = {
+					name = epidemics_contained_via_decision_the_vale
+					value = flag:blocked
+				}
+				every_sub_realm_duchy = {
+					holder.capital_county = {
+						if = {
+							limit = { NOT = { has_county_modifier = agot_containing_the_spread } }
+							add_county_modifier = { modifier = agot_containing_the_spread }
+						}
+					}
+				}
+			}
+			else_if = { # Enable blocking for North
+				limit = { capital_county.title_province ?= { geographical_region =  world_westeros_the_north } }
+				root.primary_title = { save_scope_as = title }
+				custom_tooltip = control_realm_borders_close_effect_tt.north
+				set_global_variable = {
+					name = epidemics_contained_via_decision_the_north
+					value = flag:blocked
+				}
+				every_sub_realm_duchy = {
+					holder.capital_county = {
+						if = {
+							limit = { NOT = { has_county_modifier = agot_containing_the_spread } }
+							add_county_modifier = { modifier = agot_containing_the_spread }
+						}
+					}
+				}
+			}
+			else_if = { # Enable blocking for Iron Islands
+				limit = { capital_county.title_province ?= { geographical_region =  world_westeros_the_iron_islands } }
+				root.primary_title = { save_scope_as = title }
+				custom_tooltip = control_realm_borders_close_effect_tt.iron_islands
+				set_global_variable = {
+					name = epidemics_contained_via_decision_the_iron_islands
+					value = flag:blocked
+				}
+				every_sub_realm_duchy = {
+					holder.capital_county = {
+						if = {
+							limit = { NOT = { has_county_modifier = agot_containing_the_spread } }
+							add_county_modifier = { modifier = agot_containing_the_spread }
+						}
+					}
+				}
+			}
+		}
+		if = { # Open option
+			limit = {
+				scope:uncontrol_realm_borders_decision = yes
+			}
+			if = { # Disable blocking for Dorne
+				limit = {
+					has_global_variable = epidemics_contained_via_decision_dorne
+					capital_county.title_province ?= { geographical_region = world_westeros_dorne }
+				}
+				root.primary_title = { save_scope_as = title }
+				custom_tooltip = control_realm_borders_open_effect_tt.dorne
+				remove_global_variable = epidemics_contained_via_decision_dorne
+				every_sub_realm_duchy = {
+					holder.capital_county = {
+						if = {
+							limit = { has_county_modifier = agot_containing_the_spread }
+							remove_county_modifier = agot_containing_the_spread
+						}
+					}
+				}
+			}
+			else_if = { # Disable blocking for Vale
+				limit = {
+					has_global_variable = epidemics_contained_via_decision_the_vale
+					capital_county.title_province ?= { geographical_region = world_westeros_the_vale }
+				}
+				root.primary_title = { save_scope_as = title }
+				custom_tooltip = control_realm_borders_open_effect_tt.vale
+				remove_global_variable = epidemics_contained_via_decision_the_vale
+				every_sub_realm_duchy = {
+					holder.capital_county = {
+						if = {
+							limit = { has_county_modifier = agot_containing_the_spread }
+							remove_county_modifier = agot_containing_the_spread
+						}
+					}
+				}
+			}
+			else_if = { # Disable blocking for North
+				limit = {
+					has_global_variable = epidemics_contained_via_decision_the_north
+					capital_county.title_province ?= { geographical_region =  world_westeros_the_north }
+				}
+				root.primary_title = { save_scope_as = title }
+				custom_tooltip = control_realm_borders_open_effect_tt.north
+				remove_global_variable = epidemics_contained_via_decision_the_north
+				every_sub_realm_duchy = {
+					holder.capital_county = {
+						if = {
+							limit = { has_county_modifier = agot_containing_the_spread }
+							remove_county_modifier = agot_containing_the_spread
+						}
+					}
+				}
+			}
+			else_if = { # Disable blocking for Iron Islands
+				limit = {
+					has_global_variable = epidemics_contained_via_decision_the_iron_islands
+					capital_county.title_province ?= { geographical_region =  world_westeros_the_iron_islands }
+				}
+				root.primary_title = { save_scope_as = title }
+				custom_tooltip = control_realm_borders_open_effect_tt.iron_islands
+				remove_global_variable = epidemics_contained_via_decision_the_iron_islands
+				every_sub_realm_duchy = {
+					holder.capital_county = {
+						if = {
+							limit = { has_county_modifier = agot_containing_the_spread }
+							remove_county_modifier = agot_containing_the_spread
+						}
+					}
+				}
+			}
+		}
+	}
+
+	cost = {
+		prestige = {
+			value = 0
+			if = {
+				limit = { agot_realm_is_not_isolated_trigger = yes }
+				add = minor_prestige_value #75
+			}
+		}
+	}
+
+	ai_check_interval = 1
+
+	ai_potential = { always = yes }
+
+	ai_will_do = {
+		base = 0
+		modifier = { # General Plague Check
+			add = 100
+			NOT = { capital_county = { has_county_modifier = agot_containing_the_spread } }
+			agot_realm_is_not_isolated_trigger = yes
+		}
+		modifier = { # Paranoid
+			add = 100
+			NOT = { capital_county = { has_county_modifier = agot_containing_the_spread } }
+			agot_realm_is_not_isolated_trigger = yes
+			has_trait = paranoid
+		}
+		modifier = { # Brave
+			add = -50
+			NOT = { capital_county = { has_county_modifier = agot_containing_the_spread } }
+			agot_realm_is_not_isolated_trigger = yes
+			has_trait = brave
+		}
+		modifier = { # Greedy
+			add = -50
+			NOT = { capital_county = { has_county_modifier = agot_containing_the_spread } }
+			agot_realm_is_not_isolated_trigger = yes
+			has_trait = greedy
+		}
+		modifier = { # Rational
+			add = ai_rationality
+			NOT = { capital_county = { has_county_modifier = agot_containing_the_spread } }
+			ai_rationality > 0
+			agot_realm_is_not_isolated_trigger = yes
+		}
+		modifier = { # Irrational
+			add = -50
+			NOT = { capital_county = { has_county_modifier = agot_containing_the_spread } }
+			agot_realm_is_not_isolated_trigger = yes
+			ai_rationality <= -50
+		}
+		modifier = { # Might as well
+			add = 1000
+			capital_county = { has_county_modifier = agot_containing_the_spread }
+			agot_realm_is_isolated_trigger = yes
+			any_sub_realm_county = {
+				any_county_province = {
+					any_province_epidemic = {
+						count >= 1
+						outbreak_intensity = apocalyptic
+						agot_epidemic_cannot_be_blocked_trigger = yes
+					}
+				}
+			}
+		}
+		modifier = { # It's over
+			add = 1000
+			capital_county = { has_county_modifier = agot_containing_the_spread }
+			agot_realm_is_isolated_trigger = yes
+			OR = { # Variable check
+				NOT = {
+					any_realm_county = {
+						any_county_province = {
+							any_province_epidemic = {
+								count >= 1
+								outbreak_intensity = apocalyptic
+							}
+						}
+					}
+				}
+				any_realm_county = {
+					any_county_province = {
+						any_province_epidemic = {
+							count >= 1
+							outbreak_intensity = apocalyptic
+							has_variable = epidemic_receding
+						}
+					}
+				}
+			}
+		}
+	}
+}

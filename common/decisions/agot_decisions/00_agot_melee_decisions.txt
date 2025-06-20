@@ -1,0 +1,116 @@
+﻿# agot Melee decision by Ronko
+
+agot_hold_an_epic_melee = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	}
+	ai_check_interval = 12
+	decision_group_type = major
+	cooldown = { days = 3650 }
+
+	cost = {
+		gold = 150
+	}
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		NOT = { has_dlc_feature = tours_and_tournaments }
+
+		NOT = { has_government = theocracy_government }
+		NOT = { has_trait = kingsguard }
+		NOT = { government_has_flag = government_is_nw }
+
+		#Broken for multiplayer
+		NOT = { has_multiple_players = yes }
+
+		highest_held_title_tier >= tier_duchy
+
+		OR = {
+			culture = culture:ironborn
+			culture = culture:northman
+			culture = culture:crannogman
+			culture = culture:barrowman
+			culture = culture:krakenman
+			culture = culture:wolfswood_clansman
+			culture = culture:skagosi
+			culture = culture:hill_clansman
+		}
+
+		#OR = {
+		#	location = {
+		#		geographical_region = world_westeros_the_north
+		#	}
+		#	location = {
+		#		geographical_region = world_westeros_the_iron_islands
+		#	}
+		#}
+	}
+
+	is_valid_showing_failures_only  = {
+
+		is_at_war = no
+		NOT = {
+			liege = {
+				is_at_war = yes
+			}
+		}
+
+		is_available_adult = yes
+
+		custom_tooltip = {
+			text = agot_hold_an_epic_meleeREALMMELEE1
+
+			#Cannot hold melee if....
+			NOT = {
+				liege = {
+					has_character_flag = holding_epic_melee
+				}
+			}
+			NOT = {
+				any_vassal_or_below = {
+					has_character_flag = holding_epic_melee
+				}
+			}
+			NOT = {  #Any other duke in the same kingdom is holding one
+				AND = {
+					highest_held_title_tier = tier_duchy
+					liege = {
+						any_vassal_or_below = {
+							has_character_flag = holding_epic_melee
+						}
+					}
+				}
+			}
+		}
+
+		custom_tooltip = {
+			text = agot_hold_an_epic_meleeATTENDING
+			NOT = { has_character_flag = attending_melee }
+		}
+	}
+
+	effect = {
+		add_character_flag = holding_epic_melee
+
+		add_prestige = 250
+
+		trigger_event = {
+			id = agot_melee.1
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 25
+		#AI personality
+		ai_value_modifier = {
+			ai_energy = 0.5
+			ai_greed = -1
+			ai_sociability = 1
+		}
+	}
+}

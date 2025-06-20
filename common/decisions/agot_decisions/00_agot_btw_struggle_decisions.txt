@@ -1,0 +1,36 @@
+﻿# # Ending decisions for BTW Struggle
+# struggle_btw_ending_others_victory_decision = {
+#     major = ues
+#     title = struggle_btw_ending_others_victory_decision.t
+# 	picture = "gfx/interface/illustrations/decisions/fp2_decision_struggle_hostility.dds"
+# 	extra_picture = "gfx/interface/illustrations/struggle_decisions_buttons/fp2_decision_hostility.dds"
+# 	desc = struggle_btw_ending_others_victory_decision_desc
+# 	selection_tooltip = struggle_btw_ending_others_victory_decision.tt
+# 	confirm_click_sound = "event:/DLC/FP2/SFX/UI/fp2_struggle_ending_decision_confirm"
+# 	is_invisible = yes
+
+#     is_shown = {
+#         has_btw_struggle_trigger = yes # This is how we can hide this event? TODO
+#     }
+
+#     is_valid = {
+#         agot_is_independent_ruler = yes
+
+#         custom_tooltip ={ # TT for Involved characters
+#             text = struggle_btw_ending_others_victory_correct_phase.tt
+#             any_character_struggle = {
+#                 involvement = involved
+#                 is_struggle_type = btw_struggle
+#             }
+#         }
+#     }
+
+#     trigger_if = {
+#         limit = {
+#             exists = global_var:white_walkers_exist # Others Exist
+#         }
+#         custom_tooltip = {
+#             text =
+#         }
+#     }
+# }

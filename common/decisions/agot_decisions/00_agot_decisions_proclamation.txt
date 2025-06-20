@@ -1,0 +1,46 @@
+﻿# Proclaim empire tier kingdom in Westeros
+agot_proclaim_kingdom_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 1
+	desc = agot_proclaim_kingdom_decision_desc
+
+	is_shown = {
+		agot_is_independent_ruler = yes
+		primary_title.tier = tier_kingdom
+		mw_has_valid_proclamation_kingdom = yes
+		#is_ai = no
+		NOT = { has_variable = pre_war_liege }
+		NOR = {
+			has_game_rule = agot_shatter_duchies
+			has_game_rule = agot_shatter_duchies_even
+			has_game_rule = agot_shatter_kingdoms
+			has_game_rule = agot_shatter_petty_kingdoms
+			has_game_rule = agot_shatter_empires
+		}
+	}
+
+	is_valid = {
+		#is_ai = no
+	}
+
+	effect = {
+		show_as_tooltip = {
+			agot_proclaim_kingdom_effect = { SWITCH_TRIGGER = primary_title }
+		}
+
+		#custom_tooltip = agot_proclaim_kingdom_decision_tooltip
+		trigger_event = agot_proclamation_events.0001
+	}
+
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}

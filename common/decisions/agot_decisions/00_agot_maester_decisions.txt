@@ -1,0 +1,241 @@
+﻿### Maester Decision ###
+
+decision_employ_maester = {
+	title = decision_employ_maester
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+	decision_group_type = major
+	ai_goal = yes
+
+	selection_tooltip = decision_employ_maester_tooltip
+	desc = decision_employ_maester_desc
+	confirm_text = decision_employ_maester_confirm
+
+	is_shown = {
+		is_landed = yes
+		OR = {
+			capital_county.title_province = { geographical_region = world_westeros_seven_kingdoms }
+			top_liege = {
+				capital_county.title_province = { geographical_region = world_westeros_seven_kingdoms }
+			}
+		}
+		culture = {
+			has_innovation = innovation_maesters
+		}
+		NOT = {
+			primary_title = title:e_the_iron_throne
+		}
+	}
+
+	is_valid = {
+		 custom_tooltip = {
+			text = tooltip_employ_maester
+			NOT = {
+				any_courtier = {
+					OR = {
+						AND = {
+							is_incapable = no
+							has_trait_xp = {
+								trait = maester
+								value = 100
+							}
+							is_adult = yes
+						}
+						has_court_position = maester_court_position
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			text = tooltip_recently_employed_maester
+			NOT = {
+				has_character_flag = recently_employed_maester
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_employ_maester_effect
+		add_character_flag = {
+			flag = recently_employed_maester
+			days = 60
+		}
+		trigger_event = {
+			id = agot_maester.0001
+			days = 7
+		}
+	}
+
+	ai_potential = {
+		highest_held_title_tier > tier_barony
+		is_landed = yes
+		gold > low_skill_court_physician_cost
+		is_at_war = no
+		NOT = {
+			employs_court_position = maester_court_position
+		}
+	}
+
+
+	ai_will_do = {
+		base = 0
+
+		modifier = { # If the player is at war, do not bother them with offensive calls
+			NOT = {
+				any_courtier = {
+					AND = {
+						is_incapable = no
+						has_trait_xp = {
+							trait = maester
+							value = 100
+						}
+						is_adult = yes
+					}
+					has_court_position = maester_court_position
+				}
+			}
+			add = 100
+		}
+	}
+}
+
+essos_decision_employ_maester = {
+	title = essos_decision_employ_maester
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+	decision_group_type = major
+	ai_goal = yes
+
+	selection_tooltip = decision_employ_maester_tooltip
+	desc = essos_decision_employ_maester_desc
+	confirm_text = essos_decision_employ_maester_confirm
+
+	is_shown = {
+		is_playable_character = yes
+		OR = {
+			NOR = {
+				capital_county.title_province = { geographical_region = world_westeros_seven_kingdoms }
+				top_liege = {
+					capital_county.title_province = { geographical_region = world_westeros_seven_kingdoms }
+				}
+			}
+			OR = {
+				is_landless_adventurer = yes
+				is_landless_administrative = yes
+			}
+		}
+		culture = {
+			has_innovation = innovation_maesters
+		}
+		NOT = {
+			primary_title = title:e_the_iron_throne
+		}
+	}
+
+	is_valid = {
+		 custom_tooltip = {
+			text = tooltip_employ_maester
+			NOT = {
+				any_courtier = {
+					OR = {
+						AND = {
+							is_incapable = no
+							OR = {
+								has_trait_xp = {
+									trait = maester
+									value = 100
+								}
+								has_trait = disgraced_maester
+								has_character_flag = former_acolyte
+							}
+							age > 15
+						}
+						has_court_position = maester_court_position
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			text = tooltip_recently_employed_maester
+			NOT = {
+				has_character_flag = recently_employed_maester
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = essos_decision_employ_maester_effect
+		hidden_effect = {
+			add_character_flag = {
+				flag = recently_employed_maester
+				years = 1
+			}
+			random_list = {
+				4 = { # Traveling Acolyte
+					trigger_event = {
+						id = agot_maester.0008
+						days = 7
+					}
+				}
+				1 = { # Stripped Maester
+					trigger_event = {
+						id = agot_maester.0005
+						days = 7
+					}
+					modifier = {
+						factor = 0
+						is_ai = yes
+					}
+				}
+				2 = { # Traveling Maester
+					trigger_event = {
+						id = agot_maester.0006
+						days = 7
+					}
+				}
+				3 = { # No Maester
+					trigger_event = {
+						id = agot_maester.0007
+						days = 7
+					}
+				}
+			}
+		}
+	}
+
+	ai_potential = {
+		highest_held_title_tier > tier_barony
+		is_landed = yes
+		gold > low_skill_court_physician_cost
+		is_at_war = no
+		NOT = {
+			employs_court_position = maester_court_position
+		}
+	}
+
+
+	ai_will_do = {
+		base = 0
+
+		modifier = { # If the player is at war, do not bother them with offensive calls
+		NOT = {
+			any_courtier = {
+				AND = {
+					is_incapable = no
+					has_trait_xp = {
+						trait = maester
+						value = 100
+					}
+					has_trait = disgraced_maester
+					has_character_flag = former_acolyte
+					is_adult = yes
+				}
+				has_court_position = maester_court_position
+			}
+		}
+		add = 500
+		}
+	}
+}

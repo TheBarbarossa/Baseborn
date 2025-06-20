@@ -1,0 +1,572 @@
+﻿darklyn_revival_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+	}
+
+	desc = darklyn_revival_desc
+
+	decision_group_type = major
+
+	selection_tooltip = house_revival_tooltip
+
+	is_shown = {
+		dynasty:dynn_Darklyn.dynasty_founder.house = {
+			NOT = {
+				any_house_member = {
+					is_alive = yes
+				}
+			}
+		}
+		dynasty = dynasty:dynn_Darklyn
+	}
+
+	is_valid = {
+		has_title = title:c_duskendale
+		has_title = title:d_duskendale
+	}
+
+	effect = {
+		house = { save_scope_as = house }
+		hidden_effect = { set_house = dynasty:dynn_Darklyn.dynasty_founder.house }
+		scope:house = {
+			every_house_member = {
+				set_house = dynasty:dynn_Darklyn.dynasty_founder.house
+			}
+		}
+		every_held_title = {
+			set_coa = dynasty:dynn_Darklyn
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+reyne_revival_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+	}
+
+	desc = reyne_revival_desc
+
+	decision_group_type = major
+
+	selection_tooltip = house_revival_tooltip
+
+	is_shown = {
+		dynasty:dynn_Reyne.dynasty_founder.house = {
+			NOT = {
+				any_house_member = {
+					is_alive = yes
+				}
+			}
+		}
+		dynasty = dynasty:dynn_Reyne
+	}
+
+	is_valid = {
+		has_title = title:c_castamere
+		has_title = title:d_castamere
+	}
+
+	effect = {
+		house = { save_scope_as = house }
+		hidden_effect = { set_house = dynasty:dynn_Reyne.dynasty_founder.house }
+		scope:house = {
+			every_house_member = {
+				set_house = dynasty:dynn_Reyne.dynasty_founder.house
+			}
+		}
+		every_held_title = {
+			set_coa = dynasty:dynn_Reyne
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+gardener_revival_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+	}
+
+	desc = gardener_revival_desc
+
+	decision_group_type = major
+
+	selection_tooltip = house_revival_tooltip
+
+	is_shown = {
+		dynasty:dynn_Gardener.dynasty_founder.house = {
+			NOT = {
+				any_house_member = {
+					is_alive = yes
+				}
+			}
+		}
+		dynasty = dynasty:dynn_Gardener
+	}
+
+	is_valid = {
+		has_title = title:c_highgarden
+		has_title = title:d_highgarden
+	}
+
+	effect = {
+		house = { save_scope_as = house }
+		hidden_effect = { set_house = dynasty:dynn_Gardener.dynasty_founder.house }
+		scope:house = {
+			every_house_member = {
+				set_house = dynasty:dynn_Gardener.dynasty_founder.house
+			}
+		}
+		every_held_title = {
+			set_coa = dynasty:dynn_Gardener
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+durrandon_revival_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+	}
+
+	desc = durrandon_revival_desc
+
+	decision_group_type = major
+
+	selection_tooltip = house_revival_tooltip
+
+	is_shown = {
+		dynasty:dynn_Durrandon.dynasty_founder.house = {
+			NOT = {
+				any_house_member = {
+					is_alive = yes
+				}
+			}
+		}
+		dynasty = dynasty:dynn_Durrandon
+	}
+
+	is_valid = {
+		has_title = title:c_storms_end
+		has_title = title:d_shipbreaker_bay
+	}
+
+	effect = {
+		house = { save_scope_as = house }
+		hidden_effect = { set_house = dynasty:dynn_Durrandon.dynasty_founder.house }
+		scope:house = {
+			every_house_member = {
+				set_house = dynasty:dynn_Durrandon.dynasty_founder.house
+			}
+		}
+		every_held_title = {
+			set_coa = dynasty:dynn_Durrandon
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+stark_revival_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+	}
+
+	desc = stark_revival_desc
+
+	decision_group_type = major
+
+	selection_tooltip = house_revival_tooltip
+
+	is_shown = {
+		dynasty:dynn_Stark.dynasty_founder.house = {
+			NOT = {
+				any_house_member = {
+					is_alive = yes
+				}
+			}
+		}
+		dynasty = dynasty:dynn_Stark
+	}
+
+	is_valid = {
+		has_title = title:c_winterfell
+		has_title = title:d_winterfell
+	}
+
+	effect = {
+		house = { save_scope_as = house }
+		hidden_effect = { set_house = dynasty:dynn_Stark.dynasty_founder.house }
+		scope:house = {
+			every_house_member = {
+				set_house = dynasty:dynn_Stark.dynasty_founder.house
+			}
+		}
+		every_held_title = {
+			set_coa = dynasty:dynn_Stark
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+arryn_revival_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+	}
+
+	desc = arryn_revival_desc
+
+	decision_group_type = major
+
+	selection_tooltip = house_revival_tooltip
+
+	is_shown = {
+		dynasty:dynn_Arryn.dynasty_founder.house = {
+			NOT = {
+				any_house_member = {
+					is_alive = yes
+				}
+			}
+		}
+		dynasty = dynasty:dynn_Arryn
+	}
+
+	is_valid = {
+		has_title = title:c_the_eyrie
+		has_title = title:d_the_giants_lance
+	}
+
+	effect = {
+		house = { save_scope_as = house }
+		hidden_effect = { set_house = dynasty:dynn_Arryn.dynasty_founder.house }
+		scope:house = {
+			every_house_member = {
+				set_house = dynasty:dynn_Arryn.dynasty_founder.house
+			}
+		}
+		every_held_title = {
+			set_coa = dynasty:dynn_Arryn
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+hoare_revival_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+	}
+
+	desc = hoare_revival_desc
+
+	decision_group_type = major
+
+	selection_tooltip = house_revival_tooltip
+
+	is_shown = {
+		dynasty:dynn_Hoare.dynasty_founder.house = {
+			NOT = {
+				any_house_member = {
+					is_alive = yes
+				}
+			}
+		}
+		dynasty = dynasty:dynn_Hoare
+	}
+
+	is_valid = {
+		has_title = title:d_orkmont
+		has_title = title:c_nettlemont
+	}
+
+	effect = {
+		house = { save_scope_as = house }
+		hidden_effect = { set_house = dynasty:dynn_Hoare.dynasty_founder.house }
+		scope:house = {
+			every_house_member = {
+				set_house = dynasty:dynn_Hoare.dynasty_founder.house
+			}
+		}
+		every_held_title = {
+			set_coa = dynasty:dynn_Hoare
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+lannister_revival_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+	}
+
+	desc = lannister_revival_desc
+
+	decision_group_type = major
+
+	selection_tooltip = house_revival_tooltip
+
+	is_shown = {
+		dynasty:dynn_Lannister.dynasty_founder.house = {
+			NOT = {
+				any_house_member = {
+					is_alive = yes
+				}
+			}
+		}
+		dynasty = dynasty:dynn_Lannister
+	}
+
+	is_valid = {
+		has_title = title:d_casterly_rock
+		has_title = title:c_casterly_rock
+	}
+
+	effect = {
+		house = { save_scope_as = house }
+		hidden_effect = { set_house = dynasty:dynn_Lannister.dynasty_founder.house }
+		scope:house = {
+			every_house_member = {
+				set_house = dynasty:dynn_Lannister.dynasty_founder.house
+			}
+		}
+		every_held_title = {
+			set_coa = dynasty:dynn_Lannister
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+dynamic_bastard_house_revival_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+	}
+
+	desc = dynamic_bastard_house_revival_decision_desc
+
+	decision_group_type = major
+
+	selection_tooltip = house_revival_tooltip
+
+	cost = {
+		prestige = medium_prestige_value
+	}
+	cooldown = {
+		years = 5
+	}
+
+	is_shown = {
+		house ?= {
+			var:bastard_house_of ?= {
+				any_house_member = {
+					count = 0
+				}
+			}
+		}
+		is_house_head = yes
+		is_landed_or_landless_administrative = yes
+	}
+
+	is_valid = {
+		trigger_if = {
+			limit = {
+				house.var:bastard_house_of = dynasty:dynn_Darklyn.dynasty_founder.house
+			}
+			has_title = title:c_duskendale
+			has_title = title:d_duskendale
+		}
+		trigger_if = {
+			limit = {
+				house.var:bastard_house_of = dynasty:dynn_Reyne.dynasty_founder.house
+			}
+			has_title = title:c_castamere
+			has_title = title:d_castamere
+		}
+		trigger_if = {
+			limit = {
+				house.var:bastard_house_of = dynasty:dynn_Gardener.dynasty_founder.house
+			}
+			has_title = title:c_highgarden
+			has_title = title:d_highgarden
+		}
+		trigger_if = {
+			limit = {
+				house.var:bastard_house_of = dynasty:dynn_Durrandon.dynasty_founder.house
+			}
+			has_title = title:c_storms_end
+			has_title = title:d_shipbreaker_bay
+		}
+		trigger_if = {
+			limit = {
+				house.var:bastard_house_of = dynasty:dynn_Stark.dynasty_founder.house
+			}
+			has_title = title:c_winterfell
+			has_title = title:d_winterfell
+		}
+		trigger_if = {
+			limit = {
+				house.var:bastard_house_of = dynasty:dynn_Arryn.dynasty_founder.house
+			}
+			has_title = title:d_casterly_rock
+			has_title = title:c_casterly_rock
+		}
+		trigger_if = {
+			limit = {
+				house.var:bastard_house_of = dynasty:dynn_Hoare.dynasty_founder.house
+			}
+			has_title = title:d_orkmont
+			has_title = title:c_nettlemont
+		}
+		trigger_if = {
+			limit = {
+				house.var:bastard_house_of = dynasty:dynn_Lannister.dynasty_founder.house
+			}
+			has_title = title:d_orkmont
+			has_title = title:c_nettlemont
+		}
+		trigger_else = {
+			custom_tooltip = {
+				text = dynamic_bastard_house_revival_decision_bastard
+				always = yes
+			}
+		}
+	}
+
+	effect = {
+		if = {
+			limit = {
+				has_trait = bastard_founder
+				root.capital_province = {
+					geographical_region = world_westeros_seven_kingdoms
+				}
+				top_liege ?= {
+					highest_held_title_tier = tier_empire
+					capital_province = {
+						geographical_region = world_westeros_seven_kingdoms
+					}
+				}
+			}
+			save_scope_as = bastard
+			top_liege = {
+				primary_title = {
+					save_scope_as = empire_title
+				}
+				save_scope_as = top_liege
+				trigger_event = agot_dynastic_stability.2000
+			}
+			house.var:bastard_house_of ?= {
+				save_scope_as = bastard_house_of # loc
+			}
+			custom_tooltip = dynamic_bastard_house_revival_decision_westeros_needs_legitimization
+		}
+		else = {
+			house.var:bastard_house_of ?= {
+				save_scope_as = bastard_house_of
+			}
+			every_child = {
+				limit = { this.house = root.house }
+				set_house = house.var:bastard_house_of
+				every_child = {
+					limit = {
+						this.house = root.house
+					}
+					set_house = house.var:bastard_house_of
+					every_child = {
+						limit = {
+							this.house = root.house
+						}
+						set_house = house.var:bastard_house_of
+					}
+				}
+			}
+			set_house = house.var:bastard_house_of
+			every_held_title = {
+				set_coa = root.house
+			}
+			scope:bastard_house_of = {
+				if = {
+					limit = { root = { is_house_head = no } }
+					set_house_head = root
+				}
+			}
+			add_legitimacy = medium_legitimacy_loss
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_check_interval = 36
+
+	ai_will_do = {
+		base = 60
+		modifier = {
+			add = 100
+			any_parent = {
+				house ?= house.var:bastard_house_of
+			}
+		}
+	}
+}

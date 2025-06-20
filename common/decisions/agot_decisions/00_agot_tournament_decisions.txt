@@ -1,0 +1,183 @@
+﻿# agot Tournament decision by Ronko
+
+agot_hold_an_epic_tournament = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	ai_check_interval = 12
+	decision_group_type = major
+	cooldown = { days = 3650 }
+
+	cost = {
+		gold = {
+			value = 125
+			if = {
+				limit = {
+					highest_held_title_tier >= tier_kingdom
+				}
+				add = 175
+			}
+		}
+	}
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		NOT = { has_dlc_feature = tours_and_tournaments }
+
+		NOT = { has_government = theocracy_government }
+		NOT = { has_trait = kingsguard }
+
+		#Broken for multiplayer
+		NOT = { has_multiple_players = yes }
+
+		capital_province = {
+			NOT = {
+				geographical_region = world_westeros_beyond_the_wall
+			}
+		}
+
+		NOT = {
+			government_has_flag = government_is_nw
+		}
+
+		faith = {
+			has_doctrine = tenet_knighthood
+		}
+
+		highest_held_title_tier >= tier_duchy
+	}
+
+	is_valid_showing_failures_only  = {
+		is_at_war = no
+		NOT = {
+			liege = {
+				is_at_war = yes
+			}
+		}
+
+		is_available_adult = yes
+
+		custom_tooltip = {
+			text = agot_hold_an_epic_tournamentREALMTOURNEY1
+
+			#Cannot hold tourney if....
+			NOT = {
+				liege = {
+					has_character_flag = holding_epic_tournament
+				}
+			}
+
+			NOT = {
+				top_liege = {
+					has_character_flag = holding_epic_tournament
+				}
+			}
+
+			NOT = {
+				any_vassal_or_below = {
+					has_character_flag = holding_epic_tournament
+				}
+			}
+
+			NOT = {  #Any other duke in the same kingdom is holding a large tourney
+				AND = {
+					highest_held_title_tier = tier_duchy
+					liege = {
+						any_vassal_or_below = {
+							AND = {
+								has_character_flag = holding_epic_tournament
+								has_character_flag = king_tier_tournament
+							}
+						}
+					}
+				}
+			}
+
+			NOT = {   # Any other LP in the same empire is holding one
+				AND = {
+					highest_held_title_tier = tier_kingdom
+					liege = {
+						any_vassal = {
+							AND = {
+								highest_held_title_tier = tier_kingdom
+								has_character_flag = holding_epic_tournament
+							}
+						}
+					}
+				}
+			}
+
+			NOT = {  # Any other neighboring duke in the same kingdom is holding one
+				AND = {
+					highest_held_title_tier = tier_duchy
+					primary_title = {
+						any_in_de_jure_hierarchy = {
+							any_title_to_title_neighboring_and_across_water_duchy = {
+								AND = {
+									exists = holder
+									holder = {
+										AND = {
+											any_liege_or_above = { root.liege = this }
+											OR = {
+												has_character_flag = holding_epic_tournament
+												liege = { has_character_flag = holding_epic_tournament }
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		custom_tooltip = {
+			text = agot_hold_an_epic_tournamentATTENDING
+			NOT = { has_character_flag = attending_tournament }
+		}
+	}
+
+	effect = {
+		add_character_flag = holding_epic_tournament
+		if = {
+			limit = {
+				highest_held_title_tier >= tier_kingdom
+			}
+			add_prestige = 500
+			add_character_flag = king_tier_tournament
+		}
+		else = {
+			add_prestige = 250
+		}
+
+		if = {
+			limit = {
+				highest_held_title_tier >= tier_kingdom
+			}
+			trigger_event = {
+				id = agot_tourney.1
+			}
+		}
+		else = {
+			trigger_event = {
+				id = agot_tourney.99
+			}
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 50
+		#AI personality
+		ai_value_modifier = {
+			ai_energy = 0.25
+			ai_greed = -0.5
+			ai_sociability = 0.5
+		}
+	}
+}

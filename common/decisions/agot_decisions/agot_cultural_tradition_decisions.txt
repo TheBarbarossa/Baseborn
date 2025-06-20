@@ -1,0 +1,55 @@
+﻿recruit_forder_specialist_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	}
+	sort_order = 75
+
+	ai_check_interval = 120
+
+	cooldown = { years = 5 }
+
+	desc = recruit_forder_specialist_decision_desc
+
+	is_shown = {
+		culture = {
+			has_cultural_parameter = can_recruit_forder_specialist
+		}
+	}
+
+	effect = {
+		custom_tooltip = recruit_forder_specialist_decision_tooltip
+		hidden_effect = {
+			recruit_terrain_specialist_effect = {
+				SPECIALIST_TRAIT = forder
+				SPECIALIST_TEMPLATE_CHARACTER = forder_commander_character
+			}
+		}
+	}
+
+	cost = {
+		gold = {
+			value = minor_gold_value
+		}
+		prestige = {
+			value = medium_prestige_value
+		}
+	}
+
+	ai_potential = {
+		culture = {
+			has_cultural_parameter = can_recruit_forder_specialist
+		}
+	}
+
+	ai_will_do = {
+		base = 100
+
+		modifier = {
+			factor = 0
+			any_courtier = {
+				has_trait = forder
+			}
+		}
+	}
+}
+

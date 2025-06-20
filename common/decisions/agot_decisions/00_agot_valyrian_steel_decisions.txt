@@ -1,0 +1,277 @@
+﻿reforge_valyrian_steel_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+
+	sort_order = 76
+
+	cost = { }
+
+	desc = reforge_valyrian_steel_decision_desc
+
+	is_shown = {
+		any_character_artifact = {
+			has_variable = valyrian_steel
+			NOT = { has_artifact_modifier = vs_dawn_modifier }
+		}
+	}
+
+	is_valid = {
+		employs_court_position = court_smith_court_position
+		custom_tooltip = {
+			text = reforge_valyrian_steel_excellent_aptitude
+			any_court_position_holder = {
+				type = court_smith_court_position
+				aptitude = {
+					court_position = court_smith_court_position
+					value >= 4
+				}
+			}
+		}
+		prestige >= massive_prestige_value
+		short_term_gold >= 1000
+	}
+
+	ai_check_interval = 0
+
+	ai_potential = { always = no }
+
+	effect = {
+		trigger_event = agot_valyrian_steel.8000
+
+		custom_tooltip = reforge_valyrian_steel_decision.tt
+	}
+}
+
+claim_dawn_worthy_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+	decision_group_type = major
+
+	sort_order = 1
+
+	cost = { }
+
+	desc = claim_dawn_worthy_decision_desc
+
+	is_shown = {
+		worthy_sword_of_the_morning_trigger = yes
+		any_character_artifact = {
+			has_artifact_modifier = vs_dawn_modifier
+		}
+		NOT = { has_character_flag = claimed_dawn }
+	}
+
+	is_valid = {
+		worthy_sword_of_the_morning_trigger = yes
+	}
+
+	ai_check_interval = 60
+
+	ai_potential = { always = yes }
+
+	ai_will_do = { base = 100 }
+
+	effect = {
+		give_nickname = nick_the_sword_of_the_morning
+
+		add_character_flag = claimed_dawn
+		add_character_flag = is_sword_of_morning
+
+		random_character_artifact = {
+			limit  = { has_artifact_modifier = vs_dawn_modifier }
+			save_scope_as = dawn
+		}
+
+		add_prestige = massive_prestige_value
+		add_prestige_level = 1
+
+		hidden_effect = {
+			scope:dawn = {
+				equip_artifact_to_owner_replace = yes
+			}
+		}
+	}
+}
+
+claim_dawn_unworthy_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+
+	sort_order = 1
+
+	cost = { prestige = 1000 }
+
+	desc = claim_dawn_unworthy_decision_desc
+
+	is_shown = {
+		worthy_sword_of_the_morning_trigger = no
+		any_character_artifact = {
+			has_artifact_modifier = vs_dawn_modifier
+		}
+		NOT = { has_character_flag = claimed_dawn }
+	}
+
+	is_valid = {
+		NAND = {
+			dynasty = dynasty:dynn_Dayne
+			OR = {
+				has_trait = education_martial_prowess_4
+				has_trait = education_martial_prowess_5
+			}
+			prowess >= 20
+			OR = {
+				has_trait = just
+				has_trait = brave
+			}
+			NOR = {
+				has_trait = murderer
+				has_trait = kinslayer
+				has_trait = gluttonous
+				has_trait = greedy
+				has_trait = lazy
+				has_trait = callous
+				has_trait = sadistic
+				has_trait = deceitful
+				has_trait = drunkard
+				has_trait = craven
+				has_trait = arbitrary
+				has_trait = torturer
+				has_trait = physique_bad
+			}
+		}
+	}
+
+	ai_check_interval = 0
+
+	ai_potential = { always = no }
+
+	ai_will_do = { base = 100 }
+
+	effect = {
+		add_character_flag = claimed_dawn
+
+		random_character_artifact = {
+			limit  = { has_artifact_modifier = vs_dawn_modifier }
+			save_scope_as = dawn
+		}
+
+		add_prestige_level = -1
+
+		hidden_effect = {
+			scope:dawn = {
+				equip_artifact_to_owner_replace = yes
+			}
+		}
+	}
+}
+
+recover_brightroar_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+	ai_check_interval = 60
+
+	sort_order = 1
+
+	cost = {
+		gold = 500
+	}
+	desc = recover_brightroar_decision_desc
+	selection_tooltip = recover_brightroar_decision_tooltip_2
+	is_shown = {
+		dynasty = dynasty:dynn_Lannister
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:recovered_brightroar
+			}
+		}
+	}
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_landed = yes
+		gold > 500
+		is_imprisoned = no
+	}
+
+	cooldown = { days = 3975 }
+
+	ai_potential = {
+		dynasty = dynasty:dynn_Lannister
+		is_landed = yes
+		is_available_adult = yes
+		gold > 500
+	}
+
+	ai_will_do = {
+		base = 20
+		modifier = {
+			add = 100
+			AND = {
+				current_date >= 8292.1.1
+				this = character:Lannister_1
+				gold >= 500
+			}
+		}
+		modifier = {
+			add = -100
+			NOT = { gold >= 500}
+		}
+		modifier = {
+			add = 30
+			gold >= 500
+		}
+		modifier = {
+			add = 20
+			has_trait = ambitious
+		}
+		modifier = {
+			add = 20
+			has_trait = greedy
+		}
+		modifier = {
+			add = 50
+			has_trait = adventurer
+		}
+	}
+
+	effect = {
+		custom_tooltip = recover_brightroar_decision_tooltip_1
+		custom_tooltip = recover_brightroar_decision_tooltip_2
+
+		if = {
+			limit = {
+				character:Lannister_5 = {
+					is_alive = yes
+					is_landed = no
+					is_available_adult = yes
+					is_imprisoned = no
+				}
+			}
+			character:Lannister_5 = {
+				save_scope_as = explorer
+			}
+		}
+		else = {
+			create_character = {
+				location = root.capital_province
+				gender_female_chance = 0
+				template_character = root
+				faith = root.faith
+				culture = root.culture
+				random_traits = yes
+				dynasty = none
+				age = { 18 55 }
+				martial = { 3 15 }
+				save_scope_as = explorer
+			}
+		}
+
+		trigger_event = {
+			id = recover_brightroar.0001
+		}
+	}
+}

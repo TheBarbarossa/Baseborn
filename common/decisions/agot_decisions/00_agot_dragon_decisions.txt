@@ -1,0 +1,933 @@
+﻿become_dragonrider_house_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dragons.dds"
+	}
+
+	decision_group_type = major
+
+	desc = become_dragonrider_house_decision_desc
+	selection_tooltip = become_dragonrider_house_decision_tooltip
+
+	ai_check_interval = 120
+
+	is_shown = {
+		is_house_head = yes
+		house ?= {
+			NOT = { has_house_modifier = dragonrider_house_modifier }
+			any_house_member = {
+				has_trait = dragonrider
+			}
+		}
+	}
+
+	is_valid = {
+		has_trait = dragonrider
+		house ?= {
+			custom_tooltip = {
+				text = become_dragonrider_house_decision_living_house_member_count_tt
+				any_house_member = {
+					has_trait = dragonrider
+					count >= 5
+				}
+			}
+		}
+	}
+
+	effect = {
+		house ?= {
+			add_house_modifier = dragonrider_house_modifier
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+call_for_dragonseeds_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dragons.dds"
+	}
+
+	desc = call_for_dragonseeds_decision_desc
+	selection_tooltip = call_for_dragonseeds_decision_tooltip
+
+	ai_check_interval = 0
+
+	cooldown = { days = 1825 }
+
+	is_shown = {
+		OR = {
+			any_courtier = {
+				has_trait = dragon
+				NOT = {
+					any_relation = {
+						type = agot_dragon
+					}
+				}
+			}
+			any_living_dragon = {
+				NOT = { has_character_flag = owned_dragon }
+				exists = var:lair
+				var:lair.county.holder = root
+			}
+		}
+	}
+
+	is_valid = {
+		OR = {
+			custom_tooltip = {
+				text = call_for_dragonseeds_decision_unclaimed_dragons_tt
+				any_courtier = {
+					has_trait = dragon
+					NOT = {
+						any_relation = {
+							type = agot_dragon
+						}
+					}
+					dragon_size >= dragon_taming_minimum_size
+				}
+			}
+			custom_tooltip = {
+				text = call_for_dragonseeds_decision_local_wild_dragons_tt
+				any_living_dragon = {
+					NOT = { has_character_flag = owned_dragon }
+					exists = var:lair
+					var:lair.county.holder = root
+					dragon_size >= dragon_taming_minimum_size
+				}
+			}
+		}
+	}
+
+	effect = {
+		save_scope_as = dragon_keeper
+		location = {
+			save_scope_as = dragonpit
+		}
+		random_ruler = {
+			limit = {
+				save_temporary_scope_as = ruler
+				in_diplomatic_range = scope:dragon_keeper
+				NOR = {
+					this = root
+					AND = { # Dragons can't pass the wall
+						capital_province ?= {
+							geographical_region = world_westeros_beyond_the_wall
+						}
+						NOT = {
+							root.capital_province ?= {
+								geographical_region = world_westeros_beyond_the_wall
+							}
+						}
+					}
+					AND = {
+						NOT = {
+							capital_province ?= {
+								geographical_region = world_westeros_beyond_the_wall
+							}
+						}
+						root.capital_province ?= {
+							geographical_region = world_westeros_beyond_the_wall
+						}
+					}
+				}
+				any_equipped_character_artifact = { # has to have a dragon horn ready
+					artifact_type = dragon_horn
+					OR = {
+						var:binder ?= prev
+						any_in_list = {
+							variable = attempted_binding
+							this = scope:ruler
+						}
+					}
+					NOT = { var:binder ?= root } # Incase we bound and hopped it to someone else
+				}
+				NOR = { # can't have a dragon
+					any_relation = {
+						type = agot_dragon
+					}
+					agot_has_dragonblood_heritage = yes
+					any_character_artifact = {
+						has_variable = cradled_egg
+					}
+					dynasty ?= scope:dragon_keeper.dynasty
+				}
+
+				any_courtier = {
+					is_available_ai_adult = yes
+					AND = {
+						OR = {
+							has_trait = ambitious
+							has_trait = brave
+							has_trait = arrogant
+						}
+						NOR = {
+							dynasty ?= root.dynasty
+							dynasty ?= scope:dragon_keeper.dynasty
+							any_relation = {
+								type = agot_dragon
+								exists = this
+							}
+							any_character_artifact = {
+								has_variable = cradled_egg
+							}
+							has_trait = dragonwidowed
+						}
+					}
+				}
+			}
+			save_scope_as = false_seed_sower
+			trigger_event = {
+				id = dragon_taming_events.0305
+				days = 1
+			}
+		}
+		trigger_event = {
+			id = agot_dragon.1000
+			days = 30
+		}
+	}
+
+	cost = {
+		prestige = monumental_prestige_value
+	}
+
+	ai_potential = {
+		always = no
+	}
+}
+
+conduct_terror_campaign = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dragons.dds"
+	}
+
+	sort_order = 1
+
+	is_shown = {
+		is_adult = yes
+		is_current_dragonrider = yes
+		not = { has_character_flag = conducting_terror_campaign }
+	}
+
+	is_valid = {
+		is_current_dragonrider = yes
+		var:current_dragon = {
+			dragon_can_do_terror_campaign = yes
+		}
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = conduct_terror_campaign_effect
+			add_character_flag = conducting_terror_campaign
+			if = {
+				limit = {
+					var:current_dragon = { NOT = { has_character_flag = part_of_terror_campaign } }
+				}
+				var:current_dragon = {
+					add_character_flag = part_of_terror_campaign # To prevent stacking by re-taking decision
+					trigger_event = agot_dragon.0007
+				}
+			}
+		}
+	}
+
+	ai_goal = no
+	ai_check_interval = 2
+	ai_potential = {
+		is_at_war = yes
+	}
+	ai_will_do = {
+		base = 0
+		modifier = {
+			add = 10
+			OR = {
+				has_trait = wrathful
+				has_trait = sadistic
+				has_trait = callous
+			}
+		}
+		modifier = { # Extremely unlikely to start if not losing
+			factor = 0.1
+			AND = {
+				NOT = {
+					any_character_war = {
+						AND = {
+							root = {
+								is_defender_in_war = prev
+							}
+							defender_war_score < -10
+						}
+					}
+					any_character_war = {
+						AND = {
+							root = {
+								is_attacker_in_war = prev
+							}
+							attacker_war_score < -10
+						}
+					}
+				}
+				OR = {
+					any_character_war = {
+						AND = {
+							root = {
+								is_defender_in_war = prev
+							}
+							defender_war_score > -10
+						}
+					}
+					any_character_war = {
+						AND = {
+							root = {
+								is_attacker_in_war = prev
+							}
+							attacker_war_score > -10
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				has_trait = just
+				has_trait = compassionate
+			}
+		}
+	}
+
+	decision_group_type = major
+}
+
+stop_terror_campaign = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dragons.dds"
+	}
+
+	sort_order = 1
+
+	is_shown = {
+		has_character_flag = conducting_terror_campaign
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = stop_terror_campaign_show_condition
+			has_character_flag = conducting_terror_campaign
+		}
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = stop_terror_campaign_tooltip
+			remove_character_flag = conducting_terror_campaign
+			remove_character_flag = refusing_to_stop_terror_campaign
+			if = {
+				limit = { has_character_flag = instructed_terror_campaign }
+				var:terror_campaign_instructor = {
+					add_opinion = {
+						modifier = rejected_terror_campaign
+						target = ROOT
+					}
+				}
+				remove_character_flag = instructed_terror_campaign
+				remove_variable = terror_campaign_instructor
+			}
+		}
+	}
+
+	ai_goal = no
+	ai_check_interval = 2
+	ai_potential = {
+		is_at_war = no
+	}
+	ai_will_do = {
+		base = 40
+		modifier = {
+			add = 60
+			OR = {
+				has_trait = just
+				has_trait = compassionate
+			}
+		}
+		modifier = { # Extremely likely to stop if winning
+			factor = 2
+			AND = {
+				NOT = {
+					any_character_war = {
+						AND = {
+							root = {
+								is_defender_in_war = prev
+							}
+							defender_war_score < 40
+						}
+					}
+					any_character_war = {
+						AND = {
+							root = {
+								is_attacker_in_war = prev
+							}
+							attacker_war_score < 40
+						}
+					}
+				}
+				OR = {
+					any_character_war = {
+						AND = {
+							root = {
+								is_defender_in_war = prev
+							}
+							defender_war_score > 40
+						}
+					}
+					any_character_war = {
+						AND = {
+							root = {
+								is_attacker_in_war = prev
+							}
+							attacker_war_score > 40
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.2
+			OR = {
+				has_trait = wrathful
+				has_trait = sadistic
+				has_trait = callous
+			}
+		}
+	}
+
+	decision_group_type = major
+}
+
+ride_dragon_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dragons.dds"
+	}
+
+	desc = ride_dragon_decision_desc
+	selection_tooltip = ride_dragon_decision_tooltip
+
+	ai_check_interval = 120
+
+	cooldown = { days = 1095 }
+
+	is_shown = {
+		is_current_dragonrider = yes
+		NOT = { has_character_flag = cant_go_dragonriding }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available = yes
+	}
+
+	effect = {
+		custom_tooltip = ride_dragon_effect_tooltip
+		if = {
+			limit = {
+				has_character_flag = has_grand_dragon_ride_procession
+			}
+			add_prestige = 100
+		}
+		hidden_effect = {
+			if = { # Drunkard rider has an accident
+				limit = {
+					has_trait = drunkard
+				}
+				random_list = {
+					70 = {
+						trigger_event = agot_dragon.0010
+					}
+					20 = {
+						trigger_event = agot_dragon.0011
+					}
+					10 = {
+						trigger_event = agot_dragon.0012
+					}
+				}
+			}
+			else_if = { # Large cannibal lives nearby
+				limit = {
+					NOT = { has_character_flag = attacked_by_cannibal }
+					any_living_dragon = {
+						has_trait = dragon_cannibal
+						NOT = { has_character_flag = owned_dragon }
+						location = { duchy = root.location.duchy }
+						save_temporary_scope_as = chomper
+						root.var:current_dragon = { save_temporary_scope_as = chompee }
+						can_dragon_chomp = {
+							CHOMPING_DRAGON = scope:chomper
+							CHOMPED_DRAGON = scope:chompee
+						}
+					}
+				}
+				random_list = {
+					80 = {
+						trigger_event = agot_dragon.0010
+					}
+					5 = {
+						add_character_flag = dragon_night_ride
+						trigger_event = agot_dragon.0010
+					}
+					15 = {
+						trigger_event = agot_dragon.0023
+					}
+				}
+			}
+			else = { # Normal ride
+				random_list = {
+					0 = {
+						modifier = {
+							add = 45
+							has_any_lifestyle_focus_trigger = yes
+						}
+						trigger_event = agot_dragon.0024
+					}
+					90 = {
+						trigger_event = agot_dragon.0010
+					}
+					10 = {
+						add_character_flag = dragon_night_ride
+						trigger_event = agot_dragon.0010
+					}
+				}
+			}
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+use_dragon_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dragons.dds"
+	}
+
+	desc = use_dragon_decision_desc
+	selection_tooltip = use_dragon_decision_tooltip
+
+	ai_check_interval = 0
+
+	is_shown = {
+		has_trait = dragonrider
+		any_relation = { type = agot_dragon is_alive = yes }
+		has_character_flag = agot_not_using_dragon
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = use_dragon_decision_effect
+			remove_character_flag = agot_not_using_dragon
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+
+	decision_group_type = major
+}
+
+dont_use_dragon_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dragons.dds"
+	}
+
+	desc = dont_use_dragon_decision_desc
+	selection_tooltip = dont_use_dragon_decision_tooltip
+
+	ai_check_interval = 0
+
+	is_shown = {
+		has_trait = dragonrider
+		any_relation = { type = agot_dragon is_alive = yes }
+		NOT = { has_character_flag = agot_not_using_dragon }
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = dont_use_dragon_decision_effect
+			add_character_flag = agot_not_using_dragon
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+
+	decision_group_type = major
+}
+
+drink_wildfire_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dragons.dds"
+	}
+
+	is_shown = { # AGOT TODO - Lock this behind rulers with access to wildfire
+		OR = {
+			has_trait = fire_obsessed
+			has_trait = lunatic_1
+			has_trait = lunatic_genetic
+		}
+		OR = {
+			has_title = title:e_the_iron_throne
+			any_close_or_extended_family_member = {
+				is_alive = yes
+				has_title = title:e_the_iron_throne
+			}
+		}
+		NOT = { has_title = title:k_the_wall }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = drink_wildfire_decision_effect
+		}
+		trigger_event = {
+			id = agot_dragon.0101
+		}
+	}
+
+	ai_check_interval = 120
+
+	ai_potential = {
+		is_adult = yes
+	}
+
+	ai_will_do = {
+		base = 5
+
+		modifier = { # Aerys wont do it on historical game rule
+			factor = 0.0
+			has_game_rule = agot_story_historical_events_historical_outcomes
+			this = character:Targaryen_1
+		}
+	}
+}
+
+bind_dragon_horn_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dragons.dds"
+	}
+
+	decision_group_type = major
+	ai_check_interval = 12
+	cooldown = { years = 1 }
+	is_shown = {
+		is_landed = yes
+		any_relation = {
+			type = agot_dragon
+			count = 0
+		}
+		any_character_artifact = {
+			artifact_type = dragon_horn
+			NOR = {
+				is_target_in_variable_list = {
+					name = attempted_binding
+					target = root
+				}
+				var:binder ?= root
+			}
+		}
+		any_living_dragon = {
+			exists = this
+		}
+	}
+
+	is_valid = {
+		is_adult = yes
+		is_available = yes
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}
+			any_living_dragon = {
+				NOT = {
+					has_character_flag = owned_dragon
+				}
+			}
+		}
+		OR = {
+			custom_tooltip = {
+				text = binding_available_prisoner
+				any_prisoner = {
+					is_available_prisoner_for_sacrifice = yes
+					NOT = { is_close_family_of = root }
+					NOT = { has_relation_soulmate = root }
+				}
+			}
+			custom_tooltip = {
+				text = binding_available_kin
+				agot_any_available_family_for_sacrifice = yes
+			}
+			custom_tooltip = {
+				text = binding_available_soulmate
+				OR = {
+					any_courtier = {
+						has_relation_soulmate = root
+					}
+					any_prisoner = { # Rude
+						has_relation_soulmate = root
+					}
+				}
+			}
+			custom_tooltip = {
+				text = binding_available_blood
+				NOR = {
+					has_trait = wounded_1
+					has_trait = wounded_2
+					has_trait = wounded_3
+				}
+			}
+		}
+		OR = {
+			custom_tooltip = {
+				text = needs_rhllor_religion_chaplain
+				any_councillor = {
+					has_council_position = councillor_court_chaplain
+					has_religion = religion:rhllor_religion
+					is_available_ai_adult = yes
+				}
+			}
+			custom_tooltip = {
+				text = needs_valyrian_religion_chaplain
+				any_councillor = {
+					has_council_position = councillor_court_chaplain
+					has_religion = religion:valyrian_religion
+					is_available_ai_adult = yes
+				}
+			}
+			custom_tooltip = {
+				text = needs_mystic_figure
+				any_courtier = {
+					has_trait = lifestyle_mystic
+					is_available_ai_adult = yes
+				}
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = bind_dragon_horn_decision_effect
+		if = {
+			limit = {
+				any_councillor = {
+					has_council_position = councillor_court_chaplain
+					OR = {
+						has_religion = religion:rhllor_religion
+						has_religion = religion:valyrian_religion
+					}
+					is_available_ai_adult = yes
+				}
+			}
+
+
+			random_councillor = {
+				limit = {
+					OR = {
+						has_council_position = councillor_court_chaplain
+						OR = {
+							has_religion = religion:rhllor_religion
+							has_religion = religion:valyrian_religion
+						}
+						is_available_ai_adult = yes
+					}
+				}
+
+				save_scope_as = ritualist
+			}
+		}
+		else = {
+			random_courtier = {
+				limit = {
+					has_trait = lifestyle_mystic
+					is_available_ai_adult = yes
+				}
+				save_scope_as = ritualist
+			}
+		}
+
+		# In the case that someone has multiple horns, we will select an unbonded one
+		if = {
+			limit = {
+				any_character_artifact = {
+					artifact_type = dragon_horn
+					NOT = {
+						var:binder ?= root
+					}
+				}
+			}
+			random_character_artifact = {
+				limit = {
+					artifact_type = dragon_horn
+					NOT = { var:binder ?= root }
+				}
+				save_scope_as = dragon_horn
+			}
+		}
+		else_if = {
+			limit = {
+				any_character_artifact = {
+					artifact_type = dragon_horn
+					NOT = {
+						is_target_in_variable_list = {
+							name = attempted_binding
+							target = root
+						}
+					}
+				}
+			}
+
+			random_character_artifact = {
+				limit = {
+					artifact_type = dragon_horn
+					NOT = {
+						is_target_in_variable_list = {
+							name = attempted_binding
+							target = root
+						}
+					}
+				}
+				save_scope_as = dragon_horn
+			}
+		}
+		else = {
+			random_character_artifact = {
+				limit = {
+					artifact_type = dragon_horn
+				}
+				save_scope_as = dragon_horn
+			}
+		}
+
+		trigger_event = agot_decisions_events.0100
+	}
+
+	ai_will_do = {
+		base = 25
+		#AI personality
+		ai_value_modifier = {
+			ai_greed = 0.5
+			ai_compassion = -0.5
+			ai_boldness = 0.25
+			ai_honor = -0.25
+
+			ai_zeal = {
+				value = 0
+				if = {
+					limit = {
+						NOR = {
+							has_religion = religion:rhllor_religion
+							has_religion = religion:valyrian_religion
+						}
+					}
+					add = -0.25
+				}
+			}
+		}
+
+		# Gatekeep
+		modifier  = { # In this case they can only give up a soulmate and they won't
+			OR = {
+				any_courtier = {
+					has_relation_soulmate = root
+				}
+				any_prisoner = { # Rude
+					has_relation_soulmate = root
+				}
+			}
+
+			OR = {
+				has_trait = wounded_1
+				has_trait = wounded_2
+				has_trait = wounded_3
+			}
+			NOR = {
+				agot_any_available_family_for_sacrifice = yes
+				any_prisoner = {
+					is_available_prisoner_for_sacrifice = yes
+					NOT = { is_close_family_of = root }
+					NOT = { has_relation_soulmate = root }
+				}
+			}
+			ai_greed < 50
+			ai_compassion > -50
+
+			factor = 0
+		}
+
+		modifier  = { # In this case they can only give up a soulmate and they won't
+			agot_any_available_family_for_sacrifice = yes
+			NOT = {
+				any_prisoner = {
+					is_available_prisoner_for_sacrifice = yes
+					NOT = { is_close_family_of = root }
+					NOT = { has_relation_soulmate = root }
+				}
+			}
+
+			OR = {
+				has_trait = wounded_1
+				has_trait = wounded_2
+				has_trait = wounded_3
+			}
+
+			# Only greedy people should do this
+			ai_greed < 25
+			ai_compassion > 0
+
+			factor = 0
+		}
+
+		modifier = {
+			ai_honor > 20
+			factor = 0
+		}
+
+		modifier = {
+			NOT = {
+				any_living_dragon = {
+					is_courtier_of = root
+					NOR = {
+						has_variable = current_rider
+						any_relation = {
+							type = agot_dragon
+							NOT = { this = scope:actor } # They can't be bonded to someone else
+						}
+						has_character_flag = owned_dragon
+					}
+				}
+			}
+			factor = 0
+		}
+	}
+}

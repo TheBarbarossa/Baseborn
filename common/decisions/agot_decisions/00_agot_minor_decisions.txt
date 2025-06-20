@@ -1,0 +1,1186 @@
+﻿start_contraceptives_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_herbs.dds"
+	}
+
+	desc = start_contraceptives_decision_desc
+
+	selection_tooltip = start_contraceptives_decision_tooltip
+
+	is_shown = {
+		is_adult = yes #this may need to be made according to age, since we know that pre-adult characters have had children before
+		NOR = {
+			has_character_modifier = contraceptives_modifier
+		}
+		is_female = yes
+	}
+
+	effect = {
+		add_character_modifier = contraceptives_modifier
+	}
+
+	ai_potential = {
+		always = no #we don't want the AI screwing around with dynastic stability by using this mechanic
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+stop_contraceptives_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_herbs.dds"
+	}
+
+	desc = stop_contraceptives_decision_desc
+
+	selection_tooltip = stop_contraceptives_decision_tooltip
+
+	is_shown = {
+		has_character_modifier = contraceptives_modifier
+	}
+
+	effect = {
+		remove_character_modifier = contraceptives_modifier
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+stop_abstain_decision = { # Edited - Sleepingcafe - 20/06
+    ai_check_interval = 0
+    picture = {
+        reference = "gfx/interface/illustrations/decisions/decision_herbs.dds"
+    }
+
+    desc = stop_abstain_decision_desc
+
+    selection_tooltip = stop_abstain_decision_tooltip
+
+    is_shown = {
+        has_character_modifier = contraceptives_modifier
+    }
+
+    effect = {
+        remove_character_modifier = contraceptives_modifier
+    }
+
+    ai_potential = {
+        always = no
+    }
+
+    ai_will_do = {
+        base = 0
+    }
+}
+
+start_abstain_decision = { # Edited - Sleepingcafe - 20/06
+    ai_check_interval = 0
+    picture = {
+        reference = "gfx/interface/illustrations/decisions/decision_herbs.dds"
+    }
+
+    desc = start_abstain_decision_desc
+
+    selection_tooltip = start_abstain_decision_tooltip
+
+    is_shown = {
+        is_adult = yes
+        NOR = {
+            has_character_modifier = contraceptives_modifier
+        }
+        is_male = yes
+    }
+
+    effect = {
+        add_character_modifier = contraceptives_modifier
+    }
+
+    ai_potential = {
+        always = no
+    }
+
+    ai_will_do = {
+        base = 0
+    }
+}
+
+# This decision is currently broken
+# defy_winter_lords_decision = {
+# 	ai_check_interval = 24
+# 	picture = "gfx/interface/illustrations/decisions/defy_winter_lords_decision.dds" # AGOT TODO: Does this exist?
+
+# 	desc = defy_winter_lords_decision_desc
+
+# 	selection_tooltip = defy_winter_lords_decision_tooltip
+
+# 	decision_group_type = major
+
+# 	ai_goal = no
+
+# 	confirm_text = defy_winter_lords_decision_confirm_text_desc
+
+# 	is_shown = {
+# 		is_available_adult = yes
+# 		has_culture = culture:skagosi
+# 		NOT = {
+# 			has_trait = just
+# 		}
+# 		NOR = {
+# 			has_title = title:d_skagos
+# 		}
+# 		is_vanilla_independent_ruler = no
+# 	}
+
+# 	cost = {  # AGOT TODO: 500 gold seems pretty steep, but that might be intentional.
+# 		gold = 500
+# 		prestige = 50
+# 	}
+
+# 	effect = {
+# 		trigger_event = agot_minor_decisions_events.0001
+# 	}
+
+# 	ai_potential = {
+# 		always = yes
+# 	}
+
+# 	ai_will_do = {
+# 		base = 5
+# 		modifier = {
+# 			factor = 10
+# 			root.liege = {
+# 				is_at_war = yes
+# 			}
+# 		}
+# 	}
+# }
+
+build_dune_road_decision = {
+	ai_check_interval = 12
+
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	}
+	desc = build_dune_road_decision_desc
+
+	cost = {
+		gold = 500
+	}
+
+	is_shown = {
+		has_title = title:e_the_iron_throne
+		NOT = {
+			title:c_sunspear = {
+				has_county_modifier = agot_roads_modifier
+			}
+		}
+		any_vassal_or_below = {
+			has_title = title:k_dorne
+		}
+		any_vassal_or_below = {
+			has_title = title:k_the_stormlands
+		}
+	}
+
+	is_valid_showing_failures_only  = {
+
+		has_trait = diligent
+		NOT = { has_trait = greedy }
+
+		OR = {
+			stewardship >= 16
+			cp:councillor_steward.stewardship >= 16
+		}
+
+		is_at_war = no
+	}
+
+	effect = {
+		every_vassal_or_below = {
+			trigger_event = {
+				id = agot_minor_decisions_events.0003
+				days = 1
+			}
+		}
+		title:c_sunspear = {
+			add_county_modifier = {
+				modifier = agot_roads_modifier
+			}
+		}
+		title:c_plankytown = {
+			add_county_modifier = {
+				modifier = agot_roads_modifier
+			}
+		}
+		title:c_stinkwater = {
+			add_county_modifier = {
+				modifier = agot_roads_modifier
+			}
+		}
+		title:c_sevensdunes = {
+			add_county_modifier = {
+				modifier = agot_roads_modifier
+			}
+		}
+		title:c_godsgrace = {
+			add_county_modifier = {
+				modifier = agot_roads_modifier
+			}
+		}
+		title:c_nerandyn = {
+			add_county_modifier = {
+				modifier = agot_roads_modifier
+			}
+		}
+		title:c_the_bramble = {
+			add_county_modifier = {
+				modifier = agot_roads_modifier
+			}
+		}
+		title:c_the_scourge = {
+			add_county_modifier = {
+				modifier = agot_roads_modifier
+			}
+		}
+		title:c_wayguard = {
+			add_county_modifier = {
+				modifier = agot_roads_modifier
+			}
+		}
+		title:c_yronwood = {
+			add_county_modifier = {
+				modifier = agot_roads_modifier
+			}
+		}
+		title:c_blackvein = {
+			add_county_modifier = {
+				modifier = agot_roads_modifier
+			}
+		}
+		title:c_fangside = {
+			add_county_modifier = {
+				modifier = agot_roads_modifier
+			}
+		}
+		title:c_wyl = {
+			add_county_modifier = {
+				modifier = agot_roads_modifier
+			}
+		}
+		title:c_blackhaven = {
+			add_county_modifier = {
+				modifier = agot_roads_modifier
+			}
+		}
+		title:c_riskmarch = {
+			add_county_modifier = {
+				modifier = agot_roads_modifier
+			}
+		}
+		title:c_swellcrest = {
+			add_county_modifier = {
+				modifier = agot_roads_modifier
+			}
+		}
+		title:c_stonehelm = {
+			add_county_modifier = {
+				modifier = agot_roads_modifier
+			}
+		}
+		title:c_grinsdale = {
+			add_county_modifier = {
+				modifier = agot_roads_modifier
+			}
+		}
+		title:c_griffin_river = {
+			add_county_modifier = {
+				modifier = agot_roads_modifier
+			}
+		}
+		title:c_griffins_roost = {
+			add_county_modifier = {
+				modifier = agot_roads_modifier
+			}
+		}
+		title:c_highwind = {
+			add_county_modifier = {
+				modifier = agot_roads_modifier
+			}
+		}
+		title:c_storms_end = {
+			add_county_modifier = {
+				modifier = agot_roads_modifier
+			}
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+# end_the_ironborn_decision = { AGOT TODO : Great Wars needs to be recreated in mod for this to work
+# 	ai_check_interval = 36
+# 	picture = "gfx/interface/illustrations/decisions/end_the_ironborn_decision.dds"
+
+# 	desc = end_the_ironborn_decision_desc
+
+# 	selection_tooltip = end_the_ironborn_decision_tooltip
+
+# 	decision_group_type = major
+
+# 	ai_goal = no
+
+# 	confirm_text = end_the_ironborn_decision_confirm_text_desc
+
+# 	is_shown = {
+# 		is_available_adult = yes
+# 		root.primary_title = {
+# 			tier >= tier_kingdom
+# 		}
+# 		has_trait = ambitious
+# 		OR = {
+# 			location = {
+# 				geographical_region = world_westeros_the_westerlands
+# 			}
+# 			location = {
+# 				geographical_region = world_westeros_the_reach
+# 			}
+# 			location = {
+# 				geographical_region = world_westeros_the_north
+# 			}
+# 			location = {
+# 				geographical_region = world_westeros_the_riverlands
+# 			}
+# 		}
+# 		agot_is_independent_ruler = yes
+# 	}
+
+# 	cost = {
+# 		gold = 250
+# 		prestige = 150
+# 	}
+
+# 	effect = {
+# 		root.faith = {
+# 			start_great_holy_war = {
+# 				target_character = title:k_the_iron_islands.holder
+# 				target_title = title:k_the_iron_islands
+# 			}
+# 		}
+# 	}
+
+# 	ai_potential = {
+# 		always = yes
+# 	}
+
+# 	ai_will_do = {
+# 		base = 5
+# 	}
+# }
+
+ironborn_rebellion_decision = {
+	ai_check_interval = 36
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_reaving.dds"
+	}
+
+	desc = ironborn_rebellion_decision_desc
+
+	selection_tooltip = ironborn_rebellion_decision_tooltip
+
+	decision_group_type = major
+
+	ai_goal = no
+
+	confirm_text = ironborn_rebellion_decision_confirm_text_desc
+
+	is_shown = {
+		is_available_adult = yes
+		has_title = title:k_the_iron_islands
+		has_trait = ambitious
+		OR = {
+			AND = {
+				culture = { has_cultural_pillar = heritage_ironborn }
+				liege = {
+					NOT = { culture = { has_cultural_pillar = heritage_ironborn } }
+				}
+			}
+			AND = {
+				faith = faith:drowned_god_main
+				liege = {
+					NOT = { faith = faith:drowned_god_main }
+				}
+			}
+		}
+		exists = liege
+		NOT = {
+			has_character_flag = ironborn_rebellion
+		}
+	}
+
+	cost = {
+		gold = 500
+		prestige = 2000
+	}
+
+	effect = {
+		start_war = {
+			casus_belli = agot_independence_war
+			target = liege
+		}
+		add_character_flag = ironborn_rebellion
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 25
+	}
+}
+
+can_be_knight_and_commander_decision = {
+	ai_check_interval = 0
+
+	desc = can_be_knight_and_commander_decision_desc
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+	}
+
+	is_shown = {
+		has_character_flag = cannot_be_knight_and_commander
+		is_ai = no
+		is_independent_ruler = no
+	}
+
+	effect = {
+		remove_character_flag = cannot_be_knight_and_commander
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+cannot_be_knight_and_commander_decision = {
+	ai_check_interval = 0
+
+	desc = cannot_be_knight_and_commander_decision_desc
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+	}
+
+	is_shown = {
+		NOT = { has_character_flag = cannot_be_knight_and_commander }
+		is_ai = no
+		is_independent_ruler = no
+	}
+
+	effect = {
+		add_character_flag = cannot_be_knight_and_commander
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+stress_loss_summerhall_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	desc = stress_loss_summerhall_decision_desc
+	selection_tooltip = stress_loss_summerhall_decision_tooltip
+
+	ai_check_interval = 36
+
+	cooldown = { days = 1095 }
+
+	is_shown = {
+		dynasty = dynasty:dynn_Targaryen
+		OR = {
+			has_trait = reclusive
+			has_trait = shy
+			has_trait = poet
+		}
+		title:b_summerhall = {
+			OR = {
+				holder = root
+				holder.dynasty ?= dynasty:dynn_Targaryen
+				holder = {
+					any_liege_or_above = { dynasty ?= dynasty:dynn_Targaryen }
+				}
+			}
+			title_province = { has_building = agot_summerhall_ruins_01 }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available = yes
+	}
+
+	effect = {
+		custom_tooltip = stress_loss_drunkard_decision_effect_tooltip
+
+		show_as_tooltip = { #The effect is actually applied in the event itself
+			add_prestige = medium_prestige_loss
+		}
+
+		trigger_event = {
+			on_action = stress_loss_summerhall
+		}
+	}
+
+	ai_potential = {
+		dynasty = dynasty:dynn_Targaryen
+		OR = {
+			has_trait = reclusive
+			has_trait = shy
+			has_trait = poet
+		}
+	}
+
+	ai_will_do = {
+		base = 0
+
+		modifier = {
+			add = 100
+			stress >= 50
+		}
+	}
+}
+
+remove_eye_gem_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+	ai_check_interval = 60
+
+	sort_order = 88
+
+	desc = remove_eye_decision_tooltip
+	selection_tooltip = remove_eye_decision_tooltip
+
+	cooldown = { years = 3 }
+
+	is_shown = {
+		has_trait = one_eyed
+		OR = {
+			has_character_flag = has_eyegem_red
+			has_character_flag = has_eyegem_saphire
+			has_character_flag = has_eyegem_white
+			has_character_flag = has_eyegem_blue
+			has_character_flag = has_eyegem_green
+			has_character_flag = has_eyegem_black
+			has_character_flag = has_eyegem_yellow
+			has_character_flag = has_eyegem_orange
+			has_character_flag = has_eyegem_purple
+		}
+	}
+
+	effect = {
+		trigger_event = eyereplace.0005
+		custom_tooltip = remove_eye_gem_decision_effect
+	}
+}
+
+agot_buy_eye_gem_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_smith.dds"
+	}
+
+	desc = replace_eye_desc
+	selection_tooltip = replace_eye_decision_tooltip
+
+	cooldown = { years = 3}
+
+	sort_order = 100
+
+	is_shown = {
+		has_trait = one_eyed
+		NOT = {
+			OR = {
+				has_character_flag = has_eyegem_red
+				has_character_flag = has_eyegem_saphire
+				has_character_flag = has_eyegem_white
+				has_character_flag = has_eyegem_blue
+				has_character_flag = has_eyegem_green
+				has_character_flag = has_eyegem_black
+				has_character_flag = has_eyegem_yellow
+				has_character_flag = has_eyegem_orange
+				has_character_flag = has_eyegem_purple
+			}
+		}
+	}
+
+	cost = {
+		gold = basic_fund_inspiration_cost
+	}
+
+	widget = {
+		gui = "decision_view_widget_commission_artifact"
+		controller = decision_option_list_controller
+		decision_to_second_step_button = "agot_buy_eye_gem_decision_next_stop_button"
+
+		# Gem List
+
+		item = {
+			value = has_eyegem_red
+			localization  = {
+				desc = replace_eye_gem_option_red
+			}
+			icon = "gfx/interface/icons/traits/one_eyed_red_trait.dds"
+
+			ai_chance = {
+				value = { 0 10 }
+			}
+		}
+		item = {
+			value = has_eyegem_saphire
+			localization  = {
+				desc = replace_eye_gem_option_saphire
+			}
+			icon = "gfx/interface/icons/traits/one_eyed_sapphire_trait.dds"
+
+			ai_chance = {
+				value = { 0 10 }
+				if = {
+					limit = {
+						dynasty = dynasty:dynn_Tarth
+					}
+					add = 25
+				}
+			}
+		}
+		item = {
+			value = has_eyegem_white
+			localization  = {
+				desc = replace_eye_gem_option_white
+			}
+			icon = "gfx/interface/icons/traits/one_eyed_white_trait.dds"
+
+			ai_chance = {
+				value = { 0 10 }
+			}
+		}
+		item = {
+			value = has_eyegem_blue
+			localization  = {
+				desc = replace_eye_gem_option_blue
+			}
+			icon = "gfx/interface/icons/traits/one_eyed_blue_trait.dds"
+
+			ai_chance = {
+				value = { 0 10 }
+			}
+		}
+		item = {
+			value = has_eyegem_green
+			localization  = {
+				desc = replace_eye_gem_option_green
+			}
+			icon = "gfx/interface/icons/traits/one_eyed_green_trait.dds"
+
+			ai_chance = {
+				value = { 0 10 }
+			}
+		}
+		item = {
+			value = has_eyegem_black
+			localization  = {
+				desc = replace_eye_gem_option_black
+			}
+			icon = "gfx/interface/icons/traits/one_eyed_black_trait.dds"
+
+			ai_chance = {
+				value = { 0 10 }
+			}
+		}
+		item = {
+			value = has_eyegem_yellow
+			localization  = {
+				desc = replace_eye_gem_option_yellow
+			}
+			icon = "gfx/interface/icons/traits/one_eyed_yellow_trait.dds"
+
+			ai_chance = {
+				value = { 0 10 }
+			}
+		}
+		item = {
+			value = has_eyegem_orange
+			localization  = {
+				desc = replace_eye_gem_option_orange
+			}
+			icon = "gfx/interface/icons/traits/one_eyed_orange_trait.dds"
+
+			ai_chance = {
+				value = { 0 10 }
+			}
+		}
+		item = {
+			value = has_eyegem_purple
+			localization  = {
+				desc = replace_eye_gem_option_purple
+			}
+			icon = "gfx/interface/icons/traits/one_eyed_purple_trait.dds"
+
+			ai_chance = {
+				value = { 0 10 }
+				if = {
+					limit = {
+						culture = { has_cultural_pillar = heritage_valyrian }
+					}
+					add = 25
+				}
+			}
+		}
+	}
+
+	effect = {
+		hidden_effect = {
+			if = {
+				limit = { scope:has_eyegem_red = yes }
+				add_character_flag = has_eyegem_red
+			}
+			else_if = {
+				limit = { scope:has_eyegem_saphire = yes }
+				add_character_flag = has_eyegem_saphire
+			}
+			else_if = {
+				limit = { scope:has_eyegem_white = yes }
+				add_character_flag = has_eyegem_white
+			}
+			else_if = {
+				limit = { scope:has_eyegem_blue = yes }
+				add_character_flag = has_eyegem_blue
+			}
+			else_if = {
+				limit = { scope:has_eyegem_green = yes }
+				add_character_flag = has_eyegem_green
+			}
+			else_if = {
+				limit = { scope:has_eyegem_black = yes }
+				add_character_flag = has_eyegem_black
+			}
+			else_if = {
+				limit = { scope:has_eyegem_yellow = yes }
+				add_character_flag = has_eyegem_yellow
+			}
+			else_if = {
+				limit = { scope:has_eyegem_orange = yes }
+				add_character_flag = has_eyegem_orange
+			}
+			else_if = {
+				limit = { scope:has_eyegem_purple = yes }
+				add_character_flag = has_eyegem_purple
+			}
+		}
+	}
+
+	ai_check_interval = 60
+
+	ai_potential = {
+		is_available_adult = yes
+		gold > 100 # So they don't bankrupt themself on a pretty eyepiece
+	}
+
+	ai_will_do = {
+		base = 0
+
+		# Gold Modifiers
+		modifier = {
+			add = -100
+			NOT = { gold >= 100 }
+		}
+		# Having more than 100 gold will make the AI more likely to take it; more money more spending freedom
+		modifier = {
+			add = 10
+			gold > 100
+		}
+		# Culture Modifier - Valyrians are more likely to take this decision, but not by much
+		modifier = {
+			add = 15
+			OR = {
+				has_culture = culture:high_valyrian
+				has_culture = culture:westerosi_valyrian
+				has_culture = culture:essosi_valyrian
+				has_religion = religion:valyrian_religion
+			}
+		}
+		# Dynasty Modifier - Tarth is the Sapphire Isle, so they will be more likely to take this decision due to an abundance of gems
+		modifier = {
+			add = 25
+			dynasty = dynasty:dynn_Tarth
+		}
+		modifier = {
+			add = 10
+			has_trait = callous
+		}
+		modifier = {
+			add = 5
+			has_trait = deceitful
+		}
+		modifier = {
+			add = 5
+			has_trait = wrathful
+		}
+		modifier = {
+			add = 7
+			has_trait = sadistic
+		}
+		modifier = {
+			add = 5
+			has_trait = vengeful
+		}
+		modifier = {
+			add = 25
+			has_trait = arrogant
+		}
+		modifier = {
+			add = -15
+			has_trait = craven
+		}
+		modifier = {
+			add = -15
+			has_trait = shy
+		}
+		modifier = {
+			add = -15
+			has_trait = content
+		}
+		# High Dread Characters will be more inspired to take this decision
+		modifier = {
+			add = 25
+			dread > high_dread
+		}
+		# Bold Characters will be more inspired to take this decision
+		modifier = {
+			add = 20
+			ai_boldness > very_low_positive_ai_value
+		}
+	}
+}
+
+stress_loss_uncouth_decision = { #Gives you Aerys Hair and Beard
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	desc = stress_loss_uncouth_decision_desc
+	selection_tooltip = stress_loss_uncouth_decision_tooltip
+
+	ai_check_interval = 36
+
+	cooldown = { days = 1095 }
+
+	is_shown = {
+		has_trait = uncouth
+	}
+
+	is_valid_showing_failures_only = {
+		is_available = yes
+	}
+
+	effect = {
+
+		custom_tooltip = stress_loss_drunkard_decision_effect_tooltip
+
+		show_as_tooltip = { #The effect is actually applied in the event itself
+			add_prestige = medium_prestige_loss
+		}
+
+		trigger_event = {
+			on_action = stress_loss_uncouth
+		}
+	}
+
+	ai_potential = {
+		has_trait = uncouth
+	}
+
+	ai_will_do = {
+		base = 0
+
+		modifier = {
+			add = 100
+			stress >= 50
+		}
+	}
+}
+
+agot_commission_crown_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_smith.dds"
+	}
+	ai_check_interval = 12
+	cooldown = { years = 10 }
+	desc = agot_commission_crown_decision_desc
+	selection_tooltip = agot_commission_crown_decision_tooltip
+
+	is_shown = {
+		NOT = {
+			government_has_flag = government_is_nw
+		}
+		OR = {
+			primary_title.tier = tier_empire
+			AND = {
+				primary_title.tier = tier_kingdom
+				agot_is_independent_ruler = yes
+			}
+		}
+		agot_can_make_any_crown_trigger = yes
+		agot_ai_unique_crown_character_trigger = yes
+	}
+
+	is_valid = {
+		gold >= 250
+	}
+
+	is_valid_showing_failures_only = {
+		# Only valid for characters with a court smith.
+		employs_court_position = court_smith_court_position
+		
+		custom_tooltip = {
+			text = agot_in_coronation
+			NOR = {
+				involved_activity ?= {
+					has_activity_type = activity_coronation
+				}
+				involved_activity ?= {
+					has_activity_type = activity_no_dlc_coronation
+				}
+			}
+		}
+		
+		#custom_tooltip = {
+		#	text = agot_commission_on_cooldown
+		#	NOT = {
+		#		has_variable = crown_commission_cooldown
+		#	}
+		#}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 25
+	}
+
+	effect = {
+		custom_tooltip = agot_commission_crown_decision_effects_tooltip
+		trigger_event = agot_commission_crown.0001
+	}
+
+	cost = { gold = 250 }
+}
+
+dye_hair_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_herbs.dds"
+	}
+
+	desc = dye_hair_decision_desc
+
+	selection_tooltip = dye_hair_decision_tooltip
+
+	is_shown = {
+		OR = {
+			agot_has_dyed_hair = yes
+			agot_hair_dye_potential_trigger = yes
+		}
+	}
+
+	effect = {
+		trigger_event = agot_minor_decisions_events.1000
+		custom_tooltip = dye_hair_decision_effect
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+mend_dynasty_relations_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+
+	desc = mend_dynasty_relations_decision_desc
+
+	selection_tooltip = mend_dynasty_relations_decision_tooltip
+
+	is_shown = {
+		dynasty:dynn_Targaryen.dynasty_founder.house = {
+			any_house_member = {
+				is_alive = yes
+			}
+		}
+		house:house_Blackfyre = {
+			has_house_modifier = divided_dynasty_house_modifier
+			any_house_member = {
+				is_alive = yes
+			}
+		}
+		OR = {
+			AND = {
+				house = dynasty:dynn_Targaryen.dynasty_founder.house
+				OR = {
+					is_dynast = yes
+					has_title = title:e_the_iron_throne
+				}
+			}
+			AND = {
+				house = house:house_Blackfyre
+				OR = {
+					AND = {
+						is_dynast = yes
+						NOT = {
+							title:e_the_iron_throne.holder = { house = dynasty:dynn_Targaryen.dynasty_founder.house }
+						}
+					}
+					has_title = title:e_the_iron_throne
+				}
+			}
+		}
+	}
+
+	is_valid = {
+		trigger_if = {
+			limit = { house = dynasty:dynn_Targaryen.dynasty_founder.house }
+			OR = {
+				has_relation_friend = house:house_Blackfyre.house_head
+				has_relation_lover = house:house_Blackfyre.house_head
+			}
+		}
+		trigger_if = {
+			limit = { house = house:house_Blackfyre }
+			OR = {
+				has_relation_friend = dynasty:dynn_Targaryen.dynasty_founder.house.house_head
+				has_relation_lover = dynasty:dynn_Targaryen.dynasty_founder.house.house_head
+			}
+		}
+	}
+
+	effect = {
+		house:house_Blackfyre = {
+			remove_house_modifier = divided_dynasty_house_modifier
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+manage_realm_affairs_decision = {
+	ai_check_interval = 0
+
+	desc = manage_realm_affairs_decision_desc
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+	}
+
+	is_shown = {
+		is_ai = no
+	}
+
+	widget = {
+		gui = "decision_view_widget_generic_multichoice_with_effects"
+		controller = decision_option_list_controller
+		decision_to_second_step_button = "CHOOSE_REALM_AFFAIRS_DECISION_NEXT_STEP_BUTTON"
+
+		item = { # Petitioners
+			value = choose_petitionners_and_homage
+			is_shown = {
+				#DLC Check
+				has_ep1_dlc_trigger = yes
+			}
+			is_valid = {
+				has_royal_court = yes
+			}
+			#current_description = choose_petitionners_and_homage_desc
+			localization = choose_petitionners_and_homage_name
+			icon = "gfx/interface/icons/message_feed/steward_job.dds"
+		}
+		item = { # Show Valyrian Steel
+			value = choose_show_valyrian_steel
+			#current_description = choose_show_valyrian_steel_desc
+			localization = choose_show_valyrian_steel_name
+			icon = "gfx/interface/icons/message_feed/war.dds"
+		}
+		item = { # Dragons & Eggs
+			value = choose_dragons
+			localization = choose_dragons_name
+			icon = "gfx/interface/icons/icon_draconic_temperament.dds"
+		}
+		item = { # House Feuds
+			value = choose_house_feuds
+			localization = choose_house_feuds
+			icon = "gfx/interface/icons/message_feed/dynasty.dds"
+		}
+	}
+
+	effect = {
+		custom_tooltip = manage_realm_affairs_decision_effect
+		if = {
+			limit = { scope:choose_petitionners_and_homage = yes }
+			trigger_event = global_events_settings.0002
+		}
+		else_if = {
+			limit = { scope:choose_show_valyrian_steel = yes }
+			trigger_event = agot_valyrian_steel.9999
+		}
+		else_if = {
+			limit = { scope:choose_dragons = yes }
+			trigger_event = global_events_settings.1000
+		}
+		else_if = {
+			limit = { scope:choose_house_feuds = yes }
+			trigger_event = agot_house_maintenance.1000
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}

@@ -1,0 +1,296 @@
+﻿#Restore The Night's Watch
+#By Kool Kid Wrench
+restore_the_nights_watch = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+
+	desc = restore_the_nights_watch_desc
+	selection_tooltip = restore_the_nights_watch_tooltip
+	decision_group_type = major
+
+	ai_check_interval = 120
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		NOT = { exists = title:k_the_wall.holder }
+		OR = {
+			has_title = title:e_the_iron_throne
+			has_title = title:k_the_north
+			has_title = title:e_the_north
+		}
+	}
+
+	is_valid = {
+		prestige_level >= 3
+		agot_is_independent_ruler = yes
+		completely_controls_region = world_westeros_the_wall_only
+	}
+
+	is_valid_showing_failures_only = {
+		is_at_war = no
+	}
+
+	cost = {
+		gold = 500
+		prestige = 250
+	}
+
+	effect = {
+		trigger_event = agot_nights_watch.0024
+		custom_tooltip = restore_the_nights_watch.tooltip.1
+		custom_tooltip = restore_the_nights_watch.tooltip.2
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+
+#Restore'nt The Night's Watch
+#By Kool Kid Wrench
+dissolve_the_nights_watch = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+
+	desc = dissolve_the_nights_watch_desc
+	selection_tooltip = dissolve_the_nights_watch_tooltip
+	decision_group_type = major
+
+	ai_check_interval = 120
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		exists = title:k_the_wall.holder
+		culture = {
+			agot_is_wildling_culture = yes
+		}
+		NOT = { has_trait = nightswatch }
+	}
+
+	is_valid = {
+		prestige_level >= 3
+		agot_is_independent_ruler = yes
+		completely_controls_region = world_westeros_the_wall_only
+		OR = {
+			has_title =  title:k_the_wall
+			any_vassal = {
+				has_title =  title:k_the_wall
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_at_war = no
+	}
+
+	cost = {
+		gold = 400
+		prestige = 250
+	}
+
+	effect = {
+		trigger_event = agot_nights_watch.0025
+		show_as_tooltip = {
+			if = {
+				limit = {
+					OR = {
+						title:k_the_wall = {
+							is_title_created = yes
+						}
+						title:d_the_wall = {
+							is_title_created = yes
+						}
+					}
+				}
+				destroy_title = title:k_the_wall
+				hidden_effect = {
+					destroy_title = title:d_the_wall #weird to have 2 walls destroyed in the effect
+				}
+			}
+			dynasty = {
+				add_dynasty_prestige = 1500
+				add_dynasty_modifier = {
+					modifier = walled_off_no_more_modifier
+					years = 50
+				}
+			}
+			add_prestige = 4000
+			add_gold = 600
+		}
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+#AGOT Rebuilding NW
+# rebuild_nights_watch_fort = {
+# 	picture = {
+# 		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+# 	}
+
+# 	desc = rebuild_nights_watch_fort_desc
+# 	selection_tooltip = rebuild_nights_watch_fort_tooltip
+# 	decision_group_type = major
+
+# 	ai_check_interval = 120
+
+# 	is_shown = {
+# 		always = no
+# 		# is_ruler = yes
+# 		# is_landed = yes
+# 		# has_trait = nightswatch
+# 		# OR = {
+# 		# 	has_title = title:k_the_wall
+# 		# 	has_title = title:d_the_wall
+# 		# }
+# 	}
+
+# 	is_valid = {
+# 		prestige_level >= 2
+# 		agot_is_independent_ruler = yes
+# 		completely_controls_region = world_westeros_the_wall_only
+# 	}
+
+# 	is_valid_showing_failures_only = {
+# 		is_at_war = no
+# 	}
+
+# 	effect = {
+# 		if = {
+# 			limit = { is_ai = yes }
+# 			# Event currently disabled
+# 			# trigger_event = agot_nights_watch.1000
+# 		}
+# 		else = {
+# 			trigger_event = agot_nights_watch.1001
+# 		}
+# 	}
+
+# 	ai_will_do = {
+# 		base = 0
+# 	}
+# }
+
+## AI decision to start (or join) a wall reclamation war on behalf of NW
+reclaim_wall_for_nw = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+
+	# Never shown, so it doesn't matter what we write here
+	title = placeholder
+	desc = placeholder
+	confirm_text = placeholder
+	selection_tooltip = placeholder
+
+	decision_group_type = major
+
+	ai_check_interval = 120
+
+	is_shown = {
+		is_available_ai_adult = yes
+	}
+
+	# Must be a landed ruler, not a nightswatch, nightswatch must exist, and one of NW de jure lands must be held by a non-vassal wildling
+	is_valid = {
+		is_landed = yes
+		root.capital_barony.title_province = { geographical_region = world_westeros_seven_kingdoms }
+		NOT = { has_trait = nightswatch }
+		exists = title:k_the_wall.holder
+		title:k_the_wall.holder = { government_has_flag = government_is_nw }
+
+		title:k_the_wall = {
+			any_in_de_jure_hierarchy = {
+				exists = holder
+				holder.top_liege = { culture = { agot_is_wildling_culture = yes }}
+				NOT = { holder.top_liege = title:k_the_wall.holder }
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_at_war = no
+	}
+
+	effect = {
+		# Find a wall de jure title that is held by a non-vassal wildling
+		title:k_the_wall = {
+			random_in_de_jure_hierarchy = {
+				limit = {
+					exists = holder
+					holder.top_liege = { culture = { agot_is_wildling_culture = yes }}
+					NOT = { holder.top_liege = title:k_the_wall.holder }
+				}
+
+
+				holder.top_liege = {
+					if = {
+						limit = {
+							any_character_war = {
+								is_defender = prev
+								using_cb = agot_wall_reclamation_cb
+							}
+						}
+
+						random_character_war = {
+							limit = {
+								is_defender = prev
+								using_cb = agot_wall_reclamation_cb
+							}
+
+							add_attacker = root
+						}
+					}
+					else = {
+						root = {
+							start_war = {
+								cb = agot_wall_reclamation_cb
+								target = prev
+								claimant = this
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	ai_will_do = {
+		base = -20
+
+		ai_value_modifier = {
+			who = root
+			ai_boldness = 0.2
+			ai_greed = -0.5
+			ai_honor = 0.5
+			ai_rationality = 0.2
+			ai_zeal = 0.2
+		}
+
+		modifier = {
+			add = 10
+			is_landed = yes
+			root.capital_barony.title_province = { geographical_region = world_westeros_the_north }
+		}
+
+		modifier = {
+			factor = 0
+			root = {
+				debt_level > 0
+			}
+		}
+
+		modifier = {
+			factor = 0
+			exists = title:k_the_wall.holder
+			root.max_military_strength < title:k_the_wall.holder.max_military_strength
+		}
+	}
+}

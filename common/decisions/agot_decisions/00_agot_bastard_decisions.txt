@@ -1,0 +1,520 @@
+﻿# Reveal true parentage of baby (inc. baby Snow)
+agot_expose_true_parentage_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = major
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					this = character:Stark_3
+					any_known_secret = { # Knows Jon Snow secret
+						secret_type = secret_agot_disputed_heritage
+						secret_target = {
+							is_character_stark_7 = yes
+						}
+					}
+				}
+				desc = agot_expose_true_parentage_decision_desc.jon
+			}
+			triggered_desc = {
+				trigger = {
+					OR = {
+						any_known_secret = { # Knows Jon Snow secret
+							secret_type = secret_agot_disputed_heritage
+							secret_target = {
+								real_paternal_held_iron_throne_claim = yes
+								is_male = yes
+								NOT = { this = root } # Not your own secret
+							}
+						}
+						any_known_secret = { # Knows other claiment disputed secret
+							secret_type = secret_disputed_heritage
+							secret_target = {
+								real_paternal_held_iron_throne_claim = yes
+								is_male = yes
+								NOT = { this = root } # Not your own secret
+							}
+						}
+						any_known_secret = { # Knows other claiment unmarried secret
+							secret_type = secret_unmarried_illegitimate_child
+							secret_target = {
+								real_paternal_held_iron_throne_claim = yes
+								is_male = yes
+								NOT = { this = root } # Not your own secret
+							}
+						}
+					}
+				}
+				desc = agot_expose_true_parentage_decision_desc.man
+			}
+			desc = agot_expose_true_parentage_decision_desc.woman
+		}
+	}
+	is_shown = {
+		exists = title:e_the_iron_throne.holder
+		knows_other_royal_bastard_secret = yes
+		NOT = {
+			has_character_flag = told_true_parentage
+		}
+	}
+	is_valid = { # Bastard is adult
+		is_at_home = yes
+		custom_description = {
+			text = agot_expose_true_parentage_decision_requirement
+			OR = {
+				any_known_secret = { # Knows Jon Snow secret
+					secret_type = secret_agot_disputed_heritage
+					secret_target = {
+						real_paternal_held_iron_throne_claim = yes
+						is_adult = yes
+					}
+				}
+				any_known_secret = { # Knows other claiment secret
+					secret_type = secret_disputed_heritage
+					secret_target = {
+						real_paternal_held_iron_throne_claim = yes
+						is_adult = yes
+					}
+				}
+				any_known_secret = { # Knows other claiment unmarried secret
+					secret_type = secret_unmarried_illegitimate_child
+					secret_target = {
+						real_paternal_held_iron_throne_claim = yes
+						is_adult = yes
+					}
+				}
+			}
+		}
+	}
+
+	effect = {
+		if = {
+			limit = {
+				this = character:Stark_3
+			}
+			custom_tooltip = agot_expose_true_parentage_decision_tooltip.jon
+		}
+		else = {
+			custom_tooltip = agot_expose_true_parentage_decision_tooltip
+		}
+		add_character_flag = told_true_parentage
+		random_known_secret = {
+			limit = {
+				secret_type = secret_agot_disputed_heritage
+				secret_target = {
+					real_paternal_held_iron_throne_claim = yes
+					is_adult = yes
+				}
+			}
+			save_scope_as = heritage_secret
+		}
+		random_known_secret = {
+			limit = {
+				secret_type = secret_disputed_heritage
+				secret_target = {
+					real_paternal_held_iron_throne_claim = yes
+					is_adult = yes
+				}
+			}
+			save_scope_as = heritage_secret
+		}
+		random_known_secret = {
+			limit = {
+				secret_type = secret_unmarried_illegitimate_child
+				secret_target = {
+					real_paternal_held_iron_throne_claim = yes
+					is_adult = yes
+				}
+			}
+			save_scope_as = heritage_secret
+		}
+		trigger_event = agot_events_bastard.0900
+	}
+
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_check_interval = 13 # odd number to ensure lack of predictability in month of trigger
+
+	ai_will_do = {
+		base = 5
+		ai_value_modifier = {
+			who = root
+			ai_boldness = tiny_chance_impact_positive_ai_value
+			ai_compassion = tiny_chance_impact_positive_ai_value
+			ai_greed = tiny_chance_impact_positive_ai_value
+			ai_energy = tiny_chance_impact_positive_ai_value
+			ai_honor = tiny_chance_impact_positive_ai_value
+			max = 20
+		}
+		modifier = {
+			add = 25
+			has_trait = honest
+		}
+		modifier = {
+			add = 25
+			has_trait = just
+		}
+		modifier = {
+			add = -30
+			has_trait = deceitful
+		}
+		modifier = {
+			add = 5
+			has_trait = ambitious
+		}
+		modifier = {
+			add = -5
+			has_trait = content
+		}
+		opinion_modifier = {
+			opinion_target = title:e_the_iron_throne.holder
+			who = root
+			multiplier = -0.15
+		}
+		# Ideally this would include a check for the secret target opinion, but afaik scoping doesn't allow that
+		modifier = { # Good relations are a bit less likely
+			factor = 0.8
+			root = {
+				OR = {
+					has_relation_best_friend = title:e_the_iron_throne.holder
+					has_relation_friend = title:e_the_iron_throne.holder
+					has_relation_soldier_friend = title:e_the_iron_throne.holder
+					has_relation_lover = title:e_the_iron_throne.holder
+					has_relation_soulmate = title:e_the_iron_throne.holder
+					has_relation_ward = title:e_the_iron_throne.holder
+				}
+			}
+		}
+		modifier = { # Bad relations are more likely though
+			factor = 1.2
+			root = {
+				OR = {
+					has_relation_nemesis = title:e_the_iron_throne.holder
+					has_relation_rival = title:e_the_iron_throne.holder
+				}
+			}
+		}
+		modifier = { # Doing this in debt /could/ be bad
+			factor = 0.5
+			root = {
+				debt_level > 0
+			}
+		}
+		modifier = { # Ai shouldn't if they're king just to avoid weird acting against own interest
+			factor = 0
+			title:e_the_iron_throne.holder = {
+				this = root
+			}
+		}
+	}
+}
+
+# Reveal true parentage of myself
+agot_expose_my_true_parentage_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = major
+	desc = agot_expose_my_true_parentage_decision_desc
+	is_shown = {
+		exists = title:e_the_iron_throne.holder
+		knows_self_royal_bastard_secret = yes
+		NOT = { owns_story_of_type = agot_royal_bastard_story }
+	}
+	is_valid = {
+		is_adult = yes
+		is_landed = yes
+		is_at_home = yes
+		prestige_level >= 1
+	}
+
+	effect = {
+		custom_tooltip = agot_expose_my_true_parentage_decision_tooltip
+		random_known_secret = {
+			limit = {
+				secret_type = secret_agot_disputed_heritage
+				secret_target = root
+			}
+			save_scope_as = heritage_secret
+		}
+		random_known_secret = {
+			limit = {
+				secret_type = secret_disputed_heritage
+				secret_target = root
+			}
+			save_scope_as = heritage_secret
+		}
+		random_known_secret = {
+			limit = {
+				secret_type = secret_unmarried_illegitimate_child
+				secret_target = root
+			}
+			save_scope_as = heritage_secret
+		}
+		save_scope_as = revealer
+		add_unpressed_claim = title:e_the_iron_throne
+		add_unpressed_claim = title:k_the_crownlands
+		add_unpressed_claim = title:d_kings_landing
+		add_unpressed_claim = title:c_kings_landing
+		add_unpressed_claim = title:k_dragonstone
+		add_unpressed_claim = title:d_dragonstone
+		add_unpressed_claim = title:c_dragonstone
+		trigger_event = {
+			id = agot_events_bastard.0950
+			days = { 7 14 }
+		}
+	}
+
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_check_interval = 13 # odd number to ensure lack of predictability in month of trigger
+
+	ai_will_do = {
+		base = 10
+		ai_value_modifier = {
+			who = root
+			ai_boldness = tiny_chance_impact_positive_ai_value
+			ai_compassion = tiny_chance_impact_negative_ai_value
+			ai_greed = tiny_chance_impact_positive_ai_value
+			ai_energy = tiny_chance_impact_positive_ai_value
+			ai_honor = tiny_chance_impact_positive_ai_value
+			max = 20
+		}
+		modifier = {
+			add = 25
+			has_trait = honest
+		}
+		modifier = {
+			add = 25
+			has_trait = just
+		}
+		modifier = {
+			add = -30
+			has_trait = deceitful
+		}
+		modifier = {
+			add = 20
+			has_trait = ambitious
+		}
+		modifier = {
+			add = -10
+			has_trait = content
+		}
+		modifier = {
+			add = -15
+			has_trait = paranoid
+		}
+		modifier = {
+			add = 10
+			has_trait = arrogant
+		}
+		modifier = {
+			add = 10
+			has_trait = greedy
+		}
+		modifier = {
+			add = -5
+			has_trait = humble
+		}
+		opinion_modifier = {
+			opinion_target = title:e_the_iron_throne.holder
+			who = root
+			multiplier = -0.15
+		}
+		modifier = { # Good relations are a bit less likely
+			factor = 0.8
+			root = {
+				OR = {
+					has_relation_best_friend = title:e_the_iron_throne.holder
+					has_relation_friend = title:e_the_iron_throne.holder
+					has_relation_soldier_friend = title:e_the_iron_throne.holder
+					has_relation_lover = title:e_the_iron_throne.holder
+					has_relation_soulmate = title:e_the_iron_throne.holder
+					has_relation_ward = title:e_the_iron_throne.holder
+				}
+			}
+		}
+		modifier = { # Bad relations are more likely though
+			factor = 1.2
+			root = {
+				OR = {
+					has_relation_nemesis = title:e_the_iron_throne.holder
+					has_relation_rival = title:e_the_iron_throne.holder
+				}
+			}
+		}
+		modifier = { # Doing this in debt /could/ be bad
+			factor = 0.5
+			root = {
+				debt_level > 0
+			}
+		}
+		modifier = { # Ai shouldn't if they're king just to avoid weird acting against own interest
+			factor = 0
+			title:e_the_iron_throne.holder = {
+				this = root
+			}
+		}
+	}
+}
+
+# Claim the iron throne as a royal bastard if, for various reasons, it wasn't resolved on reveal
+agot_royal_bastard_claim_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = major
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_character_flag = forswore_royal_claims }
+				desc = agot_royal_bastard_claim_decision_desc.forswore
+			}
+			desc = agot_royal_bastard_claim_decision_desc
+		}
+	}
+	is_shown = {
+		exists = title:e_the_iron_throne.holder
+		NOT = { title:e_the_iron_throne.holder = root }
+		has_character_flag = royal_bastard
+		NOT = { has_character_flag = awaiting_bastardry_result }
+		NOT = { has_character_flag = pressing_own_bastard_claim }
+		NOT = { owns_story_of_type = agot_royal_bastard_story }
+	}
+	is_valid = {
+		is_landed = yes
+		is_adult = yes
+		is_incapable = no
+		is_at_home = yes
+		is_at_war = no
+		NOT = { any_truce_target = { this = title:e_the_iron_throne.holder } } # No true breaking!
+		prestige_level >= 2
+	}
+
+	effect = {
+		title:e_the_iron_throne.holder = { save_scope_as = ruler_scope }
+		custom_tooltip = agot_royal_bastard_claim_decision_tooltip
+		add_character_flag = pressing_own_bastard_claim
+		if = {
+			limit = { has_character_flag = forswore_royal_claims }
+			add_character_modifier = {
+				modifier = agot_reversed_claim_forswear
+			}
+			add_prestige = -150
+			add_unpressed_claim = title:e_the_iron_throne
+			add_unpressed_claim = title:k_the_crownlands
+			add_unpressed_claim = title:d_kings_landing
+			add_unpressed_claim = title:c_kings_landing
+			add_unpressed_claim = title:k_dragonstone
+			add_unpressed_claim = title:d_dragonstone
+			add_unpressed_claim = title:c_dragonstone
+		}
+		# Setting some variables to avoid the story erroring out
+		set_variable = {
+			name = revealer_passthrough
+			value = root
+		}
+		set_variable = {
+			name = bastard_passthrough
+			value = root
+		}
+		set_variable = {
+			name = real_father_passthrough
+			value = root.father
+		}
+		set_variable = {
+			name = real_mother_passthrough
+			value = root.mother
+		}
+		set_variable = {
+			name = rb_pressing_claim_directly
+			value = flag:true
+		}
+		create_story = agot_royal_bastard_story
+	}
+
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_check_interval = 13 # odd number to ensure lack of predictability in month of trigger
+
+	ai_will_do = {
+		base = 5
+		ai_value_modifier = {
+			who = root
+			ai_boldness = tiny_chance_impact_positive_ai_value
+			ai_compassion = tiny_chance_impact_negative_ai_value
+			ai_greed = tiny_chance_impact_positive_ai_value
+			ai_energy = tiny_chance_impact_positive_ai_value
+			ai_honor = tiny_chance_impact_negative_ai_value
+			max = 20
+		}
+		modifier = {
+			add = -40 # This is considered dishonourable and unless they REALLY want to they shouldn't
+			has_character_flag = forswore_royal_claims
+		}
+		modifier = {
+			add = 20
+			has_trait = ambitious
+		}
+		modifier = {
+			add = -20
+			has_trait = content
+		}
+		modifier = {
+			add = 10
+			has_trait = arrogant
+		}
+		modifier = {
+			add = 10
+			has_trait = greedy
+		}
+		modifier = {
+			add = -10
+			has_trait = humble
+		}
+		opinion_modifier = {
+			opinion_target = title:e_the_iron_throne.holder
+			who = root
+			multiplier = -0.25
+		}
+		modifier = { # Good relations should't do this as it's extremely hostile
+			factor = 0
+			root = {
+				OR = {
+					has_relation_best_friend = title:e_the_iron_throne.holder
+					has_relation_friend = title:e_the_iron_throne.holder
+					has_relation_soldier_friend = title:e_the_iron_throne.holder
+					has_relation_lover = title:e_the_iron_throne.holder
+					has_relation_soulmate = title:e_the_iron_throne.holder
+					has_relation_ward = title:e_the_iron_throne.holder
+				}
+			}
+		}
+		modifier = { # Bad relations are more likely though
+			factor = 1.5
+			root = {
+				OR = {
+					has_relation_nemesis = title:e_the_iron_throne.holder
+					has_relation_rival = title:e_the_iron_throne.holder
+				}
+			}
+		}
+		modifier = { # Doing this in debt would just be dumb
+			factor = 0
+			root = {
+				debt_level > 0
+			}
+		}
+	}
+}

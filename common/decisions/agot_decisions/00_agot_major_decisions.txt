@@ -1,0 +1,376 @@
+﻿agot_pirate_convert_whole_realm_to_feudalism_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = major
+	desc = agot_pirate_convert_whole_realm_to_feudalism_decision_desc
+
+	ai_check_interval = 36
+
+	is_shown = {
+		government_has_flag = government_is_pirate
+		trigger_if = {
+			limit = {
+				is_independent_ruler = yes
+			}
+			always = yes
+		}
+		trigger_else = {
+			liege = {
+				OR = {
+					government_has_flag = government_is_lp_feudal
+					government_has_flag = government_is_feudal
+				}
+			}
+		}
+	}
+
+	is_valid = {
+		highest_held_title_tier >= tier_duchy
+		custom_description = {
+			text = faith_is_reformed
+			subject = root
+			faith = { NOT = { has_doctrine_parameter = unreformed } }
+		}
+		prestige_level >= 2
+		capital_province.county = {
+			development_level >= convert_to_feudalism_development_requirement
+		}
+	}
+
+	cost = {
+		prestige = 200
+	}
+
+	effect = {
+		trigger_event = agot_pirate_events.0001
+		save_scope_as = actor
+		agot_pirate_convert_whole_realm_to_feudalism_effect = yes
+		hidden_effect = {
+			every_vassal = {
+				trigger_event = {
+					id = agot_pirate_events.0002
+					days = 3
+				}
+			}
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 0
+		modifier = {
+			add = 100
+			NOR = {
+				root.capital_county.duchy = title:d_the_sisters
+				root.capital_county.duchy = title:d_first_stepstones
+				root.capital_county.duchy = title:d_skull_tides
+				root.capital_county.duchy = title:d_the_maidens
+				root.capital_county.duchy = title:d_saans_stones
+			}
+		}
+	}
+}
+
+agot_adopt_kneeler_ways_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+	}
+	decision_group_type = major
+	desc = agot_adopt_kneeler_ways_decision_desc
+
+	ai_check_interval = 36
+
+	is_shown = {
+		culture = {
+			has_variable = wildling_culture
+		}
+		any_held_title =  {
+			NOT = {
+				empire = title:e_beyond_the_wall
+			}
+		}
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		custom_description = {
+			text = is_culture_head
+			culture = {
+				exists = culture_head
+				culture_head = root
+			}
+		}
+		OR = {
+			custom_description = {
+				text = hybridized_with_kneelers
+				culture = {
+					any_parent_culture_or_above = {
+						NOR = {
+							this = culture:fangman
+							this = culture:forestman
+							this = culture:nightrunner
+							this = culture:frozen_shoreman
+							this = culture:hornfoot
+							this = culture:ice_riverman
+							this = culture:lakeman
+							this = culture:thenn
+							this = culture:first_man
+						}
+					}
+				}
+			}
+			culture = {
+				has_cultural_tradition = tradition_xenophilic
+			}
+		}
+		culture = {
+			NOT = { has_cultural_tradition = agot_tradition_wildling }
+		}
+		custom_description = {
+			text = capital_south_of_the_wall
+			NOT = {
+				capital_county.empire = title:e_beyond_the_wall
+			}
+		}
+	}
+
+	cost = {
+		prestige = 200
+	}
+
+	effect = {
+		custom_tooltip = agot_adopt_kneeler_ways_decision_tooltip
+		trigger_event = agot_major_decisions_events.0003
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 0
+		modifier = {
+			add = 100
+			culture = {
+				has_cultural_tradition = tradition_xenophilic
+			}
+		}
+		modifier = {
+			add = -100
+			culture = {
+				has_cultural_tradition = tradition_staunch_traditionalists
+			}
+		}
+		modifier = {
+			add = -100
+			culture = {
+				has_cultural_tradition = tradition_isolationist
+			}
+		}
+		modifier = {
+			add = 25
+			culture = {
+				has_cultural_tradition = tradition_welcoming
+			}
+		}
+		modifier = {
+			add = 25
+			culture = {
+				has_cultural_tradition = tradition_esteemed_hospitality
+			}
+		}
+		modifier = {
+			add = 50
+			culture = {
+				has_cultural_tradition = tradition_fp2_malleable_subjects
+			}
+		}
+	}
+}
+
+regrow_oakenseat_decision = {
+	ai_check_interval = 120
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_herbs.dds"
+	}
+	decision_group_type = major
+
+	desc = regrow_oakenseat_decision_desc
+
+	selection_tooltip = regrow_oakenseat_decision_tooltip
+
+	is_shown = {
+		has_title = title:b_highgarden
+		any_character_artifact = {
+			has_variable = ruined_oakenseat
+		}
+		NOT = {
+			title:b_highgarden = { has_variable = restoring_oakenseat }
+		}
+	}
+
+	is_valid = {
+		OR = {
+			has_trait = lifestyle_gardener
+			has_trait = lifestyle_herbalist
+			AND = {
+				employs_court_position = court_gardener_court_position
+				custom_tooltip = {
+					text = regrow_oakenseat_excellent_aptitude
+					any_court_position_holder = {
+						type = court_gardener_court_position
+						aptitude = {
+							court_position = court_gardener_court_position
+							value >= 4
+						}
+					}
+				}
+			}
+		}
+	}
+
+	effect = {
+		title:b_ruins.holder = {
+			trigger_event = {
+				id = agot_major_decisions_events.1000
+				years = 75
+			}
+		}
+		title:b_highgarden = {
+			set_variable = {
+				name = restoring_oakenseat
+				value = yes
+				years = 75
+			}
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 20
+	}
+}
+
+reveal_identity_decision = {
+	ai_check_interval = 120
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+	decision_group_type = major
+
+	desc = reveal_identity_decision_desc
+
+	selection_tooltip = reveal_identity_decision_tooltip
+
+	is_shown = {
+		any_secret = { secret_type = secret_agot_identity }
+	}
+
+	effect = {
+		if = {
+			limit = { root = character:Stark_5 }
+			custom_tooltip = knight_of_the_laughing_tree_effect
+			hidden_effect = {
+				every_known_secret = {
+					limit = { secret_type = secret_agot_identity }
+					expose_secret = root
+				}
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = generic_secret_identity }
+			custom_tooltip = generic_secret_identity_tooltip
+			hidden_effect = {
+				every_known_secret = {
+					limit = { secret_type = secret_agot_identity }
+					expose_secret = root
+				}
+			}
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 20
+		modifier = {
+			factor = 0
+			root = character:Stark_5
+			character:Targaryen_1 = { is_alive = yes }
+		}
+		modifier = {
+			factor = 0
+			root = character:Stark_5
+			OR = {
+				is_spouse_of = character:Baratheon_2
+				betrothed ?= character:Baratheon_2
+			}
+		}
+	}
+}
+
+agot_beg_bittersteel_to_make_golden_company = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = major
+	desc = agot_beg_bittersteel_to_make_golden_company_desc
+
+	ai_check_interval = 0
+	
+	is_shown = {
+		is_ai = no
+		OR = {
+			primary_title = title:d_laamp_blackfyre
+			AND = {
+				is_landless_adventurer = yes
+				has_realm_law = camp_purpose_legitimists
+				house ?= house:house_Blackfyre
+			}
+		}
+		NOR = {
+			exists = title:d_laamp_merc_golden_company.holder
+			exists = global_var:dynamic_gc_formed
+		}
+		exists = global_var:number_of_blackfyre_rebellions
+		character:Targaryen_95 = {
+			is_alive = yes
+			is_playable_character = no
+		}
+	}
+	is_valid = {
+		character:Targaryen_95 = {
+			has_good_opinion_of_root_trigger = yes
+		}
+	}
+	effect = {
+		custom_tooltip = agot_beg_bittersteel_to_make_golden_company_effect
+		character:Targaryen_95 = {
+			trigger_event = agot_gold_company_formation.0003
+			add_opinion = {
+				target = root
+				modifier = unfair_demand_opinion
+				opinion = -50
+			}
+		}
+	}
+	cost = {
+		prestige = 200
+		gold = 300
+	}
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}

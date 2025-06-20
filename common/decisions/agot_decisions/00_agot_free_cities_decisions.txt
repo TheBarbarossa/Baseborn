@@ -1,0 +1,537 @@
+﻿agot_attempt_triarchy = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_attempt_triarchy_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		government_has_flag = government_is_free_city
+		NOT = { exists = title:e_three_daughters.holder }
+		OR = {
+			has_title = title:k_tyrosh
+			has_title = title:k_lys
+			has_title = title:k_myr
+		}
+		NAND = {
+			has_title = title:k_tyrosh
+			has_title = title:k_lys
+			has_title = title:k_myr
+		}
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		NOT = { exists = title:e_three_daughters.holder }
+		exists = title:k_tyrosh.holder
+		title:k_tyrosh.holder = { government_has_flag = government_is_free_city }
+		exists = title:k_lys.holder
+		title:k_lys.holder = { government_has_flag = government_is_free_city }
+		exists = title:k_myr.holder
+		title:k_myr.holder = { government_has_flag = government_is_free_city }
+		OR = {
+			has_title = title:k_tyrosh
+			has_title = title:k_lys
+			has_title = title:k_myr
+		}
+		NOT = {
+			title:k_myr.holder = { is_at_war = yes }
+			title:k_lys.holder = { is_at_war = yes }
+			title:k_tyrosh.holder = { is_at_war = yes }
+		}
+
+		trigger_if = {
+			limit = {
+				NOT = { has_title = title:k_tyrosh }
+			}
+			title:k_tyrosh.holder = {
+				is_allied_to = root
+				opinion = {
+					target = root
+					value >= 80
+				}
+			}
+		}
+
+		trigger_if = {
+			limit = {
+				NOT = { has_title = title:k_lys }
+			}
+			title:k_lys.holder = {
+				is_allied_to = root
+				opinion = {
+					target = root
+					value >= 80
+				}
+			}
+		}
+
+		trigger_if = {
+			limit = {
+				NOT = { has_title = title:k_myr }
+			}
+			title:k_myr.holder = {
+				is_allied_to = root
+				opinion = {
+					target = root
+					value >= 80
+				}
+			}
+		}
+
+		trigger_if = {
+			limit = {
+				NOT = { has_title = title:k_tyrosh }
+				NOT = { has_title = title:k_lys }
+			}
+			title:k_tyrosh.holder = {
+				opinion = {
+					target = title:k_lys.holder
+					value >= 80
+				}
+			}
+			title:k_lys.holder = {
+				opinion = {
+					target = title:k_tyrosh.holder
+					value >= 80
+				}
+			}
+		}
+
+		trigger_if = {
+			limit = {
+				NOT = { has_title = title:k_tyrosh }
+				NOT = { has_title = title:k_myr }
+			}
+			title:k_tyrosh.holder = {
+				opinion = {
+					target = title:k_myr.holder
+					value >= 80
+				}
+			}
+			title:k_myr.holder = {
+				opinion = {
+					target = title:k_tyrosh.holder
+					value >= 80
+				}
+			}
+		}
+
+		trigger_if = {
+			limit = {
+				NOT = { has_title = title:k_lys }
+				NOT = { has_title = title:k_myr }
+			}
+			title:k_lys.holder = {
+				opinion = {
+					target = title:k_myr.holder
+					value >= 80
+				}
+			}
+			title:k_myr.holder = {
+				opinion = {
+					target = title:k_lys.holder
+					value >= 80
+				}
+			}
+		}
+
+	}
+
+	ai_potential = {
+		is_independent_ruler = yes
+		government_has_flag = government_is_free_city
+		NOT = { exists = title:e_three_daughters.holder }
+		exists = title:k_tyrosh.holder
+		exists = title:k_lys.holder
+		exists = title:k_myr.holder
+		OR = {
+			has_title = title:k_tyrosh
+			has_title = title:k_lys
+			has_title = title:k_myr
+		}
+		NOT = {
+			title:k_myr.holder = { is_at_war = yes }
+			title:k_lys.holder = { is_at_war = yes }
+			title:k_tyrosh.holder = { is_at_war = yes }
+		}
+	}
+
+	ai_will_do = {
+		base = 5
+		modifier = {
+			has_trait = ambitious
+			add = 40
+		}
+		modifier = {
+			has_trait = authoritative
+			add = 5
+		}
+	}
+
+	effect = {
+		save_scope_as = request_sender
+		set_global_variable = {
+			name = triarchy_agreements
+			value = 1
+		}
+		title:k_tyrosh.holder = {
+			if = { limit = { title:k_tyrosh.holder != root } trigger_event = free_city_events.0001 }
+			save_scope_as = archon_tyrosh
+		}
+		title:k_lys.holder = {
+			save_scope_as = first_magister_lys
+			if = { limit = { title:k_lys.holder != root } trigger_event = free_city_events.0001 }
+		}
+		title:k_myr.holder = {
+			save_scope_as = first_magister_myr
+			if = { limit = { title:k_myr.holder != root } trigger_event = free_city_events.0001 }
+		}
+		trigger_event = {
+			id = free_city_events.0002
+			days = 1
+		}
+	}
+
+	cost = { prestige = 2500 }
+
+	cooldown = { years = 10 }
+}
+
+agot_create_three_daughters = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_create_three_daughters_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		NOT = { exists = title:e_three_daughters.holder }
+		has_title = title:k_tyrosh
+		has_title = title:k_lys
+		has_title = title:k_myr
+	}
+
+	ai_will_do = {
+		base = 5
+		modifier = {
+			has_trait = ambitious
+			add = 40
+		}
+		modifier = {
+			has_trait = authoritative
+			add = 5
+		}
+	}
+
+	effect = {
+		save_scope_as = request_sender
+		create_triarchy = yes
+	}
+
+	cost = { prestige = 2500 }
+}
+
+agot_stepstones_rhoynish_culture = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_stepstones_rhoynish_culture_desc
+
+	is_shown = {
+		NOT = { has_global_variable = stepstones_rhoynish_culture_decision }
+		agot_is_independent_ruler = yes
+		has_title = title:c_turtleback
+		has_culture = culture:rhoynish
+	}
+
+	is_valid = {
+		agot_is_independent_ruler = yes
+		is_at_war = no
+		prestige_level >= 3
+		OR = {
+			AND = {
+				has_title = title:d_first_stepstones
+				has_title = title:d_skull_tides
+			}
+			has_title = title:k_the_stepstones
+		}
+	}
+
+	cost = { prestige = 3500 }
+
+	ai_potential = {
+		is_independent_ruler = yes
+		is_at_war = no
+		prestige_level >= 3
+		OR = {
+			AND = {
+				has_title = title:d_first_stepstones
+				has_title = title:d_skull_tides
+			}
+			has_title = title:k_the_stepstones
+		}
+	}
+
+	ai_will_do = {
+		base = 5
+		modifier = {
+			has_trait = ambitious
+			add = 40
+		}
+		modifier = {
+			has_trait = authoritative
+			add = 5
+		}
+	}
+
+	effect = {
+		set_global_variable = stepstones_rhoynish_culture_decision
+		custom_tooltip = agot_stepstones_rhoynish_culture_tooltip
+		hidden_effect = {
+			create_divergent_culture_with_side_effects_excluding_cost  = yes
+			culture = {
+				set_culture_name = {
+					noun = somberysh
+					prefix = somberysh_prefix
+					collective_noun = somberysh_collective_noun
+				}
+				copy_all_traditions_from = culture:rhoynish
+				get_all_innovations_from = culture:rhoynish
+				set_culture_pillar = ethos_methodical
+				remove_culture_tradition = tradition_agrarian
+				remove_culture_tradition = tradition_metal_craftsmanship
+				add_culture_tradition = tradition_lords_of_the_elephant
+				add_culture_tradition = agot_tradition_harsh_laws
+				set_variable = {
+					name = recent_event_divergence
+					days = 3650
+				}
+			}
+		}
+	}
+}
+
+agot_seize_control = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = agot_seize_control_desc
+
+	is_shown = {
+		is_independent_ruler = yes
+		any_held_title = {
+			tier = tier_kingdom
+			OR ={
+				this = title:k_lys
+				this = title:k_pentos
+				this = title:k_myr
+				this = title:k_tyrosh
+			}
+			has_title_law = dictatorship_succession_law
+		}
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		dread >= 100
+		trigger_if = {
+			limit = {
+				has_title = title:k_lys
+				title:k_lys = {
+					has_title_law = dictatorship_succession_law
+				}
+			}
+			title:k_lys = {
+				title_held_years >= 20
+			}
+			custom_tooltip = {
+				text = lys_full_county_control_tt
+				title:c_lys = {
+					county_control >= full_county_control
+				}
+			}
+		}
+		trigger_if = {
+			limit = {
+				has_title = title:k_pentos
+				title:k_pentos = {
+					has_title_law = dictatorship_succession_law
+				}
+			}
+			title:k_pentos = {
+				title_held_years >= 20
+			}
+			custom_tooltip = {
+				text = pentos_full_county_control_tt
+				title:c_pentos = {
+					county_control >= full_county_control
+				}
+			}
+		}
+		trigger_if = {
+			limit = {
+				has_title = title:k_myr
+				title:k_myr = {
+					has_title_law = dictatorship_succession_law
+				}
+			}
+			title:k_myr = {
+				title_held_years >= 20
+			}
+			custom_tooltip = {
+				text = myr_full_county_control_tt
+				title:c_myr = {
+					county_control >= full_county_control
+				}
+			}
+		}
+		trigger_if = {
+			limit = {
+				has_title = title:k_tyrosh
+				title:k_tyrosh = {
+					has_title_law = dictatorship_succession_law
+				}
+			}
+			title:k_tyrosh = {
+				title_held_years >= 20
+			}
+			custom_tooltip = {
+				text = tyrosh_full_county_control_tt
+				title:c_tyrosh = {
+					county_control >= full_county_control
+				}
+			}
+		}
+		custom_tooltip = {
+			text = strong_hook_on_all_powerful_vassals_tt
+			any_powerful_vassal = {
+				count = all
+				root = { has_strong_hook = prev }
+			}
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+
+	effect = {
+		change_government = feudal_government
+	}
+
+	cost = { prestige = 2500 }
+
+	cooldown = { years = 10 }
+}
+
+agot_form_undisputed_lands = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+
+	ai_check_interval = 120
+
+	desc = agot_form_undisputed_lands_decision_desc
+	selection_tooltip = agot_form_undisputed_lands_decision_tooltip
+
+	is_shown = {
+		is_landed = yes
+		exists = dynasty
+		#Must be in the vague region.
+		any_held_county = {
+			title_province = { geographical_region = world_essos_disputed_lands }
+		}
+	}
+
+	is_valid = {
+		#Must be independent.
+		is_independent_ruler = yes
+		#Has to be around for the ceremony.
+		is_imprisoned = no
+		#Should have the highest prestige level.
+		prestige_level >= max_prestige_level
+		has_title = title:d_trade_cities
+		has_title = title:d_aesomyr
+		has_title = title:d_hells_barrens
+		has_title = title:d_the_shambles
+		has_title = title:d_battle_hills
+	}
+
+	is_valid_showing_failures_only = {
+		is_alive = yes
+		NOT = { exists = involved_activity }
+		is_imprisoned = no
+		#Can't already be a kingdom.
+		NOT = { highest_held_title_tier = tier_kingdom }
+		NOT = { has_primary_title = title:e_blackfyre_rebellion }
+		NOT = { has_primary_title = title:e_three_daughters }
+		NOT = { exists = title:k_disputed_lands.holder }
+	}
+
+	effect = {
+		save_scope_as = founder
+		# Trigger effects.
+		show_as_tooltip = {
+			scope:founder = {
+				show_as_tooltip = {
+					create_title_and_vassal_change = {
+						type = created
+						save_scope_as = title_change
+					}
+					title:k_disputed_lands = {
+						change_title_holder = {
+							holder = scope:founder
+							change = scope:title_change
+						}
+					}
+					resolve_title_and_vassal_change = scope:title_change
+				}
+			}
+		}
+		trigger_event = { id = agot_decisions_events.0001 }
+
+		#Notify other players.
+		every_player = {
+			limit = {
+				capital_province = { geographical_region = world_essos_free_cities }
+				#Obviously, we exempt scope:founder themselves.
+				NOT = { this = scope:founder }
+			}
+			#Vassal players get a separate event.
+			if = {
+				limit = {
+					any_liege_or_above = { this = scope:founder }
+				}
+				trigger_event = agot_decisions_events.0002
+			}
+			#Everyone else within range gets a less personal version.
+			else = { trigger_event = agot_decisions_events.0003 }
+		}
+	}
+
+	cost = {
+		prestige = 2000
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}

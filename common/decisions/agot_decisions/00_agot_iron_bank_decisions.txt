@@ -1,0 +1,172 @@
+﻿pay_iron_bank_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	} #PLACEH0LDER #TODO
+
+	decision_group_type = major
+
+	desc = pay_iron_bank_decision_desc
+
+	selection_tooltip = pay_iron_bank_decision_tooltip
+
+	confirm_text = pay_iron_bank_decision_tooltip_confirm_text_desc
+
+	is_shown = {
+		loaned_from_iron_bank_trigger = yes
+
+		NOT = {
+			has_variable = fees_paid
+		}
+	}
+
+	effect = {
+		save_scope_as = player
+		scope:player = {
+			if = {
+				limit = {
+					has_character_flag = third_tier_iron_bank_loan_flag
+					NOR = {
+						has_character_flag = delayed_once
+						has_character_flag = delayed_twice
+					}
+				}
+				agot_pay_off_iron_bank_third_tier_loan_effect = yes
+				remove_character_flag = loaned_from_iron_bank_flag
+			}
+
+			if = {
+				limit = {
+					has_character_flag = second_tier_iron_bank_loan_flag
+					NOR = {
+						has_character_flag = delayed_once
+						has_character_flag = delayed_twice
+					}
+				}
+				agot_pay_off_iron_bank_second_tier_loan_effect = yes
+				remove_character_flag = loaned_from_iron_bank_flag
+			}
+
+			if = {
+				limit = {
+					has_character_flag = first_tier_iron_bank_loan_flag
+					NOR = {
+						has_character_flag = delayed_once
+						has_character_flag = delayed_twice
+					}
+				}
+				agot_pay_off_iron_bank_first_tier_loan_effect = yes
+				remove_character_flag = loaned_from_iron_bank_flag
+			}
+
+			if = {
+				limit = {
+					has_character_flag = third_tier_iron_bank_loan_flag
+					has_character_flag = delayed_once
+				}
+				agot_pay_off_iron_bank_third_tier_late_loan_effect = yes
+				remove_character_flag = loaned_from_iron_bank_flag
+			}
+
+			if = {
+				limit = {
+					has_character_flag = second_tier_iron_bank_loan_flag
+					has_character_flag = delayed_once
+				}
+				agot_pay_off_iron_bank_second_tier_late_loan_effect = yes
+				remove_character_flag = loaned_from_iron_bank_flag
+			}
+
+			if = {
+				limit = {
+					has_character_flag = first_tier_iron_bank_loan_flag
+					has_character_flag = delayed_once
+				}
+				agot_pay_off_iron_bank_first_tier_late_loan_effect = yes
+				remove_character_flag = loaned_from_iron_bank_flag
+			}
+
+			if = {
+				limit = {
+					has_character_flag = third_tier_iron_bank_loan_flag
+					has_character_flag = delayed_twice
+				}
+				agot_pay_off_iron_bank_third_tier_very_late_loan_effect = yes
+				remove_character_flag = loaned_from_iron_bank_flag
+			}
+
+			if = {
+				limit = {
+					has_character_flag = second_tier_iron_bank_loan_flag
+					has_character_flag = delayed_twice
+				}
+				agot_pay_off_iron_bank_second_tier_very_late_loan_effect = yes
+				remove_character_flag = loaned_from_iron_bank_flag
+			}
+
+			if = {
+				limit = {
+					has_character_flag = first_tier_iron_bank_loan_flag
+					has_character_flag = delayed_twice
+				}
+				agot_pay_off_iron_bank_first_tier_very_late_loan_effect = yes
+				remove_character_flag = loaned_from_iron_bank_flag
+			}
+		}
+	}
+
+	ai_potential = {
+		always = no #we don't want the AI doing this
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+loan_iron_bank_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	ai_check_interval = 0
+
+	desc = loan_iron_bank_decision_desc
+	selection_tooltip = loan_iron_bank_decision_tooltip
+	confirm_text = loan_iron_bank_decision_tooltip_confirm_text_desc
+
+	decision_group_type = major
+
+	is_shown = {
+		is_incapable = no
+		is_imprisoned = no
+		loaned_from_iron_bank_trigger = no
+		NOR = {
+			government_has_flag = government_is_nw
+			has_character_flag = loaned_from_iron_bank_flag
+			has_character_flag = defaulted_on_loan
+		}
+		capital_province ?= {
+			NOT = {
+				geographical_region = world_westeros_beyond_the_wall
+			}
+		}
+		is_landed = yes
+	}
+
+	effect = {
+		custom_tooltip = loan_iron_bank_decision_effect
+		add_character_flag = loaned_from_iron_bank_flag
+		trigger_event = {
+			id = agot_braavos_iron_bank.0001
+			months = 1
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
