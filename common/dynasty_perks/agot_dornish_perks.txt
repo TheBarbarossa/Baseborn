@@ -1,0 +1,111 @@
+﻿# GENERIC DORNISH LEGACIES
+
+dornish_legacy_1 = { # Shifting Sands
+	legacy =  dornish_legacy_track
+
+	can_be_picked = {
+		culture = {
+			OR = {
+				this = culture:stone_dornish
+				this = culture:sand_dornish
+				this = culture:salt_dornish
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:stone_dornish
+					this = culture:sand_dornish
+					this = culture:salt_dornish }
+				}
+			}
+		}
+	}
+
+	character_modifier = {
+		desert_advantage = 5
+		majorroad_desert_advantage = 5
+		minorroad_desert_advantage = 5
+		desert_mountains_advantage = 5
+		majorroad_desert_mountains_advantage = 5
+		minorroad_desert_mountains_advantage = 5
+		drylands_advantage = 5
+		majorroad_drylands_advantage = 5
+		minorroad_drylands_advantage = 5
+	}
+
+	ai_chance = {
+		value = 11
+		if = {
+			limit = {
+				can_start_new_legacy_track_trigger = no
+			}
+			multiply = 0
+		}
+	}
+
+}
+
+dornish_legacy_2 = { # Mirage
+	legacy =  dornish_legacy_track
+
+	effect = {
+		# less likely to be captured in sieges
+		custom_description_no_bullet = { text = dornish_legacy_2_effect }
+	}
+
+	character_modifier = {
+		supply_duration = 0.2
+	}
+}
+
+dornish_legacy_3 = { # Unfaltering Spears
+	legacy =  dornish_legacy_track
+
+	effect = {
+	}
+
+	character_modifier = {
+		pikemen_damage_mult = 0.2
+		pikemen_toughness_mult = 0.1
+		pikemen_maintenance_mult = -0.2
+	}
+}
+
+dornish_legacy_4 = { # Dornishman's wife
+	legacy =  dornish_legacy_track
+
+	character_modifier = {
+		seduce_scheme_phase_duration_add = minor_scheme_phase_duration_bonus_value
+		fertility = 0.20
+		attraction_opinion = 10
+	}
+}
+
+dornish_legacy_5 = { # Deadly Venoms
+	legacy =  dornish_legacy_track
+
+	character_modifier = {
+		intrigue_per_stress_level = 1
+		owned_hostile_scheme_success_chance_add = 20
+
+	}
+}
+
+#DAYNE LEGACY
+
+dayne_legacy_1 = { # Blood of the First Men
+	legacy = dayne_legacy_track
+
+	can_be_picked = {
+		dynasty = dynasty:dynn_Dayne
+	}
+
+	ai_chance = {
+		value = 0
+	}
+
+	effect = {
+		# Effect is applied in the on action 'on_birth_child'
+		custom_description_no_bullet = {
+			text = dayne_legacy_1_effect
+		}
+	}
+}

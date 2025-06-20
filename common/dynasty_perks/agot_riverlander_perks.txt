@@ -1,0 +1,81 @@
+﻿# GENERIC Riverlander LEGACIES
+
+riverlander_legacy_1 = { # Stuff
+	legacy = riverlander_legacy_track
+
+	can_be_picked = {
+		culture = {
+			OR = {
+			this = culture:riverlander
+			any_parent_culture_or_above = {
+				this = culture:riverlander
+				}
+			}
+		}
+	}
+
+	character_modifier = {
+		fellow_vassal_opinion = 10
+		direct_vassal_opinion = 5
+	}
+
+	ai_chance = {
+		value = 11
+		if = {
+			limit = {
+				can_start_new_legacy_track_trigger = no
+			}
+			multiply = 0
+		}
+	}
+}
+
+riverlander_legacy_2 = { #River Boats
+	legacy = riverlander_legacy_track
+
+	character_modifier = {
+		#Forder gets extra bonuses?
+		#Water bonus?
+		#Traverse Rivers
+		supply_duration = 0.2
+	}
+
+
+	effect = {
+		custom_description_no_bullet = { text = riverlander_legacy_2_effect }
+	}
+}
+
+riverlander_legacy_3 = { # Tough Fishy Bois idk
+	legacy = riverlander_legacy_track
+
+	character_modifier = {
+		owned_personal_scheme_success_chance_add = 10
+		stress_loss_mult = 0.25
+	}
+}
+
+riverlander_legacy_4 = { # Water Stuff?
+	legacy = riverlander_legacy_track
+
+
+
+	character_modifier = {
+		archers_toughness_mult = 0.05
+		skirmishers_toughness_mult = 0.05
+		pikemen_toughness_mult = 0.05
+
+	}
+}
+
+riverlander_legacy_5 = { # Convergent Blood
+	legacy = riverlander_legacy_track
+
+	effect = {
+	}
+
+	character_modifier = {
+		monthly_piety = 0.2
+	}
+}
+
