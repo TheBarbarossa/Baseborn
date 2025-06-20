@@ -15,8 +15,11 @@ riverlander_legacy_1 = { # Stuff
 	}
 
 	character_modifier = {
-		fellow_vassal_opinion = 10
-		direct_vassal_opinion = 5
+		# fellow_vassal_opinion = 10
+		direct_vassal_opinion = 10 # Edited - Sleepingcafe - 20/06
+		diplomacy = 2 # Edited - Sleepingcafe - 20/06
+		riverlander_opinion = 10 # Edited - Sleepingcafe - 20/06
+		fertility = 0.1 # Edited - Sleepingcafe - 20/06
 	}
 
 	ai_chance = {
@@ -38,6 +41,10 @@ riverlander_legacy_2 = { #River Boats
 		#Water bonus?
 		#Traverse Rivers
 		supply_duration = 0.2
+		monthly_income_mult = 0.05 # Edited - Sleepingcafe - 20/06
+		holding_build_gold_cost = -0.05 # Edited - Sleepingcafe - 20/06
+		castle_holding_build_gold_cost = -0.05 # Edited - Sleepingcafe - 20/06
+		cultural_head_fascination_mult = 0.1 # Edited - Sleepingcafe - 20/06
 	}
 
 
@@ -50,21 +57,33 @@ riverlander_legacy_3 = { # Tough Fishy Bois idk
 	legacy = riverlander_legacy_track
 
 	character_modifier = {
-		owned_personal_scheme_success_chance_add = 10
-		stress_loss_mult = 0.25
+		# owned_personal_scheme_success_chance_add = 10
+		# stress_loss_mult = 0.25
+		skirmishers_damage_add = 6 # Edited - Sleepingcafe - 20/06
+		skirmishers_toughness_add = 6 # Edited - Sleepingcafe - 20/06
+		skirmishers_pursuit_add = -4 # Edited - Sleepingcafe - 20/06
+		skirmishers_maintenance_mult = 0.4 # Edited - Sleepingcafe - 20/06
+		bowmen_damage_add = 3 # Edited - Sleepingcafe - 20/06
+		bowmen_toughness_add = 3 # Edited - Sleepingcafe - 20/06
+		bowmen_screen_add = 5 # Edited - Sleepingcafe - 20/06
 	}
 }
 
 riverlander_legacy_4 = { # Water Stuff?
 	legacy = riverlander_legacy_track
 
-
+	effect = {
+		custom_description_no_bullet = {
+			text = law_legacy_1_effect
+		}	
+	}
 
 	character_modifier = {
-		archers_toughness_mult = 0.05
-		skirmishers_toughness_mult = 0.05
-		pikemen_toughness_mult = 0.05
-
+		# archers_toughness_mult = 0.05
+		# skirmishers_toughness_mult = 0.05
+		# pikemen_toughness_mult = 0.05
+		stress_gain_mult = -0.15
+		health = 0.2
 	}
 }
 
@@ -72,10 +91,14 @@ riverlander_legacy_5 = { # Convergent Blood
 	legacy = riverlander_legacy_track
 
 	effect = {
+		custom_description_no_bullet = {
+			text = kin_legacy_2_legacy_effect
+		}
 	}
 
 	character_modifier = {
-		monthly_piety = 0.2
+		close_relative_opinion = 15
+		monthly_lifestyle_xp_gain_mult = 0.25
 	}
 }
 
