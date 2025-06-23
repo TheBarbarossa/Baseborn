@@ -251,13 +251,13 @@ holy_site_great_sept_01 = {
 
 	is_enabled = {
 		custom_description = {
-			text = agot_holy_site_fallback_trigger
+			text = holy_site_muslim_christian_or_holy_site_trigger
 			OR = {
 				scope:holder = {
-					religion = religion:the_seven_religion
+					religion = religion:faith_of_the_seven_religion
 				}
 				scope:holder = {
-					religion = religion:the_pact_religion
+					religion = religion:old_gods_religion
 				}
 				custom_description = {
 					text = holy_site_building_trigger
@@ -314,17 +314,13 @@ generic_great_sept_01 = {
 
 	can_construct_potential = {
 		building_requirement_tribal = no
-		NAND = {
-			game_start_date = 8170.12.11 #Event constructing it in story cycle
-			current_date <= 8176.1.1 #Failsafe
-		}
 	}
 
 	can_construct = {
 		scope:holder = { has_trait = zealous }
 		scope:holder = { piety_level >= 5 }
 		scope:holder = { has_primary_title = title:e_the_iron_throne }
-		county.faith.religion = { this = religion:the_seven_religion  }
+		county.faith.religion = { this = religion:faith_of_the_seven_religion  }
 	}
 
 	asset = {
@@ -334,13 +330,13 @@ generic_great_sept_01 = {
 
 	is_enabled = {
 		custom_description = {
-			text = agot_holy_site_fallback_trigger
+			text = holy_site_muslim_christian_or_holy_site_trigger
 			OR = {
 				scope:holder = {
-					religion = religion:the_seven_religion
+					religion = religion:faith_of_the_seven_religion
 				}
 				scope:holder = {
-					religion = religion:the_pact_religion
+					religion = religion:old_gods_religion
 				}
 				custom_description = {
 					text = holy_site_building_trigger
@@ -407,11 +403,11 @@ dragonpit_01 = {
 	next_building = dragonpit_02
 
 	county_holder_character_modifier = {
-		the_seven_religion_opinion = 10
+		faith_of_the_seven_religion_opinion = 10
 	}
 
 	character_modifier = {
-		the_seven_religion_opinion = 10
+		faith_of_the_seven_religion_opinion = 10
 	}
 
 	character_modifier = {
@@ -505,11 +501,11 @@ dragonpit_ruins_01 = {
 	next_building = dragonpit_ruins_02
 
 	county_holder_character_modifier = {
-		the_seven_religion_opinion = 10
+		faith_of_the_seven_religion_opinion = 10
 	}
 
 	character_modifier = {
-		the_seven_religion_opinion = 10
+		faith_of_the_seven_religion_opinion = 10
 	}
 
 	character_modifier = {
@@ -1556,13 +1552,13 @@ holy_site_starry_sept_01 = {
 
 	is_enabled = {
 		custom_description = {
-			text = agot_holy_site_fallback_trigger
+			text = holy_site_muslim_christian_or_holy_site_trigger
 			OR = {
 				scope:holder = {
-					religion = religion:the_seven_religion
+					religion = religion:faith_of_the_seven_religion
 				}
 				scope:holder = {
-					religion = religion:the_pact_religion
+					religion = religion:old_gods_religion
 				}
 				custom_description = {
 					text = holy_site_building_trigger

@@ -1,4 +1,4 @@
-﻿imprison_interaction = {
+imprison_interaction = {
 	interface_priority = 120
 	common_interaction = yes
 	icon = prison
@@ -8211,6 +8211,348 @@ prison_break_contract_interaction = {
 	}
 
 	auto_accept = yes
+}
+
+systematically_maim_character_interaction = {
+	interface_priority = 30
+	icon = torture_interaction
+	category = interaction_category_diarch
+	common_interaction = yes
+	desc = systematically_maim_character_interaction_desc
+
+	is_shown = {
+		scope:actor = { liege_should_systematically_maim_co_ruler_trigger = yes }
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = { is_adult = yes }
+		scope:recipient = {
+			custom_description = {
+				text = "currently_being_tortured"
+				NOT = { has_character_flag = is_being_tortured }
+			}
+		}
+		scope:recipient = { is_imprisoned_by = scope:actor }
+		# There's literally nothing left to remove.
+		scope:recipient = {
+			NAND = {
+				OR = {
+					is_eunuch_trigger = yes
+					is_female = yes
+				}
+				has_trait = blind
+				has_trait = disfigured
+				has_trait = maimed
+				has_trait = one_legged
+			}
+		}
+	}
+
+	send_option = {
+		flag = maim_castrate
+		is_valid = {
+			scope:recipient = {
+				NOR = {
+					is_eunuch_trigger = yes
+					is_female = yes
+				}
+			}
+		}
+		localization = maim_castrate_name
+		current_description = maim_castrate
+	}
+	send_option = {
+		flag = maim_blind
+		is_valid = {
+			scope:recipient = {
+				NOT = { has_trait = blind }
+			}
+		}
+		localization = maim_blind_name
+		current_description = maim_blind
+
+	}
+	send_option = {
+		flag = maim_face
+		is_valid = {
+			scope:recipient = {
+				NOT = { has_trait = disfigured }
+			}
+		}
+		localization = maim_face_name
+		current_description = maim_face
+	}
+	send_option = {
+		flag = maim_leg
+		is_valid = {
+			scope:recipient = {
+				NOT = { has_trait = one_legged }
+			}
+		}
+		localization = maim_leg_name
+		current_description = maim_leg
+	}
+	send_option = {
+		flag = maim_arm
+		is_valid = {
+			scope:recipient = {
+				NOT = { has_trait = maimed }
+			}
+		}
+		localization = maim_arm_name
+		current_description = maim_arm
+	}
+
+	on_accept = {
+		scope:recipient = {
+			add_character_flag = {
+				flag = is_being_tortured
+				months = 6 # Players in MP can keep the event window open...
+			}
+		}
+
+		# Stress & dread
+		blind_castrate_and_disfigure_effect = yes
+		# Our diarchy will be destroyed.
+		save_scope_value_as = {
+			name = destroy_diarchy
+			value = yes
+		}
+		show_as_tooltip = {
+			scope:actor = { maiming_destroy_diarchy_effect = yes }
+		}
+
+		#TODO_CD_EP3_POLISH; the copy in the below events could _really_ use some polishing up. It's okay but it's a bit meh, and it'd be nice if it reacted more to who you're maiming and why.
+
+		# Let the enchoppening begin.
+		## Castrate.
+		if = {
+			limit = { scope:maim_castrate = yes }
+			show_as_tooltip = {
+				scope:recipient = {
+					if = {
+						limit = {
+							age < 12
+						}
+						ep3_child_castration_effect = yes
+					}
+					else = {
+						ep3_youth_castration_effect = yes
+					}
+					release_from_prison = yes
+				}
+			}
+			torture_blind_castrate_disfigure_opinion_effect = { VERB = castrated }
+			scope:actor = {
+				clear_designated_heir = yes
+				trigger_event = {
+					id = prison.1025
+					days = 1
+				}
+			}
+			add_clan_unity_interaction_effect = {
+				CHARACTER = scope:actor
+				TARGET = scope:recipient
+				VALUE = major_unity_loss
+				DESC = clan_unity_abelarding.desc
+				REVERSE_NON_HOUSE_TARGET = no
+			}
+		}
+		## Blind.
+		if = {
+			limit = { scope:maim_blind = yes }
+			show_as_tooltip = {
+				scope:recipient = {
+					add_trait = blind
+					release_from_prison = yes
+				}
+			}
+			torture_blind_castrate_disfigure_opinion_effect = { VERB = blinded }
+			scope:actor = {
+				clear_designated_heir = yes
+				# Merciful Blindings
+				if = {
+					limit = {
+						culture = { has_cultural_parameter = merciful_blinding }
+						OR = {
+							has_execute_reason = scope:recipient
+							has_banish_reason = scope:recipient
+						}
+					}
+					add_piety = medium_piety_gain
+				}
+				trigger_event = {
+					id = prison.1020
+					days = 1
+				}
+			}
+			# If actor's culture has Merciful Blindings, they lose less unity.
+			if = {
+				limit = {
+					scope:actor.culture = { has_cultural_parameter = merciful_blinding }
+				}
+				add_clan_unity_interaction_effect = {
+					CHARACTER = scope:actor
+					TARGET = scope:recipient
+					VALUE = minor_unity_loss
+					DESC = clan_unity_blinding.desc
+					REVERSE_NON_HOUSE_TARGET = no
+				}
+			}
+			else = {
+				add_clan_unity_interaction_effect = {
+					CHARACTER = scope:actor
+					TARGET = scope:recipient
+					VALUE = medium_unity_loss
+					DESC = clan_unity_blinding.desc
+					REVERSE_NON_HOUSE_TARGET = no
+				}
+			}
+		}
+		## Disfigure.
+		if = {
+			limit = { scope:maim_face = yes }
+			show_as_tooltip = {
+				scope:recipient = {
+					add_trait = disfigured
+					release_from_prison = yes
+				}
+			}
+			torture_blind_castrate_disfigure_opinion_effect = { VERB = disfigured }
+			scope:actor = {
+				clear_designated_heir = yes
+				trigger_event = {
+					id = prison.1030
+					days = 1
+				}
+			}
+			add_clan_unity_interaction_effect = {
+				CHARACTER = scope:actor
+				TARGET = scope:recipient
+				VALUE = major_unity_loss
+				DESC = clan_unity_maimed.desc
+				REVERSE_NON_HOUSE_TARGET = no
+			}
+		}
+		## Take off an arm.
+		if = {
+			limit = { scope:maim_arm = yes }
+			show_as_tooltip = {
+				scope:recipient = {
+					apply_maimed_trait_and_modifier_effect = yes
+					release_from_prison = yes
+				}
+			}
+			torture_blind_castrate_disfigure_opinion_effect = { VERB = maimed }
+			scope:actor = {
+				clear_designated_heir = yes
+				save_scope_value_as = {
+					name = maim_type
+					value = flag:arm
+				}
+				trigger_event = {
+					id = prison.1041
+					days = 1
+				}
+			}
+			add_clan_unity_interaction_effect = {
+				CHARACTER = scope:actor
+				TARGET = scope:recipient
+				VALUE = major_unity_loss
+				DESC = clan_unity_maimed.desc
+				REVERSE_NON_HOUSE_TARGET = no
+			}
+		}
+		## Take off a leg.
+		if = {
+			limit = { scope:maim_leg = yes }
+			show_as_tooltip = {
+				scope:recipient = {
+					add_trait = one_legged
+					release_from_prison = yes
+				}
+			}
+			torture_blind_castrate_disfigure_opinion_effect = { VERB = maimed }
+			scope:actor = {
+				clear_designated_heir = yes
+				save_scope_value_as = {
+					name = maim_type
+					value = flag:leg
+				}
+				trigger_event = {
+					id = prison.1041
+					days = 1
+				}
+			}
+			add_clan_unity_interaction_effect = {
+				CHARACTER = scope:actor
+				TARGET = scope:recipient
+				VALUE = major_unity_loss
+				DESC = clan_unity_maimed.desc
+				REVERSE_NON_HOUSE_TARGET = no
+			}
+		}
+	}
+
+	auto_accept = yes
+
+	ai_targets = { ai_recipients = prisoners }
+
+	ai_potential = {
+		has_diarchy_active_parameter = diarchy_is_co_rulership
+		liege_can_maim_co_ruler_without_killing_them_trigger = yes
+	}
+
+	ai_will_do = {
+		base = -50
+
+		modifier = {
+			has_trait = sadistic
+			add = 50
+		}
+		modifier = {
+			has_trait = callous
+			add = 40
+		}
+		ai_value_modifier = {
+			ai_compassion = tiny_chance_impact_negative_ai_value #Adds +50 for highly uncompassionate characters, -50 for highly compassionate characters
+		}
+		opinion_modifier = {
+			opinion_target = scope:recipient
+			multiplier = -1
+		}
+		#Scope:target has caused internal strife in the realm
+		character_hates_scope_due_to_strife_modifier = { TARGET = scope:recipient }
+		modifier = { # Family Feud
+			exists = scope:actor.house
+			exists = scope:recipient.house
+			scope:actor = {
+				house.house_head = {
+					any_owned_story = {
+						story_type = story_cycle_house_feud
+						has_variable = house_feud_house
+						var:house_feud_house = scope:recipient.house
+					}
+				}
+				has_opinion_modifier = {
+					modifier = house_feud_opinion
+					target = scope:recipient.house.house_head
+				}
+			}
+			add = 30
+		}
+		modifier = {
+			scope:actor = {
+				has_opinion_modifier = {
+					modifier = tried_to_escape_from_prison_opinion
+					target = scope:recipient
+				}
+			}
+			add = 25
+		}
+	}
+
+	ai_frequency = 60
 }
 
 systematically_maim_character_interaction = { # Edited - Sleepingcafe - 18/06

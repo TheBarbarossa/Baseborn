@@ -498,14 +498,14 @@ agot_plankytown_01 = {
 		embarkation_cost_mult = -0.15
 		diplomatic_range_mult = 0.25
 		naval_movement_speed_mult = 0.1
-		the_mother_religion_opinion = 10
+		rhoynish_religion_opinion = 10
 	}
 
 	county_holder_character_modifier = {
 		embarkation_cost_mult = -0.15
 		diplomatic_range_mult = 0.25
 		naval_movement_speed_mult = 0.1
-		the_mother_religion_opinion = 5
+		rhoynish_religion_opinion = 5
 	}
 
 	type = special
@@ -538,7 +538,7 @@ agot_raventree_hall_01 = {
 	cost_gold = 500
 
 	character_modifier = {
-		the_pact_religion_opinion = 10
+		old_gods_religion_opinion = 10
 	}
 
 	county_modifier = {
@@ -618,8 +618,8 @@ agot_high_heart_01 = {
 	next_building = agot_high_heart_02
 
 	character_modifier = {
-		the_seven_religion_opinion = -10
-		the_pact_religion_opinion = 10
+		faith_of_the_seven_religion_opinion = -10
+		old_gods_religion_opinion = 10
 		faith_conversion_piety_cost_mult = 1.5
 		owned_legend_spread_mult = 0.15
 	}
@@ -646,8 +646,8 @@ agot_high_heart_02 = {
 	cost_gold = 3000
 
 	character_modifier = {
-		the_seven_religion_opinion = 10
-		the_pact_religion_opinion = -10
+		faith_of_the_seven_religion_opinion = 10
+		old_gods_religion_opinion = -10
 		faith_conversion_piety_cost_mult = 1.5
 		owned_legend_spread_mult = 0.15
 	}
@@ -1095,13 +1095,13 @@ agot_lann_sept_01 = {
 
 	is_enabled = {
 		custom_description = {
-			text = agot_holy_site_fallback_trigger
+			text = holy_site_muslim_christian_or_holy_site_trigger
 			OR = {
 				scope:holder = {
-					religion = religion:the_seven_religion
+					religion = religion:faith_of_the_seven_religion
 				}
 				scope:holder = {
-					religion = religion:the_pact_religion
+					religion = religion:old_gods_religion
 				}
 				custom_description = {
 					text = holy_site_building_trigger
@@ -2001,13 +2001,13 @@ agot_sept_of_the_snows_01 = {
 
 	is_enabled = {
 		custom_description = {
-			text = agot_holy_site_fallback_trigger
+			text = holy_site_muslim_christian_or_holy_site_trigger
 			OR = {
 				scope:holder = {
-					religion = religion:the_seven_religion
+					religion = religion:faith_of_the_seven_religion
 				}
 				scope:holder = {
-					religion = religion:the_pact_religion
+					religion = religion:old_gods_religion
 				}
 				custom_description = {
 					text = holy_site_building_trigger
@@ -2321,7 +2321,7 @@ agot_warg_king_01 = {
 	}
 
 	character_modifier = {
-		the_pact_religion_opinion = 10
+		old_gods_religion_opinion = 10
 	}
 
 	next_building = agot_warg_king_02
@@ -2343,16 +2343,10 @@ agot_warg_king_02 = {
 
 	can_construct_potential = {
 		building_requirement_tribal = no
-
-		custom_tooltip = {
-			text = warg_king
+		scope:holder = {
 			OR = {
-				scope:holder = {
-					agot_is_independent_ruler = yes
-				}
-				scope:holder = {
-					dynasty = dynasty:dynn_Stark
-				}
+				agot_is_independent_ruler = yes
+				dynasty = dynasty:dynn_Stark
 			}
 		}
 	}
@@ -2617,7 +2611,7 @@ agot_red_lake_01 = {
 	}
 
 	character_modifier = {
-		the_pact_religion_opinion = -5
+		old_gods_religion_opinion = -5
 		enemy_hard_casualty_modifier = 0.05
 		attacker_advantage = 5
 	}
@@ -2727,7 +2721,6 @@ agot_starpike_01 = {
 		liege_opinion = 15
 		personal_scheme_phase_duration_add = minor_scheme_phase_duration_bonus_value
 		owned_scheme_secrecy_add = -10
-		domain_limit = 1
 	}
 
 	cost_gold = 500
@@ -2962,7 +2955,7 @@ agot_runestone_01 = {
 	}
 
 	character_modifier = {
-		the_pact_religion_opinion = 10
+		old_gods_religion_opinion = 10
 		martial_per_piety_level = 2
 		owned_legend_spread_mult = 0.1
 	}
@@ -3002,7 +2995,7 @@ agot_gates_of_the_moon_01 = {
 	next_building = agot_gates_of_the_moon_02
 
 	character_modifier = {
-		the_seven_religion_opinion = 10
+		faith_of_the_seven_religion_opinion = 10
 		martial_per_piety_level = 2
 		owned_legend_spread_mult = 0.1
 	}
@@ -3030,7 +3023,7 @@ agot_gates_of_the_moon_02 = {
 	}
 
 	character_modifier = {
-		the_seven_religion_opinion = 10
+		faith_of_the_seven_religion_opinion = 10
 		martial_per_piety_level = 2
 		owned_legend_spread_mult = 0.1
 	}
@@ -3359,7 +3352,8 @@ agot_spicetown_01 = {
 
 	can_construct_potential = {
 		building_requirement_tribal = no
-		title:d_driftmark = { holder.dynasty = dynasty:dynn_Velaryon }
+		county = { holder.dynasty = dynasty:dynn_Velaryon }
+		scope:holder = { dynasty = dynasty:dynn_Velaryon }
 	}
 
 	cost_gold = 500
@@ -3421,7 +3415,8 @@ agot_ruins_spicetown_02 = {
 
 	can_construct_potential = {
 		building_requirement_tribal = no
-		title:d_driftmark = { holder.dynasty = dynasty:dynn_Velaryon }
+		county = { holder.dynasty = dynasty:dynn_Velaryon }
+		scope:holder = { dynasty = dynasty:dynn_Velaryon }
 	}
 
 	construction_time = very_slow_construction_time
@@ -3956,7 +3951,7 @@ agot_thenn_great_circle_01 = {
 	type_icon = "icon_structure_stonehenge.dds"
 
 	character_modifier = {
-		the_pact_religion_opinion = 10
+		old_gods_religion_opinion = 10
 		monthly_learning_lifestyle_xp_gain_mult = 0.15
 		levy_reinforcement_rate_same_faith = 0.2
 	}
@@ -3982,7 +3977,7 @@ agot_thenn_small_circle_01 = {
 	type_icon = "icon_structure_stonehenge.dds"
 
 	character_modifier = {
-		the_pact_religion_opinion = 5
+		old_gods_religion_opinion = 5
 		monthly_learning_lifestyle_xp_gain_mult = 0.8
 		levy_reinforcement_rate_same_faith = 0.1
 	}

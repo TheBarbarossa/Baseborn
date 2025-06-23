@@ -1,7 +1,6 @@
 version="1.0"
 tags={
-	"Character Interactions"
+	"Total Conversion"
 }
 name="Baseborn C7"
-supported_version="1.15.*.*"
-
+supported_version="1.14.2.2"

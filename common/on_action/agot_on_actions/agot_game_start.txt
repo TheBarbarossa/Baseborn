@@ -9,9 +9,10 @@ on_game_start = {
 		agot_vassal_contracts
 		agot_crown_authority
 		agot_house_feuds
+		# Moonclans yeet
+		# agot_province_neighbors
 		agot_ruins
 		agot_artifacts_sell
-		agot_qohorik_weaponsmith_pulse
 	}
 }
 
@@ -23,200 +24,7 @@ agot_on_game_start = {
 			value = yes
 		}
 
-		#Assign duchies temp, keep years since election
-		title:e_three_daughters = {
-			if = {
-				limit = { exists = holder }
-			}
-			set_variable = {
-				name = years_since_election
-				value = title_held_years
-			}
-		}
-		title:k_braavos = {
-			if = {
-				limit = { exists = holder }
-			}
-			holder = {
-				every_vassal_or_below = {
-					limit = {
-						AND = {
-							NOT = {
-								has_culture = culture:andalosi
-							}	
-						highest_held_title_tier >= tier_county 					
-						} 
-					}
-					change_government = administrative_government
-				}
-			}
-		}
-		title:k_pentos = {
-			if = {
-				limit = { exists = holder }
-			}
-			holder = {
-				every_vassal_or_below = {
-					limit = {
-						AND = {
-							NOT = {
-								has_culture = culture:andalosi
-							}	
-						highest_held_title_tier >= tier_county 					
-						} 
-					}
-					change_government = administrative_government
-				}
-			}
-		}
-		title:k_myr = {
-			if = {
-				limit = { exists = holder }
-			}
-			holder = {
-				every_vassal_or_below = {
-					limit = { highest_held_title_tier >= tier_county }
-					change_government = administrative_government
-				}
-			}
-			set_variable = {
-				name = years_since_election
-				value = title_held_years
-			}
-		}
-		title:k_tyrosh = {
-			if = {
-				limit = { exists = holder }
-			}
-			holder = {
-				every_vassal_or_below = {
-					limit = { highest_held_title_tier >= tier_county }
-					change_government = administrative_government
-				}
-			}
-			set_variable = {
-				name = years_since_election
-				value = title_held_years
-			}
-		}
-
-		title:k_lys = {
-			if = {
-				limit = { exists = holder }
-			}
-			holder = {
-				every_vassal_or_below = {
-					limit = { highest_held_title_tier >= tier_county }
-					change_government = administrative_government
-				}
-			}
-			set_variable = {
-				name = years_since_election
-				value = title_held_years
-			}
-		}
-
 		##### General setup start #####
-
-		#Create setup for IB and 3 dummy banks
-		init_banking_system = yes
-
-		#historical loans setup
-		if = {
-			limit = {
-				current_year >= 8294
-				character:Baratheon_2 ?= { is_alive = yes }
-			}
-			character:Baratheon_2 ?= { historical_loan_on_game_start = yes }
-		}
-		if = {
-			limit = {
-				current_year >= 8298
-				character:Baratheon_5 ?= { is_alive = yes }
-			}
-			character:Baratheon_5 ?= { historical_loan_on_game_start = yes }
-		}
-		if = {
-			limit = {
-				current_year >= 8300
-				character:Baratheon_7 ?= { is_alive = yes }
-			}
-			character:Baratheon_7 ?= { historical_loan_on_game_start = yes }
-		}
-		if = {
-			limit = {
-				current_year >= 8265
-				character:Waynwood_5 ?= { is_alive = yes }
-			}
-			character:Waynwood_5 ?= { historical_loan_on_game_start = yes }
-		}
-		if = {
-			limit = {
-				current_year >= 8262
-				character:Targaryen_1 ?= { is_alive = yes }
-			}
-			character:Targaryen_1 ?= { historical_loan_on_game_start = yes }
-		}
-		if = {
-			limit = {
-				current_year >= 8259
-				character:Targaryen_127 ?= { is_alive = yes }
-			}
-			character:Targaryen_127 ?= { historical_loan_on_game_start = yes }
-		}
-
-		# Magic Level set up
-		if = {
-			limit = {
-				any_living_dragon = {
-					count = 0
-				}
-			}
-			set_global_variable = {
-				name = magic_level
-				value = 0 # no magic
-			}
-		}
-		else_if = {
-			limit = {
-				any_living_dragon = {
-					count < 10
-				}
-			}
-
-			set_global_variable = {
-				name = magic_level
-				value = 1 # some magic
-			}
-		}
-		else = {
-			set_global_variable = {
-				name = magic_level
-				value = 2 # more magic
-			}
-		}
-
-		##### General setup start #####
-		if = {
-			limit = {
-				current_year > 8209
-				exists = title:k_pentos.holder
-				exists = title:k_braavos.holder
-			}
-			set_global_variable = {
-				name = braavos_treaty
-				value = yes
-			}
-			title:k_pentos = {
-				holder = {
-					add_character_modifier = agot_pentos_braavos_treaty
-					forcibly_end_realm_slavery_effect = yes
-					every_vassal_or_below = {
-						add_character_modifier = agot_pentos_braavos_treaty
-					}
-				}
-			}
-		}
 
 		# House Customizer Dummies Spawn
 		agot_house_customizer_spawn_dummies_effect = yes
@@ -424,25 +232,9 @@ agot_on_game_start = {
 		if = { # Add doctrine of exceptionalism
 			limit = {
 				game_start_date > 8051.1.1
-				faith:fots_seven = { NOT = { has_doctrine = agot_exceptionalism_doctrine } }
+				faith:the_seven_main = { NOT = { has_doctrine = agot_exceptionalism_doctrine } }
 			}
-			faith:fots_seven = { add_doctrine = agot_exceptionalism_doctrine }
-		}
-		faith:fots_stars = {
-			set_variable = { name = has_been_reformed }
-		}
-		#Created Faiths
-		if = {
-			limit = {
-				game_start_date >= 8161.1.1
-			}
-			faith:fots_blessed = { remove_doctrine = special_doctrine_agot_uncreated }
-		}
-		if = {
-			limit = {
-				game_start_date >= 8295.1.1
-			}
-			faith:rhllor_fots = { remove_doctrine = special_doctrine_agot_uncreated }
+			faith:the_seven_main = { add_doctrine = agot_exceptionalism_doctrine }
 		}
 		# Setup faith orders - TODO
 
@@ -490,9 +282,11 @@ agot_on_game_start = {
 		dynasty:dynn_Mataeryon.dynasty_founder.house = { add_house_modifier = dragonrider_house_modifier }
 		dynasty:dynn_Varezys.dynasty_founder.house = { add_house_modifier = dragonrider_house_modifier }
 
+		dynasty:dynn_Bolton = { add_dynasty_modifier = baseborn_bolton_dynasty_modifier } # Edited
+
 		#Dynasty Divided
 		house:house_Blackfyre ?= { add_house_modifier = divided_dynasty_house_modifier }
-
+		
 		#Bastard House Restoration
 		house:house_Brightflame ?= { set_variable = { name = bastard_house_of value = dynasty:dynn_Targaryen.dynasty_founder.house} }
 		house:house_Crossing ?= { set_variable = { name = bastard_house_of value = dynasty:dynn_Frey.dynasty_founder.house} }
@@ -565,31 +359,15 @@ agot_on_game_start = {
 				house = { add_house_modifier = agot_historical_loyalty_blackfyre }
 			}
 		}
-
+		
 		agot_house_head_setter = yes
-
+		
 		###
 
 		### War of Succession Usurpation Setup
 		title:d_dummy_empire = {
 			copy_title_history = title:c_kings_landing
 			set_coa = c_kings_landing
-		}
-
-		### Landless NW Setup
-		title:d_nw_landless_first_ranger = {
-			set_coa = c_castle_black
-			holder = {
-				add_character_flag = nw_ranger_title
-				agot_nw_laamp_start_effect = yes
-			}
-			set_variable = agot_title_blocked_to_give_away
-		}
-		title:k_the_wall.holder = {
-			assign_councillor_type = {
-				type = councillor_marshal
-				target = title:d_nw_landless_first_ranger.holder
-			}
 		}
 
 		### Most Devout Setup
@@ -840,7 +618,7 @@ agot_on_game_start = {
 			limit = {
 				exists = holder
 				holder.highest_held_title_tier = tier_barony
-				holder.faith = faith:old_gods_wnw
+				holder.faith = faith:old_gods_south
 			}
 			holder = { add_realm_law = male_preference_law }
 		}
@@ -883,7 +661,7 @@ agot_on_game_start = {
 			}
 
 			if = { # Override default equal succession for Old Gods
-				limit = { faith = faith:old_gods_wnw }
+				limit = { faith = faith:old_gods_south }
 				add_realm_law = male_preference_law
 			}
 
@@ -909,7 +687,11 @@ agot_on_game_start = {
 
 			if = {
 				limit = {
-					has_realm_law = free_city_election_succession_law
+					primary_title.tier >= tier_kingdom
+					OR = {
+						primary_title = { has_title_law = magisterial_limited_succession_law }
+						primary_title = { has_title_law = magisterial_life_succession_law }
+					}
 				}
 				random_powerful_vassal = {
 					limit = { is_adult = yes }
@@ -1023,27 +805,6 @@ agot_on_game_start = {
 				trigger_event = petty_traits.0001
 			}
 
-			#Set Birthplace - Human
-			agot_birthplace_game_start = yes
-
-			#language setup
-			agot_learn_appropiate_languages = yes
-
-			#Prevent the change of the Dynasty names on gaining land
-			if = {
-				limit = {
-					exists = dynasty
-					NOR = {
-						has_character_flag = canon_status_canon
-						has_character_flag = canon_status_semicanon
-						has_character_flag = canon_status_mentioned
-					}
-					NOT = { exists = mother.dynasty }
-					NOT = { exists = father.dynasty }
-				}
-				add_character_flag = keep_dynasty_name
-			}
-
 			#canon dragons
 			if = {
 				limit = {
@@ -1061,6 +822,7 @@ agot_on_game_start = {
 			#set up patron gods
 			if = {
 				limit = {
+					religion = religion:faith_of_the_seven_religion
 					age > 13
 				}
 				trigger_event = agot_events_generic.0005
@@ -1077,8 +839,8 @@ agot_on_game_start = {
 
 			#set up weapon of choice
 			if = {
-				limit = {
-					age > 5
+				limit = { 
+					age > 5 
 					is_human = yes
 				}
 				trigger_event = agot_events_generic.0012
@@ -1443,11 +1205,11 @@ agot_on_game_start = {
 			}
 			if = { # Succession error log workaround
 				limit = { has_character_flag = unlegitimize_on_load }
-				if = {
+				if = { 
 					limit = { has_trait = legitimized_bastard }
 					remove_trait = legitimized_bastard
 				}
-				if = {
+				if = { 
 					limit = { has_trait = bastard_founder }
 					remove_trait = bastard_founder
 				}
@@ -1456,18 +1218,25 @@ agot_on_game_start = {
 			}
 		}
 
-		# Magesterial laws
 		every_empire = {
 			limit = {
 				exists = holder
-				holder ?= { has_realm_law = free_city_election_succession_law }
+				OR = {
+					has_title_law = magisterial_limited_succession_law
+					has_title_law = magisterial_life_succession_law
+				}
 			}
 			save_scope_as = term_limit_country
 			holder = {
 				save_scope_as = term_ruler
 				every_held_title = {
 					limit = {
-						tier = tier_duchy
+						NOR = {
+							has_title_law = magisterial_limited_succession_law
+							has_title_law = magisterial_limited_succession_attached_titles_law
+							has_title_law = magisterial_life_succession_law
+							has_title_law = magisterial_life_succession_attached_titles_law
+						}
 					}
 					every_de_jure_county = {
 						limit = {
@@ -1483,18 +1252,25 @@ agot_on_game_start = {
 				}
 			}
 		}
-
 		every_kingdom = {
 			limit = {
 				exists = holder
-				holder ?= { has_realm_law = free_city_election_succession_law }
+				OR = {
+					has_title_law = magisterial_limited_succession_law
+					has_title_law = magisterial_life_succession_law
+				}
 			}
 			save_scope_as = term_limit_country
 			holder = {
 				save_scope_as = term_ruler
 				every_held_title = {
 					limit = {
-						tier = tier_duchy
+						NOR = {
+							has_title_law = magisterial_limited_succession_law
+							has_title_law = magisterial_limited_succession_attached_titles_law
+							has_title_law = magisterial_life_succession_law
+							has_title_law = magisterial_life_succession_attached_titles_law
+						}
 					}
 					every_de_jure_county = {
 						limit = {
@@ -1510,9 +1286,6 @@ agot_on_game_start = {
 				}
 			}
 		}
-
-		# Legitimate house mechanic set up
-		agot_legitimate_house_init = yes
 
 		random_ruler = {
 			limit = { NOT = { is_landed = yes } }
@@ -1530,6 +1303,37 @@ agot_on_game_start = {
 		agot_seed_archmaesters_effect = yes
 		agot_seed_maesters_effect = yes
 
+		# Magic Level set up
+		if = {
+			limit = {
+				any_living_dragon = {
+					count = 0
+				}
+			}
+			set_global_variable = {
+				name = magic_level
+				value = 0 # no magic
+			}
+		}
+		else_if = {
+			limit = {
+				any_living_dragon = {
+					count < 10
+				}
+			}
+
+			set_global_variable = {
+				name = magic_level
+				value = 1 # some magic
+			}
+		}
+		else = {
+			set_global_variable = {
+				name = magic_level
+				value = 2 # more magic
+			}
+		}
+
 		## Gold Cloak Setup
 		if = {
 			limit = {
@@ -1541,14 +1345,6 @@ agot_on_game_start = {
 			}
 		}
 
-		## Hall of Faces Set Up
-		set_global_variable = {
-			name = hall_of_faces
-			value = title:b_purple_harbor
-		}
-		global_var:hall_of_faces.holder = {
-			trigger_event = agot_faceless_decision.0010 # generates a few faces
-		}
 		##### Basic setup end #####
 
 		### Scenario setup
@@ -1593,7 +1389,7 @@ agot_on_game_start = {
 					set_designated_heir_unsafe = character:Strickland_1
 				}
 			}
-
+			
 			# Nightswatch cleanup TO-DO set up by date
 			character:Qorgyle_69 = {
 				if = {
@@ -1878,17 +1674,8 @@ agot_on_game_start = {
 				}
 			}
 		}
-
-		#Set Birthplace - Dragon
-		every_living_dragon = {
-			agot_dragon_birthplace_game_start = yes
-		}
 		### Run effects on dead characters
 		agot_apply_posthistory_effect = yes
-	}
-	on_actions = {
-		agot_nf_estate_locations
-		agot_laamp_camp_locations
 	}
 }
 
@@ -2282,25 +2069,6 @@ agot_barony_ruins = {
 agot_on_game_start_after_lobby = {
 	effect = {
 		##### General setup start #####
-		# Targaryen Exiles Scripted Invasion
-		if = {
-			limit = {
-				NOR = {
-					has_game_rule = agot_shatter_duchies
-					has_game_rule = agot_shatter_duchies
-					has_game_rule = agot_shatter_petty_kingdoms
-					has_game_rule = agot_shatter_kingdoms
-				}
-				has_game_rule = agot_targaryen_exile_invasion_special_content
-				game_start_date >= 8284.1.1
-				title:d_laamp_targaryen_exiles.holder ?= {
-					house ?= dynasty:dynn_Targaryen.dynasty_founder.house
-				}
-			}
-			title:d_laamp_targaryen_exiles.holder = {
-				create_story = story_agot_targaryen_exile_invasion
-			}
-		}
 		### Night's Watch related setup
 		title:d_the_wall = { clear_title_laws = yes }
 		every_barony = {
@@ -2426,12 +2194,6 @@ agot_on_game_start_after_lobby = {
 				}
 				trigger_event = agot_rp_event.0105 # Custom Strong Seed Menu
 			}
-
-			if = {
-				limit = { is_from_ruler_designer = yes }
-				trigger_event = agot_rp_event.0201 # Birthplace Event
-			}
-
 			agot_clear_patron = yes
 			add_character_flag = cannot_be_knight_and_commander
 		}
@@ -2541,11 +2303,6 @@ agot_on_game_start_after_lobby = {
 
 			# 	agot_blackfyre_rebellion_I_scenario_setup = yes
 			# }
-			if = { # manage 8170.12.11 Titan's March scenario
-				limit = { game_start_date = 8170.12.11 }
-
-				agot_8170_12_11_scenario_setup = yes
-			}
 			if = { # manage 8106.2.10 The Rogue Prince scenario
 				limit = { game_start_date = 8106.4.18 }
 
@@ -2555,11 +2312,6 @@ agot_on_game_start_after_lobby = {
 				limit = { game_start_date = 8233.2.8 }
 
 				agot_8233_peake_uprising_setup = yes
-			}
-			if = { # manage 8258.12.21 The Laughing Storm Rebellion scenario
-				limit = { game_start_date = 8239.1.11 }
-
-				agot_8239_1_11_laughing_storm_setup = yes
 			}
 			if = { # manage 8258.12.21 The Ninepenny Kings scenario
 				limit = { game_start_date = 8258.12.21 }
@@ -2748,596 +2500,14 @@ agot_on_game_start_after_lobby = {
 		}
 	}
 	events = {
+		agot_house_maintenance.0001
 		agot_adventurers_events.0001
 		# agot_nightswatch_maintenance.0001 # Removes female courtiers
-	}
-	on_actions = {
-		agot_administrative_setup
 	}
 }
 
 agot_artifacts_sell = {
 	effect = {
 		agot_get_artifact_keeper = yes
-	}
-}
-
-### Estate sizes depending on power
-### 1-6 scale, least to most
-### Every new level gains another Estate upgrade and another building // Level 6 is the only one with a level 5 Estate
-### Judge power respectfully
-agot_administrative_setup = {
-	effect = {
-		every_domicile = {
-			limit = {
-				is_domicile_type = estate
-			}
-			### 6, Braavos and Volantis only
-			if = {
-				limit = {
-					OR = {
-						# Braavos
-						owner.dynasty = dynasty:dynn_Antaryon
-						owner.dynasty = dynasty:dynn_Otherys
-					}
-				}
-				# Game screams if the previous level isn't built yet
-				add_domicile_building = estate_main_02
-				add_domicile_building = estate_main_03
-				add_domicile_building = estate_main_04
-				add_domicile_building = estate_main_05
-				while = {
-					count = 6
-					add_random_internal_estate_building = yes
-					add_random_external_estate_building = yes
-				}
-			}
-			### 5
-			if = {
-				limit = {
-					OR = {
-						#Most Powerful Non-Braavos/Volantis
-						# Tyrosh
-						owner.dynasty = dynasty:dynn_Basetys
-						# Lys
-						owner.dynasty = dynasty:dynn_Rogare
-						# Myr
-						owner.dynasty = dynasty:dynn_Drahar
-						owner.dynasty = dynasty:dynn_Valduran
-						# Pentos
-						owner.dynasty = dynasty:dynn_Narratys
-						owner.dynasty = dynasty:dynn_Myrakis
-
-						# Braavos
-						owner.dynasty = dynasty:dynn_Prestayn
-						owner.dynasty = dynasty:dynn_Fregar
-						owner.dynasty = dynasty:dynn_Dothare
-						owner.dynasty = dynasty:dynn_Gresayn
-						# Tyrosh
-						owner.dynasty = dynasty:dynn_Adarys
-						owner.dynasty = dynasty:dynn_Ryndoon
-						owner.dynasty = dynasty:dynn_Moratyr
-						# Lys
-						owner.dynasty = dynasty:dynn_Sellos
-						owner.dynasty = dynasty:dynn_Ormollen
-						# Myr
-						owner.dynasty = dynasty:dynn_Rhegan
-						owner.dynasty = dynasty:dynn_Mallar
-						# Pentos
-						owner.dynasty = dynasty:dynn_Estatis
-						owner.dynasty = dynasty:dynn_Bopatis
-						owner.dynasty = dynasty:dynn_Mopatis
-						owner.dynasty = dynasty:dynn_Haratis
-					}
-				}
-				# Game screams if the previous level isn't built yet
-				add_domicile_building = estate_main_02
-				add_domicile_building = estate_main_03
-				add_domicile_building = estate_main_04
-				while = {
-					count = 5
-					add_random_internal_estate_building = yes
-					add_random_external_estate_building = yes
-				}
-			}
-			### 4
-			if = {
-				limit = {
-					OR = {
-						# Braavos
-						owner.dynasty = dynasty:dynn_Grivas
-						owner.dynasty = dynasty:dynn_Nestoris
-						owner.dynasty = dynasty:dynn_Saldaaris
-						owner.dynasty = dynasty:dynn_Tavellen
-						owner.dynasty = dynasty:dynn_Gasparyon
-						owner.dynasty = dynasty:dynn_Velaron
-						owner.dynasty = dynasty:dynn_Erastes
-						# Tyrosh
-						owner.dynasty = dynasty:dynn_Camardoon
-						owner.dynasty = dynasty:dynn_Uthis
-						owner.dynasty = dynasty:dynn_Gaergyn
-						owner.dynasty = dynasty:dynn_Zokan
-						owner.dynasty = dynasty:dynn_Tyraanis
-						# Lys
-						owner.dynasty = dynasty:dynn_Haen
-						owner.dynasty = dynasty:dynn_Bazanne
-						# Myr
-						owner.dynasty = dynasty:dynn_Mercor
-						owner.dynasty = dynasty:dynn_Abersys
-						owner.dynasty = dynasty:dynn_Annadho
-						owner.dynasty = dynasty:dynn_Lavelos
-						owner.dynasty = dynasty:dynn_Sordios
-						owner.dynasty = dynasty:dynn_Naelor
-						# Pentos
-						owner.dynasty = dynasty:dynn_Draz
-						owner.dynasty = dynasty:dynn_Quaranis
-						owner.dynasty = dynasty:dynn_Sentanis
-						owner.dynasty = dynasty:dynn_Enrosaena				
-					}
-				}
-				# Game screams if the previous level isn't built yet
-				add_domicile_building = estate_main_02
-				add_domicile_building = estate_main_03
-				add_domicile_building = estate_main_04
-				while = {
-					count = 4
-					add_random_internal_estate_building = yes
-					add_random_external_estate_building = yes
-				}
-			}
-			### 3
-			if = {
-				limit = {
-					OR = {
-						# Braavos
-						owner.dynasty = dynasty:dynn_Zalyne
-						owner.dynasty = dynasty:dynn_Peyrel
-						owner.dynasty = dynasty:dynn_Forel
-						owner.dynasty = dynasty:dynn_Dimittis
-						owner.dynasty = dynasty:dynn_Reyaan
-						# Tyrosh
-						owner.dynasty = dynasty:dynn_Rohar
-						owner.dynasty = dynasty:dynn_Atuhoris
-						owner.dynasty = dynasty:dynn_Quaynis
-						# Lys
-						owner.dynasty = dynasty:dynn_Erosenes
-						owner.dynasty = dynasty:dynn_Moraqos
-						owner.dynasty = dynasty:dynn_Dagareon
-						owner.dynasty = dynasty:dynn_Lohar
-						owner.dynasty = dynasty:dynn_Eigares
-						# Myr
-						owner.dynasty = dynasty:dynn_Devaeran
-						owner.dynasty = dynasty:dynn_Deorel
-						owner.dynasty = dynasty:dynn_Allegel
-						owner.dynasty = dynasty:dynn_Rynhar
-						owner.dynasty = dynasty:dynn_Varghan
-						owner.dynasty = dynasty:dynn_Myrahar
-						owner.dynasty = dynasty:dynn_Curaze
-						#Pentos
-						owner.dynasty = dynasty:dynn_Garvanis
-						owner.dynasty = dynasty:dynn_Elisys
-						owner.dynasty = dynasty:dynn_Thelis
-						owner.dynasty = dynasty:dynn_Kaporys
-						owner.dynasty = dynasty:dynn_Haeminys
-						owner.dynasty = dynasty:dynn_Torgodorio
-						owner.dynasty = dynasty:dynn_Togaraz
-						owner.dynasty = dynasty:dynn_Ozelmaar
-						owner.dynasty = dynasty:dynn_Lyksanon
-					}
-				}
-				# Game screams if the previous level isn't built yet
-				add_domicile_building = estate_main_02
-				add_domicile_building = estate_main_03
-				while = {
-					count = 3
-					add_random_internal_estate_building = yes
-					add_random_external_estate_building = yes
-				}
-			}
-			### 2
-			if = {
-				limit = {
-					OR = {
-						# Braavos
-						owner.dynasty = dynasty:dynn_Gartyne
-						owner.dynasty = dynasty:dynn_Phalys
-						owner.dynasty = dynasty:dynn_Qarghas
-						owner.dynasty = dynasty:dynn_Torone
-						owner.dynasty = dynasty:dynn_Tendyris
-						owner.dynasty = dynasty:dynn_Volentin
-						owner.dynasty = dynasty:dynn_Terys
-						AND = {
-							game_start_date >= 8230.1.1
-							owner.dynasty = dynasty:dynn_Tremolo
-						}
-						# Tyrosh
-						owner.dynasty = dynasty:dynn_Zomaros
-						owner.dynasty = dynasty:dynn_Ir_Keraz
-						owner.dynasty = dynasty:dynn_Raharyen
-						# Lys
-						owner.dynasty = dynasty:dynn_Taeryhen
-						owner.dynasty = dynasty:dynn_Naethys
-						owner.dynasty = dynasty:dynn_Taradys
-						owner.dynasty = dynasty:dynn_Orthys
-						# Myr
-						owner.dynasty = dynasty:dynn_Unerelos
-						owner.dynasty = dynasty:dynn_Breneyan
-						owner.dynasty = dynasty:dynn_Berradho
-						owner.dynasty = dynasty:dynn_Lornel
-						owner.dynasty = dynasty:dynn_Vaelos
-						owner.dynasty = dynasty:dynn_Saldorys
-						# Pentos
-						owner.dynasty = dynasty:dynn_Samalaz
-						owner.dynasty = dynasty:dynn_Phassios
-						owner.dynasty = dynasty:dynn_Lyakis
-						owner.dynasty = dynasty:dynn_Paenaar
-					}
-				}
-				add_domicile_building = estate_main_02
-				while = {
-					count = 2
-					add_random_internal_estate_building = yes
-					add_random_external_estate_building = yes
-				}
-			}
-			### 1
-			if = {
-				limit = {
-					OR = {
-						# Braavos
-						owner.dynasty = dynasty:dynn_Vereno
-						owner.dynasty = dynasty:dynn_Jamiroqyr
-						# Tyrosh
-						owner.house = house:house_Altoris
-						# Myr
-						owner.dynasty = dynasty:dynn_Zevos
-					}
-				}
-				while = {
-					count = 1
-					add_random_internal_estate_building = yes
-					add_random_external_estate_building = yes
-				}
-			}
-		}
-		
-		# Temp bugfix for game-over after Prince is dead
-		title:k_pentos.holder ?= {
-			if = {
-				limit = {
-					is_ai = no
-					any_noble_family = { holder.dynasty = title:k_pentos.holder.dynasty }
-				}
-				random_noble_family = {
-					limit = { holder.dynasty = title:k_pentos.holder.dynasty }
-					title:k_pentos.holder = { get_title = PREV }
-				}
-			}
-		} 
-	}
-}
-
-agot_nf_estate_locations = {
-	effect = {
-		every_domicile = {
-			limit = {
-				is_domicile_type = estate
-			}
-			### Braavos
-			if = {
-				limit = {
-					OR = {
-						owner.dynasty = dynasty:dynn_Terys
-						owner.dynasty = dynasty:dynn_Nestoris
-						owner.dynasty = dynasty:dynn_Peyrel
-						owner.dynasty = dynasty:dynn_Tavellen
-					}
-				}
-				move_domicile = title:b_purple_harbor.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Phalys }
-				move_domicile = title:b_silty_town.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Velaron }
-				move_domicile = title:b_fog_crossing.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Saldaaris }
-				move_domicile = title:b_patchwork_port.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Zalyne }
-				move_domicile = title:b_erval.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Reyaan }
-				move_domicile = title:b_oranole.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Volentin }
-				move_domicile = title:b_oranole.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Tremolo }
-				move_domicile = title:b_erval.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Vereno }
-				move_domicile = title:b_wanewood.title_province
-			}
-			else_if = {
-				limit = {
-					OR = {
-						owner.dynasty = dynasty:dynn_Tendyris
-						owner.dynasty = dynasty:dynn_Jamiroqyr
-					}
-				}
-				move_domicile = title:b_numio.title_province
-			}
-			### Tyrosh
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Ryndoon }
-				move_domicile = title:b_quilt_harbor.title_province
-			}
-			else_if = {
-				limit = { owner.house = house:house_Altoris }
-				move_domicile = title:b_brandy_row.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Uthis }
-				move_domicile = title:b_dye_district.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Gaergyn }
-				move_domicile = title:b_soot_dorun.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Ir_Keraz }
-				move_domicile = title:b_dynelos.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Tyraanis }
-				move_domicile = title:b_kerkosh.title_province
-			}
-			### Lys
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Bazanne }
-				move_domicile = title:b_kornovear.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Orthys }
-				move_domicile = title:b_slavers_port.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Haen }
-				move_domicile = title:b_minstrel_way.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Naethys }
-				move_domicile = title:b_leisure.title_province
-			}
-			else_if = {
-				limit = {
-					OR = {
-						owner.dynasty = dynasty:dynn_Ormollen
-						owner.dynasty = dynasty:dynn_Moraqos
-					}
-				}
-				move_domicile = title:b_radiant_harbor.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Dagareon }
-				move_domicile = title:b_silver_mint.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Lohar }
-				move_domicile = title:b_drakes_rest.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Erosenes }
-				move_domicile = title:b_street_of_tears.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Erosenes }
-				move_domicile = title:b_street_of_tears.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Sellos }
-				move_domicile = title:b_lys.title_province
-			}
-			else_if = {
-				limit = {
-					OR = {
-						owner.dynasty = dynasty:dynn_Eigares
-						owner.dynasty = dynasty:dynn_Taeryhen
-					}
-				}
-				move_domicile = title:b_perfumed_garden.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Taradys }
-				move_domicile = title:b_motar.title_province
-			}
-			### Myr
-			else_if = {
-				limit = {
-					OR = {
-						owner.dynasty = dynasty:dynn_Valduran
-						owner.dynasty = dynasty:dynn_Annadho
-					}
-				}
-				move_domicile = title:b_lysayn.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Varghan }
-				move_domicile = title:b_antyne.title_province
-			}
-			else_if = {
-				limit = {
-					OR = {
-						owner.dynasty = dynasty:dynn_Rhegan 
-						owner.dynasty = dynasty:dynn_Sordios
-					}
-				}
-				move_domicile = title:b_croryo.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Zevos }
-				move_domicile = title:b_sorela.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Myrahar }
-				move_domicile = title:b_thaesh.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Lornel }
-				move_domicile = title:b_anerah.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Saldorys }
-				move_domicile = title:b_foraan.title_province
-			}
-			# Pentos
-			else_if = {
-				limit = { 
-					OR = {
-						owner.dynasty = dynasty:dynn_Myrakis
-						owner.dynasty = dynasty:dynn_Valduran
-						owner.dynasty = dynasty:dynn_Annadho
-						owner.dynasty = dynasty:dynn_Quaranis
-					}
-				}
-				move_domicile = title:b_pentos.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Draz }
-				move_domicile = title:b_bedrylos.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Sentanis }
-				move_domicile = title:b_riostelos.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Togaraz }
-				move_domicile = title:b_sunset_bazaars.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Narratys }
-				move_domicile = title:b_the_spice_exchange.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Haratis }
-				move_domicile = title:b_ar_kon.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Mopatis }
-				move_domicile = title:b_mummer_lane.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Estatis }
-				move_domicile = title:b_palace_of_prosperity.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Bopatis }
-				move_domicile = title:b_nonombion.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Haeminys }
-				move_domicile = title:b_pentos.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Enrosaena }
-				move_domicile = title:b_naqiedror.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Samalaz }
-				move_domicile = title:b_samaal.title_province
-			}
-			else_if = {
-				limit = {
-					OR = {
-						owner.dynasty = dynasty:dynn_Elisys
-						owner.dynasty = dynasty:dynn_Garvanis
-					} 
-				}
-				move_domicile = title:b_mummer_lane.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Lyakis }
-				move_domicile = title:b_weshold.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Thelis }
-				move_domicile = title:b_kastajikagon.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Phassios }
-				move_domicile = title:b_qelbar_grozior.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Ozelmaar }
-				move_domicile = title:b_kyrhinon.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Torgodorio }
-				move_domicile = title:b_andiwor.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Kaporys }
-				move_domicile = title:b_hukodale.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Paenaar }
-				move_domicile = title:b_duntorr.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Lyksanon }
-				move_domicile = title:b_nontelos.title_province
-			}
-		}
-	}
-}
-
-agot_laamp_camp_locations = {
-	effect = {
-		every_domicile = {
-			limit = {
-				is_domicile_type = camp
-			}
-			if = {
-				limit = { owner.dynasty = dynasty:dynn_Frey }
-				move_domicile = title:b_littlebrook.title_province
-			}
-			else_if = {
-				limit = { owner.dynasty = dynasty:dynn_Suggs }
-				move_domicile = title:b_hookmarket.title_province
-			}
-		}
-	}
-}
-
-agot_qohorik_weaponsmith_pulse = {
-	effect = {
-		random_ruler = {
-			limit = {
-				is_landed = yes
-				NOR = {
-					capital_province ?= { geographical_region = world_westeros_beyond_the_wall }
-					capital_province ?= { geographical_region = world_westeros_the_wall }
-					capital_province ?= { geographical_region = world_ruins }
-				}
-			}
-			save_scope_as = ruler_scope
-			create_character = {
-				template = qohorik_master_smith_character
-				location = scope:ruler_scope.location
-			}
-		}
-	}
-	on_actions = {
-		delay = { years = 10 } # Triggers the next one in ten years
-		agot_qohorik_weaponsmith_pulse
 	}
 }

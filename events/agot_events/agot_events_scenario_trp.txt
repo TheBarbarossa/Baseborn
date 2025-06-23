@@ -1,0 +1,5649 @@
+﻿namespace = agot_scenario_trp
+
+# Event IDs
+# 0001 - 0099: Daemon
+# 0100 - 0199: Corlys
+# 0200 - 0299: Crabfeeder
+# 1000 - 1999: Misc Minor Events
+
+# 0001 - 0099: Daemon
+agot_scenario_trp.0001 = { # Scenario start event
+	type = character_event
+	window = dragon_character_event
+	title = agot_scenario_trp.0001.t
+	desc = agot_scenario_trp.0001.desc
+	theme = war
+
+	override_background = {
+		reference = AGOT_beach
+	}
+
+	override_effect_2d = {
+		reference = smoke
+	}
+
+	left_portrait = {
+		character = root
+		animation = marshal
+	}
+
+	right_portrait = {
+		character = var:current_dragon
+		animation = dragon_main
+		camera = camera_dragon_event_standing
+
+		#Add this so dragon fits within event window
+		outfit_tags = { linear_camera_zoom }
+	}
+
+	immediate = {
+		add_character_flag = wear_armor
+		add_character_flag = no_hat
+		hidden_effect = {
+			start_war = {
+				casus_belli = daemon_stepstones_first_war
+				target = title:d_first_stepstones.holder
+				claimant = root
+				target_title = title:d_first_stepstones
+			}
+		}
+		var:current_dragon = {
+			save_scope_as = current_dragon # For loc
+		}
+
+		# Edited - start
+		character:Targaryen_61 = {
+			every_character_war = {
+				add_to_list = actor_wars
+			}
+		}
+		every_in_list = {
+			list = actor_wars
+			limit = {
+				primary_defender = character:Targaryen_61
+			}
+			add_to_list = join_as_defender
+			remove_from_list = actor_wars
+		}
+		every_in_list = {
+			list = actor_wars
+			limit = {
+				primary_attacker = character:Targaryen_61
+			}
+			add_to_list = join_as_attacker
+			remove_from_list = actor_wars
+		}
+		
+		every_in_list = {
+			list = join_as_attacker
+			add_attacker = character:Baseborn_1
+		}
+		every_in_list = {
+			list = join_as_defender
+			add_defender = character:Baseborn_1
+		}
+		#list all wars that scope:recipient can't join
+		every_in_list = {
+			list = actor_wars
+			custom = hire_laamp_mercenaries_interaction.not_primary_side
+			# I swear it was the only way to make the tooltip look nice
+			every_in_list = {
+				list = actor_wars
+				save_temporary_scope_as = war
+				custom_tooltip = hire_laamp_mercenaries_interaction.war
+			}
+		}
+		character:Targaryen_61 = {
+			pay_short_term_gold = {
+				target = character:Baseborn_1
+				gold = ep3_hire_laamp_mercs_cost_value
+			}
+			custom_tooltip = hire_laamp_mercenaries_interaction.contribution_pay
+		}
+		character:Baseborn_1 = {
+			add_character_flag = joined_as_mercenary
+		}
+		add_clan_unity_interaction_effect = {
+			CHARACTER = character:Targaryen_61
+			TARGET = character:Baseborn_1
+			VALUE = medium_unity_gain
+			DESC = clan_unity_alliance.desc
+			REVERSE_NON_HOUSE_TARGET = no
+		}
+		# Edited - end
+	}
+
+	option = {
+		name = agot_scenario_trp.0001.a
+	}
+
+	after = {
+		# remove_character_flag = wear_armor
+		# remove_character_flag = no_hat
+	}
+}
+
+agot_scenario_trp.0002 = { # Daemon won first war
+	type = character_event
+	title = agot_scenario_trp.0002.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					title:k_the_stepstones.holder = character:Drahar_8
+				}
+				desc = agot_scenario_trp.0002.desc_crabfeeder
+			}
+			desc = agot_scenario_trp.0002.desc_other
+		}
+	}
+	theme = war
+	trigger = {
+		NOT = { has_character_flag = agot_trp_won_stepstones_war } # To prevent double event
+	}
+	right_portrait = {
+		character = root
+		animation = celebrate_sword
+	}
+	left_portrait = {
+		character = scope:stepstones_commander
+		animation = dismissal
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = agot_trp_won_stepstones_war
+			days = 10
+		}
+		set_realm_capital = title:c_bloodstone
+		random_owned_story = {
+			limit = {
+				story_type = story_agot_scenario_trp
+			}
+			set_variable = {
+				name	= agot_trp_daemon_war_counter
+				value	= 2
+			}
+		}
+		title:k_the_stepstones.holder = {
+			save_scope_as = stepstones_commander
+		}
+		character:Drahar_8 ?= {
+			save_scope_as = crabfeeder
+		}
+	}
+
+	option = { # We shall take ALL the Stepstones!
+		name = agot_scenario_trp.0002.a
+		start_war = {
+			casus_belli = daemon_stepstones_second_war
+			target = title:k_the_stepstones.holder
+			claimant = root
+			target_title = title:k_the_stepstones
+		}
+	}
+}
+
+agot_scenario_trp.0003 = { # Daemon has won second war
+	type = character_event
+	title = agot_scenario_trp.0003.t
+	desc = agot_scenario_trp.0003.desc
+	theme = war
+	trigger = {
+		NOT = { has_character_flag = agot_trp_won_stepstones_war } # To prevent double event
+	}
+	right_portrait = {
+		character = root
+		animation = celebrate_sword
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = agot_trp_won_stepstones_war
+			days = 10
+		}
+		random_owned_story = {
+			limit = {
+				story_type = story_agot_scenario_trp
+			}
+			set_variable = {
+				name	= agot_trp_daemon_war_counter
+				value	= 3
+			}
+		}
+	}
+
+	option = { # I am triumphant!
+		name = agot_scenario_trp.0003.a
+		custom_tooltip = agot_scenario_trp.0003.a.tt
+		if = {
+			limit = {
+				character:Drahar_8 = {
+					is_alive = yes
+				}
+			}
+			character:Drahar_8 = {
+				death = {
+					killer = character:Targaryen_61
+					death_reason = death_dragon
+				}
+			}
+		}
+		if = {
+			limit = {
+				character:coadmiral_2 = {
+					is_alive = yes
+				}
+			}
+			character:coadmiral_2 = {
+				death = {
+					killer = character:Targaryen_61
+					death_reason = death_dragon
+				}
+			}
+		}
+	}
+}
+
+agot_scenario_trp.0004 = { # Triarchy has allied Dorne
+	type = character_event
+	title = agot_scenario_trp.0004.t
+	desc = agot_scenario_trp.0004.desc
+	theme = war
+	right_portrait = {
+		character = root
+		animation = anger
+	}
+	lower_left_portrait = {
+		character = title:e_dorne.holder
+	}
+	lower_right_portrait = {
+		character = title:e_three_daughters.holder
+	}
+
+	immediate = {
+		random_owned_story = {
+			limit = {
+				story_type = story_agot_scenario_trp
+			}
+			set_variable = {
+				name = agot_trp_daemon_war_counter
+				value = 4
+			}
+		}
+	}
+
+	option = { # They will taste fire!
+		name = agot_scenario_trp.0004.a
+
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = agot_nonhistoric_outcome_2
+			}
+		}
+	}
+
+	option = { # This is all too much hassle
+		name = agot_scenario_trp.0004.b
+		trigger = {
+			OR = {
+				is_ai = yes
+				title:e_the_iron_throne.holder ?= { is_ai = yes }
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_historic_outcome_2
+			}
+		}
+		agot_8106_daemon_abandons_stepstones_effect = yes
+		title:e_the_iron_throne.holder = {
+			trigger_event = agot_scenario_trp.1009
+		}
+		random_owned_story = {
+			limit = {
+				story_type = story_agot_scenario_trp
+			}
+			end_story = yes
+		}
+	}
+}
+
+agot_scenario_trp.0005 = { # Daemon has won AGAIN, now undisputed king of the Stepstones
+	type = character_event
+	title = agot_scenario_trp.0005.t
+	desc = {
+		desc = agot_scenario_trp.0005.desc
+		first_valid = {
+			triggered_desc = {
+				trigger = { character:Targaryen_60 = { has_title = title:e_the_iron_throne } }
+				desc = agot_scenario_trp.0005.desc.west_brother
+			}
+			triggered_desc = {
+				trigger = { character:Targaryen_63 = { has_title = title:e_the_iron_throne } }
+				desc = agot_scenario_trp.0005.desc.west_niece
+			}
+			desc = agot_scenario_trp.0005.desc.west_other
+		}
+		desc = agot_scenario_trp.0005.desc.end
+	}
+	theme = war
+	right_portrait = {
+		character = root
+		animation = celebrate_sword
+	}
+
+	immediate = {
+		add_prestige = 1000
+		if = {
+			limit = {
+				NOT = { has_title = title:c_tigers_island }
+				NOT = {
+					any_vassal_or_below = {
+						has_title = title:c_tigers_island
+					}
+				}
+			}
+			get_title = title:c_tigers_island
+		}
+		if = {
+			limit = {
+				NOT = { has_title = title:c_last_refuge }
+				NOT = {
+					any_vassal_or_below = {
+						has_title = title:c_last_refuge
+					}
+				}
+			}
+			get_title = title:c_last_refuge
+		}
+		agot_pirate_convert_whole_realm_to_feudalism_effect = yes
+		hidden_effect = {
+			every_vassal = {
+				trigger_event = {
+					id = agot_pirate_events.0002
+					days = 3
+				}
+			}
+		}
+	}
+
+	option = { # The Triarchy has gone on too long
+		name = agot_scenario_trp.0005.a
+		trigger = {
+			is_current_dragonrider = yes
+			exists = title:e_three_daughters.holder
+		}
+
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_nonhistoric_outcome_5
+			}
+		}
+
+		start_war = {
+			casus_belli = dragon_subjugation_cb
+			target = title:e_three_daughters.holder
+			claimant = root
+			target_title = title:e_three_daughters
+		}
+	}
+
+	option = { # I shall claim the iron throne
+		name = agot_scenario_trp.0005.b
+		trigger = {
+			is_current_dragonrider = yes
+			exists = title:e_the_iron_throne.holder
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_nonhistoric_outcome_5
+			}
+		}
+
+		start_war = {
+			casus_belli = claim_cb
+			target = title:e_the_iron_throne.holder
+			claimant = root
+		}
+	}
+
+	option = { # I shall swear fealty to the iron throne
+		name = agot_scenario_trp.0005.c
+		trigger = {
+			agot_is_independent_ruler = yes
+			primary_title.tier < tier_empire
+		}
+		custom_tooltip = agot_scenario_trp.0005.c.tt
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_nonhistoric_outcome_5
+			}
+		}
+		create_title_and_vassal_change = {
+			type = swear_fealty
+			save_scope_as = title_change
+		}
+		change_liege = {
+			liege = title:e_the_iron_throne.holder
+			change = scope:title_change
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		title:e_the_iron_throne.holder = {
+			trigger_event = agot_scenario_trp.1010
+		}
+	}
+
+	option = { # This is enough
+		name = agot_scenario_trp.0005.d
+		custom_tooltip = agot_scenario_trp.0005.d.tt
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_nonhistoric_outcome_5
+			}
+		}
+	}
+
+	option = { # I tire of the stepstones, I shall go home
+		name = agot_scenario_trp.0005.e
+		trigger = {
+			OR = {
+				is_ai = yes
+				title:e_the_iron_throne.holder ?= { is_ai = yes }
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_historic_outcome_5
+			}
+		}
+		agot_8106_daemon_abandons_stepstones_effect = yes
+		title:e_the_iron_throne.holder = {
+			trigger_event = agot_scenario_trp.1009
+		}
+		random_owned_story = {
+			limit = {
+				story_type = story_agot_scenario_trp
+			}
+			end_story = yes
+		}
+	}
+}
+
+agot_scenario_trp.0006 = { # Daemon has been invited to Driftmark
+	type = character_event
+	title = agot_scenario_trp.0006.t
+	desc = agot_scenario_trp.0006.desc
+	theme = friendly
+	override_background = {
+		reference = council_chamber
+	}
+	lower_left_portrait = {
+		character = character:Velaryon_31
+	}
+	right_portrait = {
+		character = root
+		animation = chancellor
+	}
+
+	immediate = {
+		character:Targaryen_61 = {
+			save_scope_as = daemon
+		}
+		character:Velaryon_31 = {
+			save_scope_as = corlys
+		}
+		hidden_effect = {
+			character:Velaryon_34 = {
+				add_trait = refusing_marriage
+			}
+		}
+	}
+
+	option = { # I shall go!
+		name = agot_scenario_trp.0006.a
+		flavor = agot_scenario_trp.0006.a.f
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_historic_chain_outcome
+			}
+		}
+		custom_tooltip = agot_scenario_trp.0006.a.tt
+		trigger_event = {
+			id = agot_scenario_trp.0007
+			days = 14
+		}
+	}
+
+	option = { # Sounds pleasant, but I must decline
+		name = agot_scenario_trp.0006.b
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_nonhistoric_chain_outcome
+			}
+		}
+		custom_tooltip = agot_scenario_trp.0006.b.tt
+		character:Velaryon_31 = {
+			trigger_event = {
+				id = agot_scenario_trp.0109
+				days = 7
+			}
+		}
+	}
+}
+
+agot_scenario_trp.0007 = { # Daemon arrives at Driftmark
+	type = character_event
+	title = agot_scenario_trp.0007.t
+	desc = {
+		desc = agot_scenario_trp.0007.desc
+		triggered_desc = {
+			trigger = { exists = scope:laena.betrothed }
+			desc = agot_scenario_trp.0007.desc_betrothed
+		}
+		triggered_desc = {
+			trigger = { NOT = { exists = scope:laena.betrothed } }
+			desc = agot_scenario_trp.0007.desc_not
+		}
+	}
+	theme = marriage
+	override_background = {
+		reference = garden
+	}
+	left_portrait = {
+		character = character:Velaryon_34
+		animation = admiration
+	}
+	lower_left_portrait = {
+		character = scope:laena.betrothed
+	}
+	lower_center_portrait = {
+		character = character:Velaryon_31
+	}
+	right_portrait = {
+		character = root
+		animation = flirtation
+	}
+
+	immediate = {
+		character:Velaryon_34 = {
+			save_scope_as = laena
+			betrothed ?= {
+				if = {
+					limit = {
+						is_adult = yes # Just to avoid weird child duels
+					}
+					save_scope_as = laena_betrothed
+				}
+			}
+			hidden_effect = {
+				remove_trait = refusing_marriage
+			}
+		}
+	}
+
+	option = { # I shall cut this challenger down!
+		name = agot_scenario_trp.0007.a
+		trigger = {
+			exists = scope:laena.betrothed
+			scope:laena.betrothed = {
+				is_adult = yes
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_historic_chain_outcome
+			}
+		}
+		if = {
+			limit = { # In the EXTREME rare case that the player has a betrothal, probably tell them first
+				scope:laena_betrothed = { is_ai = no }
+			}
+			scope:laena_betrothed = {
+				trigger_event = {
+					id = agot_scenario_trp.1039
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				is_ai = no
+			}
+			configure_start_single_combat_effect = {
+				SC_INITIATOR = root
+				SC_ATTACKER = root
+				SC_DEFENDER = scope:laena_betrothed
+				FATALITY = always
+				FIXED = no
+				LOCALE = terrain_scope
+				OUTPUT_EVENT = agot_scenario_trp.1040
+				INVALIDATION_EVENT = single_combat.1006
+			}
+		}
+		else = {
+			hidden_effect = {
+				scope:laena.betrothed = {
+					death = {
+						killer = root
+						death_reason = death_duel
+					}
+				}
+			}
+			character:Velaryon_31 = {
+				trigger_event = {
+					id = agot_scenario_trp.0111
+				}
+			}
+		}
+		custom_tooltip = agot_scenario_trp.0007.a.tt
+	}
+
+	option = { # I shall ask for her hand!
+		name = agot_scenario_trp.0007.b
+		trigger = {
+			OR = {
+				NOT = { exists = scope:laena.betrothed }
+				scope:laena.betrothed = {
+					is_adult = no
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_historic_chain_outcome
+			}
+		}
+		custom_tooltip = agot_scenario_trp.0007.b.tt
+		character:Velaryon_31 = {
+			trigger_event = {
+				id = agot_scenario_trp.0113
+			}
+		}
+	}
+
+	option = { # Sounds pleasant, but I must decline
+		name = agot_scenario_trp.0007.c
+		flavor = agot_scenario_trp.0007.c.f
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_nonhistoric_chain_outcome
+			}
+		}
+		character:Velaryon_31 = {
+			trigger_event = {
+				id = agot_scenario_trp.0110
+			}
+		}
+	}
+}
+
+# 0100 - 0199: Corlys
+agot_scenario_trp.0101 = { # Scenario start event
+	type = character_event
+	title = agot_scenario_trp.0101.t
+	desc = agot_scenario_trp.0101.desc
+	theme = war
+	override_background = {
+		reference = ocean
+	}
+	right_portrait = {
+		character = root
+		animation = war_attacker
+	}
+	lower_right_portrait = {
+		character = character:Targaryen_61
+	}
+
+	immediate = {
+		title:c_driftmark = {
+			add_county_modifier = {
+				modifier = agot_sea_trade_restricted
+				years = 50
+			}
+		}
+		every_character_war = { # To avoid errors
+			add_to_list = temporary_war_list
+		}
+		character:Targaryen_61 = {
+			every_character_war = {
+				limit = {
+					NOT = {
+						any_in_list = {
+							list = temporary_war_list
+							this = prev
+						}
+					}
+				}
+				add_attacker = root
+			}
+			save_scope_as = daemon
+		}
+		add_character_flag = helped_daemon_second_war
+		# Remove dragonriders so they don't join in stepstones wars
+		if = {
+			limit = { is_ai = yes }
+			primary_spouse = {
+				if = {
+					limit = { is_potential_knight = yes }
+					set_knight_status = forbid
+				}
+			}
+			every_child = {
+				if = {
+					limit = { is_potential_knight = yes }
+					set_knight_status = forbid
+				}
+			}
+		}
+	}
+
+	option = {
+		name = agot_scenario_trp.0101.a
+		custom_tooltip = agot_scenario_trp.0101.a.tt
+	}
+}
+
+agot_scenario_trp.0102 = { # Daemon war lost
+	type = character_event
+	title = agot_scenario_trp.0102.t
+	desc = {
+		desc = agot_scenario_trp.0102.desc
+		first_valid = {
+			triggered_desc = {
+				trigger = { character:Targaryen_61 = { is_alive = no } }
+				desc = agot_scenario_trp.0102.desc.dead
+			}
+			desc = agot_scenario_trp.0102.desc.alive
+		}
+		desc = agot_scenario_trp.0102.desc.end
+	}
+	theme = war
+	override_background = {
+		reference = ocean
+	}
+	right_portrait = {
+		character = root
+		animation = stress
+	}
+	lower_right_portrait = {
+		character = character:Targaryen_61
+	}
+
+	immediate = {
+		title:c_driftmark = {
+			if = {
+				limit = { has_county_modifier = agot_sea_trade_restricted }
+				remove_county_modifier = agot_sea_trade_restricted
+			}
+			add_county_modifier = {
+				modifier = agot_sea_trade_penalized
+				years = 50
+			}
+		}
+		# Corlys gets his dragonriders back
+		character:Velaryon_31 = {
+			primary_spouse = {
+				remove_character_flag = agot_not_using_dragon
+			}
+			every_child = {
+				remove_character_flag = agot_not_using_dragon
+			}
+		}
+	}
+
+	option = {
+		name = agot_scenario_trp.0102.a
+	}
+}
+
+agot_scenario_trp.0103 = { # Daemon won, trade better
+	type = character_event
+	title = agot_scenario_trp.0103.t
+	desc = agot_scenario_trp.0103.desc
+	theme = war
+	trigger = {
+		NOT = { has_character_flag = agot_corlys_had_first_win_event } # To prevent double event due to multiple origin possibilities
+	}
+	override_background = {
+		reference = ocean
+	}
+	left_portrait = {
+		character = root
+		animation = toast_goblet
+	}
+	right_portrait = {
+		character = character:Targaryen_61
+		animation = celebrate_sword
+	}
+
+	immediate = {
+		title:c_driftmark = {
+			remove_county_modifier = agot_sea_trade_restricted
+			add_county_modifier = {
+				modifier = agot_sea_trade_preference
+				years = 50
+			}
+		}
+		add_character_flag = {
+			flag = agot_corlys_had_first_win_event
+			days = 10
+		}
+		character:Targaryen_61 = {
+			save_scope_as = daemon
+		}
+	}
+
+	option = { # Ally Daemon
+		name = agot_scenario_trp.0103.a
+		create_alliance = character:Targaryen_61
+		character:Targaryen_61 = {
+			add_opinion = {
+				target = root
+				modifier = perk_negotiated_alliance_opinion
+			}
+			send_interface_toast = {
+				title = agot_scenario_trp.0103.a.daemon_t
+				custom_tooltip = agot_scenario_trp.0103.a.daemon_tt
+				left_icon = character:Velaryon_31
+				right_icon = character:Targaryen_61
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_nonhistoric_outcome_2
+			}
+		}
+	}
+
+	option = { # This alliance has served its purpose
+		name = agot_scenario_trp.0103.b
+		character:Targaryen_61 = {
+			send_interface_toast = {
+				title = agot_scenario_trp.0103.b.daemon_t
+				custom_tooltip = agot_scenario_trp.0103.b.daemon_tt
+				left_icon = character:Velaryon_31
+				right_icon = character:Targaryen_61
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_historic_outcome_2
+			}
+		}
+		# Corlys gets his dragonriders back
+		character:Velaryon_31 = {
+			primary_spouse = {
+				remove_character_flag = agot_not_using_dragon
+			}
+			every_child = {
+				remove_character_flag = agot_not_using_dragon
+			}
+		}
+	}
+}
+
+agot_scenario_trp.0104 = { # Daemon won first war, debuff removed
+	type = character_event
+	title = agot_scenario_trp.0104.t
+	desc = agot_scenario_trp.0104.desc
+	theme = war
+	override_background = {
+		reference = ocean
+	}
+	left_portrait = {
+		character = root
+		animation = toast_goblet
+	}
+	right_portrait = {
+		character = character:Targaryen_61
+		animation = celebrate_sword
+	}
+
+	immediate = {
+		title:c_driftmark = {
+			remove_county_modifier = agot_sea_trade_restricted
+		}
+	}
+
+	option = { # Ally Daemon for second war
+		name = agot_scenario_trp.0104.a
+		every_character_war = { # To avoid errors
+			add_to_list = temporary_war_list
+		}
+		character:Targaryen_61 = {
+			every_character_war = {
+				limit = {
+					NOT = {
+						any_in_list = {
+							list = temporary_war_list
+							this = prev
+						}
+					}
+				}
+				add_attacker = root
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_historic_outcome_2
+			}
+		}
+	}
+
+	option = { # This alliance has served its purpose
+		name = agot_scenario_trp.0104.b
+		flavor = agot_scenario_trp.0104.b.f
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_nonhistoric_outcome_2
+			}
+		}
+		# Corlys gets his dragonriders back
+		character:Velaryon_31 = {
+			primary_spouse = {
+				remove_character_flag = agot_not_using_dragon
+			}
+			every_child = {
+				remove_character_flag = agot_not_using_dragon
+			}
+		}
+	}
+}
+
+agot_scenario_trp.0105 = { # Laena betrothal consideration
+	type = character_event
+	title = agot_scenario_trp.0105.t
+	desc = agot_scenario_trp.0105.desc
+	theme = marriage
+	override_background = {
+		reference = council_chamber
+	}
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	right_portrait = {
+		character = character:Velaryon_34
+		animation = stress
+	}
+	lower_left_portrait = {
+		character = scope:laena_betrothed
+	}
+
+	trigger = {
+		is_alive = yes
+		exists = character:Velaryon_34.betrothed
+		character:Velaryon_34.betrothed = character:temp_laena_suitor # Change when Braavosi history done
+		character:Velaryon_34 = {
+			is_alive = yes
+			is_landed = no
+			employer = root
+		}
+	}
+
+	immediate = {
+		character:Velaryon_34 = {
+			save_scope_as = laena
+			betrothed = {
+				save_scope_as = laena_betrothed
+			}
+		}
+	}
+
+	option = { # They shall be married!
+		name = agot_scenario_trp.0105.a
+		flavor = agot_scenario_trp.0105.a.f
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_nonhistoric_chain_outcome
+			}
+		}
+		character:Velaryon_34 = {
+			marry_matrilineal = character:temp_laena_suitor
+		}
+	}
+
+	option = { # It is...not advantageous
+		name = agot_scenario_trp.0105.b
+		flavor = agot_scenario_trp.0105.b.f
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_historic_chain_outcome
+			}
+		}
+		if = {
+			limit = {
+				is_ai = yes
+			}
+			character:Velaryon_34 = { # Laena
+				add_character_modifier = {
+					modifier = reluctant_bride_modifier
+					years = 14
+				}
+			}
+		}
+		add_prestige = -100
+		custom_tooltip = agot_scenario_trp.0105.b.tt
+		create_story = story_agot_laena_betrothal_decision
+	}
+}
+
+agot_scenario_trp.0106 = { # The King is unmarried
+	type = character_event
+	title = agot_scenario_trp.0106.t
+	desc = {
+		desc = agot_scenario_trp.0106.desc
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					title:e_the_iron_throne.holder = character:Targaryen_60
+				}
+				desc = agot_scenario_trp.0106.desc_visy
+			}
+			triggered_desc = {
+				trigger = {
+					title:e_the_iron_throne.holder = character:Targaryen_61
+				}
+				desc = agot_scenario_trp.0106.desc_daemon
+			}
+			desc = agot_scenario_trp.0106.desc_other
+		}
+		triggered_desc = {
+			trigger = {
+				character:Velaryon_34 = {
+					exists = betrothed
+				}
+			}
+			desc = agot_scenario_trp.0106.desc_betrothed
+		}
+	}
+	theme = marriage
+	override_background = {
+		reference = council_chamber
+	}
+	right_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	lower_right_portrait = {
+		character = scope:laena
+	}
+	lower_center_portrait = {
+		character = scope:laena_betrothed
+	}
+	lower_left_portrait = {
+		character = title:e_the_iron_throne.holder
+	}
+
+	trigger = {
+		character:Velaryon_34 = {
+			is_alive = yes
+			is_married = no
+			employer = root
+		}
+		title:e_the_iron_throne.holder = {
+			NOT = { has_character_flag = considered_by_corlys_for_marriage }
+		}
+	}
+
+	immediate = {
+		character:Velaryon_34 = {
+			save_scope_as = laena
+			betrothed ?= {
+				save_scope_as = laena_betrothed
+			}
+		}
+		title:e_the_iron_throne.holder = {
+			save_scope_as = king
+		}
+	}
+
+	option = { # I shall ask again!
+		name = agot_scenario_trp.0106.a
+		flavor = agot_scenario_trp.0106.a.f
+		ai_chance = {
+			base = 100 # This is kind of a no-brainer
+		}
+		custom_tooltip = agot_scenario_trp.0106.a.tt
+		title:e_the_iron_throne.holder = {
+			add_character_flag = considered_by_corlys_for_marriage
+			trigger_event = agot_scenario_trp.1038
+		}
+	}
+
+	option = { # I'll not beg!
+		name = agot_scenario_trp.0106.b
+		ai_chance = {
+			base = 0
+		}
+		custom_tooltip = agot_scenario_trp.0106.b.tt
+	}
+}
+
+agot_scenario_trp.0107 = { # Daemon is unmarried
+	type = character_event
+	title = agot_scenario_trp.0107.t
+	desc = agot_scenario_trp.0107.desc
+	theme = marriage
+	override_background = {
+		reference = council_chamber
+	}
+	right_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	lower_right_portrait = {
+		character = scope:laena
+	}
+	lower_center_portrait = {
+		character = scope:laena_betrothed
+	}
+	lower_left_portrait = {
+		character = character:Targaryen_61
+	}
+
+	trigger = {
+		character:Targaryen_61 = {
+			is_alive = yes
+			is_married = no
+			NOT = { has_character_flag = considered_by_corlys_for_marriage }
+		}
+		character:Velaryon_34 = {
+			is_alive = yes
+			is_married = no
+			employer = root
+		}
+	}
+
+	immediate = {
+		character:Targaryen_61 = {
+			save_scope_as = daemon
+		}
+		character:Velaryon_34 = {
+			save_scope_as = laena
+			betrothed ?= {
+				save_scope_as = laena_betrothed
+			}
+		}
+	}
+
+	option = { # Let us send the invitation!
+		name = agot_scenario_trp.0107.a
+		flavor = agot_scenario_trp.0107.a.f
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_historic_chain_outcome
+			}
+		}
+		if = {
+			limit = {
+				character:Targaryen_61 =  {
+					is_ruler = yes
+				}
+			}
+			custom_tooltip = agot_scenario_trp.0107.a.landed_tt
+			character:Targaryen_61 = {
+				add_character_flag = considered_by_corlys_for_marriage
+				# Consider betrothal
+				trigger_event = {
+					id = agot_scenario_trp.0006
+				}
+			}
+		}
+		else = {
+			custom_tooltip = agot_scenario_trp.0107.a.unlanded_tt
+			# Arrives event
+			character:Targaryen_61 = {
+				trigger_event = {
+					id = agot_scenario_trp.0007
+					days = 14
+				}
+			}
+		}
+	}
+
+	option = { # He is not suitable
+		name = agot_scenario_trp.0107.b
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_nonhistoric_chain_outcome
+			}
+		}
+		custom_tooltip = agot_scenario_trp.0106.b.tt
+	}
+}
+
+agot_scenario_trp.0108 = { # Laena is 30
+	type = character_event
+	title = agot_scenario_trp.0108.t
+	desc = agot_scenario_trp.0108.desc
+	theme = marriage
+	override_background = {
+		reference = council_chamber
+	}
+	right_portrait = {
+		character = root
+		animation = stress
+	}
+	lower_center_portrait = {
+		character = scope:laena_betrothed
+	}
+	left_portrait = {
+		character = scope:laena
+		animation = disbelief
+	}
+
+	trigger = {
+		character:Velaryon_34 = {
+			is_alive = yes
+			is_married = no
+			employer = root
+		}
+		exists = character:Velaryon_34.betrothed
+		character:Velaryon_34.betrothed = character:temp_laena_suitor # Change when Braavosi history done
+	}
+
+	immediate = {
+		character:Velaryon_34 = {
+			save_scope_as = laena
+			betrothed ?= {
+				save_scope_as = laena_betrothed
+			}
+		}
+		add_prestige = -100
+	}
+
+	option = { # Let them be married!
+		name = agot_scenario_trp.0108.a
+		flavor = agot_scenario_trp.0108.a.f
+		character:Velaryon_34 = {
+			marry_matrilineal = scope:laena_betrothed
+		}
+	}
+
+	option = { # We shall finally break the betrothal
+		name = agot_scenario_trp.0108.b
+		flavor = agot_scenario_trp.0108.b.f
+		character:Velaryon_34 = {
+			if = {
+				limit = {
+					exists = betrothed
+				}
+				if = {
+					limit = {
+						has_been_promised_grand_wedding = yes
+					}
+					break_grand_wedding_betrothal_effect = yes
+				}
+				else = {
+					break_betrothal = betrothed
+				}
+			}
+		}
+		set_relation_rival = {
+			target = scope:laena_betrothed
+			reason = rival_broke_important_betrothal
+		}
+		scope:laena_betrothed = {
+			move_to_pool = yes
+		}
+	}
+}
+
+agot_scenario_trp.0109 = { # Daemon declined to come to Driftmark
+	type = character_event
+	title = agot_scenario_trp.0109.t
+	desc = agot_scenario_trp.0109.desc
+	theme = marriage
+	override_background = {
+		reference = council_chamber
+	}
+	left_portrait = {
+		character = root
+		animation = dismissal
+	}
+	lower_left_portrait = {
+		character = character:Velaryon_34
+	}
+	lower_right_portrait = {
+		character = character:Targaryen_61
+	}
+
+	immediate = {
+		character:Velaryon_31 = {
+			save_scope_as = laena
+		}
+	}
+
+	option = { # The search continues
+		name = agot_scenario_trp.0109.a
+		custom_tooltip = agot_scenario_trp.0109.a.tt
+	}
+}
+
+agot_scenario_trp.0110 = { # Daemon declined to marry
+	type = character_event
+	title = agot_scenario_trp.0110.t
+	desc = {
+		triggered_desc = {
+			trigger = { exists = scope:laena.betrothed }
+			desc = agot_scenario_trp.0110.desc_betrothed
+		}
+		triggered_desc = {
+			trigger = { NOT = { exists = scope:laena.betrothed } }
+			desc = agot_scenario_trp.0110.desc_not
+		}
+	}
+	theme = marriage
+	override_background = {
+		reference = council_chamber
+	}
+	left_portrait = {
+		character = root
+		animation = shock
+	}
+	lower_left_portrait = {
+		character = character:Velaryon_34
+	}
+	right_portrait = {
+		character = character:Targaryen_61
+		animation = dismissal
+	}
+
+	immediate = {
+		character:Velaryon_34 = {
+			save_scope_as = laena
+			betrothed ?= {
+				save_scope_as = laena_betrothed
+			}
+		}
+	}
+
+	option = { # The search continues
+		name = agot_scenario_trp.0110.a
+		custom_tooltip = agot_scenario_trp.0110.a.tt
+	}
+}
+
+agot_scenario_trp.0111 = { # Daemon won duel, marries
+	type = character_event
+	title = agot_scenario_trp.0111.t
+	desc = agot_scenario_trp.0111.desc
+	theme = marriage
+	override_background = {
+		reference = garden
+	}
+	left_portrait = {
+		character = character:Velaryon_34
+		animation = admiration
+	}
+	lower_left_portrait = {
+		character = root
+	}
+	right_portrait = {
+		character = character:Targaryen_61
+		animation = celebrate_sword
+	}
+	lower_right_portrait = {
+		character = scope:laena_betrothed
+	}
+
+	immediate = {
+		character:Velaryon_34 = {
+			save_scope_as = laena
+			betrothed ?= {
+				save_scope_as = laena_betrothed
+			}
+		}
+	}
+
+	option = { # Let them be married!
+		name = agot_scenario_trp.0111.a
+		character:Targaryen_61 = {
+			send_interface_toast = {
+				title = agot_scenario_trp.0111.a.daemon_t
+				left_icon = character:Velaryon_34
+				right_icon = character:Targaryen_61
+				character:Velaryon_34 = {
+					marry = character:Targaryen_61
+					set_relation_lover = character:Targaryen_61
+					hidden_effect = {
+						random_secret = {
+							limit = {
+								secret_type = secret_lover
+								any_secret_participant = { this = character:Targaryen_61 }
+							}
+							expose_secret = prev
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+agot_scenario_trp.0112 = { # Daemon lost duel!
+	type = character_event
+	title = agot_scenario_trp.0112.t
+	desc = agot_scenario_trp.0112.desc
+	theme = marriage
+	override_background = {
+		reference = garden
+	}
+	left_portrait = {
+		character = character:Velaryon_34
+		animation = flirtation_left
+	}
+	lower_left_portrait = {
+		character = root
+	}
+	right_portrait = {
+		character = scope:laena_betrothed
+		animation = celebrate_sword
+	}
+	lower_right_portrait = {
+		character = character:Targaryen_61
+	}
+
+	immediate = {
+		character:Velaryon_34 = {
+			save_scope_as = laena
+			betrothed ?= {
+				save_scope_as = laena_betrothed
+			}
+		}
+	}
+
+	option = { # Well...I can't say no now
+		name = agot_scenario_trp.0112.a
+		scope:laena_betrothed = {
+			send_interface_toast = {
+				title = agot_scenario_trp.0111.a.daemon_t
+				left_icon = character:Velaryon_34
+				right_icon = scope:laena_betrothed
+				character:Velaryon_34 = {
+					marry = scope:laena_betrothed
+				}
+			}
+		}
+	}
+}
+
+agot_scenario_trp.0113 = { # Daemon asks for Laena's hand
+	type = character_event
+	title = agot_scenario_trp.0113.t
+	desc = agot_scenario_trp.0113.desc
+	theme = marriage
+	override_background = {
+		reference = garden
+	}
+	left_portrait = {
+		character = character:Velaryon_34
+		animation = flirtation_left
+	}
+	right_portrait = {
+		character = character:Targaryen_61
+		animation = flirtation
+	}
+
+	immediate = {
+		character:Velaryon_34 = {
+			save_scope_as = laena
+		}
+	}
+
+	option = { # Let them be married!
+		name = agot_scenario_trp.0113.a
+		character:Targaryen_61 = {
+			send_interface_toast = {
+				title = agot_scenario_trp.0113.a.daemon_t
+				left_icon = character:Velaryon_34
+				right_icon = character:Targaryen_61
+				character:Velaryon_34 = {
+					if = {
+						limit = {
+							exists = betrothed
+						}
+						if = {
+							limit = {
+								has_been_promised_grand_wedding = yes
+							}
+							break_grand_wedding_betrothal_effect = yes
+						}
+						else = {
+							break_betrothal = betrothed
+						}
+					}
+					marry = character:Targaryen_61
+					set_relation_lover = character:Targaryen_61
+					hidden_effect = {
+						random_secret = {
+							limit = {
+								secret_type = secret_lover
+								any_secret_participant = { this = character:Targaryen_61 }
+							}
+							expose_secret = prev
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# 0200 - 0299: Crabfeeder
+agot_scenario_trp.0201 = { # Scenario start event
+	type = character_event
+	title = agot_scenario_trp.0201.t
+	desc = agot_scenario_trp.0201.desc
+	theme = war
+	left_portrait = {
+		character = character:Targaryen_61
+		animation = aggressive_sword
+	}
+	lower_left_portrait = {
+		character = character:Velaryon_31
+		animation = war_attacker
+	}
+	right_portrait = {
+		character = root
+		animation = war_defender
+	}
+
+	immediate = {
+		every_character_war = { # To avoid errors
+			add_to_list = temporary_war_list
+		}
+		character:Targaryen_61 = {
+			every_character_war = {
+				limit = {
+					NOT = {
+						any_in_list = {
+							list = temporary_war_list
+							this = prev
+						}
+					}
+				}
+				add_defender = root
+			}
+			save_scope_as = daemon
+		}
+	}
+
+	option = {
+		name = agot_scenario_trp.0201.a
+	}
+}
+
+agot_scenario_trp.0202 = { # Daemon won first war
+	type = character_event
+	title = agot_scenario_trp.0202.t
+	desc = agot_scenario_trp.0202.desc
+	trigger = {
+		NOT = { has_character_flag = trp_0202_fired } # To prevent double event
+	}
+	theme = war
+	right_portrait = {
+		character = root
+		animation = rage
+	}
+	left_portrait = {
+		character = character:Targaryen_61
+		animation = aggressive_sword
+	}
+
+	immediate = {
+		character:coadmiral_1 = {
+			save_scope_as = coadmiral_1
+		}
+		add_character_flag = {
+			flag = trp_0202_fired
+			days = 10
+		}
+	}
+
+	option = { # I will lead the defense!
+		name = agot_scenario_trp.0202.a
+		show_as_tooltip = {
+			get_title = title:k_the_stepstones
+			character:Targaryen_61 = {
+				start_war = {
+					casus_belli = daemon_stepstones_second_war
+					target = title:k_the_stepstones.holder
+					claimant = root
+					target_title = title:k_the_stepstones
+				}
+			}
+			if = {
+				limit = { character:coadmiral_2 = { is_alive = yes } }
+				set_designated_heir_unsafe = character:coadmiral_2
+			}
+		}
+	}
+}
+
+agot_scenario_trp.0203 = { # Daemon won first war, lost second
+	type = character_event
+	title = agot_scenario_trp.0203.t
+	desc = {
+		desc = agot_scenario_trp.0203.desc
+		triggered_desc = {
+			trigger = { character:Targaryen_61 = { is_alive = yes } }
+			desc = agot_scenario_trp.0203.desc_fled
+		}
+		triggered_desc = {
+			trigger = { character:Targaryen_61 = { is_alive = no } }
+			desc = agot_scenario_trp.0203.desc_dead
+		}
+		desc = agot_scenario_trp.0203.desc_end
+	}
+	theme = war
+	right_portrait = {
+		character = root
+		animation = celebrate_sword
+	}
+
+	option = { # Back into the fold
+		name = agot_scenario_trp.0203.a
+		create_title_and_vassal_change = {
+			type = swear_fealty
+			save_scope_as = title_change
+		}
+		change_liege = {
+			liege = title:e_three_daughters.holder
+			change = scope:title_change
+		}
+		resolve_title_and_vassal_change = scope:title_change
+	}
+
+	option = { # We shall be independent!
+		name = agot_scenario_trp.0203.b
+		add_character_flag = agot_admiral_won_second_war
+		show_as_tooltip = {
+			title:e_three_daughters.holder = {
+				add_pressed_claim = title:k_the_stepstones
+			}
+		}
+		title:e_three_daughters.holder = {
+			trigger_event = {
+				id = agot_scenario_trp.1024
+				days = 1
+			}
+		}
+	}
+}
+
+# 1000 - 1999:  Non-core Events
+agot_scenario_trp.1000 = { # Viserys start event
+	type = character_event
+	title = agot_scenario_trp.1000.t
+	desc = agot_scenario_trp.1000.desc
+	theme = war
+	override_background = {
+		reference = agot_iron_throne
+	}
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	right_portrait = {
+		character = character:Targaryen_61
+		animation = war_attacker
+	}
+
+	immediate = {
+		character:Targaryen_61 = {
+			save_scope_as = daemon
+		}
+		play_music_cue = mood_king_viserys
+	}
+
+	option = {
+		name = agot_scenario_trp.1000.a
+	}
+}
+
+agot_scenario_trp.1001 = { # Rhaenyra start event
+	type = character_event
+	title = agot_scenario_trp.1001.t
+	desc = agot_scenario_trp.1001.desc
+	theme = war
+	#override_background = {
+	#	reference = dragonstone
+	#}
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	right_portrait = {
+		character = character:Targaryen_61
+		animation = war_attacker
+	}
+
+	immediate = {
+		character:Targaryen_61 = {
+			save_scope_as = daemon
+		}
+		play_music_cue = mood_rhaenyra
+	}
+
+	option = {
+		name = agot_scenario_trp.1001.a
+	}
+}
+
+agot_scenario_trp.1002 = { # Daemon and Crabfeeder duel
+	type = character_event
+	title = agot_scenario_trp.1002.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { this = character:Targaryen_61 }
+				desc = agot_scenario_trp.1002.desc.daemon
+			}
+			triggered_desc = {
+				trigger = { this = character:Drahar_8 }
+				desc = agot_scenario_trp.1002.desc.crabfeeder
+			}
+		}
+	}
+
+	override_icon = {
+		reference = "gfx/interface/icons/event_types/type_war.dds"
+	}
+	theme = war
+	left_portrait = {
+		character = scope:duel_attacker
+	}
+	right_portrait = {
+		character = scope:duel_defender
+	}
+
+	trigger = {
+		is_alive = yes
+		exists = scope:duel_attacker
+		exists = scope:duel_defender
+		scope:duel_attacker = {
+			is_alive = yes
+		}
+		scope:duel_defender = {
+			is_alive = yes
+		}
+	}
+
+	immediate = {
+		location = { save_scope_as = location }
+		character:Drahar_8 = {
+			save_scope_as = crabfeeder
+		}
+		character:Targaryen_61 = {
+			save_scope_as = daemon
+			every_character_artifact = {
+				limit = {
+					has_artifact_modifier = vs_dark_sister_modifier
+					is_equipped = yes
+				}
+				save_scope_as = daemons_dark_sister_sword
+			}
+		}
+	}
+
+	option = {
+		name = agot_scenario_trp.1002.a
+
+		configure_start_single_combat_effect = {
+			SC_INITIATOR = scope:duel_attacker
+			SC_ATTACKER = scope:duel_attacker
+			SC_DEFENDER = scope:duel_defender
+			FATALITY = always
+			FIXED = no
+			LOCALE = terrain_scope
+			OUTPUT_EVENT = agot_scenario_trp.1008
+			INVALIDATION_EVENT = single_combat.1006
+		}
+	}
+}
+
+agot_scenario_trp.1003 = { # Viserys can choose to intervene in war
+	type = character_event
+	title = agot_scenario_trp.1003.t
+	desc = agot_scenario_trp.1003.desc
+	theme = war
+
+	left_portrait = {
+		character = character:Targaryen_60
+		animation = chancellor
+	}
+	right_portrait = {
+		character = character:Targaryen_61
+		animation = war_attacker
+	}
+
+	immediate = {
+		character:Targaryen_61 = {
+			save_scope_as = daemon
+		}
+	}
+
+	option = { # I will join!
+		name = agot_scenario_trp.1003.a
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_nonhistoric_outcome_3
+			}
+		}
+		every_character_war = { # To avoid errors
+			add_to_list = temporary_war_list
+		}
+		character:Targaryen_61 = {
+			every_character_war = {
+				limit = {
+					NOT = {
+						any_in_list = {
+							list = temporary_war_list
+							this = prev
+						}
+					}
+				}
+				add_attacker = root
+			}
+		}
+	}
+
+	option = { # I will send money!
+		name = agot_scenario_trp.1003.b
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_historic_outcome_3
+			}
+		}
+		remove_short_term_gold = 300
+		character:Targaryen_61 = {
+			add_gold = 300
+		}
+	}
+
+	option = { # I will leave Daemon to his folly
+		name = agot_scenario_trp.1003.c
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_nonhistoric_outcome_3
+			}
+		}
+	}
+}
+
+agot_scenario_trp.1004 = { # Dorne chooses if they extend alliance offer to Triarchy
+	type = character_event
+	title = agot_scenario_trp.1004.t
+	desc = agot_scenario_trp.1004.desc
+	theme = war
+
+	left_portrait = {
+		character = root
+		animation = chancellor
+	}
+	right_portrait = {
+		character = title:e_three_daughters.holder
+		animation = war_defender
+	}
+	lower_center_portrait = {
+		character = character:Targaryen_61
+	}
+
+	immediate = {
+		character:Targaryen_61 = {
+			save_scope_as = daemon # For loc
+		}
+	}
+
+	option = { # Yes, let us crush these dragons
+		name = agot_scenario_trp.1004.a
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_historic_outcome_2
+			}
+		}
+		title:e_three_daughters.holder = {
+			trigger_event = {
+				id = agot_scenario_trp.1005
+			}
+		}
+	}
+
+	option = { # No, this is not our fight
+		name = agot_scenario_trp.1004.b
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_nonhistoric_outcome_2
+			}
+		}
+		character:Targaryen_61 = {
+			random_owned_story = {
+				limit = {
+					story_type = story_agot_scenario_trp
+				}
+				set_variable = {
+					name = agot_trp_daemon_war_counter
+					value = 4
+				}
+			}
+		}
+	}
+}
+
+agot_scenario_trp.1005 = { # Triarchy accepts or rejects Dornish alliance offer
+	type = character_event
+	title = agot_scenario_trp.1005.t
+	desc = agot_scenario_trp.1005.desc
+	theme = war
+
+	left_portrait = {
+		character = root
+		animation = chancellor
+	}
+	right_portrait = {
+		character = title:e_dorne.holder
+		animation = war_defender
+	}
+	lower_center_portrait = {
+		character = character:Targaryen_61
+	}
+
+	immediate = {
+		character:Targaryen_61 = {
+			save_scope_as = daemon
+		}
+	}
+
+	option = { # Yes, let us crush these dragons
+		name = agot_scenario_trp.1005.a
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_historic_outcome_2
+			}
+		}
+		create_alliance = title:e_dorne.holder
+		character:Targaryen_61 = {
+			every_sub_realm_title = {
+				limit = {
+					kingdom = title:k_the_stepstones
+					tier > tier_barony
+				}
+				root = {
+					add_pressed_claim = prev
+				}
+			}
+		}
+		start_war = {
+			casus_belli = triarchy_anti_daemon_war
+			target = character:Targaryen_61
+			claimant = root
+			target_title = title:k_the_stepstones
+		}
+		title:e_dorne.holder = {
+			add_opinion = {
+				target = root
+				modifier = perk_negotiated_alliance_opinion
+			}
+			trigger_event = {
+				id = agot_scenario_trp.1006
+			}
+		}
+	}
+
+	option = { # No, this is not our fight
+		name = agot_scenario_trp.1005.b
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_nonhistoric_outcome_2
+			}
+		}
+		title:e_dorne.holder = {
+			trigger_event = {
+				id = agot_scenario_trp.1007
+			}
+		}
+		character:Targaryen_61 = {
+			random_owned_story = {
+				limit = {
+					story_type = story_agot_scenario_trp
+				}
+				set_variable = {
+					name = agot_trp_daemon_war_counter
+					value = 4
+				}
+			}
+		}
+	}
+}
+
+agot_scenario_trp.1006 = { # Dorne joins Triarchy
+	type = character_event
+	title = agot_scenario_trp.1006.t
+	desc = agot_scenario_trp.1006.desc
+	theme = war
+
+	left_portrait = {
+		character = root
+		animation = chancellor
+	}
+	right_portrait = {
+		character = title:e_three_daughters.holder
+		animation = war_defender
+	}
+	lower_center_portrait = {
+		character = character:Targaryen_61
+	}
+
+	option = { # To war!
+		name = agot_scenario_trp.1006.a
+		every_character_war = { # To avoid errors
+			add_to_list = temporary_war_list
+		}
+		title:e_three_daughters.holder = {
+			every_character_war = {
+				limit = {
+					primary_defender = character:Targaryen_61
+					NOT = {
+						any_in_list = {
+							list = temporary_war_list
+							this = prev
+						}
+					}
+				}
+				add_attacker = root
+			}
+		}
+		character:Targaryen_61 = {
+			trigger_event = agot_scenario_trp.0004
+		}
+	}
+}
+
+agot_scenario_trp.1007 = { # Triarchy has rejected Dorne
+	type = character_event
+	title = agot_scenario_trp.1007.t
+	desc = agot_scenario_trp.1007.desc
+	theme = war
+
+	left_portrait = {
+		character = root
+		animation = chancellor
+	}
+	right_portrait = {
+		character = title:e_three_daughters.holder
+		animation = war_defender
+	}
+	lower_center_portrait = {
+		character = character:Targaryen_61
+	}
+
+	option = { # Damn
+		name = agot_scenario_trp.1007.a
+	}
+}
+
+agot_scenario_trp.1008 = { # Daemon and Crabfeeder duel outcome
+	type = character_event
+	title = agot_scenario_trp.1008.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { this = character:Targaryen_61 }
+				desc = agot_scenario_trp.1008.desc.daemon
+			}
+			triggered_desc = {
+				trigger = { this = character:Drahar_8 }
+				desc = agot_scenario_trp.1008.desc.crabfeeder
+			}
+		}
+	}
+	trigger = {
+		is_alive = yes
+	}
+
+	override_icon = {
+		reference = "gfx/interface/icons/event_types/type_war.dds"
+	}
+	theme = war
+	left_portrait = {
+		character = scope:duel_attacker
+	}
+	right_portrait = {
+		character = scope:duel_defender
+	}
+
+	option = {
+		name = agot_scenario_trp.1008.a
+		if = { # If Daemon lost
+			limit = {
+				this = character:Drahar_8
+			}
+			# Give Dark Sister
+			if = {
+				limit = { exists = scope:daemons_dark_sister_sword } # If Daemon was wielding Dark Sister
+				scope:daemons_dark_sister_sword = {
+					set_owner = {
+						target = root
+						generate_history = yes
+					}
+				}
+				character:Targaryen_61.house ?= {
+					add_house_artifact_claim = scope:daemons_dark_sister_sword
+				}
+			}
+			# Free Caraxes
+			character:dragon_caraxes = {
+				if = {
+					limit = { is_alive = yes }
+					agot_free_dragon = yes
+					location = {
+						county = {
+							random_title_to_title_neighboring_county = {
+								save_scope_as = move_here
+							}
+						}
+					}
+					if = {
+						limit = {
+							NOT = { employer = scope:move_here.holder }
+						}
+						set_employer = scope:move_here.holder
+					}
+				}
+			}
+		}
+	}
+}
+
+agot_scenario_trp.1009 = { # Daemon has joined KL court
+	type = character_event
+	title = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					character:Targaryen_61 = { is_alive = yes }
+				}
+				desc = agot_scenario_trp.1009.t_alive
+			}
+			desc = agot_scenario_trp.1009.t_dead
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { character:Targaryen_61 = { is_alive = no } }
+				desc = {
+					desc = agot_scenario_trp.1009.desc_dead
+					triggered_desc = {
+						trigger = { is_close_or_extended_family_of = character:Targaryen_61 }
+						desc = agot_scenario_trp.1009.desc_dead_related
+					}
+					triggered_desc = {
+						trigger = { NOT = { is_close_or_extended_family_of = character:Targaryen_61 } }
+						desc = agot_scenario_trp.1009.desc_dead_unrelated
+					}
+					desc = agot_scenario_trp.1009.desc_dead_end
+				}
+			}
+			desc = agot_scenario_trp.1009.desc_alive
+		}
+	}
+	theme = war
+	override_background = {
+		reference = agot_iron_throne
+	}
+	right_portrait = {
+		character = root
+		animation = chancellor
+		triggered_animation = {
+			trigger = {
+				character:Targaryen_61 = { is_alive = no }
+				is_close_or_extended_family_of = character:Targaryen_61
+			}
+			animation = grief
+		}
+	}
+	left_portrait = {
+		character = character:Targaryen_61
+		animation = war_over_loss
+		triggered_animation = {
+			trigger = { character:Targaryen_61 = { is_alive = no } }
+			animation = dead
+		}
+	}
+
+	immediate = {
+		character:Targaryen_61 = {
+			save_scope_as = daemon
+		}
+		scope:daemon = {
+			if = {
+				limit = { is_alive = yes } # If Daemon is alive
+				if = { # Bring his children to court
+					limit = {
+						any_child = {
+							is_alive = yes
+							is_ruler = no
+							NOT = {
+								employer ?= scope:daemon.employer
+							}
+						}
+					}
+					every_child = {
+						limit = {
+							is_alive = yes
+							is_ruler = no
+							NOT = {
+								employer ?= scope:daemon.employer
+							}
+						}
+						scope:daemon.employer = {
+							add_courtier = prev
+						}
+					}
+				}
+			}
+		}
+	}
+
+	option = { # Welcome home!
+		name = {
+			text = agot_scenario_trp.1009.a_alive
+			trigger = {
+				character:Targaryen_61 = { is_alive = yes }
+			}
+		}
+		name = {
+			text = agot_scenario_trp.1009.a_dead
+			trigger = {
+				character:Targaryen_61 = { is_alive = no }
+				is_close_or_extended_family_of = character:Targaryen_61
+			}
+		}
+		name = {
+			text = agot_scenario_trp.1009.a_dead_unrelated
+			trigger = {
+				character:Targaryen_61 = { is_alive = no }
+				NOT = { is_close_or_extended_family_of = character:Targaryen_61 }
+			}
+		}
+	}
+}
+
+agot_scenario_trp.1010 = { # Daemon swears fealty to Iron Throne
+	type = character_event
+	title = agot_scenario_trp.1010.t
+	desc = agot_scenario_trp.1010.desc
+	theme = vassal
+	override_background = {
+		reference = agot_iron_throne
+	}
+	right_portrait = {
+		character = root
+		animation = chancellor
+	}
+	left_portrait = {
+		character = character:Targaryen_61
+		animation = throne_room_kneel_1
+	}
+
+	immediate = {
+		character:Targaryen_61 = {
+			save_scope_as = daemon
+		}
+	}
+
+
+	option = { # I shall grant you a boon!
+		name = agot_scenario_trp.1010.a
+		custom_tooltip = agot_scenario_trp.1010.a.tt
+		ai_chance = {
+			base = 100
+		}
+		character:Targaryen_61 = {
+			trigger_event = agot_scenario_trp.1011
+		}
+	}
+
+	option = { # Well, er, yes, thank you
+		name = agot_scenario_trp.1010.b
+		custom_tooltip = agot_scenario_trp.1010.b.tt
+		ai_chance = {
+			base = 0 # AI shouldn't pick this
+		}
+		character:Targaryen_61 = {
+			send_interface_toast = {
+				type = dragon_neutral_toast
+				title = agot_scenario_trp.1010.b.toast.t
+				desc = agot_scenario_trp.1010.b.toast.desc
+				left_icon = root
+				right_icon = character:Targaryen_61
+			}
+		}
+	}
+}
+
+agot_scenario_trp.1011 = { # Daemon chooses boon
+	type = character_event
+	title = agot_scenario_trp.1011.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					has_character_flag = rhaenyra_rejected_marriage
+				}
+				desc = agot_scenario_trp.1011.desc.rhaenyra_rejected
+			}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = second_boon_request
+				}
+				desc = {
+					desc = agot_scenario_trp.1011.desc.rejected_start
+					triggered_desc = {
+						trigger = {
+							has_character_flag = agot_trp_boon_heir_rejected
+						}
+						desc = agot_scenario_trp.1011.desc.rejected_heir_boon
+					}
+					triggered_desc = {
+						trigger = {
+							has_character_flag = agot_trp_boon_rhaenyra_rejected
+						}
+						desc = agot_scenario_trp.1011.desc.rejected_rhaenyra_boon
+					}
+					triggered_desc = {
+						trigger = {
+							has_character_flag = agot_trp_boon_divorce_rejected
+						}
+						desc = agot_scenario_trp.1011.desc.rejected_divorce_boon
+					}
+					triggered_desc = {
+						trigger = {
+							has_character_flag = agot_trp_boon_hand_rejected
+						}
+						desc = agot_scenario_trp.1011.desc.rejected_hand_boon
+					}
+					triggered_desc = {
+						trigger = {
+							has_character_flag = agot_trp_boon_gold_rejected
+						}
+						desc = agot_scenario_trp.1011.desc.rejected_gold_boon
+					}
+					desc = agot_scenario_trp.1011.desc.rejected_end
+				}
+			}
+			desc = agot_scenario_trp.1011.desc
+		}
+	}
+	theme = vassal
+	override_background = {
+		reference = agot_iron_throne
+	}
+	right_portrait = {
+		character = scope:sitting_ruler
+		animation = chancellor
+		triggered_animation = {
+			trigger = {
+				root = {
+					has_character_flag = second_boon_request
+				}
+			}
+			animation = disapproval
+		}
+	}
+	left_portrait = {
+		character = root
+		animation = throne_room_kneel_1
+		triggered_animation = {
+			trigger = {
+				has_character_flag = rhaenyra_rejected_marriage
+			}
+			animation = disbelief
+		}
+		triggered_animation = {
+			trigger = {
+				has_character_flag = second_boon_request
+			}
+			animation = anger
+		}
+	}
+
+	immediate = {
+		title:e_the_iron_throne.holder = {
+			save_scope_as = sitting_ruler
+		}
+	}
+
+	option = { # I wish to be named heir
+		name = agot_scenario_trp.1011.a
+		trigger = {
+			NOT = { is_primary_heir_of = scope:sitting_ruler } # I am not currently heir
+			title:e_the_iron_throne.holder.house = root.house # I am of the same house
+			title:c_dragonstone.holder = { is_vassal_or_below_of = title:e_the_iron_throne.holder } # Dragonstone is in the Iron Throne
+			NOT = { title:c_dragonstone.holder = { is_at_war_with = title:e_the_iron_throne.holder } } # And not at war with the throne
+			NOT = { has_character_flag = agot_trp_boon_heir_rejected }
+		}
+		add_character_flag = agot_trp_boon_heir
+		custom_tooltip = agot_scenario_trp.1011.tt
+		show_as_tooltip = {
+			title:c_dragonstone.holder = {
+				save_temporary_scope_as = old_dragonstone_holder
+			}
+			# Give titles
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = change
+				add_claim_on_loss = yes
+			}
+			title:k_dragonstone = {
+				change_title_holder_include_vassals = {
+					holder = character:Targaryen_61
+					change = scope:change
+				}
+			}
+			title:d_dragonstone = {
+				change_title_holder_include_vassals = {
+					holder = character:Targaryen_61
+					change = scope:change
+				}
+			}
+			title:c_dragonstone = {
+				change_title_holder_include_vassals = {
+					holder = character:Targaryen_61
+					change = scope:change
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+			# Set heir
+			scope:sitting_ruler = {
+				set_designated_heir_unsafe = character:Targaryen_61
+			}
+			# If relative lost title, come home
+			scope:old_dragonstone_holder = {
+				if = {
+					limit = {
+						is_ruler = no
+						is_close_or_extended_family_of = root
+						NOT = { employer = root }
+					}
+					set_employer = root
+				}
+			}
+		}
+	}
+
+	option = { # I want Rhaenyra
+		name = {
+			trigger = {
+				character:Targaryen_63 = { NOT = { this = scope:sitting_ruler } }
+			}
+			text = agot_scenario_trp.1011.b
+		}
+		name = {
+			trigger = {
+				character:Targaryen_63 = { this = scope:sitting_ruler }
+			}
+			text = agot_scenario_trp.1011.b.ruler
+		}
+		trigger = {
+			character:Targaryen_63 = { is_alive = yes }
+			character:Targaryen_63 = { is_married = no }
+			NOT = { has_character_flag = rhaenyra_rejected_marriage }
+			NOT = { has_character_flag = agot_trp_boon_rhaenyra_rejected }
+			NOT = { character:Targaryen_61 = { betrothed = character:Targaryen_63 } }
+		}
+		add_character_flag = agot_trp_boon_rhaenyra
+		custom_tooltip = agot_scenario_trp.1011.tt
+		show_as_tooltip = {
+			character:Targaryen_61 = {
+				if = {
+					limit = { is_married = yes }
+					divorce = primary_spouse
+				}
+				if = {
+					limit = {
+						character:Targaryen_63 = { is_betrothed = yes }
+					}
+					character:Targaryen_63 = {
+						if = {
+							limit = {
+								exists = betrothed
+							}
+							if = {
+								limit = {
+									has_been_promised_grand_wedding = yes
+								}
+								break_grand_wedding_betrothal_effect = yes
+							}
+							else = {
+								break_betrothal = betrothed
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						character:Targaryen_63 = { age < 14 }
+					}
+					create_betrothal = character:Targaryen_63
+				}
+				else = {
+					marry = character:Targaryen_63
+				}
+			}
+		}
+	}
+
+	option = { # Get me out of this marriage!
+		name = agot_scenario_trp.1011.c
+		trigger = {
+			is_spouse_of = character:Royce_37 # Rhea Royce
+			NOT = { has_character_flag = agot_trp_boon_divorce_rejected }
+		}
+		add_character_flag = agot_trp_boon_divorce
+		custom_tooltip = agot_scenario_trp.1011.tt
+		show_as_tooltip = {
+			character:Targaryen_61 = {
+				divorce = character:Royce_37 # Rhea Royce
+			}
+		}
+	}
+
+	option = { # I want to be named hand
+		name = agot_scenario_trp.1011.d
+		trigger = {
+			NOT = { has_council_position = councillor_castellan }
+			NOT = { has_character_flag = agot_trp_boon_hand_rejected }
+		}
+		add_character_flag = agot_trp_boon_hand
+		custom_tooltip = agot_scenario_trp.1011.tt
+		show_as_tooltip = {
+			character:Targaryen_60 = {
+				assign_councillor_type = {
+					type = councillor_castellan
+					target = character:Targaryen_61
+					remove_existing_councillor = yes
+				}
+			}
+		}
+	}
+
+	option = { # Gold and glory will suffice
+		name = agot_scenario_trp.1011.e
+		trigger = {
+			NOT = { has_character_flag = agot_trp_boon_gold_rejected }
+		}
+		add_character_flag = agot_trp_boon_gold
+		custom_tooltip = agot_scenario_trp.1011.tt
+		show_as_tooltip = {
+			character:Targaryen_60 = {
+				remove_short_term_gold = 300
+				character:Targaryen_61 = {
+					add_gold = 300
+					add_prestige = major_prestige_value
+				}
+			}
+		}
+	}
+
+	option = {
+		name = agot_scenario_trp.1011.f
+		flavor = agot_scenario_trp.1011.f.f
+		trigger = {
+			has_character_flag = second_boon_request
+		}
+		add_character_flag = {
+			flag = trp_daemon_enraged_at_rejection
+			days = 7
+		}
+		trigger_event = agot_scenario_trp.1025
+	}
+
+	after = {
+		if = {
+			limit = {
+				NOT = { has_character_flag = trp_daemon_enraged_at_rejection }
+			}
+			scope:sitting_ruler = {
+				trigger_event = agot_scenario_trp.1012
+			}
+		}
+	}
+}
+
+agot_scenario_trp.1012 = { # Daemon has chosen boon, grant?
+	type = character_event
+	title = agot_scenario_trp.1012.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { character:Targaryen_61 = { has_character_flag = rhaenyra_rejected_marriage } }
+				desc =  agot_scenario_trp.1012.desc.rhaenyra_rejected
+			}
+			desc = agot_scenario_trp.1012.desc
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { character:Targaryen_61 = { has_character_flag = agot_trp_boon_heir } }
+				desc = agot_scenario_trp.1012.desc.heir
+			}
+			triggered_desc = {
+				trigger = {
+					character:Targaryen_61 = { has_character_flag = agot_trp_boon_rhaenyra }
+					NOT = { root = character:Targaryen_63 }
+				}
+				desc = agot_scenario_trp.1012.desc.rhaenyra
+			}
+			triggered_desc = {
+				trigger = {
+					character:Targaryen_61 = { has_character_flag = agot_trp_boon_rhaenyra }
+					root = character:Targaryen_63
+				}
+				desc = agot_scenario_trp.1012.desc.rhaenyra.ruler
+			}
+			triggered_desc = {
+				trigger = { character:Targaryen_61 = { has_character_flag = agot_trp_boon_divorce } }
+				desc = agot_scenario_trp.1012.desc.divorce
+			}
+			triggered_desc = {
+				trigger = { character:Targaryen_61 = { has_character_flag = agot_trp_boon_hand } }
+				desc = agot_scenario_trp.1012.desc.hand
+			}
+			triggered_desc = {
+				trigger = { character:Targaryen_61 = { has_character_flag = agot_trp_boon_gold } }
+				desc = agot_scenario_trp.1012.desc.gold
+			}
+		}
+	}
+	theme = vassal
+	override_background = {
+		reference = agot_iron_throne
+	}
+	right_portrait = {
+		character = root
+		animation = chancellor
+	}
+	left_portrait = {
+		character = character:Targaryen_61
+		animation = throne_room_kneel_1
+	}
+
+	option = { # Yes, I shall grant you this boon
+		name = agot_scenario_trp.1012.a
+		ai_chance = {
+			base = 90
+		}
+		if = { # Daemon is asking to be heir
+			limit = {
+				character:Targaryen_61 = { has_character_flag = agot_trp_boon_heir }
+			}
+			title:c_dragonstone.holder = {
+				save_temporary_scope_as = old_dragonstone_holder
+			}
+			# Give titles
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = change
+				add_claim_on_loss = yes
+			}
+			title:k_dragonstone = {
+				change_title_holder_include_vassals = {
+					holder = character:Targaryen_61
+					change = scope:change
+				}
+			}
+			title:d_dragonstone = {
+				change_title_holder_include_vassals = {
+					holder = character:Targaryen_61
+					change = scope:change
+				}
+			}
+			title:c_dragonstone = {
+				change_title_holder_include_vassals = {
+					holder = character:Targaryen_61
+					change = scope:change
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+			# Set heir
+			set_designated_heir_unsafe = character:Targaryen_61
+			# If relative lost title, come home
+			scope:old_dragonstone_holder = {
+				if = {
+					limit = {
+						is_ruler = no
+						is_close_or_extended_family_of = root
+						NOT = { employer = root }
+					}
+					set_employer = root
+				}
+			}
+		}
+
+		if = { # Daemon is asking for Rhaenyra
+			limit = {
+				character:Targaryen_61 = { has_character_flag = agot_trp_boon_rhaenyra }
+			}
+			if = {
+				limit = {
+					OR = { # If Rhaenyra is sitting ruler and thus making this decision, or AI, we can just do the thing
+						character:Targaryen_63 = { is_ruler = no }
+						character:Targaryen_63 = { is_ai = yes }
+						root = character:Targaryen_63
+					}
+				}
+				character:Targaryen_61 = {
+					if = {
+						limit = { is_married = yes }
+						divorce = primary_spouse
+					}
+					if = {
+						limit = {
+							character:Targaryen_63 = { is_betrothed = yes }
+						}
+						character:Targaryen_63 = {
+							if = {
+								limit = {
+									exists = betrothed
+								}
+								if = {
+									limit = {
+										has_been_promised_grand_wedding = yes
+									}
+									break_grand_wedding_betrothal_effect = yes
+								}
+								else = {
+									break_betrothal = betrothed
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							character:Targaryen_63 = { age < 14 }
+						}
+						create_betrothal = character:Targaryen_63
+					}
+					else = {
+						marry = character:Targaryen_63
+					}
+				}
+			}
+			else = {
+				character:Targaryen_63 = { # Otherwise we should probably ask player
+					trigger_event = agot_scenario_trp.1013
+				}
+			}
+		}
+		if = { # Daemon is asking for divorce
+			limit = {
+				character:Targaryen_61 = { has_character_flag = agot_trp_boon_divorce }
+			}
+			character:Targaryen_61 = {
+				divorce = character:Royce_37 # Rhea Royce
+			}
+		}
+		if = { # Daemon is asking to be made hand
+			limit = {
+				character:Targaryen_61 = { has_character_flag = agot_trp_boon_hand }
+			}
+			assign_councillor_type = {
+				type = councillor_castellan
+				target = character:Targaryen_61
+				remove_existing_councillor = yes
+			}
+			character:Targaryen_61 = {
+				block_firing_councillor_effect = { COURT_OWNER = root }
+			}
+		}
+		if = { # Daemon is asking for gold
+			limit = {
+				character:Targaryen_61 = { has_character_flag = agot_trp_boon_gold }
+			}
+			remove_short_term_gold = 300
+			character:Targaryen_61 = {
+				add_gold = 300
+				add_prestige = major_prestige_value
+			}
+		}
+		character:Targaryen_61 = {
+			send_interface_toast = {
+				type = dragon_neutral_toast
+				title = agot_scenario_trp.1012.a.toast.t
+				desc = {
+					first_valid = {
+						triggered_desc = {
+							trigger = { character:Targaryen_61 = { has_character_flag = agot_trp_boon_heir } }
+							desc = agot_scenario_trp.1012.a.toast.desc.heir
+						}
+						triggered_desc = {
+
+							trigger = { character:Targaryen_61 = { has_character_flag = agot_trp_boon_rhaenyra } }
+							desc = agot_scenario_trp.1012.a.toast.desc.rhaenyra
+						}
+						triggered_desc = {
+							trigger = { character:Targaryen_61 = { has_character_flag = agot_trp_boon_divorce } }
+							desc = agot_scenario_trp.1012.a.toast.desc.divorce
+						}
+						triggered_desc = {
+							trigger = { character:Targaryen_61 = { has_character_flag = agot_trp_boon_hand } }
+							desc = agot_scenario_trp.1012.a.toast.desc.hand
+						}
+						triggered_desc = {
+							trigger = { character:Targaryen_61 = { has_character_flag = agot_trp_boon_gold } }
+							desc = agot_scenario_trp.1012.a.toast.desc.gold
+						}
+					}
+				}
+				left_icon = root
+				right_icon = character:Targaryen_61
+			}
+		}
+	}
+
+	option = { # No, I shall not
+		name = agot_scenario_trp.1012.b
+		custom_tooltip = agot_scenario_trp.1012.b.tt
+		ai_chance = {
+			base = 20
+			modifier = {
+				add = 30
+				character:Targaryen_61 = { has_character_flag = agot_trp_boon_hand }
+			}
+			modifier = {
+				add = 30
+				character:Targaryen_61 = { has_character_flag = agot_trp_boon_divorce }
+			}
+			modifier = {
+				add = 110
+				character:Targaryen_61 = { has_character_flag = agot_trp_boon_rhaenyra }
+			}
+			modifier = {
+				add = 110
+				character:Targaryen_61 = { has_character_flag = agot_trp_boon_heir }
+			}
+		}
+		character:Targaryen_61 = {
+			if = {
+				limit = {
+					has_character_flag = agot_trp_boon_hand
+				}
+				remove_character_flag = agot_trp_boon_hand
+				add_character_flag = agot_trp_boon_hand_rejected
+			}
+			if = {
+				limit = {
+					has_character_flag = agot_trp_boon_divorce
+				}
+				remove_character_flag = agot_trp_boon_divorce
+				add_character_flag = agot_trp_boon_divorce_rejected
+			}
+			if = {
+				limit = {
+					has_character_flag = agot_trp_boon_rhaenyra
+				}
+				remove_character_flag = agot_trp_boon_rhaenyra
+				add_character_flag = agot_trp_boon_rhaenyra_rejected
+			}
+			if = {
+				limit = {
+					has_character_flag = agot_trp_boon_heir
+				}
+				remove_character_flag = agot_trp_boon_heir
+				add_character_flag = agot_trp_boon_heir_rejected
+			}
+
+			if = {
+				limit = {
+					has_character_flag = agot_trp_boon_gold
+				}
+				remove_character_flag = agot_trp_boon_gold
+				add_character_flag = agot_trp_boon_gold_rejected
+			}
+			if = {
+				limit = {
+					has_character_flag = second_boon_request
+				}
+				add_character_flag = {
+					flag = refused_twice
+					days = 7
+				}
+				trigger_event = agot_scenario_trp.1025
+			}
+			else = {
+				add_character_flag = {
+					flag = second_boon_request
+					days = 7
+				}
+				trigger_event = agot_scenario_trp.1011
+			}
+		}
+	}
+
+	after = {
+		character:Targaryen_61 = {
+			random_owned_story = {
+				limit = {
+					story_type = story_agot_scenario_trp
+				}
+				end_story = yes
+			}
+		}
+	}
+}
+
+agot_scenario_trp.1013 = { # Daemon asks player to marry Rhaenyra
+	type = character_event
+	title = agot_scenario_trp.1013.t
+	desc = agot_scenario_trp.1013.desc
+	theme = marriage
+	override_background = {
+		reference = throne_room
+	}
+	right_portrait = {
+		character = root
+		animation = flirtation
+	}
+	left_portrait = {
+		character = character:Targaryen_61
+		animation = flirtation_left
+	}
+
+	immediate = {
+		character:Targaryen_61 = {
+			save_scope_as = daemon
+		}
+	}
+
+	option = { # Yes, I shall marry him
+		name = agot_scenario_trp.1013.a
+		ai_chance = {
+			base = 90
+		}
+		character:Targaryen_61 = {
+			if = {
+				limit = { is_married = yes }
+				divorce = primary_spouse
+			}
+			if = {
+				limit = {
+					character:Targaryen_63 = { is_betrothed = yes }
+				}
+				character:Targaryen_63 = {
+					if = {
+						limit = {
+							exists = betrothed
+						}
+						if = {
+							limit = {
+								has_been_promised_grand_wedding = yes
+							}
+							break_grand_wedding_betrothal_effect = yes
+						}
+						else = {
+							break_betrothal = betrothed
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					character:Targaryen_63 = { age < 14 }
+				}
+				create_betrothal = character:Targaryen_63
+			}
+			else = {
+				marry = character:Targaryen_63
+			}
+		}
+	}
+
+	option = { # No, I shall not
+		name = agot_scenario_trp.1013.b
+		character:Targaryen_61 = {
+			add_character_flag = rhaenyra_rejected_marriage
+			remove_character_flag = agot_trp_boon_rhaenyra
+			trigger_event = agot_scenario_trp.1011
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+agot_scenario_trp.1014 = { # Co-admiral starting event
+	type = character_event
+	title = agot_scenario_trp.1014.t
+	desc = agot_scenario_trp.1014.desc
+	theme = war
+
+	right_portrait = {
+		character = root
+		animation = war_defender
+	}
+	left_portrait = {
+		character = character:Targaryen_61
+		animation = war_attacker
+	}
+	lower_left_portrait = {
+		character = character:Velaryon_31
+	}
+
+	immediate = {
+		character:Targaryen_61 = {
+			save_scope_as = daemon
+		}
+	}
+
+	option = { # To war!
+		name = agot_scenario_trp.1012.a
+		if = {
+			limit = {
+				NOT = { is_at_war_with = character:Targaryen_61 }
+			}
+			every_character_war = { # To avoid errors
+				add_to_list = temporary_war_list
+			}
+			character:Targaryen_61 = {
+				every_character_war = {
+					limit = {
+						NOT = {
+							any_in_list = {
+								list = temporary_war_list
+								this = prev
+							}
+						}
+					}
+					add_defender = root
+				}
+			}
+		}
+	}
+}
+
+agot_scenario_trp.1015 = { # Coadmiral 2 is alerted to war loss
+	type = character_event
+	title = agot_scenario_trp.1015.t
+	desc = agot_scenario_trp.1015.desc
+	theme = war
+
+	right_portrait = {
+		character = root
+		animation = war_defender
+	}
+	left_portrait = {
+		character = character:Targaryen_61
+		animation = war_attacker
+	}
+
+	immediate = {
+		character:coadmiral_1 = {
+			save_scope_as = coadmiral_1
+		}
+		character:Drahar_8 = {
+			save_scope_as = drahar
+		}
+		show_as_tooltip = {
+			character:Drahar_8 = {
+				get_title = title:k_the_stepstones
+			}
+			create_title_and_vassal_change = {
+				type = swear_fealty
+				save_scope_as = title_change
+			}
+			change_liege = {
+				liege = title:k_the_stepstones.holder
+				change = scope:title_change
+			}
+			resolve_title_and_vassal_change = scope:title_change
+			character:Targaryen_61 = {
+				start_war = {
+					casus_belli = daemon_stepstones_second_war
+					target = character:Drahar_8
+					claimant = character:Targaryen_61
+					target_title = title:k_the_stepstones
+				}
+			}
+		}
+	}
+
+	option = { # We must be victorious!
+		name = agot_scenario_trp.1015.a
+	}
+}
+
+agot_scenario_trp.1016 = { # Three Daughters event
+	type = character_event
+	title = agot_scenario_trp.1016.t
+	desc = agot_scenario_trp.1016.desc
+	theme = war
+	trigger = {
+		NOT = {
+			is_at_war_with = character:Targaryen_61
+		}
+	}
+
+	right_portrait = {
+		character = root
+		animation = war_defender
+	}
+	left_portrait = {
+		character = character:Targaryen_61
+		animation = war_over_win
+	}
+
+	immediate = {
+		character:Targaryen_61 = {
+			save_scope_as = daemon
+		}
+	}
+
+	option = { # We must defend those Islands!
+		name = agot_scenario_trp.1016.a
+		show_as_tooltip = {
+			title:k_the_stepstones.holder = {
+				get_title = title:k_the_stepstones
+			}
+		}
+		every_character_war = { # To avoid errors
+			add_to_list = temporary_war_list
+		}
+		character:Targaryen_61 = {
+			every_character_war = {
+				limit = {
+					primary_defender = title:k_the_stepstones.holder
+					NOT = {
+						any_in_list = {
+							list = temporary_war_list
+							this = prev
+						}
+					}
+				}
+				add_defender = root
+			}
+		}
+	}
+}
+
+agot_scenario_trp.1017 = { # Admirals won war, handler
+	hidden = yes
+	immediate = {
+		# Get stepstones rulers
+		title:k_the_stepstones = {
+			every_de_jure_county = {
+				holder = {
+					top_liege = {
+						if = {
+							limit = {
+								primary_title = {
+									tier <= tier_duchy
+								}
+								NOT = { is_in_list = stepstone_rulers }
+							}
+							add_to_list = stepstone_rulers
+						}
+					}
+				}
+			}
+		}
+		# Send them the peace event
+		every_in_list = {
+			list = stepstone_rulers
+			trigger_event = agot_scenario_trp.1018
+		}
+		# Then in 2 days, see results
+		trigger_event = {
+			id = agot_scenario_trp.1019
+			days = 2
+		}
+	}
+}
+
+agot_scenario_trp.1018 = { # Admiral peace(?) event
+	type = character_event
+	title = agot_scenario_trp.1018.t
+	desc = {
+		desc = agot_scenario_trp.1018.desc.start
+		first_valid = {
+			triggered_desc = {
+				trigger = { character:Targaryen_61 = { is_alive = yes } }
+				desc = agot_scenario_trp.1018.desc.alive
+			}
+			desc = agot_scenario_trp.1018.desc.dead
+		}
+		desc = agot_scenario_trp.1018.desc.end
+	}
+	theme = war
+
+	lower_left_portrait = {
+		character = character:Targaryen_61
+	}
+	right_portrait = {
+		character = root
+		animation = chancellor
+	}
+
+	immediate = {
+		character:Targaryen_61 = { # For loc
+			save_scope_as = daemon
+		}
+		every_in_list = {
+			list = stepstone_rulers
+			if = {
+				limit = {
+					current_military_strength > root.current_military_strength
+				}
+				add_character_flag = agot_not_strongest
+			}
+		}
+	}
+
+	option = { # We shall have peace
+		name = agot_scenario_trp.1018.a
+		custom_tooltip = agot_scenario_trp.1018.a.tt
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 40
+				has_character_flag = agot_not_strongest
+			}
+			modifier = {
+				add = 20
+				OR = {
+					has_trait = content
+					has_trait = craven
+				}
+			}
+		}
+	}
+
+	option = { # The Iron is hot, strike now!
+		name = agot_scenario_trp.1018.b
+		custom_tooltip = agot_scenario_trp.1018.b.tt
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = -40
+				has_character_flag = agot_not_strongest
+			}
+			modifier = {
+				add = 20
+				OR = {
+					has_trait = ambitious
+					has_trait = brave
+				}
+			}
+		}
+		add_character_flag = {
+			flag = agot_trp_war
+			days = 10
+		}
+	}
+}
+
+agot_scenario_trp.1019 = {
+	hidden = yes
+	immediate = {
+		# Set up variables
+		set_variable = {
+			name = stepstone_unity_war
+			value = 0
+		}
+		# See results
+		every_in_list = {
+			list = stepstone_rulers
+			if = {
+				limit = {
+					has_character_flag = agot_trp_war
+				}
+				root = {
+					set_variable = {
+						name = stepstone_unity_war
+						value = 1
+					}
+				}
+				save_scope_as = war_instigator
+			}
+		}
+		# If no war, vassalize to three daughters if possible
+		if = { # Peace has succeeded
+			limit = {
+				var:stepstone_unity_war = 0
+			}
+			# See if we can vassalize
+			if = {
+				limit = {
+					exists = title:e_three_daughters.holder
+				}
+				every_in_list = {
+					list = stepstone_rulers
+					create_title_and_vassal_change = {
+						type = swear_fealty
+						save_scope_as = title_change
+					}
+					change_liege = {
+						liege = title:e_three_daughters.holder
+						change = scope:title_change
+					}
+					resolve_title_and_vassal_change = scope:title_change
+				}
+			}
+			# Send event
+			every_in_list = {
+				list = stepstone_rulers
+				trigger_event = {
+					id = agot_scenario_trp.1020
+					days = 1
+				}
+			}
+		}
+		else = { # Peace has failed
+			every_in_list = {
+				list = stepstone_rulers
+				if = {
+					limit = {
+						NOT = { has_character_flag = agot_trp_war }
+					}
+					trigger_event = {
+						id = agot_scenario_trp.1021
+						days = 1
+					}
+				}
+				# Set up story cycle
+				create_story = story_agot_admiral_war
+			}
+		}
+	}
+}
+
+agot_scenario_trp.1020 = { # Admiral peace event
+	type = character_event
+	title = agot_scenario_trp.1020.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { exists = title:e_three_daughters.holder }
+				desc = agot_scenario_trp.1020.desc
+			}
+			desc = agot_scenario_trp.1020.desc.no_three_daughters
+		}
+	}
+	theme = crown
+	override_background = {
+		reference = throne_room
+	}
+	right_portrait = {
+		character = title:e_three_daughters.holder
+		animation = chancellor
+	}
+	left_portrait = {
+		character = root
+		animation = throne_room_kneel_1
+	}
+
+	immediate = {
+		add_prestige = 100
+		if = {
+			limit = {
+				exists = title:e_three_daughters.holder
+			}
+			show_as_tooltip = {
+				create_title_and_vassal_change = {
+					type = swear_fealty
+					save_scope_as = title_change
+				}
+				change_liege = {
+					liege = title:e_three_daughters.holder
+					change = scope:title_change
+				}
+				resolve_title_and_vassal_change = scope:title_change
+			}
+		}
+	}
+
+	option = { # Peace is good
+		name = agot_scenario_trp.1020.a
+	}
+}
+
+agot_scenario_trp.1021 = { # Admiral war event
+	type = character_event
+	title = agot_scenario_trp.1021.t
+	desc = agot_scenario_trp.1021.desc
+	theme = war
+
+	right_portrait = {
+		character = root
+		animation = war_defender
+	}
+
+	option = { # War it is then
+		name = agot_scenario_trp.1021.a
+		custom_tooltip = agot_scenario_trp.1018.b.tt
+	}
+}
+
+agot_scenario_trp.1022 = { # Admiral war victory!
+	type = character_event
+	title = agot_scenario_trp.1022.t
+	desc = agot_scenario_trp.1022.desc
+	theme = war
+
+	right_portrait = {
+		character = root
+		animation = celebrate_sword
+	}
+
+	immediate = {
+		character:Targaryen_61 = {
+			save_scope_as = daemon
+		}
+		get_title = title:k_the_stepstones
+		add_prestige = 1000
+		stress_impact = {
+			brave = minor_stress_loss
+			arrogant = minor_stress_loss
+			ambitious = major_stress_loss
+		}
+	}
+
+	option = { # Back into the fold
+		name = agot_scenario_trp.1022.a
+		create_title_and_vassal_change = {
+			type = swear_fealty
+			save_scope_as = title_change
+		}
+		change_liege = {
+			liege = title:e_three_daughters.holder
+			change = scope:title_change
+		}
+		resolve_title_and_vassal_change = scope:title_change
+	}
+
+	option = { # We shall be independent!
+		name = agot_scenario_trp.1022.b
+		show_as_tooltip = {
+			title:e_three_daughters.holder = {
+				add_pressed_claim = title:k_the_stepstones
+			}
+		}
+		title:e_three_daughters.holder = {
+			trigger_event = agot_scenario_trp.1024
+		}
+	}
+}
+
+agot_scenario_trp.1023 = { # Admiral war ended in detente
+	type = character_event
+	title = agot_scenario_trp.1023.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { exists = title:e_three_daughters.holder }
+				desc = agot_scenario_trp.1023.desc
+			}
+			desc = agot_scenario_trp.1023.desc.no_three_daughters
+		}
+	}
+	theme = war
+
+	right_portrait = {
+		character = root
+		animation = war_defender
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				exists = title:e_three_daughters.holder
+			}
+			show_as_tooltip = {
+				create_title_and_vassal_change = {
+					type = swear_fealty
+					save_scope_as = title_change
+				}
+				change_liege = {
+					liege = title:e_three_daughters.holder
+					change = scope:title_change
+				}
+				resolve_title_and_vassal_change = scope:title_change
+			}
+		}
+	}
+
+	option = { # Peace it is
+		name = agot_scenario_trp.1023.a
+	}
+}
+
+agot_scenario_trp.1024 = { # Triarchy notified of stepstones independence
+	type = character_event
+	title = agot_scenario_trp.1024.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					title:k_the_stepstones.holder = {
+						has_character_flag = agot_admiral_won_second_war
+					}
+				}
+				desc = agot_scenario_trp.1024.desc_daemon_lost_second
+			}
+			desc = agot_scenario_trp.1024.desc_daemon_lost_first
+		}
+	}
+	theme = crown
+
+	lower_left_portrait = {
+		character = title:k_the_stepstones.holder
+	}
+	right_portrait = {
+		character = root
+		animation = anger
+	}
+
+	immediate = {
+		title:k_the_stepstones.holder = {
+			save_scope_as = stepstones_ruler
+		}
+		add_pressed_claim = title:k_the_stepstones
+	}
+
+	option = { # Those bastards!
+		name = agot_scenario_trp.1024.a
+		ai_chance = {
+			base = 25
+			ai_value_modifier = {
+				ai_boldness = -0.25
+			}
+		}
+	}
+
+	option = {
+		name = agot_scenario_trp.1024.b
+		ai_chance = {
+			base = 75
+		}
+		start_war = {
+			casus_belli = claim_cb
+			target = title:k_the_stepstones.holder
+			claimant = root
+			target_title = title:k_the_stepstones
+		}
+	}
+}
+
+agot_scenario_trp.1025 = { # Daemon has been refused boon twice or stormed out
+	type = character_event
+	title = agot_scenario_trp.1025.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_character_flag = refused_twice }
+				desc = agot_scenario_trp.1025.desc.refused
+			}
+			desc = agot_scenario_trp.1025.desc.rage
+		}
+		desc = agot_scenario_trp.1025.desc
+	}
+	theme = crown
+	left_portrait = {
+		character = root
+		animation = rage
+	}
+	right_portrait = {
+		character = scope:sitting_ruler
+		animation = disbelief
+	}
+	override_background = {
+		reference = agot_iron_throne
+	}
+
+	immediate = {
+		add_stress = medium_stress_gain
+		title:e_the_iron_throne.current_heir = {
+			save_scope_as = sitting_ruler_heir
+		}
+		title:e_the_iron_throne.holder = {
+			random_councillor = {
+				limit = {
+					OR = {
+						has_trait = kingsguard
+						has_council_position = kingsguard_lord_commander
+						has_council_position = kingsguard_1
+						has_council_position = kingsguard_2
+						has_council_position = kingsguard_3
+						has_council_position = kingsguard_4
+						has_council_position = kingsguard_5
+						has_council_position = kingsguard_6
+					}
+					NOT = { is_in_army = yes }
+				}
+				save_scope_as = daemon_kg_1
+			}
+			random_councillor = {
+				limit = {
+					NOT = { this = scope:daemon_kg_1 }
+					OR = {
+						has_trait = kingsguard
+						has_council_position = kingsguard_lord_commander
+						has_council_position = kingsguard_1
+						has_council_position = kingsguard_2
+						has_council_position = kingsguard_3
+						has_council_position = kingsguard_4
+						has_council_position = kingsguard_5
+						has_council_position = kingsguard_6
+					}
+					NOT = { is_in_army = yes }
+				}
+				save_scope_as = daemon_kg_2
+			}
+		}
+		set_relation_rival = scope:sitting_ruler
+	}
+
+	option = { # You absolute fucking psycopath
+		name = agot_scenario_trp.1025.a
+		trigger = {
+			is_current_dragonrider = yes
+		}
+		var:current_dragon = {
+			save_scope_as = sieging_dragon
+		}
+		add_internal_flag = dangerous
+		title:e_the_iron_throne.title_capital_county.title_province = {
+			save_scope_as = sieging_location
+			agot_remove_dragon_siege_effect_minor = yes
+			agot_remove_dragon_siege_effect_medium = yes
+			agot_remove_dragon_siege_effect_major = yes
+			set_variable = {
+				name = dragon_siege_modifier_massive
+				value = 1
+				months = 17
+			}
+			if = {
+				limit = { fort_level > 40 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_40
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 39 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_39
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 38 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_38
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 37 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_37
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 36 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_36
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 35 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_35
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 34 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_34
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 33 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_33
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 32 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_32
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 31 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_31
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 30 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_30
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 29 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_29
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 28 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_28
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 27 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_27
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 26 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_26
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 25 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_25
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 24 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_24
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 23 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_23
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 22 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_22
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 21 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_21
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 20 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_20
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 19 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_19
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 18 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_18
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 17 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_17
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 16 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_16
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 15 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_15
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 14 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_14
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 13 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_13
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 12 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_12
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 11 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_11
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 10 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_10
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 9 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_9
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 8 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_8
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 7 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_7
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 6 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_6
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 5 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_5
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 4 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_4
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 3 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_3
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 2 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_2
+					months = 17
+				}
+			}
+			else_if = {
+				limit = { fort_level > 1 }
+				add_province_modifier = {
+					modifier = dragon_siege_modifier_1
+					months = 17
+				}
+			}
+			barony = {
+				custom_tooltip = {
+					text = agot_dragon_siege.0001.d.tt
+					holder = {
+						every_courtier_or_guest = {
+							limit = {
+								is_in_army = no
+								location = scope:sieging_location
+								NOR = {
+									exists = var:current_rider
+									has_character_flag = in_dragonpit
+								}
+							}
+							trigger_event = agot_dragon_siege.0003
+						}
+						trigger_event = agot_scenario_trp.1026
+					}
+				}
+			}
+			# This looks slightly weird so hiding effect
+			hidden_effect = {
+				county = {
+					agot_dragon_damage_county_effect = yes
+					agot_dragon_damage_county_effect = yes
+				}
+			}
+			show_as_tooltip = {
+				county = {
+					add_county_modifier = {
+						modifier = agot_dragon_fire
+						days = 10
+					}
+					add_county_modifier = {
+						modifier = agot_dragon_damage_2
+						days = 30
+					}
+				}
+			}
+		}
+		add_dread = medium_dread_gain
+		if = {
+			limit = {
+				NOT = { is_heir_of = title:e_the_iron_throne.holder }
+			}
+			custom_tooltip = {
+				text = agot_scenario_trp.1025.a.tt
+			}
+		}
+	}
+
+	option = { # I'm taking that crown now, whether you like it or not - no KG
+		name = agot_scenario_trp.1025.b
+		flavor = agot_scenario_trp.1025.b.f
+		trigger = {
+			OR = {
+				AND = {
+					NOT = { exists = scope:daemon_kg_1 }
+					NOT = { exists = scope:daemon_kg_2 }
+				}
+				has_multiple_players = yes
+			}
+		}
+		if = {
+			limit = {
+				scope:sitting_ruler = { is_adult = no }
+			}
+			custom_tooltip = agot_scenario_trp.1025.b.ttchild
+		}
+		else = {
+			add_internal_flag = dangerous
+			custom_tooltip = agot_scenario_trp.1025.b.tt
+		}
+		scope:sitting_ruler = {
+			trigger_event = {
+				id = agot_scenario_trp.1029
+			}
+		}
+	}
+	option = { # I'm taking that crown now, whether you like it or not - 1 KG
+		name = agot_scenario_trp.1025.b
+		flavor = agot_scenario_trp.1025.b.fone
+		trigger = {
+			exists = scope:daemon_kg_1
+			NOT = { exists = scope:daemon_kg_2 }
+			#Broken for multiplayer
+			NOT = { has_multiple_players = yes }
+		}
+		add_internal_flag = dangerous
+		configure_start_single_combat_effect = {
+			SC_INITIATOR = root
+			SC_ATTACKER = root
+			SC_DEFENDER = scope:daemon_kg_1
+			FATALITY = always
+			FIXED = no
+			LOCALE = agot_iron_throne
+			OUTPUT_EVENT = single_combat.1006
+			INVALIDATION_EVENT = single_combat.1006
+		}
+		custom_tooltip = agot_scenario_trp.1025.b.ttone
+		if = {
+			limit = {
+				scope:sitting_ruler = { is_adult = no }
+			}
+			custom_tooltip = agot_scenario_trp.1025.b.ttchild
+		}
+		else = {
+			custom_tooltip = agot_scenario_trp.1025.b.ttadult
+		}
+		trigger_event = {
+			id = agot_scenario_trp.1027
+			days = 1
+		}
+	}
+	option = { # I'm taking that crown now, whether you like it or not - 2 KG
+		name = agot_scenario_trp.1025.b
+		flavor = agot_scenario_trp.1025.b.ftwo
+		trigger = {
+			exists = scope:daemon_kg_1
+			exists = scope:daemon_kg_2
+			#Broken for multiplayer
+			NOT = { has_multiple_players = yes }
+		}
+		add_internal_flag = dangerous
+		configure_start_single_combat_effect = {
+			SC_INITIATOR = root
+			SC_ATTACKER = root
+			SC_DEFENDER = scope:daemon_kg_1
+			FATALITY = always
+			FIXED = no
+			LOCALE = agot_iron_throne
+			OUTPUT_EVENT = single_combat.1006
+			INVALIDATION_EVENT = single_combat.1006
+		}
+		custom_tooltip = agot_scenario_trp.1025.b.tttwo
+		if = {
+			limit = {
+				scope:sitting_ruler = { is_adult = no }
+			}
+			custom_tooltip = agot_scenario_trp.1025.b.ttchild
+		}
+		else = {
+			custom_tooltip = agot_scenario_trp.1025.b.ttadult
+		}
+		trigger_event = {
+			id = agot_scenario_trp.1027
+			days = 1
+		}
+	}
+
+	option = { # Fuck this I'm out
+		name = agot_scenario_trp.1025.c
+		flavor = agot_scenario_trp.1025.c.f
+		create_title_and_vassal_change = {
+			type = independency
+			save_scope_as = change
+			add_claim_on_loss = yes
+		}
+		becomes_independent = {
+			change = scope:change
+		}
+		resolve_title_and_vassal_change = scope:change
+		scope:sitting_ruler = {
+			trigger_event = agot_scenario_trp.1035
+		}
+	}
+
+	option = { # Revenge is a dish best served cold...
+		name = agot_scenario_trp.1025.d
+		flavor = agot_scenario_trp.1025.d.f
+		start_scheme = {
+			type = murder
+			target_character = scope:sitting_ruler
+		}
+	}
+}
+
+agot_scenario_trp.1026 = { # Daemon is burning kings landing down the crazy man
+	type = character_event
+	title = agot_scenario_trp.1026.t
+	desc = agot_scenario_trp.1026.desc
+	theme = dragon
+	override_background = {
+		reference = agot_iron_throne
+	}
+	right_portrait = {
+		character = scope:sitting_ruler
+		animation = shock
+	}
+
+	option = { # OH FUCK
+		name = agot_scenario_trp.1026.a
+		death = {
+			killer = scope:sieging_dragon
+			death_reason = death_dragon_fire
+		}
+		scope:sieging_dragon.var:current_rider = {
+			add_kinslayer_trait_or_nothing_effect = { VICTIM = root }
+		}
+	}
+
+	after = {
+		character:Targaryen_61 = {
+			if = {
+				limit = {
+					NOT = { has_title = title:e_the_iron_throne }
+				}
+				start_war = {
+					casus_belli = claim_cb
+					target = title:e_the_iron_throne.holder
+					claimant = character:Targaryen_61
+				}
+			}
+		}
+	}
+}
+
+agot_scenario_trp.1027 = { # Daemon Duel 1 Resolver Event
+	hidden = yes
+	immediate = {
+		if = { # Daemon is dead
+			limit = {
+				character:Targaryen_61 = { is_alive = no }
+			}
+			title:e_the_iron_throne.holder = {
+				trigger_event = {
+					id = agot_scenario_trp.1031
+				}
+			}
+		}
+		else_if = { # There are 2 KG and the first is dead
+			limit = {
+				exists = scope:daemon_kg_2
+				scope:daemon_kg_1 = { is_alive = no }
+				scope:daemon_kg_2 = { is_alive = yes }
+			}
+			configure_start_single_combat_effect = {
+				SC_INITIATOR = character:Targaryen_61
+				SC_ATTACKER = character:Targaryen_61
+				SC_DEFENDER = scope:daemon_kg_2
+				FATALITY = always
+				FIXED = no
+				LOCALE = agot_iron_throne
+				OUTPUT_EVENT = single_combat.1006
+				INVALIDATION_EVENT = single_combat.1006
+			}
+			title:e_the_iron_throne.holder = {
+				trigger_event = {
+					id = agot_scenario_trp.1028
+					days = 1
+				}
+			}
+		}
+		else = { # Either the KG are both dead or Daemon won and KG2 doesn't exist
+			title:e_the_iron_throne.holder = {
+				trigger_event = {
+					id = agot_scenario_trp.1029
+					days = 1
+				}
+			}
+		}
+	}
+}
+
+agot_scenario_trp.1028 = { # Daemon Duel 2 Resolver Event
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				character:Targaryen_61 = { is_alive = no }
+			}
+			title:e_the_iron_throne.holder = {
+				trigger_event = {
+					id = agot_scenario_trp.1031
+				}
+			}
+		}
+		else = {
+			title:e_the_iron_throne.holder = {
+				trigger_event = {
+					id = agot_scenario_trp.1029
+					days = 1
+				}
+			}
+		}
+	}
+}
+
+agot_scenario_trp.1029 = { # Daemon won duels
+	type = character_event
+	title = agot_scenario_trp.1029.t
+	desc = {
+		desc = agot_scenario_trp.1029.desc.start
+		triggered_desc = {
+			trigger = { exists = scope:daemon_kg_1 }
+			desc = {
+				desc = agot_scenario_trp.1029.desc.kgone
+			}
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { exists = scope:daemon_kg_2 }
+				desc = agot_scenario_trp.1029.desc.kgtwo
+			}
+			desc = agot_scenario_trp.1029.desc.kgoneend
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { character:Targaryen_60 = { has_title = title:e_the_iron_throne } }
+				desc = agot_scenario_trp.1029.desc.brother
+			}
+			triggered_desc = {
+				trigger = { character:Targaryen_63 = { has_title = title:e_the_iron_throne } }
+				desc = agot_scenario_trp.1029.desc.niece
+			}
+			desc = agot_scenario_trp.1029.desc.other
+		}
+		desc = agot_scenario_trp.1029.desc.cont
+		triggered_desc = {
+			trigger = { exists = scope:daemon_kg_1 }
+			desc = agot_scenario_trp.1029.desc.kgkill
+		}
+		triggered_desc = {
+			trigger = { exists = scope:daemon_kg_2 }
+			desc = agot_scenario_trp.1029.desc.kgkilltwo
+		}
+		desc = agot_scenario_trp.1029.desc.end
+	}
+	theme = crown
+	override_background = {
+		reference = agot_iron_throne
+	}
+	left_portrait = {
+		character = character:Targaryen_61
+		animation = aggressive_sword
+	}
+	right_portrait = {
+		character = scope:sitting_ruler
+		animation = disbelief
+	}
+	lower_center_portrait = {
+		character = scope:daemon_kg_1
+	}
+	lower_right_portrait = {
+		character = scope:daemon_kg_2
+	}
+
+	immediate = {
+		hidden_effect = { # Either Daemon or Root is dead/unladed after this, so set up inheritance in case
+			set_designated_heir_unsafe = character:Targaryen_61
+		}
+	}
+
+	option = { # Duel daemon!
+		name = agot_scenario_trp.1029.a
+		trigger = {
+			is_adult = yes
+		}
+		custom_tooltip = agot_scenario_trp.1029.a.tt
+		configure_start_single_combat_effect = {
+			SC_INITIATOR = character:Targaryen_61
+			SC_ATTACKER = character:Targaryen_61
+			SC_DEFENDER = root
+			FATALITY = always
+			FIXED = no
+			LOCALE = agot_iron_throne
+			OUTPUT_EVENT = single_combat.1006
+			INVALIDATION_EVENT = single_combat.1006
+		}
+		# Trigger event on both characters in 1 day, letting trigger sort out resolution
+		trigger_event = {
+			id = agot_scenario_trp.1030
+			days = 1
+		}
+		character:Targaryen_61 = {
+			trigger_event = {
+				id = agot_scenario_trp.1030
+				days = 1
+			}
+		}
+	}
+
+	option = { # Surrender
+		name = agot_scenario_trp.1029.b
+		if = {
+			limit = {
+				is_adult = no
+			}
+			custom_tooltip = agot_scenario_trp.1029.b.tt_child
+		}
+		custom_tooltip = {
+			text = agot_scenario_trp.1029.b.tt
+			depose = yes
+		}
+		character:Targaryen_61 = {
+			imprison = {
+				target = scope:sitting_ruler
+				type = dungeon
+			}
+			trigger_event = {
+				id = agot_scenario_trp.1034
+			}
+		}
+	}
+}
+
+agot_scenario_trp.1030 = { # King or Daemon duel winner event
+	type = character_event
+	title = agot_scenario_trp.1030.t
+	desc = {
+		desc = agot_scenario_trp.1030.desc.start
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:sitting_ruler = character:Targaryen_60
+				}
+				desc = agot_scenario_trp.1030.desc.brother
+			}
+			triggered_desc = {
+				trigger = {
+					scope:sitting_ruler = character:Targaryen_63
+					root = character:Targaryen_63
+				}
+				desc = agot_scenario_trp.1030.desc.uncle
+			}
+			triggered_desc = {
+				trigger = {
+					scope:sitting_ruler = character:Targaryen_63
+					root = character:Targaryen_61
+				}
+				desc = agot_scenario_trp.1030.desc.niece
+			}
+		}
+	}
+	trigger = {
+		is_alive = yes
+		is_ruler = yes
+	}
+	theme = crown
+	override_background = {
+		reference = agot_iron_throne
+	}
+	left_portrait = {
+		character = character:Targaryen_61
+		animation = aggressive_sword
+		triggered_animation = {
+			trigger = { character:Targaryen_61 = { is_alive = no } }
+			animation = pain
+		}
+	}
+	right_portrait = {
+		character = scope:sitting_ruler
+		animation = aggressive_sword
+		triggered_animation = {
+			trigger = { character:Targaryen_61 = { is_alive = yes } }
+			animation = pain
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				character:Targaryen_61 = { is_alive = no }
+			}
+			character:Targaryen_61 = {
+				save_scope_as = loser_of_IT_duel
+			}
+		}
+		else = {
+			scope:sitting_ruler = {
+				save_scope_as = loser_of_IT_duel
+			}
+		}
+	}
+
+	option = { # I am the king!
+		name = agot_scenario_trp.1030.a
+		add_dread = medium_dread_gain
+		if = {
+			limit = {
+				character:Targaryen_61 = {
+					is_alive = yes
+					NOT = { has_title = title:c_dragonstone }
+					title:c_dragonstone.holder = {
+						has_claim_on = title:e_the_iron_throne
+					}
+				}
+			}
+			title:c_dragonstone.holder = {
+				save_scope_as = dragonstone_claimant
+				trigger_event = {
+					id = agot_scenario_trp.1032
+				}
+			}
+			custom_tooltip = agot_scenario_trp.1030.a.tt
+		}
+		else_if = {
+			limit = {
+				character:Targaryen_61 = {
+					is_alive = yes
+					NOT = { has_title = title:c_dragonstone }
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_claim_on = title:c_dragonstone }
+				}
+				add_pressed_claim = title:c_dragonstone
+			}
+			if = {
+				limit = {
+					NOT = { has_claim_on = title:d_dragonstone }
+				}
+				add_pressed_claim = title:d_dragonstone
+			}
+			if = {
+				limit = {
+					NOT = { has_claim_on = title:k_dragonstone }
+				}
+				add_pressed_claim = title:k_dragonstone
+			}
+		}
+	}
+}
+
+agot_scenario_trp.1031 = { # Daemon died to KG
+	type = character_event
+	title = agot_scenario_trp.1031.t
+	desc = {
+		desc = agot_scenario_trp.1031.desc.start
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = scope:daemon_kg_2
+				}
+				desc = agot_scenario_trp.1029.desc.kgtwo
+			}
+			desc = agot_scenario_trp.1029.desc.kgoneend
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { character:Targaryen_60 = { has_title = title:e_the_iron_throne } }
+				desc = agot_scenario_trp.1029.desc.brother
+			}
+			triggered_desc = {
+				trigger = { character:Targaryen_63 = { has_title = title:e_the_iron_throne } }
+				desc = agot_scenario_trp.1029.desc.niece
+			}
+			desc = agot_scenario_trp.1029.desc.other
+		}
+		desc = agot_scenario_trp.1029.desc.cont
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:daemon_kg_1 = { is_alive = no }
+				}
+				desc = agot_scenario_trp.1031.desc.kgkilled
+			}
+			desc = agot_scenario_trp.1031.desc.kglived
+		}
+		desc = agot_scenario_trp.1031.desc.fightend
+		first_valid = {
+			triggered_desc = {
+				trigger = { character:Targaryen_60 = { has_title = title:e_the_iron_throne } }
+				desc = agot_scenario_trp.1031.desc.brother
+			}
+			triggered_desc = {
+				trigger = { character:Targaryen_63 = { has_title = title:e_the_iron_throne } }
+				desc = agot_scenario_trp.1031.desc.niece
+			}
+			desc = agot_scenario_trp.1031.desc.other
+		}
+		desc = agot_scenario_trp.1031.desc.end
+	}
+	theme = crown
+	override_background = {
+		reference = agot_iron_throne
+	}
+	left_portrait = {
+		character = character:Targaryen_61
+		animation = pain
+	}
+	right_portrait = {
+		character = scope:sitting_ruler
+		animation = shock
+	}
+	lower_center_portrait = {
+		character = scope:daemon_kg_1
+	}
+	lower_right_portrait = {
+		character = scope:daemon_kg_2
+	}
+
+	option = {
+		name = {
+			trigger = {
+				character:Targaryen_60 = { this = root }
+			}
+			text = agot_scenario_trp.1031.a.brother
+		}
+		name = {
+			trigger = {
+				character:Targaryen_63 = { this = root }
+			}
+			text = agot_scenario_trp.1031.a.niece
+		}
+		name = {
+			trigger = {
+				character:Targaryen_60 = { NOT = { this = root } }
+				character:Targaryen_63 = { NOT = { this = root } }
+			}
+			text = agot_scenario_trp.1031.a.other
+		}
+		if = {
+			limit = {
+				OR = {
+					character:Targaryen_60 = { this = root }
+					character:Targaryen_63 = { this = root }
+				}
+			}
+			add_stress = medium_stress_gain
+		}
+	}
+}
+
+agot_scenario_trp.1032 = { # Dragonstone ruler response event
+	type = character_event
+	title = agot_scenario_trp.1032.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:sitting_ruler = { is_alive = yes }
+				}
+				desc = agot_scenario_trp.1032.desc.surrendered
+			}
+			desc = agot_scenario_trp.1032.desc.dead
+		}
+	}
+	theme = crown
+	lower_left_portrait = {
+		character = character:Targaryen_61
+	}
+	lower_center_portrait = {
+		character = scope:sitting_ruler
+	}
+	right_portrait = {
+		character = root
+		animation = shock
+	}
+
+	option = { # I am sure he will not harm me
+		name = agot_scenario_trp.1032.a
+		character:Targaryen_61 = {
+			trigger_event = {
+				id = agot_scenario_trp.1033
+				days = 2
+			}
+		}
+	}
+
+	option = { # This will not stand!
+		name = agot_scenario_trp.1032.b
+		start_war = {
+			casus_belli = claim_cb
+			target = title:e_the_iron_throne.holder
+			claimant = root
+		}
+	}
+}
+
+agot_scenario_trp.1033 = { # Dragonstone ruler acknowledges your rule
+	type = character_event
+	title = agot_scenario_trp.1033.t
+	desc = agot_scenario_trp.1033.desc
+	theme = crown
+	override_background = {
+		reference = agot_iron_throne
+	}
+	lower_left_portrait = {
+		character = scope:dragonstone_claimant
+	}
+	right_portrait = {
+		character = root
+		animation = chancellor
+	}
+
+	option = { # So be it
+		name = agot_scenario_trp.1033.a
+		flavor = agot_scenario_trp.1033.a.f
+		if = {
+			limit = {
+				NOT = { has_claim_on = title:c_dragonstone }
+			}
+			add_pressed_claim = title:c_dragonstone
+		}
+		if = {
+			limit = {
+				NOT = { has_claim_on = title:d_dragonstone }
+			}
+			add_pressed_claim = title:d_dragonstone
+		}
+		if = {
+			limit = {
+				NOT = { has_claim_on = title:k_dragonstone }
+			}
+			add_pressed_claim = title:k_dragonstone
+		}
+	}
+}
+
+agot_scenario_trp.1034 = { # Ruler has surrendered to Daemon
+	type = character_event
+	title = agot_scenario_trp.1034.t
+	desc = agot_scenario_trp.1034.desc
+	theme = crown
+	override_background = {
+		reference = agot_iron_throne
+	}
+	left_portrait = {
+		character = scope:sitting_ruler
+		animation = shock
+	}
+	right_portrait = {
+		character = character:Targaryen_61
+		animation = celebrate_sword
+	}
+
+	option = {
+		name = {
+			trigger = {
+				OR = {
+					has_title = title:c_dragonstone
+					title:c_dragonstone.holder = {
+						NOT = { has_claim_on = title:e_the_iron_throne }
+					}
+				}
+			}
+			text = agot_scenario_trp.1034.a
+		}
+		name = {
+			trigger = {
+				NOT = { has_title = title:c_dragonstone }
+				title:c_dragonstone.holder = {
+					has_claim_on = title:e_the_iron_throne
+				}
+			}
+			text = agot_scenario_trp.1034.a.dragonstone
+		}
+	}
+}
+
+agot_scenario_trp.1035 = { # Daemon has declared independence
+	type = character_event
+	title = agot_scenario_trp.1035.t
+	desc = agot_scenario_trp.1035.desc
+	theme = crown
+	override_background = {
+		reference = agot_iron_throne
+	}
+	right_portrait = {
+		character = scope:sitting_ruler
+		animation = shock
+	}
+	left_portrait = {
+		character = character:Targaryen_61
+		animation = rage
+	}
+
+	immediate = {
+		show_as_tooltip = {
+			character:Targaryen_61 = {
+				set_relation_rival = root
+				create_title_and_vassal_change = {
+					type = independency
+					save_scope_as = change
+					add_claim_on_loss = yes
+				}
+				becomes_independent = {
+					change = scope:change
+				}
+				resolve_title_and_vassal_change = scope:change
+				scope:sitting_ruler = {
+					trigger_event = agot_scenario_trp.1035
+				}
+			}
+		}
+	}
+
+	option = { # I will not stand for this!
+		name = agot_scenario_trp.1035.a
+	}
+
+	option = { # Such is his right
+		name = agot_scenario_trp.1035.b
+	}
+}
+
+agot_scenario_trp.1036 = { # Visy chooses response to son being born
+	type = character_event
+	title = agot_scenario_trp.1036.t
+	desc = agot_scenario_trp.1036.desc
+	theme = crown
+	override_background = {
+		reference = agot_iron_throne
+	}
+	right_portrait = {
+		character = character:Targaryen_60
+		animation = personality_rational
+	}
+	lower_left_portrait = {
+		character = scope:female_current_heir
+	}
+	lower_right_portrait = {
+		character = scope:male_child_born
+	}
+
+	option = { # I will marry them but Son Becomes heir
+		name = agot_scenario_trp.1036.a
+		trigger = {
+			scope:female_current_heir = { is_married = no }
+			scope:female_current_heir = { is_ai = yes }
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_nonhistoric_outcome_4
+			}
+		}
+		if = {
+			limit = {
+				scope:female_current_heir = {
+					is_betrothed = yes
+				}
+			}
+			scope:female_current_heir = {
+				if = {
+					limit = {
+						has_been_promised_grand_wedding = yes
+					}
+					break_grand_wedding_betrothal_effect = yes
+				}
+				else = {
+					break_betrothal = betrothed
+				}
+			}
+		}
+		scope:female_current_heir = {
+			create_betrothal = scope:male_child_born
+		}
+		set_designated_heir = scope:male_child_born
+		scope:male_child_born = {
+			show_as_tooltip = {
+				title:c_dragonstone.holder = {
+					save_temporary_scope_as = old_dragonstone_holder
+				}
+				# Give titles
+				create_title_and_vassal_change = {
+					type = granted
+					save_scope_as = change
+					add_claim_on_loss = yes
+				}
+				title:k_dragonstone = {
+					change_title_holder_include_vassals = {
+						holder = scope:male_child_born
+						change = scope:change
+					}
+				}
+				title:d_dragonstone = {
+					change_title_holder_include_vassals = {
+						holder = scope:male_child_born
+						change = scope:change
+					}
+				}
+				title:c_dragonstone = {
+					change_title_holder_include_vassals = {
+						holder = scope:male_child_born
+						change = scope:change
+					}
+				}
+				resolve_title_and_vassal_change = scope:change
+				# If relative lost title, come home
+				scope:old_dragonstone_holder = {
+					add_opinion = {
+						target = title:e_the_iron_throne.holder
+						modifier = primary_heir_replaced_opinion
+					}
+					if = {
+						limit = {
+							scope:male_child_born.mother = {
+								is_alive = yes
+							}
+						}
+						set_relation_potential_rival = scope:male_child_born.mother
+					}
+					set_relation_potential_rival = scope:male_child_born
+					if = {
+						limit = {
+							is_ruler = no
+							is_close_or_extended_family_of = root
+							NOT = { employer = root }
+						}
+						set_employer = root
+					}
+				}
+			}
+		}
+		stress_impact = {
+			base = major_stress_impact_gain
+		}
+	}
+
+	option = { # I will marry them! - Daughter stays heir
+		name = agot_scenario_trp.1036.b
+		trigger = {
+			scope:female_current_heir = { is_married = no }
+			scope:female_current_heir = { is_ai = yes }
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_nonhistoric_outcome_4
+			}
+		}
+		if = {
+			limit = {
+				scope:female_current_heir = {
+					is_betrothed = yes
+				}
+			}
+			scope:female_current_heir = {
+				if = {
+					limit = {
+						has_been_promised_grand_wedding = yes
+					}
+					break_grand_wedding_betrothal_effect = yes
+				}
+				else = {
+					break_betrothal = betrothed
+				}
+			}
+		}
+		scope:female_current_heir = {
+			create_betrothal_matrilineal = scope:male_child_born
+		}
+		if = {
+			limit = {
+				any_vassal_or_below = {
+					has_vassal_stance = courtly
+					highest_held_title_tier >= tier_county
+				}
+			}
+			hidden_effect = {
+				every_vassal_or_below = {
+					limit = {
+						has_vassal_stance = courtly
+						highest_held_title_tier >= tier_county
+					}
+					add_to_list = courtly_vassals
+				}
+				# We use the list so we can tell the player the amount of vassals/subrealm vassals who are getting an opinion hit
+				every_in_list = {
+					list = courtly_vassals
+					add_opinion = {
+						target = prev
+						modifier = heir_violates_tradition
+						opinion = -15
+					}
+				}
+				save_scope_value_as = {
+					name = courtly_vassals_count
+					value = list_size:courtly_vassals
+				}
+			}
+			custom_tooltip = agot_scenario_trp.1036.b_tt
+		}
+		stress_impact = {
+			base = minor_stress_impact_gain
+			stubborn = miniscule_stress_impact_loss
+		}
+	}
+
+	option = { # I will make my son my heir!
+		name = agot_scenario_trp.1036.c
+		trigger = {
+			scope:female_current_heir = { is_ai = yes }
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_nonhistoric_outcome_4
+			}
+		}
+		set_designated_heir = scope:male_child_born
+		scope:male_child_born = {
+			show_as_tooltip = {
+				title:c_dragonstone.holder = {
+					save_temporary_scope_as = old_dragonstone_holder
+				}
+				# Give titles
+				create_title_and_vassal_change = {
+					type = granted
+					save_scope_as = change
+					add_claim_on_loss = yes
+				}
+				title:k_dragonstone = {
+					change_title_holder_include_vassals = {
+						holder = scope:male_child_born
+						change = scope:change
+					}
+				}
+				title:d_dragonstone = {
+					change_title_holder_include_vassals = {
+						holder = scope:male_child_born
+						change = scope:change
+					}
+				}
+				title:c_dragonstone = {
+					change_title_holder_include_vassals = {
+						holder = scope:male_child_born
+						change = scope:change
+					}
+				}
+				resolve_title_and_vassal_change = scope:change
+				# If relative lost title, come home
+				scope:old_dragonstone_holder = {
+					add_opinion = {
+						target = title:e_the_iron_throne.holder
+						modifier = primary_heir_replaced_opinion
+					}
+					set_relation_potential_rival = scope:male_child_born
+					if = {
+						limit = {
+							scope:male_child_born.mother = {
+								is_alive = yes
+							}
+						}
+						set_relation_potential_rival = scope:male_child_born.mother
+					}
+					if = {
+						limit = {
+							is_ruler = no
+							is_close_or_extended_family_of = root
+							NOT = { employer = root }
+						}
+						set_employer = root
+					}
+				}
+			}
+		}
+		stress_impact = {
+			base = major_stress_impact_gain
+		}
+	}
+
+	option = { # Things are fine as they are
+		name = agot_scenario_trp.1036.d
+		if = {
+			limit = {
+				any_vassal_or_below = {
+					has_vassal_stance = courtly
+					highest_held_title_tier >= tier_county
+				}
+			}
+			hidden_effect = {
+				every_vassal_or_below = {
+					limit = {
+						has_vassal_stance = courtly
+						highest_held_title_tier >= tier_county
+					}
+					add_to_list = courtly_vassals
+				}
+				# We use the list so we can tell the player the amount of vassals/subrealm vassals who are getting an opinion hit
+				every_in_list = {
+					list = courtly_vassals
+					add_opinion = {
+						target = prev
+						modifier = heir_violates_tradition
+					}
+				}
+				save_scope_value_as = {
+					name = courtly_vassals_count
+					value = list_size:courtly_vassals
+				}
+			}
+			custom_tooltip = agot_scenario_trp.1036.d_tt
+		}
+		stress_impact = {
+			base = minor_stress_impact_gain
+			stubborn = miniscule_stress_impact_loss
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = agot_historic_outcome_4
+			}
+		}
+	}
+
+	after = {
+		if = {
+			limit = {
+				scope:female_current_heir = {
+					is_ruler = yes
+				}
+			}
+			scope:female_current_heir = {
+				trigger_event = agot_scenario_trp.1037
+			}
+		}
+	}
+}
+
+agot_scenario_trp.1037 = { # Rhae reacts
+	type = character_event
+	title = agot_scenario_trp.1037.t
+	desc = {
+		desc = agot_scenario_trp.1037.desc
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					is_primary_heir_of = title:e_the_iron_throne.holder
+					betrothed = scope:male_child_born
+				}
+				desc = agot_scenario_trp.1037.desc.married
+			}
+			triggered_desc = {
+				trigger = {
+					is_primary_heir_of = title:e_the_iron_throne.holder
+				}
+				desc = agot_scenario_trp.1037.desc.stayed
+			}
+			triggered_desc = {
+				trigger = {
+					NOT = { is_primary_heir_of = title:e_the_iron_throne.holder }
+					betrothed = scope:male_child_born
+				}
+				desc = agot_scenario_trp.1037.desc.married_supplanted
+			}
+			triggered_desc = {
+				trigger = {
+					NOT = { is_primary_heir_of = title:e_the_iron_throne.holder }
+				}
+				desc = agot_scenario_trp.1037.desc.supplanted
+			}
+		}
+	}
+	theme = crown
+	right_portrait = {
+		character = root
+		animation = shock
+		triggered_animation = {
+			trigger = { is_heir_of = title:e_the_iron_throne.holder }
+			animation = admiration
+		}
+	}
+	lower_left_portrait = {
+		character = scope:male_child_born
+	}
+	lower_right_portrait = {
+		character = father
+	}
+
+	option = {
+		name = agot_scenario_trp.1037.a
+		trigger = { NOT = { is_primary_heir_of = title:e_the_iron_throne.holder } }
+		scope:male_child_born = {
+			title:c_dragonstone.holder = {
+				save_temporary_scope_as = old_dragonstone_holder
+			}
+			# Give titles
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = change
+				add_claim_on_loss = yes
+			}
+			title:k_dragonstone = {
+				change_title_holder_include_vassals = {
+					holder = scope:male_child_born
+					change = scope:change
+				}
+			}
+			title:d_dragonstone = {
+				change_title_holder_include_vassals = {
+					holder = scope:male_child_born
+					change = scope:change
+				}
+			}
+			title:c_dragonstone = {
+				change_title_holder_include_vassals = {
+					holder = scope:male_child_born
+					change = scope:change
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+			# If relative lost title, come home
+			scope:old_dragonstone_holder = {
+				set_variable = move_court_fix
+				set_relation_potential_rival = scope:male_child_born
+				add_opinion = {
+					target = title:e_the_iron_throne.holder
+					modifier = primary_heir_replaced_opinion
+				}
+				if = {
+					limit = {
+						scope:male_child_born.mother = {
+							is_alive = yes
+						}
+					}
+					set_relation_potential_rival = scope:male_child_born.mother
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_ai = no
+			}
+			set_player_character = scope:male_child_born
+		}
+	}
+
+	option = {
+		name = agot_scenario_trp.1037.b
+		trigger = { is_primary_heir_of = title:e_the_iron_throne.holder }
+	}
+
+	option = {
+		name = agot_scenario_trp.1037.c
+		trigger = {
+			NOT = { is_primary_heir_of = title:e_the_iron_throne.holder }
+			age >= 16
+		}
+		start_war = {
+			casus_belli = claim_cb
+			target = title:e_the_iron_throne.holder
+			target_title = title:e_the_iron_throne
+			target_title = title:k_the_crownlands
+			target_title = title:d_kings_landing
+			target_title = title:c_kings_landing
+			claimant = root
+		}
+	}
+
+	after = {
+		if = {
+			limit = {
+				has_variable = move_court_fix
+			}
+			if = {
+				limit = {
+					is_ruler = no
+					is_close_or_extended_family_of = title:e_the_iron_throne.holder
+					NOT = { employer = title:e_the_iron_throne.holder }
+				}
+				set_employer = title:e_the_iron_throne.holder
+			}
+			if = {
+				limit = {
+					is_ruler = no
+					is_close_or_extended_family_of = title:e_the_iron_throne.holder
+					location != title:e_the_iron_throne.holder.capital_province
+				}
+				set_location = title:e_the_iron_throne.holder.capital_province
+			}
+			remove_variable = move_court_fix
+		}
+	}
+}
+
+agot_scenario_trp.1038 = { # King offered marriage to Laena
+	type = character_event
+	title = agot_scenario_trp.1038.t
+	desc = agot_scenario_trp.1038.desc
+	theme = marriage
+	override_background = {
+		reference = agot_iron_throne
+	}
+	right_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	left_portrait = {
+		character = character:Velaryon_31
+		animation = chancellor
+	}
+	lower_left_portrait = {
+		character = scope:laena
+	}
+
+	immediate = {
+		character:Velaryon_31 = { save_scope_as = corlys }
+	}
+
+	option = { # I accept
+		name = agot_scenario_trp.1038.a
+		character:Velaryon_31 = {
+			send_interface_toast = {
+				title = agot_scenario_trp.1038.a.toast.title
+				left_icon = root
+				right_icon = scope:laena
+				scope:laena = {
+					if = {
+						limit = {
+							exists = betrothed
+						}
+						hidden_effect = {
+							betrothed = { move_to_pool = yes }
+						}
+						if = {
+							limit = {
+								exists = betrothed
+							}
+							if = {
+								limit = {
+									has_been_promised_grand_wedding = yes
+								}
+								break_grand_wedding_betrothal_effect = yes
+							}
+							else = {
+								break_betrothal = betrothed
+							}
+						}
+					}
+					marry = root
+				}
+			}
+			add_opinion = {
+				target = root
+				modifier = grateful_opinion
+				opinion = 25
+			}
+		}
+	}
+	option = { # I reject
+		name = agot_scenario_trp.1038.b
+		character:Velaryon_31 = {
+			send_interface_toast = {
+				title = agot_scenario_trp.1038.b.toast.title
+				left_icon = root
+				right_icon = scope:laena
+			}
+			add_opinion = {
+				target = root
+				modifier = disappointed_opinion
+				opinion = -25
+			}
+		}
+	}
+}
+
+agot_scenario_trp.1039 = { # I am betrothed, being challenged by Daemon
+	type = character_event
+	title = agot_scenario_trp.1039.t
+	desc = agot_scenario_trp.1039.desc
+	theme = marriage
+	override_background = {
+		reference = garden
+	}
+	right_portrait = {
+		character = root
+		animation = shock
+	}
+	left_portrait = {
+		character = character:Targaryen_61
+		animation = aggressive_sword
+	}
+	lower_center_portrait = {
+		character = scope:laena
+	}
+
+	immediate = {
+		character:Targaryen_61 = { save_scope_as = daemon }
+	}
+
+	option = { # I will not fight
+		name = agot_scenario_trp.1039.a
+		configure_start_single_combat_effect = {
+			SC_INITIATOR = scope:daemon
+			SC_ATTACKER = scope:daemon
+			SC_DEFENDER = root
+			FATALITY = always
+			FIXED = no
+			LOCALE = terrain_scope
+			OUTPUT_EVENT = agot_scenario_trp.1040
+			INVALIDATION_EVENT = single_combat.1006
+		}
+		custom_tooltip = agot_scenario_trp.0007.a.tt
+	}
+}
+
+agot_scenario_trp.1040 = {
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				character:Targaryen_61 = { is_alive = no }
+			}
+			character:Velaryon_31 = {
+				trigger_event = {
+					id = agot_scenario_trp.0112
+				}
+			}
+		}
+		else = {
+			character:Velaryon_31 = {
+				trigger_event = {
+					id = agot_scenario_trp.0111
+				}
+			}
+		}
+	}
+}
+
+agot_scenario_trp.1041 = { # Rhea dies in hunting accident - Daemon option event
+	type = character_event
+	title = agot_scenario_trp.1041.t
+	desc = agot_scenario_trp.1041.desc
+	trigger = {
+		is_alive = yes
+		is_spouse_of = character:Royce_37
+		has_relation_rival = character:Royce_37 # If he doesn't hate her, probably don't kill her
+	}
+	theme = murder_scheme
+	right_portrait = {
+		character = root
+		animation = spymaster
+	}
+	lower_left_portrait = {
+		character = character:Royce_37
+	}
+
+	immediate = {
+		character:Royce_37 = { save_scope_as = rhea }
+	}
+
+	option = { # I will send the assassins
+		name = agot_scenario_trp.1041.a
+		ai_chance = {
+			base = 100
+		}
+		hidden_effect = {
+			character:Royce_37 = {
+				random_list = {
+					75 = {
+						root = {
+							add_achievement_flag_effect = { FLAG = achievement_death_did_us_part_flag }
+						}
+						trigger_event = {
+							id = agot_scenario_trp.1042
+							days = 2
+						}
+					}
+					25 = {
+						add_character_flag = survived_daemon_assassination_flag
+						trigger_event = {
+							id = agot_scenario_trp.1042
+							days = 2
+						}
+					}
+				}
+			}
+		}
+		show_as_tooltip = {
+			character:Royce_37 = {
+				random_list = {
+					75 = {
+						desc = agot_scenario_trp.1041.a.tt
+						death = {
+							killer = root
+							death_reason = death_hunting_accident
+						}
+					}
+					25 = {
+						desc = agot_scenario_trp.1041.a.tt_survived
+						add_opinion = {
+							target = root
+							modifier = suspicious_opinion
+							opinion = -25
+						}
+					}
+				}
+			}
+		}
+		stress_impact = {
+			greedy = minor_stress_impact_gain
+			compassionate = medium_stress_impact_gain
+			honest = minor_stress_impact_gain
+		}
+	}
+
+	option = {
+		name = murder_outcome.1002.b
+		ai_chance = {
+			base = 0
+		}
+		stress_impact = {
+			impatient = medium_stress_impact_gain
+			compassionate = minor_stress_impact_loss
+			arrogant = medium_stress_impact_gain
+		}
+	}
+}
+
+agot_scenario_trp.1042 = {
+	type = character_event
+	title = agot_scenario_trp.1042.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					has_character_flag = survived_daemon_assassination_flag
+				}
+				desc = agot_scenario_trp.1042.desc_survived
+			}
+			desc = agot_scenario_trp.1042.desc_died
+		}
+	}
+	theme = murder_scheme
+	override_background = {
+		reference = wilderness_forest_pine
+	}
+
+	right_portrait = {
+		character = root
+		animation = shock
+	}
+	lower_left_portrait = {
+		character = character:Targaryen_61
+	}
+
+	immediate = {
+		character:Targaryen_61 = { save_scope_as = daemon }
+	}
+
+	option = {
+		name = agot_scenario_trp.1042.a
+		trigger = {
+			NOT = { has_character_flag = survived_daemon_assassination_flag }
+		}
+		death = {
+			killer = character:Targaryen_61
+			death_reason = death_hunting_accident
+		}
+		character:Targaryen_61 = {
+			add_secret = {
+				type = secret_murder
+				target = character:Royce_37
+			}
+		}
+	}
+
+	option = {
+		name = agot_scenario_trp.1042.b
+		trigger = {
+			has_character_flag = survived_daemon_assassination_flag
+		}
+		add_opinion = {
+			target = character:Targaryen_61
+			modifier = suspicious_opinion
+			opinion = -25
+		}
+		character:Targaryen_61 = {
+			add_secret = {
+				type = secret_murder_attempt
+				target = character:Royce_37
+			}
+		}
+	}
+
+	after = {
+		character:Targaryen_61 = {
+			trigger_event = {
+				id = agot_scenario_trp.1043
+			}
+		}
+	}
+}
+
+agot_scenario_trp.1043 = {
+	type = character_event
+	title = agot_scenario_trp.1043.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					character:Royce_37 = { is_alive = yes }
+				}
+				desc = agot_scenario_trp.1043.desc_survived
+			}
+			desc = agot_scenario_trp.1043.desc_died
+		}
+	}
+	theme = murder_scheme
+
+	right_portrait = {
+		character = root
+		animation = worry
+		triggered_animation = {
+			trigger = {
+				character:Royce_37 = { is_alive = no }
+			}
+			animation = schadenfreude
+		}
+	}
+	lower_left_portrait = {
+		character = character:Royce_37
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				character:Royce_37 = { is_alive = yes }
+			}
+			add_secret = {
+				type = secret_murder_attempt
+				target = character:Royce_37
+			}
+		}
+		else = {
+			add_secret = {
+				type = secret_murder
+				target = character:Royce_37
+			}
+			show_as_tooltip = {
+				character:Royce_37 = {
+					death = {
+						killer = character:Royce_37
+						death_reason = death_hunting_accident
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = agot_scenario_trp.1043.a
+		trigger = {
+			character:Royce_37 = { is_alive = no }
+		}
+		add_stress = minor_stress_loss
+	}
+
+	option = {
+		name = agot_scenario_trp.1043.b
+		trigger = {
+			character:Royce_37 = { is_alive = yes }
+		}
+		ai_chance = {
+			base = 50
+		}
+		start_scheme = {
+			type = murder
+			target_character = character:Royce_37
+		}
+		add_stress = minor_stress_gain
+	}
+
+	option = {
+		name = agot_scenario_trp.1043.c
+		trigger = {
+			character:Royce_37 = { is_alive = yes }
+		}
+		ai_chance = {
+			base = 50
+		}
+		add_stress = medium_stress_gain
+	}
+}
+
+agot_scenario_trp.1044 = {
+	hidden = yes
+	immediate = {
+		death = {
+			death_reason = death_hunting_accident
+		}
+	}
+}

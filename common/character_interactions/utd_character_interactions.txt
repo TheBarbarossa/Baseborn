@@ -10,9 +10,6 @@ utd_make_peace_interaction = {
 			has_trait = humble
 			has_relation_rival = scope:recipient
 		}
-
-		scope:actor = { is_human = yes }
-		scope:recipient = { is_human = yes }
 	}
 	is_valid_showing_failures_only = {
 		scope:recipient = { is_diplomatically_available = yes }
@@ -49,9 +46,6 @@ utd_renounce_claims_interaction = {
 			has_trait = content
             any_claim = { holder = scope:recipient }
 		}
-
-		scope:actor = { is_human = yes }
-		scope:recipient = { is_human = yes }
 	}
 	is_valid_showing_failures_only = {
 		scope:actor = {
@@ -132,9 +126,6 @@ utd_threaten_heretic_interaction = {
 		    }
 	        NOT = { scope:recipient = { has_faith = scope:actor.faith } }
 		}
-
-		scope:actor = { is_human = yes }
-		scope:recipient = { is_human = yes }
 	}
 	is_valid_showing_failures_only = {
 		scope:actor = {
@@ -176,9 +167,6 @@ utd_declare_rival_interaction = {
 			has_trait = vengeful
 			NOT = { has_character_modifier = utd_instigator }
 		}
-
-		scope:actor = { is_human = yes }
-		scope:recipient = { is_human = yes }
 	}
 	is_valid_showing_failures_only = {
 		scope:actor = {
@@ -217,9 +205,6 @@ utd_declare_friend_interaction = {
 				value > 75
 			}
         }
-
-		scope:actor = { is_human = yes }
-		scope:recipient = { is_human = yes }
 	}
 	is_valid_showing_failures_only = {
 		scope:actor = {
@@ -260,9 +245,6 @@ utd_comfort_interaction = {
 		scope:actor = {
 			has_trait = compassionate
 		}
-
-		scope:actor = { is_human = yes }
-		scope:recipient = { is_human = yes }
 	}
 	is_valid_showing_failures_only = {
 		scope:actor = {
@@ -300,9 +282,6 @@ utd_tumble_interaction = {
 			NOT = { has_character_modifier = utd_tumble }
 		}
         scope:recipient = { has_relation_lover = scope:actor }
-
-		scope:actor = { is_human = yes }
-		scope:recipient = { is_human = yes }
 	}
 	is_valid_showing_failures_only = {
 		scope:actor = {
@@ -329,3 +308,5 @@ utd_tumble_interaction = {
 		base = 0
 	}
 }
+
+

@@ -46,6 +46,83 @@ baseborn_shell_01 = {
 	flag = travel_point_of_interest_martial
 }
 
+# Pepperwood
+baseborn_pepperwood_01 = {
+
+	construction_time = quick_construction_time_base
+
+	type_icon = "icon_building_royal_forest.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = 500
+
+	county_modifier = {
+		development_growth_factor = 0.05
+		tax_mult = 0.01
+	}
+
+	province_modifier = {
+		monthly_income = 0.2
+	}
+
+	character_modifier = {
+		supply_duration = 0.1
+		health = 0.01
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_economic
+}
+
+# Riverbend
+baseborn_nutt_grinder_01 = {
+
+	construction_time = quick_construction_time_base
+
+	type_icon = "icon_building_watermills.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = 500
+	
+	county_modifier = {
+		development_growth = 0.1
+		development_growth_factor = 0.05
+		tax_mult = 0.05
+	}
+	
+	province_modifier = {
+		monthly_income = 1.0
+		supply_limit_mult = 0.3
+		holding_build_gold_cost = -0.15
+		build_gold_cost = -0.15
+	}
+
+	character_modifier = {
+		prowess_per_prestige_level = 1
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_economic
+}
+
 # The Arbor
 baseborn_arbor_01 = {
 

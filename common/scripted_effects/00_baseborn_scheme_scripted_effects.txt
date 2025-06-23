@@ -1,0 +1,98 @@
+﻿##########################
+# Scheme Scripted Effects
+##########################
+
+baseborn_raid_estate_scheme_prep_effect = {
+	save_scope_as = scheme
+	save_scope_value_as = {
+		name = follow_up_event
+		value = event_id:baseborn_scheme_critical_moments.8035
+	}
+	if = {
+		limit = {
+			NOT = { exists = scope:suppress_next_event }
+		}
+		scheme_owner = { trigger_event = scheme_critical_moments.0002 }
+	}
+}
+
+baseborn_raid_estate_opinion_effect = {
+	$TARGET$ = {
+		add_opinion = {
+			target = $OWNER$
+			modifier = raided_estate_crime
+		}
+		if = {
+			limit = { has_relation_rival = $OWNER$ }
+			if = {
+				limit = { house_head_can_start_feud_against_trigger = { TARGET = $OWNER$ } }
+				house_feud_start_effect = {
+					# Feuding House Head
+					ACTOR = $TARGET$
+					# Target House Head
+					TARGET = $OWNER$
+					# Feud Reason
+					REASON = raid_estate
+					# House Member attacker if relevant 
+					ATTACKER = $TARGET$
+					# House Member victim if relevant
+					VICTIM = $OWNER$
+				}
+			}
+		}
+		progress_towards_rival_effect = {
+			REASON = rival_raid_estate
+			CHARACTER = $OWNER$
+			OPINION = 0
+		}
+	}
+	every_in_list = {
+		list = target_victims
+		if = {
+			limit = { exists = scope:scheme_maim }
+			add_opinion = {
+				target = $OWNER$
+				modifier = raid_estate_maimed_opinion
+			}
+		}
+	}
+	$TARGET$.house = {
+		every_house_member = {
+			custom = every_other_raid_estate_house_member_tt
+			limit = {
+				NOR = {
+					this = $TARGET$
+					is_in_list = target_victims
+				}
+			}
+			add_opinion = {
+				target = $OWNER$
+				modifier = raid_estate_house_opinion
+			}
+		}
+	}
+	$OWNER$.liege ?= {
+		if = {
+			limit = {
+				this != $OWNER$
+				this != $TARGET$
+			}
+			add_opinion = {
+				target = $OWNER$
+				modifier = raid_estate_vassal_crime
+			}
+		}
+	}
+	$OWNER$.top_liege ?= {
+		if = {
+			limit = {
+				this != $OWNER$
+				this != $TARGET$
+			}
+			add_opinion = {
+				target = $OWNER$
+				modifier = raid_estate_vassal_crime
+			}
+		}
+	}
+}

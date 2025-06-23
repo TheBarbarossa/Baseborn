@@ -1,4 +1,4 @@
-﻿agot_tradition_vale_andal_heritage = {
+agot_tradition_andal = {
 	category = regional
 
 	can_pick = {
@@ -1339,7 +1339,7 @@ agot_tradition_valeman = {
 	}
 	character_modifier = {
 		owned_personal_scheme_success_chance_add = 10
-		owned_hostile_scheme_success_chance_add = 10
+		enemy_hostile_scheme_success_chance_add = 10
 	}
 	cost = {
 		prestige = {
@@ -3369,7 +3369,7 @@ agot_tradition_westeros_valyrian = {
 	}
 }
 
-agot_tradition_dorne_rhoynish_heritage = {
+agot_tradition_rhoynish = {
 	category = regional
 
 	layers = {
@@ -3882,6 +3882,642 @@ agot_tradition_harsh_laws = {
 	}
 }
 
+### Essos
+
+agot_tradition_andalosi = {
+	category = regional
+
+	layers = {
+		0 = learning
+		1 = western
+		4 = greeting.dds
+	}
+
+	is_shown = {
+		scope:character = {
+			any_held_county = {
+				title_province = { geographical_region =  world_essos_andalos }
+			}
+		}
+	}
+
+	parameters = {
+		adulterer_fornicator_penalties = yes
+		zealous_trait_more_common = yes
+		cannot_divorce = yes
+	}
+
+	character_modifier = {
+		tolerance_advantage_mod = 10
+		monthly_piety_from_buildings_mult = 0.3
+		knight_effectiveness_mult = 0.15
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_methodical = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_or_bureaucratic_desc
+				}
+			}
+			if = {
+				limit = {
+					trigger_if = {
+						limit = {
+							scope:character = {
+								is_ai = no
+							}
+						}
+						NOT = {
+							any_ruler = {
+								count >= 3
+								culture = prev
+								primary_title.tier >= tier_county
+								OR = {
+									has_trait = reaver
+								}
+							}
+						}
+					}
+					trigger_else = {
+						NOR = {
+							culture_pillar:heritage_first_man = { is_in_list = traits }
+							culture_pillar:heritage_rhoynish = { is_in_list = traits }
+							culture_pillar:heritage_valyrian = { is_in_list = traits }
+						}
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = rulers_with_reaver_desc
+				}
+			}
+
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 100
+		if = {
+			limit = {
+				NOR = {
+					culture_pillar:heritage_first_man = { is_in_list = traits }
+					culture_pillar:heritage_rhoynish = { is_in_list = traits }
+					culture_pillar:heritage_valyrian = { is_in_list = traits }
+					scope:character = {
+						has_government = tribal_government
+					}
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# AGOT Cultures TODO - Traditions not yet created for this culture
+agot_tradition_braavosi = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = mena
+		4 = king.dds
+	}
+
+	is_shown = {
+		always = no
+	}
+
+	parameters = {
+		unlock_maa_purple_sailors = yes
+		wanderers_gain_extra_economic_skills = yes
+	}
+
+	character_modifier = {
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+# AGOT Cultures TODO - Traditions not yet created for this culture
+agot_tradition_lorathi = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = mena
+		4 = king.dds
+	}
+
+	is_shown = {
+		always = no
+	}
+
+	parameters = {
+		unlock_maa_seal_hunters = yes
+	}
+
+	character_modifier = {
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+agot_tradition_lyseni = {
+	category = regional
+
+	layers = {
+		0 = steward
+		1 = mena
+		4 = crown.dds
+	}
+
+	is_shown = {
+		scope:character = {
+			any_held_county = {
+				title_province = { geographical_region =  world_essos_lys }
+			}
+		}
+	}
+
+	parameters = {
+		unlock_maa_weeping_guard = yes
+		lyseni_negative_bonus = yes
+		wanderers_gain_extra_economic_skills = yes
+	}
+
+	character_modifier = {
+		attraction_opinion = 5
+		stress_loss_mult = 0.2
+		monthly_income_per_stress_level_mult = 0.05
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+# AGOT Cultures TODO - Traditions not yet created for this culture
+agot_tradition_myrish = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = mena
+		4 = king.dds
+	}
+
+	is_shown = {
+		always = no
+	}
+
+	parameters = {
+		innovation_from_learning_traits = yes
+		agot_garden_bonus_traits = yes
+		maritime_mercantilism_coastal_holdings = yes
+		unlock_maa_myrish_crossbows = yes
+	}
+
+	character_modifier = {
+		city_holding_build_speed = -0.25
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+# AGOT Cultures TODO - Traditions not yet created for this culture
+agot_tradition_norvoshi = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = mena
+		4 = king.dds
+	}
+
+	is_shown = {
+		always = no
+	}
+
+	parameters = {
+		unlock_maa_holy_guard = yes
+	}
+
+	character_modifier = {
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+#AGOT TODO - when Pentos is added in set to geographical_region
+agot_tradition_pentoshi = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = mena
+		4 = king.dds
+	}
+
+	is_shown = {
+		always = no
+	}
+
+	parameters = {
+		trade_ports_give_control_growth = yes
+		maritime_mercantilism_coastal_holdings = yes
+		city_buildings_more_county_opinion = yes
+		ai_more_likely_to_city = yes
+		unlock_maa_indentured_legion = yes
+	}
+
+	character_modifier = {
+		guest_opinion = 15
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+# AGOT Cultures TODO - Traditions not yet created for this culture
+agot_tradition_qohorik = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = mena
+		4 = king.dds
+	}
+
+	is_shown = {
+		always = no
+	}
+
+	parameters = {
+		unlock_maa_cohort_of_the_three_thousand = yes
+		better_blacksmith_buildings = yes
+		agot_mystic_qohorik_bonuses = yes
+	}
+
+	character_modifier = {
+		monthly_piety_gain_per_dread_mult = 0.01
+		defender_advantage = 2
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+# AGOT when Tyrosh is added in set to geographical_region
+agot_tradition_tyroshi = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = mena
+		4 = council.dds
+	}
+
+	is_shown = {
+		scope:character = {
+			any_held_county = {
+				title_province = { geographical_region =  world_essos_tyrosh }
+			}
+		}
+	}
+
+	parameters = {
+		unlock_maa_ornate_helms = yes
+		can_blind_prisoners = yes
+		can_castrate_prisoners = yes
+	}
+
+	character_modifier = {
+		ignore_opinion_of_different_faith = yes
+		republic_government_tax_contribution_mult = 0.2
+		mercenary_hire_cost_mult = -0.2
+		levy_size = -0.1
+		garrison_size = -0.1
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+# AGOT Cultures TODO - Traditions not yet created for this culture
+agot_tradition_volantene = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = mena
+		4 = king.dds
+	}
+
+	is_shown = {
+		always = no
+	}
+
+	parameters = {
+		unlock_maa_triarchs_herd = yes
+	}
+
+	character_modifier = {
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+# AGOT Cultures TODO - Traditions not yet created for this culture
+agot_tradition_astapori = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = mena
+		4 = king.dds
+	}
+
+	is_shown = {
+		always = no
+	}
+
+	parameters = {
+		unlock_maa_unsullied = yes
+	}
+
+	character_modifier = {
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+# AGOT Cultures TODO - Traditions not yet created for this culture
+agot_tradition_yunkish = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = mena
+		4 = king.dds
+	}
+
+	is_shown = {
+		always = no
+	}
+
+	parameters = {
+		unlock_maa_collared_bows = yes
+	}
+
+	character_modifier = {
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+# AGOT Cultures TODO - Traditions not yet created for this culture
+agot_tradition_meereenese = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = mena
+		4 = king.dds
+	}
+
+	is_shown = {
+		always = no
+	}
+
+	parameters = {
+		unlock_maa_pit_warriors = yes
+	}
+
+	character_modifier = {
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+# AGOT Cultures TODO - Traditions not yet created for this culture
+agot_tradition_ghiscari = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = mena
+		4 = king.dds
+	}
+
+	is_shown = {
+		always = no
+	}
+
+	parameters = {
+		unlock_maa_iron_legion = yes
+	}
+
+	character_modifier = {
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+agot_tradition_hartalari = { #AGOT when geographical region is in for disputed land make restricted there
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = mena
+		4 = king.dds
+	}
+
+	is_shown = {
+		scope:character = {
+			any_held_county = {
+				title_province = { geographical_region =  world_essos_disputed_lands }
+			}
+		}
+	}
+
+	parameters = {
+		cannot_attack_truces = yes
+		better_blacksmith_buildings = yes
+		martial_education_more_valued = yes
+		prowess_traits_more_valued = yes
+	}
+
+	character_modifier = {
+		mercenary_hire_cost_mult = -0.25
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
 agot_tradition_thenn = {
 	category = regional
 
@@ -3984,414 +4620,5 @@ agot_tradition_thenn = {
 			}
 			multiply = 0
 		}
-	}
-}
-
-#Essos
-
-agot_tradition_andalos = {
-	category = regional
-
-	layers = {
-		0 = learning
-		1 = western
-		4 = greeting.dds
-	}
-
-	is_shown = {
-		scope:character = {
-			any_held_county = {
-				title_province = { geographical_region = world_essos_andalos }
-			}
-		}
-	}
-
-	parameters = {
-		bossy_trait_more_common = yes
-		aggressive_attacker_trait_more_common = yes
-		hill_trait_bonuses = yes
-		zealous_trait_more_common = yes
-		wanderers_gain_extra_combat_skills = yes
-		cynical_trait_looked_down_upon = yes
-		culture_can_raid_at_sea_even_if_feudal = yes
-	}
-
-	character_modifier = {
-		different_faith_opinion = -10
-	}
-
-	cost = {
-		prestige = {
-			add = {
-				value = tradition_base_cost
-				desc = BASE
-				format = "BASE_VALUE_FORMAT"
-			}
-		}
-	}
-
-	ai_will_do = {
-		value = 100
-	}
-}
-
-agot_tradition_braavos = {
-	category = regional
-
-	layers = {
-		0 = martial
-		1 = mena
-		4 = king.dds
-	}
-
-	is_shown = {
-		scope:character = {
-			any_held_county = {
-				title_province = { geographical_region = world_essos_braavos }
-			}
-		}
-	}
-
-	parameters = {
-		pensive_trait_more_common = yes
-		organizer_trait_more_common = yes
-		wetlands_trait_bonuses = yes
-		temperate_trait_more_common = yes
-		slave_master_trait_looked_down_upon = yes
-		wanderers_gain_extra_economic_skills = yes
-	}
-
-	character_modifier = {
-		diplomatic_range_mult = 0.5
-		independent_ruler_opinion = -10
-	}
-
-	cost = {
-		prestige = {
-			add = {
-				value = tradition_base_cost
-				desc = BASE
-				format = "BASE_VALUE_FORMAT"
-			}
-		}
-	}
-
-	ai_will_do = {
-		value = 100
-	}
-}
-
-agot_tradition_religious_fc = {
-	category = regional
-
-	layers = {
-		0 = martial
-		1 = mena
-		4 = king.dds
-	}
-
-	is_shown = {
-		always = no
-	}
-
-	parameters = {
-		hill_trait_bonuses = yes
-		pensive_trait_more_common = yes
-		holy_warrior_trait_more_common = yes
-		zealous_trait_more_common = yes
-		cynical_trait_looked_down_upon = yes
-		wanderers_gain_extra_learning_skills = yes
-	}
-
-	province_modifier = {
-
-	}
-
-	character_modifier = {
-		martial_per_piety_level = 2
-		different_faith_opinion = -10
-	}
-
-	cost = {
-		prestige = {
-			add = {
-				value = tradition_base_cost
-				desc = BASE
-				format = "BASE_VALUE_FORMAT"
-			}
-		}
-	}
-
-	ai_will_do = {
-		value = 100
-	}
-}
-
-agot_tradition_three_daughters = {
-	category = regional
-
-	layers = {
-		0 = steward
-		1 = mena
-		4 = crown.dds
-	}
-
-	is_shown = {
-		scope:character = {
-			any_held_county = {
-				title_province = {
-					OR = {
-						geographical_region = world_essos_disputed_lands
-						geographical_region = world_essos_lys
-						geographical_region = world_essos_myr
-						geographical_region = world_essos_tyrosh
-					}
-				}
-			}
-		}
-	}
-
-	parameters = {
-		charming_trait_more_common = yes
-		greedy_trait_more_common = yes
-		content_trait_looked_down_upon = yes
-		logistician_trait_more_common = yes
-		hill_trait_bonuses = yes
-		wanderers_gain_extra_intrigue_skills = yes
-		city_buildings_less_control = yes
-	}
-
-	character_modifier = {
-		owned_personal_scheme_success_chance_add = 10
-		owned_hostile_scheme_success_chance_add = 10
-	}
-
-	cost = {
-		prestige = {
-			add = {
-				value = tradition_base_cost
-				desc = BASE
-				format = "BASE_VALUE_FORMAT"
-			}
-		}
-	}
-
-	ai_will_do = {
-		value = 100
-	}
-}
-
-agot_tradition_pentos = {
-	category = regional
-
-	layers = {
-		0 = martial
-		1 = mena
-		4 = king.dds
-	}
-
-	is_shown = {
-		scope:character = {
-			any_held_county = {
-				title_province = { geographical_region = world_essos_pentos }
-			}
-		}
-	}
-
-	parameters = {
-		charming_trait_more_common = yes
-		greedy_trait_more_common = yes
-		cautious_leader_trait_more_common = yes
-		plains_trait_bonuses = yes
-		more_gift_opinion = yes
-		zealous_trait_looked_down_upon = yes
-		wanderers_gain_extra_economic_skills = yes
-	}
-
-	character_modifier = {
-		liege_opinion = -10
-	}
-
-	cost = {
-		prestige = {
-			add = {
-				value = tradition_base_cost
-				desc = BASE
-				format = "BASE_VALUE_FORMAT"
-			}
-		}
-	}
-
-	ai_will_do = {
-		value = 100
-	}
-}
-
-agot_tradition_doom = {
-	category = regional
-
-	layers = {
-		0 = martial
-		1 = mena
-		4 = king.dds
-	}
-
-	is_shown = {
-		has_cultural_pillar = heritage_valyrian
-	}
-
-	parameters = {
-		bossy_trait_more_common = yes
-		arrogant_trait_more_common = yes
-		military_engineer_trait_more_common = yes
-		plains_trait_bonuses = yes
-		zealous_trait_looked_down_upon = yes
-		wanderers_gain_extra_combat_skills = yes
-		shortened_truce_period = yes
-	}
-
-	character_modifier = {
-		religious_vassal_opinion = -10
-	}
-
-	cost = {
-		prestige = {
-			add = {
-				value = tradition_base_cost
-				desc = BASE
-				format = "BASE_VALUE_FORMAT"
-			}
-		}
-	}
-
-	ai_will_do = {
-		value = 100
-	}
-}
-
-agot_tradition_slavers_bay = {
-	category = regional
-
-	layers = {
-		0 = martial
-		1 = mena
-		4 = king.dds
-	}
-
-	is_shown = {
-		always = no
-	}
-
-	parameters = {
-		charming_trait_more_common = yes
-		cautious_leader_trait_more_common = yes
-		hill_trait_bonuses = yes
-		arrogant_trait_more_common = yes
-		humble_trait_looked_down_upon = yes
-		wanderers_gain_extra_economic_skills = yes
-		more_slaves_from_raiding = yes
-	}
-
-	character_modifier = {
-		different_faith_opinion = -10
-	}
-
-	cost = {
-		prestige = {
-			add = {
-				value = tradition_base_cost
-				desc = BASE
-				format = "BASE_VALUE_FORMAT"
-			}
-		}
-	}
-
-	ai_will_do = {
-		value = 100
-	}
-}
-
-agot_tradition_ghis = {
-	category = regional
-
-	layers = {
-		0 = martial
-		1 = mena
-		4 = king.dds
-	}
-
-	is_shown = {
-		always = no
-	}
-
-	parameters = {
-		rowdy_trait_more_common = yes
-		organizer_trait_more_common = yes
-		plains_trait_bonuses = yes
-		arrogant_trait_more_common = yes
-		lazy_trait_looked_down_upon = yes
-		wanderers_gain_extra_combat_skills = yes
-	}
-
-	character_modifier = {
-		army_maintenance_mult = -0.10
-		different_faith_opinion = -10
-	}
-
-	cost = {
-		prestige = {
-			add = {
-				value = tradition_base_cost
-				desc = BASE
-				format = "BASE_VALUE_FORMAT"
-			}
-		}
-	}
-
-	ai_will_do = {
-		value = 100
-	}
-}
-
-#can have up to 2 Concubines
-agot_tradition_rhoynar = {
-	category = regional
-
-	layers = {
-		0 = learning
-		1 = indian
-		4 = water_technology.dds
-	}
-
-	is_shown = {
-		always = no
-	}
-
-	parameters = {
-		gender_equal_inheritance = yes
-		curious_trait_more_common = yes
-		forder_trait_more_common = yes
-		wetlands_trait_bonuses = yes
-		wrathful_trait_looked_down_upon = yes
-		calm_trait_more_common = yes
-		wanderers_gain_extra_diplomacy_skills = yes
-	}
-
-	character_modifier = {
-		min_combat_roll = -5
-	}
-
-	cost = {
-		prestige = {
-			add = {
-				value = tradition_base_cost
-				desc = BASE
-				format = "BASE_VALUE_FORMAT"
-			}
-		}
-	}
-
-	ai_will_do = {
-		value = 100
 	}
 }

@@ -1,0 +1,4683 @@
+﻿namespace = agot_dragon_combat
+
+##################################################
+# Precursor Events
+# 0001 - 0999
+##################################################
+
+agot_dragon_combat.0001 = { # I see enemy dragon
+	type = character_event
+	window = dragon_duel_event
+	title = agot_dragon_combat.0001.t
+	trigger = { # Final confirmation that we're in a dragon duel.
+		# Everyone exists
+		exists = scope:dragon_in_battle
+		exists = scope:dragonrider_in_battle
+		exists = scope:enemy_dragonrider
+		exists = scope:enemy_dragonrider.var:current_dragon
+		# Everyone is alive
+		scope:dragon_in_battle = { is_alive = yes }
+		scope:dragonrider_in_battle = { is_alive = yes }
+		scope:enemy_dragonrider = { is_alive = yes }
+		scope:enemy_dragonrider.var:current_dragon = { is_alive = yes }
+		# We're not already in a duel
+		NOT = { has_character_flag = agot_in_dragon_duel_opening }
+		NOT = { scope:enemy_dragonrider = { has_character_flag = agot_in_dragon_duel_opening } }
+	}
+	desc = {
+		desc = agot_dragon_combat.0001.desc_opening
+		triggered_desc = {
+			trigger = { has_character_flag = desc_opening_fly }
+			desc = agot_dragon_combat.0001.desc_opening_fly
+		}
+		triggered_desc = {
+			trigger = { has_character_flag = desc_opening_fight }
+			desc = agot_dragon_combat.0001.desc_opening_fight
+		}
+		desc = agot_dragon_combat.0001.desc_opening_end
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_dragon.dragon_size > scope:enemy_dragonrider.var:current_dragon.dragon_size }
+				desc = agot_dragon_combat.0001.desc_older
+			}
+			triggered_desc = {
+				trigger = { var:current_dragon.dragon_size < scope:enemy_dragonrider.var:current_dragon.dragon_size }
+				desc = agot_dragon_combat.0001.desc_younger
+			}
+			desc = agot_dragon_combat.0001.desc_same_age
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					prowess > 12
+					scope:enemy_dragonrider.prowess > 12
+					prowess > scope:enemy_dragonrider.prowess
+				}
+				desc = agot_dragon_combat.0001.desc_weaker_warrior
+			}
+			triggered_desc = {
+				trigger = {
+					prowess > 12
+					scope:enemy_dragonrider.prowess > 12
+					prowess < scope:enemy_dragonrider.prowess
+				}
+				desc = agot_dragon_combat.0001.desc_stronger_warrior
+			}
+			triggered_desc = {
+				trigger = {
+					prowess < 12
+					scope:enemy_dragonrider.prowess > 12
+				}
+				desc = agot_dragon_combat.0001.desc_warrior
+			}
+			triggered_desc = {
+				trigger = {
+					prowess > 12
+					scope:enemy_dragonrider.prowess < 12
+				}
+				desc = agot_dragon_combat.0001.desc_weak
+			}
+			desc = agot_dragon_combat.0001.desc_equally_weak
+		}
+		desc = agot_dragon_combat.0001.desc_end
+	}
+	theme = dragon
+	left_portrait = {
+		character = scope:dragonrider_in_battle
+		animation = dragon_main
+		camera = camera_dragon_hover_left_pointing_center
+
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dragonrider_in_battle.var:current_dragon = { level_ten_dragon_size_trigger = yes }
+					scope:enemy_dragonrider.var:current_dragon = { level_ten_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_1.0 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dragonrider_in_battle.var:current_dragon = { level_nine_dragon_size_trigger = yes }
+					scope:enemy_dragonrider.var:current_dragon = { level_nine_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.9 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dragonrider_in_battle.var:current_dragon = { level_eight_dragon_size_trigger = yes }
+					scope:enemy_dragonrider.var:current_dragon = { level_eight_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.8 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dragonrider_in_battle.var:current_dragon = { level_seven_dragon_size_trigger = yes }
+					scope:enemy_dragonrider.var:current_dragon = { level_seven_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.7 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dragonrider_in_battle.var:current_dragon = { level_six_dragon_size_trigger = yes }
+					scope:enemy_dragonrider.var:current_dragon = { level_six_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.6 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dragonrider_in_battle.var:current_dragon = { level_five_dragon_size_trigger = yes }
+					scope:enemy_dragonrider.var:current_dragon = { level_five_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.5 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dragonrider_in_battle.var:current_dragon = { level_four_dragon_size_trigger = yes }
+					scope:enemy_dragonrider.var:current_dragon = { level_four_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.4 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dragonrider_in_battle.var:current_dragon = { level_three_dragon_size_trigger = yes }
+					scope:enemy_dragonrider.var:current_dragon = { level_three_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.3 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dragonrider_in_battle.var:current_dragon = { level_two_dragon_size_trigger = yes }
+					scope:enemy_dragonrider.var:current_dragon = { level_two_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.2 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dragonrider_in_battle.var:current_dragon = { level_one_dragon_size_trigger = yes }
+					scope:enemy_dragonrider.var:current_dragon = { level_one_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.1 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dragonrider_in_battle.var:current_dragon = { level_zero_dragon_size_trigger = yes }
+					scope:enemy_dragonrider.var:current_dragon = { level_zero_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.0 }
+		}
+		#End Dynamic Camera Zoom
+	}
+
+	right_portrait = {
+		character = scope:enemy_dragonrider
+		animation = dragon_main
+		camera = camera_dragon_hover_left
+
+		# Dynamic Camera Zoom
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dragonrider_in_battle.var:current_dragon = { level_ten_dragon_size_trigger = yes }
+					scope:enemy_dragonrider.var:current_dragon = { level_ten_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_1.0 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dragonrider_in_battle.var:current_dragon = { level_nine_dragon_size_trigger = yes }
+					scope:enemy_dragonrider.var:current_dragon = { level_nine_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.9 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dragonrider_in_battle.var:current_dragon = { level_eight_dragon_size_trigger = yes }
+					scope:enemy_dragonrider.var:current_dragon = { level_eight_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.8 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dragonrider_in_battle.var:current_dragon = { level_seven_dragon_size_trigger = yes }
+					scope:enemy_dragonrider.var:current_dragon = { level_seven_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.7 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dragonrider_in_battle.var:current_dragon = { level_six_dragon_size_trigger = yes }
+					scope:enemy_dragonrider.var:current_dragon = { level_six_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.6 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dragonrider_in_battle.var:current_dragon = { level_five_dragon_size_trigger = yes }
+					scope:enemy_dragonrider.var:current_dragon = { level_five_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.5 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dragonrider_in_battle.var:current_dragon = { level_four_dragon_size_trigger = yes }
+					scope:enemy_dragonrider.var:current_dragon = { level_four_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.4 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dragonrider_in_battle.var:current_dragon = { level_three_dragon_size_trigger = yes }
+					scope:enemy_dragonrider.var:current_dragon = { level_three_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.3 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dragonrider_in_battle.var:current_dragon = { level_two_dragon_size_trigger = yes }
+					scope:enemy_dragonrider.var:current_dragon = { level_two_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.2 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dragonrider_in_battle.var:current_dragon = { level_one_dragon_size_trigger = yes }
+					scope:enemy_dragonrider.var:current_dragon = { level_one_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.1 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dragonrider_in_battle.var:current_dragon = { level_zero_dragon_size_trigger = yes }
+					scope:enemy_dragonrider.var:current_dragon = { level_zero_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.0 }
+		}
+	}
+	override_background = {
+		trigger = { has_character_flag = dragon_night_ride }
+		reference = agot_night_sky_video
+	}
+	override_background = {
+		trigger = { NOT = { has_character_flag = dragon_night_ride } }
+		reference = agot_open_sky_video
+	}
+
+	immediate = {
+		scope:dragonrider_in_battle = {
+			agot_clear_dragon_animation_flags = yes
+			agot_set_dragon_animation_flag_effect = {
+				FLAG = dragon_flying
+				RIDING_DRAGON = yes
+			}
+		}
+		scope:enemy_dragonrider = {
+			agot_clear_dragon_animation_flags = yes
+			agot_set_dragon_animation_flag_effect = {
+				FLAG = dragon_flying
+				RIDING_DRAGON = yes
+			}
+		}
+
+		# Get enemy dragon scope
+		scope:enemy_dragonrider.var:current_dragon = {
+			save_scope_as = enemy_dragon
+		}
+		# Set up the opening flags for loc
+		random_list = {
+			50 = { add_character_flag = desc_opening_fly }
+			50 = { add_character_flag = desc_opening_fight }
+		}
+		# Set up the dragon duel opening flag
+		add_character_flag = {
+			flag = agot_in_dragon_duel_opening
+			days = 3 # In case of early exit due to race condition
+		}
+		scope:enemy_dragonrider = {
+			add_character_flag = {
+				flag = agot_in_dragon_duel_opening
+				days = 3
+			}
+		}
+	}
+
+	option = { # Fight!
+		trigger = { # Edited
+			NOT = {
+				scope:dragon_in_battle = {
+					has_relation_soulmate = scope:enemy_dragon
+				}
+			}
+		}
+		name = {
+			trigger = { father = scope:enemy_dragonrider }
+			text = agot_dragon_combat.0001.a.father
+		}
+		name = {
+			trigger = { mother = scope:enemy_dragonrider }
+			text = agot_dragon_combat.0001.a.mother
+		}
+		name = {
+			trigger = {
+				any_sibling = {
+					is_male = yes
+					this = scope:enemy_dragonrider
+				}
+			}
+			text = agot_dragon_combat.0001.a.brother
+		}
+		name = {
+			trigger = {
+				any_sibling = {
+					is_female = yes
+					this = scope:enemy_dragonrider
+				}
+			}
+			text = agot_dragon_combat.0001.a.sister
+		}
+		name = {
+			trigger = {
+				NOT = { any_sibling = { this = scope:enemy_dragonrider } }
+				NOT = { father = scope:enemy_dragonrider }
+				NOT = { mother = scope:enemy_dragonrider }
+			}
+			text = agot_dragon_combat.0001.a
+		}
+		custom_tooltip = agot_dragon_combat.will_attempt_engage
+		scope:enemy_dragonrider = {
+			trigger_event = agot_dragon_combat.0002
+		}
+
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 100
+				can_dragon_chomp = {
+					CHOMPING_DRAGON = scope:dragon_in_battle
+					CHOMPED_DRAGON = scope:enemy_dragon
+				}
+			}
+			modifier = {
+				add = 20
+				scope:enemy_dragon.prowess < scope:dragon_in_battle.prowess
+			}
+			modifier = {
+				add = 20
+				has_trait = brave
+			}
+			modifier = { # Never engage if you'll get chomped
+				factor = 0
+				can_dragon_chomp = {
+					CHOMPING_DRAGON = scope:enemy_dragon
+					CHOMPED_DRAGON = scope:dragon_in_battle
+				}
+			}
+		}
+	}
+
+	option = { # Flee
+		trigger = { # Edited
+			NOT = {
+				scope:dragon_in_battle = {
+					has_relation_soulmate = scope:enemy_dragon
+				}
+			}
+		}
+		name = {
+			trigger = { var:current_dragon.dragon_combat_effectiveness < scope:enemy_dragonrider.var:current_dragon.dragon_combat_effectiveness }
+			text = agot_dragon_combat.0001.b.weaker
+		}
+		name = {
+			trigger = { has_trait = craven }
+			text = agot_dragon_combat.0001.b.coward
+		}
+		name = {
+			trigger = {
+				NOT = { has_trait = craven }
+				NOT = { var:current_dragon.dragon_combat_effectiveness < scope:enemy_dragonrider.var:current_dragon.dragon_combat_effectiveness }
+			}
+			text = agot_dragon_combat.0001.b
+		}
+		custom_tooltip = agot_dragon_combat.will_not
+		if = {
+			limit = {
+				var:current_dragon = {
+					has_trait = dragon_swift
+				}
+			}
+			custom_tooltip = agot_dragon_combat.0001.b.swift
+		}
+		if = {
+			limit = {
+				var:current_dragon = {
+					has_trait = dragon_slow
+				}
+			}
+			custom_tooltip = agot_dragon_combat.0001.b.slow
+		}
+
+		random_list = {
+			50 = { # They notice
+				custom_tooltip = {
+					text = agot_dragon_combat.0001.b.notice
+					scope:enemy_dragonrider = {
+						trigger_event = agot_dragon_combat.0003
+					}
+				}
+				modifier = {
+					add = 150
+					var:current_dragon = {
+						has_trait = dragon_slow
+					}
+				}
+			}
+			50 = { # They don't
+				custom_tooltip = {
+					text = agot_dragon_combat.0001.b.no_notice
+					agot_remove_from_combat = yes
+				}
+				modifier = {
+					add = 150
+					var:current_dragon = {
+						has_trait = dragon_swift
+					}
+				}
+			}
+		}
+
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 20
+				scope:enemy_dragon.prowess > scope:dragon_in_battle.prowess
+			}
+			modifier = {
+				add = 20
+				has_trait = craven
+			}
+		}
+	}
+
+	option = { # Edited - Soulmates won't fight
+		trigger = {
+			scope:dragon_in_battle = {
+				has_relation_soulmate = scope:enemy_dragon
+			}
+		}
+		name = {
+			text = agot_dragon_combat.0001.b
+		}
+		custom_tooltip = agot_dragon_combat.will_not
+
+		custom_tooltip = {
+			text = agot_dragon_combat.0001.b.no_notice
+			agot_remove_from_combat = yes
+		}
+
+		scope:enemy_dragonrider = {
+			agot_remove_from_combat = yes
+		}
+
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	after = {
+		if = {
+			limit = {
+				is_alive = yes
+			}
+			remove_character_flag = desc_opening_fly
+			remove_character_flag = desc_opening_fight
+		}
+	}
+}
+
+agot_dragon_combat.0002 = { # Sky Ambush - remember that ROOT is enemy scopes here
+	type = character_event
+	window = dragon_duel_event
+	title = agot_dragon_combat.0002.t
+	trigger = { # Everyone is still alive
+		scope:dragon_in_battle = { is_alive = yes }
+		scope:dragonrider_in_battle = { is_alive = yes }
+		scope:enemy_dragonrider = { is_alive = yes }
+		scope:enemy_dragonrider.var:current_dragon = { is_alive = yes }
+	}
+	desc = {
+		desc = agot_dragon_combat.0002.desc
+	}
+	theme = dragon
+	left_portrait = {
+		character = scope:myself
+		animation = dragon_main
+		camera = camera_dragon_hover_left
+
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_ten_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_ten_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_1.0 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_nine_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_nine_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.9 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_eight_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_eight_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.8 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_seven_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_seven_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.7 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_six_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_six_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.6 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_five_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_five_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.5 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_four_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_four_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.4 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_three_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_three_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.3 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_two_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_two_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.2 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_one_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_one_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.1 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_zero_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_zero_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.0 }
+		}
+		#End Dynamic Camera Zoom
+	}
+
+	right_portrait = {
+		character = scope:my_foe
+		animation = dragon_main
+		camera = camera_dragon_hover_right
+
+		# Dynamic Camera Zoom
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_ten_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_ten_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_1.0 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_nine_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_nine_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.9 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_eight_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_eight_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.8 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_seven_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_seven_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.7 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_six_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_six_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.6 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_five_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_five_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.5 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_four_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_four_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.4 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_three_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_three_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.3 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_two_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_two_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.2 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_one_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_one_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.1 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_zero_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_zero_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.0 }
+		}
+	}
+	override_background = {
+		reference = agot_open_sky
+	}
+
+	immediate = {
+		scope:dragonrider_in_battle = {
+			save_scope_as = my_foe
+		}
+		scope:enemy_dragonrider = {
+			save_scope_as = myself
+		}
+
+		scope:myself = {
+			agot_set_dragon_animation_flag_effect = { FLAG = dragon_flying RIDING_DRAGON = yes }
+		}
+		scope:my_foe = {
+			agot_set_dragon_animation_flag_effect = { FLAG = dragon_flying RIDING_DRAGON = yes }
+		}
+	}
+
+	option = {
+		name = agot_dragon_combat.0002.a
+		custom_tooltip = agot_dragon_combat.will_engage_enemy
+		scope:dragonrider_in_battle = {
+			configure_start_dragon_combat_effect = {
+				DSC_INITIATOR = scope:dragonrider_in_battle
+				DSC_ATTACKER = scope:dragonrider_in_battle
+				DSC_DEFENDER = scope:enemy_dragonrider
+			}
+		}
+
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 100
+				can_dragon_chomp = {
+					CHOMPING_DRAGON = scope:dragon_in_battle
+					CHOMPED_DRAGON = scope:enemy_dragon
+				}
+			}
+			modifier = {
+				add = 20
+				scope:enemy_dragon.prowess > scope:dragon_in_battle.prowess
+			}
+			modifier = {
+				add = 20
+				has_trait = brave
+			}
+			modifier = { # Never engage if you'll get chomped
+				factor = 0
+				can_dragon_chomp = {
+					CHOMPING_DRAGON = scope:enemy_dragon
+					CHOMPED_DRAGON = scope:dragon_in_battle
+				}
+			}
+		}
+	}
+
+	option = {
+		name = agot_dragon_combat.0002.b
+		custom_tooltip = agot_dragon_combat.will_not_enemy
+		if = {
+			limit = {
+				var:current_dragon = {
+					has_trait = dragon_swift
+				}
+			}
+			custom_tooltip = agot_dragon_combat.0002.b.swift
+		}
+		if = {
+			limit = {
+				var:current_dragon = {
+					has_trait = dragon_slow
+				}
+			}
+			custom_tooltip = agot_dragon_combat.0002.b.slow
+		}
+		if = {
+			limit = {
+				scope:dragon_in_battle = {
+					has_trait = dragon_swift
+				}
+			}
+			custom_tooltip = agot_dragon_combat.0002.b.enemy_swift
+		}
+		if = {
+			limit = {
+				scope:dragon_in_battle = {
+					has_trait = dragon_slow
+				}
+			}
+			custom_tooltip = agot_dragon_combat.0002.b.enemy_slow
+		}
+		random_list = {
+			70 = {
+				custom_tooltip = {
+					text = agot_dragon_combat.will_engage_enemy
+					configure_start_dragon_combat_effect = {
+						DSC_INITIATOR = scope:dragonrider_in_battle
+						DSC_ATTACKER = scope:dragonrider_in_battle
+						DSC_DEFENDER = scope:enemy_dragonrider
+					}
+				}
+				modifier = {
+					add = 20
+					scope:dragon_in_battle = {
+						has_trait = dragon_swift
+					}
+				}
+				modifier = {
+					add = -15
+					scope:dragon_in_battle = {
+						has_trait = dragon_slow
+					}
+				}
+			}
+			30 = {
+				modifier = {
+					add = -10
+					scope:dragon_in_battle.dragon_size < var:current_dragon.dragon_size
+				}
+				modifier = {
+					add = -15
+					var:current_dragon = {
+						has_trait = dragon_slow
+					}
+				}
+				modifier = {
+					add = 20
+					var:current_dragon = {
+						has_trait = dragon_swift
+					}
+				}
+				custom_tooltip = {
+					text = agot_dragon_combat.0002.b.flee
+					agot_remove_from_combat = yes
+				}
+				scope:dragonrider_in_battle = {
+					send_interface_toast = {
+						type = event_dragon_combat_flee
+						title = agot_dragon_combat.0002.escape.t
+						left_icon = scope:enemy_dragonrider
+						right_icon = scope:enemy_dragon
+						desc = agot_dragon_combat.0002.escape.desc
+					}
+					agot_clear_dragon_animation_flags = yes
+				}
+				scope:enemy_dragonrider = { agot_clear_dragon_animation_flags = yes }
+			}
+		}
+
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 20
+				scope:enemy_dragon.prowess < scope:dragon_in_battle.prowess
+			}
+			modifier = {
+				add = 20
+				has_trait = craven
+			}
+		}
+	}
+}
+
+agot_dragon_combat.0003 = { # I see an enemy dragon fleeing
+	type = character_event
+	window = dragon_character_event
+	title = agot_dragon_combat.0003.t
+	trigger = { # Everyone is still alive
+		scope:dragon_in_battle = { is_alive = yes }
+		scope:dragonrider_in_battle = { is_alive = yes }
+		scope:enemy_dragonrider = { is_alive = yes }
+		scope:enemy_dragonrider.var:current_dragon = { is_alive = yes }
+	}
+	desc = {
+		desc = agot_dragon_combat.0003.desc
+	}
+	theme = dragon
+	left_portrait = {
+		character = scope:dragon_in_battle
+		camera = camera_dragon_event_combat_left
+	}
+	right_portrait = {
+		character = var:current_dragon
+		camera = camera_dragon_event_combat_right
+	}
+	override_background = {
+		reference = agot_open_sky
+	}
+
+	option = {
+		name = agot_dragon_combat.0003.a
+		custom_tooltip = agot_dragon_combat.will_attempt_engage_enemy
+		if = {
+			limit = {
+				var:current_dragon = {
+					has_trait = dragon_swift
+				}
+			}
+			custom_tooltip = agot_dragon_combat.0003.a.swift
+		}
+		if = {
+			limit = {
+				var:current_dragon = {
+					has_trait = dragon_slow
+				}
+			}
+			custom_tooltip = agot_dragon_combat.0003.a.slow
+		}
+		if = {
+			limit = {
+				scope:dragon_in_battle = {
+					has_trait = dragon_swift
+				}
+			}
+			custom_tooltip = agot_dragon_combat.0003.a.enemy_swift
+		}
+		if = {
+			limit = {
+				scope:dragon_in_battle = {
+					has_trait = dragon_slow
+				}
+			}
+			custom_tooltip = agot_dragon_combat.0003.a.enemy_slow
+		}
+		random_list = {
+			30 = {
+				modifier = {
+					add = 30
+					scope:dragon_in_battle.dragon_size > var:current_dragon.dragon_size
+				}
+				modifier = {
+					add = -15
+					var:current_dragon = {
+						has_trait = dragon_slow
+					}
+				}
+				modifier = {
+					add = 20
+					var:current_dragon = {
+						has_trait = dragon_swift
+					}
+				}
+				custom_tooltip = {
+					text = agot_dragon_combat.will_engage_enemy
+					configure_start_dragon_combat_effect = {
+						DSC_INITIATOR = scope:enemy_dragonrider
+						DSC_ATTACKER = scope:enemy_dragonrider
+						DSC_DEFENDER = scope:dragonrider_in_battle
+					}
+				}
+			}
+			70 = {
+				custom_tooltip = {
+					text = agot_dragon_combat.0003.escape
+					scope:dragonrider_in_battle = {
+						agot_remove_from_combat = yes
+					}
+				}
+				modifier = {
+					add = 15
+					scope:dragon_in_battle = {
+						has_trait = dragon_swift
+					}
+				}
+				modifier = {
+					add = -20
+					scope:dragon_in_battle = {
+						has_trait = dragon_slow
+					}
+				}
+				send_interface_toast = {
+					type = event_dragon_combat_flee
+					title = agot_dragon_combat.0003.escape.t
+					left_icon = scope:dragonrider_in_battle
+					right_icon = scope:dragon_in_battle
+					desc = agot_dragon_combat.0003.escape.desc
+				}
+			}
+		}
+
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 100
+				can_dragon_chomp = {
+					CHOMPING_DRAGON = scope:dragon_in_battle
+					CHOMPED_DRAGON = scope:enemy_dragon
+				}
+			}
+			modifier = {
+				add = 20
+				scope:enemy_dragon.prowess > scope:dragon_in_battle.prowess
+			}
+			modifier = {
+				add = 20
+				has_trait = brave
+			}
+			modifier = { # Never engage if you'll get chomped
+				factor = 0
+				can_dragon_chomp = {
+					CHOMPING_DRAGON = scope:enemy_dragon
+					CHOMPED_DRAGON = scope:dragon_in_battle
+				}
+			}
+		}
+	}
+
+	option = {
+		name = agot_dragon_combat.0003.b
+		custom_tooltip = {
+			text = agot_dragon_combat.0003.escape
+			scope:dragonrider_in_battle = {
+				agot_remove_from_combat = yes
+			}
+		}
+
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 20
+				scope:enemy_dragon.prowess < scope:dragon_in_battle.prowess
+			}
+			modifier = {
+				add = 20
+				has_trait = craven
+			}
+		}
+	}
+}
+
+##################################################
+# Duel Events
+# 1001 - 1999
+##################################################
+
+#	Standard combat event.
+agot_dragon_combat.1001 = {
+	type = character_event
+	window = dragon_duel_event
+	title = agot_dragon_combat.1001.t
+	desc = {
+		first_valid = {
+			#If we're scope:dsc_defender, give us defensive descs.
+			triggered_desc = {
+				trigger = { this = scope:dsc_defender }
+				desc = {
+					# First round.
+					## We just play an intro spiel.
+					triggered_desc = { # Battle
+						trigger = {
+							scope:dsc_defender.var:dragon_combat_current_round = 1
+							exists = scope:battle_location
+						}
+						desc = agot_dragon_combat.1001.defender_first_round_battle
+					}
+					triggered_desc = { # Siege
+						trigger = {
+							scope:dsc_defender.var:dragon_combat_current_round = 1
+							exists = scope:sieging_location
+						}
+						desc = agot_dragon_combat.1001.defender_first_round_siege
+					}
+					# scope:dsc_defender feedback.
+					## So you can see a bit of fairly-static feedback on how your selected combat move went.
+					triggered_desc = {
+						trigger = { exists = scope:dsc_defender_last_move }
+						desc = {
+							first_valid = {
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_wait_and_hope }
+									desc = agot_dragon_combat.1001.desc.my_feedback.wait_and_hope
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_unsure_attack }
+									desc = agot_dragon_combat.1001.desc.my_feedback.unsure_attack
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_enthusiastic_onslaught }
+									desc = agot_dragon_combat.1001.desc.my_feedback.enthusiastic_onslaught
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_underbelly }
+									desc = agot_dragon_combat.1001.desc.my_feedback.underbelly
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_tail_smash }
+									desc = agot_dragon_combat.1001.desc.my_feedback.tail_smash
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_guard }
+									desc = agot_dragon_combat.1001.desc.my_feedback.guard
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_probing_attack }
+									desc = agot_dragon_combat.1001.desc.my_feedback.probing_attack
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_onslaught }
+									desc = agot_dragon_combat.1001.desc.my_feedback.onslaught
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_surprise_attack }
+									desc = agot_dragon_combat.1001.desc.my_feedback.surprise_attack
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_taunt }
+									desc = agot_dragon_combat.1001.desc.my_feedback.taunt
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_go_for_the_gonads }
+									desc = agot_dragon_combat.1001.desc.my_feedback.go_for_the_gonads
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_strict_guard }
+									desc = agot_dragon_combat.1001.desc.my_feedback.strict_guard
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_confident_attack }
+									desc = agot_dragon_combat.1001.desc.my_feedback.confident_attack
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_expert_onslaught }
+									desc = agot_dragon_combat.1001.desc.my_feedback.expert_onslaught
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_lightning_assault }
+									desc = agot_dragon_combat.1001.desc.my_feedback.lightning_assault
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_tire_opponent }
+									desc = agot_dragon_combat.1001.desc.my_feedback.tire_opponent
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_motivate }
+									desc = agot_dragon_combat.1001.desc.my_feedback.motivate
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_technique_from_legend }
+									desc = agot_dragon_combat.1001.desc.my_feedback.technique_from_legend
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_like_a_viper }
+									desc = agot_dragon_combat.1001.desc.my_feedback.like_a_viper
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_martial_voice }
+									desc = agot_dragon_combat.1001.desc.my_feedback.martial_voice
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_mocking_boast }
+									desc = agot_dragon_combat.1001.desc.my_feedback.mocking_boast
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_desert_warrior }
+									desc = agot_dragon_combat.1001.desc.my_feedback.desert_warrior
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_jungle_stalker }
+									desc = agot_dragon_combat.1001.desc.my_feedback.jungle_stalker
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_open_terrain_expert }
+									desc = agot_dragon_combat.1001.desc.my_feedback.open_terrain_expert
+								}
+								triggered_desc = {
+									trigger = {
+										scope:dsc_defender_last_move = flag:dragon_rough_terrain_expert
+										scope:dsc_defender.location = {
+											OR = {
+												terrain = hills
+												terrain = mountains
+												terrain = desert_mountains
+											}
+										}
+									}
+									desc = agot_dragon_combat.1001.desc.my_feedback.rough_terrain_expert.rocky
+								}
+								triggered_desc = {
+									trigger = {
+										scope:dsc_defender_last_move = flag:dragon_rough_terrain_expert
+										scope:dsc_defender.location = { terrain = wetlands }
+									}
+									desc = agot_dragon_combat.1001.desc.my_feedback.rough_terrain_expert.boggy
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_forest_fighter }
+									desc = agot_dragon_combat.1001.desc.my_feedback.forest_fighter
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_special_fallback }
+									desc = agot_dragon_combat.1001.desc.my_feedback.special_fallback
+								}
+							}
+						}
+					}
+					# scope:dsc_attacker responses.
+					## What move did your opponent pick, and how does that play out from your POV?
+					triggered_desc = {
+						trigger = { exists = scope:dsc_attacker_last_move }
+						desc = {
+							first_valid = {
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_wait_and_hope }
+									desc = agot_dragon_combat.1001.desc.opponent_response.wait_and_hope
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_unsure_attack }
+									desc = agot_dragon_combat.1001.desc.opponent_response.unsure_attack
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_enthusiastic_onslaught }
+									desc = agot_dragon_combat.1001.desc.opponent_response.enthusiastic_onslaught
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_underbelly }
+									desc = agot_dragon_combat.1001.desc.opponent_response.underbelly
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_tail_smash }
+									desc = agot_dragon_combat.1001.desc.opponent_response.tail_smash
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_guard }
+									desc = agot_dragon_combat.1001.desc.opponent_response.guard
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_probing_attack }
+									desc = agot_dragon_combat.1001.desc.opponent_response.probing_attack
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_onslaught }
+									desc = agot_dragon_combat.1001.desc.opponent_response.onslaught
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_surprise_attack }
+									desc = agot_dragon_combat.1001.desc.opponent_response.surprise_attack
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_taunt }
+									desc = agot_dragon_combat.1001.desc.opponent_response.taunt
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_go_for_the_gonads }
+									desc = agot_dragon_combat.1001.desc.opponent_response.go_for_the_gonads
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_strict_guard }
+									desc = agot_dragon_combat.1001.desc.opponent_response.strict_guard
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_confident_attack }
+									desc = agot_dragon_combat.1001.desc.opponent_response.confident_attack
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_expert_onslaught }
+									desc = agot_dragon_combat.1001.desc.opponent_response.expert_onslaught
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_lightning_assault }
+									desc = agot_dragon_combat.1001.desc.opponent_response.lightning_assault
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_tire_opponent }
+									desc = agot_dragon_combat.1001.desc.opponent_response.tire_opponent
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_motivate }
+									desc = agot_dragon_combat.1001.desc.opponent_response.motivate
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_technique_from_legend }
+									desc = agot_dragon_combat.1001.desc.opponent_response.technique_from_legend
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_like_a_viper }
+									desc = agot_dragon_combat.1001.desc.opponent_response.like_a_viper
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_martial_voice }
+									desc = agot_dragon_combat.1001.desc.opponent_response.martial_voice
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_mocking_boast }
+									desc = agot_dragon_combat.1001.desc.opponent_response.mocking_boast
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_desert_warrior }
+									desc = agot_dragon_combat.1001.desc.opponent_response.desert_warrior
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_jungle_stalker }
+									desc = agot_dragon_combat.1001.desc.opponent_response.jungle_stalker
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_open_terrain_expert }
+									desc = agot_dragon_combat.1001.desc.opponent_response.open_terrain_expert
+								}
+								triggered_desc = {
+									trigger = {
+										scope:dsc_attacker_last_move = flag:dragon_rough_terrain_expert
+										scope:dsc_defender.location = {
+											OR = {
+												terrain = hills
+												terrain = mountains
+												terrain = desert_mountains
+											}
+										}
+									}
+									desc = agot_dragon_combat.1001.desc.opponent_response.rough_terrain_expert.rocky
+								}
+								triggered_desc = {
+									trigger = {
+										scope:dsc_attacker_last_move = flag:dragon_rough_terrain_expert
+										scope:dsc_defender.location = { terrain = wetlands }
+									}
+									desc = agot_dragon_combat.1001.desc.opponent_response.rough_terrain_expert.boggy
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_forest_fighter }
+									desc = agot_dragon_combat.1001.desc.opponent_response.forest_fighter
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_special_fallback }
+									desc = agot_dragon_combat.1001.desc.opponent_response.special_fallback
+								}
+							}
+						}
+					}
+				}
+			}
+			#Otherwise, give us the offensive descs. Triggered_desc kept for indenting.
+			triggered_desc = {
+				trigger = { this = scope:dsc_attacker }
+				desc = {
+					# First round.
+					## We just play an intro spiel.
+					triggered_desc = { # Battle
+						trigger = {
+							scope:dsc_defender.var:dragon_combat_current_round = 1
+							exists = scope:battle_location
+						}
+						desc = agot_dragon_combat.1001.attacker_first_round_battle
+					}
+					triggered_desc = { # Siege
+						trigger = {
+							scope:dsc_defender.var:dragon_combat_current_round = 1
+							exists = scope:sieging_location
+						}
+						desc = agot_dragon_combat.1001.attacker_first_round_siege
+					}
+					# scope:dsc_attacker feedback.
+					## So you can see a bit of fairly-static feedback on how your selected combat move went.
+					triggered_desc = {
+						trigger = { exists = scope:dsc_attacker_last_move }
+						desc = {
+							first_valid = {
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_wait_and_hope }
+									desc = agot_dragon_combat.1001.desc.my_feedback.wait_and_hope
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_unsure_attack }
+									desc = agot_dragon_combat.1001.desc.my_feedback.unsure_attack
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_enthusiastic_onslaught }
+									desc = agot_dragon_combat.1001.desc.my_feedback.enthusiastic_onslaught
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_underbelly }
+									desc = agot_dragon_combat.1001.desc.my_feedback.underbelly
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_tail_smash }
+									desc = agot_dragon_combat.1001.desc.my_feedback.tail_smash
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_guard }
+									desc = agot_dragon_combat.1001.desc.my_feedback.guard
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_probing_attack }
+									desc = agot_dragon_combat.1001.desc.my_feedback.probing_attack
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_onslaught }
+									desc = agot_dragon_combat.1001.desc.my_feedback.onslaught
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_surprise_attack }
+									desc = agot_dragon_combat.1001.desc.my_feedback.surprise_attack
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_taunt }
+									desc = agot_dragon_combat.1001.desc.my_feedback.taunt
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_go_for_the_gonads }
+									desc = agot_dragon_combat.1001.desc.my_feedback.go_for_the_gonads
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_strict_guard }
+									desc = agot_dragon_combat.1001.desc.my_feedback.strict_guard
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_confident_attack }
+									desc = agot_dragon_combat.1001.desc.my_feedback.confident_attack
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_expert_onslaught }
+									desc = agot_dragon_combat.1001.desc.my_feedback.expert_onslaught
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_lightning_assault }
+									desc = agot_dragon_combat.1001.desc.my_feedback.lightning_assault
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_tire_opponent }
+									desc = agot_dragon_combat.1001.desc.my_feedback.tire_opponent
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_motivate }
+									desc = agot_dragon_combat.1001.desc.my_feedback.motivate
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_technique_from_legend }
+									desc = agot_dragon_combat.1001.desc.my_feedback.technique_from_legend
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_like_a_viper }
+									desc = agot_dragon_combat.1001.desc.my_feedback.like_a_viper
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_martial_voice }
+									desc = agot_dragon_combat.1001.desc.my_feedback.martial_voice
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_mocking_boast }
+									desc = agot_dragon_combat.1001.desc.my_feedback.mocking_boast
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_desert_warrior }
+									desc = agot_dragon_combat.1001.desc.my_feedback.desert_warrior
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_jungle_stalker }
+									desc = agot_dragon_combat.1001.desc.my_feedback.jungle_stalker
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_open_terrain_expert }
+									desc = agot_dragon_combat.1001.desc.my_feedback.open_terrain_expert
+								}
+								triggered_desc = {
+									trigger = {
+										scope:dsc_attacker_last_move = flag:dragon_rough_terrain_expert
+										scope:dsc_defender.location = {
+											OR = {
+												terrain = hills
+												terrain = mountains
+												terrain = desert_mountains
+											}
+										}
+									}
+									desc = agot_dragon_combat.1001.desc.my_feedback.rough_terrain_expert.rocky
+								}
+								triggered_desc = {
+									trigger = {
+										scope:dsc_attacker_last_move = flag:dragon_rough_terrain_expert
+										scope:dsc_defender.location = { terrain = wetlands }
+									}
+									desc = agot_dragon_combat.1001.desc.my_feedback.rough_terrain_expert.boggy
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_forest_fighter }
+									desc = agot_dragon_combat.1001.desc.my_feedback.forest_fighter
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_attacker_last_move = flag:dragon_special_fallback }
+									desc = agot_dragon_combat.1001.desc.my_feedback.special_fallback
+								}
+							}
+						}
+					}
+					# scope:dsc_defender responses.
+					## What move did your opponent pick, and how does that play out from your POV?
+					triggered_desc = {
+						trigger = { exists = scope:dsc_defender_last_move }
+						desc = {
+							first_valid = {
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_wait_and_hope }
+									desc = agot_dragon_combat.1001.desc.opponent_response.wait_and_hope
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_unsure_attack }
+									desc = agot_dragon_combat.1001.desc.opponent_response.unsure_attack
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_enthusiastic_onslaught }
+									desc = agot_dragon_combat.1001.desc.opponent_response.enthusiastic_onslaught
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_underbelly }
+									desc = agot_dragon_combat.1001.desc.opponent_response.underbelly
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_tail_smash }
+									desc = agot_dragon_combat.1001.desc.opponent_response.tail_smash
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_guard }
+									desc = agot_dragon_combat.1001.desc.opponent_response.guard
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_probing_attack }
+									desc = agot_dragon_combat.1001.desc.opponent_response.probing_attack
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_onslaught }
+									desc = agot_dragon_combat.1001.desc.opponent_response.onslaught
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_surprise_attack }
+									desc = agot_dragon_combat.1001.desc.opponent_response.surprise_attack
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_taunt }
+									desc = agot_dragon_combat.1001.desc.opponent_response.taunt
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_go_for_the_gonads }
+									desc = agot_dragon_combat.1001.desc.opponent_response.go_for_the_gonads
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_strict_guard }
+									desc = agot_dragon_combat.1001.desc.opponent_response.strict_guard
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_confident_attack }
+									desc = agot_dragon_combat.1001.desc.opponent_response.confident_attack
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_expert_onslaught }
+									desc = agot_dragon_combat.1001.desc.opponent_response.expert_onslaught
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_lightning_assault }
+									desc = agot_dragon_combat.1001.desc.opponent_response.lightning_assault
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_tire_opponent }
+									desc = agot_dragon_combat.1001.desc.opponent_response.tire_opponent
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_motivate }
+									desc = agot_dragon_combat.1001.desc.opponent_response.motivate
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_technique_from_legend }
+									desc = agot_dragon_combat.1001.desc.opponent_response.technique_from_legend
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_like_a_viper }
+									desc = agot_dragon_combat.1001.desc.opponent_response.like_a_viper
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_martial_voice }
+									desc = agot_dragon_combat.1001.desc.opponent_response.martial_voice
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_mocking_boast }
+									desc = agot_dragon_combat.1001.desc.opponent_response.mocking_boast
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_desert_warrior }
+									desc = agot_dragon_combat.1001.desc.opponent_response.desert_warrior
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_jungle_stalker }
+									desc = agot_dragon_combat.1001.desc.opponent_response.jungle_stalker
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_open_terrain_expert }
+									desc = agot_dragon_combat.1001.desc.opponent_response.open_terrain_expert
+								}
+								triggered_desc = {
+									trigger = {
+										scope:dsc_defender_last_move = flag:dragon_rough_terrain_expert
+										scope:dsc_defender.location = {
+											OR = {
+												terrain = hills
+												terrain = mountains
+												terrain = desert_mountains
+											}
+										}
+									}
+									desc = agot_dragon_combat.1001.desc.opponent_response.rough_terrain_expert.rocky
+								}
+								triggered_desc = {
+									trigger = {
+										scope:dsc_defender_last_move = flag:dragon_rough_terrain_expert
+										scope:dsc_defender.location = { terrain = wetlands }
+									}
+									desc = agot_dragon_combat.1001.desc.opponent_response.rough_terrain_expert.boggy
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_forest_fighter }
+									desc = agot_dragon_combat.1001.desc.opponent_response.forest_fighter
+								}
+								triggered_desc = {
+									trigger = { scope:dsc_defender_last_move = flag:dragon_special_fallback }
+									desc = agot_dragon_combat.1001.desc.opponent_response.special_fallback
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		# Duel status updates
+		triggered_desc = {
+			trigger = { scope:dsc_defender.var:dragon_combat_current_round > 1 }
+			# My injury
+			desc = {
+				first_valid = {
+					triggered_desc = {
+						trigger = { this.dsc_injury_calculator = 0 }
+						desc = agot_dragon_combat.1001.desc.my_injury.none
+					}
+					triggered_desc = {
+						trigger = { this.dsc_injury_calculator = 1 }
+						desc = agot_dragon_combat.1001.desc.my_injury.light
+					}
+					triggered_desc = {
+						trigger = { this.dsc_injury_calculator = 2 }
+						desc = agot_dragon_combat.1001.desc.my_injury.heavy
+					}
+					triggered_desc = {
+						trigger = { this.dsc_injury_calculator = 3 }
+						desc = agot_dragon_combat.1001.desc.my_injury.severe
+					}
+					triggered_desc = {
+						trigger = { this.dsc_injury_calculator >= 4 }
+						desc = agot_dragon_combat.1001.desc.my_injury.mortal
+					}
+				}
+				# My foe's injury
+				first_valid = {
+					triggered_desc = {
+						trigger = { scope:my_foe.dsc_injury_calculator = 0 }
+						desc = agot_dragon_combat.1001.desc.foe_injury.none
+					}
+					triggered_desc = {
+						trigger = { scope:my_foe.dsc_injury_calculator = 1 }
+						desc = agot_dragon_combat.1001.desc.foe_injury.light
+					}
+					triggered_desc = {
+						trigger = { scope:my_foe.dsc_injury_calculator = 2 }
+						desc = agot_dragon_combat.1001.desc.foe_injury.heavy
+					}
+					triggered_desc = {
+						trigger = { scope:my_foe.dsc_injury_calculator = 3 }
+						desc = agot_dragon_combat.1001.desc.foe_injury.severe
+					}
+					triggered_desc = {
+						trigger = { scope:my_foe.dsc_injury_calculator >= 4 }
+						desc = agot_dragon_combat.1001.desc.foe_injury.mortal
+					}
+				}
+				# My chance of winning
+				first_valid = {
+					triggered_desc = {
+						trigger = { var:dsc_chance_of_winning < 10 }
+						desc = agot_dragon_combat.1001.desc.chance_of_winning.near_zero
+					}
+					triggered_desc = {
+						trigger = {
+							var:dsc_chance_of_winning >= 10
+							var:dsc_chance_of_winning < 20
+						}
+						desc = agot_dragon_combat.1001.desc.chance_of_winning.minimal
+					}
+					triggered_desc = {
+						trigger = {
+							var:dsc_chance_of_winning >= 20
+							var:dsc_chance_of_winning < 30
+						}
+						desc = agot_dragon_combat.1001.desc.chance_of_winning.low
+					}
+					triggered_desc = {
+						trigger = {
+							var:dsc_chance_of_winning >= 30
+							var:dsc_chance_of_winning < 40
+						}
+						desc = agot_dragon_combat.1001.desc.chance_of_winning.fair
+					}
+					triggered_desc = {
+						trigger = {
+							var:dsc_chance_of_winning >= 40
+							var:dsc_chance_of_winning < 50
+						}
+						desc = agot_dragon_combat.1001.desc.chance_of_winning.okay
+					}
+					triggered_desc = {
+						trigger = {
+							var:dsc_chance_of_winning >= 50
+							var:dsc_chance_of_winning < 60
+						}
+						desc = agot_dragon_combat.1001.desc.chance_of_winning.good
+					}
+					triggered_desc = {
+						trigger = {
+							var:dsc_chance_of_winning >= 60
+							var:dsc_chance_of_winning < 70
+						}
+						desc = agot_dragon_combat.1001.desc.chance_of_winning.high
+					}
+					triggered_desc = {
+						trigger = {
+							var:dsc_chance_of_winning >= 70
+							var:dsc_chance_of_winning < 80
+						}
+						desc = agot_dragon_combat.1001.desc.chance_of_winning.very_high
+					}
+					triggered_desc = {
+						trigger = {
+							var:dsc_chance_of_winning >= 80
+							var:dsc_chance_of_winning < 90
+						}
+						desc = agot_dragon_combat.1001.desc.chance_of_winning.excellent
+					}
+					triggered_desc = {
+						trigger = { var:dsc_chance_of_winning >= 90 }
+						desc = agot_dragon_combat.1001.desc.chance_of_winning.near_certain
+					}
+				}
+			}
+		}
+	}
+	theme = dragon
+	left_portrait = {
+		character = scope:myself
+		animation = dragon_main
+		camera = camera_dragon_hover_left
+
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_ten_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_ten_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_1.0 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_nine_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_nine_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.9 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_eight_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_eight_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.8 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_seven_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_seven_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.7 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_six_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_six_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.6 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_five_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_five_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.5 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_four_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_four_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.4 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_three_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_three_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.3 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_two_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_two_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.2 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_one_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_one_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.1 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_zero_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_zero_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.0 }
+		}
+		#End Dynamic Camera Zoom
+	}
+
+	right_portrait = {
+		character = scope:my_foe
+		animation = dragon_main
+		camera = camera_dragon_hover_right
+
+		# Dynamic Camera Zoom
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_ten_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_ten_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_1.0 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_nine_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_nine_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.9 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_eight_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_eight_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.8 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_seven_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_seven_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.7 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_six_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_six_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.6 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_five_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_five_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.5 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_four_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_four_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.4 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_three_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_three_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.3 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_two_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_two_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.2 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_one_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_one_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.1 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_zero_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_zero_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.0 }
+		}
+	}
+
+	override_background = {
+		trigger = { has_character_flag = dragon_night_ride }
+		reference = agot_night_sky_video
+	}
+	override_background = {
+		trigger = { NOT = { has_character_flag = dragon_night_ride } }
+		reference = agot_open_sky_video
+	}
+
+	immediate = {
+		# Remove starting character flag
+		remove_character_flag = agot_in_dragon_duel_opening
+		# Play music
+		play_music_cue = "mx_cue_combat_stinger"
+		# Generate combat options.
+		select_dragon_combat_options_from_pool_effect = yes
+
+		# Set up portraits for this event, putting the current actor always on the left.
+		if = {
+			limit = { this = scope:dsc_defender }
+			scope:dsc_defender = { save_scope_as = myself }
+			scope:dsc_attacker = { save_scope_as = my_foe }
+			scope:dsc_defender_dragon = { save_scope_as = my_dragon }
+			scope:dsc_attacker_dragon = { save_scope_as = my_foe_dragon }
+		}
+		else = {
+			scope:dsc_attacker = { save_scope_as = myself }
+			scope:dsc_defender = { save_scope_as = my_foe }
+			scope:dsc_attacker_dragon = { save_scope_as = my_dragon }
+			scope:dsc_defender_dragon = { save_scope_as = my_foe_dragon }
+		}
+
+		scope:myself = {
+			agot_clear_dragon_animation_flags = yes
+			agot_set_dragon_animation_flag_effect = { FLAG = dragon_hover RIDING_DRAGON = yes }
+		}
+		scope:my_foe = {
+			agot_clear_dragon_animation_flags = yes
+			agot_set_dragon_animation_flag_effect = { FLAG = dragon_hover RIDING_DRAGON = yes }
+		}
+
+		# Show opponent's move effect.
+		if = {
+			# Check that there's a last move kicking about to look at.
+			limit = {
+				OR = {
+					AND = {
+						this = scope:dsc_defender
+						exists = scope:dsc_attacker_last_move
+					}
+					AND = {
+						this = scope:dsc_attacker
+						exists = scope:dsc_defender_last_move
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_wait_and_hope
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_wait_and_hope
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_wait_and_hope_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_unsure_attack
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_unsure_attack
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_unsure_attack_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_enthusiastic_onslaught
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_enthusiastic_onslaught
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_enthusiastic_onslaught_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_underbelly
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_underbelly
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_underbelly_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_tail_smash
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_tail_smash
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_tail_smash_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_guard
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_guard
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_guard_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_probing_attack
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_probing_attack
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_probing_attack_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_onslaught
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_onslaught
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_onslaught_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_surprise_attack
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_surprise_attack
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_surprise_attack_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_taunt
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_taunt
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_taunt_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_go_for_the_gonads
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_go_for_the_gonads
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_go_for_the_gonads_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_strict_guard
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_strict_guard
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_strict_guard_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_confident_attack
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_confident_attack
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_confident_attack_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_expert_onslaught
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_expert_onslaught
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_expert_onslaught_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_lightning_assault
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_lightning_assault
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_lightning_assault_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_tire_opponent
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_tire_opponent
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_tire_opponent_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_motivate
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_motivate
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_motivate_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_technique_from_legend
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_technique_from_legend
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_technique_from_legend_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_like_a_viper
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_like_a_viper
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_like_a_viper_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_martial_voice
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_martial_voice
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_martial_voice_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_mocking_boast
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_mocking_boast
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_mocking_boast_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_desert_warrior
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_desert_warrior
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_desert_warrior_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_jungle_stalker
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_jungle_stalker
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_jungle_stalker_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_open_terrain_expert
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_open_terrain_expert
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_open_terrain_expert_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_rough_terrain_expert
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_rough_terrain_expert
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_rough_terrain_expert_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_forest_fighter
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_forest_fighter
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_forest_fighter_effect = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:dsc_defender
+							scope:dsc_attacker_last_move = flag:dragon_special_fallback
+						}
+						AND = {
+							this = scope:dsc_attacker
+							scope:dsc_defender_last_move = flag:dragon_special_fallback
+						}
+					}
+				}
+				scope:my_foe = {
+					show_as_tooltip = { dragon_combat_move_special_fallback_effect = yes }
+				}
+			}
+		}
+	}
+
+	#Wait and Hope
+	option = {
+		name = agot_dragon_combat.1001.wait_and_hope
+		trigger = {
+			exists = local_var:dragon_combat_move_wait_and_hope_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.wait_and_hope
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_wait_and_hope_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_wait_and_hope_effect = yes }
+		}
+
+		stress_impact = {
+			patient = miniscule_stress_impact_loss
+			calm = miniscule_stress_impact_loss
+			impatient = miniscule_stress_impact_gain
+			wrathful = miniscule_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			dsc_timid_personality_scripted_modifier = yes
+		}
+	}
+
+	#Unsure Attack
+	option = {
+		name = agot_dragon_combat.1001.unsure_attack
+		trigger = {
+			exists = local_var:dragon_combat_move_unsure_attack_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.unsure_attack
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_unsure_attack_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_unsure_attack_effect = yes }
+		}
+
+		# No stress for middle-ground standard options.
+		ai_chance = {
+			base = 100
+			dsc_rational_personality_scripted_modifier = yes
+		}
+	}
+
+	#Enthusiastic Onslaught
+	option = {
+		# Since we yell the house motto here, we need slight separation between variants.
+		## Firstly, if your house is on the banned list, you use a fallback.
+		name = agot_dragon_combat.1001.enthusiastic_onslaught
+		trigger = {
+			exists = local_var:dragon_combat_move_enthusiastic_onslaught_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.enthusiastic_onslaught
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_enthusiastic_onslaught_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_enthusiastic_onslaught_effect = yes }
+		}
+
+		stress_impact = {
+			impatient = miniscule_stress_impact_loss
+			wrathful = miniscule_stress_impact_loss
+			patient = miniscule_stress_impact_gain
+			calm = miniscule_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			dsc_aggressive_personality_scripted_modifier = yes
+		}
+	}
+
+	#Underbelly
+	option = {
+		name = agot_dragon_combat.1001.underbelly
+		trigger = {
+			exists = local_var:dragon_combat_move_underbelly_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.underbelly
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_underbelly_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_underbelly_effect = yes }
+		}
+
+		stress_impact = {
+			deceitful = miniscule_stress_impact_loss
+			arbitrary = miniscule_stress_impact_loss
+			honest = miniscule_stress_impact_gain
+			just = miniscule_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			dsc_preferred_aggressive_personality_scripted_modifier = yes
+		}
+	}
+
+	#Tail smash
+	option = {
+		name = agot_dragon_combat.1001.tail_smash
+		trigger = {
+			exists = local_var:dragon_combat_move_tail_smash_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.tail_smash
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_tail_smash_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_tail_smash_effect = yes }
+		}
+
+		stress_impact = {
+			deceitful = miniscule_stress_impact_loss
+			craven = miniscule_stress_impact_loss
+			brave = miniscule_stress_impact_gain
+			just = miniscule_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			dsc_timid_personality_scripted_modifier = yes
+		}
+	}
+
+	#Guard
+	option = {
+		name = agot_dragon_combat.1001.guard
+		trigger = {
+			exists = local_var:dragon_combat_move_guard_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.guard
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_guard_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_guard_effect = yes }
+		}
+
+		stress_impact = {
+			patient = miniscule_stress_impact_loss
+			calm = miniscule_stress_impact_loss
+			impatient = miniscule_stress_impact_gain
+			wrathful = miniscule_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			dsc_timid_personality_scripted_modifier = yes
+		}
+	}
+
+	#Probing Attack
+	option = {
+		name = agot_dragon_combat.1001.probing_attack
+		trigger = {
+			exists = local_var:dragon_combat_move_probing_attack_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.probing_attack
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_probing_attack_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_probing_attack_effect = yes }
+		}
+
+		# No stress for middle-ground standard options.
+		ai_chance = {
+			base = 100
+			dsc_rational_personality_scripted_modifier = yes
+		}
+	}
+
+	#Onslaught
+	option = {
+		name = agot_dragon_combat.1001.onslaught
+		trigger = {
+			exists = local_var:dragon_combat_move_onslaught_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.onslaught
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_onslaught_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_onslaught_effect = yes }
+		}
+
+		stress_impact = {
+			impatient = miniscule_stress_impact_loss
+			wrathful = miniscule_stress_impact_loss
+			patient = miniscule_stress_impact_gain
+			calm = miniscule_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			dsc_aggressive_personality_scripted_modifier = yes
+		}
+	}
+
+	#Surprise Attack
+	option = {
+		name = agot_dragon_combat.1001.surprise_attack
+		trigger = {
+			exists = local_var:dragon_combat_move_surprise_attack_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.surprise_attack
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_surprise_attack_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_surprise_attack_effect = yes }
+		}
+
+		# No need for stress weighting here; fairly standard tactic that anyone would try.
+		ai_chance = {
+			base = 100
+			dsc_preferred_rational_personality_scripted_modifier = yes
+		}
+	}
+
+	#Taunt
+	option = {
+		name = agot_dragon_combat.1001.taunt
+		trigger = {
+			exists = local_var:dragon_combat_move_taunt_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.taunt
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_taunt_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_taunt_effect = yes }
+		}
+
+		stress_impact = {
+			callous = miniscule_stress_impact_loss
+			sadistic = miniscule_stress_impact_loss
+			compassionate = miniscule_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			dsc_preferred_timid_personality_scripted_modifier = yes
+		}
+	}
+
+	#Go for the gonads
+	option = {
+		name = agot_dragon_combat.1001.go_for_the_gonads
+		trigger = {
+			exists = local_var:dragon_combat_move_go_for_the_gonads_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.go_for_the_gonads
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_go_for_the_gonads_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_go_for_the_gonads_effect = yes }
+		}
+
+		stress_impact = {
+			impatient = miniscule_stress_impact_loss
+			brave = minor_stress_impact_loss
+			patient = miniscule_stress_impact_gain
+			craven = minor_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			dsc_preferred_aggressive_personality_scripted_modifier = yes
+		}
+	}
+
+	#Strict Guard
+	option = {
+		name = agot_dragon_combat.1001.strict_guard
+		trigger = {
+			exists = local_var:dragon_combat_move_strict_guard_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.strict_guard
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_strict_guard_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_strict_guard_effect = yes }
+		}
+
+		stress_impact = {
+			patient = miniscule_stress_impact_loss
+			calm = miniscule_stress_impact_loss
+			impatient = miniscule_stress_impact_gain
+			wrathful = miniscule_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			dsc_timid_personality_scripted_modifier = yes
+		}
+	}
+
+	#Confident Attack
+	option = {
+		name = agot_dragon_combat.1001.confident_attack
+		trigger = {
+			exists = local_var:dragon_combat_move_confident_attack_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.confident_attack
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_confident_attack_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_confident_attack_effect = yes }
+		}
+
+		# No stress for middle-ground standard options.
+		ai_chance = {
+			base = 100
+			dsc_rational_personality_scripted_modifier = yes
+		}
+	}
+
+	#Expert Onslaught
+	option = {
+		name = agot_dragon_combat.1001.expert_onslaught
+		trigger = {
+			exists = local_var:dragon_combat_move_expert_onslaught_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.expert_onslaught
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_expert_onslaught_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_expert_onslaught_effect = yes }
+		}
+
+		stress_impact = {
+			impatient = miniscule_stress_impact_loss
+			wrathful = miniscule_stress_impact_loss
+			patient = miniscule_stress_impact_gain
+			calm = miniscule_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			dsc_aggressive_personality_scripted_modifier = yes
+		}
+	}
+
+	#Lightning Assault
+	option = {
+		name = agot_dragon_combat.1001.lightning_assault
+		trigger = {
+			exists = local_var:dragon_combat_move_lightning_assault_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.lightning_assault
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_lightning_assault_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_lightning_assault_effect = yes }
+		}
+
+		stress_impact = {
+			impatient = miniscule_stress_impact_loss
+			diligent = miniscule_stress_impact_loss
+			patient = miniscule_stress_impact_gain
+			lazy = miniscule_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			dsc_preferred_aggressive_personality_scripted_modifier = yes
+		}
+	}
+
+	#Tire Opponent
+	option = {
+		name = agot_dragon_combat.1001.tire_opponent
+		trigger = {
+			exists = local_var:dragon_combat_move_tire_opponent_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.tire_opponent
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_tire_opponent_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_tire_opponent_effect = yes }
+		}
+
+		stress_impact = {
+			diligent = miniscule_stress_impact_loss
+			calm = miniscule_stress_impact_loss
+			lazy = miniscule_stress_impact_gain
+			wrathful = miniscule_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			dsc_preferred_rational_personality_scripted_modifier = yes
+		}
+	}
+
+	#CHOMP
+	option = {
+		name = agot_dragon_combat.1001.chomp
+		trigger = { exists = local_var:dragon_combat_move_chomp_flag }
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.chomp
+
+		add_internal_flag = special
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_chomp_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_chomp_effect = yes }
+		}
+
+		stress_impact = {
+			wrathful = medium_stress_impact_loss
+			sadistic = medium_stress_impact_loss
+			paranoid = miniscule_stress_impact_loss
+		}
+		ai_chance = {
+			base = 100
+			dsc_preferred_rational_personality_scripted_modifier = yes
+		}
+	}
+
+	#Motivate Speech
+	option = {
+		name = {
+			trigger = {
+				has_trait_xp = {
+					trait = dragonrider
+					track = dragon_bond
+					value >= 50
+				}
+			}
+			text = agot_dragon_combat.1001.motivate.bond
+		}
+		name = {
+			trigger = {
+				NOT = {
+					has_trait_xp = {
+						trait = dragonrider
+						track = dragon_bond
+						value >= 50
+					}
+				}
+				has_trait = rude
+			}
+			text = agot_dragon_combat.1001.motivate.rude
+		}
+		name = {
+			trigger = {
+				NOT = {
+					has_trait_xp = {
+						trait = dragonrider
+						track = dragon_bond
+						value >= 50
+					}
+				}
+				NOT = { has_trait = rude }
+				has_trait = authoritative
+			}
+			text = agot_dragon_combat.1001.motivate.authoritative
+		}
+		name = {
+			trigger = {
+				NOT = {
+					has_trait_xp = {
+						trait = dragonrider
+						track = dragon_bond
+						value >= 50
+					}
+				}
+				NOT = { has_trait = rude }
+				NOT = { has_trait = authoritative }
+				has_trait = sadistic
+				var:current_dragon = {
+					NOT = { has_trait = dragon_skittish }
+				}
+			}
+			text = agot_dragon_combat.1001.motivate.sadistic
+		}
+		name = {
+			trigger = {
+				NOT = {
+					has_trait_xp = {
+						trait = dragonrider
+						track = dragon_bond
+						value >= 50
+					}
+				}
+				NOT = { has_trait = rude }
+				NOT = { has_trait = authoritative }
+				OR = {
+					NOT = { has_trait = sadistic }
+					var:current_dragon = { has_trait = dragon_skittish }
+				}
+				has_trait = eccentric
+			}
+			text = agot_dragon_combat.1001.motivate.eccentric
+		}
+		name = {
+			trigger = {
+				NOT = {
+					has_trait_xp = {
+						trait = dragonrider
+						track = dragon_bond
+						value >= 50
+					}
+				}
+				NOT = { has_trait = rude }
+				NOT = { has_trait = authoritative }
+				OR = {
+					NOT = { has_trait = sadistic }
+					var:current_dragon = { has_trait = dragon_skittish }
+				}
+				NOT = { has_trait = eccentric }
+			}
+			text = agot_dragon_combat.1001.motivate.generic
+		}
+
+		trigger = {
+			exists = local_var:dragon_combat_move_motivate_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.motivate
+
+		#Spawn Info
+		skill = diplomacy
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_motivate_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_motivate_effect = yes }
+		}
+
+		stress_impact = {
+			callous = miniscule_stress_impact_loss
+			sadistic = miniscule_stress_impact_loss
+			gregarious = miniscule_stress_impact_loss
+			compassionate = miniscule_stress_impact_gain
+			shy = miniscule_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			dsc_enjoys_arrogant_speeches_scripted_modifier = yes
+		}
+	}
+
+	#Technique from Legend
+	option = {
+		name = agot_dragon_combat.1001.technique_from_legend
+		trigger = {
+			exists = local_var:dragon_combat_move_technique_from_legend_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.technique_from_legend
+
+		#Spawn Info
+		skill = learning
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_technique_from_legend_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_technique_from_legend_effect = yes }
+		}
+
+		stress_impact = {
+			brave = minor_stress_impact_loss
+			trusting = minor_stress_impact_loss	# A trusting character *totally* believes the legends are both true and accurate!
+			craven = minor_stress_impact_gain
+			paranoid = minor_stress_impact_gain # Whereas a paranoid character is 99% sure they're bullshit, but is hoping against hope anyway.
+		}
+		ai_chance = {
+			base = 100
+			dsc_shrewd_fighter_scripted_modifier = yes
+			# Weight up relevant traits: scholar
+			modifier = {
+				add = 25
+				has_trait = scholar
+			}
+			# Weight up relevant traits: theologian
+			modifier = {
+				add = 25
+				has_trait = theologian
+			}
+		}
+	}
+
+	#Like a Viper
+	option = {
+		name = agot_dragon_combat.1001.like_a_viper
+		trigger = {
+			exists = local_var:dragon_combat_move_like_a_viper_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.like_a_viper
+
+		#Spawn Info
+		skill = intrigue
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_like_a_viper_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_like_a_viper_effect = yes }
+		}
+
+		stress_impact = {
+			deceitful = minor_stress_impact_loss
+			arbitrary = minor_stress_impact_loss
+			honest = minor_stress_impact_gain
+			just = minor_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			dsc_shrewd_fighter_scripted_modifier = yes
+			# Weight up relevant traits: schemer
+			modifier = {
+				add = 50
+				has_trait = schemer
+			}
+			# Weight up relevant traits: torturer
+			modifier = {
+				add = 25
+				has_trait = torturer
+			}
+		}
+	}
+
+	#Martial Voice
+	option = {
+		name = agot_dragon_combat.1001.martial_voice
+		trigger = {
+			exists = local_var:dragon_combat_move_martial_voice_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.martial_voice
+
+		#Spawn Info
+		skill = martial
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_martial_voice_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_martial_voice_effect = yes }
+		}
+
+		stress_impact = {
+			callous = miniscule_stress_impact_loss
+			sadistic = miniscule_stress_impact_loss
+			gregarious = miniscule_stress_impact_loss
+			compassionate = miniscule_stress_impact_gain
+			shy = miniscule_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			dsc_enjoys_arrogant_speeches_scripted_modifier = yes
+			# Weight up relevant traits: strategist
+			modifier = {
+				add = 25
+				has_trait = strategist
+			}
+		}
+	}
+
+	#Mocking Boast
+	option = {
+		name = agot_dragon_combat.1001.mocking_boast
+		trigger = {
+			exists = local_var:dragon_combat_move_mocking_boast_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.mocking_boast
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_mocking_boast_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_mocking_boast_effect = yes }
+		}
+
+		stress_impact = {
+			callous = miniscule_stress_impact_loss
+			sadistic = miniscule_stress_impact_loss
+			arrogant = miniscule_stress_impact_loss
+			compassionate = miniscule_stress_impact_gain
+			humble = miniscule_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			dsc_enjoys_arrogant_speeches_scripted_modifier = yes
+		}
+	}
+
+	#Desert Warrior
+	option = {
+		name = agot_dragon_combat.1001.desert_warrior
+		trigger = {
+			exists = local_var:dragon_combat_move_desert_warrior_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.desert_warrior
+
+		#Spawn Info
+		trait = desert_warrior
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_desert_warrior_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_desert_warrior_effect = yes }
+		}
+
+		stress_impact = {
+			diligent = miniscule_stress_impact_loss
+			calm = miniscule_stress_impact_loss
+			lazy = miniscule_stress_impact_gain
+			wrathful = miniscule_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			dsc_shrewd_fighter_scripted_modifier = yes
+		}
+	}
+
+	#Jungle Stalker
+	option = {
+		name = agot_dragon_combat.1001.jungle_stalker
+		trigger = {
+			exists = local_var:dragon_combat_move_jungle_stalker_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.jungle_stalker
+
+		#Spawn Info
+		trait = jungle_stalker
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_jungle_stalker_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_jungle_stalker_effect = yes }
+		}
+
+		stress_impact = {
+			diligent = miniscule_stress_impact_loss
+			calm = miniscule_stress_impact_loss
+			lazy = miniscule_stress_impact_gain
+			wrathful = miniscule_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			dsc_shrewd_fighter_scripted_modifier = yes
+		}
+	}
+
+	#Open Terrain Expert
+	option = {
+		name = agot_dragon_combat.1001.open_terrain_expert
+		trigger = {
+			exists = local_var:dragon_combat_move_open_terrain_expert_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.open_terrain_expert
+
+		#Spawn Info
+		trait = open_terrain_expert
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_open_terrain_expert_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_open_terrain_expert_effect = yes }
+		}
+
+		stress_impact = {
+			diligent = miniscule_stress_impact_loss
+			calm = miniscule_stress_impact_loss
+			lazy = miniscule_stress_impact_gain
+			wrathful = miniscule_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			dsc_shrewd_fighter_scripted_modifier = yes
+		}
+	}
+
+	#Rough Terrain Expert - rocky
+	option = {
+		trigger = {
+			exists = local_var:dragon_combat_move_rough_terrain_expert_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+			location = {
+				OR = {
+					terrain = hills
+					terrain = mountains
+					terrain = desert_mountains
+				}
+			}
+		}
+		name = agot_dragon_combat.1001.rough_terrain_expert.rocky
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.rough_terrain_expert.rocky
+
+		#Spawn Info
+		trait = rough_terrain_expert
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_rough_terrain_expert_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_rough_terrain_expert_effect = yes }
+		}
+
+		stress_impact = {
+			diligent = miniscule_stress_impact_loss
+			calm = miniscule_stress_impact_loss
+			lazy = miniscule_stress_impact_gain
+			wrathful = miniscule_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			dsc_shrewd_fighter_scripted_modifier = yes
+		}
+	}
+
+	#Rough Terrain Expert - wetlands
+	option = {
+		trigger = {
+			exists = local_var:dragon_combat_move_rough_terrain_expert_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+			location = { terrain = wetlands }
+		}
+		name = agot_dragon_combat.1001.rough_terrain_expert.boggy
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.rough_terrain_expert.boggy
+
+		#Spawn Info
+		trait = rough_terrain_expert
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_rough_terrain_expert_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_rough_terrain_expert_effect = yes }
+		}
+
+		stress_impact = {
+			diligent = miniscule_stress_impact_loss
+			calm = miniscule_stress_impact_loss
+			lazy = miniscule_stress_impact_gain
+			wrathful = miniscule_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			dsc_shrewd_fighter_scripted_modifier = yes
+		}
+	}
+
+	#Forest Fighter
+	option = {
+		name = agot_dragon_combat.1001.forest_fighter
+		trigger = {
+			exists = local_var:dragon_combat_move_forest_fighter_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.forest_fighter
+
+		#Spawn Info
+		trait = forest_fighter
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_forest_fighter_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_forest_fighter_effect = yes }
+		}
+
+		stress_impact = {
+			diligent = miniscule_stress_impact_loss
+			calm = miniscule_stress_impact_loss
+			lazy = miniscule_stress_impact_gain
+			wrathful = miniscule_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			dsc_shrewd_fighter_scripted_modifier = yes
+		}
+	}
+
+	#Special Fallback
+	option = {
+		name = agot_dragon_combat.1001.special_fallback
+		trigger = {
+			exists = local_var:dragon_combat_move_special_fallback_flag
+			NOT = { exists = local_var:dragon_combat_move_chomp_flag }
+		}
+
+		#Move clarification
+		custom_tooltip = agot_dragon_combat.1001.tt.special_fallback
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { dragon_combat_move_special_fallback_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { dragon_combat_move_special_fallback_effect = yes }
+		}
+
+		# Shins, and the kicking thereof, have no particularly stressful effects on the human psyche.
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	#Work out the post-event effects.
+	after = {
+		# First, see if the next round is still valid.
+		if = {
+			limit = {
+				OR = {
+					scope:dsc_attacker = { is_alive = no }
+					scope:dsc_defender = { is_alive = no }
+				}
+			}
+			# First, clean up assorted things around the duels.
+			hidden_effect = { remove_dragon_combat_info_effect = yes }
+			# Then manually clear the duelling flag.
+			scope:dsc_defender = {
+				if = {
+					# Restrict to live characters to prevent errors.
+					limit = { is_alive = yes }
+					remove_variable = engaged_in_single_combat
+					remove_variable = engaged_in_dragon_combat
+				}
+			}
+			scope:dsc_attacker = {
+				if = {
+					# Restrict to live characters to prevent errors.
+					limit = { is_alive = yes }
+					remove_variable = engaged_in_single_combat
+					remove_variable = engaged_in_dragon_combat
+				}
+			}
+		}
+		# Otherwise, we can go through the usual flow.
+		else = {
+			#If we're scope:dsc_defender, send scope:dsc_attacker their instance of the event.
+			if = {
+				limit = { this = scope:dsc_defender }
+				scope:dsc_attacker = { trigger_event = agot_dragon_combat.1001 }
+			}
+			#Otherwise we're scope:dsc_attacker, so end the round.
+			else = { trigger_event = agot_dragon_combat.1002 }
+		}
+	}
+}
+
+#	Standard round end event.
+agot_dragon_combat.1002 = {
+	hidden = yes
+
+	immediate = {
+		debug_log = "dragon combat variable error-check"
+		debug_log_scopes = yes
+		## Check scope:dsc_attacker first, seeing if they have more success chance than the minimum threshold for victory.
+		if = {
+			limit = {
+				OR = {
+					# Attacker won
+					scope:dsc_attacker.var:dsc_chance_of_winning >= 100
+					# Defenders died somehow
+					scope:dsc_defender = { is_alive = no }
+					scope:dsc_defender_dragon = { is_alive = no }
+				}
+			}
+			save_scope_value_as = {
+				name = dsc_finished
+				value = yes
+			}
+			scope:dsc_attacker = { save_scope_as = dsc_victor }
+			scope:dsc_defender = { save_scope_as = dsc_loser }
+			save_scope_value_as = {
+				name = victory_type
+				value = flag:skill
+			}
+		}
+		## Then check scope:dsc_defender, performing the same calculation in reverse.
+		if = {
+			limit = {
+				OR = {
+					# Defender won
+					scope:dsc_defender.var:dsc_chance_of_winning >= 100
+					# Attackers died somehow
+					scope:dsc_attacker = { is_alive = no }
+					scope:dsc_attacker_dragon = { is_alive = no }
+				}
+			}
+			save_scope_value_as = {
+				name = dsc_finished
+				value = yes
+			}
+			scope:dsc_defender = { save_scope_as = dsc_victor }
+			scope:dsc_attacker = { save_scope_as = dsc_loser }
+			save_scope_value_as = {
+				name = victory_type
+				value = flag:skill
+			}
+		}
+
+		# If we now have a victor, work out the cleanup.
+		if = {
+			limit = { exists = scope:dsc_finished }
+			#Save dragon variables
+			scope:dsc_loser = {
+				var:current_dragon = {
+					save_scope_as = dsc_loser_dragon
+				}
+			}
+			scope:dsc_victor = {
+				var:current_dragon = {
+					save_scope_as = dsc_victor_dragon
+				}
+			}
+			# And finish
+			finalise_dragon_combat_results_effect = yes
+		}
+		# If we don't, and this round is at or over the round_cap_limit, enter into sudden death.
+		else_if = {
+			limit = { scope:dsc_defender.var:dragon_combat_current_round >= round_cap_limit }
+			# If scope:dsc_attacker has the highest prowess, then they win.
+			if = {
+				limit = { scope:dsc_attacker_dragon.dragon_combat_effectiveness > scope:dsc_defender_dragon.dragon_combat_effectiveness }
+				save_scope_value_as = {
+					name = dsc_finished
+					value = yes
+				}
+				scope:dsc_attacker = { save_scope_as = dsc_victor }
+				scope:dsc_defender = { save_scope_as = dsc_loser }
+				save_scope_value_as = {
+					name = victory_type
+					value = flag:sudden_death
+				}
+			}
+			# If scope:dsc_defender has the highest prowess, then *they* win.
+			else_if = {
+				limit = { scope:dsc_defender_dragon.dragon_combat_effectiveness > scope:dsc_attacker_dragon.dragon_combat_effectiveness }
+				save_scope_value_as = {
+					name = dsc_finished
+					value = yes
+				}
+				scope:dsc_defender = { save_scope_as = dsc_victor }
+				scope:dsc_attacker = { save_scope_as = dsc_loser }
+				save_scope_value_as = {
+					name = victory_type
+					value = flag:sudden_death
+				}
+			}
+			# Otherwise, their prowess must be even, so we do a toss-up.
+			else = {
+				random_list = {
+					#Scope:dsc_attacker wins.
+					50 = {
+						save_scope_value_as = {
+							name = dsc_finished
+							value = yes
+						}
+						scope:dsc_attacker = { save_scope_as = dsc_victor }
+						scope:dsc_defender = { save_scope_as = dsc_loser }
+						save_scope_value_as = {
+							name = victory_type
+							value = flag:sudden_death
+						}
+					}
+					#Scope:dsc_defender wins.
+					50 = {
+						save_scope_value_as = {
+							name = dsc_finished
+							value = yes
+						}
+						scope:dsc_defender = { save_scope_as = dsc_victor }
+						scope:dsc_attacker = { save_scope_as = dsc_loser }
+						save_scope_value_as = {
+							name = victory_type
+							value = flag:sudden_death
+						}
+					}
+				}
+			}
+			#Save dragon variables
+			scope:dsc_loser = {
+				var:current_dragon = {
+					save_scope_as = dsc_loser_dragon
+				}
+			}
+			scope:dsc_victor = {
+				var:current_dragon = {
+					save_scope_as = dsc_victor_dragon
+				}
+			}
+			#Sort the end of combat.
+			finalise_dragon_combat_results_effect = yes
+		}
+		# If we don't, and we've not yet hit the round_cap_limit, increment the round_number & fire off the next round.
+		else = {
+			scope:dsc_defender = {
+				# We change the round number right at the end, so that it doesn't mess up any calculations elsewhere.
+				change_variable = {
+					name = dragon_combat_current_round
+					add = 1
+				}
+				trigger_event = agot_dragon_combat.1001
+			}
+		}
+	}
+}
+
+# Results Events
+#	scope:dsc_loser's confirmation event.
+agot_dragon_combat.1003 = {
+	type = character_event
+	window = dragon_duel_event
+	title = agot_dragon_combat.1003.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:dragon_death_rattle = flag:sudden_strike }
+				desc = agot_dragon_combat.1003.desc.sudden_strike
+			}
+			triggered_desc = {
+				trigger = { scope:dragon_death_rattle = flag:dragonfire }
+				desc = agot_dragon_combat.1003.desc.dragonfire
+			}
+			triggered_desc = {
+				trigger = { scope:dragon_death_rattle = flag:driven_to_ground }
+				desc = agot_dragon_combat.1003.desc.driven_to_ground
+			}
+			triggered_desc = {
+				trigger = { scope:dragon_death_rattle = flag:disemboweled }
+				desc = agot_dragon_combat.1003.desc.disemboweled
+			}
+			triggered_desc = {
+				trigger = { scope:dragon_death_rattle = flag:eviscerated }
+				desc = agot_dragon_combat.1003.desc.eviscerated
+			}
+			triggered_desc = {
+				trigger = { scope:dragon_death_rattle = flag:chomp }
+				desc = agot_dragon_combat.1003.desc.chomp
+			}
+		}
+	}
+	theme = skull
+	left_portrait = {
+		character = scope:dsc_loser_dragon
+		animation = dragon_main
+		camera = camera_dragon_hover_left
+
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_ten_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_ten_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_1.0 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_nine_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_nine_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.9 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_eight_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_eight_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.8 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_seven_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_seven_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.7 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_six_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_six_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.6 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_five_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_five_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.5 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_four_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_four_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.4 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_three_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_three_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.3 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_two_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_two_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.2 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_one_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_one_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.1 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_zero_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_zero_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.0 }
+		}
+		#End Dynamic Camera Zoom
+	}
+
+	right_portrait = {
+		character = scope:my_foe
+		animation = dragon_main
+		camera = camera_dragon_hover_right
+
+		# Dynamic Camera Zoom
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_ten_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_ten_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_1.0 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_nine_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_nine_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.9 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_eight_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_eight_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.8 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_seven_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_seven_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.7 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_six_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_six_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.6 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_five_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_five_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.5 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_four_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_four_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.4 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_three_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_three_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.3 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_two_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_two_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.2 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_one_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_one_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.1 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:myself.var:current_dragon = { level_zero_dragon_size_trigger = yes }
+					scope:my_foe.var:current_dragon = { level_zero_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.0 }
+		}
+	}
+
+	override_background = {
+		trigger = { has_character_flag = dragon_night_ride }
+		reference = agot_night_sky_video
+	}
+	override_background = {
+		trigger = { NOT = { has_character_flag = dragon_night_ride } }
+		reference = agot_open_sky_video
+	}
+
+	immediate = {
+		#Reassign for loc
+		if = {
+			limit = { this = scope:dsc_defender }
+			scope:dsc_defender = { save_scope_as = myself }
+			scope:dsc_attacker = { save_scope_as = my_foe }
+			scope:dsc_defender_dragon = { save_scope_as = my_dragon }
+			scope:dsc_attacker_dragon = { save_scope_as = my_foe_dragon }
+		}
+		else = {
+			scope:dsc_attacker = { save_scope_as = myself }
+			scope:dsc_defender = { save_scope_as = my_foe }
+			scope:dsc_attacker_dragon = { save_scope_as = my_dragon }
+			scope:dsc_defender_dragon = { save_scope_as = my_foe_dragon }
+		}
+	}
+
+	# Oh no!
+
+	option = {
+		trigger = { scope:dragon_death_rattle = flag:sudden_strike }
+		name = agot_dragon_combat.1003.a.sudden_strike
+		custom_tooltip = {
+			text = agot_dragon_combat.1003.f.sudden_strike
+		}
+	}
+	option = {
+		trigger = { scope:dragon_death_rattle = flag:dragonfire }
+		name = agot_dragon_combat.1003.a.dragonfire
+		custom_tooltip = {
+			text = agot_dragon_combat.1003.f.dragonfire
+		}
+	}
+	option = {
+		trigger = { scope:dragon_death_rattle = flag:driven_to_ground }
+		name = agot_dragon_combat.1003.a.driven_to_ground
+		custom_tooltip = {
+			text = agot_dragon_combat.1003.f.driven_to_ground
+		}
+	}
+	option = {
+		trigger = { scope:dragon_death_rattle = flag:disemboweled }
+		name = agot_dragon_combat.1003.a.disemboweled
+		custom_tooltip = {
+			text = agot_dragon_combat.1003.f.disemboweled
+		}
+	}
+	option = {
+		trigger = { scope:dragon_death_rattle = flag:eviscerated }
+		name = agot_dragon_combat.1003.a.eviscerated
+		custom_tooltip = {
+			text = agot_dragon_combat.1003.f.eviscerated
+		}
+	}
+	option = {
+		trigger = { scope:dragon_death_rattle = flag:chomp }
+		name = agot_dragon_combat.1003.a.chomp
+		custom_tooltip = {
+			text = agot_dragon_combat.1003.f.chomp
+		}
+	}
+
+	# You lived actually
+	after = {
+		if = {
+			limit = {
+				is_alive = yes
+				NOT = { has_relation_rival = scope:dsc_victor }
+			}
+			scope:dsc_victor = {
+				progress_towards_rival_effect = {
+					REASON = rival_lost_duel
+					CHARACTER = scope:dsc_victor
+					OPINION = 0
+				}
+			}
+		}
+	}
+}
+
+#	scope:dsc_victor's confirmation event.
+agot_dragon_combat.1004 = {
+	type = character_event
+	window = dragon_duel_event
+	title = agot_dragon_combat.1004.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:dragon_death_rattle = flag:sudden_strike }
+				desc = agot_dragon_combat.1004.desc.sudden_strike
+			}
+			triggered_desc = {
+				trigger = { scope:dragon_death_rattle = flag:dragonfire }
+				desc = agot_dragon_combat.1004.desc.dragonfire
+			}
+			triggered_desc = {
+				trigger = { scope:dragon_death_rattle = flag:driven_to_ground }
+				desc = agot_dragon_combat.1004.desc.driven_to_ground
+			}
+			triggered_desc = {
+				trigger = { scope:dragon_death_rattle = flag:disemboweled }
+				desc = agot_dragon_combat.1004.desc.disemboweled
+			}
+			triggered_desc = {
+				trigger = { scope:dragon_death_rattle = flag:eviscerated }
+				desc = agot_dragon_combat.1004.desc.eviscerated
+			}
+			triggered_desc = {
+				trigger = { scope:dragon_death_rattle = flag:chomp }
+				desc = agot_dragon_combat.1004.desc.chomp
+			}
+		}
+	}
+	theme = dragon
+	left_portrait = {
+		character = scope:dsc_victor
+		animation = dragon_main
+		camera = camera_dragon_hover_left
+
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dsc_victor.var:current_dragon = { level_ten_dragon_size_trigger = yes }
+					scope:dsc_loser.var:current_dragon = { level_ten_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_1.0 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dsc_victor.var:current_dragon = { level_nine_dragon_size_trigger = yes }
+					scope:dsc_loser.var:current_dragon = { level_nine_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.9 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dsc_victor.var:current_dragon = { level_eight_dragon_size_trigger = yes }
+					scope:dsc_loser.var:current_dragon = { level_eight_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.8 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dsc_victor.var:current_dragon = { level_seven_dragon_size_trigger = yes }
+					scope:dsc_loser.var:current_dragon = { level_seven_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.7 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dsc_victor.var:current_dragon = { level_six_dragon_size_trigger = yes }
+					scope:dsc_loser.var:current_dragon = { level_six_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.6 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dsc_victor.var:current_dragon = { level_five_dragon_size_trigger = yes }
+					scope:dsc_loser.var:current_dragon = { level_five_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.5 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dsc_victor.var:current_dragon = { level_four_dragon_size_trigger = yes }
+					scope:dsc_loser.var:current_dragon = { level_four_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.4 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dsc_victor.var:current_dragon = { level_three_dragon_size_trigger = yes }
+					scope:dsc_loser.var:current_dragon = { level_three_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.3 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dsc_victor.var:current_dragon = { level_two_dragon_size_trigger = yes }
+					scope:dsc_loser.var:current_dragon = { level_two_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.2 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dsc_victor.var:current_dragon = { level_one_dragon_size_trigger = yes }
+					scope:dsc_loser.var:current_dragon = { level_one_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.1 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dsc_victor.var:current_dragon = { level_zero_dragon_size_trigger = yes }
+					scope:dsc_loser.var:current_dragon = { level_zero_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.0 }
+		}
+		#End Dynamic Camera Zoom
+	}
+
+	right_portrait = {
+		character = scope:dsc_loser_dragon
+		animation = dragon_main
+		camera = camera_dragon_hover_right
+
+		# Dynamic Camera Zoom
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dsc_victor.var:current_dragon = { level_ten_dragon_size_trigger = yes }
+					scope:dsc_loser.var:current_dragon = { level_ten_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_1.0 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dsc_victor.var:current_dragon = { level_nine_dragon_size_trigger = yes }
+					scope:dsc_loser.var:current_dragon = { level_nine_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.9 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dsc_victor.var:current_dragon = { level_eight_dragon_size_trigger = yes }
+					scope:dsc_loser.var:current_dragon = { level_eight_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.8 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dsc_victor.var:current_dragon = { level_seven_dragon_size_trigger = yes }
+					scope:dsc_loser.var:current_dragon = { level_seven_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.7 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dsc_victor.var:current_dragon = { level_six_dragon_size_trigger = yes }
+					scope:dsc_loser.var:current_dragon = { level_six_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.6 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dsc_victor.var:current_dragon = { level_five_dragon_size_trigger = yes }
+					scope:dsc_loser.var:current_dragon = { level_five_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.5 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dsc_victor.var:current_dragon = { level_four_dragon_size_trigger = yes }
+					scope:dsc_loser.var:current_dragon = { level_four_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.4 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dsc_victor.var:current_dragon = { level_three_dragon_size_trigger = yes }
+					scope:dsc_loser.var:current_dragon = { level_three_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.3 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dsc_victor.var:current_dragon = { level_two_dragon_size_trigger = yes }
+					scope:dsc_loser.var:current_dragon = { level_two_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.2 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dsc_victor.var:current_dragon = { level_one_dragon_size_trigger = yes }
+					scope:dsc_loser.var:current_dragon = { level_one_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.1 }
+		}
+		triggered_outfit = {
+			trigger = {
+				OR = {
+					scope:dsc_victor.var:current_dragon = { level_zero_dragon_size_trigger = yes }
+					scope:dsc_loser.var:current_dragon = { level_zero_dragon_size_trigger = yes }
+				}
+			}
+			outfit_tags = { dragonrider dynamic_camera_zoom_0.0 }
+		}
+	}
+	override_background = {
+		reference = agot_open_sky
+	}
+
+	immediate = {
+		# Add Dragonrider Trait XP
+		agot_add_dragon_training_xp = { VALUE = 15 }
+		#Reassign for loc
+		if = {
+			limit = { this = scope:dsc_defender }
+			scope:dsc_defender = { save_scope_as = myself }
+			scope:dsc_attacker = { save_scope_as = my_foe }
+			scope:dsc_defender_dragon = { save_scope_as = my_dragon }
+			scope:dsc_attacker_dragon = { save_scope_as = my_foe_dragon }
+		}
+		else = {
+			scope:dsc_attacker = { save_scope_as = myself }
+			scope:dsc_defender = { save_scope_as = my_foe }
+			scope:dsc_attacker_dragon = { save_scope_as = my_dragon }
+			scope:dsc_defender_dragon = { save_scope_as = my_foe_dragon }
+		}
+	}
+
+	# I won!
+	option = {
+		trigger = { scope:dragon_death_rattle = flag:sudden_strike }
+		name = agot_dragon_combat.1004.a.sudden_strike
+		if = {
+			limit = {
+				scope:my_foe_dragon = { is_alive = yes }
+			}
+			custom_tooltip = {
+				text = agot_dragon_combat.1004.f.sudden_strike_survived
+			}
+		}
+		else = {
+			custom_tooltip = {
+				text = agot_dragon_combat.1004.f.sudden_strike_died
+			}
+		}
+	}
+	option = {
+		trigger = { scope:dragon_death_rattle = flag:dragonfire }
+		name = agot_dragon_combat.1004.a.dragonfire
+		if = {
+			limit ={
+				scope:my_foe = { is_alive = no }
+				scope:my_foe_dragon = { is_alive = no }
+			}
+			custom_tooltip = {
+				text = agot_dragon_combat.1004.f.dragonfire_both
+			}
+		}
+		else_if = {
+			limit = {
+				scope:my_foe = { is_alive = no }
+				scope:my_foe_dragon = { is_alive = yes }
+			}
+			custom_tooltip = {
+				text = agot_dragon_combat.1004.f.dragonfire_dragon
+			}
+		}
+		else_if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+				scope:my_foe_dragon = { is_alive = no }
+			}
+			custom_tooltip = {
+				text = agot_dragon_combat.1004.f.dragonfire_rider
+			}
+		}
+		else = {
+			custom_tooltip = {
+				text = agot_dragon_combat.1004.f.dragonfire_neither
+			}
+		}
+	}
+	option = {
+		trigger = { scope:dragon_death_rattle = flag:driven_to_ground }
+		name = agot_dragon_combat.1004.a.driven_to_ground
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = no }
+			}
+			custom_tooltip = {
+				text = agot_dragon_combat.1004.f.driven_to_ground_died
+			}
+		}
+		else = {
+			custom_tooltip = {
+				text = agot_dragon_combat.1004.f.driven_to_ground_escaped
+			}
+		}
+	}
+	option = {
+		trigger = { scope:dragon_death_rattle = flag:disemboweled }
+		name = agot_dragon_combat.1004.a.disemboweled
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = no }
+			}
+			custom_tooltip = {
+				text = agot_dragon_combat.1004.f.disemboweled_died
+			}
+		}
+		else = {
+			custom_tooltip = {
+				text = agot_dragon_combat.1004.f.disemboweled_escaped
+			}
+		}
+	}
+	option = {
+		trigger = { scope:dragon_death_rattle = flag:eviscerated }
+		name = agot_dragon_combat.1004.a.eviscerated
+		custom_tooltip = {
+			text = agot_dragon_combat.1004.f.eviscerated
+		}
+	}
+	option = {
+		trigger = { scope:dragon_death_rattle = flag:chomp }
+		name = agot_dragon_combat.1004.a.chomp
+		custom_tooltip = {
+			text = agot_dragon_combat.1004.f.chomp
+			if = {
+				limit = {
+					scope:my_dragon = {
+						NOT = { has_character_flag = dragon_has_eaten_dragon_before }
+					}
+				}
+				random_list = {
+					5 = {
+						modifier = { # Has appropriate traits
+							add = 10
+							scope:my_dragon = {
+								OR = {
+									has_trait = dragon_bloodthirsty
+									has_trait = dragon_voracious
+									has_trait = dragon_aggressive
+								}
+							}
+						}
+						modifier = { # Does not have inappropriate traits
+							factor = 0
+							scope:my_dragon = {
+								OR = {
+									has_trait = dragon_friendly
+									has_trait = dragon_restrained
+									has_trait = dragon_supporting
+									has_trait = dragon_cannibal
+								}
+							}
+						}
+						modifier = { # Isn't above the limit
+							factor = 0
+							any_living_dragon = {
+								count < global_dragon_cannibal_limit
+								has_trait = dragon_cannibal
+							}
+						}
+						send_interface_toast = {
+							title = agot_dragon_combat.1004.chomp.t
+							left_icon = scope:my_dragon
+							right_icon = scope:my_foe_dragon
+							scope:my_dragon = {
+								add_trait = dragon_cannibal
+								add_character_flag = dragon_has_eaten_dragon_before
+							}
+						}
+					}
+					95 = {
+						scope:my_dragon = {
+							add_character_flag = dragon_has_eaten_dragon_before
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+##################################################
+# Test Events
+# 9000 - 9999
+##################################################
+
+#	Spawn a duel, with a random knight as defender.
+agot_dragon_combat.9990 = {
+	hidden = yes
+	orphan = yes
+
+	immediate = {
+		location = {
+			save_scope_as = battle_location
+		}
+		random_knight = {
+			limit = { can_start_dragon_combat_trigger = yes }
+			save_scope_as = random_dragonrider_fighter
+			configure_start_dragon_combat_effect = {
+				DSC_INITIATOR = prev
+				DSC_ATTACKER = prev
+				DSC_DEFENDER = scope:random_dragonrider_fighter
+			}
+		}
+	}
+}
+
+#	Spawn a duel, with a random knight as attacker.
+agot_dragon_combat.9991 = {
+	hidden = yes
+	orphan = yes
+
+	immediate = {
+		location = {
+			save_scope_as = battle_location
+		}
+		random_knight = {
+			limit = { can_start_dragon_combat_trigger = yes }
+			save_scope_as = random_dragonrider_fighter
+			configure_start_dragon_combat_effect = {
+				DSC_INITIATOR = prev
+				DSC_ATTACKER = scope:random_dragonrider_fighter
+				DSC_DEFENDER = prev
+			}
+		}
+	}
+}
+
+#	Error suppression.
+agot_dragon_combat.9999 = {
+	hidden = yes
+	orphan = yes
+
+	immediate = {
+		hidden_effect = {
+			#set_variable = flag:desc_opening_fight
+			#set_variable = flag:desc_opening_fly
+		}
+	}
+}

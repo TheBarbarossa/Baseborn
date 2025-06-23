@@ -1,0 +1,63 @@
+﻿###################
+# SCHEME VALUES	#
+###################
+odds_baseborn_raid_estate_scheme_misc_value = {
+	add = {
+		value = 0
+		desc = scheme_odds.misc_modifiers
+		add = {
+			value = scope:owner.prestige_level
+			multiply = 2
+		}
+		add = {
+			value = scope:target.prestige_level
+			multiply = -4
+		}
+		if = {
+			limit = {
+				scope:target.house = scope:owner.top_liege.house
+			}
+			add = -12
+		}
+		else_if = {
+			limit = {
+				scope:target.house = scope:owner.liege.house
+			}
+			add = -6
+		}
+		if = {
+			limit = {
+				scope:target.capital_province = {
+					OR = {
+						has_building_or_higher = ramparts_01
+						has_building_or_higher = curtain_walls_01
+						has_building_or_higher = watchtowers_01
+						has_building_or_higher = hill_forts_01
+						has_building_or_higher = outposts_01
+						has_building_or_higher = march_01
+						has_building_or_higher = barracks_01
+						has_building_or_higher = castle_02
+					}
+				}
+			}
+			add = -4
+		}
+		if = {
+			limit = {
+				scope:target.capital_province = {
+					OR = {
+						has_building_or_higher = ramparts_04
+						has_building_or_higher = curtain_walls_04
+						has_building_or_higher = watchtowers_04
+						has_building_or_higher = hill_forts_04
+						has_building_or_higher = outposts_04
+						has_building_or_higher = march_04
+						has_building_or_higher = barracks_04
+						has_building_or_higher = castle_04
+					}
+				}
+			}
+			add = -12
+		}
+	}
+}

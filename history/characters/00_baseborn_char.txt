@@ -1,0 +1,3983 @@
+﻿###### House Baseborn (id = dynn_Baseborn)
+############################
+### One Seed, Many Branches
+###
+Baseborn_1 = {
+	name = Jaime # God-Emperor Jamie
+	dynasty = dynn_Baseborn
+	dna = Baseborn_1
+
+	diplomacy = 9
+	martial = 2
+	stewardship = 6
+	intrigue = 5
+	learning = 7
+	prowess = 6
+
+	religion = the_seven_main
+	culture = crownlander
+	sexuality = heterosexual
+
+	trait = education_diplomacy_4
+	trait = calm
+	trait = just
+	trait = gregarious
+	trait = humble
+	trait = curious
+	trait = bastard_founder
+	trait = reclusive
+	trait = knight
+	trait = education_martial_prowess_2
+
+	disallow_random_traits = yes
+
+	8080.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8150.1.1 = { death = yes }
+}
+
+###### House Ramsfolly (id = dynn_Ramsfolly)
+############################
+### Ramsfolly
+###
+Baseborn_2 = {
+	name = Cameron # Cameron
+	dynasty = dynn_Ramsfolly
+	dna = Baseborn_2
+
+	religion = the_seven_main
+	culture = reachman
+	sexuality = heterosexual
+
+	diplomacy = 6
+	martial = 9
+	stewardship = 6
+	intrigue = 5
+	learning = 6
+	prowess = 7
+
+	trait = education_stewardship_4
+	trait = diligent
+	trait = just
+	trait = gregarious
+	trait = honest
+	trait = pensive
+	trait = knight
+	trait = education_martial_prowess_3
+	trait = diplomatic_court_2
+	trait = warlike_court_2
+	trait = hawkeyed
+
+	disallow_random_traits = yes
+
+	8079.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8104.1.1 = {
+		effect = {
+			add_trait = lifestyle_traveler
+			add_trait_xp = {
+				trait = lifestyle_traveler
+				track = danger
+				value = trait_third_level
+			}
+		}
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_3 = {
+	name = Gerion # Geraint
+	dna = Baseborn_3
+
+	religion = the_seven_main
+	culture = westerosi_valyrian
+
+	trait = education_diplomacy_2
+	trait = eccentric
+	trait = humble
+	trait = compassionate
+	trait = inquisitive
+	trait = curious
+	trait = possessed_1
+	trait = profligate
+	trait = education_martial_prowess_2
+
+	disallow_random_traits = yes
+
+	8089.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+
+###### House Grimhelm (id = dynn_Grimhelm)
+############################
+### Ever Vigilant
+###
+Grimhelm_1 = {
+	name = Gregor # QG
+	dynasty = dynn_Grimhelm
+	dna = Grimhelm_1
+
+	religion = the_seven_main
+	culture = westerman
+	sexuality = heterosexual
+
+	diplomacy = 5
+	martial = 6
+	stewardship = 6
+	intrigue = 7
+	learning = 5
+	prowess = 8
+
+	trait = education_martial_2
+	trait = cynical
+	trait = impatient
+	trait = honest
+	trait = calm
+	trait = knight
+	trait = strong
+	trait = education_martial_prowess_3
+	trait = drunkard
+	trait = cautious_leader
+	trait = nearsighted
+	trait = regal_bearing
+
+	disallow_random_traits = yes
+
+	8076.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8092.1.1 = { give_nickname = nick_the_quiet_giant }
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+
+###### House Vanguard (id = dynn_Vanguard)
+############################
+### Stalwart in Duty
+###
+Vanguard_1 = {
+	name = Elbert # BarrZ
+	dynasty = dynn_Vanguard
+	dna = Vanguard_1
+
+	religion = the_seven_main
+	culture = stone_dornish
+	sexuality = bisexual
+
+	diplomacy = 7
+	martial = 5
+	stewardship = 5
+	intrigue = 10
+	learning = 5
+	prowess = 7
+
+	trait = education_intrigue_3
+	trait = diligent
+	trait = cynical
+	trait = stubborn
+	trait = honest
+	trait = charming
+	trait = irritable
+	trait = knight
+	trait = education_martial_prowess_2
+	trait = nearsighted
+
+	disallow_random_traits = yes
+
+	8079.12.20 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8105.1.1 = {
+		effect = {
+			if = { 
+				limit = { character:Fyreside_1 = { is_alive = yes } }
+				set_relation_friend = {
+					target = character:Fyreside_1 # Haegon Fyreside
+				}
+			}
+		}
+		effect = {
+			if = { 
+				limit = { character:Fyreside_2 = { is_alive = yes } }
+				set_relation_friend = {
+					target = character:Fyreside_2 # Jacaerys Fyreside
+				}
+			}
+		}
+		effect = {
+			if = { 
+				limit = { character:Baseborn_hh_6 = { is_alive = yes } }
+				set_relation_friend = {
+					target = character:Baseborn_hh_6 # Theodore
+				}
+			}
+		}
+		effect = {
+			if = { 
+				limit = { character:Baseborn_hh_33 = { is_alive = yes } }
+				set_relation_friend = {
+					target = character:Baseborn_hh_33 # Rosey
+				}
+			}
+		}
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+
+###### House Iceborne (id = dynn_Iceborne)
+############################
+### Born from Winter
+###
+Iceborne_1 = {
+	name = Rodrik # Rodrik
+	dynasty = dynn_Iceborne
+
+	religion = weirwood_of_the_seven
+	culture = harborman
+	sexuality = heterosexual
+
+	diplomacy = 7
+	martial = 5
+	stewardship = 6
+	intrigue = 8
+	learning = 5
+	prowess = 4
+
+	trait = education_stewardship_3
+	trait = fickle
+	trait = ambitious
+	trait = arrogant
+	trait = calm
+	trait = curious
+	trait = reclusive
+	trait = inappetetic
+	trait = confider
+	trait = knight
+	trait = education_martial_prowess_1
+	trait = education_republican_knowledge_2
+
+	disallow_random_traits = yes
+
+	8087.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+
+###### House Fishtin (id = dynn_Fishtin)
+############################
+### Swift as Currents, Strong as Tides
+###
+Fishtin_1 = {
+	name = Jaime # Big Jamie
+	dynasty = dynn_Fishtin
+	dna = Fishtin_1
+
+	religion = the_seven_main
+	culture = harborman
+
+	sexuality = heterosexual
+
+	diplomacy = 7
+	martial = 3
+	stewardship = 6
+	intrigue = 5
+	learning = 6
+	prowess = 6
+
+	trait = education_diplomacy_3
+	trait = compassionate
+	trait = honest
+	trait = lustful
+	trait = generous
+	trait = charming
+	trait = drunkard
+	trait = knight
+	trait = education_martial_prowess_1
+
+	disallow_random_traits = yes
+
+	8081.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}	
+	8100.1.1 = {
+		effect = {
+			if = { 
+				limit = { character:Baseborn_1 = { is_alive = yes } }
+				set_relation_friend = {
+					target = character:Baseborn_1 # Jaime Baseborn, father of Jaime Fishtin
+				}
+			}
+		}
+		give_nickname = nick_the_big
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+
+###### House Fyreside (id = dynn_Fyreside)
+############################
+### Flames Everlasting
+###
+Fyreside_1 = { 
+	name = Haegon
+	dynasty = dynn_Fyreside
+	dna = Fyreside_1
+ 
+	religion = the_seven_main
+	culture = westerosi_valyrian
+	sexuality = heterosexual
+
+	father = Fyreside_3
+	mother = Fyreside_rs_3
+
+	diplomacy = 4
+	martial = 8
+	stewardship = 5
+	intrigue = 7
+	learning = 5
+	prowess = 6
+
+	trait = ambitious
+	trait = gregarious
+	trait = authoritative
+	trait = patient
+	trait = bossy
+	trait = education_martial_4
+	trait = aggressive_attacker
+	trait = confider
+	trait = traditionalist
+	trait = nearsighted
+
+	disallow_random_traits = yes
+ 
+	8081.7.30 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8098.1.1 = {
+		effect = {
+			add_trait = lifestyle_reveler
+			add_trait_xp = {
+				trait = lifestyle_reveler
+				value = 60
+			}
+		}
+	}
+	8100.1.1 = {
+		trait = education_martial_prowess_2
+		trait = knight
+		effect = {
+			if = { 
+				limit = { character:Fyreside_rs_1 = { is_alive = yes } }
+				set_relation_friend = {
+					target = character:Fyreside_rs_1 # Hannelys
+				}
+			}
+		}
+	}
+	8105.1.1 = {
+		effect = {
+			if = {
+				limit = { character:Fyreside_rs_1 = { is_alive = yes } }
+				set_relation_lover = character:Fyreside_rs_1 # Hannelys
+			}
+		}
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Fyreside_rs_1 = {
+	name = Hannelys
+	female = yes
+	dna = Fyreside_rs_1
+
+	diplomacy = 8
+	martial = 5
+	stewardship = 6
+	intrigue = 6
+	learning = 8
+	prowess = 4
+
+	religion = the_seven_main
+	culture = westerosi_valyrian
+	sexuality = heterosexual
+
+	trait = education_learning_4
+	trait = compassionate
+	trait = calm
+	trait = diligent
+	trait = patient
+	trait = reclusive
+
+	disallow_random_traits = yes
+
+	8083.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Fyreside_2 = { 
+	name = Jacaerys
+	dynasty = dynn_Fyreside
+	dna = Fyreside_2
+ 
+	religion = the_seven_main
+	culture = westerosi_valyrian
+	sexuality = heterosexual
+
+	father = Fyreside_3
+	mother = Fyreside_rs_3
+
+	diplomacy = 8
+	martial = 6
+	stewardship = 6
+	intrigue = 5
+	learning = 8
+	prowess = 8
+
+	trait = stubborn
+	trait = compassionate
+	trait = diligent
+	trait = inquisitive
+	trait = curious
+	trait = education_martial_3
+	trait = unyielding_defender
+	trait = military_engineer
+	trait = inappetetic
+	trait = left_handed
+	trait = creative
+	trait = hyperkinetic
+	trait = anxious
+	trait = insomniac
+
+	disallow_random_traits = yes
+ 
+	8085.2.18 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8101.1.1 = {
+		effect = {
+			if = { 
+				limit = { character:Fyreside_1 = { is_alive = yes } }
+				set_relation_friend = {
+					target = character:Fyreside_1 # Harrion Fyreside, Jayce's brother
+				}
+			}
+		}
+	}
+	8103.1.1 = {
+		trait = knight
+		trait = education_martial_prowess_4
+		effect = {
+			add_trait = lifestyle_blademaster
+			add_trait_xp = {
+				trait = lifestyle_blademaster
+				value = 30
+			}
+		}
+		effect = {
+			add_trait = tourney_participant
+			add_trait_xp = {
+				trait = tourney_participant
+				track = foot
+				value = 50
+			}
+			add_trait_xp = {
+				trait = tourney_participant
+				track = bow
+				value = 30
+			}
+			add_trait_xp = {
+				trait = tourney_participant
+				track = wit
+				value = 75
+			}
+		}
+		effect = {
+			agot_create_personal_coa_for_historical_ai = { ACTOR = character:Fyreside_2 COA_KEY = jacaerys_fyreside_personal_coa }
+		}
+	}
+	8103.2.16 = {
+		add_secret = {
+			type = secret_deviant
+			target = character:Fyreside_2
+		}
+	}
+	8105.1.1 = {
+		effect = {
+			if = { 
+				limit = { character:Baseborn_hh_33 = { is_alive = yes } }
+				set_relation_friend = {
+					target = character:Baseborn_hh_33 # Rosey
+				}
+			}
+		}
+		effect = {
+			if = { 
+				limit = { character:Fyreside_rs_2 = { is_alive = yes } }
+				set_relation_friend = {
+					target = character:Fyreside_rs_2 # Sammy
+				}
+			}
+		}
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+
+Fyreside_rs_2 = {
+	name = Saenys # Sammy
+	female = yes
+	dynasty = dynn_Targaryen
+	dna = Fyreside_rs_2
+
+	diplomacy = 9
+	martial = 1
+	stewardship = 8
+	intrigue = 7
+	learning = 6
+	prowess = 5
+
+	religion = old_gods_south
+	culture = high_valyrian
+	sexuality = heterosexual
+
+	father = Targaryen_45
+	mother = Baratheon_33
+
+	trait = education_diplomacy_4
+	trait = compassionate
+	trait = shy
+	trait = stubborn
+	trait = diligent
+	trait = poet
+	trait = beauty_good_2
+	trait = shrewd
+	trait = journaller
+	trait = loyal
+	trait = anxious
+	trait = nearsighted
+	trait = insomniac
+
+	disallow_random_traits = yes
+
+	8088.9.26 = {
+		birth = yes
+		add_character_flag = has_scripted_appearance
+		add_character_flag = canon_status_canon
+	}
+	8092.6.8 = {
+		effect = { 
+			agot_set_as_ward_history_effect = { GUARDIAN = character:Dustin_27 } # Daryn Dustin
+		}
+	}
+	8101.1.1 = {
+		effect = {
+			agot_safe_betrothal_history_effect = { TARGET = character:Dustin_28 } # Roderick Dustin
+		}
+	}
+	8104.1.1 = {
+		employer = Dustin_27
+	}
+	8105.1.1 = {
+		effect = {
+			break_betrothal = character:Dustin_28 # Roderick Dustin
+			if = {
+				limit = { character:Dustin_27 = { is_alive = yes } }
+				reverse_add_opinion = {
+					target = character:Dustin_27 # Daryn Dustin
+					modifier = broke_betrothal_opinion
+				}
+			}
+			if = {
+				limit = { character:Dustin_28 = { is_alive = yes } }
+				character:Dustin_28 = { # Roderick Dustin
+					set_relation_rival = {
+						target = character:Fyreside_rs_2
+						reason = rival_abandoned_marriage
+					}
+				}
+			}
+		}
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+		give_nickname = nick_the_queen_of_love_and_beauty
+	}
+	8110.1.1 = {
+		add_spouse = Fyreside_2
+	}
+	8150.1.1 = { death = yes }
+}
+
+Fyreside_3 = {
+	name = Petyr
+	dynasty = dynn_Fyreside
+	dna = Fyreside_1
+
+	diplomacy = 6
+	martial = 3
+	stewardship = 8
+	intrigue = 4
+	learning = 7
+	prowess = 7
+
+	religion = the_seven_main
+	culture = westerosi_valyrian
+	sexuality = heterosexual
+
+	trait = cynical
+	trait = diligent
+	trait = gregarious
+	trait = rude
+	trait = education_stewardship_3
+	trait = shrewd
+	trait = scholar
+	trait = whole_of_body
+	trait = knight
+	trait = education_martial_prowess_2
+	trait = irritable
+	trait = reclusive
+	trait = comfort_eater
+	trait = logistician
+	trait = permanent_scowl
+
+	disallow_random_traits = yes
+
+	8044.12.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8062.1.1 = {
+		effect = {
+			add_trait = lifestyle_reveler
+			add_trait_xp = {
+				trait = lifestyle_reveler
+				value = trait_third_level
+			}
+		}
+	}
+	8079.5.4 = {
+		add_spouse = Fyreside_rs_3
+		effect = {
+			if = {
+				limit = { character:Fyreside_rs_3 = { is_alive = yes } }
+				set_relation_soulmate = {
+					reason = soulmate_professed_love
+					target = character:Fyreside_rs_3
+				}
+			}
+		}
+	}
+	8106.1.1 = {
+		employer = Targaryen_61
+	}
+	8150.1.1 = { death = yes }
+}
+
+Fyreside_rs_3 = {
+	name = Sanda
+	dynasty = dynn_True
+	female = yes
+	dna = Fyreside_rs_3
+
+	father = True_32
+	mother = True_rs_32
+
+	diplomacy = 6
+	martial = 5
+	stewardship = 7
+	intrigue = 5
+	learning = 7
+	prowess = 5
+
+	religion = weirwood_of_the_seven
+	culture = valeman
+	sexuality = heterosexual
+
+	trait = ambitious
+	trait = forgiving
+	trait = honest
+	trait = compassionate
+	trait = education_diplomacy_4
+	trait = diplomat
+	trait = administrator
+	trait = confider
+
+	disallow_random_traits = yes
+
+	8047.4.4 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8072.1.1 = {
+		effect = {
+			add_trait = lifestyle_traveler
+			add_trait_xp = {
+				trait = lifestyle_traveler
+				track = travel
+				value = trait_third_level
+			}
+		}
+	}
+	8150.1.1 = { death = yes }
+}
+
+###### House Zabermer (id = dynn_Zabermer)
+############################
+### Fortune and Mercy
+###
+Zabermer_1 = {
+	name = Kozymo # Zab
+	dynasty = dynn_Zabermer
+	dna = Zabermer_1
+
+	religion = the_seven_main
+	culture = crownlander
+
+	sexuality = heterosexual
+
+	diplomacy = 7
+	martial = 5
+	stewardship = 8
+	intrigue = 6
+	learning = 5
+	prowess = 5
+
+	trait = education_learning_3
+	trait = compassionate
+	trait = arrogant
+	trait = lazy
+	trait = shy
+	trait = pensive
+	trait = intellect_good_2
+	trait = strong
+	trait = hashishiyah
+	trait = colorblind
+	trait = ambidextrous
+	trait = nearsighted
+	trait = hyperkinetic
+
+	disallow_random_traits = yes
+
+	8069.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}	
+	8094.1.1 = {
+		trait = maester_historical
+		effect = {
+			agot_maester_starting_setup_history_effect = yes
+		}
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+
+###### House Darcrest (id = dynn_Darcrest)
+############################
+### From Dark Roots
+###
+Darcrest_1 = {
+	name = Zayne # Skippy
+	dynasty = dynn_Darcrest
+	dna = Darcrest_1
+
+	religion = the_seven_main
+	culture = crownlander
+	sexuality = bisexual
+
+	diplomacy = 5
+	martial = 6
+	stewardship = 7
+	intrigue = 6
+	learning = 5
+	prowess = 7
+
+	trait = education_martial_2
+	trait = wrathful
+	trait = gregarious
+	trait = arbitrary
+	trait = arrogant
+	trait = bossy
+	trait = drunkard
+	trait = reckless
+	trait = hyperkinetic
+	trait = powerful_lung
+	trait = hawkeyed
+
+	disallow_random_traits = yes
+
+	8088.3.29 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8103.1.1 = {
+		effect = { 
+			agot_set_as_ward_and_squire_history_effect = { KNIGHT = character:Fyreside_1 } # Haegon Fyreside
+		}
+	}
+	8105.1.1 = {
+		effect = {
+			add_trait_xp = {
+				trait = lifestyle_hunter
+				track = venator
+				value = trait_second_level
+			}
+		}
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+
+###### House Swain (id = dynn_Swain)
+############################
+### TEMP
+###
+Swain_1 = {
+	name = Unwin # unc_wins
+	dynasty = dynn_Swain
+
+	religion = the_seven_main
+	culture = crownlander
+
+	diplomacy = 6
+	martial = 4
+	stewardship = 6
+	intrigue = 9
+	learning = 5
+	prowess = 7
+
+	trait = education_intrigue_3
+	trait = calm
+	trait = just
+	trait = patient
+	trait = cynical
+	trait = pensive
+	trait = knight
+	trait = possessed_genetic
+	trait = education_martial_prowess_2
+	trait = narcoleptic
+
+	disallow_random_traits = yes
+
+	8080.2.9 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+
+###### Baseborn Household
+############################
+###
+Baseborn_hh_1 = {
+	name = Walder # Walduh
+	dna = Baseborn_hh_1
+
+	religion = weeping_lady
+	culture = hartalari
+
+	trait = education_intrigue_2
+	trait = sadistic
+	trait = paranoid
+	trait = ambitious
+	trait = arrogant
+	trait = rowdy
+	trait = disloyal
+	trait = possessed_1
+	trait = profligate
+
+	disallow_random_traits = yes
+
+	8089.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8105.1.1 = {
+		effect = {
+			set_relation_rival = {
+				target = character:Vanguard_1 # Elbert Vanguard
+				reason = rival_jealousy_at_court
+			}
+		}
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_2 = {
+	name = Felyx # Felix
+	dna = Baseborn_hh_2
+
+	religion = baelorism
+	culture = crownlander
+
+	sexuality = homosexual
+
+	trait = education_learning_3
+	trait = compassionate
+	trait = forgiving
+	trait = humble
+	trait = patient
+	trait = curious
+	trait = journaller
+
+	disallow_random_traits = yes
+
+	8087.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_3 = {
+	name = Nicol # rvsy
+	dna = Baseborn_hh_3
+
+	religion = the_seven_main
+	culture = riverlander
+
+	diplomacy = 5
+	martial = 5
+	stewardship = 6
+	intrigue = 4
+	learning = 7
+	prowess = 4
+
+	trait = education_learning_2
+	trait = temperate
+	trait = honest
+	trait = eccentric
+	trait = forgiving
+	trait = education_republican_knowledge_2
+	trait = rakish
+
+	disallow_random_traits = yes
+
+	8086.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8100.1.1 = {
+		effect = {
+			start_cat_story_cycle_effect = yes
+			set_variable = {
+				name = story_cycle_cat_name
+				value = flag:cat_name_paws
+			}
+			random_owned_story = {
+				limit = {
+					story_type = story_cycle_pet_cat
+				}
+				set_variable = {
+					name = cat_fur_color
+					value = flag:black
+				}
+				set_variable = {
+					name = cat_eye_color
+					value = flag:yellow
+				}
+				set_variable = {
+					name = cat_gender
+					value = flag:male
+				}
+			}
+		}
+	}
+	8103.1.1 = {
+		effect = { 
+			agot_set_as_ward_and_squire_history_effect = { KNIGHT = character:Iceborne_1 } # Rodrik Iceborne
+		}
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_4 = {
+	name = Jarman # Jarmer
+	dna = Baseborn_hh_4
+
+	religion = old_gods_south
+	culture = krakenman
+
+	sexuality = bisexual
+
+	trait = education_learning_2
+	trait = honest
+	trait = vengeful
+	trait = calm
+	trait = shy
+	trait = pensive
+	trait = contrite
+
+	disallow_random_traits = yes
+
+	8086.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}	
+	8105.1.1 = {
+		effect = {
+			add_trait = maester
+			agot_maester_forge_link_history_effect = { METAL = lead }
+			agot_maester_starting_setup_history_effect = yes
+		}
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_5 = {
+	name = Holly # Rohver
+	female = yes
+	dna = Baseborn_hh_5
+
+	religion = the_seven_main
+	culture = harborman
+
+	trait = education_martial_5
+	trait = honest
+	trait = gregarious
+	trait = stubborn
+	trait = compassionate
+	trait = irritable
+	trait = rough_terrain_expert
+	trait = bastard
+
+	disallow_random_traits = yes
+
+	8081.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}	
+	8099.1.1 = {
+		effect = {
+			if = { 
+				limit = { character:Baseborn_1 = { is_alive = yes } }
+				set_relation_friend = {
+					target = character:Baseborn_1 # Jaime Baseborn
+				}
+			}
+		}
+		effect = {
+			if = { 
+				limit = { character:Fishtin_1 = { is_alive = yes } }
+				set_relation_friend = {
+					target = character:Fishtin_1 # Jaime 'the Big' Fishtin
+				}
+			}
+		}
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_6 = {
+	name = Theodore # Waffa
+	dynasty = dynn_Long
+	dna = Baseborn_hh_6
+
+	religion = old_gods_south
+	culture = northman
+
+	father = Long_23
+
+	trait = education_martial_3
+	trait = callous
+	trait = cynical
+	trait = stubborn
+	trait = calm
+	trait = reclusive
+	trait = education_martial_prowess_3
+	trait = knight
+	trait = unyielding_defender
+
+	disallow_random_traits = yes
+
+	8082.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_7 = {
+	name = Arthur # Doc
+	dna = Baseborn_hh_7
+
+	religion = the_seven_main
+	culture = westerosi_valyrian
+
+	trait = education_learning_3
+	trait = diligent
+	trait = just
+	trait = rude
+	trait = stubborn
+	trait = athletic
+	trait = journaller
+
+	disallow_random_traits = yes
+
+	8087.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8105.1.1 = {
+		effect = { 
+			agot_set_as_ward_and_squire_history_effect = { KNIGHT = character:Fyreside_2 } # Jacaerys Fyreside
+		}
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_8 = {
+	name = Corwin # Judas
+	dna = Baseborn_hh_8
+
+	religion = the_seven_main
+	culture = reachman
+
+	health = 10
+
+	trait = education_stewardship_2
+	trait = diligent
+	trait = humble
+	trait = content
+	trait = calm
+	trait = athletic
+
+	disallow_random_traits = yes
+
+	8082.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_9 = {
+	name = Tobho # Tovey
+	dna = Baseborn_hh_9
+
+	religion = the_seven_main
+	culture = westerosi_valyrian
+
+	trait = education_diplomacy_3
+	trait = just
+	trait = honest
+	trait = arrogant
+	trait = lazy
+	trait = intellect_bad_1
+	trait = weak
+	trait = education_martial_prowess_4
+	trait = beauty_good_2
+
+	disallow_random_traits = yes
+
+	8081.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_10 = {
+	name = Bors # Plastic
+	dna = Baseborn_hh_10
+
+	religion = the_seven_main
+	culture = crownlander
+
+	sexuality = heterosexual
+
+	health = 11
+
+	trait = education_diplomacy_1
+	trait = lustful
+	trait = honest
+	trait = compassionate
+	trait = trusting
+	trait = education_martial_prowess_2
+	trait = athletic
+
+	disallow_random_traits = yes
+
+	8083.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_11 = {
+	name = Haven # Fantasy Haven
+	dynasty = dynn_Frey
+
+	religion = the_seven_main
+	culture = riverlander
+	sexuality = homosexual
+
+	father = Baseborn_hh_15
+	mother = Baseborn_rs_10
+
+	trait = gregarious
+	trait = patient
+	trait = ambitious
+	trait = calm
+	trait = hashishiyah
+
+	disallow_random_traits = yes
+
+	8080.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8086.1.1 = {
+		trait = charming
+		trait = denounced
+	}
+	8096.1.1 = {
+		trait = education_diplomacy_4
+	}
+	8101.1.1 = {
+		trait = education_martial_prowess_2
+		trait = knight
+	}
+	8105.1.1 = {
+		give_nickname = nick_the_late_lord 
+		effect = {
+			if = {
+				limit = { character:Baseborn_hh_18 = { is_alive = yes } }
+				set_relation_lover = character:Baseborn_hh_18 # Quentyn
+			}
+		}
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_12 = {
+	name = Scragga # Scragtooth
+	dna = Baseborn_hh_12
+
+	religion = old_gods_btw
+	culture = skagosi
+
+	trait = education_intrigue_3
+	trait = deceitful
+	trait = ambitious
+	trait = calm
+	trait = paranoid
+	trait = journaller
+	trait = adventurer
+	trait = disloyal
+
+	disallow_random_traits = yes
+
+	8086.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8102.1.1 = {
+		add_secret = {
+			type = secret_cannibal
+			target = character:Baseborn_hh_12
+		}
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_13 = {
+	name = Ulmer # UltraMarine
+	dna = Baseborn_hh_13
+
+	religion = old_gods_south
+	culture = crannogman
+	sexuality = homosexual
+
+	trait = education_learning_3
+	trait = stubborn
+	trait = shy
+	trait = temperate
+	trait = inquisitive
+	trait = loyal
+	trait = physique_bad_1
+	trait = weak
+	trait = scarred
+	trait = inappetetic
+	trait = hyperkinetic
+	trait = nearsighted
+	trait = sleepless
+
+	disallow_random_traits = yes
+
+	8087.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8105.1.1 = {  
+		effect = {
+			if = {
+				limit = { character:Vanguard_1 = { is_alive = yes } }
+				set_relation_lover = character:Vanguard_1 # Elbert Vanguard
+			}
+		}
+	} 
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_14 = {
+	name = Preston # Preston Jacobs
+	dynasty = dynn_Frey
+
+	religion = the_seven_main
+	culture = riverlander
+
+	father = Frey_110
+
+	trait = paranoid
+	trait = diligent
+	trait = ambitious
+	trait = inquisitive
+	trait = education_intrigue_2
+	trait = lunatic_genetic
+
+	disallow_random_traits = yes
+
+	8043.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8058.1.1 = { add_spouse = Baseborn_rs_9 }
+	8150.1.1 = { death = yes }
+}
+Baseborn_rs_9 = {
+	name = Jeyne
+	female = yes
+	dynasty = dynn_Kemble
+
+	father = Kemble_43
+	mother = Kemble_rs_43
+
+	religion = the_seven_main
+	culture = riverlander
+
+	8043.1.1 = { birth = yes }
+	8104.1.1 = { death = yes }
+}
+Baseborn_hh_15 = {
+	name = Shadrick # Alt Shift X
+	dynasty = dynn_Frey
+	dna = Baseborn_hh_15
+
+	religion = the_seven_main
+	culture = riverlander
+	sexuality = homosexual
+
+	father = Baseborn_hh_14
+	mother = Baseborn_rs_9
+
+	trait = education_learning_1
+	trait = diligent
+	trait = patient
+	trait = generous
+	trait = twin
+
+	disallow_random_traits = yes
+
+	8059.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8076.1.1 = { add_spouse = Baseborn_rs_10 } 
+	8078.1.1 = {  
+		effect = {
+			if = {
+				limit = { character:Baseborn_hh_17 = { is_alive = yes } }
+				set_relation_lover = character:Baseborn_hh_17 # Glimbus Beesbury
+			}
+		}
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_rs_10 = {
+	name = Alys
+	female = yes
+	dynasty = dynn_Charlton
+
+	father = Charlton_14
+
+	religion = the_seven_main
+	culture = riverlander
+
+	8064.1.1 = { birth = yes }
+	8106.1.1 = { death = yes }
+}
+Baseborn_hh_16 = {
+	name = Shadwick # Alt Shift X
+	dynasty = dynn_Frey
+	dna = Baseborn_hh_15
+
+	religion = the_seven_main
+	culture = riverlander
+
+	father = Baseborn_hh_14
+	mother = Baseborn_rs_9
+
+	trait = education_intrigue_4
+	trait = arrogant
+	trait = impatient
+	trait = deceitful
+	trait = twin
+	trait = refusing_marriage
+	trait = knight
+	trait = education_martial_prowess_4
+
+	disallow_random_traits = yes
+
+	8059.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8062.1.1 = {
+		effect = {
+			set_relation_rival = {
+				target = character:Baseborn_hh_15 # Shadrick Frey
+				reason = rival_jealousy_at_court
+			}
+		}
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_17 = {
+	name = Glimbus # Glidus
+	dynasty = dynn_Beesbury
+
+	religion = the_seven_main
+	culture = honeywiner
+	sexuality = bisexual
+
+	father = Beesbury_68
+
+	trait = compassionate
+	trait = eccentric
+	trait = humble
+	trait = fickle
+	trait = education_diplomacy_2
+	trait = poet
+
+	disallow_random_traits = yes
+
+	8061.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8098.1.1 = {
+		employer = Frey_111 # Bradamar Frey
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_18 = {
+	name = Quentyn # Quinn the GM
+
+	religion = the_seven_main
+	culture = crownlander
+	sexuality = homosexual
+
+	trait = diligent
+	trait = content
+	trait = calm
+	trait = education_learning_5
+
+	disallow_random_traits = yes
+
+	8080.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8100.1.1 = {
+		effect = {
+			add_trait = maester_historical
+		}
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_19 = {
+	name = Casper # RedTeamReview
+	dynasty = dynn_Frey
+
+	religion = the_seven_main
+	culture = riverlander
+
+	father = Baseborn_hh_15
+	mother = Baseborn_rs_10
+
+	8077.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8096.1.1 = {
+		employer = Frey_111 # Bradamar Frey
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_20 = {
+	name = Mace # bataids
+	dna = Baseborn_hh_20
+
+	religion = the_seven_main
+	culture = riverlander
+	sexuality = bisexual
+
+	trait = lustful
+	trait = impatient
+	trait = ambitious
+	trait = fickle
+	trait = education_stewardship_2
+	trait = knight
+	trait = irritable
+	trait = wheezing
+	trait = education_martial_prowess_2
+
+	disallow_random_traits = yes
+
+	8086.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_21 = {
+	name = Marq # Azurens
+	dna = Baseborn_hh_21
+
+	religion = old_gods_south
+	culture = northman
+	sexuality = heterosexual
+
+	trait = just
+	trait = diligent
+	trait = stubborn
+	trait = brave
+	trait = education_martial_3
+	trait = reclusive
+	trait = athletic
+	trait = depressed_1
+	trait = adventurer
+	trait = unyielding_defender
+	trait = winter_soldier
+	trait = rough_terrain_expert
+	trait = open_terrain_expert
+	trait = reckless
+	trait = knight
+	trait = education_martial_prowess_3
+
+	disallow_random_traits = yes
+
+	8083.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8101.1.1 = {
+		effect = {
+			add_trait = lifestyle_traveler
+			add_trait_xp = {
+				trait = lifestyle_traveler
+				track = danger
+				value = trait_second_level
+			}
+			add_trait_xp = {
+				trait = lifestyle_traveler
+				track = travel
+				value = trait_second_level
+			}
+		}
+		effect = {
+			add_trait = lifestyle_hunter
+			add_trait_xp = {
+				trait = lifestyle_hunter
+				track = venator
+				value = trait_third_level
+			}
+		}
+		effect = {
+			add_trait = scarred
+			add_trait_xp = {
+				trait = scarred
+				track = scarred
+				value = 85
+			}
+		}
+	}
+	8105.1.1 = {
+		effect = {
+			if = {
+				limit = { character:Baseborn_hh_23 = { is_alive = yes } }
+				set_relation_lover = character:Baseborn_hh_23 # Mariah
+			}
+		}
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_22 = {
+	name = Ebben # Dux
+	dna = Baseborn_hh_22
+
+	religion = old_gods_south
+	culture = wolfswood_clansman
+	sexuality = heterosexual
+
+	trait = cynical
+	trait = temperate
+	trait = rude
+	trait = paranoid
+	trait = education_learning_2
+	trait = reclusive
+	trait = contrite
+	trait = legitimized_bastard
+	trait = spindly
+	trait = education_martial_prowess_1
+	trait = traveler
+
+	disallow_random_traits = yes
+
+	8084.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_23 = {
+	name = Mariah # Azurens' girlfriend
+	female = yes
+	dna = Baseborn_hh_23
+
+	religion = the_seven_main
+	culture = riverlander
+	sexuality = heterosexual
+
+	trait = authoritative
+	trait = lustful
+	trait = patient
+	trait = compassionate
+	trait = education_diplomatic_3
+	trait = fashionable
+	trait = confider
+	trait = shrewd
+	trait = poet
+	trait = traveler
+
+	disallow_random_traits = yes
+
+	8080.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8100.1.1 = {
+		effect = {
+			add_trait = lifestyle_traveler
+			add_trait_xp = {
+				trait = lifestyle_traveler
+				track = travel
+				value = trait_third_level
+			}
+		}
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_24 = {
+	name = Marqas # m3d10cr3
+	dna = Baseborn_hh_24
+
+	religion = the_seven_main
+	culture = salt_dornish
+	sexuality = bisexual
+
+	trait = honest
+	trait = fickle
+	trait = brave
+	trait = trusting
+	trait = education_learning_3
+	trait = confider
+	trait = wheezing
+	trait = spindly
+	trait = stuttering
+	trait = beauty_good_1
+	trait = athletic
+	trait = improvident
+	trait = bastard
+
+	disallow_random_traits = yes
+
+	8086.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8105.1.1 = {
+		trait = septon
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_25 = {
+	name = Pipp # TerminK
+	dna = Baseborn_hh_25
+
+	religion = old_gods_south
+	culture = crannogman
+
+	trait = eccentric
+	trait = lazy
+	trait = arbitrary
+	trait = trusting
+	trait = education_diplomacy_1
+	trait = greensight
+	trait = lunatic_genetic
+	trait = profligate
+	trait = fashionable
+	trait = education_martial_prowess_1
+
+	disallow_random_traits = yes
+
+	8090.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_26 = {
+	name = Franklyn # fflanegin23
+	# Add dna later
+
+	religion = the_seven_main
+	culture = crownlander
+
+	trait = diligent
+	trait = brave
+	trait = gregarious
+	trait = vengeful
+	trait = education_martial_3
+	trait = drunkard
+	trait = knight
+	trait = education_martial_prowess_4
+	trait = flexible_leader
+	trait = warlike_court_2
+
+	disallow_random_traits = yes
+
+	8083.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8099.1.1 = {
+		effect = {
+			add_trait = lifestyle_blademaster
+			add_trait_xp = {
+				trait = lifestyle_blademaster
+				value = 50
+			}
+		}
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_27 = {
+	name = Aran
+	dynasty = dynn_Telcontar
+
+	religion = weeping_lady
+	culture = braavosi
+
+	father = Baseborn_hh_29
+	mother = Baseborn_rs_29
+
+	diplomacy = 0
+	martial = 2
+	stewardship = 5
+	intrigue = 5
+	learning = 5
+	prowess = 2
+
+	trait = chaste
+	trait = arbitrary
+	trait = callous
+	trait = impatient
+	trait = education_martial_5
+	trait = education_martial_prowess_5
+	trait = flexible_leader
+	trait = one_handed
+	trait = education_republican_knowledge_1
+
+	disallow_random_traits = yes
+
+	8086.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8105.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_ghostfire } }
+	}
+	8106.1.1 = {
+		give_nickname = nick_the_banker
+		effect = {
+			set_relation_rival = {
+				target = character:Manwoody_21 # Dickon Manwoody
+        		reason = rival_grave_insult
+			}
+		}
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_28 = {
+	name = Imry
+	dynasty = dynn_Florent
+	dna = Baseborn_hh_28
+
+	religion = the_seven_main
+	culture = honeywiner
+
+	father = Florent_66
+
+	trait = fickle
+	trait = ambitious
+	trait = paranoid
+	trait = impatient
+	trait = education_intrigue_1
+	trait = intellect_bad_1
+	trait = irritable
+	trait = poet
+	trait = dyslexic
+
+	disallow_random_traits = yes
+
+	8088.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8104.1.1 = { give_nickname = nick_the_poet }
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_29 = {
+	name = Aragorn
+	dynasty = dynn_Telcontar
+	dna = Baseborn_hh_29
+
+	religion = weeping_lady
+	culture = braavosi
+
+	diplomacy = 6
+	martial = 10
+	stewardship = 5
+	intrigue = 4
+	learning = 8
+	prowess = 12
+
+	trait = brave
+	trait = compassionate
+	trait = just
+	trait = authoritative
+	trait = education_martial_4
+	trait = education_martial_prowess_4
+	trait = forest_fighter
+
+	disallow_random_traits = yes
+
+	8018.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8066.1.1 = {
+		effect = {
+			if = {
+				limit = { character:Baseborn_rs_29 = { is_alive = yes } }
+				set_relation_soulmate = {
+					reason = soulmate_professed_love
+					target = character:Baseborn_rs_29
+				}
+			}
+		}
+	}
+	8085.1.1 = { add_spouse = Baseborn_rs_29 } 
+	8097.1.1 = {
+		death = {
+			death_reason = death_battle
+		}
+	}
+}
+Baseborn_rs_29 = {
+	name = Arwen
+	female = yes
+	dynasty = dynn_Upcliff
+	dna = Baseborn_rs_29
+
+	religion = weirwood_of_the_seven
+	culture = valeman
+
+	father = Upcliff_rs_58
+	mother = Upcliff_58
+
+	health = 10
+
+	diplomacy = 9
+	martial = 3
+	stewardship = 6
+	intrigue = 6
+	learning = 8
+	prowess = 5
+
+	trait = compassionate
+	trait = chaste
+	trait = temperate
+	trait = education_diplomacy_3
+	trait = beauty_good_3
+
+	disallow_random_traits = yes
+
+	8050.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8066.1.1 = {
+		add_secret = {
+			type = secret_witch
+			target = character:Baseborn_rs_29
+		}
+	}
+	8097.1.1 = {
+		trait = widowed
+		create_character_memory = {
+			type = soulmate_died
+			participants = {
+				dead_relation = character:Baseborn_hh_29 # Aragorn Telcontar
+			}
+		}
+	}
+}
+Baseborn_hh_30 = {
+	name = Vyron # Vyse
+
+	religion = the_seven_main
+	culture = crownlander
+
+	trait = education_diplomacy_1
+	trait = fickle
+	trait = gregarious
+	trait = paranoid
+	trait = humble
+	trait = confider
+	trait = education_martial_prowess_2
+	trait = knight
+
+	disallow_random_traits = yes
+
+	8086.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_31 = {
+	name = Amerei # Amber
+	dna = Baseborn_hh_31
+	female = yes
+
+	religion = the_seven_main
+	culture = sand_dornish
+	sexuality = homosexual
+
+	trait = education_learning_3
+	trait = diligent
+	trait = lustful
+	trait = patient
+	trait = honest
+	trait = journaller
+	trait = organizer
+
+	disallow_random_traits = yes
+
+	8084.9.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_32 = {
+	name = Bayard # Bay
+	dna = Baseborn_hh_32
+
+	religion = the_seven_main
+	culture = crownlander
+
+	trait = education_martial_2
+	trait = arrogant
+	trait = stubborn
+	trait = gregarious
+	trait = trusting
+	trait = education_martial_prowess_3
+	trait = knight
+	trait = reclusive
+	trait = confider
+	trait = forder
+
+	disallow_random_traits = yes
+
+	8084.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_33 = {
+	name = Rosey # Roselyse
+	dna = Baseborn_hh_33
+	female = yes
+
+	religion = weirwood_of_the_seven
+	culture = reachman
+	sexuality = heterosexual
+
+	trait = education_diplomacy_3
+	trait = compassionate
+	trait = eccentric
+	trait = ambitious
+	trait = paranoid
+	trait = journaller
+	trait = reclusive
+	trait = poet
+	trait = hyperkinetic
+	trait = anxious
+	trait = keen-eared
+	trait = insomniac
+
+	disallow_random_traits = yes
+
+	8077.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8095.1.1 = {
+		effect = {
+			add_trait = lifestyle_mystic
+			add_trait_xp = {
+				trait = lifestyle_mystic
+				value = 50
+			}
+		}
+	}
+	8105.1.1 = {
+		effect = {
+			if = {
+				limit = { character:Baseborn_hh_36 = { is_alive = yes } }
+				set_relation_lover = character:Baseborn_hh_36 # Rusulka
+			}
+			agot_create_personal_coa_for_historical_ai = { ACTOR = character:Baseborn_hh_33 COA_KEY = rosey_personal_coa }
+		}
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_34 = {
+	name = Hallyne # Hllama
+	dna = Baseborn_hh_34
+
+	religion = the_seven_main
+	culture = ironborn
+
+	trait = education_learning_1
+	trait = diligent
+	trait = arrogant
+	trait = generous
+	trait = cynical
+	trait = reclusive
+	trait = knight
+	trait = education_martial_prowess_2
+
+	disallow_random_traits = yes
+
+	8084.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_35 = {
+	name = Bradamar # Brad
+	dna = Baseborn_hh_35
+
+	religion = the_seven_main
+	culture = westerman
+
+	trait = education_martial_1
+	trait = lustful
+	trait = calm
+	trait = greedy
+	trait = fickle
+	trait = drunkard
+	trait = knight
+	trait = education_martial_prowess_1
+	trait = aggressive_attacker
+
+	disallow_random_traits = yes
+
+	8081.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_36 = {
+	name = Mikken # Rusulka
+	dna = Baseborn_hh_36
+
+	religion = old_gods_south
+	culture = wolfswood_clansman
+
+	learning = 8
+
+	trait = education_martial_2
+	trait = rude
+	trait = patient
+	trait = diligent
+	trait = shy
+	trait = confider
+	trait = education_martial_prowess_3
+	trait = winter_soldier
+
+	disallow_random_traits = yes
+
+	8077.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+Baseborn_hh_37 = {
+	name = Thoren # SkinnyPPe (Cole)
+	dna = Baseborn_hh_37
+
+	religion = old_gods_south
+	culture = northman
+
+	trait = education_martial_2
+	trait = gregarious
+	trait = brave
+	trait = fickle
+	trait = lazy
+	trait = rakish
+	trait = education_martial_prowess_2
+	trait = winter_soldier
+
+	disallow_random_traits = yes
+
+	8083.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8106.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_baseborn } }
+	}
+	8150.1.1 = { death = yes }
+}
+
+###### House Cockleswhent (id = house_Cockleswhent)
+############################
+### The Cock Rises
+###
+Cock_1 = {
+	name = Walder # The King of The Cock
+	dynasty_house = house_Cockleswhent
+	dna = Cock_1
+
+	father = Ashford_5
+	mother = Cock_2
+
+	religion = the_seven_main
+	culture = reachman
+
+	trait = ambitious
+	trait = lustful
+	trait = eccentric
+	trait = lunatic_1
+	trait = strong
+	trait = rowdy
+
+	disallow_random_traits = yes
+
+	7852.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	7868.1.1 = {
+		trait = knight
+		trait = education_martial_5
+		trait = education_martial_prowess_4
+		trait = forder
+	}
+	7869.4.20 = { death = { death_reason = death_childbirth } }
+}
+Cock_2 = {
+	name = Minisa # Mother of King Walder of The Cock
+	female = yes
+	dynasty = dynn_Whent
+
+	religion = the_seven_main
+	culture = riverlander
+
+	7832.1.1 = { birth = yes }
+	7868.1.1 = {
+		trait = mute
+		death = {
+			death_reason = death_torture
+			killer = Cock_1 # King Walder of The Cock
+		}
+	}
+}
+Cock_3 = {
+	name = Line_of_Minisa
+	dynasty = dynn_Whent
+
+	religion = the_seven_main
+	culture = riverlander
+
+	mother = Cock_2
+
+	trait = line_of_char
+	disallow_random_traits = yes
+
+	7868.1.1 = { birth = yes }
+	8051.1.1 = { death = yes }
+}
+Cock_4 = {
+	name = Reynard
+	dynasty = dynn_Whent
+
+	religion = the_seven_main
+	culture = riverlander
+
+	father = Cock_3
+
+	8051.1.1 = { birth = yes }
+	8111.1.1 = { death = yes }
+}
+Cock_5 = {
+	name = Robert
+	dynasty = dynn_Whent
+
+	religion = the_seven_main
+	culture = riverlander
+
+	father = Cock_4
+
+	8087.1.1 = { birth = yes }
+	8131.1.1 = { death = { death_reason = death_battle } }
+}
+Cock_6 = {
+	name = Walder
+	dynasty = dynn_Whent
+
+	religion = the_seven_main
+	culture = riverlander
+
+	father = Cock_5
+
+	8112.1.1 = { birth = yes }
+	8176.1.1 = { death = yes }
+}
+
+###### HOUSE EORL (id = dynn_Eorl)
+############################
+###
+###
+Eorl_17 = { 
+	name = Eorl # a lord
+	dynasty = dynn_Eorl
+	dna = Eorl_Historical
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	7766.1.1 = { birth = yes }
+	7782.1.1 = { trait = knight }
+	7786.1.1 = {
+		trait = adventurer
+		give_nickname = nick_the_young
+	}
+	7826.1.1 = { death = yes }
+}
+### Issue of Eorl the Young
+Eorl_16 = { 
+	name = Brego # a lord
+	dynasty = dynn_Eorl
+	dna = Eorl_Historical
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_17
+ 
+	7793.1.1 = { birth = yes }
+	7809.1.1 = { trait = knight }
+	7851.1.1 = { death = yes }
+}
+### Issue of Brego
+Eorl_18 = { 
+	name = Baldor
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_16
+ 
+	7819.1.1 = { birth = yes }
+	7835.1.1 = { trait = knight }
+	7850.1.1 = { death = yes }
+}
+Eorl_15 = { 
+	name = Aldor # a lord
+	dynasty = dynn_Eorl
+	dna = Eorl_Historical
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_16
+ 
+	7825.1.1 = { birth = yes }
+	7841.1.1 = { trait = knight }
+	7905.1.1 = { give_nickname = nick_the_old }
+	7926.1.1 = { death = yes }
+}
+Eorl_19 = { 
+	name = Eofor
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_16
+ 
+	7829.1.1 = { birth = yes }
+	7845.1.1 = { trait = knight }
+	7920.1.1 = { death = yes }
+}
+### Issue of Aldor the Old
+Eorl_20 = { 
+	name = Folcwynn
+	female = yes
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_15
+ 
+	7839.1.1 = { birth = yes }
+	7901.1.1 = { death = yes }
+}
+Eorl_21 = { 
+	name = Wynnsing
+	female = yes
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_15
+ 
+	7842.1.1 = { birth = yes }
+	7910.1.1 = { death = yes }
+}
+Eorl_22 = { 
+	name = Arina
+	female = yes
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_15
+ 
+	7847.1.1 = { birth = yes }
+	7899.1.1 = { death = yes }
+}
+Eorl_14 = { 
+	name = Fréa # a lord
+	dynasty = dynn_Eorl
+	dna = Eorl_Historical
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_15
+ 
+	7851.1.1 = { birth = yes }
+	7867.1.1 = { trait = knight }
+	7940.1.1 = { death = yes }
+}
+### Issue of Fréa
+Eorl_13 = { 
+	name = Fréawine # a lord
+	dynasty = dynn_Eorl
+	dna = Eorl_Historical
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_14
+ 
+	7875.1.1 = { birth = yes }
+	7891.1.1 = { trait = knight }
+	7961.1.1 = { death = yes }
+}
+### Issue of Fréawine
+Eorl_12 = { 
+	name = Goldwine # a lord
+	dynasty = dynn_Eorl
+	dna = Eorl_Historical
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_13
+ 
+	7900.1.1 = { birth = yes }
+	7916.1.1 = { trait = knight }
+	7980.1.1 = { death = yes }
+}
+### Issue of Goldwine
+Eorl_11 = { 
+	name = Déor # a lord
+	dynasty = dynn_Eorl
+	dna = Eorl_Historical
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_12
+ 
+	7925.1.1 = { birth = yes }
+	7941.1.1 = { trait = knight }
+	8000.1.1 = { death = yes }
+}
+### Issue of Déor
+Eorl_10 = { 
+	name = Gram # a lord
+	dynasty = dynn_Eorl
+	dna = Eorl_Historical
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_11
+ 
+	7949.1.1 = { birth = yes }
+	7965.1.1 = { trait = knight }
+	8022.1.1 = { death = yes }
+}
+### Issue of Gram
+Eorl_9 = { 
+	name = Helm # a lord
+	dynasty = dynn_Eorl
+	dna = Eorl_9
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_10
+
+	trait = strong
+
+	disallow_random_traits = yes
+ 
+	7972.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	7975.1.1 = {
+		trait = rowdy
+	}
+	7980.1.1 = {
+		trait = wrathful
+	}
+	7982.1.1 = {
+		trait = brave
+	}
+	7984.1.1 = {
+		trait = stubborn
+	}
+	7986.1.1 = {
+		trait = arbitrary
+	}
+	7988.1.1 = {
+		trait = knight
+		trait = education_martial_2
+		trait = education_martial_prowess_4
+		trait = aggressive_attacker
+	}
+	8035.1.1 = { give_nickname = nick_hammerhand }
+	8040.1.1 = { death = { death_reason = death_battle } }
+}
+Eorl_23 = { 
+	name = Hild
+	female = yes
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_10
+ 
+	7977.1.1 = { birth = yes }
+	8028.1.1 = { death = yes }
+}
+### Issue of Helm
+Eorl_24 = { 
+	name = Dynwyn
+	female = yes
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_9
+ 
+	8015.1.1 = { birth = yes }
+	8051.1.1 = { death = yes }
+}
+Eorl_25 = { 
+	name = Haleth
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_9
+ 
+	8019.1.1 = { birth = yes }
+	8035.1.1 = { trait = knight }
+	8039.1.1 = { death = { death_reason = death_battle } }
+}
+Eorl_26 = { 
+	name = Háma
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_9
+ 
+	8022.1.1 = { birth = yes }
+	8038.1.1 = { trait = knight }
+	8040.1.1 = { death = { death_reason = death_battle } }
+}
+### Issue of Hild
+Eorl_8 = { 
+	name = Fréaláf # a lord
+	dynasty = dynn_Eorl
+	dna = Eorl_Historical
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	mother = Eorl_23
+ 
+	8007.1.1 = { birth = yes }
+	8023.1.1 = { trait = knight }
+	8079.1.1 = { death = yes }
+}
+### Issue of Fréaláf
+Eorl_7 = { 
+	name = Brytta # a lord
+	dynasty = dynn_Eorl
+	dna = Eorl_Historical
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_8
+ 
+	8033.1.1 = { birth = yes }
+	8049.1.1 = { trait = knight }
+	8123.1.1 = { death = yes }
+}
+### Issue of Brytta
+Eorl_6 = { 
+	name = Walda # a lord
+	dynasty = dynn_Eorl
+	dna = Eorl_Historical
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_7
+ 
+	8061.1.1 = { birth = yes }
+	8077.1.1 = { trait = knight }
+	8132.1.1 = { death = yes }
+}
+### Issue of Walda
+Eorl_5 = { 
+	name = Folca # a lord
+	dynasty = dynn_Eorl
+	dna = Eorl_Historical
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_6
+ 
+	8085.1.1 = { birth = yes }
+	8101.1.1 = { trait = knight }
+	8145.1.1 = { death = yes }
+}
+### Issue of Folca
+Eorl_4 = { 
+	name = Folcwine # a lord
+	dynasty = dynn_Eorl
+	dna = Eorl_Historical
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_5
+ 
+	8111.1.1 = { birth = yes }
+	8127.1.1 = { trait = knight }
+	8184.1.1 = { death = yes }
+}
+### Issue of Folcwine
+Eorl_27 = { 
+	name = Folcred
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_4
+
+	trait = twin
+ 
+	8139.1.1 = { birth = yes }
+	8155.1.1 = { trait = knight }
+	8166.1.1 = { death = yes }
+}
+Eorl_28 = { 
+	name = Fastred
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_4
+
+	trait = twin
+ 
+	8139.1.1 = { birth = yes }
+	8155.1.1 = { trait = knight }
+	8166.1.1 = { death = yes }
+}
+Eorl_29 = { 
+	name = Fewynn
+	dynasty = dynn_Eorl
+	female = yes
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_4
+ 
+	8144.1.1 = { birth = yes }
+	8198.1.1 = { death = yes }
+}
+Eorl_3 = { 
+	name = Fengel # a lord
+	dynasty = dynn_Eorl
+	dna = Eorl_Historical
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_4
+ 
+	8151.1.1 = { birth = yes }
+	8167.1.1 = { trait = knight }
+	8176.1.1 = { add_spouse = Eorl_rs_3 } 
+	8234.1.1 = { death = yes }
+}
+Eorl_rs_3 = {
+	name = Arwyn
+	female = yes
+
+	religion = the_seven_main
+	culture = reachman
+
+	8151.1.1 = { birth = yes }
+	8234.1.1 = { death = yes }
+}
+### Issue of Fengel
+Eorl_30 = { 
+	name = Fenghild
+	dynasty = dynn_Eorl
+	female = yes
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_3
+	mother = Eorl_rs_3
+
+	8180.1.1 = { birth = yes }
+	8254.1.1 = { death = yes }
+}
+Eorl_31 = { 
+	name = Fengwyn
+	dynasty = dynn_Eorl
+	female = yes
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_3
+	mother = Eorl_rs_3
+
+	8183.1.1 = { birth = yes }
+	8266.1.1 = { death = yes }
+}
+Eorl_2 = { 
+	name = Thengel # a lord
+	dynasty = dynn_Eorl
+	dna = Eorl_Historical
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_3
+	mother = Eorl_rs_3
+
+	8186.1.1 = { birth = yes }
+	8202.1.1 = { trait = knight }
+	8219.1.1 = { add_spouse = Eorl_rs_2 } 
+	8261.1.1 = { death = yes }
+}
+Eorl_rs_2 = {
+	name = Morwen
+	female = yes
+	dna = Eorl_rs_2
+
+	religion = the_seven_main
+	culture = reachman
+
+	8203.1.1 = { birth = yes }
+	8279.1.1 = { death = yes }
+}
+### Issue of Thengel
+Eorl_32 = { 
+	name = Mérthú
+	dynasty = dynn_Eorl
+	female = yes
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_2
+	mother = Eorl_rs_2
+ 
+	8223.1.1 = { birth = yes }
+	8289.1.1 = { death = yes }
+}
+Eorl_1 = { 
+	name = Théoden # a lord
+	dynasty = dynn_Eorl
+	dna = Eorl_1
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_2
+	mother = Eorl_rs_2
+
+	disallow_random_traits = yes
+ 
+	8229.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8232.1.1 = {
+		trait = pensive
+	}
+	8237.1.1 = {
+		trait = authoritative
+	}
+	8239.1.1 = {
+		trait = brave
+	}
+	8241.1.1 = {
+		trait = cynical
+	}
+	8243.1.1 = {
+		trait = calm
+	}
+	8245.1.1 = {
+		trait = knight
+		trait = education_martial_4
+		trait = education_martial_prowess_2
+		trait = open_terrain_expert
+	}
+	8249.1.1 = {
+		add_spouse = Eorl_rs_1 # Elfhild
+		effect = {
+			if = { 
+				limit = { character:Eorl_rs_1 = { is_alive = yes } }
+				set_relation_lover = {
+					target = character:Eorl_rs_1 # Elfhild
+					reason = lover_spouse
+				}
+			}
+		}
+	}
+	8259.1.1 = {
+		trait = widowed
+		create_character_memory = {
+			type = lover_died
+			participants = {
+				dead_relation = character:Eorl_rs_1 # Elfhild
+			}
+		}
+	}
+	8295.1.1 = {
+		trait = infirm
+		trait = reclusive
+		trait = depressed_1
+	}
+	8300.1.1 = { # Gandalf shows up
+		effect = {
+			remove_trait = infirm
+			remove_trait = reclusive
+			remove_trait = depressed_1
+		}
+	}
+	8300.3.15 = { death = { death_reason = death_battle } }
+}
+Eorl_rs_1 = {
+	name = Elfhild
+	female = yes
+
+	religion = the_seven_main
+	culture = reachman
+
+	8229.1.1 = { birth = yes }
+	8259.1.1 = { death = { death_reason = death_childbirth } }
+}
+Eorl_33 = { 
+	name = Eastwyn
+	dynasty = dynn_Eorl
+	female = yes
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_2
+	mother = Eorl_rs_2
+ 
+	8233.1.1 = { birth = yes }
+	8296.1.1 = { death = yes }
+}
+Eorl_34 = { 
+	name = Gunhild
+	dynasty = dynn_Eorl
+	female = yes
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_2
+	mother = Eorl_rs_2
+ 
+	8236.1.1 = { birth = yes }
+	8291.1.1 = { death = yes }
+}
+Eorl_35 = { 
+	name = Théodwyn
+	dynasty = dynn_Eorl
+	female = yes
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_2
+	mother = Eorl_rs_2
+ 
+	8243.1.1 = { birth = yes }
+	8268.1.1 = { add_spouse = Eorl_52 } 
+	8282.6.1 = {
+		trait = ill
+		death = { death_reason = death_ill }
+	}
+}
+### Issue of Théoden
+Eorl_36 = { 
+	name = Théodred
+	dynasty = dynn_Eorl
+	dna = Eorl_36
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_1
+	mother = Eorl_rs_1
+
+	8259.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8267.1.1 = {
+		trait = brave
+	}
+	8275.1.1 = {
+		trait = knight
+		trait = education_martial_3
+		trait = education_martial_prowess_3
+		trait = forder
+		effect = {
+			agot_appoint_as_councillor_for_castle_history_effect = { 
+				CASTLE = title:c_whitegrove 
+				POSITION = councillor_castellan
+			}
+		}
+	}
+	8299.1.1 = { death = { death_reason = death_battle } }
+}
+### Issue of Théodwyn
+Eorl_37 = { 
+	name = Éomer
+	dynasty = dynn_Eorl
+	dna = Eorl_37
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+ 	father = Eorl_52
+	mother = Eorl_35
+
+	disallow_random_traits = yes
+ 
+	8272.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8275.1.1 = {
+		trait = bossy
+	}
+	8280.1.1 = {
+		trait = brave
+	}
+	8282.1.1 = {
+		trait = honest
+	}
+	8282.6.1 = {
+		effect = { 
+			agot_set_as_ward_history_effect = { GUARDIAN = character:Eorl_1 } # Théoden Eorl
+		}
+	}
+	8284.1.1 = {
+		trait = stubborn
+		effect = {
+			agot_set_as_ward_and_squire_history_effect = { KNIGHT = character:Eorl_1 } # Théoden Eorl
+		}
+	}
+	8286.1.1 = {
+		trait = diligent
+	}
+	8288.1.1 = {
+		trait = knight
+		trait = education_martial_3
+		trait = education_martial_prowess_4
+		trait = open_terrain_expert
+	}
+}
+Eorl_38 = { 
+	name = Éowyn
+	dynasty = dynn_Eorl
+	female = yes
+	dna = Eorl_38
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+ 	father = Eorl_52
+	mother = Eorl_35
+
+	trait = beauty_good_2
+
+	disallow_random_traits = yes
+ 
+	8276.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8279.1.1 = {
+		trait = rowdy
+	}
+	8282.6.1 = {
+		effect = { 
+			agot_set_as_ward_history_effect = { GUARDIAN = character:Eorl_1 } # Théoden Eorl
+		}
+	}
+	8284.1.1 = {
+		trait = brave
+	}
+	8286.1.1 = {
+		trait = ambitious
+	}
+	8288.1.1 = {
+		trait = impatient
+	}
+	8290.1.1 = {
+		trait = stubborn
+	}
+	8292.1.1 = {
+		trait = education_stewardship_2
+		trait = education_martial_prowess_4
+		trait = shieldmaiden
+	}
+}
+# Line of Eofor
+Eorl_39 = { 
+	name = Elfhere
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_19
+ 
+	7861.1.1 = { birth = yes }
+	7877.1.1 = { trait = knight }
+	7950.1.1 = { death = yes }
+}
+Eorl_40 = { 
+	name = Éostan
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_39
+ 
+	7898.1.1 = { birth = yes }
+	7914.1.1 = { trait = knight }
+	7990.1.1 = { death = yes }
+}
+Eorl_41 = { 
+	name = Éomara
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_40
+ 
+	7921.1.1 = { birth = yes }
+	7937.1.1 = { trait = knight }
+	7997.1.1 = { death = yes }
+}
+Eorl_42 = { 
+	name = Léod
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_41
+ 
+	7946.1.1 = { birth = yes }
+	7962.1.1 = { trait = knight }
+	8019.1.1 = { death = yes }
+}
+Eorl_43 = { 
+	name = Éoborn
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_42
+ 
+	7963.1.1 = { birth = yes }
+	7979.1.1 = { trait = knight }
+	8040.1.1 = { death = yes }
+}
+Eorl_44 = { 
+	name = Éodred
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_43
+ 
+	7988.1.1 = { birth = yes }
+	8004.1.1 = { trait = knight }
+	8068.1.1 = { death = yes }
+}
+Eorl_45 = { 
+	name = Éohere
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_44
+ 
+	8012.1.1 = { birth = yes }
+	8028.1.1 = { trait = knight }
+	8096.1.1 = { death = yes }
+}
+Eorl_46 = { 
+	name = Éofara
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_45
+ 
+	8038.1.1 = { birth = yes }
+	8054.1.1 = { trait = knight }
+	8119.1.1 = { death = yes }
+}
+Eorl_47 = { 
+	name = Éowine
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_46
+ 
+	8066.1.1 = { birth = yes }
+	8082.1.1 = { trait = knight }
+	8135.1.1 = { death = yes }
+}
+Eorl_48 = { 
+	name = Éothere
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_47
+ 
+	8089.1.1 = { birth = yes }
+	8105.1.1 = { trait = knight }
+	8157.1.1 = { death = yes }
+}
+Eorl_49 = { 
+	name = Éobold
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_48
+ 
+	8105.1.1 = { birth = yes }
+	8121.1.1 = { trait = knight }
+	8190.1.1 = { death = yes }
+}
+Eorl_50 = { 
+	name = Éoward
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_49
+ 
+	8152.1.1 = { birth = yes }
+	8168.1.1 = { trait = knight }
+	8228.1.1 = { death = yes }
+}
+Eorl_51 = { 
+	name = Éohelm
+	dynasty = dynn_Eorl
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_50
+ 
+	8192.1.1 = { birth = yes }
+	8208.1.1 = { trait = knight }
+	8259.1.1 = { death = yes }
+}
+Eorl_rs_51 = {
+	name = Éohild
+	female = yes
+
+	religion = the_seven_main
+	culture = reachman
+
+	8192.1.1 = { birth = yes }
+	8259.1.1 = { death = yes }
+}
+Eorl_52 = { 
+	name = Éomund
+	dynasty = dynn_Eorl
+	dna = Eorl_52
+ 
+	religion = the_seven_main
+	culture = reachman
+ 
+	father = Eorl_51
+ 
+	8240.1.1 = { birth = yes }
+	8256.1.1 = {
+		trait = knight
+		trait = education_martial_2
+		trait = education_martial_prowess_2
+	}
+	8282.1.1 = { death = { death_reason = death_battle } }
+}
+### Eorl Household
+Eorl_hh_1 = { 
+	name = Gríma # a lord
+	dna = Eorl_hh_1
+ 
+	religion = the_seven_main
+	culture = reachman
+
+	diplomacy = 12
+
+	disallow_random_traits = yes
+ 
+	8250.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8253.1.1 = {
+		trait = charming
+	}
+	8258.1.1 = {
+		trait = deceitful
+	}
+	8260.1.1 = {
+		trait = craven
+	}
+	8262.1.1 = {
+		trait = ambitious
+		trait = shrewd
+	}
+	8264.1.1 = {
+		trait = patient
+	}
+	8266.1.1 = {
+		trait = education_intrigue_4
+		trait = education_martial_prowess_1
+		employer = Eorl_1
+	}
+	8280.1.1 = {
+		trait = disloyal
+		give_nickname = nick_wormtongue
+	}
+	8300.11.3 = { death = yes }
+}
+
+###### Brotherhood of Ghosts
+############################
+######
+Ghostfire_1 = {
+	name = Joren
+	dynasty = dynn_Marbrand
+	dna = Ghostfire_1
+
+	father = Marbrand_90
+
+	diplomacy = 9
+	martial = 8
+	stewardship = 2
+	intrigue = 9
+	learning = 4
+	prowess = 10
+
+	religion = the_seven_main
+	culture = westerman
+	sexuality = bisexual
+
+	trait = education_intrigue_2
+	trait = rowdy
+	trait = bastard
+
+	disallow_random_traits = yes
+
+	8080.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8088.1.1 = {
+		trait = cynical
+	}
+	8090.1.1 = {
+		trait = ambitious
+	}
+	8092.1.1 = {
+		trait = gregarious
+	}
+	8094.1.1 = {
+		trait = forgiving
+	}
+	8096.1.1 = {
+		trait = fashionable
+		trait = education_martial_prowess_2
+	}
+	8100.1.1 = {
+		give_nickname = nick_ghostfire
+		trait = shrewd
+		trait = rakish
+		effect = {
+			add_trait = lifestyle_reveler
+			add_trait_xp = {
+				trait = lifestyle_reveler
+				value = 50
+			}
+		}
+		effect = {
+			add_trait = lifestyle_traveler
+			add_trait_xp = {
+				trait = lifestyle_traveler
+				track = danger
+				value = 100
+			}
+			add_trait_xp = {
+				trait = lifestyle_traveler
+				track = travel
+				value = 100
+			}
+		}
+	}
+	8105.1.1 = {
+		effect = {
+			if = {
+				limit = { character:Ghostfire_2 = { is_alive = yes } }
+				set_relation_lover = character:Ghostfire_2 # Bryndemere Dennecent
+			}
+			camp_officer_grant_effect = {
+				EMPLOYER = character:Ghostfire_1
+				POS = second
+				CANDIDATE = character:Ghostfire_2
+			}
+			agot_create_personal_coa_for_historical_ai = { ACTOR = character:Ghostfire_1 COA_KEY = joren_ghostfire_personal_coa }
+		}
+	}
+	8160.1.1 = { death = yes }
+}
+Ghostfire_2 = {
+	name = Bryndemere
+	dynasty = dynn_Dennecent
+	dna = Ghostfire_2
+
+	father = Dennecent_rs_55
+	mother = Dennecent_55
+
+	diplomacy = 2
+	martial = 6
+	stewardship = 3
+	intrigue = 7
+	learning = 3
+	prowess = 9
+
+	religion = the_seven_main
+	culture = stormlander
+	sexuality = homosexual
+
+	trait = education_martial_4
+	trait = bossy
+
+	disallow_random_traits = yes
+
+	8081.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8089.1.1 = {
+		trait = diligent
+	}
+	8091.1.1 = {
+		trait = wrathful
+		trait = strong
+	}
+	8093.1.1 = {
+		trait = greedy
+	}
+	8095.1.1 = {
+		trait = gregarious
+	}
+	8097.1.1 = {
+		trait = forest_fighter
+		trait = education_martial_prowess_3
+	}
+	8100.1.1 = {
+		effect = {
+			add_trait = lifestyle_reveler
+			add_trait_xp = {
+				trait = lifestyle_reveler
+				value = 50
+			}
+		}
+	}
+	8104.1.1 = {
+		trait = murderer
+		effect = {
+			add_pressed_claim = title:c_bronzeaxe
+			add_trait = nightswatch_historical
+			agot_join_nightswatch_history_effect = {
+				ORDER = ranger
+				CASTLE = title:c_the_shadow_tower
+				NW_JOIN_AGE = 23
+			}
+		}
+	}
+	8105.1.1 = {
+		effect = { remove_trait = nightswatch_historical }
+		trait = deserter
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_ghostfire } }
+		effect = {
+			add_trait = lifestyle_traveler
+			add_trait_xp = {
+				trait = lifestyle_traveler
+				track = danger
+				value = 100
+			}
+			add_trait_xp = {
+				trait = lifestyle_traveler
+				track = travel
+				value = 50
+			}
+		}
+	}
+	8160.1.1 = { death = yes }
+}
+Ghostfire_3 = {
+	name = Edric
+	dynasty_house = house_Bracket
+
+	father = Ghostfire_4
+
+	learning = 0
+
+	religion = the_seven_main
+	culture = marcher
+
+	trait = education_martial_1
+	trait = rowdy
+	trait = intellect_bad_2
+
+	disallow_random_traits = yes
+
+	8086.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8094.1.1 = {
+		trait = rude
+	}
+	8096.1.1 = {
+		trait = wrathful
+	}
+	8098.1.1 = {
+		trait = arbitrary
+	}
+	8100.1.1 = {
+		trait = arrogant
+	}
+	8102.1.1 = {
+		trait = reckless
+		trait = education_martial_prowess_1
+	}
+	8105.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_ghostfire } }
+	}
+	8160.1.1 = { death = yes }
+}
+Ghostfire_4 = {
+	name = Anders
+	dynasty = dynn_Dondarrion
+
+	father = Dondarrion_16
+
+	religion = the_seven_main
+	culture = marcher
+
+	trait = bastard
+	trait = knight
+	trait = education_martial_2
+
+	8064.1.1 = { birth = yes }
+	8097.1.1 = {
+		death = {
+			death_reason = death_battle
+		}
+	}
+}
+Ghostfire_5 = {
+	name = Arwen
+	dynasty = dynn_Redfort
+	female = yes
+
+	father = Redfort_20
+	mother = Hardyng_19
+
+	religion = the_seven_main
+	culture = moonman
+
+	trait = bastard
+	trait = education_martial_3
+	trait = rowdy
+
+	disallow_random_traits = yes
+
+	8089.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8097.1.1 = {
+		trait = brave
+	}
+	8099.1.1 = {
+		trait = trusting
+	}
+	8101.1.1 = {
+		trait = patient
+	}
+	8103.1.1 = {
+		trait = zealous
+	}
+	8105.1.1 = {
+		give_nickname = nick_the_red_bronze
+		trait = rough_terrain_expert
+		trait = education_martial_prowess_3
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_ghostfire } }
+		effect = {
+			if = { 
+				limit = { character:Royce_37 = { is_alive = yes } }
+				set_relation_friend = {
+					target = character:Royce_37 # Rhea Royce
+				}
+			}
+			if = { 
+				limit = { character:Royce_38 = { is_alive = yes } }
+				set_relation_friend = {
+					target = character:Royce_38 # Perra Royce
+				}
+			}
+			add_trait_xp = {
+				trait = lifestyle_hunter
+				track = venator
+				value = 50
+			}
+		}
+	}
+	8160.1.1 = { death = yes }
+}
+Ghostfire_6 = {
+	name = Victor
+	dynasty = dynn_Umber
+	dna = Ghostfire_6
+
+	father = Umber_38
+	mother = Ghostfire_7
+
+	prowess = 12
+
+	religion = old_gods_south
+	culture = northman
+
+	trait = physique_good_3
+	trait = beauty_bad_2
+	trait = denounced
+	trait = education_martial_2
+	trait = rowdy
+	trait = permanent_scowl
+
+	disallow_random_traits = yes
+
+	8080.6.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8088.1.1 = {
+		trait = callous
+	}
+	8090.1.1 = {
+		trait = brave
+	}
+	8092.1.1 = {
+		trait = greedy
+	}
+	8094.1.1 = {
+		trait = ambitious
+	}
+	8096.1.1 = {
+		give_nickname = nick_the_neck_that_rides
+		trait = education_martial_prowess_4
+		trait = aggressive_attacker
+	}
+	8105.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_ghostfire } }
+	}
+	8160.1.1 = { death = yes }
+}
+Ghostfire_7 = {
+	name = Viserra
+	female = yes
+	dynasty = dynn_Targaryen
+
+	father = Targaryen_31
+
+	religion = the_seven_main
+	culture = high_valyrian
+
+	trait = bastard
+
+	8048.1.1 = { birth = yes }
+	8079.1.1 = { 
+		add_spouse = Umber_38
+	}
+	8080.6.1 = { death = { death_reason = death_childbirth } }
+}
+Ghostfire_8 = {
+	name = Pelion
+	dna = Ghostfire_8
+
+	religion = the_seven_main
+	culture = valeman
+
+	trait = pensive
+	trait = lunatic_1
+
+	8082.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8090.1.1 = {
+		trait = zealous
+	}
+	8092.1.1 = {
+		trait = craven
+	}
+	8094.1.1 = {
+		trait = content
+	}
+	8096.1.1 = {
+		trait = paranoid
+	}
+	8098.1.1 = {
+		give_nickname = nick_the_mad_monk
+		trait = education_learning_1
+		trait = devoted
+	}
+	8105.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_ghostfire } }
+	}
+	8160.1.1 = { death = yes }
+}
+Ghostfire_9 = {
+	name = Walder
+	dna = Baseborn_hh_1
+
+	religion = the_seven_main
+	culture = riverlander
+	sexuality = heterosexual
+
+	trait = rowdy
+
+	8089.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8097.1.1 = {
+		trait = sadistic
+	}
+	8099.1.1 = {
+		trait = eccentric
+	}
+	8101.1.1 = {
+		trait = inquisitive
+	}
+	8103.1.1 = {
+		trait = vengeful
+	}
+	8105.1.1 = {
+		give_nickname = nick_tonguetaker
+		trait = education_intrigue_2
+		trait = disloyal
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_ghostfire } }
+	}
+	8160.1.1 = { death = yes }
+}
+Ghostfire_10 = {
+	name = Morgen
+	dna = Ghostfire_10
+
+	religion = the_seven_main
+	culture = westerman
+
+	mother = Ghostfire_12
+
+	trait = rowdy
+	trait = intellect_good_2
+	trait = hunchbacked
+
+	8084.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8092.1.1 = {
+		trait = sadistic
+	}
+	8094.1.1 = {
+		trait = deceitful
+	}
+	8096.1.1 = {
+		trait = arrogant
+	}
+	8098.1.1 = {
+		trait = cynical
+	}
+	8100.1.1 = {
+		give_nickname = nick_dragonsbane
+		trait = education_intrigue_3
+		trait = education_martial_prowess_1
+		effect = {
+			add_trait = burned
+			add_trait_xp = {
+				trait = burned
+				track = burned
+				value = 75
+			}
+		}
+	}
+	8105.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_ghostfire } }
+	}
+	8160.1.1 = { death = yes }
+}
+Ghostfire_11 = {
+	name = Renner
+	dna = Ghostfire_11
+
+	religion = the_seven_main
+	culture = stormlander
+	sexuality = bisexual
+
+	trait = rowdy
+	trait = possessed_genetic
+	trait = physique_good_2
+	trait = memory_bad
+
+	8083.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8091.1.1 = {
+		trait = paranoid
+	}
+	8093.1.1 = {
+		trait = arbitrary
+	}
+	8095.1.1 = {
+		trait = ambitious
+	}
+	8097.1.1 = {
+		trait = callous
+	}
+	8099.1.1 = {
+		give_nickname = nick_the_demon
+		trait = education_martial_3
+		trait = education_martial_prowess_4
+		trait = lifestyle_herbalist
+		trait = strong
+		trait = reckless
+		trait = rough_terrain_expert
+		trait = reclusive
+	}
+	8105.1.1 = {
+		effect = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_ghostfire } }
+	}
+	8160.1.1 = { death = yes }
+}
+Ghostfire_12 = {
+	name = Cersei
+	female = yes
+	dynasty = dynn_Lannister
+
+	father = Lannister_86
+
+	religion = the_seven_main
+	culture = westerman
+
+	trait = bastard
+
+	8059.1.1 = { birth = yes }
+	8095.1.1 = {
+		trait = cancer
+		death = { death_reason = death_cancer }
+	}
+}
+
+###### House Friqua (id = dynn_Friqua)
+############################
+### Look At Us
+###
+Breaking_1 = {
+	name = Gusuru # Gustavo Fring
+	dynasty = dynn_Friqua
+	dna = Breaking_1
+
+	diplomacy = 8
+	martial = 6
+	stewardship = 10
+	intrigue = 9
+	learning = 5
+	prowess = 7
+
+	religion = valyrian
+	culture = jhalani
+	sexuality = homosexual
+
+	trait = education_stewardship_5
+	trait = education_intrigue_5
+	trait = diligent
+	trait = calm
+	trait = paranoid
+	trait = callous
+	trait = vengeful
+	trait = patient
+	trait = education_republican_knowledge_4
+	trait = education_martial_prowess_3
+
+	disallow_random_traits = yes
+
+	8056.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8087.1.1 = {
+		effect = {
+			add_trait = lifestyle_governor
+			add_trait_xp = {
+				trait = lifestyle_governor
+				value = 80
+			}
+		}
+	}
+	8106.1.1 = { employer = Haen_8 }
+	8130.1.1 = { death = yes }
+}
