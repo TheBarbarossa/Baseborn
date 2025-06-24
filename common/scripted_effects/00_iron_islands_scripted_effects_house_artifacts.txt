@@ -613,17 +613,21 @@ agot_create_artifact_baseborn_hoare_artifact_effect = {
 			name = historical_unique_artifact
 			value = yes
 		}
-		agot_add_artifact_history = {
-		ARTIFACT = this
-		TYPE = inherited
-		DATE = 8191.1.1
-		RECIPIENT = character:Salt_27 # Next user of the artfact
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Hoare.dynasty_founder.house
 		}
 		agot_add_artifact_history = {
 		ARTIFACT = this
 		TYPE = inherited
 		DATE = 8075.1.1
 		RECIPIENT = character:Salt_23 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8191.1.1
+		RECIPIENT = character:Salt_27 # Next user of the artfact
 		}
 	}
 }
