@@ -3091,6 +3091,30 @@ baseborn_historical_house_artifacts_setup = {
 		}
 	}
 
+	if = {
+		limit = {
+			exists = character:Salt_27
+			character:Salt_27 = { is_alive = yes }
+		}
+		character:Salt_27 = {
+			agot_create_artifact_baseborn_hoare_artifact_effect = {
+				owner = this
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			exists = character:Salt_23
+			character:Salt_23 = { is_alive = yes }
+		}
+		character:Salt_23 = {
+			agot_create_artifact_baseborn_hoare_artifact_effect = {
+				OWNER = this
+			}
+		}
+	}
+
+
 	############################# DORNE #############################
 
 	if = { # Artifact created
