@@ -1,0 +1,24 @@
+﻿####################
+# BETRAY INTERACTIONS
+####################
+
+namespace = betray_interaction
+
+
+betray_interaction.0001 = {
+	type = letter_event
+	opening = {
+		desc = char_interaction.0010.opening
+	}
+	desc = char_interaction.0001.desc
+	sender = scope:recipient
+
+	immediate = {
+		show_as_tooltip = { offer_betray_effect = yes }
+	}
+
+	option = {
+		name = EXCELLENT
+	}
+}
+
