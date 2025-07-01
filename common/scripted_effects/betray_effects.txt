@@ -1,0 +1,334 @@
+﻿
+betray_effect = {
+	create_title_and_vassal_change = {
+		type = swear_fealty
+		save_scope_as = change
+	}
+	scope:actor = {
+#		add_trait = betrayer
+		#for new liege opinion increace
+		add_opinion = {
+			target = scope:recipient
+			modifier = my_new_liege
+			opinion = 40
+		}
+		#old lieges's opinion decreace
+		every_liege_or_above = {
+			add_opinion = {
+				target = scope:actor
+				modifier = betray_me
+				opinion = -80
+			}
+			every_vassal = {
+				limit = { NOT = { this = scope:actor } }
+				add_opinion = {
+					target = scope:actor
+					modifier = betray_my_liege
+					opinion = -30
+				}
+			}
+			add_opinion = {
+				target = scope:recipient
+				modifier = arranged_my_vassal
+				opinion = -20
+			}
+			trigger_event = sub_betray_interaction.0002
+		}
+		change_liege = {
+			liege = scope:recipient
+			change = scope:change
+		}
+		stress_impact = {
+			loyal = medium_stress_impact_gain
+			trusting = medium_stress_impact_gain
+			honest = medium_stress_impact_gain
+		}
+	}
+	resolve_title_and_vassal_change = scope:change
+	#new liege opinion increace
+	scope:recipient = {
+		add_opinion = {
+			target = scope:actor
+			modifier = turned_over_to_me
+			opinion = 20
+		}
+	}
+	scope:actor = {
+		# Special terms for feudal contracts
+		if = {
+			limit = {
+				government_has_flag = government_is_feudal
+			}
+			if = {
+				limit = { scope:high_obligations = yes }
+				hidden_effect = {
+					if = {
+						limit = { is_independent_ruler = no } # To avoid errors during tooltip generation (prior to the contract being generated)
+						vassal_contract_set_obligation_level = { type = feudal_government_taxes level = 3 }
+						vassal_contract_set_obligation_level = { type = feudal_government_levies level = 0 }
+					}
+				}
+				custom_tooltip = high_obligations_taxes
+				custom_tooltip = exempt_obligations_levies
+			}
+			else_if = {
+				limit = { scope:low_obligations = yes }
+				hidden_effect = {
+					if = {
+						limit = { is_independent_ruler = no } # To avoid errors during tooltip generation (prior to the contract being generated)
+						vassal_contract_set_obligation_level = { type = feudal_government_taxes level = 1 }
+						vassal_contract_set_obligation_level = { type = feudal_government_levies level = 0 }
+					}
+				}
+				custom_tooltip = low_obligations_taxes
+				custom_tooltip = exempt_obligations_levies
+			}
+			else = {
+				hidden_effect = {
+					if = {
+						limit = { is_independent_ruler = no } # To avoid errors during tooltip generation (prior to the contract being generated)
+						vassal_contract_set_obligation_level = { type = feudal_government_taxes level = 2 }
+						vassal_contract_set_obligation_level = { type = feudal_government_levies level = 0 }
+					}
+				}
+				custom_tooltip = normal_obligations_taxes
+				custom_tooltip = exempt_obligations_levies
+			}
+		}
+	}
+
+	# Struggle catalysts.
+	hidden_effect = {
+		fp3_struggle_apply_independent_vassalage_catalyst_effect = {
+			NEW_LIEGE = scope:recipient
+			NEW_VASSAL = scope:actor
+		}
+	}
+}
+
+offer_betray_effect = {
+	create_title_and_vassal_change = {
+		type = swear_fealty
+		save_scope_as = change
+	}
+	scope:recipient = {
+#		add_trait = betrayer
+		#for new liege opinion increace
+		add_opinion = {
+			target = scope:actor
+			modifier = my_new_liege
+			opinion = 40
+		}
+		#old lieges's opinion decreace
+		every_liege_or_above = {
+			add_opinion = {
+				target = scope:recipient
+				modifier = betray_me
+				opinion = -80
+			}
+			every_vassal = {
+				limit = { NOT = { this = scope:recipient } }
+				add_opinion = {
+					target = scope:recipient
+					modifier = betray_my_liege
+					opinion = -30
+				}
+			}
+			add_opinion = {
+				target = scope:actor
+				modifier = arranged_my_vassal
+				opinion = -20
+			}
+			trigger_event = sub_betray_interaction.0003
+		}
+		#nanbokucho fix
+		if = {
+			#if betray vassal are nancho and new liege is hokucho,betray vassal lost nancho and get hokucho
+			limit = {
+				AND = {
+					scope:recipient = { has_trait = southern_court }
+					scope:actor = { has_trait = northern_court }
+				}
+			}
+			remove_trait = southern_court
+			add_trait = northern_court
+			every_vassal = {
+				remove_trait = southern_court
+				add_trait = northern_court
+			}
+		}
+		if = {
+			#if betray vassal are nancho and new liege is third,betray vassal lost nancho and get third
+			limit = {
+				AND = {
+					scope:recipient = { has_trait = southern_court }
+					scope:actor = { has_trait = third_force }
+				}
+			}
+			remove_trait = southern_court
+			add_trait = third_force
+			every_vassal = {
+				remove_trait = southern_court
+				add_trait = third_force
+			}
+		}
+		if = {
+			#if betray vassal are hokucho and new liege is nancho,betray vassal lost hokucho and get nancho
+			limit = {
+				AND = {
+					scope:recipient = { has_trait = northern_court }
+					scope:actor = { has_trait = southern_court }
+				}
+			}
+			remove_trait = northern_court
+			add_trait = southern_court
+			every_vassal = {
+				remove_trait = northern_court
+				add_trait = southern_court
+			}
+		}
+		if = {
+			#if betray vassal are hokucho and new liege is third,betray vassal lost hokucho and get third
+			limit = {
+				AND = {
+					scope:recipient = { has_trait = northern_court }
+					scope:actor = { has_trait = third_force }
+				}
+			}
+			remove_trait = northern_court
+			add_trait = third_force
+			every_vassal = {
+				remove_trait = northern_court
+				add_trait = third_force
+			}
+		}
+		if = {
+			#if betray vassal are third and new liege is nancho,betray vassal lost third and get nancho
+			limit = {
+				AND = {
+					scope:recipient = { has_trait = third_force }
+					scope:actor = { has_trait = southern_court }
+				}
+			}
+			remove_trait = third_force
+			add_trait = southern_court
+			every_vassal = {
+				remove_trait = third_force
+				add_trait = southern_court
+			}
+		}
+		if = {
+			#if betray vassal are hokucho and new liege is third,betray vassal lost hokucho and get third
+			limit = {
+				AND = {
+					scope:recipient = { has_trait = third_force }
+					scope:actor = { has_trait = northern_court }
+				}
+			}
+			remove_trait = third_force
+			add_trait = northern_court
+			every_vassal = {
+				remove_trait = third_force
+				add_trait = northern_court
+			}
+		}
+		change_liege = {
+			liege = scope:actor
+			change = scope:change
+		}
+		stress_impact = {
+			loyal = medium_stress_impact_gain
+			trusting = medium_stress_impact_gain
+			honest = medium_stress_impact_gain
+		}
+	}
+	resolve_title_and_vassal_change = scope:change
+	#new liege opinion increace
+	scope:actor = {
+		add_opinion = {
+			target = scope:recipient
+			modifier = turned_over_to_me
+			opinion = 20
+		}
+	}
+
+
+	# Special terms for feudal contracts
+	scope:recipient = {
+		if = {
+			limit = {
+				government_has_flag = government_is_feudal
+			}
+			if = {
+				limit = { scope:high_obligations = yes }
+				hidden_effect = {
+					if = {
+						limit = { is_independent_ruler = no } # To avoid errors during tooltip generation (prior to the contract being generated)
+						vassal_contract_set_obligation_level = { type = feudal_government_taxes level = 3 }
+						vassal_contract_set_obligation_level = { type = feudal_government_levies level = 3 }
+					}
+				}
+				custom_tooltip = high_obligations_taxes
+				custom_tooltip = high_obligations_levies
+			}
+			else_if = {
+				limit = { scope:low_obligations = yes }
+				hidden_effect = {
+					if = {
+						limit = { is_independent_ruler = no } # To avoid errors during tooltip generation (prior to the contract being generated)
+						vassal_contract_set_obligation_level = { type = feudal_government_taxes level = 1 }
+						vassal_contract_set_obligation_level = { type = feudal_government_levies level = 1 }
+					}
+				}
+				custom_tooltip = low_obligations_taxes
+				custom_tooltip = low_obligations_levies
+			}
+			else_if = {
+				limit = { scope:religious_exemption = yes }
+				hidden_effect = {
+					if = {
+						limit = { is_independent_ruler = no } # To avoid errors during tooltip generation (prior to the contract being generated)
+						vassal_contract_set_obligation_level = { type = feudal_government_taxes level = 2 }
+						vassal_contract_set_obligation_level = { type = feudal_government_levies level = 1 }
+						vassal_contract_set_obligation_level = { type = religious_rights level = 1 }
+					}
+				}
+				custom_tooltip = normal_obligations_taxes
+				custom_tooltip = low_obligations_levies
+				custom_tooltip = religious_protection_tt
+			}
+			else = {
+				hidden_effect = {
+					if = {
+						limit = { is_independent_ruler = no } # To avoid errors during tooltip generation (prior to the contract being generated)
+						vassal_contract_set_obligation_level = { type = feudal_government_taxes level = 2 }
+						vassal_contract_set_obligation_level = { type = feudal_government_levies level = 2 }
+					}
+				}
+				custom_tooltip = normal_obligations_taxes
+				custom_tooltip = normal_obligations_levies
+			}
+		}
+		else_if = {
+			limit = {
+				government_has_flag = government_is_clan
+				scope:religious_exemption_clan = yes
+			}
+			hidden_effect = {
+				if = {
+					limit = { is_independent_ruler = no } # To avoid errors during tooltip generation (prior to the contract being generated)
+					vassal_contract_set_obligation_level = { type = religious_rights level = 1 }
+				}
+			}
+			custom_tooltip = religious_protection_tt
+		}
+	}
+
+	# Struggle catalysts.
+	hidden_effect = {
+		fp3_struggle_apply_independent_vassalage_catalyst_effect = {
+			NEW_LIEGE = scope:actor
+			NEW_VASSAL = scope:recipient
+		}
+	}
+}

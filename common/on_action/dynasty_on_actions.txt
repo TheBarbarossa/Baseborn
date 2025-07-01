@@ -1,0 +1,147 @@
+﻿on_dynasty_created = {
+	effect = {
+		if = {
+			limit = { dynast = { has_trait = bastard } }
+			dynast = {
+				remove_trait = bastard
+				add_trait = bastard_founder
+				#AGOT Added, switches the dynasties/houses of the character and their children
+				trigger_event = agot_dynastic_stability.1000
+			}
+		}
+		#AGOT Added, Personal COAs
+		# Lowborns w/ personal COAs will have their personal COA become their dynasty's COA
+		if = {
+			limit = {
+				dynast = { has_character_flag = has_personal_coa }
+			}
+			dynast = {
+				dynasty = { set_coa = dynast.var:my_personal_coa.house }
+			}
+		}
+	}
+}
+
+# root = <character>
+# scope:dynasty = <dynasty>
+# new dynasty head and dynasty affected
+on_became_dynasty_head = {
+	effect = {
+		if = {
+			limit = {
+				has_trait = denounced
+			}
+			remove_trait = denounced
+		}
+		if = {
+			limit = {
+				has_trait = disinherited
+			}
+			remove_trait = disinherited
+		}
+		if = {
+			limit = {
+				is_landed = yes
+			}
+			add_character_modifier = baseborn_dynasty_renown_gain
+		}
+	}
+}
+
+# root = <character>
+# scope:house = <house>
+# new house head and house affected
+on_became_house_head = {
+	effect = {
+		if = {
+			limit = {
+				has_trait = decadent
+			}
+			remove_trait = decadent
+		}
+		if = {
+			limit = {
+				has_trait = extolled
+			}
+			remove_trait = extolled
+		}
+	}
+}
+
+# root = <house>
+# This house inside an admin realm just became dominant.
+on_house_in_admin_realm_became_dominant = {
+	effect = {
+		if = {
+			limit = {
+				# Get notified only if the dominant family is not the emperor's
+				root != root.house_head.top_liege.house
+			}
+			save_scope_as = noble_family_house
+			house_head = {
+				save_scope_as = noble_family_head
+				top_liege = {
+					every_vassal = {
+						limit = {
+							this = house.house_head
+							house != root
+						}
+						trigger_event = ep3_emperor_yearly.2420 # Reaction
+					}
+					trigger_event = ep3_emperor_yearly.2420 # Reaction
+				}
+			}
+		}
+	}
+}
+
+# root = <house>
+# This house inside an admin realm just became powerful.
+on_house_in_admin_realm_became_powerful = {
+	effect = {
+		save_scope_as = new_family_house
+		house_head = {
+			save_scope_as = new_family
+			random_held_title = {
+				limit = { is_noble_family_title = yes }
+				save_scope_as = new_family_title
+			}
+			trigger_event = ep3_emperor_yearly.2401 # Your own Family reaction
+			top_liege = {
+				every_vassal = {
+					limit = {
+						this = house.house_head
+						house != root
+					}
+
+					# Notify every vassal house head - If they haven't been notified recently, we send an event, otherwise a feed message will do.
+					if = {
+						limit = {
+							has_character_flag = 8020_powerful_family_cooldown
+						}
+						send_interface_message = {
+							title = 8020_powerful_family_tt
+							type = msg_new_powerful_family
+							left_icon = scope:new_family
+							right_icon = scope:new_family_title
+							desc = 8020_powerful_family_desc
+						}
+					}
+					else = {
+						trigger_event = ep3_powerful_families.8020 # Powerful Family reaction
+						trigger_event = ep3_emperor_yearly.2400 # Non-Powerful Family reaction
+					}
+				}
+
+				# Let's also notify the liege, but they don't get an event.
+				send_interface_message = {
+					title = 8020_powerful_family_tt
+					type = msg_new_powerful_family
+					left_icon = scope:new_family
+					right_icon = scope:new_family_title
+					desc = 8020_powerful_family_desc
+				}
+			}
+		}
+	}
+}
