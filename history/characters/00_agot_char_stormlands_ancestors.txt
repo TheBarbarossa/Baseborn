@@ -20202,7 +20202,7 @@ Morrigen_62 = {
 	8202.1.1 = { death = yes }
 }
 Morrigen_63 = {
-	name = Casper
+	name = Casper # Baseborn commander of NW during 209
 	dynasty = dynn_Morrigen
 
 	religion = the_seven_main
@@ -20214,6 +20214,18 @@ Morrigen_63 = {
 	8167.1.1 = { birth = yes }
 	8183.1.1 = { trait = knight }
 	8189.1.1 = { add_spouse = Morrigen_rs_63 }
+	8196.6.1 = {
+		remove_spouse = Morrigen_rs_63 # Hollyse
+		trait = nightswatch_historical
+		effect = {
+			agot_join_nightswatch_history_effect = {
+				ORDER = ranger
+				CASTLE = title:c_castle_black
+				NW_JOIN_AGE = 29
+			}
+			}
+		}
+	}
 	8223.1.1 = {
 		death = { death_reason = death_natural_causes }
 	}
