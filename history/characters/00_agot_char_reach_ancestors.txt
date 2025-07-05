@@ -56362,14 +56362,20 @@ Webber_rs_11 = {
 	8199.1.1 = { death = yes }
 }
 ### Issue of Wyman
-Webber_13 = {
+Webber_13 = { # Edited 7/05 slambroski
 	name = Rohanne # Canon, a lord
 	dynasty = dynn_Webber
 	female = yes
 	dna = Webber_13
 
+	martial = 6
+	diplomacy = 6
+	intrigue = 6
+	prowess = 4
+
 	religion = the_seven_main
 	culture = reachman
+	sexuality = heterosexual
 
 	father = Webber_11
 	mother = Webber_rs_11
@@ -56384,6 +56390,7 @@ Webber_13 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
 		add_character_flag = canon_status_canon
+		add_character_flag = sexuality_ensure_heterosexual
 	}
 	8192.1.1 = {
 		trait = gregarious
@@ -56393,11 +56400,16 @@ Webber_13 = {
 	8199.1.1 = { add_matrilineal_spouse = Kern_37 } # Old Man
 	8202.1.1 = {
 		trait = authoritative
+		trait = ambitious
+		trait = education_martial_prowess_2
 		trait = lifestyle_hunter
 		add_matrilineal_spouse = Staunton_35 # Simon Staunton
 	}
 	8207.1.1 = { add_matrilineal_spouse = Uffering_20 } # Rolland Uffering
-	8208.1.1 = { give_nickname = nick_the_red_widow }
+	8208.1.1 = { 
+		give_nickname = nick_the_red_widow
+		effect = { add_trait_xp = { trait = lifestyle_hunter track = hunter value = 100 } }
+	}
 	8211.3.25 = { add_spouse = Osgrey_55 } # Eustace Osgrey
 	8230.1.1 = {
 		death = { death_reason = death_vanished }
