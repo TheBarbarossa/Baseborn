@@ -6311,7 +6311,7 @@ Targaryen_121 = {
 		}
 	}
 }
-Targaryen_122 = {
+Targaryen_122 = { # Edited 7/05 slambroski
 	name = Aegon # Canon, AKA: Aegon the Unlikely, Egg, Aegon V
 	dynasty = dynn_Targaryen
 	dna = Targaryen_122
@@ -6345,7 +6345,7 @@ Targaryen_122 = {
 	8206.8.1 = { trait = stubborn }
 	8208.8.1 = { trait = compassionate }
 	8209.1.1 = {
-		employer = Ashford_24 # Alyn Ashford
+	#	employer = Ashford_24 Alyn Ashford
 		effect = {
 			agot_set_as_ward_and_squire_history_effect = { KNIGHT = character:Targaryen_118 } # Daeron Targaryen
 		}
@@ -13265,7 +13265,7 @@ Sonaryen_3 = {
 ############################
 ###
 ###
-Tall_1 = {
+Tall_1 = { # Edited 7/05 slambroski
 	name = Duncan # Canon, AKA: Duncan the Tall, Lord Commander of the Kingsguard
 
 	dna = Tall_1
@@ -13320,7 +13320,15 @@ Tall_1 = {
 			agot_knighted_char_history_effect = { KNIGHT = character:Pennytree_2 } # Arlan of Pennytree
 		}
 	}
-	8209.2.1 = { employer = Targaryen_110 } # Maekar Targaryen
+	8209.2.1 = { 
+		employer = Targaryen_110 # Maekar Targaryen
+		effect = {
+			agot_appoint_as_councillor_for_castle_history_effect = {
+				CASTLE = title:c_summerfield
+				POSITION = councillor_marshal
+			}
+		}
+	} 
 	#8209.3.1 = { employer = Vaith_45 } # Casella Vaith
 	#8209.9.1 = { employer = Martell_80 } # Maron Martell, Plankytown
 	#8210.6.1 = { employer = Hightower_121 } # Jon Hightower, Oldtown
