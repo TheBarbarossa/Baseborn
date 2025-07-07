@@ -520,6 +520,182 @@ agot_plankytown_01 = {
 	flag = travel_point_of_interest_economic
 }
 
+# Sandstone
+agot_sandstone_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_tumbleton.dds"
+
+	can_construct = {
+		always = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "mapitems_dragon_skeletons_mesh"
+	}
+
+	character_modifier = {
+		dread_baseline_add = 10
+	}
+
+	province_modifier = {
+		hostile_raid_time = 0.2
+		fort_level = 4
+		stationed_anti_dragon_siege_value_mult = normal_maa_siege_value_tier_8
+	}
+
+	county_modifier = {
+		travel_danger = 10
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_martial
+}
+
+# Broken Tower
+agot_broken_tower_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_building_outposts.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "building_special_the_childrens_tower_mesh"
+	}
+
+	cost_gold = expensive_building_tier_1_cost
+
+	county_holder_character_modifier = {
+		diplomatic_range_mult = -0.1
+		defender_holding_advantage = 4
+	}
+
+	province_modifier = {
+		fort_level = 4
+		hostile_raid_time = 0.1
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_religious
+}
+
+# Merling Port
+agot_merling_port_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_building_tradeport.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "port_2_mesh"
+	}
+
+	cost_gold = expensive_building_tier_1_cost
+
+	county_holder_character_modifier = {
+		fg_pan_merling_opinion = 10
+		embarkation_cost_mult = -0.1
+		no_disembark_penalty = yes
+	}
+
+	province_modifier = {
+		monthly_income = good_building_tax_tier_8
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_economic
+}
+
+# Pit of Snakes
+agot_pit_of_snakes_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_building_snake.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "fp4_burial_mass_01_a_mesh"
+	}
+
+	cost_gold = expensive_building_tier_1_cost
+
+	county_holder_character_modifier = {
+		health = miniscule_health_bonus
+		learning_per_piety_level = 1
+		fots_blessed_opinion = 10
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_religious
+}
+agot_pit_of_snakes_02 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_building_snake.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "fp4_burial_mass_01_a_mesh"
+	}
+
+	cost_gold = expensive_building_tier_1_cost
+
+	county_holder_character_modifier = {
+		prisoner_opinion = -10
+		intrigue_per_piety_level = 1
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_intrigue
+}
+
 ##########
 # Riverlands
 ##########
@@ -891,6 +1067,135 @@ agot_stoney_sept_01 = {
 	flag = travel_point_of_interest_economic
 }
 
+# Wayfarer's Rest
+agot_wayfarers_rest_01 = {
+	construction_time = slow_construction_time
+
+	type_icon = "icon_building_legendary_statue.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = expensive_building_tier_1_cost
+
+	character_modifier = {
+		men_at_arms_cap = 2
+		men_at_arms_limit = 2
+		men_at_arms_maintenance = -0.25
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_martial
+}
+
+# Fairmarket
+agot_fairmarket_01 = {
+	construction_time = slow_construction_time
+
+	type_icon = "icon_building_market_villages.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = expensive_building_tier_1_cost
+
+	province_modifier = {
+		monthly_income = good_building_tax_tier_10
+	}
+
+	county_modifier = {
+		development_growth_factor = 0.1
+	}
+
+	county_holder_character_modifier = {
+		legitimacy_gain_mult = 0.1
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_economic
+}
+
+# Mudgrave
+agot_mudgrave_01 = {
+	construction_time = slow_construction_time
+
+	type_icon = "icon_building_graveyard.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "fp4_burial_mass_01_a_mesh"
+	}
+
+	cost_gold = expensive_building_tier_1_cost
+
+	county_holder_character_modifier = {
+		owned_legend_spread_mult = 0.1
+		the_seven_religion_opinion = 10
+		martial_per_piety_level = 1
+		monthly_martial_lifestyle_xp_gain_mult = 0.1
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_martial
+}
+
+# Atranta
+agot_atranta_01 = {
+	construction_time = slow_construction_time
+
+	type_icon = "icon_building_curtain_walls.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = expensive_building_tier_1_cost
+
+	county_holder_character_modifier = {
+		the_seven_religion_opinion = 10
+		martial_per_piety_level = 1
+		monthly_martial_lifestyle_xp_gain_mult = 0.1
+	}
+
+	province_modifier = {
+		fort_level = 4
+		defender_holding_advantage = 4
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_martial
+}
+
 ##########
 # Westerlands
 ##########
@@ -1166,6 +1471,242 @@ agot_lions_dock_01 = {
 	province_modifier = {
 		levy_size = 1
 		monthly_income = excellent_building_tax_tier_8
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_economic
+}
+
+# Boar Fields of Crake
+agot_crakehall_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_building_boar.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = expensive_building_tier_1_cost
+
+	character_modifier = {
+		lifestyle_hunter_xp_gain_mult = 0.2
+		stress_gain_mult = -0.15
+		stress_loss_mult = 0.15
+	}
+
+	county_modifier = {
+		tax_mult = 0.1
+	}
+
+	province_modifier = {
+		stationed_heavy_cavalry_damage_mult = high_maa_damage_tier_4
+		stationed_heavy_cavalry_toughness_mult = high_maa_toughness_tier_4
+		stationed_heavy_cavalry_pursuit_mult = high_maa_pursuit_tier_4
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_martial
+}
+
+# Midge's Inn
+agot_midges_inn_01 = {
+	construction_time = slow_construction_time
+
+	type_icon = "icon_inn.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "inn_01_mesh"
+	}
+
+	character_modifier = {
+		stewardship_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		diplomatic_range_mult = 0.2
+	}
+
+	county_modifier = {
+		development_growth_factor = 0.1
+		travel_danger = -10
+	}
+
+	cost_gold = 100
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_diplomatic
+}
+
+# Deep Den
+agot_deep_den_01 = {
+	construction_time = slow_construction_time
+
+	type_icon = "icon_building_badger.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	province_modifier = {
+		fort_level = 4
+		defender_holding_advantage = 4
+	}
+
+	county_modifier = {
+		development_growth_factor = 0.1
+		travel_danger = -10
+	}
+
+	cost_gold = expensive_building_tier_1_cost
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_martial
+}
+
+# Cornfield
+agot_cornfield_01 = {
+	construction_time = slow_construction_time
+
+	type_icon = "icon_building_farm_estates.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	character_modifier = {
+		county_opinion_add = 15
+	}
+	county_modifier = {
+		monthly_county_control_growth_factor = 0.3
+		development_growth_factor = 0.1
+	}
+	province_modifier = {
+		monthly_income = excellent_building_tax_tier_6
+	}
+
+	cost_gold = expensive_building_tier_1_cost
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_economic
+}
+
+# Fair Isle
+agot_fair_isle_01 = {
+	construction_time = slow_construction_time
+
+	type_icon = "fleet.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "port_3_mesh"
+	}
+
+	cost_gold = expensive_building_tier_1_cost
+
+	character_modifier = {
+		embarkation_cost_mult = -0.15
+		diplomatic_range_mult = 0.15
+	}
+
+	county_modifier = {
+		tax_mult = 0.15
+		development_growth_factor = 0.15
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_economic
+}
+
+# Hornvale
+agot_hornvale_01 = {
+	construction_time = very_slow_construction_time
+
+	can_construct_potential = {
+		barony = title:b_hornvale
+	}
+
+	type_icon = "ep3_cilician gates.dds"
+
+	cost_gold = expensive_building_tier_1_cost
+
+	duchy_capital_county_modifier = {
+		development_growth_factor = 0.2
+		supply_limit = 10000
+	}
+
+	character_modifier = {
+		monthly_income_mult = 0.15
+	}
+
+	type = duchy_capital
+
+	flag = travel_point_of_interest_economic
+}
+
+# Feastfires
+agot_feastfires_01 = {
+	construction_time = slow_construction_time
+
+	type_icon = "icon_building_wind_furnaces.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = expensive_building_tier_1_cost
+
+	province_modifier = {
+		hostile_raid_time = 0.1
+		defender_holding_advantage = 4
+	}
+
+	county_modifier = {
+		tax_mult = 0.15
+		monthly_county_control_growth_factor = 0.1
 	}
 
 	ai_value = {
@@ -2410,6 +2951,44 @@ agot_greywater_watch_01 = {
 	flag = travel_point_of_interest_martial
 }
 
+
+#Rills Stables
+agot_rills_stables_01 = {
+
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_building_hillside_grazing.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = expensive_building_tier_1_cost
+
+	province_modifier = {
+		stationed_light_cavalry_pursuit_mult = high_maa_pursuit_tier_4
+		stationed_heavy_cavalry_pursuit_mult = high_maa_pursuit_tier_4
+		stationed_light_cavalry_toughness_mult = high_maa_toughness_tier_4
+		stationed_heavy_cavalry_toughness_mult = high_maa_toughness_tier_4
+	}
+
+	character_modifier = {
+		light_cavalry_maintenance_mult = -0.1
+		heavy_cavalry_maintenance_mult = -0.1
+		light_cavalry_max_size_add = 2
+		heavy_cavalry_max_size_add = 2
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_martial
+}
+
 ##########
 # The Reach
 ##########
@@ -2864,6 +3443,43 @@ agot_brightwater_moat_01 = {
 	flag = travel_point_of_interest_martial
 }
 
+# Mermaids Palace
+agot_mermaids_palace_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_building_merling.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "port_3_mesh"
+	}
+
+	cost_gold = expensive_building_tier_1_cost
+
+	character_modifier = {
+		embarkation_cost_mult = -0.1
+		no_disembark_penalty = yes
+		spouse_opinion = 10
+	}
+
+	province_modifier = {
+		monthly_income = good_building_tax_tier_10
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_economic
+}
+
 ##########
 # The Vale
 ##########
@@ -3229,6 +3845,39 @@ agot_ruthermont_01 = {
 	flag = travel_point_of_interest_economic
 }
 
+# Upcliff's Haven
+agot_upcliffs_haven_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_building_merling.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = expensive_building_tier_1_cost
+
+	province_modifier = {
+		fort_level = 2
+		hostile_raid_time = 0.1
+	}
+
+	character_modifier = {
+		learning_per_piety_level = 1
+		fg_pan_merling_opinion = 20
+		court_grandeur_baseline_add = 2
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_learning
+}
+
 ##########
 # Iron Islands
 ##########
@@ -3591,6 +4240,41 @@ agot_duskendale_01 = {
 	flag = travel_point_of_interest_martial
 }
 
+# Rook's Rest
+agot_rooks_rest_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_tumbleton.dds"
+
+	can_construct = {
+		always = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "mapitems_dragon_skeletons_mesh"
+	}
+
+	province_modifier = {
+		hostile_raid_time = 0.2
+		fort_level = 4
+		stationed_anti_dragon_siege_value_mult = normal_maa_siege_value_tier_8
+	}
+
+	county_modifier = {
+		travel_danger = 10
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_martial
+}
+
 #High Tide
 agot_hightide_01 = {
 
@@ -3718,6 +4402,39 @@ agot_ruins_hightide_02 = {
 
 	flag = travel_point_of_interest_economic
 }
+
+# Driftmark
+agot_driftmark_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_building_merling.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = expensive_building_tier_1_cost
+
+	character_modifier = {
+		fg_pan_merling_opinion = 10
+		embarkation_cost_mult = -0.1
+		no_disembark_penalty = yes
+	}
+
+	province_modifier = {
+		monthly_income = good_building_tax_tier_8
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_economic
+}
+
 
 ##########
 # Beyond-the-Wall
