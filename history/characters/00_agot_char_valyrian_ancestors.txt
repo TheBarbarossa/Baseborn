@@ -5909,33 +5909,44 @@ Targaryen_111 = {
 		death = { death_reason = death_spring_sickness } # Great Spring Sickness
 	}
 }
-Targaryen_112 = {
+Targaryen_112 = { # Edied 7/07 slambroski
 	name = Matarys # Canon
 	dynasty = dynn_Targaryen
 	dna = Targaryen_112
 
 	martial = 6
+	diplomacy = 6
 	prowess = 6
 
 	religion = the_seven_main
 	culture = high_valyrian
+	sexuality = homosexual
 
 	father = Targaryen_107
 	mother = Dondarrion_39
+
+	trait = charming
+
+	disallow_random_traits = yes
 
 	8194.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_canon
 		add_character_flag = has_scripted_appearance
+		add_character_flag = sexuality_ensure_homosexuality
 	}
 	8206.1.1 = {
 		employer = Targaryen_91 # Daeron II Targaryen
 		give_nickname = nick_the_even_younger_prince
+		trait = humble
+		trait = deceitful
+		trait = compassionate
 		effect = {
 			agot_set_as_ward_and_squire_history_effect = { KNIGHT = character:Crakehall_50 } # Roland Crakehall
 		}
 	}
 	8209.9.1 = {
+		trait = patient
 		trait = squire
 		trait = spring_sickness
 		death = { death_reason = death_spring_sickness } # Great Spring Sickness
