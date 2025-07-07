@@ -1421,8 +1421,8 @@ activity_cost_scale_by_era = {
 			if = {
 				limit = {
 					#AGOT modified
-					#has_cultural_era_or_later = culture_era_late_medieval
-					years_from_game_start > 450
+					has_cultural_era_or_later = culture_era_late_medieval
+					# years_from_game_start > 450
 				}
 				#AGOT modified, lower income
 				#add = 3
@@ -1431,27 +1431,27 @@ activity_cost_scale_by_era = {
 			else_if = {
 				limit = {
 					#AGOT modified
-					#has_cultural_era_or_later = culture_era_high_medieval
-					years_from_game_start > 300
+					has_cultural_era_or_later = culture_era_high_medieval
+					# years_from_game_start > 300
 				}
 				#AGOT modified, lower income
 				#add = 1.5
-				add = 1
+				add = 1.5
 			}
 			else_if = {
 				limit = {
 					#AGOT modified
-					#has_cultural_era_or_later = culture_era_early_medieval
-					years_from_game_start > 150
+					has_cultural_era_or_later = culture_era_early_medieval
+					# years_from_game_start > 150
 				}
 				#AGOT modified, lower income
 				#add = 1
-				add = 0.75
+				add = 1.5
 			}
 			else = {
 				#AGOT modified, lower income
 				#add = 0.75
-				add = 0.5
+				add = 1.5
 			}
 		}
 	}
