@@ -43,8 +43,8 @@ glowing = {
 	physical = yes
 	good = yes
 
-	birth = 0.5
-	random_creation = 0.5
+	birth = 1
+	random_creation = 1
 
 	ruler_designer_cost = 20
 
@@ -70,11 +70,12 @@ surefooted = {
 	attraction_opinion = 5
 	flag = lower_chance_of_dying_in_combat
 
-	birth = 0.5
-	random_creation = 0.5
-	inherit_chance = 0.5
-
+	genetic = yes
 	physical = yes
+
+	birth = 1
+	random_creation = 1
+	inherit_chance = 0.5
 
 	ruler_designer_cost = 20
 
@@ -97,10 +98,11 @@ regal_bearing = {
 		hunchbacked
 	}
 
+	genetic = yes
 	physical = yes
 
-	birth = 0.5
-	random_creation = 0.5
+	birth = 1
+	random_creation = 1
 	inherit_chance = 0.5
 
 	vassal_opinion = 5
@@ -160,11 +162,12 @@ hardy_lung = {
 		wheezing
 	}
 
+	genetic = yes
 	physical = yes
 
-	birth = 0.5
-	random_creation = 0.5
-	inherit_chance = 0.5
+	birth = 1
+	random_creation = 1
+	inherit_chance = 1
 
 	negate_health_penalty_add = 0.25
 	dread_baseline_add = 5
@@ -195,11 +198,12 @@ hawkeyed = {
 	intrigue = 2
 	enemy_hostile_scheme_phase_duration_add = 5
 
+	genetic = yes
 	physical = yes
 
-	birth = 0.25
-	random_creation = 0.25
-	inherit_chance = 0.25
+	birth = 1
+	random_creation = 1
+	inherit_chance = 0.5
 
 	ruler_designer_cost = 40
 
@@ -228,11 +232,12 @@ nearsighted = {
 	learning = 2
 	enemy_hostile_scheme_phase_duration_add = -5
 
+	genetic = yes
 	physical = yes
 
-	birth = 10
-	random_creation = 10
-	inherit_chance = 10
+	birth = 0.5
+	random_creation = 0.5
+	inherit_chance = 0.5
 
 	ruler_designer_cost = 5
 
@@ -259,10 +264,11 @@ keen-eared = {
 	intrigue = 2
 	enemy_hostile_scheme_phase_duration_add = 10
 
+	genetic = yes
 	physical = yes
 
-	birth = 0.25
-	random_creation = 0.25
+	birth = 1
+	random_creation = 1
 	inherit_chance = 0.25
 
 	ruler_designer_cost = 40
@@ -323,8 +329,8 @@ dyslexic = {
 
 	genetic = yes
 
-	birth = 2
-	random_creation = 2
+	birth = 1
+	random_creation = 1
 
 	ruler_designer_cost = -10
 
@@ -382,8 +388,8 @@ dyscalculic = {
 	genetic = yes
 	enables_inbred = yes
 
-	birth = 2
-	random_creation = 2
+	birth = 1.5
+	random_creation = 1.5
 
 	ruler_designer_cost = -10
 
@@ -404,6 +410,8 @@ hypercalculic = {
 	opposites = {
 		dyscalculic
 	}
+
+	genetic = yes
 
 	stewardship = 3
 	learning = 1
@@ -438,9 +446,9 @@ permanent_scowl = {
 
 	physical = yes
 
-	birth = 3
-	random_creation = 3
-	inherit_chance = 3
+	birth = 2
+	random_creation = 2
+	inherit_chance = 2
 
 	ruler_designer_cost = 10
 
@@ -467,9 +475,9 @@ friendly_face = {
 
 	physical = yes
 
-	birth = 3
-	random_creation = 3
-	inherit_chance = 3
+	birth = 2
+	random_creation = 2
+	inherit_chance = 2
 
 	ruler_designer_cost = 10
 
@@ -499,9 +507,11 @@ memory_good = {
 
 	stress_loss_mult = -0.25
 
-	birth = 0.5
-	random_creation = 0.5
-	inherit_chance = 0.5
+	genetic = yes
+
+	birth = 1
+	random_creation = 1
+	inherit_chance = 1
 
 	ruler_designer_cost = 50
 
@@ -530,10 +540,11 @@ memory_bad = {
 	learning = -1
 
 	stress_loss_mult = 0.25
+	genetic = yes
 
-	birth = 2.5
-	random_creation = 2.5
-	inherit_chance = 2.5
+	birth = 1.5
+	random_creation = 1.5
+	inherit_chance = 1.5
 
 	ruler_designer_cost = -10
 
@@ -562,8 +573,8 @@ agile = {
 	genetic = yes
 	physical = yes
 
-	birth = 2
-	random_creation = 2
+	birth = 1
+	random_creation = 1
 
 	ruler_designer_cost = 15
 
@@ -593,8 +604,8 @@ clumsy = {
 	genetic = yes
 	physical = yes
 
-	birth = 5
-	random_creation = 5
+	birth = 0.5
+	random_creation = 0.5
 
 	ruler_designer_cost = -5
 
@@ -652,9 +663,9 @@ ambidextrous = {
 
 	physical = yes
 
-	birth = 1
-	random_creation = 1
-	inherit_chance = 1
+	birth = 2
+	random_creation = 2
+	inherit_chance = 2
 
 	ruler_designer_cost = 40
 
@@ -671,64 +682,64 @@ ambidextrous = {
 	}
 }
 
-creative = {
-	opposites = {
-		traditionalist
-	}
+#creative = {
+#	opposites = {
+#		traditionalist
+#	}
+#
+#	diplomacy = -1
+#	monthly_lifestyle_xp_gain_mult = 0.1
+#	vassal_opinion = -20
+#	same_opinion = 10
+#	opposite_opinion = -10
+#
+#	birth = 0.5
+#	random_creation = 0.5
+#	inherit_chance = 0.5
+#
+#	ruler_designer_cost = 30
+#
+#	desc = {
+#		first_valid = {
+#			triggered_desc = {
+#				trigger = {
+#					NOT = { exists = this }
+#				}
+#				desc = trait_creative_desc
+#			}
+#			desc = trait_creative_character_desc
+#		}
+#	}
+#}
 
-	diplomacy = -1
-	monthly_lifestyle_xp_gain_mult = 0.1
-	vassal_opinion = -20
-	same_opinion = 10
-	opposite_opinion = -10
-
-	birth = 0.5
-	random_creation = 0.5
-	inherit_chance = 0.5
-
-	ruler_designer_cost = 30
-
-	desc = {
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					NOT = { exists = this }
-				}
-				desc = trait_creative_desc
-			}
-			desc = trait_creative_character_desc
-		}
-	}
-}
-
-traditionalist = {
-	opposites = {
-		creative
-	}
-
-	monthly_county_control_growth_add = 0.1
-	cultural_head_fascination_mult = -0.05
-	vassal_opinion = 10
-	opposite_opinion = -40
-
-	birth = 0.5
-	random_creation = 0.5
-	inherit_chance = 0.5
-
-	ruler_designer_cost = 30
-
-	desc = {
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					NOT = { exists = this }
-				}
-				desc = trait_traditionalist_desc
-			}
-			desc = trait_traditionalist_character_desc
-		}
-	}
-}
+#traditionalist = {
+#	opposites = {
+#		creative
+#	}
+#
+#	monthly_county_control_growth_add = 0.1
+#	cultural_head_fascination_mult = -0.05
+#	vassal_opinion = 10
+#	opposite_opinion = -40
+#
+#	birth = 0.5
+#	random_creation = 0.5
+#	inherit_chance = 0.5
+#
+#	ruler_designer_cost = 30
+#
+#	desc = {
+#		first_valid = {
+#			triggered_desc = {
+#				trigger = {
+#					NOT = { exists = this }
+#				}
+#				desc = trait_traditionalist_desc
+#			}
+#			desc = trait_traditionalist_character_desc
+#		}
+#	}
+#}
 
 colorblind = {
 	opposites = {
@@ -813,6 +824,11 @@ insomniac = {
 	attraction_opinion = -5
 	same_opinion = 10
 	hostile_scheme_resistance_mult = 15
+	
+	genetic = yes
+
+	birth = 0.5
+	random_creation = 0.5
 
 	ruler_designer_cost = 30
 
@@ -842,6 +858,12 @@ narcoleptic = {
 	parochial_opinion = -10
 	courtly_opinion = -20
 	hostile_scheme_resistance_mult = -15
+
+	genetic = yes
+
+	birth = 0.5
+	random_creation = 0.5
+
 
 	ruler_designer_cost = -5
 
