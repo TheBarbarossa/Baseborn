@@ -512,6 +512,20 @@ household_guard_court_position = {
 					format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE"
 				}
 			}
+			if = {
+				limit = {
+					scope:liege = {
+						has_perk = praetorian_guard_perk
+
+						employs_court_position = household_guard_court_position
+					}
+				}
+				multiply = {
+					value = 0.5
+					desc = distinguished_gard_salary_mod
+					format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE"
+				}
+			}
 		}
 	}
 
