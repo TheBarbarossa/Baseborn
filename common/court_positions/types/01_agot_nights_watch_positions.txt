@@ -1,0 +1,3302 @@
+﻿## Night's Watch Generic Positions ##
+
+nw_septon = {
+	max_available_positions = 1
+	category = court_position_category_special
+	opinion = {
+		value = regular_court_position_opinion
+	}
+	aptitude_level_breakpoints = {
+		20
+		40
+		60
+		80
+	}
+	aptitude = {
+		value = 25
+		add = {
+			value = learning
+			multiply = 2.5
+			max = 50
+			desc = court_position_skill_learning
+		}
+		if = {
+			limit = {
+				has_trait = zealous
+			}
+			add = {
+				value = 20
+				desc = court_position_zealous_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = compassionate
+			}
+			add = {
+				value = 20
+				desc = court_position_compassionate_trait
+			}
+		}
+	}
+	is_shown = {
+		government_has_flag = government_is_nw
+	}
+	valid_position = {
+		government_has_flag = government_is_nw
+	}
+	valid_character = {
+		scope:employee = {
+			is_male = yes
+			is_adult = yes
+			has_trait = nightswatch
+			has_trait = septon
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+		}
+	}
+	revoke_cost = {
+		prestige = {
+			value = 200
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		round = no
+		gold = 0
+	}
+	scaling_employer_modifiers = {
+		terrible = {
+			monthly_piety_gain_mult = 0.05
+		}
+		poor = {
+			monthly_piety_gain_mult = 0.1
+		}
+		average = {
+			monthly_piety_gain_mult = 0.15
+		}
+		good = {
+			monthly_piety_gain_mult = 0.15
+		}
+		excellent = {
+			monthly_piety_gain_mult = 0.2
+		}
+	}
+	modifier = {
+		monthly_prestige = minor_court_position_prestige_salary
+	}
+	on_court_position_received = {
+		basic_gained_court_position_effect = yes
+	}
+	on_court_position_revoked = {
+		basic_revoked_court_position_effect = yes
+	}
+	on_court_position_invalidated = {
+		basic_invalidated_court_position_effect = yes
+	}
+	candidate_score = {
+		value = 50
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		add = court_position_candidate_aptitude_value
+		scope:liege = {
+			# Zealous AI's like this
+			if = {
+				limit = {
+					ai_zeal > 75
+				}
+				add = 50
+			}
+		}
+	}
+}
+
+### Castle Keeper Positions ###
+b_the_shadow_tower_keeper = {
+	max_available_positions = 1
+	category = court_position_category_special
+	opinion = {
+		value = regular_court_position_opinion
+	}
+	aptitude_level_breakpoints = {
+		20
+		40
+		60
+		80
+	}
+	aptitude = {
+		value = 25
+		add = {
+			value = stewardship
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_stewardship
+		}
+		add = {
+			value = martial
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_martial
+		}
+		if = {
+			limit = {
+				has_trait = administrator
+			}
+			add = {
+				value = 20
+				desc = court_position_administrator_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = overseer
+			}
+			add = {
+				value = 20
+				desc = court_position_overseer_trait
+			}
+		}
+	}
+	is_shown = {
+		government_has_flag = government_is_nw
+		OR = {
+			any_vassal = {
+				has_title = title:c_the_shadow_tower
+			}
+			has_title = title:c_the_shadow_tower
+		}
+		NOT = { primary_title = title:c_the_shadow_tower }
+	}
+	valid_position = {
+		government_has_flag = government_is_nw
+	}
+	valid_character = {
+		scope:employee = {
+			OR = {
+				is_landed = no
+				has_title = title:c_the_shadow_tower
+			}
+			is_male = yes
+			is_adult = yes
+			has_trait = nightswatch
+			NOR = {
+				has_trait = maester
+				# has_trait = archmaester
+				has_trait = septon
+			}
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+		}
+	}
+	revoke_cost = {
+		prestige = {
+			value = 200
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		round = no
+		gold = medium_court_position_salary
+	}
+	scaling_employer_modifiers = {
+		terrible = {
+			monthly_county_control_growth_add = 0.1
+		}
+		poor = {
+			monthly_county_control_growth_add = 0.2
+		}
+		average = {
+			monthly_county_control_growth_add = 0.3
+		}
+		good = {
+			monthly_county_control_growth_add = 0.4
+		}
+		excellent = {
+			monthly_county_control_growth_add = 0.5
+		}
+	}
+	modifier = {
+		monthly_prestige = minor_court_position_prestige_salary
+	}
+	on_court_position_received = {
+		scope:liege = {
+			save_scope_as = employer_saved
+		}
+		scope:employee = {
+			save_scope_as = employee_saved
+		}
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		title:c_the_shadow_tower = {
+			change_title_holder_include_vassals = {
+				holder = scope:employee_saved
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		scope:employee = {
+			change_government = nights_watch_government
+		}
+	}
+	on_court_position_revoked = {
+		seneschal_title_revoked_effect = yes
+		agot_on_shadowtower_court_position_revoked = yes
+	}
+	on_court_position_invalidated = {
+		seneschal_title_revoked_effect = yes
+		agot_on_shadowtower_court_position_revoked = yes
+	}
+	candidate_score = {
+		value = 250
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		if = {
+			limit = {
+				NOT = {
+					exists = scope:firing_court_position
+				}
+				scope:employee = {
+					has_any_court_position = yes
+				}
+			}
+			add = 150
+		}
+		if = {
+			limit = {
+				scope:employee = {
+					has_title = title:c_the_shadow_tower
+				}
+			}
+			add = 2000			#to stop AI from revoking alot
+		}
+		if = {
+			limit = {
+				scope:liege = {
+					has_relation_rival = scope:employee
+				}
+			}
+			add = 500			# rival isn't that big of a deal
+		}
+	}
+}
+
+b_eastwatch_by_the_sea_keeper = {
+	max_available_positions = 1
+	category = court_position_category_special
+	opinion = {
+		value = regular_court_position_opinion
+	}
+	aptitude_level_breakpoints = {
+		20
+		40
+		60
+		80
+	}
+	aptitude = {
+		value = 25
+		add = {
+			value = stewardship
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_stewardship
+		}
+		add = {
+			value = martial
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_martial
+		}
+		if = {
+			limit = {
+				has_trait = administrator
+			}
+			add = {
+				value = 20
+				desc = court_position_administrator_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = overseer
+			}
+			add = {
+				value = 20
+				desc = court_position_overseer_trait
+			}
+		}
+	}
+	is_shown = {
+		government_has_flag = government_is_nw
+		OR = {
+			any_vassal = {
+				has_title = title:c_eastwatch
+			}
+			has_title = title:c_eastwatch
+		}
+		NOT = { primary_title = title:c_eastwatch }
+	}
+	valid_position = {
+		government_has_flag = government_is_nw
+	}
+	valid_character = {
+		scope:employee = {
+			OR = {
+				is_landed = no
+				has_title = title:c_eastwatch
+			}
+			is_male = yes
+			is_adult = yes
+			has_trait = nightswatch
+			NOR = {
+				has_trait = maester
+				# has_trait = archmaester
+				has_trait = septon
+			}
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+		}
+	}
+	revoke_cost = {
+		prestige = {
+			value = 200
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		round = no
+		gold = medium_court_position_salary
+	}
+	scaling_employer_modifiers = {
+		terrible = {
+			monthly_county_control_growth_add = 0.1
+		}
+		poor = {
+			monthly_county_control_growth_add = 0.2
+		}
+		average = {
+			monthly_county_control_growth_add = 0.3
+		}
+		good = {
+			monthly_county_control_growth_add = 0.4
+		}
+		excellent = {
+			monthly_county_control_growth_add = 0.5
+		}
+	}
+	modifier = {
+		monthly_prestige = minor_court_position_prestige_salary
+	}
+	on_court_position_received = {
+		scope:liege = {
+			save_scope_as = employer_saved
+		}
+		scope:employee = {
+			save_scope_as = employee_saved
+		}
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		title:c_eastwatch = {
+			change_title_holder_include_vassals = {
+				holder = scope:employee_saved
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		scope:employee = {
+			change_government = nights_watch_government
+		}
+	}
+	on_court_position_revoked = {
+		seneschal_title_revoked_effect = yes
+		agot_on_eastwatch_court_position_revoked = yes
+	}
+	on_court_position_invalidated = {
+		seneschal_title_revoked_effect = yes
+		agot_on_eastwatch_court_position_revoked = yes
+	}
+	candidate_score = {
+		value = 250
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		if = {
+			limit = {
+				NOT = {
+					exists = scope:firing_court_position
+				}
+				scope:employee = {
+					has_any_court_position = yes
+				}
+			}
+			add = 150
+		}
+		if = {
+			limit = {
+				scope:employee = {
+					has_title = title:c_eastwatch
+				}
+			}
+			add = 2000			#to stop AI from revoking alot
+		}
+		if = {
+			limit = {
+				scope:liege = {
+					has_relation_rival = scope:employee
+				}
+			}
+			add = 500			# rival isn't that big of a deal
+		}
+	}
+}
+
+b_the_nightfort_keeper = {
+	max_available_positions = 1
+	category = court_position_category_special
+	opinion = {
+		value = regular_court_position_opinion
+	}
+	aptitude_level_breakpoints = {
+		20
+		40
+		60
+		80
+	}
+	aptitude = {
+		value = 25
+		add = {
+			value = stewardship
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_stewardship
+		}
+		add = {
+			value = martial
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_martial
+		}
+		if = {
+			limit = {
+				has_trait = administrator
+			}
+			add = {
+				value = 20
+				desc = court_position_administrator_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = overseer
+			}
+			add = {
+				value = 20
+				desc = court_position_overseer_trait
+			}
+		}
+	}
+	is_shown = {
+		government_has_flag = government_is_nw
+		# has_character_flag = rebuilt_the_nightfort
+		OR = {
+			any_vassal = {
+				has_title = title:b_the_nightfort
+			}
+			has_title = title:b_the_nightfort
+		}
+		has_title = title:c_castle_black
+	}
+	valid_position = {
+		government_has_flag = government_is_nw
+	}
+	valid_character = {
+		scope:employee = {
+			OR = {
+				is_landed = no
+				has_title = title:b_the_nightfort
+			}
+			is_male = yes
+			is_adult = yes
+			has_trait = nightswatch
+			NOR = {
+				has_trait = maester
+				# has_trait = archmaester
+				has_trait = septon
+			}
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+		}
+	}
+	revoke_cost = {
+		prestige = {
+			value = 200
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		round = no
+		gold = medium_court_position_salary
+	}
+	scaling_employer_modifiers = {
+		terrible = {
+			monthly_county_control_growth_add = 0.1
+		}
+		poor = {
+			monthly_county_control_growth_add = 0.2
+		}
+		average = {
+			monthly_county_control_growth_add = 0.3
+		}
+		good = {
+			monthly_county_control_growth_add = 0.4
+		}
+		excellent = {
+			monthly_county_control_growth_add = 0.5
+		}
+	}
+	modifier = {
+		monthly_prestige = minor_court_position_prestige_salary
+	}
+	on_court_position_received = {
+		scope:liege = {
+			save_scope_as = employer_saved
+		}
+		scope:employee = {
+			save_scope_as = employee_saved
+		}
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		title:b_the_nightfort = {
+			change_title_holder_include_vassals = {
+				holder = scope:employee_saved
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		scope:employee = {
+			change_government = nights_watch_government
+		}
+	}
+	on_court_position_revoked = {
+		seneschal_title_revoked_effect = yes
+		agot_on_nightfort_court_position_revoked = yes
+	}
+	on_court_position_invalidated = {
+		seneschal_title_revoked_effect = yes
+		agot_on_nightfort_court_position_revoked = yes
+	}
+	candidate_score = {
+		value = 250
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		if = {
+			limit = {
+				NOT = {
+					exists = scope:firing_court_position
+				}
+				scope:employee = {
+					has_any_court_position = yes
+				}
+			}
+			add = 150
+		}
+		if = {
+			limit = {
+				scope:employee = {
+					has_title = title:b_the_nightfort
+				}
+			}
+			add = 2000			#to stop AI from revoking alot
+		}
+		if = {
+			limit = {
+				scope:liege = {
+					has_relation_rival = scope:employee
+				}
+			}
+			add = 500			# rival isn't that big of a deal
+		}
+	}
+}
+
+b_icemark_keeper = {
+	max_available_positions = 1
+	category = court_position_category_special
+	opinion = {
+		value = regular_court_position_opinion
+	}
+	aptitude_level_breakpoints = {
+		20
+		40
+		60
+		80
+	}
+	aptitude = {
+		value = 25
+		add = {
+			value = stewardship
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_stewardship
+		}
+		add = {
+			value = martial
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_martial
+		}
+		if = {
+			limit = {
+				has_trait = administrator
+			}
+			add = {
+				value = 20
+				desc = court_position_administrator_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = overseer
+			}
+			add = {
+				value = 20
+				desc = court_position_overseer_trait
+			}
+		}
+	}
+	is_shown = {
+		government_has_flag = government_is_nw
+		# has_character_flag = rebuilt_icemark
+		OR = {
+			any_vassal = {
+				has_title = title:b_icemark
+			}
+			has_title = title:b_icemark
+		}
+		has_title = title:c_castle_black
+	}
+	valid_position = {
+		government_has_flag = government_is_nw
+	}
+	valid_character = {
+		scope:employee = {
+			OR = {
+				is_landed = no
+				has_title = title:b_icemark
+			}
+			is_male = yes
+			is_adult = yes
+			has_trait = nightswatch
+			NOR = {
+				has_trait = maester
+				# has_trait = archmaester
+				has_trait = septon
+			}
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+		}
+	}
+	revoke_cost = {
+		prestige = {
+			value = 200
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		round = no
+		gold = medium_court_position_salary
+	}
+	scaling_employer_modifiers = {
+		terrible = {
+			monthly_county_control_growth_add = 0.1
+		}
+		poor = {
+			monthly_county_control_growth_add = 0.2
+		}
+		average = {
+			monthly_county_control_growth_add = 0.3
+		}
+		good = {
+			monthly_county_control_growth_add = 0.4
+		}
+		excellent = {
+			monthly_county_control_growth_add = 0.5
+		}
+	}
+	modifier = {
+		monthly_prestige = minor_court_position_prestige_salary
+	}
+	on_court_position_received = {
+		scope:liege = {
+			save_scope_as = employer_saved
+		}
+		scope:employee = {
+			save_scope_as = employee_saved
+		}
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		title:b_icemark = {
+			change_title_holder_include_vassals = {
+				holder = scope:employee_saved
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		scope:employee = {
+			change_government = nights_watch_government
+		}
+	}
+	on_court_position_revoked = {
+		seneschal_title_revoked_effect = yes
+		agot_on_icemark_court_position_revoked = yes
+	}
+	on_court_position_invalidated = {
+		seneschal_title_revoked_effect = yes
+		agot_on_icemark_court_position_revoked = yes
+	}
+	candidate_score = {
+		value = 250
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		if = {
+			limit = {
+				NOT = {
+					exists = scope:firing_court_position
+				}
+				scope:employee = {
+					has_any_court_position = yes
+				}
+			}
+			add = 150
+		}
+		if = {
+			limit = {
+				scope:employee = {
+					has_title = title:b_icemark
+				}
+			}
+			add = 2000			#to stop AI from revoking alot
+		}
+		if = {
+			limit = {
+				scope:liege = {
+					has_relation_rival = scope:employee
+				}
+			}
+			add = 500			# rival isn't that big of a deal
+		}
+	}
+}
+
+b_deep_lake_keeper = {
+	max_available_positions = 1
+	category = court_position_category_special
+	opinion = {
+		value = regular_court_position_opinion
+	}
+	aptitude_level_breakpoints = {
+		20
+		40
+		60
+		80
+	}
+	aptitude = {
+		value = 25
+		add = {
+			value = stewardship
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_stewardship
+		}
+		add = {
+			value = martial
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_martial
+		}
+		if = {
+			limit = {
+				has_trait = administrator
+			}
+			add = {
+				value = 20
+				desc = court_position_administrator_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = overseer
+			}
+			add = {
+				value = 20
+				desc = court_position_overseer_trait
+			}
+		}
+	}
+	is_shown = {
+		government_has_flag = government_is_nw
+		# has_character_flag = rebuilt_deep_lake
+		OR = {
+			any_vassal = {
+				has_title = title:b_deep_lake
+			}
+			has_title = title:b_deep_lake
+		}
+		has_title = title:c_castle_black
+	}
+	valid_position = {
+		government_has_flag = government_is_nw
+	}
+	valid_character = {
+		scope:employee = {
+			OR = {
+				is_landed = no
+				has_title = title:b_deep_lake
+			}
+			is_male = yes
+			is_adult = yes
+			has_trait = nightswatch
+			NOR = {
+				has_trait = maester
+				# has_trait = archmaester
+				has_trait = septon
+			}
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+		}
+	}
+	revoke_cost = {
+		prestige = {
+			value = 200
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		round = no
+		gold = medium_court_position_salary
+	}
+	scaling_employer_modifiers = {
+		terrible = {
+			monthly_county_control_growth_add = 0.1
+		}
+		poor = {
+			monthly_county_control_growth_add = 0.2
+		}
+		average = {
+			monthly_county_control_growth_add = 0.3
+		}
+		good = {
+			monthly_county_control_growth_add = 0.4
+		}
+		excellent = {
+			monthly_county_control_growth_add = 0.5
+		}
+	}
+	modifier = {
+		monthly_prestige = minor_court_position_prestige_salary
+	}
+	on_court_position_received = {
+		scope:liege = {
+			save_scope_as = employer_saved
+		}
+		scope:employee = {
+			save_scope_as = employee_saved
+		}
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		title:b_deep_lake = {
+			change_title_holder_include_vassals = {
+				holder = scope:employee_saved
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		scope:employee = {
+			change_government = nights_watch_government
+		}
+	}
+	on_court_position_revoked = {
+		seneschal_title_revoked_effect = yes
+		agot_on_deep_lake_court_position_revoked = yes
+	}
+	on_court_position_invalidated = {
+		seneschal_title_revoked_effect = yes
+		agot_on_deep_lake_court_position_revoked = yes
+	}
+	candidate_score = {
+		value = 250
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		if = {
+			limit = {
+				NOT = {
+					exists = scope:firing_court_position
+				}
+				scope:employee = {
+					has_any_court_position = yes
+				}
+			}
+			add = 150
+		}
+		if = {
+			limit = {
+				scope:employee = {
+					has_title = title:b_deep_lake
+				}
+			}
+			add = 2000			#to stop AI from revoking alot
+		}
+		if = {
+			limit = {
+				scope:liege = {
+					has_relation_rival = scope:employee
+				}
+			}
+			add = 500			# rival isn't that big of a deal
+		}
+	}
+}
+
+b_queensgate_keeper = {
+	max_available_positions = 1
+	category = court_position_category_special
+	opinion = {
+		value = regular_court_position_opinion
+	}
+	aptitude_level_breakpoints = {
+		20
+		40
+		60
+		80
+	}
+	aptitude = {
+		value = 25
+		add = {
+			value = stewardship
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_stewardship
+		}
+		add = {
+			value = martial
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_martial
+		}
+		if = {
+			limit = {
+				has_trait = administrator
+			}
+			add = {
+				value = 20
+				desc = court_position_administrator_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = overseer
+			}
+			add = {
+				value = 20
+				desc = court_position_overseer_trait
+			}
+		}
+	}
+	is_shown = {
+		government_has_flag = government_is_nw
+		# has_character_flag = rebuilt_queensgate
+		OR = {
+			any_vassal = {
+				has_title = title:b_queensgate
+			}
+			has_title = title:b_queensgate
+		}
+		has_title = title:c_castle_black
+	}
+	valid_position = {
+		government_has_flag = government_is_nw
+	}
+	valid_character = {
+		scope:employee = {
+			OR = {
+				is_landed = no
+				has_title = title:b_queensgate
+			}
+			is_male = yes
+			is_adult = yes
+			has_trait = nightswatch
+			NOR = {
+				has_trait = maester
+				# has_trait = archmaester
+				has_trait = septon
+			}
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+		}
+	}
+	revoke_cost = {
+		prestige = {
+			value = 200
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		round = no
+		gold = medium_court_position_salary
+	}
+	scaling_employer_modifiers = {
+		terrible = {
+			monthly_county_control_growth_add = 0.1
+		}
+		poor = {
+			monthly_county_control_growth_add = 0.2
+		}
+		average = {
+			monthly_county_control_growth_add = 0.3
+		}
+		good = {
+			monthly_county_control_growth_add = 0.4
+		}
+		excellent = {
+			monthly_county_control_growth_add = 0.5
+		}
+	}
+	modifier = {
+		monthly_prestige = minor_court_position_prestige_salary
+	}
+	on_court_position_received = {
+		scope:liege = {
+			save_scope_as = employer_saved
+		}
+		scope:employee = {
+			save_scope_as = employee_saved
+		}
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		title:b_queensgate = {
+			change_title_holder_include_vassals = {
+				holder = scope:employee_saved
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		scope:employee = {
+			change_government = nights_watch_government
+		}
+	}
+	on_court_position_revoked = {
+		seneschal_title_revoked_effect = yes
+		agot_on_queengate_court_position_revoked = yes
+	}
+	on_court_position_invalidated = {
+		seneschal_title_revoked_effect = yes
+		agot_on_queengate_court_position_revoked = yes
+	}
+	candidate_score = {
+		value = 250
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		if = {
+			limit = {
+				NOT = {
+					exists = scope:firing_court_position
+				}
+				scope:employee = {
+					has_any_court_position = yes
+				}
+			}
+			add = 150
+		}
+		if = {
+			limit = {
+				scope:employee = {
+					has_title = title:b_queensgate
+				}
+			}
+			add = 2000			#to stop AI from revoking alot
+		}
+		if = {
+			limit = {
+				scope:liege = {
+					has_relation_rival = scope:employee
+				}
+			}
+			add = 500			# rival isn't that big of a deal
+		}
+	}
+}
+
+b_oakenshield_keeper = {
+	max_available_positions = 1
+	category = court_position_category_special
+	opinion = {
+		value = regular_court_position_opinion
+	}
+	aptitude_level_breakpoints = {
+		20
+		40
+		60
+		80
+	}
+	aptitude = {
+		value = 25
+		add = {
+			value = stewardship
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_stewardship
+		}
+		add = {
+			value = martial
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_martial
+		}
+		if = {
+			limit = {
+				has_trait = administrator
+			}
+			add = {
+				value = 20
+				desc = court_position_administrator_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = overseer
+			}
+			add = {
+				value = 20
+				desc = court_position_overseer_trait
+			}
+		}
+	}
+	is_shown = {
+		government_has_flag = government_is_nw
+		# has_character_flag = rebuilt_oakenshield
+		OR = {
+			any_vassal = {
+				has_title = title:b_oakenshield
+			}
+			has_title = title:b_oakenshield
+		}
+		has_title = title:c_castle_black
+	}
+	valid_position = {
+		government_has_flag = government_is_nw
+	}
+	valid_character = {
+		scope:employee = {
+			OR = {
+				is_landed = no
+				has_title = title:b_oakenshield
+			}
+			is_male = yes
+			is_adult = yes
+			has_trait = nightswatch
+			NOR = {
+				has_trait = maester
+				# has_trait = archmaester
+				has_trait = septon
+			}
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+		}
+	}
+	revoke_cost = {
+		prestige = {
+			value = 200
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		round = no
+		gold = medium_court_position_salary
+	}
+	scaling_employer_modifiers = {
+		terrible = {
+			monthly_county_control_growth_add = 0.1
+		}
+		poor = {
+			monthly_county_control_growth_add = 0.2
+		}
+		average = {
+			monthly_county_control_growth_add = 0.3
+		}
+		good = {
+			monthly_county_control_growth_add = 0.4
+		}
+		excellent = {
+			monthly_county_control_growth_add = 0.5
+		}
+	}
+	modifier = {
+		monthly_prestige = minor_court_position_prestige_salary
+	}
+	on_court_position_received = {
+		scope:liege = {
+			save_scope_as = employer_saved
+		}
+		scope:employee = {
+			save_scope_as = employee_saved
+		}
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		title:b_oakenshield = {
+			change_title_holder_include_vassals = {
+				holder = scope:employee_saved
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		scope:employee = {
+			change_government = nights_watch_government
+		}
+	}
+	on_court_position_revoked = {
+		seneschal_title_revoked_effect = yes
+		agot_on_oakenshield_court_position_revoked = yes
+	}
+	on_court_position_invalidated = {
+		seneschal_title_revoked_effect = yes
+		agot_on_oakenshield_court_position_revoked = yes
+	}
+	candidate_score = {
+		value = 250
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		if = {
+			limit = {
+				NOT = {
+					exists = scope:firing_court_position
+				}
+				scope:employee = {
+					has_any_court_position = yes
+				}
+			}
+			add = 150
+		}
+		if = {
+			limit = {
+				scope:employee = {
+					has_title = title:b_oakenshield
+				}
+			}
+			add = 2000			#to stop AI from revoking alot
+		}
+		if = {
+			limit = {
+				scope:liege = {
+					has_relation_rival = scope:employee
+				}
+			}
+			add = 500			# rival isn't that big of a deal
+		}
+	}
+}
+
+b_woodswatch_by_the_pool_keeper = {
+	max_available_positions = 1
+	category = court_position_category_special
+	opinion = {
+		value = regular_court_position_opinion
+	}
+	aptitude_level_breakpoints = {
+		20
+		40
+		60
+		80
+	}
+	aptitude = {
+		value = 25
+		add = {
+			value = stewardship
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_stewardship
+		}
+		add = {
+			value = martial
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_martial
+		}
+		if = {
+			limit = {
+				has_trait = administrator
+			}
+			add = {
+				value = 20
+				desc = court_position_administrator_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = overseer
+			}
+			add = {
+				value = 20
+				desc = court_position_overseer_trait
+			}
+		}
+	}
+	is_shown = {
+		government_has_flag = government_is_nw
+		# has_character_flag = rebuilt_woodswatch_by_the_pool
+		OR = {
+			any_vassal = {
+				has_title = title:b_woodswatch_by_the_pool
+			}
+			has_title = title:b_woodswatch_by_the_pool
+		}
+		has_title = title:c_castle_black
+	}
+	valid_position = {
+		government_has_flag = government_is_nw
+	}
+	valid_character = {
+		scope:employee = {
+			OR = {
+				is_landed = no
+				has_title = title:b_woodswatch_by_the_pool
+			}
+			is_male = yes
+			is_adult = yes
+			has_trait = nightswatch
+			NOR = {
+				has_trait = maester
+				# has_trait = archmaester
+				has_trait = septon
+			}
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+		}
+	}
+	revoke_cost = {
+		prestige = {
+			value = 200
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		round = no
+		gold = medium_court_position_salary
+	}
+	scaling_employer_modifiers = {
+		terrible = {
+			monthly_county_control_growth_add = 0.1
+		}
+		poor = {
+			monthly_county_control_growth_add = 0.2
+		}
+		average = {
+			monthly_county_control_growth_add = 0.3
+		}
+		good = {
+			monthly_county_control_growth_add = 0.4
+		}
+		excellent = {
+			monthly_county_control_growth_add = 0.5
+		}
+	}
+	modifier = {
+		monthly_prestige = minor_court_position_prestige_salary
+	}
+	on_court_position_received = {
+		scope:liege = {
+			save_scope_as = employer_saved
+		}
+		scope:employee = {
+			save_scope_as = employee_saved
+		}
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		title:b_woodswatch_by_the_pool = {
+			change_title_holder_include_vassals = {
+				holder = scope:employee_saved
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		scope:employee = {
+			change_government = nights_watch_government
+		}
+	}
+	on_court_position_revoked = {
+		seneschal_title_revoked_effect = yes
+		agot_on_woodwatch_court_position_revoked = yes
+	}
+	on_court_position_invalidated = {
+		seneschal_title_revoked_effect = yes
+		agot_on_woodwatch_court_position_revoked = yes
+	}
+	candidate_score = {
+		value = 250
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		if = {
+			limit = {
+				NOT = {
+					exists = scope:firing_court_position
+				}
+				scope:employee = {
+					has_any_court_position = yes
+				}
+			}
+			add = 150
+		}
+		if = {
+			limit = {
+				scope:employee = {
+					has_title = title:b_woodswatch_by_the_pool
+				}
+			}
+			add = 2000			#to stop AI from revoking alot
+		}
+		if = {
+			limit = {
+				scope:liege = {
+					has_relation_rival = scope:employee
+				}
+			}
+			add = 500			# rival isn't that big of a deal
+		}
+	}
+}
+
+b_westwatch_by_the_bridge_keeper = {
+	max_available_positions = 1
+	category = court_position_category_special
+	opinion = {
+		value = regular_court_position_opinion
+	}
+	aptitude_level_breakpoints = {
+		20
+		40
+		60
+		80
+	}
+	aptitude = {
+		value = 25
+		add = {
+			value = stewardship
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_stewardship
+		}
+		add = {
+			value = martial
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_martial
+		}
+		if = {
+			limit = {
+				has_trait = administrator
+			}
+			add = {
+				value = 20
+				desc = court_position_administrator_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = overseer
+			}
+			add = {
+				value = 20
+				desc = court_position_overseer_trait
+			}
+		}
+	}
+	is_shown = {
+		government_has_flag = government_is_nw
+		# has_character_flag = rebuilt_westwatch_by_the_bridge
+		OR = {
+			any_vassal = {
+				has_title = title:b_westwatch_by_the_bridge
+			}
+			has_title = title:b_westwatch_by_the_bridge
+		}
+		has_title = title:c_the_shadow_tower
+	}
+	valid_position = {
+		government_has_flag = government_is_nw
+	}
+	valid_character = {
+		scope:employee = {
+			OR = {
+				is_landed = no
+				has_title = title:b_westwatch_by_the_bridge
+			}
+			is_male = yes
+			is_adult = yes
+			has_trait = nightswatch
+			NOR = {
+				has_trait = maester
+				# has_trait = archmaester
+				has_trait = septon
+			}
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+		}
+	}
+	revoke_cost = {
+		prestige = {
+			value = 200
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		round = no
+		gold = medium_court_position_salary
+	}
+	scaling_employer_modifiers = {
+		terrible = {
+			monthly_county_control_growth_add = 0.1
+		}
+		poor = {
+			monthly_county_control_growth_add = 0.2
+		}
+		average = {
+			monthly_county_control_growth_add = 0.3
+		}
+		good = {
+			monthly_county_control_growth_add = 0.4
+		}
+		excellent = {
+			monthly_county_control_growth_add = 0.5
+		}
+	}
+	modifier = {
+		monthly_prestige = minor_court_position_prestige_salary
+	}
+	on_court_position_received = {
+		scope:liege = {
+			save_scope_as = employer_saved
+		}
+		scope:employee = {
+			save_scope_as = employee_saved
+		}
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		title:b_westwatch_by_the_bridge = {
+			change_title_holder_include_vassals = {
+				holder = scope:employee_saved
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		scope:employee = {
+			change_government = nights_watch_government
+		}
+	}
+	on_court_position_revoked = {
+		seneschal_title_revoked_effect = yes
+		agot_on_westwatch_court_position_revoked = yes
+	}
+	on_court_position_invalidated = {
+		seneschal_title_revoked_effect = yes
+		agot_on_westwatch_court_position_revoked = yes
+	}
+	candidate_score = {
+		value = 250
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		if = {
+			limit = {
+				NOT = {
+					exists = scope:firing_court_position
+				}
+				scope:employee = {
+					has_any_court_position = yes
+				}
+			}
+			add = 150
+		}
+		if = {
+			limit = {
+				scope:employee = {
+					has_title = title:b_westwatch_by_the_bridge
+				}
+			}
+			add = 2000			#to stop AI from revoking alot
+		}
+		if = {
+			limit = {
+				scope:liege = {
+					has_relation_rival = scope:employee
+				}
+			}
+			add = 500			# rival isn't that big of a deal
+		}
+	}
+}
+
+b_sentinel_stand_keeper = {
+	max_available_positions = 1
+	category = court_position_category_special
+	opinion = {
+		value = regular_court_position_opinion
+	}
+	aptitude_level_breakpoints = {
+		20
+		40
+		60
+		80
+	}
+	aptitude = {
+		value = 25
+		add = {
+			value = stewardship
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_stewardship
+		}
+		add = {
+			value = martial
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_martial
+		}
+		if = {
+			limit = {
+				has_trait = administrator
+			}
+			add = {
+				value = 20
+				desc = court_position_administrator_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = overseer
+			}
+			add = {
+				value = 20
+				desc = court_position_overseer_trait
+			}
+		}
+	}
+	is_shown = {
+		government_has_flag = government_is_nw
+		# has_character_flag = rebuilt_sentinel_stand
+		OR = {
+			any_vassal = {
+				has_title = title:b_sentinel_stand
+			}
+			has_title = title:b_sentinel_stand
+		}
+		has_title = title:c_the_shadow_tower
+	}
+	valid_position = {
+		government_has_flag = government_is_nw
+	}
+	valid_character = {
+		scope:employee = {
+			OR = {
+				is_landed = no
+				has_title = title:b_sentinel_stand
+			}
+			is_male = yes
+			is_adult = yes
+			has_trait = nightswatch
+			NOR = {
+				has_trait = maester
+				# has_trait = archmaester
+				has_trait = septon
+			}
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+		}
+	}
+	revoke_cost = {
+		prestige = {
+			value = 200
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		round = no
+		gold = medium_court_position_salary
+	}
+	scaling_employer_modifiers = {
+		terrible = {
+			monthly_county_control_growth_add = 0.1
+		}
+		poor = {
+			monthly_county_control_growth_add = 0.2
+		}
+		average = {
+			monthly_county_control_growth_add = 0.3
+		}
+		good = {
+			monthly_county_control_growth_add = 0.4
+		}
+		excellent = {
+			monthly_county_control_growth_add = 0.5
+		}
+	}
+	modifier = {
+		monthly_prestige = minor_court_position_prestige_salary
+	}
+	on_court_position_received = {
+		scope:liege = {
+			save_scope_as = employer_saved
+		}
+		scope:employee = {
+			save_scope_as = employee_saved
+		}
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		title:b_sentinel_stand = {
+			change_title_holder_include_vassals = {
+				holder = scope:employee_saved
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		scope:employee = {
+			change_government = nights_watch_government
+		}
+	}
+	on_court_position_revoked = {
+		seneschal_title_revoked_effect = yes
+		agot_on_sentinel_court_position_revoked = yes
+	}
+	on_court_position_invalidated = {
+		seneschal_title_revoked_effect = yes
+		agot_on_sentinel_court_position_revoked = yes
+	}
+	candidate_score = {
+		value = 250
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		if = {
+			limit = {
+				NOT = {
+					exists = scope:firing_court_position
+				}
+				scope:employee = {
+					has_any_court_position = yes
+				}
+			}
+			add = 150
+		}
+		if = {
+			limit = {
+				scope:employee = {
+					has_title = title:b_sentinel_stand
+				}
+			}
+			add = 2000			#to stop AI from revoking alot
+		}
+		if = {
+			limit = {
+				scope:liege = {
+					has_relation_rival = scope:employee
+				}
+			}
+			add = 500			# rival isn't that big of a deal
+		}
+	}
+}
+
+b_greyguard_keeper = {
+	max_available_positions = 1
+	category = court_position_category_special
+	opinion = {
+		value = regular_court_position_opinion
+	}
+	aptitude_level_breakpoints = {
+		20
+		40
+		60
+		80
+	}
+	aptitude = {
+		value = 25
+		add = {
+			value = stewardship
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_stewardship
+		}
+		add = {
+			value = martial
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_martial
+		}
+		if = {
+			limit = {
+				has_trait = administrator
+			}
+			add = {
+				value = 20
+				desc = court_position_administrator_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = overseer
+			}
+			add = {
+				value = 20
+				desc = court_position_overseer_trait
+			}
+		}
+	}
+	is_shown = {
+		government_has_flag = government_is_nw
+		# has_character_flag = rebuilt_greyguard
+		OR = {
+			any_vassal = {
+				has_title = title:b_greyguard
+			}
+			has_title = title:b_greyguard
+		}
+		has_title = title:c_the_shadow_tower
+	}
+	valid_position = {
+		government_has_flag = government_is_nw
+	}
+	valid_character = {
+		scope:employee = {
+			OR = {
+				is_landed = no
+				has_title = title:b_greyguard
+			}
+			is_male = yes
+			is_adult = yes
+			has_trait = nightswatch
+			NOR = {
+				has_trait = maester
+				# has_trait = archmaester
+				has_trait = septon
+			}
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+		}
+	}
+	revoke_cost = {
+		prestige = {
+			value = 200
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		round = no
+		gold = medium_court_position_salary
+	}
+	scaling_employer_modifiers = {
+		terrible = {
+			monthly_county_control_growth_add = 0.1
+		}
+		poor = {
+			monthly_county_control_growth_add = 0.2
+		}
+		average = {
+			monthly_county_control_growth_add = 0.3
+		}
+		good = {
+			monthly_county_control_growth_add = 0.4
+		}
+		excellent = {
+			monthly_county_control_growth_add = 0.5
+		}
+	}
+	modifier = {
+		monthly_prestige = minor_court_position_prestige_salary
+	}
+	on_court_position_received = {
+		scope:liege = {
+			save_scope_as = employer_saved
+		}
+		scope:employee = {
+			save_scope_as = employee_saved
+		}
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		title:b_greyguard = {
+			change_title_holder_include_vassals = {
+				holder = scope:employee_saved
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		scope:employee = {
+			change_government = nights_watch_government
+		}
+	}
+	on_court_position_revoked = {
+		seneschal_title_revoked_effect = yes
+		agot_on_greyguard_court_position_revoked = yes
+	}
+	on_court_position_invalidated = {
+		seneschal_title_revoked_effect = yes
+		agot_on_greyguard_court_position_revoked = yes
+	}
+	candidate_score = {
+		value = 250
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		if = {
+			limit = {
+				NOT = {
+					exists = scope:firing_court_position
+				}
+				scope:employee = {
+					has_any_court_position = yes
+				}
+			}
+			add = 150
+		}
+		if = {
+			limit = {
+				scope:employee = {
+					has_title = title:b_greyguard
+				}
+			}
+			add = 2000			#to stop AI from revoking alot
+		}
+		if = {
+			limit = {
+				scope:liege = {
+					has_relation_rival = scope:employee
+				}
+			}
+			add = 500			# rival isn't that big of a deal
+		}
+	}
+}
+
+b_stonedoor_keeper = {
+	max_available_positions = 1
+	category = court_position_category_special
+	opinion = {
+		value = regular_court_position_opinion
+	}
+	aptitude_level_breakpoints = {
+		20
+		40
+		60
+		80
+	}
+	aptitude = {
+		value = 25
+		add = {
+			value = stewardship
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_stewardship
+		}
+		add = {
+			value = martial
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_martial
+		}
+		if = {
+			limit = {
+				has_trait = administrator
+			}
+			add = {
+				value = 20
+				desc = court_position_administrator_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = overseer
+			}
+			add = {
+				value = 20
+				desc = court_position_overseer_trait
+			}
+		}
+	}
+	is_shown = {
+		government_has_flag = government_is_nw
+		# has_character_flag = rebuilt_stonedoor
+		OR = {
+			any_vassal = {
+				has_title = title:b_stonedoor
+			}
+			has_title = title:b_stonedoor
+		}
+		has_title = title:c_the_shadow_tower
+	}
+	valid_position = {
+		government_has_flag = government_is_nw
+	}
+	valid_character = {
+		scope:employee = {
+			OR = {
+				is_landed = no
+				has_title = title:b_stonedoor
+			}
+			is_male = yes
+			is_adult = yes
+			has_trait = nightswatch
+			NOR = {
+				has_trait = maester
+				# has_trait = archmaester
+				has_trait = septon
+			}
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+		}
+	}
+	revoke_cost = {
+		prestige = {
+			value = 200
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		round = no
+		gold = medium_court_position_salary
+	}
+	scaling_employer_modifiers = {
+		terrible = {
+			monthly_county_control_growth_add = 0.1
+		}
+		poor = {
+			monthly_county_control_growth_add = 0.2
+		}
+		average = {
+			monthly_county_control_growth_add = 0.3
+		}
+		good = {
+			monthly_county_control_growth_add = 0.4
+		}
+		excellent = {
+			monthly_county_control_growth_add = 0.5
+		}
+	}
+	modifier = {
+		monthly_prestige = minor_court_position_prestige_salary
+	}
+	on_court_position_received = {
+		scope:liege = {
+			save_scope_as = employer_saved
+		}
+		scope:employee = {
+			save_scope_as = employee_saved
+		}
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		title:b_stonedoor = {
+			change_title_holder_include_vassals = {
+				holder = scope:employee_saved
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		scope:employee = {
+			change_government = nights_watch_government
+		}
+	}
+	on_court_position_revoked = {
+		seneschal_title_revoked_effect = yes
+		agot_on_stonedoor_court_position_revoked = yes
+	}
+	on_court_position_invalidated = {
+		seneschal_title_revoked_effect = yes
+		agot_on_stonedoor_court_position_revoked = yes
+	}
+	candidate_score = {
+		value = 250
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		if = {
+			limit = {
+				NOT = {
+					exists = scope:firing_court_position
+				}
+				scope:employee = {
+					has_any_court_position = yes
+				}
+			}
+			add = 150
+		}
+		if = {
+			limit = {
+				scope:employee = {
+					has_title = title:b_stonedoor
+				}
+			}
+			add = 2000			#to stop AI from revoking alot
+		}
+		if = {
+			limit = {
+				scope:liege = {
+					has_relation_rival = scope:employee
+				}
+			}
+			add = 500			# rival isn't that big of a deal
+		}
+	}
+}
+
+b_hoarfrost_hill_keeper = {
+	max_available_positions = 1
+	category = court_position_category_special
+	opinion = {
+		value = regular_court_position_opinion
+	}
+	aptitude_level_breakpoints = {
+		20
+		40
+		60
+		80
+	}
+	aptitude = {
+		value = 25
+		add = {
+			value = stewardship
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_stewardship
+		}
+		add = {
+			value = martial
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_martial
+		}
+		if = {
+			limit = {
+				has_trait = administrator
+			}
+			add = {
+				value = 20
+				desc = court_position_administrator_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = overseer
+			}
+			add = {
+				value = 20
+				desc = court_position_overseer_trait
+			}
+		}
+	}
+	is_shown = {
+		government_has_flag = government_is_nw
+		# has_character_flag = rebuilt_hoarfrost_hill
+		OR = {
+			any_vassal = {
+				has_title = title:b_hoarfrost_hill
+			}
+			has_title = title:b_hoarfrost_hill
+		}
+		has_title = title:c_the_shadow_tower
+	}
+	valid_position = {
+		government_has_flag = government_is_nw
+	}
+	valid_character = {
+		scope:employee = {
+			OR = {
+				is_landed = no
+				has_title = title:b_hoarfrost_hill
+			}
+			is_male = yes
+			is_adult = yes
+			has_trait = nightswatch
+			NOR = {
+				has_trait = maester
+				# has_trait = archmaester
+				has_trait = septon
+			}
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+		}
+	}
+	revoke_cost = {
+		prestige = {
+			value = 200
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		round = no
+		gold = medium_court_position_salary
+	}
+	scaling_employer_modifiers = {
+		terrible = {
+			monthly_county_control_growth_add = 0.1
+		}
+		poor = {
+			monthly_county_control_growth_add = 0.2
+		}
+		average = {
+			monthly_county_control_growth_add = 0.3
+		}
+		good = {
+			monthly_county_control_growth_add = 0.4
+		}
+		excellent = {
+			monthly_county_control_growth_add = 0.5
+		}
+	}
+	modifier = {
+		monthly_prestige = minor_court_position_prestige_salary
+	}
+	on_court_position_received = {
+		scope:liege = {
+			save_scope_as = employer_saved
+		}
+		scope:employee = {
+			save_scope_as = employee_saved
+		}
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		title:b_hoarfrost_hill = {
+			change_title_holder_include_vassals = {
+				holder = scope:employee_saved
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		scope:employee = {
+			change_government = nights_watch_government
+		}
+	}
+	on_court_position_revoked = {
+		seneschal_title_revoked_effect = yes
+		agot_on_hoarfrost_court_position_revoked = yes
+	}
+	on_court_position_invalidated = {
+		seneschal_title_revoked_effect = yes
+		agot_on_hoarfrost_court_position_revoked = yes
+	}
+	candidate_score = {
+		value = 250
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		if = {
+			limit = {
+				NOT = {
+					exists = scope:firing_court_position
+				}
+				scope:employee = {
+					has_any_court_position = yes
+				}
+			}
+			add = 150
+		}
+		if = {
+			limit = {
+				scope:employee = {
+					has_title = title:b_hoarfrost_hill
+				}
+			}
+			add = 2000			#to stop AI from revoking alot
+		}
+		if = {
+			limit = {
+				scope:liege = {
+					has_relation_rival = scope:employee
+				}
+			}
+			add = 500			# rival isn't that big of a deal
+		}
+	}
+}
+
+b_sable_hall_keeper = {
+	max_available_positions = 1
+	category = court_position_category_special
+	opinion = {
+		value = regular_court_position_opinion
+	}
+	aptitude_level_breakpoints = {
+		20
+		40
+		60
+		80
+	}
+	aptitude = {
+		value = 25
+		add = {
+			value = stewardship
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_stewardship
+		}
+		add = {
+			value = martial
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_martial
+		}
+		if = {
+			limit = {
+				has_trait = administrator
+			}
+			add = {
+				value = 20
+				desc = court_position_administrator_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = overseer
+			}
+			add = {
+				value = 20
+				desc = court_position_overseer_trait
+			}
+		}
+	}
+	is_shown = {
+		government_has_flag = government_is_nw
+		# has_character_flag = rebuilt_sable_hall
+		OR = {
+			any_vassal = {
+				has_title = title:b_sable_hall
+			}
+			has_title = title:b_sable_hall
+		}
+		has_title = title:c_eastwatch
+	}
+	valid_position = {
+		government_has_flag = government_is_nw
+	}
+	valid_character = {
+		scope:employee = {
+			OR = {
+				is_landed = no
+				has_title = title:b_sable_hall
+			}
+			is_male = yes
+			is_adult = yes
+			has_trait = nightswatch
+			NOR = {
+				has_trait = maester
+				# has_trait = archmaester
+				has_trait = septon
+			}
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+		}
+	}
+	revoke_cost = {
+		prestige = {
+			value = 200
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		round = no
+		gold = medium_court_position_salary
+	}
+	scaling_employer_modifiers = {
+		terrible = {
+			monthly_county_control_growth_add = 0.1
+		}
+		poor = {
+			monthly_county_control_growth_add = 0.2
+		}
+		average = {
+			monthly_county_control_growth_add = 0.3
+		}
+		good = {
+			monthly_county_control_growth_add = 0.4
+		}
+		excellent = {
+			monthly_county_control_growth_add = 0.5
+		}
+	}
+	modifier = {
+		monthly_prestige = minor_court_position_prestige_salary
+	}
+	on_court_position_received = {
+		scope:liege = {
+			save_scope_as = employer_saved
+		}
+		scope:employee = {
+			save_scope_as = employee_saved
+		}
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		title:b_sable_hall = {
+			change_title_holder_include_vassals = {
+				holder = scope:employee_saved
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		scope:employee = {
+			change_government = nights_watch_government
+		}
+	}
+	on_court_position_revoked = {
+		seneschal_title_revoked_effect = yes
+		agot_on_stable_court_position_revoked = yes
+	}
+	on_court_position_invalidated = {
+		seneschal_title_revoked_effect = yes
+		agot_on_stable_court_position_revoked = yes
+	}
+	candidate_score = {
+		value = 250
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		if = {
+			limit = {
+				NOT = {
+					exists = scope:firing_court_position
+				}
+				scope:employee = {
+					has_any_court_position = yes
+				}
+			}
+			add = 150
+		}
+		if = {
+			limit = {
+				scope:employee = {
+					has_title = title:b_sable_hall
+				}
+			}
+			add = 2000			#to stop AI from revoking alot
+		}
+		if = {
+			limit = {
+				scope:liege = {
+					has_relation_rival = scope:employee
+				}
+			}
+			add = 500			# rival isn't that big of a deal
+		}
+	}
+}
+
+b_rimegate_keeper = {
+	max_available_positions = 1
+	category = court_position_category_special
+	opinion = {
+		value = regular_court_position_opinion
+	}
+	aptitude_level_breakpoints = {
+		20
+		40
+		60
+		80
+	}
+	aptitude = {
+		value = 25
+		add = {
+			value = stewardship
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_stewardship
+		}
+		add = {
+			value = martial
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_martial
+		}
+		if = {
+			limit = {
+				has_trait = administrator
+			}
+			add = {
+				value = 20
+				desc = court_position_administrator_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = overseer
+			}
+			add = {
+				value = 20
+				desc = court_position_overseer_trait
+			}
+		}
+	}
+	is_shown = {
+		government_has_flag = government_is_nw
+		# has_character_flag = rebuilt_rimegate
+		OR = {
+			any_vassal = {
+				has_title = title:b_rimegate
+			}
+			has_title = title:b_rimegate
+		}
+		has_title = title:c_eastwatch
+	}
+	valid_position = {
+		government_has_flag = government_is_nw
+	}
+	valid_character = {
+		scope:employee = {
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+			OR = {
+				is_landed = no
+				has_title = title:b_rimegate
+			}
+			is_male = yes
+			is_adult = yes
+			has_trait = nightswatch
+			NOR = {
+				has_trait = maester
+				# has_trait = archmaester
+				has_trait = septon
+			}
+		}
+	}
+	revoke_cost = {
+		prestige = {
+			value = 200
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		round = no
+		gold = medium_court_position_salary
+	}
+	scaling_employer_modifiers = {
+		terrible = {
+			monthly_county_control_growth_add = 0.1
+		}
+		poor = {
+			monthly_county_control_growth_add = 0.2
+		}
+		average = {
+			monthly_county_control_growth_add = 0.3
+		}
+		good = {
+			monthly_county_control_growth_add = 0.4
+		}
+		excellent = {
+			monthly_county_control_growth_add = 0.5
+		}
+	}
+	modifier = {
+		monthly_prestige = minor_court_position_prestige_salary
+	}
+	on_court_position_received = {
+		scope:liege = {
+			save_scope_as = employer_saved
+		}
+		scope:employee = {
+			save_scope_as = employee_saved
+		}
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		title:b_rimegate = {
+			change_title_holder_include_vassals = {
+				holder = scope:employee_saved
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		scope:employee = {
+			change_government = nights_watch_government
+		}
+	}
+	on_court_position_revoked = {
+		seneschal_title_revoked_effect = yes
+		agot_on_rimegate_court_position_revoked = yes
+	}
+	on_court_position_invalidated = {
+		seneschal_title_revoked_effect = yes
+		agot_on_rimegate_court_position_revoked = yes
+	}
+	candidate_score = {
+		value = 250
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		if = {
+			limit = {
+				NOT = {
+					exists = scope:firing_court_position
+				}
+				scope:employee = {
+					has_any_court_position = yes
+				}
+			}
+			add = 150
+		}
+		if = {
+			limit = {
+				scope:employee = {
+					has_title = title:b_rimegate
+				}
+			}
+			add = 2000			#to stop AI from revoking alot
+		}
+		if = {
+			limit = {
+				scope:liege = {
+					has_relation_rival = scope:employee
+				}
+			}
+			add = 500			# rival isn't that big of a deal
+		}
+	}
+}
+
+b_long_barrow_keeper = {
+	max_available_positions = 1
+	category = court_position_category_special
+	opinion = {
+		value = regular_court_position_opinion
+	}
+	aptitude_level_breakpoints = {
+		20
+		40
+		60
+		80
+	}
+	aptitude = {
+		value = 25
+		add = {
+			value = stewardship
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_stewardship
+		}
+		add = {
+			value = martial
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_martial
+		}
+		if = {
+			limit = {
+				has_trait = administrator
+			}
+			add = {
+				value = 20
+				desc = court_position_administrator_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = overseer
+			}
+			add = {
+				value = 20
+				desc = court_position_overseer_trait
+			}
+		}
+	}
+	is_shown = {
+		government_has_flag = government_is_nw
+		# has_character_flag = rebuilt_long_barrow
+		OR = {
+			any_vassal = {
+				has_title = title:b_long_barrow
+			}
+			has_title = title:b_long_barrow
+		}
+		has_title = title:c_eastwatch
+	}
+	valid_position = {
+		government_has_flag = government_is_nw
+	}
+	valid_character = {
+		scope:employee = {
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+			OR = {
+				is_landed = no
+				has_title = title:b_long_barrow
+			}
+			is_male = yes
+			is_adult = yes
+			has_trait = nightswatch
+			NOR = {
+				has_trait = maester
+				# has_trait = archmaester
+				has_trait = septon
+			}
+		}
+	}
+	revoke_cost = {
+		prestige = {
+			value = 200
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		round = no
+		gold = medium_court_position_salary
+	}
+	scaling_employer_modifiers = {
+		terrible = {
+			monthly_county_control_growth_add = 0.1
+		}
+		poor = {
+			monthly_county_control_growth_add = 0.2
+		}
+		average = {
+			monthly_county_control_growth_add = 0.3
+		}
+		good = {
+			monthly_county_control_growth_add = 0.4
+		}
+		excellent = {
+			monthly_county_control_growth_add = 0.5
+		}
+	}
+	modifier = {
+		monthly_prestige = minor_court_position_prestige_salary
+	}
+	on_court_position_received = {
+		scope:liege = {
+			save_scope_as = employer_saved
+		}
+		scope:employee = {
+			save_scope_as = employee_saved
+		}
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		title:b_long_barrow = {
+			change_title_holder_include_vassals = {
+				holder = scope:employee_saved
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		scope:employee = {
+			change_government = nights_watch_government
+		}
+	}
+	on_court_position_revoked = {
+		seneschal_title_revoked_effect = yes
+		agot_on_longbarrow_court_position_revoked = yes
+	}
+	on_court_position_invalidated = {
+		seneschal_title_revoked_effect = yes
+		agot_on_longbarrow_court_position_revoked = yes
+	}
+	candidate_score = {
+		value = 250
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		if = {
+			limit = {
+				NOT = {
+					exists = scope:firing_court_position
+				}
+				scope:employee = {
+					has_any_court_position = yes
+				}
+			}
+			add = 150
+		}
+		if = {
+			limit = {
+				scope:employee = {
+					has_title = title:b_long_barrow
+				}
+			}
+			add = 2000			#to stop AI from revoking alot
+		}
+		if = {
+			limit = {
+				scope:liege = {
+					has_relation_rival = scope:employee
+				}
+			}
+			add = 500			# rival isn't that big of a deal
+		}
+	}
+}
+
+b_the_torches_keeper = {
+	max_available_positions = 1
+	category = court_position_category_special
+	opinion = {
+		value = regular_court_position_opinion
+	}
+	aptitude_level_breakpoints = {
+		20
+		40
+		60
+		80
+	}
+	aptitude = {
+		value = 25
+		add = {
+			value = stewardship
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_stewardship
+		}
+		add = {
+			value = martial
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_martial
+		}
+		if = {
+			limit = {
+				has_trait = administrator
+			}
+			add = {
+				value = 20
+				desc = court_position_administrator_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = overseer
+			}
+			add = {
+				value = 20
+				desc = court_position_overseer_trait
+			}
+		}
+	}
+	is_shown = {
+		government_has_flag = government_is_nw
+		# has_character_flag = rebuilt_the_torches
+		OR = {
+			any_vassal = {
+				has_title = title:b_the_torches
+			}
+			has_title = title:b_the_torches
+		}
+		has_title = title:c_eastwatch
+	}
+	valid_position = {
+		government_has_flag = government_is_nw
+	}
+	valid_character = {
+		scope:employee = {
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+			OR = {
+				is_landed = no
+				has_title = title:b_the_torches
+			}
+			is_male = yes
+			is_adult = yes
+			has_trait = nightswatch
+			NOR = {
+				has_trait = maester
+				# has_trait = archmaester
+				has_trait = septon
+			}
+		}
+	}
+	revoke_cost = {
+		prestige = {
+			value = 200
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		round = no
+		gold = medium_court_position_salary
+	}
+	scaling_employer_modifiers = {
+		terrible = {
+			monthly_county_control_growth_add = 0.1
+		}
+		poor = {
+			monthly_county_control_growth_add = 0.2
+		}
+		average = {
+			monthly_county_control_growth_add = 0.3
+		}
+		good = {
+			monthly_county_control_growth_add = 0.4
+		}
+		excellent = {
+			monthly_county_control_growth_add = 0.5
+		}
+	}
+	modifier = {
+		monthly_prestige = minor_court_position_prestige_salary
+	}
+	on_court_position_received = {
+		scope:liege = {
+			save_scope_as = employer_saved
+		}
+		scope:employee = {
+			save_scope_as = employee_saved
+		}
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		title:b_the_torches = {
+			change_title_holder_include_vassals = {
+				holder = scope:employee_saved
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		scope:employee = {
+			change_government = nights_watch_government
+		}
+	}
+	on_court_position_revoked = {
+		seneschal_title_revoked_effect = yes
+		agot_on_torches_court_position_revoked = yes
+	}
+	on_court_position_invalidated = {
+		seneschal_title_revoked_effect = yes
+		agot_on_torches_court_position_revoked = yes
+	}
+	candidate_score = {
+		value = 250
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		if = {
+			limit = {
+				NOT = {
+					exists = scope:firing_court_position
+				}
+				scope:employee = {
+					has_any_court_position = yes
+				}
+			}
+			add = 150
+		}
+		if = {
+			limit = {
+				scope:employee = {
+					has_title = title:b_the_torches
+				}
+			}
+			add = 2000			#to stop AI from revoking alot
+		}
+		if = {
+			limit = {
+				scope:liege = {
+					has_relation_rival = scope:employee
+				}
+			}
+			add = 500			# rival isn't that big of a deal
+		}
+	}
+}
+
+b_greenguard_keeper = {
+	max_available_positions = 1
+	category = court_position_category_special
+	opinion = {
+		value = regular_court_position_opinion
+	}
+	aptitude_level_breakpoints = {
+		20
+		40
+		60
+		80
+	}
+	aptitude = {
+		value = 25
+		add = {
+			value = stewardship
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_stewardship
+		}
+		add = {
+			value = martial
+			multiply = 1.25
+			max = 25
+			desc = court_position_skill_martial
+		}
+		if = {
+			limit = {
+				has_trait = administrator
+			}
+			add = {
+				value = 20
+				desc = court_position_administrator_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = overseer
+			}
+			add = {
+				value = 20
+				desc = court_position_overseer_trait
+			}
+		}
+	}
+	is_shown = {
+		government_has_flag = government_is_nw
+		# has_character_flag = rebuilt_greenguard
+		OR = {
+			any_vassal = {
+				has_title = title:b_greenguard
+			}
+			has_title = title:b_greenguard
+		}
+		has_title = title:c_eastwatch
+	}
+	valid_position = {
+		government_has_flag = government_is_nw
+	}
+	valid_character = {
+		scope:employee = {
+			base_court_position_validity_trigger = { EMPLOYER = scope:liege }
+			OR = {
+				is_landed = no
+				has_title = title:b_greenguard
+			}
+			is_male = yes
+			is_adult = yes
+			has_trait = nightswatch
+			NOR = {
+				has_trait = maester
+				# has_trait = archmaester
+				has_trait = septon
+			}
+		}
+	}
+	revoke_cost = {
+		prestige = {
+			value = 200
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+	}
+	salary = {
+		round = no
+		gold = medium_court_position_salary
+	}
+	scaling_employer_modifiers = {
+		terrible = {
+			monthly_county_control_growth_add = 0.1
+		}
+		poor = {
+			monthly_county_control_growth_add = 0.2
+		}
+		average = {
+			monthly_county_control_growth_add = 0.3
+		}
+		good = {
+			monthly_county_control_growth_add = 0.4
+		}
+		excellent = {
+			monthly_county_control_growth_add = 0.5
+		}
+	}
+	modifier = {
+		monthly_prestige = minor_court_position_prestige_salary
+	}
+	on_court_position_received = {
+		scope:liege = {
+			save_scope_as = employer_saved
+		}
+		scope:employee = {
+			save_scope_as = employee_saved
+		}
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		title:b_greenguard = {
+			change_title_holder_include_vassals = {
+				holder = scope:employee_saved
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		scope:employee = {
+			change_government = nights_watch_government
+		}
+	}
+	on_court_position_revoked = {
+		seneschal_title_revoked_effect = yes
+		agot_on_greenguard_court_position_revoked = yes
+	}
+	on_court_position_invalidated = {
+		seneschal_title_revoked_effect = yes
+		agot_on_greenguard_court_position_revoked = yes
+	}
+	candidate_score = {
+		value = 250
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		if = {
+			limit = {
+				NOT = {
+					exists = scope:firing_court_position
+				}
+				scope:employee = {
+					has_any_court_position = yes
+				}
+			}
+			add = 150
+		}
+		if = {
+			limit = {
+				scope:employee = {
+					has_title = title:b_greenguard
+				}
+			}
+			add = 2000			#to stop AI from revoking alot
+		}
+		if = {
+			limit = {
+				scope:liege = {
+					has_relation_rival = scope:employee
+				}
+			}
+			add = 500			# rival isn't that big of a deal
+		}
+	}
+}
