@@ -8994,6 +8994,21 @@ bodyguard_court_position = {
 					format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE"
 				}
 			}
+			if = {
+				limit = {
+					scope:liege = {
+						has_perk = praetorian_guard_perk
+
+						employs_court_position = bodyguard_court_position
+					}
+				}
+				multiply = {
+					value = 0.5
+					desc = bodyguard_salary_mod
+					format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE"
+				}
+			}
+
 		}
 	}
 
