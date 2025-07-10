@@ -9400,6 +9400,20 @@ champion_court_position = {
 					format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE"
 				}
 			}
+			if = { # Edited - Sleepingcafe - 10/07
+				limit = {
+					scope:liege = {
+						has_perk = praetorian_guard_perk
+
+						employs_court_position = household_guard_court_position
+					}
+				}
+				multiply = {
+					value = 0.5
+					desc = distinguished_guard_salary_mod
+					format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE"
+				}
+			}			
 		}
 	}
 
