@@ -4420,4 +4420,31 @@ baseborn_historical_house_artifacts_setup = {
 		}
 	}
 
+	if = {
+		limit = {
+			exists = character:Norcross_44
+			character:Norcross_44 = { is_alive = yes }
+		}
+		character:Norcross_44 = {
+			agot_create_artifact_baseborn_norcross_artifact_effect = {
+				OWNER = this
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			exists = character:Norcross_16
+			character:Norcross_16 = { is_alive = yes }
+		}
+		character:Norcross_ = {
+			agot_create_artifact_baseborn_norcross_artifact_effect = {
+				OWNER = this
+			}
+		}
+	}
+
+
+
+
+	
 }
