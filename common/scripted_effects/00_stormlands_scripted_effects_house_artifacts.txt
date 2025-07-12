@@ -1622,6 +1622,54 @@ agot_create_artifact_baseborn_selmy_artifact_effect = {
 			DATE = 8099.1.1
 			RECIPIENT = character:Selmy_19 # Next user of the artfact
 		}
+	}	
+}
 
+agot_create_artifact_baseborn_trant_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_trant_artifact_name
+		creator = character:Trant_11 # Remove this line from the code if the creator is unknown
+		description = baseborn_trant_artifact_description
+		visuals = journal
+		type = trinket
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_trant_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 7869.1.1 # Date the artifact was created
+			recipient = character:Trant_11 # First character to use the artifact
+			location = province:4526 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_trant_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Trant.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8106.1.1
+		RECIPIENT = character:Trant_22 # Next user of the artifact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8209.1.1
+		RECIPIENT = character:Trant_29 # Next user of the artifact
+		}
 	}
 }
