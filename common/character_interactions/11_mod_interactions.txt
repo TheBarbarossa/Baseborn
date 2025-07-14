@@ -1,0 +1,88 @@
+﻿nickname_interaction = {
+	category = interaction_category_friendly
+	common_interaction = yes
+	icon = icon_personal
+
+	send_name = NICKNAME_PROPOSAL
+
+	desc = nickname_interaction_desc
+	
+	is_shown = {
+		trigger_if = {
+			limit = { has_game_rule = nickname_conditions_default }
+			OR = {
+				scope:recipient = scope:actor
+				scope:recipient = { is_courtier_of = scope:actor }
+			}
+		}
+	}
+	
+	on_accept = {
+		#scope:actor = {
+		#	send_interface_message = {
+		#		type = event_generic_neutral
+		#		title = nickname_interaction_interface
+		#		right_icon = scope:recipient
+		#		scope:actor = {
+		#			add_prestige = 0
+		#		}
+		#		scope:recipient = {
+		#			add_prestige = 0
+		#		}
+		#	}
+		#}
+		
+		scope:actor = {
+			trigger_event = nickname_event.1
+		}
+	}
+	
+	ai_min_reply_days = 0
+	ai_max_reply_days = 0
+	
+	ai_will_do = {
+		base = 0
+	}
+}
+
+remove_nickname_interaction = {
+	category = interaction_category_friendly
+	common_interaction = yes
+	icon = icon_personal
+
+	desc = remove_nickname_interaction_desc
+	
+	is_shown = {
+		trigger_if = {
+			limit = { has_game_rule = nickname_conditions_default }
+			OR = {
+				scope:recipient = scope:actor
+				scope:recipient = { is_courtier_of = scope:actor }
+			}
+		}
+		scope:recipient = { has_any_nickname = yes }
+		#has_game_rule = remove_nickname_conditions_free
+	}
+	
+	on_accept = {
+		scope:recipient = {
+			hidden_effect = {
+				scope:recipient = {
+					if = {
+						limit = {
+							has_any_nickname = yes
+						}
+						remove_nickname = yes
+					}
+				}
+			}
+		}
+	}
+	
+	ai_min_reply_days = 0
+	ai_max_reply_days = 0
+	
+	ai_will_do = {
+		base = 0
+	}
+}
