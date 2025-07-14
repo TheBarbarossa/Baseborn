@@ -3085,3 +3085,28 @@ baseborn_hoare_artifact_template = {
         }
 	}
 }
+
+baseborn_norcross_artifact_template = {
+    can_equip = {
+        always = yes
+    }
+
+    can_benefit = {
+        dynasty = dynasty:dynn_Norcross
+    }
+
+	fallback = {
+        prowess_no_portrait = 3
+        general_opinion = -15
+	}
+	unique = yes
+	ai_score = {
+        value = 0
+        if = {
+            limit = {
+                dynasty ?= dynasty:dynn_Norcross
+            }
+            add = 100
+        }
+	}
+}
