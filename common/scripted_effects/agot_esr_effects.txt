@@ -1,0 +1,1375 @@
+﻿# ### esr_hate_by_association = {HATED= VICTIM= VICTIM_ASSOCIATE= MODIFIER= }
+# # HATED=scope:char VICTIM=scope:char VICTIM_ASSOCIATE=scope:char MODIFIER=opinion_modifier
+# # Call this effect in an every_in_list block iterating through VICTIM_ASSOCIATE
+# # Missing trait = forgiving trigger ( see murder_opinion_effect )
+# esr_hate_by_association = {
+# 	hidden_effect = {
+# 		$HATED$ = {
+# 			every_spouse = {
+# 				limit = { NOT = { this = $VICTIM$ } }
+# 				add_to_temporary_list = esr_hated_close_family_list
+# 			}
+			
+# 			every_close_family_member = {
+# 				limit = { NOT = { this = $VICTIM$ } }
+# 				add_to_temporary_list = esr_hated_close_family_list
+# 			}
+	
+# 			every_in_list = {
+# 				list = esr_hated_close_family_list
+# 				save_scope_as = esr_hated_close_family_member
+# 				$VICTIM_ASSOCIATE$ = {
+# 					if = {
+# 						limit = {NOT = {this = scope:esr_hated_close_family_member}}
+# 						add_opinion = {
+# 							target = scope:esr_hated_close_family_member
+# 							modifier = $MODIFIER$
+# 						}	
+# 					}													
+# 				}
+# 			}
+# 		}
+# 	}
+# }
+
+# ### esr_family_friend_remove_effect = {TARGET = }
+# # TARGET = scope:char (Family Friend candidate)
+# # Call this effect in an every_in_list block iterating through the family members of TARGET's former friend.
+# # Will wrongly remove Family Friends from characters due to the sequential nature of the effect.
+# # Call addesr_family_friend_add_effect after this to add back wrongly removed Family Friend Modifiers.
+# esr_family_friend_remove_effect = {
+# 	if = {
+# 		limit = {
+# 			NOR = {
+# 				is_close_family_of = $TARGET$
+# 				this = $TARGET$
+# 			}
+# 		}
+# 		every_close_family_member = {
+# 			if = {
+# 				limit = {
+# 					OR = {
+# 						has_relation_friend = $TARGET$
+# 						has_relation_best_friend = $TARGET$
+# 					}
+# 				}
+# 				add_to_temporary_list = friends_in_family_list
+# 			}
+# 			add_to_temporary_list = family_list
+# 		}
+	
+# 		every_spouse = {
+# 			if = {
+# 				limit = {
+# 					OR = {
+# 						has_relation_friend = $TARGET$
+# 						has_relation_best_friend = $TARGET$
+# 					}
+# 				}
+# 				add_to_temporary_list = friends_in_family_list
+# 			}
+# 			add_to_temporary_list = family_list
+# 		}
+	
+# 		add_to_temporary_list = family_list
+	
+# 		if ={
+# 			limit = {
+# 				OR = {
+# 					has_relation_friend = $TARGET$
+# 					has_relation_best_friend = $TARGET$
+# 				}
+# 				any_in_list = {
+# 					list = friends_in_family_list
+# 					count < 2 #at least 3 friends in family ( 1 (self) + 1 = 2 < 3 )
+# 				}
+# 			}
+# 			every_in_list = {
+# 				list = family_list
+# 				limit = {is_alive = yes}
+# 				remove_opinion = {
+# 					target = $TARGET$
+# 					modifier = esr_family_friend
+# 				}
+# 				remove_list_variable = {
+# 					name = family_friend_list
+# 					target = $TARGET$
+# 				}
+# 				if = {
+# 					limit = {
+# 						has_relation_esr_family_friend = $TARGET$
+# 					}
+# 					remove_relation_esr_family_friend = $TARGET$
+# 				}
+# 			}
+# 		}
+	
+# 		else_if ={
+# 			limit = {
+# 				any_in_list = {
+# 					list = friends_in_family_list
+# 					count < 3 #at least 3 friends in family ( 2 < 3 )
+# 				}
+# 			}
+# 			every_in_list = {
+# 				list = family_list
+# 				limit = {is_alive = yes}
+# 				remove_opinion = {
+# 					target = $TARGET$
+# 					modifier = esr_family_friend
+# 				}
+# 				remove_list_variable = {
+# 					name = family_friend_list
+# 					target = $TARGET$
+# 				}
+# 				if = {
+# 					limit = {
+# 						has_relation_esr_family_friend = $TARGET$
+# 					}
+# 					remove_relation_esr_family_friend = $TARGET$
+# 				}
+# 			}
+# 		}
+
+# 		# Need to clear temp lists otherwise they will persist for all iterations afterwards
+# 		every_in_list = {
+# 			list = friends_in_family_list
+# 			remove_from_list = friends_in_family_list
+# 		}
+
+# 		every_in_list = {
+# 			list = family_list
+# 			remove_from_list = family_list
+# 		}
+# 	}
+# }
+
+# ### esr_family_friend_add_effect = {TARGET = }
+# # TARGET = scope:char (Family Friend candidate)
+# # Call this effect in an every_in_list block iterating through the family members of TARGET's new friend
+# esr_family_friend_add_effect = {
+# 	if = {
+# 		limit = {
+# 			NOR = {
+# 				is_close_family_of = $TARGET$
+# 				this = $TARGET$
+# 			}
+# 		}
+# 		every_close_family_member = {
+# 			if = {
+# 				limit = {
+# 					OR = {
+# 						has_relation_friend = $TARGET$
+# 						has_relation_best_friend = $TARGET$
+# 					}
+# 				}
+# 				add_to_temporary_list = friends_in_family_list
+# 			}
+# 			add_to_temporary_list = family_list
+# 		}
+	
+# 		every_spouse = {
+# 			if = {
+# 				limit = {
+# 					OR = {
+# 						has_relation_friend = $TARGET$
+# 						has_relation_best_friend = $TARGET$
+# 					}
+# 				}
+# 				add_to_temporary_list = friends_in_family_list
+# 			}
+# 			add_to_temporary_list = family_list
+# 		}
+	
+		
+# 		add_to_temporary_list = family_list
+		
+	
+# 		if ={
+# 			limit = {
+# 				OR = {
+# 					has_relation_friend = $TARGET$
+# 					has_relation_best_friend = $TARGET$
+# 				}
+# 				any_in_list = {
+# 					list = friends_in_family_list
+# 					count > 1 #at least 3 friends in family ( 1 (self) + 2 = 3 >= 3 )
+# 				}
+# 			}
+# 			every_in_list = {
+# 				list = family_list
+# 				limit = {NOT = {this = $TARGET$}}
+# 				add_opinion = {
+# 					target = $TARGET$
+# 					modifier = esr_family_friend
+# 				}
+# 				add_to_variable_list = {
+# 					name = family_friend_list
+# 					target = $TARGET$
+# 				}
+# 				if = {
+# 					limit = {
+# 						NOR = {
+# 							has_relation_esr_family_friend = $TARGET$
+# 							this = $TARGET$
+# 						}
+# 					}
+# 					set_relation_esr_family_friend = $TARGET$
+# 				}
+# 			}
+# 		}
+	
+# 		else_if ={
+# 			limit = {
+# 				any_in_list = {
+# 					list = friends_in_family_list
+# 					count > 2 #at least 3 friends in family ( 3 = 3 >= 3 )
+# 				}
+# 			}
+# 			every_in_list = {
+# 				list = family_list
+# 				limit = {NOT = {this = $TARGET$}}
+# 				add_opinion = {
+# 					target = $TARGET$
+# 					modifier = esr_family_friend
+# 				}
+# 				add_to_variable_list = {
+# 					name = family_friend_list
+# 					target = $TARGET$
+# 				}
+# 				if = {
+# 					limit = {
+# 						NOR = {
+# 							has_relation_esr_family_friend = $TARGET$
+# 							this = $TARGET$
+# 						}
+# 					}
+# 					set_relation_esr_family_friend = $TARGET$
+# 				}
+# 			}
+# 		}
+
+# 		every_in_list = {
+# 			list = friends_in_family_list
+# 			remove_from_list = friends_in_family_list
+# 		}
+
+# 		every_in_list = {
+# 			list = family_list
+# 			remove_from_list = family_list
+# 		}
+# 	}
+# }
+
+# ### esr_family_friend_death_remove_effect = {TARGET = }
+# # esr_family_friend_remove_effect with different friends_in_family_list count number.
+# # Call esr_family_friend_death_add_effect after this for the same reason (wrongly remove FF)
+# # the friend who is about to die is still alive when on_death_relation_friend is called!
+# esr_family_friend_death_remove_effect = {
+# 	if = {
+# 		limit = {
+# 			NOR = {
+# 				is_close_family_of = $TARGET$
+# 				this = $TARGET$
+# 			}
+# 		}
+# 		every_close_family_member = {
+# 			if = {
+# 				limit = {
+# 					OR = {
+# 						has_relation_friend = $TARGET$
+# 						has_relation_best_friend = $TARGET$
+# 					}
+# 				}
+# 				add_to_temporary_list = friends_in_family_list
+# 			}
+# 			add_to_temporary_list = family_list
+# 		}
+	
+# 		every_spouse = {
+# 			if = {
+# 				limit = {
+# 					OR = {
+# 						has_relation_friend = $TARGET$
+# 						has_relation_best_friend = $TARGET$
+# 					}
+# 				}
+# 				add_to_temporary_list = friends_in_family_list
+# 			}
+# 			add_to_temporary_list = family_list
+# 		}
+	
+# 		add_to_temporary_list = family_list
+	
+# 		if ={
+# 			limit = {
+# 				OR = {
+# 					has_relation_friend = $TARGET$
+# 					has_relation_best_friend = $TARGET$
+# 				}
+# 				any_in_list = {
+# 					list = friends_in_family_list
+# 					count < 3 #at least 3 friends in family ( 1 (self) + 2 - 1 (the friend about to die) = 2 < 3 )
+# 				}
+# 			}
+# 			every_in_list = {
+# 				list = family_list
+# 				limit = {is_alive = yes}
+# 				remove_opinion = {
+# 					target = $TARGET$
+# 					modifier = esr_family_friend
+# 				}
+# 				remove_list_variable = {
+# 					name = family_friend_list
+# 					target = $TARGET$
+# 				}
+# 				if = {
+# 					limit = {
+# 						has_relation_esr_family_friend = $TARGET$
+# 					}
+# 					remove_relation_esr_family_friend = $TARGET$
+# 				}
+# 			}
+# 		}
+	
+# 		else_if ={
+# 			limit = {
+# 				any_in_list = {
+# 					list = friends_in_family_list
+# 					count < 4 #at least 3 friends in family ( 3 - 1 (the friend about to die) = 2 < 3 )
+# 				}
+# 			}
+# 			every_in_list = {
+# 				list = family_list
+# 				limit = {is_alive = yes}
+# 				remove_opinion = {
+# 					target = $TARGET$
+# 					modifier = esr_family_friend
+# 				}
+# 				remove_list_variable = {
+# 					name = family_friend_list
+# 					target = $TARGET$
+# 				}
+# 				if = {
+# 					limit = {
+# 						has_relation_esr_family_friend = $TARGET$
+# 					}
+# 					remove_relation_esr_family_friend = $TARGET$
+# 				} 
+# 			}
+# 		}
+
+# 		every_in_list = {
+# 			list = friends_in_family_list
+# 			remove_from_list = friends_in_family_list
+# 		}
+
+# 		every_in_list = {
+# 			list = family_list
+# 			remove_from_list = family_list
+# 		}
+# 	}
+# }
+
+# ### esr_family_friend_death_add_effect = {TARGET = }
+# # esr_family_friend_add_effect with different friends_in_family_list count number
+# # the friend who is about to die is still alive when on_death_relation_friend is called!
+# esr_family_friend_death_add_effect = {
+# 	if = {
+# 		limit = {
+# 			NOR = {
+# 				is_close_family_of = $TARGET$
+# 				this = $TARGET$
+# 			}
+# 		}
+# 		every_close_family_member = {
+# 			if = {
+# 				limit = {
+# 					OR = {
+# 						has_relation_friend = $TARGET$
+# 						has_relation_best_friend = $TARGET$
+# 					}
+# 				}
+# 				add_to_temporary_list = friends_in_family_list
+# 			}
+# 			add_to_temporary_list = family_list
+# 		}
+	
+# 		every_spouse = {
+# 			if = {
+# 				limit = {
+# 					OR = {
+# 						has_relation_friend = $TARGET$
+# 						has_relation_best_friend = $TARGET$
+# 					}
+# 				}
+# 				add_to_temporary_list = friends_in_family_list
+# 			}
+# 			add_to_temporary_list = family_list
+# 		}
+	
+		
+# 		add_to_temporary_list = family_list
+		
+	
+# 		if ={
+# 			limit = {
+# 				OR = {
+# 					has_relation_friend = $TARGET$
+# 					has_relation_best_friend = $TARGET$
+# 				}
+# 				any_in_list = {
+# 					list = friends_in_family_list
+# 					count > 2 #at least 3 friends in family ( 1 (self) + 3 - 1 (the friend about to die)  = 3 >= 3 )
+# 				}
+# 			}
+# 			every_in_list = {
+# 				list = family_list
+# 				add_opinion = {
+# 					target = $TARGET$
+# 					modifier = esr_family_friend
+# 				}
+# 				add_to_variable_list = {
+# 					name = family_friend_list
+# 					target = $TARGET$
+# 				}
+# 				if = {
+# 					limit = {
+# 						NOT = {has_relation_esr_family_friend = $TARGET$}
+# 					}
+# 					set_relation_esr_family_friend = $TARGET$
+# 				}
+# 			}
+# 		}
+	
+# 		else_if ={
+# 			limit = {
+# 				any_in_list = {
+# 					list = friends_in_family_list
+# 					count > 3 #at least 3 friends in family ( 4 - 1 (the friend about to die) = 3 >= 3 )
+# 				}
+# 			}
+# 			every_in_list = {
+# 				list = family_list
+# 				add_opinion = {
+# 					target = $TARGET$
+# 					modifier = esr_family_friend
+# 				}
+# 				add_to_variable_list = {
+# 					name = family_friend_list
+# 					target = $TARGET$
+# 				}
+# 				if = {
+# 					limit = {
+# 						NOT = {has_relation_esr_family_friend = $TARGET$}
+# 					}
+# 					set_relation_esr_family_friend = $TARGET$
+# 				}
+# 			}
+# 		}
+
+# 		every_in_list = {
+# 			list = friends_in_family_list
+# 			remove_from_list = friends_in_family_list
+# 		}
+
+# 		every_in_list = {
+# 			list = family_list
+# 			remove_from_list = family_list
+# 		}
+# 	}
+# }
+
+# esr_social_standing_trait_remove_effect = {
+# 	if = {
+# 		limit = {
+# 			is_ai = yes
+# 			has_trait = esr_social_standing
+# 			has_trait_xp = {
+# 				trait = esr_social_standing
+# 				track = esr_well_connected
+# 				value < 30
+# 			}
+# 			has_trait_xp = {
+# 				trait = esr_social_standing
+# 				track = esr_popular_among_peers
+# 				value < 30
+# 			}
+# 			has_trait_xp = {
+# 				trait = esr_social_standing
+# 				track = esr_friends_in_high_places
+# 				value < 30
+# 			}
+# 			has_trait_xp = {
+# 				trait = esr_social_standing
+# 				track = esr_social_pariah
+# 				value < 30
+# 			}
+# 		}
+# 		remove_trait = esr_social_standing
+# 	}
+
+# 	else_if = {
+# 		limit = {
+# 			is_ai = no
+# 			has_trait = esr_social_standing
+# 			has_trait_xp = {
+# 				trait = esr_social_standing
+# 				track = esr_well_connected
+# 				value = 0
+# 			}
+# 			has_trait_xp = {
+# 				trait = esr_social_standing
+# 				track = esr_popular_among_peers
+# 				value = 0
+# 			}
+# 			has_trait_xp = {
+# 				trait = esr_social_standing
+# 				track = esr_friends_in_high_places
+# 				value = 0
+# 			}
+# 			has_trait_xp = {
+# 				trait = esr_social_standing
+# 				track = esr_social_pariah
+# 				value = 0
+# 			}
+# 		}
+# 		remove_trait = esr_social_standing		
+# 	}
+# }
+
+# esr_on_rank_up_effect = {
+# 	ordered_spouse = {
+# 		limit = {is_ruler = yes}
+# 		order_by = highest_held_title_tier
+# 		save_scope_as = esr_highest_tier_spouse
+# 	}
+# 	if = {
+# 		limit = {
+# 			OR = {
+# 				NOT = {exists = scope:title}
+# 				scope:title.tier < tier_county
+# 			}
+# 			highest_held_title_tier >= tier_county
+# 		}
+# 		root = {
+# 			if = {
+# 				limit = {
+# 					OR = {
+# 						NOT = {exists = scope:esr_highest_tier_spouse}
+# 						NOT = {
+# 							scope:esr_highest_tier_spouse.highest_held_title_tier >= tier_county
+# 						}
+# 					}
+# 				}
+# 				every_relation = {
+# 					type = friend
+					
+# 					esr_set_track_variables = yes
+# 					esr_change_track_variable = {TRACK = esr_well_connected  VALUE = 3}
+# 					esr_update_social_standing_trait_effect = yes                       
+# 				}
+# 				every_relation = {
+# 					type = lover
+# 					limit = {
+# 						NOR = {
+# 							has_relation_friend = prev
+# 							has_relation_best_friend = prev
+# 						}
+# 					}
+					
+# 					esr_set_track_variables = yes
+# 					esr_change_track_variable = {TRACK = esr_well_connected  VALUE = 3}
+# 					esr_update_social_standing_trait_effect = yes       
+# 				}
+# 			}
+# 		}
+# 		every_spouse = {
+# 			limit = {highest_held_title_tier < tier_county}
+# 			every_relation = {
+# 				type = friend
+
+# 				esr_set_track_variables = yes
+# 				esr_change_track_variable = {TRACK = esr_well_connected  VALUE = 3}
+# 				esr_update_social_standing_trait_effect = yes                        
+# 			}
+# 			every_relation = {
+# 				type = lover
+# 				limit = {
+# 					NOR = {
+# 						has_relation_friend = prev
+# 						has_relation_best_friend = prev
+# 					}
+# 				}
+
+# 				esr_set_track_variables = yes
+# 				esr_change_track_variable = {TRACK = esr_well_connected  VALUE = 3}
+# 				esr_update_social_standing_trait_effect = yes          
+# 			}
+# 		}
+
+# 		esr_popular_among_peers_update_effect = {TARGET = this}
+
+# 	}
+
+# 	if = {
+# 		limit = {highest_held_title_tier >= tier_duchy}
+
+# 		if = {
+# 			limit = {
+# 				exists = scope:esr_highest_tier_spouse.primary_title
+# 				scope:esr_highest_tier_spouse.highest_held_title_tier > scope:title.tier
+# 			}
+# 			scope:esr_highest_tier_spouse.primary_title = {
+# 				save_scope_as = esr_old_highest_title
+# 			}
+# 		}
+
+# 		else_if = {
+# 			limit = {
+# 				exists = scope:title
+# 			}
+# 			scope:title = {
+# 				save_scope_as = esr_old_highest_title
+# 			}
+# 		}
+
+# 		root = {
+# 			if = {
+# 				limit = {
+# 					OR = {
+# 						NOT = {exists = scope:esr_highest_tier_spouse}
+# 						scope:esr_highest_tier_spouse.highest_held_title_tier <= root.highest_held_title_tier
+# 					}
+# 				}
+# 				every_relation = {
+# 					type = friend
+
+# 					esr_set_track_variables = yes
+# 					esr_change_track_variable = {TRACK = esr_friends_in_high_places  VALUE = root.esr_friends_in_high_places_rank_change_value}
+# 					esr_update_social_standing_trait_effect = yes
+# 				}
+# 				every_relation = {
+# 					type = lover
+# 					limit = {
+# 						NOR = {
+# 							has_relation_friend = prev
+# 							has_relation_best_friend = prev
+# 						}
+# 					}
+
+# 					esr_set_track_variables = yes
+# 					esr_change_track_variable = {TRACK = esr_friends_in_high_places  VALUE = root.esr_friends_in_high_places_rank_change_value}
+# 					esr_update_social_standing_trait_effect = yes
+# 				}
+# 				every_relation = {
+# 					type = rival
+# 					esr_set_track_variables = yes
+# 					esr_change_track_variable = {TRACK = esr_social_pariah  VALUE = root.esr_social_pariah_rank_change_value}
+# 					esr_update_social_standing_trait_effect = yes
+# 				}
+# 			}
+
+# 			else_if = {
+# 				limit = {
+# 					exists = scope:esr_highest_tier_spouse
+# 					scope:esr_highest_tier_spouse.highest_held_title_tier > root.highest_held_title_tier
+# 				}
+# 				every_relation = {
+# 					type = friend
+# 					esr_set_track_variables = yes
+# 					esr_change_track_variable = {TRACK = esr_friends_in_high_places  VALUE = scope:esr_highest_tier_spouse.esr_friends_in_high_places_rank_change_value}
+# 					esr_update_social_standing_trait_effect = yes
+# 				}
+# 				every_relation = {
+# 					type = lover
+# 					limit = {
+# 						NOR = {
+# 							has_relation_friend = prev
+# 							has_relation_best_friend = prev
+# 						}
+# 					}
+# 					esr_set_track_variables = yes
+# 					esr_change_track_variable = {TRACK = esr_friends_in_high_places  VALUE = scope:esr_highest_tier_spouse.esr_friends_in_high_places_rank_change_value}
+# 					esr_update_social_standing_trait_effect = yes 
+# 				}
+# 				every_relation = {
+# 					type = rival
+# 					esr_set_track_variables = yes
+# 					esr_change_track_variable = {TRACK = esr_social_pariah  VALUE = scope:esr_highest_tier_spouse.esr_social_pariah_rank_change_value}
+# 					esr_update_social_standing_trait_effect = yes
+# 				} 
+# 			}
+# 		}
+# 		every_spouse = {
+# 			save_scope_as = esr_root_spouse
+# 			if = {
+# 				limit = {
+# 					highest_held_title_tier <= root.highest_held_title_tier
+# 				}
+# 				every_relation = {
+# 					type = friend
+# 					esr_set_track_variables = yes
+# 					esr_change_track_variable = {TRACK = esr_friends_in_high_places  VALUE = root.esr_friends_in_high_places_rank_change_value}
+# 					esr_update_social_standing_trait_effect = yes
+# 				}
+# 				every_relation = {
+# 					type = lover
+# 					limit = {
+# 						NOR = {
+# 							has_relation_friend = prev
+# 							has_relation_best_friend = prev
+# 						}
+# 					}
+# 					esr_set_track_variables = yes
+# 					esr_change_track_variable = {TRACK = esr_friends_in_high_places  VALUE = root.esr_friends_in_high_places_rank_change_value}
+# 					esr_update_social_standing_trait_effect = yes
+# 				}
+# 				every_relation = {
+# 					type = rival
+# 					esr_set_track_variables = yes
+# 					esr_change_track_variable = {TRACK = esr_social_pariah  VALUE = root.esr_social_pariah_rank_change_value}
+# 					esr_update_social_standing_trait_effect = yes
+# 				}
+# 			}
+
+# 			else_if = {
+# 				limit = {
+# 					highest_held_title_tier > root.highest_held_title_tier
+# 				}
+# 				every_relation = {
+# 					type = friend
+# 					esr_set_track_variables = yes
+# 					esr_change_track_variable = {TRACK = esr_friends_in_high_places  VALUE = scope:esr_root_spouse.esr_friends_in_high_places_rank_change_value}
+# 					esr_update_social_standing_trait_effect = yes
+# 				}
+# 				every_relation = {
+# 					type = lover
+# 					limit = {
+# 						NOR = {
+# 							has_relation_friend = prev
+# 							has_relation_best_friend = prev
+# 						}
+# 					}
+# 					esr_set_track_variables = yes
+# 					esr_change_track_variable = {TRACK = esr_friends_in_high_places  VALUE = scope:esr_root_spouse.esr_friends_in_high_places_rank_change_value}
+# 					esr_update_social_standing_trait_effect = yes
+# 				}
+# 				every_relation = {
+# 					type = rival
+# 					esr_set_track_variables = yes
+# 					esr_change_track_variable = {TRACK = esr_social_pariah  VALUE = scope:esr_root_spouse.esr_social_pariah_rank_change_value}
+# 					esr_update_social_standing_trait_effect = yes
+# 				}
+# 			}
+# 		}
+# 	}
+# }
+
+# esr_on_rank_down_effect = { # Need fix for single chars
+# 	ordered_spouse = {
+# 		limit = {is_ruler = yes}
+# 		order_by = highest_held_title_tier
+# 		save_scope_as = esr_highest_tier_spouse
+# 	}
+# 	if = {
+# 		limit = {
+# 			exists = scope:title
+# 			scope:title.tier >= tier_county
+# 			OR = {
+# 				is_ruler = no
+# 				highest_held_title_tier < tier_county
+# 			}
+# 		}
+# 		root = {
+# 			if = {
+# 				limit = {
+# 					OR = {
+# 						NOT = {exists = scope:esr_highest_tier_spouse}
+# 						NOT = {
+# 							scope:esr_highest_tier_spouse.highest_held_title_tier >= tier_county
+# 						}
+# 					}
+# 				}
+# 				every_relation = {
+# 					type = friend
+# 					esr_set_track_variables = yes
+# 					esr_change_track_variable = {TRACK = esr_well_connected  VALUE = root.esr_well_connected_rank_lost_value}
+# 					esr_update_social_standing_trait_effect = yes                       
+# 				}
+# 				every_relation = {
+# 					type = lover
+# 					limit = {
+# 						NOR = {
+# 							has_relation_friend = prev
+# 							has_relation_best_friend = prev
+# 						}
+# 					}
+# 					esr_set_track_variables = yes
+# 					esr_change_track_variable = {TRACK = esr_well_connected  VALUE = root.esr_well_connected_rank_lost_value}
+# 					esr_update_social_standing_trait_effect = yes           
+# 				}
+# 			}
+# 		}
+# 		every_spouse = {
+# 			limit = {highest_held_title_tier < tier_county}
+# 			every_relation = {
+# 				type = friend
+# 				esr_set_track_variables = yes
+# 				esr_change_track_variable = {TRACK = esr_well_connected  VALUE = root.esr_well_connected_rank_lost_value}
+# 				esr_update_social_standing_trait_effect = yes                     
+# 			}
+# 			every_relation = {
+# 				type = lover
+# 				limit = {
+# 					NOR = {
+# 						has_relation_friend = prev
+# 						has_relation_best_friend = prev
+# 					}
+# 				}
+# 				esr_set_track_variables = yes
+# 				esr_change_track_variable = {TRACK = esr_well_connected  VALUE = root.esr_well_connected_rank_lost_value}
+# 				esr_update_social_standing_trait_effect = yes        
+# 			}
+# 		}
+
+# 		esr_popular_among_peers_update_effect = {TARGET = this}
+		
+# 	}
+
+# 	if = {
+# 		limit = {
+# 			exists = scope:title
+# 			scope:title.tier >= tier_duchy
+# 		}
+
+# 		if = {
+# 			limit = {
+# 				exists = scope:esr_highest_tier_spouse.primary_title
+# 				scope:esr_highest_tier_spouse.highest_held_title_tier > scope:title.tier
+# 			}
+# 			scope:esr_highest_tier_spouse.primary_title = {
+# 				save_scope_as = esr_old_highest_title
+# 			}
+# 		}
+
+# 		else_if = {
+# 			limit = {
+# 				exists = scope:title
+# 			}
+# 			scope:title = {
+# 				save_scope_as = esr_old_highest_title
+# 			}
+# 		}
+
+# 		root = {
+# 			if = {
+# 				limit = {
+# 					OR = {
+# 						NOT = {exists = scope:esr_highest_tier_spouse}
+# 						NOT = {
+# 							scope:esr_highest_tier_spouse.highest_held_title_tier >= scope:title.tier
+# 						}
+# 					}
+# 				}
+# 				if = {
+# 					limit = {
+# 						OR = {
+# 							NOT = {exists = scope:esr_highest_tier_spouse}
+# 							scope:esr_highest_tier_spouse.highest_held_title_tier <= root.highest_held_title_tier
+# 						}
+# 					}
+# 					every_relation = {
+# 						type = friend
+# 						esr_set_track_variables = yes
+# 						esr_change_track_variable = {TRACK = esr_friends_in_high_places  VALUE = root.esr_friends_in_high_places_rank_change_value}
+# 						esr_update_social_standing_trait_effect = yes
+# 					}
+# 					every_relation = {
+# 						type = lover
+# 						limit = {
+# 							NOR = {
+# 								has_relation_friend = prev
+# 								has_relation_best_friend = prev
+# 							}
+# 						}
+# 						esr_set_track_variables = yes
+# 						esr_change_track_variable = {TRACK = esr_friends_in_high_places  VALUE = root.esr_friends_in_high_places_rank_change_value}
+# 						esr_update_social_standing_trait_effect = yes
+# 					}
+# 					every_relation = {
+# 						type = rival
+# 						esr_set_track_variables = yes
+# 						esr_change_track_variable = {TRACK = esr_social_pariah  VALUE = root.esr_social_pariah_rank_change_value}
+# 						esr_update_social_standing_trait_effect = yes
+# 					}
+# 				}
+
+# 				else_if = {
+# 					limit = {
+# 						exists = scope:esr_highest_tier_spouse
+# 						scope:esr_highest_tier_spouse.highest_held_title_tier > root.highest_held_title_tier
+# 					}
+# 					every_relation = {
+# 						type = friend
+# 						esr_set_track_variables = yes
+# 						esr_change_track_variable = {TRACK = esr_friends_in_high_places  VALUE = scope:esr_highest_tier_spouse.esr_friends_in_high_places_rank_change_value}
+# 						esr_update_social_standing_trait_effect = yes
+# 					}
+# 					every_relation = {
+# 						type = lover
+# 						limit = {
+# 							NOR = {
+# 								has_relation_friend = prev
+# 								has_relation_best_friend = prev
+# 							}
+# 						}
+# 						esr_set_track_variables = yes
+# 						esr_change_track_variable = {TRACK = esr_friends_in_high_places  VALUE = scope:esr_highest_tier_spouse.esr_friends_in_high_places_rank_change_value}
+# 						esr_update_social_standing_trait_effect = yes
+# 					}
+# 					every_relation = {
+# 						type = rival
+# 						esr_set_track_variables = yes
+# 						esr_change_track_variable = {TRACK = esr_social_pariah  VALUE = scope:esr_highest_tier_spouse.esr_social_pariah_rank_change_value}
+# 						esr_update_social_standing_trait_effect = yes
+# 					} 
+# 				}
+# 			}
+# 		}
+# 		every_spouse = {
+# 			save_scope_as = esr_root_spouse
+# 			if = {
+# 				limit = {
+# 					highest_held_title_tier <= root.highest_held_title_tier
+# 				}
+# 				every_relation = {
+# 					type = friend
+# 					esr_set_track_variables = yes
+# 					esr_change_track_variable = {TRACK = esr_friends_in_high_places  VALUE = root.esr_friends_in_high_places_rank_change_value}
+# 					esr_update_social_standing_trait_effect = yes
+# 				}
+# 				every_relation = {
+# 					type = lover
+# 					limit = {
+# 						NOR = {
+# 							has_relation_friend = prev
+# 							has_relation_best_friend = prev
+# 						}
+# 					}
+# 					esr_set_track_variables = yes
+# 					esr_change_track_variable = {TRACK = esr_friends_in_high_places  VALUE = root.esr_friends_in_high_places_rank_change_value}
+# 					esr_update_social_standing_trait_effect = yes
+# 				}
+# 				every_relation = {
+# 					type = rival
+# 					esr_set_track_variables = yes
+# 					esr_change_track_variable = {TRACK = esr_social_pariah  VALUE = root.esr_social_pariah_rank_change_value}
+# 					esr_update_social_standing_trait_effect = yes
+# 				}
+# 			}
+
+# 			else_if = {
+# 				limit = {
+# 					highest_held_title_tier > root.highest_held_title_tier
+# 				}
+# 				every_relation = {
+# 					type = friend
+# 					esr_set_track_variables = yes
+# 					esr_change_track_variable = {TRACK = esr_friends_in_high_places  VALUE = scope:esr_root_spouse.esr_friends_in_high_places_rank_change_value}
+# 					esr_update_social_standing_trait_effect = yes
+# 				}
+# 				every_relation = {
+# 					type = lover
+# 					limit = {
+# 						NOR = {
+# 							has_relation_friend = prev
+# 							has_relation_best_friend = prev
+# 						}
+# 					}
+# 					esr_set_track_variables = yes
+# 					esr_change_track_variable = {TRACK = esr_friends_in_high_places  VALUE = scope:esr_root_spouse.esr_friends_in_high_places_rank_change_value}
+# 					esr_update_social_standing_trait_effect = yes
+# 				}
+# 				every_relation = {
+# 					type = rival
+# 					esr_set_track_variables = yes
+# 					esr_change_track_variable = {TRACK = esr_social_pariah  VALUE = scope:esr_root_spouse.esr_social_pariah_rank_change_value}
+# 					esr_update_social_standing_trait_effect = yes
+# 				}
+# 			}
+# 		}
+# 	}
+# }
+
+# esr_popular_among_peers_update_effect = {
+# 	if = {
+# 		limit = {
+# 			exists = $TARGET$
+# 			$TARGET$ = {is_alive = yes}
+# 		}
+# 		$TARGET$ = {
+# 			if = {
+# 				limit = {
+# 					#is_ruler = yes
+# 					is_independent_ruler = no
+# 				}
+# 				save_scope_as = esr_perspective_char
+	
+# 				esr_set_track_variables = yes
+	
+# 				set_variable = {
+# 					name = esr_popular_among_peers
+# 					value = 0
+# 				}
+# 				every_relation = {
+# 					type = friend
+# 					limit = {
+# 						is_independent_ruler = no
+# 						highest_held_title_tier >= tier_county
+# 						is_vassal_or_below_of = $TARGET$.top_liege
+# 					}
+# 					save_scope_as = esr_vassal_relation # in this case it's actually the liege's relation
+# 					scope:esr_perspective_char = {
+# 						esr_change_track_variable = {TRACK = esr_popular_among_peers  VALUE = scope:esr_vassal_relation.esr_popular_among_peers_exp_value}
+# 					}
+# 				}
+# 				every_relation = {
+# 					type = lover
+# 					limit = {
+# 						is_independent_ruler = no
+# 						highest_held_title_tier >= tier_county
+# 						is_vassal_or_below_of = $TARGET$.top_liege
+# 					}
+# 					save_scope_as = esr_vassal_relation
+# 					scope:esr_perspective_char = {
+# 						esr_change_track_variable = {TRACK = esr_popular_among_peers  VALUE = scope:esr_vassal_relation.esr_popular_among_peers_exp_value}
+# 					}
+# 				}
+	
+# 				esr_update_social_standing_trait_effect = yes 
+# 			}
+	
+# 			if = {
+# 				limit = {
+# 					#is_ruler = yes
+# 					is_independent_ruler = no
+# 					exists = $TARGET$.top_liege
+# 					$TARGET$.top_liege = {is_alive = yes}
+# 				}
+# 				$TARGET$.top_liege = {
+# 					every_vassal_or_below = {
+# 						save_scope_as = esr_perspective_char
+		
+# 						esr_set_track_variables = yes
+		
+# 						set_variable = {
+# 							name = esr_popular_among_peers
+# 							value = 0
+# 						}
+# 						every_relation = {
+# 							type = friend
+# 							limit = {
+# 								is_independent_ruler = no
+# 								highest_held_title_tier >= tier_county
+# 								is_vassal_or_below_of = $TARGET$.top_liege
+# 							}
+# 							save_scope_as = esr_vassal_relation
+# 							scope:esr_perspective_char = {
+# 								esr_change_track_variable = {TRACK = esr_popular_among_peers  VALUE = scope:esr_vassal_relation.esr_popular_among_peers_exp_value}
+# 							}
+# 						}
+# 						every_relation = {
+# 							type = lover
+# 							limit = {
+# 								is_independent_ruler = no
+# 								highest_held_title_tier >= tier_county
+# 								is_vassal_or_below_of = $TARGET$.top_liege
+# 							}
+# 							save_scope_as = esr_vassal_relation
+# 							scope:esr_perspective_char = {
+# 								esr_change_track_variable = {TRACK = esr_popular_among_peers  VALUE = scope:esr_vassal_relation.esr_popular_among_peers_exp_value}
+# 							}
+# 						}
+		
+# 						esr_update_social_standing_trait_effect = yes
+# 					}
+# 				}
+# 			}
+
+# 			else_if = {
+# 				limit = {
+# 					is_independent_ruler = yes
+# 					highest_held_title_tier >= tier_duchy
+# 				}
+# 				$TARGET$ = {
+# 					every_vassal_or_below = {
+# 						save_scope_as = esr_perspective_char
+		
+# 						esr_set_track_variables = yes
+		
+# 						set_variable = {
+# 							name = esr_popular_among_peers
+# 							value = 0
+# 						}
+# 						#debug_log = "esr_on_vassal_gained_trigger 1. [THIS.Char.GetID] -> [PREV.Char.GetID]"
+
+# 						every_relation = {
+# 							type = friend
+# 							limit = {
+# 								is_independent_ruler = no
+# 								highest_held_title_tier >= tier_county
+# 								#is_vassal_or_below_of = $TARGET$ #Give false-negative in some cases for some reason...
+# 							}
+# 							save_scope_as = esr_vassal_relation
+# 							scope:esr_perspective_char = {
+# 								#debug_log = "esr_on_vassal_gained_trigger 2. [THIS.Char.GetID] -> [PREV.Char.GetID]"
+# 								esr_change_track_variable = {TRACK = esr_popular_among_peers  VALUE = scope:esr_vassal_relation.esr_popular_among_peers_exp_value}
+# 							}
+# 						}
+# 						every_relation = {
+# 							type = lover
+# 							limit = {
+# 								is_independent_ruler = no
+# 								highest_held_title_tier >= tier_county
+# 								#is_vassal_or_below_of = $TARGET$
+# 							}
+# 							save_scope_as = esr_vassal_relation
+# 							scope:esr_perspective_char = {
+# 								esr_change_track_variable = {TRACK = esr_popular_among_peers  VALUE = scope:esr_vassal_relation.esr_popular_among_peers_exp_value}
+# 							}
+# 						}
+		
+# 						esr_update_social_standing_trait_effect = yes
+# 					}
+# 				}
+# 			}
+
+# 			else_if = {
+# 				limit = {
+# 					is_ruler = no
+# 					has_variable = esr_most_recent_liege
+# 					exists = var:esr_most_recent_liege
+# 					var:esr_most_recent_liege = {
+# 						is_alive = yes
+# 						highest_held_title_tier >= tier_duchy
+# 					}
+# 				}
+# 				var:esr_most_recent_liege = {
+# 					save_scope_as = esr_target_most_recent_liege
+# 					every_vassal_or_below = {
+# 						save_scope_as = esr_perspective_char
+		
+# 						esr_set_track_variables = yes
+		
+# 						set_variable = {
+# 							name = esr_popular_among_peers
+# 							value = 0
+# 						}
+# 						every_relation = {
+# 							type = friend
+# 							limit = {
+# 								is_independent_ruler = no
+# 								highest_held_title_tier >= tier_county
+# 								is_vassal_or_below_of = scope:esr_target_most_recent_liege
+# 							}
+# 							save_scope_as = esr_vassal_relation
+# 							scope:esr_perspective_char = {
+# 								esr_change_track_variable = {TRACK = esr_popular_among_peers  VALUE = scope:esr_vassal_relation.esr_popular_among_peers_exp_value}
+# 							}
+# 						}
+# 						every_relation = {
+# 							type = lover
+# 							limit = {
+# 								is_independent_ruler = no
+# 								highest_held_title_tier >= tier_county
+# 								is_vassal_or_below_of = scope:esr_target_most_recent_liege
+# 							}
+# 							save_scope_as = esr_vassal_relation
+# 							scope:esr_perspective_char = {
+# 								esr_change_track_variable = {TRACK = esr_popular_among_peers  VALUE = scope:esr_vassal_relation.esr_popular_among_peers_exp_value}
+# 							}
+# 						}
+		
+# 						esr_update_social_standing_trait_effect = yes
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
+# }
+
+# esr_marriage_xp_update_effect = {
+# 	$LOW_SPOUSE$ = {save_scope_as = esr_low_spouse}
+# 	$HIGH_SPOUSE$ = {save_scope_as = esr_high_spouse}
+# 	$TYPE$ = {save_scope_as = esr_action_type}
+
+# 	scope:esr_low_spouse = {
+# 		every_relation = {
+# 			type = friend
+# 			esr_set_track_variables = yes
+# 			esr_change_track_variable = {TRACK = esr_well_connected  VALUE = esr_well_connected_marriage_value}
+# 			esr_change_track_variable = {TRACK = esr_friends_in_high_places  VALUE = esr_friends_in_high_places_marriage_value}
+# 			esr_update_social_standing_trait_effect = yes
+# 		}
+# 		every_relation = {
+# 			type = lover
+# 			limit = {
+# 				NOR = {
+# 					has_relation_friend = prev
+# 					has_relation_best_friend = prev
+# 				}
+# 			}
+# 			esr_set_track_variables = yes
+# 			esr_change_track_variable = {TRACK = esr_well_connected  VALUE = esr_well_connected_marriage_value}
+# 			esr_change_track_variable = {TRACK = esr_friends_in_high_places  VALUE = esr_friends_in_high_places_marriage_value}
+# 			esr_update_social_standing_trait_effect = yes
+# 		}
+# 		every_relation = {
+# 			type = rival
+# 			esr_set_track_variables = yes
+# 			esr_change_track_variable = {TRACK = esr_social_pariah  VALUE = esr_social_pariah_marriage_value}
+# 			esr_update_social_standing_trait_effect = yes
+# 		}
+# 	}
+# }
+
+# esr_set_track_variables = {
+# 	if = {
+# 		limit = {
+# 			is_alive = yes
+# 			is_human = yes
+# 			OR = {
+# 				NOT = {has_variable = esr_well_connected}
+# 				NOT = {has_variable = esr_friends_in_high_places}
+# 				NOT = {has_variable = esr_popular_among_peers}
+# 				NOT = {has_variable = esr_social_pariah}
+# 			}
+# 		}
+# 		set_variable = {
+# 			name = esr_well_connected
+# 			value = 0
+# 		}
+# 		set_variable = {
+# 			name = esr_friends_in_high_places
+# 			value = 0
+# 		}
+# 		set_variable = {
+# 			name = esr_popular_among_peers
+# 			value = 0
+# 		}
+# 		set_variable = {
+# 			name = esr_social_pariah
+# 			value = 0
+# 		}
+# 	}
+# }
+
+# esr_change_track_variable = {
+# 	if = {
+# 		limit = {
+# 			is_alive = yes
+# 			is_human = yes
+# 		}
+# 		change_variable = {
+# 			name = $TRACK$
+# 			add = $VALUE$
+# 		}
+# 		clamp_variable = {
+# 			name = $TRACK$
+# 			max = 1000
+# 			min = 0
+# 		}
+# 	}
+# }
+
+# esr_update_social_standing_trait_effect = {
+# 	if = {
+# 		limit = {
+# 			is_human = yes
+# 			exists = var:esr_well_connected
+# 			exists = var:esr_friends_in_high_places
+# 			exists = var:esr_popular_among_peers
+# 			exists = var:esr_social_pariah
+# 		}
+# 		if = {
+# 			limit = {
+# 				NOT = { has_trait = esr_social_standing }
+# 				OR = {
+# 					var:esr_well_connected >= 30
+# 					var:esr_friends_in_high_places >= 30
+# 					var:esr_popular_among_peers >= 30
+# 					var:esr_social_pariah >= 30
+# 				}
+# 			}
+# 			add_trait = esr_social_standing
+# 			add_trait_xp = {
+# 				trait = esr_social_standing
+# 				track = esr_well_connected
+# 				value = var:esr_well_connected
+# 			}
+# 			add_trait_xp = {
+# 				trait = esr_social_standing
+# 				track = esr_friends_in_high_places
+# 				value = var:esr_friends_in_high_places
+# 			}
+# 			add_trait_xp = {
+# 				trait = esr_social_standing
+# 				track = esr_popular_among_peers
+# 				value = var:esr_popular_among_peers
+# 			}
+# 			add_trait_xp = {
+# 				trait = esr_social_standing
+# 				track = esr_social_pariah
+# 				value = var:esr_social_pariah
+# 			}
+# 		}
+# 		else_if = {
+# 			limit = {
+# 				has_trait = esr_social_standing
+# 			}
+# 			add_trait_xp = {
+# 				trait = esr_social_standing
+# 				track = esr_well_connected
+# 				value = -100
+# 			}
+# 			add_trait_xp = {
+# 				trait = esr_social_standing
+# 				track = esr_friends_in_high_places
+# 				value = -100
+# 			}
+# 			add_trait_xp = {
+# 				trait = esr_social_standing
+# 				track = esr_popular_among_peers
+# 				value = -100
+# 			}
+# 			add_trait_xp = {
+# 				trait = esr_social_standing
+# 				track = esr_social_pariah
+# 				value = -100
+# 			}
+			
+# 			add_trait_xp = {
+# 				trait = esr_social_standing
+# 				track = esr_well_connected
+# 				value = var:esr_well_connected
+# 			}
+# 			add_trait_xp = {
+# 				trait = esr_social_standing
+# 				track = esr_friends_in_high_places
+# 				value = var:esr_friends_in_high_places
+# 			}
+# 			add_trait_xp = {
+# 				trait = esr_social_standing
+# 				track = esr_popular_among_peers
+# 				value = var:esr_popular_among_peers
+# 			}
+# 			add_trait_xp = {
+# 				trait = esr_social_standing
+# 				track = esr_social_pariah
+# 				value = var:esr_social_pariah
+# 			}
+# 		}
+# 	}
+# 	esr_social_standing_trait_remove_effect = yes
+# }
