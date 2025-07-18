@@ -1,0 +1,177 @@
+﻿#Trigger that checks if scoped CHAR has any traits incompatible with Knighthood
+agot_has_traits_preventing_knighthood_trigger = {
+	OR = { #Simply having any of these traits will disqualify you from knighthood.
+		has_trait = aged
+		has_trait = dwarf #Tyrion can't become a knight
+		has_trait = clubfooted #Larys Strong can't become a knight? Canon check req
+		has_trait = one_legged
+		has_trait = one_handed
+		has_trait = incapable
+		has_trait = infirm
+		has_trait = physique_bad_1
+		has_trait = physique_bad_2
+		has_trait = physique_bad_3
+		is_agot_knight_trigger = yes
+		has_trait = septon
+		has_trait = maester
+		has_trait = ruin
+		is_human = no # Non-humans can't be knights
+	}
+}
+
+#Trigger that checks if a character can become a squire.
+is_eligible_for_agot_squirehood_trigger = {
+	is_human = yes
+	OR = {
+		is_male = yes
+		AND = {
+			is_female = yes
+			has_character_flag = tomboy
+			prowess >= high_skill_rating
+			martial >= decent_skill_rating
+		}
+	}
+	age < 22 #There really is no age limit for squire's but for now we'll pick an age and keep them under it.
+	age >= 9 #9 years old is the usual age most highborn boys start squiring.
+	custom_tooltip = {
+		text = is_squire_or_prev_squire
+		OR = { #They cannot have the squire trait, OR they are a knightless squire
+			NOT = {
+				has_trait_xp = { #They cannot be a squire already
+					trait = squire
+					track = knight
+					value < 100
+				}
+			}
+			has_past_experience_with_squirehood = yes
+		}
+	}
+	agot_has_traits_preventing_knighthood_trigger = no #You can't have any traits that disqualify you from being made a knight
+	is_imprisoned = no
+	num_of_relation_agot_knight = 0
+}
+
+has_past_experience_with_squirehood = {
+	AND = {
+		has_trait_xp = {
+			trait = squire
+			track = knight
+			value >= 0
+		}
+		num_of_relation_agot_knight = 0
+	}
+}
+
+is_agot_knight_trigger = {
+	OR = {
+		has_trait = knight
+		AND = {
+			has_trait_xp = {
+				trait = squire
+				track = knight
+				value >= 100
+			}
+			NOT = {
+				any_owned_story = {
+					story_type = story_agot_squire_ongoing
+				}
+			}
+		}
+	}
+}
+
+is_squire_with_trait_xp = {
+	OR = {
+		AND = {
+			has_trait_xp = {
+				trait = squire
+				track = knight
+				value >= 100
+			}
+			any_owned_story = {
+				story_type = story_agot_squire_ongoing
+			}
+		}
+		AND = {
+			has_trait = squire
+			has_trait_xp = {
+				trait = squire
+				track = knight
+				value < 100
+			}
+		}
+	}
+	is_agot_knight_trigger = no
+}
+
+agot_can_take_squire_trigger = {
+	is_adult = yes
+	is_human = yes
+	is_agot_knight_trigger = yes
+	num_of_relation_agot_squire < 2
+	NOT = {
+		has_trait = incapable
+	}
+	is_imprisoned = no
+}
+
+agot_can_become_a_knight_trigger = {
+	agot_has_traits_preventing_knighthood_trigger = no
+	OR = {
+		is_male = yes
+		AND = {
+			is_male = no
+			has_trait = squire
+		}
+	}
+	NOT = {
+		has_character_flag = former_acolyte
+	}
+	custom_tooltip = {
+		text = agot_can_become_a_knight_trigger_age_tt
+		OR = {
+			age >= 16
+			AND = {
+				age < 16
+				age >= 12
+				prowess >= extremely_high_skill_rating
+			}
+		}
+	}
+	NOT = {
+		custom_tooltip = {
+			text = agot_knighthood_was_revoked_tt
+			has_character_flag = cannot_be_knighted
+		}
+	}
+}
+
+agot_is_squire_with_knight = {
+	AND = {
+		has_trait_xp = {
+			trait = squire
+			track = knight
+			value >= 0
+		}
+		any_relation = { #You MUST have a knight
+			type = agot_knight
+		}
+	}
+}
+
+agot_can_revoke_knighthood_punishment_trigger = {
+	scope:actor = {
+		faith = { has_doctrine = tenet_knighthood }
+		is_landed = yes
+		highest_held_title_tier >= tier_empire # king tiers
+	}
+	scope:recipient = {
+		is_agot_knight_trigger = yes
+		OR = {
+			NOT = {
+				exists = court_owner
+			}
+			court_owner = { is_vassal_or_below_of = scope:actor }
+		}
+	}
+}
