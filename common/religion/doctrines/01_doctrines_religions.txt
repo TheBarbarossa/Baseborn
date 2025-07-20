@@ -1,0 +1,65 @@
+﻿hostility_group = {
+	group = "not_creatable"
+	#AGOT Disabled
+	# abrahamic_hostility_doctrine = {
+	# 	parameters = {
+	# 		hostility_same_religion = 2
+	# 		hostility_same_family = 3
+	# 		hostility_others = 3
+	# 	}
+	# }
+	# pagan_hostility_doctrine = {
+	# 	visible = no
+	# 	parameters = {
+	# 		hostility_same_religion = 1
+	# 		hostility_same_family = 2
+	# 		hostility_others = 3
+	# 	}
+	# }
+	# eastern_hostility_doctrine = {
+	# 	parameters = {
+	# 		hostility_same_religion = 1
+	# 		hostility_same_family = 1
+	# 		hostility_others = 2
+	# 	}
+	# }
+	faith_of_the_seven_hostility_doctrine = {
+		parameters = {
+			hostility_same_religion = 0
+			hostility_same_family = 1
+			hostility_others = 2
+			#Considers gods_of_winter_religion group as evil
+			hostility_override_gods_of_winter_hostility_doctrine = 3
+		}
+	}
+	westerosi_hostility_doctrine = {
+		#visible = no
+		parameters = {
+			hostility_same_religion = 1
+			hostility_same_family = 2
+			hostility_others = 2
+			#Considers gods_of_winter_religion group as evil
+			hostility_override_gods_of_winter_hostility_doctrine = 3
+		}
+	}
+	western_essosi_hostility_doctrine = {
+		parameters = {
+			hostility_same_religion = 1
+			hostility_same_family = 1
+			hostility_others = 1
+			#Considers gods_of_winter_religion group as evil
+			hostility_override_gods_of_winter_hostility_doctrine = 3
+		}
+	}
+	gods_of_winter_hostility_doctrine = {
+		parameters = {
+			hostility_same_religion = 1
+			hostility_same_family = 3
+			hostility_others = 3
+			#Considers every other religion as evil
+			hostility_override_faith_of_the_seven_hostility_doctrine = 3
+			hostility_override_westerosi_hostility_doctrine = 3
+			hostility_override_western_essosi_hostility_doctrine = 3
+		}
+	}
+}

@@ -8051,7 +8051,7 @@ Bolton_39 = {
 	8203.1.1 = { death = yes }
 }
 ### Main Line
-Bolton_40 = {
+Bolton_40 = { # edited 7/20 slambroski
 	name = Rickon
 	dynasty = dynn_Bolton
 	dna = Bolton_40
@@ -8065,9 +8065,10 @@ Bolton_40 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
 	}
+	8180.1.1 = { add_spouse = Overton_19_B }
 	8201.1.1 = { death = yes }
 }
-Bolton_41 = {
+Bolton_41 = { # edited 7/20 slambroski
 	name = Eyron
 	dynasty = dynn_Bolton
 
@@ -8077,14 +8078,16 @@ Bolton_41 = {
 	culture = northman
 
 	father = Bolton_40
+	mother = Overton_19_B
 
 	8182.1.1 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
 	}
+	8201.1.1 = { add_spouse = Flint_94 }
 	8245.1.1 = { death = yes }
 }
-Bolton_43 = { # created 7/10 slambroski
+Bolton_43 = { # created 7/10 slambroski, edited 7/20 slambroski
 	name = Sabetha
 	dynasty = dynn_Bolton
 	female = yes 
@@ -8093,11 +8096,12 @@ Bolton_43 = { # created 7/10 slambroski
 	culture = northman
 
 	father = Bolton_40
+	mother = Overton_19_B
 
 	8189.1.1 = { birth = yes }
 	8256.1.1 = { death = yes }
 }
-Bolton_42 = {
+Bolton_42 = { # edited 7/20 slambroski
 	name = Donnel
 	dynasty = dynn_Bolton
 	dna = Bolton_42
@@ -8106,6 +8110,7 @@ Bolton_42 = {
 	culture = northman
 
 	father = Bolton_41
+	mother = Flint_94
 
 	8204.1.1 = {
 		birth = yes
@@ -9800,6 +9805,19 @@ Overton_18 = {
 	8172.1.1 = { employer = Dustin_37 } # Jeremy Dustin
 	8179.1.1 = { employer = Dustin_42 } # Eckard Dustin
 	8194.1.1 = { death = { death_reason = death_murder } }
+}
+Overton_19_B = { # created 7/20 slambroski
+	name = Clerissa
+	dynasty = dynn_Overton
+	female = yes 
+
+	religion = old_gods_south
+	culture = northman
+
+	father = Overton_17
+
+	8150.1.1 = { birth = yes }
+	8208.1.1 = { death = yes }
 }
 ### Main Line
 Overton_20 = {
@@ -13127,7 +13145,7 @@ Mormont_29 = {
 	8156.1.1 = { death = yes }
 }
 ### Main Line
-Mormont_30 = {
+Mormont_30 = { # edited 7/20 slambroski
 	name = Wylis
 	dynasty = dynn_Mormont
 	dna = Mormont_30
@@ -13141,6 +13159,7 @@ Mormont_30 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
 	}
+	8162.1.1 = { add_spouse = Liddle_20_A }
 	8176.1.1 = { death = yes }
 }
 Mormont_31 = { # edited 7/19 slambroski
@@ -13152,6 +13171,7 @@ Mormont_31 = { # edited 7/19 slambroski
 	culture = bearman
 
 	father = Mormont_30
+	mother = Liddle_20_A
 
 	8163.1.1 = {
 		birth = yes
@@ -13175,6 +13195,7 @@ Mormont_32 = { # edited 7/19 slambroski
 		birth = yes
 		add_character_flag = has_scripted_appearance
 	}
+	8206.1.1 = { add_spouse = FisherSS_23 }
 	8247.1.1 = { death = yes }
 }
 Mormont_33 = { # created 7/10 slambroski, edited 7/19 slambroski
@@ -17000,7 +17021,7 @@ Dustin_41 = {
 	8208.1.1 = { death = yes }
 }
 ### Main Line
-Dustin_42 = {
+Dustin_42 = { # edited 7/20 slambroski
 	name = Eckard # Semi-Canon, a lord
 	dynasty = dynn_Dustin
 
@@ -17014,9 +17035,10 @@ Dustin_42 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
 	}
+	8181.1.1 = { add_spouse = Umber_50 }
 	8201.1.1 = { death = yes }
 }
-Dustin_43 = {
+Dustin_43 = { # edited 7/20 slambroski
 	name = Brandon
 	dynasty = dynn_Dustin
 	dna = Dustin_43
@@ -17025,6 +17047,7 @@ Dustin_43 = {
 	culture = barrowman
 
 	father = Dustin_42
+	mother = Umber_50
 
 	8182.1.1 = {
 		birth = yes
@@ -18658,6 +18681,19 @@ FisherSS_22 = { # created 7/10 slambroski
 
 	8187.1.1 = { birth = yes }
 	8250.1.1 = { death = yes }
+}
+FisherSS_23 = { # created 7/20 slambroski
+	name = Tyalla
+	dynasty = dynn_FisherSS
+	female = yes 
+
+	religion = old_gods_south
+	culture = barrowman
+
+	father = FisherSS_18
+
+	8191.1.1 = { birth = yes }
+	8247.1.1 = { death = yes }
 }
 FisherSS_20 = {
 	name = Robett # a lord
@@ -25547,6 +25583,19 @@ Liddle_25 = {
 	8175.1.1 = { death = yes }
 }
 ### Main Line
+Liddle_20_A = { # created 7/20 slambroski
+	name = Alybeth
+	dynasty = dynn_Liddle
+	female = yes 
+
+	religion = old_gods_south
+	culture = hill_clansman
+
+	father = Liddle_19
+
+	8144.1.1 = { birth = yes }
+	8198.1.1 = { death = yes }
+}
 Liddle_20 = {
 	name = Aethan # a lord
 	dynasty = dynn_Liddle
@@ -25571,6 +25620,18 @@ Liddle_21 = {
 	8171.1.1 = { birth = yes }
 	8176.1.1 = { give_nickname = nick_the_liddle }
 	8224.1.1 = { death = yes }
+}
+Liddle_21_B = { # created 7/20 slambroski
+	name = Eyron
+	dynasty = dynn_Liddle
+
+	religion = old_gods_south
+	culture = hill_clansman
+
+	father = Liddle_20
+
+	8180.1.1 = { birth = yes }
+	8242.1.1 = { death = yes }
 }
 Liddle_22 = {
 	name = Bran # a lord

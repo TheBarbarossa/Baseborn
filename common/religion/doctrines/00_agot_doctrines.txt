@@ -1,0 +1,490 @@
+﻿doctrine_pantheon = {
+	group = "main_group"
+
+	doctrine_fots_pantheon = {
+		can_pick = {
+			religion_tag = faith_of_the_seven_religion
+		}
+		piety_cost = {
+			value = faith_doctrine_cost_high
+			if = {
+				limit = { has_doctrine = doctrine_fots_pantheon }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			faith_of_the_seven_patrons = yes
+		}
+	}
+
+	doctrine_fots_baelor_pantheon = {
+		can_pick = {
+			AND = {
+				religion_tag = faith_of_the_seven_religion
+				doctrine:doctrine_no_syncreticism = { is_in_list = selected_doctrines }
+			}
+		}
+		piety_cost = {
+			value = faith_doctrine_cost_high
+			if = {
+				limit = { has_doctrine = doctrine_fots_baelor_pantheon }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			baelorist_patrons = yes
+		}
+	}
+
+	doctrine_old_gods_pantheon = {
+		can_pick = {
+				religion_tag = old_gods_religion
+		}
+		piety_cost = {
+			value = faith_doctrine_cost_high
+			if = {
+				limit = { has_doctrine = doctrine_old_gods_pantheon }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			#old_gods_patrons = yes
+		}
+	}
+
+	doctrine_old_gods_btw_pantheon = {
+		can_pick = {
+				religion_tag = old_gods_religion
+		}
+		piety_cost = {
+			value = faith_doctrine_cost_high
+			if = {
+				limit = { has_doctrine = doctrine_old_gods_btw_pantheon }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			#free_folk_patrons = yes
+		}
+	}
+
+	doctrine_magnar_pantheon = {
+		can_pick = {
+			religion_tag = old_gods_religion
+		}
+		piety_cost = {
+			value = faith_doctrine_cost_high
+			if = {
+				limit = { has_doctrine = doctrine_magnar_pantheon }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			#magnar_patron = yes
+		}
+	}
+
+	doctrine_bronze_ones = {
+		can_pick = {
+			religion_tag = first_gods_religion
+		}
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_bronze_ones }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			#bronze_gods_pantheon = yes
+		}
+	}
+
+	doctrine_waves_and_skies = {
+		can_pick = {
+			religion_tag = first_gods_religion
+		}
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_waves_and_skies }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			#lady_of_the_waves_pantheon = yes
+		}
+	}
+
+	doctrine_the_others_pantheon = {
+		can_pick = {
+			religion_tag = gods_of_winter_religion
+		}
+		piety_cost = {
+			value = faith_doctrine_cost_high
+			if = {
+				limit = { has_doctrine = doctrine_the_others_pantheon }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			#others_pantheon = yes
+		}
+	}
+
+	doctrine_old_gods_vale_pantheon = {
+		can_pick = {
+			religion_tag = old_gods_religion
+		}
+		piety_cost = {
+			value = faith_doctrine_cost_high
+			if = {
+				limit = { has_doctrine = doctrine_old_gods_vale_pantheon }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			#vale_clans_patrons = yes
+		}
+	}
+
+	doctrine_drowned_god_pantheon = {
+		can_pick = {
+			religion_tag = drowned_god_religion
+		}
+		piety_cost = {
+			value = faith_doctrine_cost_high
+			if = {
+				limit = { has_doctrine = doctrine_drowned_god_pantheon }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			#drowned_god_patrons = yes
+		}
+	}
+
+	doctrine_storm_god_pantheon = {
+		can_pick = {
+				religion_tag = drowned_god_religion
+		}
+		piety_cost = {
+			value = faith_doctrine_cost_high
+			if = {
+				limit = { has_doctrine = doctrine_storm_god_pantheon }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			#storm_god_patrons = yes
+		}
+	}
+
+	doctrine_foe_pantheon = {
+		can_pick = {
+			AND = {
+				religion_tag = drowned_god_religion
+				has_doctrine = doctrine_fots_syncreticism
+			}
+		}
+		piety_cost = {
+			value = faith_doctrine_cost_high
+			if = {
+				limit = { has_doctrine = doctrine_foe_pantheon }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			#faith_of_eight_patrons = yes
+		}
+	}
+
+	doctrine_rhllor_westerosi_pantheon = {
+		can_pick = {
+			religion_tag = rhllor_religion
+		}
+		piety_cost = {
+			value = faith_doctrine_cost_high
+			if = {
+				limit = { has_doctrine = doctrine_rhllor_westerosi_pantheon }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			#rhllor_westerosi_patrons = yes
+		}
+	}
+
+	doctrine_rhllor_volantene_pantheon = {
+		can_pick = {
+			religion_tag = rhllor_religion
+		}
+		piety_cost = {
+			value = faith_doctrine_cost_high
+			if = {
+				limit = { has_doctrine = doctrine_rhllor_volantene_pantheon }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			#rhllor_volantene_patrons = yes
+		}
+	}
+
+	doctrine_rhllor_asshai_pantheon = {
+		can_pick = {
+			religion_tag = rhllor_religion
+		}
+		piety_cost = {
+			value = faith_doctrine_cost_high
+			if = {
+				limit = { has_doctrine = doctrine_rhllor_asshai_pantheon }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			#rhllor_asshai_patrons = yes
+		}
+	}
+
+	doctrine_rhllor_hyrkooni_pantheon = {
+		can_pick = {
+			religion_tag = rhllor_religion
+		}
+		piety_cost = {
+			value = faith_doctrine_cost_high
+			if = {
+				limit = { has_doctrine = doctrine_rhllor_hyrkooni_pantheon }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			#rhllor_hyrkooni_patrons = yes
+		}
+	}
+
+	doctrine_valyrian_pantheon = {
+		can_pick = {
+			religion_tag = valyrian_religion
+		}
+		piety_cost = {
+			value = faith_doctrine_cost_high
+			if = {
+				limit = { has_doctrine = doctrine_valyrian_pantheon }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			#valyrian_patrons = yes
+		}
+	}
+
+	doctrine_lyseni_pantheon = {
+		can_pick = {
+			OR = {
+				religion_tag = three_daughters_religion
+				has_doctrine = doctrine_valyrian_syncreticism
+			}
+		}
+		piety_cost = {
+			value = faith_doctrine_cost_high
+			if = {
+				limit = { has_doctrine = doctrine_lyseni_pantheon }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			#lyseni_patrons = yes
+		}
+	}
+
+	doctrine_prince_pantheon = {
+		can_pick = {
+			OR = {
+				religion_tag = three_daughters_religion
+				has_doctrine = doctrine_valyrian_syncreticism
+			}
+		}
+		piety_cost = {
+			value = faith_doctrine_cost_high
+			if = {
+				limit = { has_doctrine = doctrine_prince_pantheon }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			#prince_patrons = yes
+		}
+	}
+
+	doctrine_rhoynish_pantheon = {
+		can_pick = {
+			OR = {
+				religion_tag = rhoynish_religion
+				#has_doctrine = doctrine_rhoynish_syncretism # AGOT TODO
+			}
+		}
+		piety_cost = {
+			value = faith_doctrine_cost_high
+			if = {
+				limit = { has_doctrine = doctrine_rhoynish_pantheon }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			#rhoynish_patrons = yes
+		}
+	}
+
+	doctrine_norvoshi_pantheon = {
+		can_pick = {
+			OR = {
+				religion_tag = darkwaterite_religion
+				#has_doctrine = doctrine_norvoshi_syncretism # AGOT TODO
+			}
+		}
+		piety_cost = {
+			value = faith_doctrine_cost_high
+			if = {
+				limit = { has_doctrine = doctrine_norvoshi_pantheon }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			#norvoshi_patrons = yes
+		}
+	}
+}
+
+doctrine_syncreticism = {
+	group = "main_group"
+
+	doctrine_no_syncreticism = {
+		piety_cost = {
+			value = faith_tenet_cost_mid
+		}
+		character_modifier = {
+			different_faith_opinion = -5
+		}
+		parameters = {
+
+		}
+	}
+
+	doctrine_fots_syncreticism = {
+		can_pick = {
+			NOT = {
+				religion_tag = faith_of_the_seven_religion
+			}
+		}
+		piety_cost = {
+			if = {
+				limit = { has_doctrine = doctrine_fots_syncreticism }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+			else = {
+				value = faith_tenet_cost_mid
+			}
+		}
+		parameters = {
+
+		}
+	}
+
+	doctrine_old_gods_syncreticism = {
+		can_pick = {
+			NOT = {
+				religion_tag = old_gods_religion
+			}
+		}
+		piety_cost = {
+			if = {
+				limit = { has_doctrine = doctrine_old_gods_syncreticism }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+			else = {
+				value = faith_tenet_cost_mid
+			}
+		}
+		parameters = {
+			# hostility_override_special_doctrine_ecumenical_the_seven = 0
+		}
+	}
+
+	doctrine_drowned_god_syncreticism = {
+		can_pick = {
+			NOT = {
+				religion_tag = drowned_god_religion
+			}
+		}
+		piety_cost = {
+			if = {
+				limit = { has_doctrine = doctrine_drowned_god_syncreticism }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+			else = {
+				value = faith_tenet_cost_mid
+			}
+		}
+		parameters = {
+
+		}
+	}
+
+	doctrine_rhllor_syncreticism = {
+		can_pick = {
+			NOT = {
+				religion_tag = rhllor_religion
+			}
+		}
+		piety_cost = {
+			if = {
+				limit = { has_doctrine = doctrine_rhllor_syncreticism }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+			else = {
+				value = faith_tenet_cost_mid
+			}
+		}
+		parameters = {
+
+		}
+	}
+
+	doctrine_valyrian_syncreticism = {
+		can_pick = {
+			NOT = {
+				religion_tag = valyrian_religion
+			}
+		}
+		piety_cost = {
+			if = {
+				limit = { has_doctrine = doctrine_valyrian_syncreticism }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+			else = {
+				value = faith_tenet_cost_mid
+			}
+		}
+		parameters = {
+
+		}
+	}
+}
+
+### Special Doctrines
+
+agot_exceptionalism = {
+	group = "special"
+	is_available_on_create = {
+		has_doctrine = agot_exceptionalism_doctrine
+	}
+	agot_exceptionalism_doctrine = {
+		piety_cost = {
+			value = faith_doctrine_cost_low
+		}
+		parameters = {
+			targaryen_incest_active = yes
+		}
+	}
+}
