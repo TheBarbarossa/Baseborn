@@ -5222,6 +5222,19 @@ FarwyndLL_16 = {
 	}
 	8180.1.1 = { death = yes }
 }
+### Issue of Erik
+FarwyndLL_22 = { # created 7/21 slambroski
+	name = Ralf
+	dynasty_house = house_FarwyndLL
+
+	religion = drowned_god_main
+	culture = ironborn
+
+	father = FarwyndLL_16
+
+	8140.1.1 = { birth = yes }
+	8189.1.1 = { death = yes }
+}
 ### Main Line
 FarwyndLL_17 = {
 	name = Rodrik # a lord
@@ -5249,11 +5262,14 @@ FarwyndLL_18 = {
 	8180.1.1 = { add_matrilineal_spouse = FarwyndLL_rs_18 }
 	8218.1.1 = { death = yes }
 }
-FarwyndLL_rs_18 = {
+FarwyndLL_rs_18 = { # edited 7/21 slambroski
 	name = Arthur
+	dynasty_house = house_FarwyndLL
 
 	religion = drowned_god_main
 	culture = ironborn
+
+	father = FarwyndLL_22
 
 	8162.1.1 = { birth = yes }
 	8218.1.1 = { death = yes }
@@ -9756,7 +9772,7 @@ Blacktyde_18 = {
 	8151.1.1 = { death = { death_reason = death_drowned } }
 }
 ### Issue of Garmon
-Blacktyde_19 = {
+Blacktyde_19 = { # edited 7/21 slambroski
 	name = Andrik # Semi-Canon, a lord
 	dynasty = dynn_Blacktyde
 
@@ -9771,6 +9787,7 @@ Blacktyde_19 = {
 		add_character_flag = canon_status_semicanon
 	}
 	8163.1.1 = { give_nickname = nick_the_trueborn }
+	8169.1.1 = { add_spouse = Greyjoy_84 }
 	8189.1.1 = { death = yes }
 }
 Blacktyde_20 = {
@@ -9793,7 +9810,7 @@ Blacktyde_20 = {
 	8204.1.1 = { death = yes }
 }
 ### Main Line
-Blacktyde_21 = {
+Blacktyde_21 = { # edited 7/21 slambroski
 	name = Norne # a lord
 	dynasty = dynn_Blacktyde
 
@@ -9801,8 +9818,10 @@ Blacktyde_21 = {
 	culture = ironborn
 
 	father = Blacktyde_19 # Andrik Blacktyde
+	mother = Greyjoy_84
 
 	8170.1.1 = { birth = yes }
+	8194.1.1 = { add_spouse = Volmark_29 }
 	8212.1.1 = { death = yes }
 }
 Blacktyde_24 = { # created 7/11 slambroski
@@ -9814,11 +9833,12 @@ Blacktyde_24 = { # created 7/11 slambroski
 	culture = ironborn
 
 	father = Blacktyde_19
+	mother = Greyjoy_84
 
 	8176.1.1 = { birth = yes }
 	8233.1.1 = { death = yes }
 }
-Blacktyde_22 = {
+Blacktyde_22 = { # edited 7/21 slambroski
 	name = Balon # a lord
 	dynasty = dynn_Blacktyde
 
@@ -9826,6 +9846,7 @@ Blacktyde_22 = {
 	culture = ironborn
 
 	father = Blacktyde_21
+	mother = Volmark_29
 
 	8196.1.1 = { birth = yes }
 	8234.1.1 = { death = yes }
@@ -10225,7 +10246,7 @@ Drumm_23 = {
 	8111.1.1 = { birth = yes }
 	8154.1.1 = { death = yes }
 }
-Drumm_24 = {
+Drumm_24 = { # edited 7/21 slambroski
 	name = Gynir # a lord
 	dynasty = dynn_Drumm
 
@@ -10235,9 +10256,10 @@ Drumm_24 = {
 	father = Drumm_23
 
 	8145.1.1 = { birth = yes }
+	8166.1.1 = { add_spouse = Stonehouse_20_B }
 	8210.1.1 = { death = yes }
 }
-Drumm_25 = {
+Drumm_25 = { # edited 7/21 slambroski
 	name = Dunstan # a lord
 	dynasty = dynn_Drumm
 
@@ -10245,11 +10267,13 @@ Drumm_25 = {
 	culture = ironborn
 
 	father = Drumm_24
+	mother = Stonehouse_20_B
 
 	8167.1.1 = { birth = yes }
+	8196.1.1 = { add_spouse = Sparr_22 }
 	8213.1.1 = { death = yes }
 }
-Drumm_27 = { # created 7/11 slambroski
+Drumm_27 = { # created 7/11 slambroski, edited 7/21 slambroski
 	name = Dysa
 	dynasty = dynn_Drumm
 	female = yes 
@@ -10258,11 +10282,12 @@ Drumm_27 = { # created 7/11 slambroski
 	culture = ironborn
 
 	father = Drumm_25
+	mother = Sparr_22
 
 	8198.1.1 = { birth = yes }
 	8250.1.1 = { death = yes }
 }
-Drumm_26 = {
+Drumm_26 = { # edited 7/21 slambroski
 	name = Dalton # a lord
 	dynasty = dynn_Drumm
 
@@ -10270,6 +10295,7 @@ Drumm_26 = {
 	culture = ironborn
 
 	father = Drumm_25
+	mother = Sparr_22
 
 	8203.1.1 = { birth = yes }
 	8247.1.1 = { death = yes }
@@ -10500,7 +10526,7 @@ Stonehouse_19 = {
 	}
 	8177.1.1 = { death = yes }
 }
-### Main Line
+### Issue of Germund
 Stonehouse_20 = {
 	name = Urrigon # a lord
 	dynasty = dynn_Stonehouse
@@ -10513,6 +10539,32 @@ Stonehouse_20 = {
 	8142.1.1 = { birth = yes }
 	8179.1.1 = { death = { death_reason = death_battle } }
 }
+Stonehouse_20_B = { # created 7/20 slambroski
+	name = Hegga
+	dynasty = dynn_Stonehouse
+	female = yes 
+
+	religion = drowned_god_main
+	culture = ironborn
+
+	father = Stonehouse_18
+
+	8146.1.1 = { birth = yes }
+	8204.1.1 = { death = yes }
+}
+Stonehouse_20_C = { # created 7/20 slambroski
+	name = Qarl
+	dynasty = dynn_Stonehouse
+
+	religion = drowned_god_main
+	culture = ironborn
+
+	father = Stonehouse_18
+
+	8149.1.1 = { birth = yes }
+	8218.1.1 = { death = yes }
+}
+### Issue of Urrigon
 Stonehouse_21 = {
 	name = Euron # a lord
 	dynasty = dynn_Stonehouse
@@ -10525,6 +10577,7 @@ Stonehouse_21 = {
 	8175.1.1 = { birth = yes }
 	8222.1.1 = { death = yes }
 }
+### Main Line
 Stonehouse_22 = {
 	name = Sigrin # a lord
 	dynasty = dynn_Stonehouse
