@@ -419,71 +419,12 @@ castellan_default_task_stewardship_scale = {
 	min = 1
 }
 
-castellan_fortify_councillor_trait_bonus_scale = { # Edited
-	add = castellan_fortify_scale_base
-	multiply = {
-		if = {
-			limit = {
-				has_trait = lifestyle_councillor
-				has_trait_xp = {
-					trait = lifestyle_councillor
-					track = castellan
-					value >= 100
-				}
-			}
-			add = 40
-		}
-		else_if = {
-			limit = {
-				has_trait = lifestyle_councillor
-				has_trait_xp = {
-					trait = lifestyle_councillor
-					track = castellan
-					value >= 75
-				}
-			}
-			add = 30
-		}
-		else_if = {
-			limit = {
-				has_trait = lifestyle_councillor
-				has_trait_xp = {
-					trait = lifestyle_councillor
-					track = castellan
-					value >= 50
-				}
-			}
-			add = 20
-		}
-		else_if = {
-			limit = {
-				has_trait = lifestyle_councillor
-				has_trait_xp = {
-					trait = lifestyle_councillor
-					track = castellan
-					value >= 25
-				}
-			}
-			add = 10
-		}
-	}
-	divide = 100
-}
 
 castellan_fortify_scale_base = { # Edited
 	add = martial
 	divide = 50
 }
 
-castellan_fortify_scale = { # Edited
-	add = castellan_fortify_base
-	if = {
-		limit = {
-			scope:councillor.has_trait = lifestyle_councillor
-		}
-		add = castellan_fortify_councillor_trait_bonus_scale
-	}
-}
 
 castellan_court_scale = {
 	add = martial
