@@ -12746,18 +12746,33 @@ Codd_39 = {
 	}
 	8220.1.1 = { death = yes }
 }
-### Main Line
+### Issue of Sawane
 Codd_40 = {
 	name = Greydon
 	dynasty = dynn_Codd
 
 	religion = drowned_god_main
 	culture = ironborn
+	sexuality = heterosexual
 
 	father = Codd_39 # Sawane Codd
 	mother = Codd_38 # Alannys Codd
 
-	8168.1.1 = { birth = yes }
+	trait = refusing_marriage
+
+	8168.1.1 = { 
+		birth = yes
+		add_character_flag = sexuality_ensure_heterosexual
+	}
+	8188.1.1 = {
+		effect = {
+			if = {
+				limit = { character:Codd_44 = { is_alive = yes } }
+				set_relation_lover = character:Codd_44 # Yara Codd
+			}
+			agot_safe_reveal_lovers_history_effect = yes
+		}
+	}
 	8219.1.1 = { death = yes }
 }
 Codd_44 = { # created 7/11 slambroski
@@ -12767,15 +12782,22 @@ Codd_44 = { # created 7/11 slambroski
 
 	religion = drowned_god_main
 	culture = ironborn
+	sexuality = heterosexual
 
 	father = Codd_39
 	mother = Codd_38
 
-	8175.1.1 = { birth = yes }
+	trait = refusing_marriage
+
+	8171.1.1 = { 
+		birth = yes 
+		add_character_flag = sexuality_ensure_heterosexual
+	}
 	8233.1.1 = { death = yes }
 }
 Codd_45 = { # created 7/11 slambroski
 	name = Katla
+	dynasty = dynn_Codd
 	female = yes 
 
 	religion = drowned_god_main
@@ -12784,20 +12806,56 @@ Codd_45 = { # created 7/11 slambroski
 	father = Codd_39
 	mother = Codd_38
 
-	8180.1.1 = { birth = yes }
+	8185.1.1 = { birth = yes }
 	8242.1.1 = { death = yes }
 }
-Codd_41 = {
+### Issue of Greydon
+Codd_41 = { # edited 7/22 slambroski
 	name = Alyn # a lord
 	dynasty = dynn_Codd
 
 	religion = drowned_god_main
 	culture = ironborn
+	sexuality = bisexual
 
 	father = Codd_40
+	mother = Codd_44
 
-	8190.1.1 = { birth = yes }
+	trait = legitimized_bastard
+
+	8190.1.1 = { 
+		birth = yes 
+		add_character_flag = sexuality_ensure_bisexual
+	}
+	8208.1.1 = {
+		effect = {
+			if = {
+				limit = { character:Codd_41_B = { is_alive = yes } }
+				set_relation_lover = character:Codd_41_B # Tom Codd
+			}
+		}
+	}
+	8209.1.1 = { add_spouse = Codd_45 }
 	8266.1.1 = { death = yes }
+}
+Codd_41_B = { # created 7/22 slambroski
+	name = Tom
+	dynasty = dynn_Codd
+
+	religion = drowned_god_main
+	culture = ironborn
+	sexuality = homosexual
+
+	father = Codd_40
+	mother = Codd_44
+
+	trait = legitimized_bastard
+
+	8191.1.1 = { 
+		birth = yes 
+		add_character_flag = sexuality_ensure_homosexual
+	}
+	8238.1.1 = { death = yes }
 }
 ### Issue of Alyn
 Codd_42 = {
@@ -12808,6 +12866,7 @@ Codd_42 = {
 	culture = ironborn
 
 	father = Codd_41
+	mother = Codd_45
 
 	8214.1.1 = { birth = yes }
 	8248.1.1 = { death = yes }
