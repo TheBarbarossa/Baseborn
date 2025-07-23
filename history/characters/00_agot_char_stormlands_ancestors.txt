@@ -27193,7 +27193,16 @@ Tarth_31 = { # edited 7/15 slambroski
 		trait = knight 
 		add_spouse = Massey_101
 	}
-	8203.1.1 = { trait = adulterer }
+	8202.1.1 = { 
+		trait = adulterer
+		effect = {
+			if = {
+				limit = { character:Sunglass_52 = { is_alive = yes } }
+				set_relation_lover = character:Sunglass_52
+			}
+			agot_safe_reveal_lovers_history_effect = yes
+		}
+	}
 	8237.1.1 = { death = yes }
 }
 Tarth_31_B = { # edited 7/15 slambroski
