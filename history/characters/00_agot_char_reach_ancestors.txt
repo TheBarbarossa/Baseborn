@@ -16808,15 +16808,21 @@ Bulwer_32 = { # edited 7/17 slambroski
 	8198.1.1 = { add_spouse = Bulwer_rs_32 }
 	8218.1.1 = { death = yes }
 }
-Bulwer_rs_32 = {
+Bulwer_rs_32 = { # edited 7/23 slambroski
 	name = Leora
+	dynasty = dynn_Foxglove
 	female = yes
 
 	religion = the_seven_main
 	culture = honeywiner
 
+	father = Foxglove_55
+	mother = Foxglove_rs_55
+
 	8174.1.1 = { birth = yes }
-	8206.1.1 = { death = yes }
+	8206.1.1 = { 
+		death = { death_reason = death_childbirth }
+	}
 }
 Bulwer_33 = {
 	name = Humphrey # Semi-Canon, participated in Ashford Tourney in 209 AC
@@ -18029,7 +18035,7 @@ Cuy_20 = {
 	}
 	8154.1.1 = { death = { death_reason = death_sickly } }
 }
-Cuy_21 = {
+Cuy_21 = { # edited 7/23 slambroski
 	name = Branston # a lord
 	dynasty = dynn_Cuy
 
@@ -18041,6 +18047,7 @@ Cuy_21 = {
 
 	8174.1.1 = { birth = yes }
 	8190.1.1 = { trait = knight }
+	8208.1.1 = { add_spouse = Bettencer_35 }
 	8222.1.1 = { death = yes }
 }
 Cuy_57 = { # created 7/09 slambroski
@@ -18057,6 +18064,20 @@ Cuy_57 = { # created 7/09 slambroski
 	8182.1.1 = { birth = yes }
 	8246.1.1 = { death = yes }
 }
+Cuy_58 = { # created 7/23 slambroski
+	name = Haydon
+	dynasty = dynn_Cuy
+
+	religion = the_seven_main
+	culture = honeywiner
+
+	father = Cuy_16
+	mother = Caswell_31
+
+	8184.1.1 = { birth = yes }
+	8200.1.1 = { trait = knight }
+	8245.1.1 = { death = yes }
+}
 ### Issue of Branston
 Cuy_22 = {
 	name = Luthor # a lord
@@ -18066,6 +18087,7 @@ Cuy_22 = {
 	culture = honeywiner
 
 	father = Cuy_21
+	mother = Bettencer_35
 
 	8209.1.1 = { birth = yes }
 	8225.1.1 = { trait = knight }
@@ -35521,6 +35543,7 @@ Leygood_35 = {
 	trait = gregarious
 	trait = stubborn
 	trait = charming
+	trait = twin
 
 	disallow_random_traits = yes
 
@@ -75638,6 +75661,8 @@ Willum_rs_55 = {
 
 	father = Leygood_32
 
+	trait = twin
+
 	8182.1.1 = { birth = yes }
 	8250.1.1 = { death = yes }
 }
@@ -97890,12 +97915,15 @@ Ball_74 = {
 		}
 	}
 }
-Ball_rs_74 = {
+Ball_rs_74 = { # edited 7/23 slambroski
 	name = Alera
+	dynasty = dynn_Rhysling
 	female = yes
 
 	religion = the_seven_main
 	culture = reachman
+
+	father = Rhysling_17
 
 	8172.1.1 = { birth = yes }
 	8229.1.1 = { death = yes }
