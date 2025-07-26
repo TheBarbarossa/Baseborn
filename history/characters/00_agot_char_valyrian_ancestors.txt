@@ -16738,7 +16738,8 @@ LAM_Crownlander_1 = {
 	trait = beauty_good_2
 
 	8160.1.1 = { birth = yes }
-	8173.1.1 = { effect = {
+	8173.1.1 = { 
+		effect = {
 			agot_safe_set_location_history_effect = { CASTLE = title:b_hookmarket }
 		}
 		trait = fornicator
@@ -16849,7 +16850,7 @@ LAM_Crownlander_3 = { # devan prostitute self insert
 	8208.1.1 = { death = yes }
 }
 LAB_Crownlander_3 = {
-	name = Jeyne
+	name = Tya
 	female = yes
 
 	religion = the_seven_main
@@ -16869,6 +16870,49 @@ LAB_Crownlander_3 = {
 		}
 	}
 	8233.1.1 = { death = yes }
+}
+LAM_Crownlander_4 = { # hllama prostitute self insert
+	name = Hanna
+	female = yes
+
+	religion = the_seven_main
+	culture = crownlander
+
+	trait = beauty_good_1
+	trait = zealous
+
+	8163.1.1 = { 
+		birth = yes 
+		effect = {
+			agot_safe_set_location_history_effect = { CASTLE = title:b_rhaenyss_hill }
+		}
+	}
+	8180.1.1 = { trait = fornicator }
+	8214.1.1 = { death = yes }
+}
+LAB_Crownlander_4 = {
+	name = Rhaena
+	female = yes 
+
+	religion = the_seven_main
+	culture = crownlander
+
+	trait = beauty_good_1
+	trait = bastard
+
+	mother = LAM_Crownlander_4
+
+	8180.1.1 = {
+		birth = yes
+		effect = {
+			set_real_father = character:Targaryen_88 # Aegon IV Targaryen
+		}
+		effect = {
+			agot_safe_set_location_history_effect = { CASTLE = title:b_rhaenyss_hill }
+		}
+	}
+	8190.1.1 = { trait = septon }
+	8245.1.1 = { death = yes }
 }
 
 
