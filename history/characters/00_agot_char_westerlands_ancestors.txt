@@ -2646,15 +2646,21 @@ Lannister_116 = { # Blackfyre Rebellion
 	}
 	8172.1.1 = {
 		trait = knight
-		trait = education_martial_prowess_1
+		trait = education_martial_prowess_2
 	}
 	8174.1.1 = {
 		effect = {
 			agot_safe_betrothal_history_effect = { TARGET = character:Tyrell_94 } # Lyessa Tyrell
 		}
 	}
-	8188.1.1 = { add_spouse = Brax_31 } # Cerissa Brax
-	8205.1.1 = { give_nickname = nick_the_grey_lion }
+	8188.1.1 = { 
+		add_spouse = Brax_31 # Cerissa Brax
+		trait = tourney_participant
+	} 
+	8205.1.1 = { 
+		give_nickname = nick_the_grey_lion
+		effect = { add_trait_xp = { trait = tourney_participant track=horse value=100 } }
+	}
 	8210.1.1 = {
 		trait = spring_sickness
 		death = { death_reason = death_spring_sickness } # Great Spring Sickness
