@@ -27691,6 +27691,37 @@
 			agot_add_building_if_possible = { BUILDING = outposts_03 }
 		}
 	}
+		province:4797 = {
+		if = {
+			limit = {
+				game_start_date >= 8000.1.1
+				game_start_date < 8100.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = breweries_01 }
+			agot_add_building_if_possible = { BUILDING = hunting_grounds_01 }
+			agot_add_building_if_possible = { BUILDING = hill_farms_01 }
+			agot_add_building_if_possible = { BUILDING = stables_01 }
+		}
+		if = {
+			limit = {
+				game_start_date >= 8100.1.1
+				game_start_date < 8200.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = breweries_02 }
+			agot_add_building_if_possible = { BUILDING = hunting_grounds_02 }
+			agot_add_building_if_possible = { BUILDING = hill_farms_02 }
+			agot_add_building_if_possible = { BUILDING = stables_02 }
+		}
+		if = {
+			limit = {
+				game_start_date >= 8200.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = breweries_03 }
+			agot_add_building_if_possible = { BUILDING = hunting_grounds_03 }
+			agot_add_building_if_possible = { BUILDING = hill_farms_03 }
+			agot_add_building_if_possible = { BUILDING = stables_03 }
+		}
+	}
 	province:4803 = {
 		agot_add_building_if_possible = { BUILDING = barracks_03 }
 		agot_add_building_if_possible = { BUILDING = smiths_02 }
