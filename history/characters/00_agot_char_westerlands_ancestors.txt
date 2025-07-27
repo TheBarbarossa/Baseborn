@@ -10532,7 +10532,10 @@ Westerling_45 = { # edited 7/14 slambroski
 		birth = yes
 		add_character_flag = canon_status_semicanon
 	}
-	8190.1.1 = { trait = knight }
+	8190.1.1 = { 
+		trait = knight
+		add_spouse = Stackspear_62 
+	}
 	8214.1.1 = { death = { death_reason = death_battle } } # killed in Dagon Greyjoy's raids.
 }
 ### Issue of Dale
@@ -10676,7 +10679,7 @@ Westerling_47 = { # edited 7/14 slambroski
 	8253.1.1 = { death = yes }
 }
 ### Issue of Ormond
-Westerling_51 = {
+Westerling_51 = { # edited 7/26 slambroski
 	name = Jon
 	dynasty = dynn_Westerling
 
@@ -10684,6 +10687,7 @@ Westerling_51 = {
 	culture = westerman
 
 	father = Westerling_45
+	mother = Stackspear_62
 
 	8198.1.1 = { birth = yes }
 	8214.1.1 = { trait = knight }
@@ -14436,7 +14440,7 @@ Lefford_38 = { # Blackfyre Rebellion
 		}
 	}
 }
-Lefford_51 = {
+Lefford_51 = { # edited 7/26 slambroski
 	name = Jaron # Semi-Canon
 	dynasty = dynn_Lefford
 
@@ -14450,7 +14454,10 @@ Lefford_51 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
 	}
-	8177.1.1 = { trait = knight }
+	8177.1.1 = { 
+		trait = knight 
+		add_spouse = Lugus_114
+	}
 	8195.6.1 = {
 		death = {
 			death_reason = death_duel # Gates of Lannisport
@@ -14500,8 +14507,10 @@ Lefford_94 = { # created 7/08 slambroski
 	culture = westerman
 
 	father = Lefford_51
+	mother = Lugus_114
 
 	8182.1.1 = { birth = yes }
+	8197.1.1 = { employer = Lefford_40 }
 	8230.1.1 = { death = yes }
 }
 ### Issue of Lyman
@@ -16358,14 +16367,14 @@ Lydden_44 = { # edited 7/14 slambroski
 }
 Lydden_p_1 = { # Edited
 	name = Kyra
-	dynasty = dynn_Falwel
+	dynasty = dynn_Falwell
 	female = yes
 
 	religion = the_seven_main
 	culture = westerman
 
-	father = Falwel_43
-	mother = Falwel_rs_43
+	father = Falwell_43
+	mother = Falwell_rs_43
 
 	8184.1.1 = { birth = yes }
 	8245.1.1 = { death = yes }
@@ -16410,6 +16419,7 @@ Lydden_46 = {
 	culture = westerman
 
 	father = Lydden_44
+	mother = Lydden_p_1
 
 	8202.1.1 = { birth = yes }
 	8261.11.1 = {
@@ -16428,6 +16438,7 @@ Lydden_46_B = {
 	culture = westerman
 
 	father = Lydden_44
+	mother = Lydden_p_1
 
 	8208.1.1 = { birth = yes }
 	8256.1.1 = { death = yes }
@@ -20470,7 +20481,7 @@ Marbrand_43 = { # edited 7/22 slambroski
 	8185.1.1 = { trait = knight }
 	8196.5.5 = { death = { death_reason = death_battle } } # Gates of Lannisport
 }
-Marbrand_69 = {
+Marbrand_69 = { # edited 7/26 slambroski
 	name = Edmar # Semi-Canon
 	dynasty = dynn_Marbrand
 
@@ -20484,7 +20495,10 @@ Marbrand_69 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
 	}
-	8189.1.1 = { trait = knight }
+	8189.1.1 = { 
+		trait = knight 
+		add_spouse = Payne_58
+	}
 	8196.5.5 = { death = { death_reason = death_battle } } # Gates of Lannisport
 }
 ### Issue of Matthis
@@ -20539,6 +20553,7 @@ Marbrand_113 = { # created 7/09 slambroski
 	culture = westerman
 
 	father = Marbrand_69
+	mother = Payne_58
 
 	8190.1.1 = { birth = yes }
 	8256.1.1 = { death = yes }
@@ -23683,7 +23698,7 @@ Broome_p_2 = { # Edited
 	8171.1.1 = { birth = yes }
 	8220.1.1 = { death = yes }
 }
-Broome_75 = {
+Broome_75 = { # edited 7/26 slambroski
 	name = Horys
 	dynasty = dynn_Broome
 
@@ -23695,6 +23710,7 @@ Broome_75 = {
 
 	8174.1.1 = { birth = yes }
 	8191.1.1 = { trait = knight }
+	8196.1.1 = { add_spouse = Pemford_52 }
 	8238.1.1 = {
 		death = { death_reason = death_natural_causes }
 	}
@@ -23739,6 +23755,7 @@ Broome_82 = { # created 7/09 slambroski
 	culture = westerman
 
 	father = Broome_75
+	mother = Pemford_52
 
 	8197.1.1 = { birth = yes }
 	8268.1.1 = { death = yes }
@@ -32804,12 +32821,16 @@ Serrett_75 = {
 		death = { death_reason = death_treatment }
 	}
 }
-Serrett_rs_75 = {
+Serrett_rs_75 = { # edited 7/26 slambroski
 	name = Eleyna
+	dynasty = dynn_Tortoll
 	female = yes
 
 	religion = the_seven_main
 	culture = westerman
+
+	father = Tortoll_102 
+	mother = Tortoll_rs_102 
 
 	8182.1.1 = { birth = yes }
 	8213.1.1 = { death = yes }
@@ -64139,22 +64160,22 @@ Sarwyck_59 = {
 		add_character_flag = canon_status_semicanon
 	}
 	8186.1.1 = { trait = knight }
-	8198.1.1 = { add_spouse = Sarwyck_rs_59 }
+	8198.1.1 = { add_spouse = Payne_57 }
 	8231.1.1 = {
 		give_nickname = nick_the_patriarch
 		death = { death_reason = death_fight }
 	}
 }
-Sarwyck_rs_59 = {
-	name = Amarya
-	female = yes
-
-	religion = the_seven_main
-	culture = westerman
-
-	8178.1.1 = { birth = yes }
-	8210.1.1 = { death = yes }
-}
+#Sarwyck_rs_59 = {
+#	name = Amarya
+#	female = yes
+#
+#	religion = the_seven_main
+#	culture = westerman
+#
+#	8178.1.1 = { birth = yes }
+#	8210.1.1 = { death = yes }
+#}
 Sarwyck_60 = {
 	name = Tywald
 	dynasty = dynn_Sarwyck
@@ -64698,7 +64719,7 @@ Sarwyck_66 = {
 	culture = westerman
 
 	father = Sarwyck_59
-	mother = Sarwyck_rs_59
+	mother = Payne_57 # Sarwyck_rs_59
 
 	8199.1.1 = { birth = yes }
 	8223.1.1 = {
@@ -64715,7 +64736,7 @@ Sarwyck_67 = {
 	culture = westerman
 
 	father = Sarwyck_59
-	mother = Sarwyck_rs_59
+	mother = Payne_57 # Sarwyck_rs_59
 
 	trait = twin
 
@@ -64734,7 +64755,7 @@ Sarwyck_68 = {
 	culture = westerman
 
 	father = Sarwyck_59
-	mother = Sarwyck_rs_59
+	mother = Payne_57 # Sarwyck_rs_59
 
 	trait = twin
 
@@ -64752,7 +64773,7 @@ Sarwyck_24 = {
 	culture = westerman
 
 	father = Sarwyck_59
-	mother = Sarwyck_rs_59
+	mother = Payne_57 # Sarwyck_rs_59
 
 	trait = education_diplomacy_3
 	trait = compassionate
@@ -64782,7 +64803,7 @@ Sarwyck_69 = {
 	culture = westerman
 
 	father = Sarwyck_59
-	mother = Sarwyck_rs_59
+	mother = Payne_57 # Sarwyck_rs_59
 
 	trait = twin
 
@@ -64799,7 +64820,7 @@ Sarwyck_70 = {
 	culture = westerman
 
 	father = Sarwyck_59
-	mother = Sarwyck_rs_59
+	mother = Payne_57 # Sarwyck_rs_59
 
 	trait = twin
 
@@ -64818,7 +64839,7 @@ Sarwyck_71 = {
 	culture = westerman
 
 	father = Sarwyck_59
-	mother = Sarwyck_rs_59
+	mother = Payne_57 # Sarwyck_rs_59
 
 	8206.1.1 = { birth = yes }
 	8264.1.1 = {
@@ -64834,7 +64855,7 @@ Sarwyck_72 = {
 	culture = westerman
 
 	father = Sarwyck_59
-	mother = Sarwyck_rs_59
+	mother = Payne_57 # Sarwyck_rs_59
 
 	8208.1.1 = { birth = yes }
 	8260.1.1 = {
