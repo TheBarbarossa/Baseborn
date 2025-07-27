@@ -1,0 +1,3056 @@
+﻿agot_apply_posthistory_effect = {
+	### WEST VALYRIANS
+	##############################
+	if = { # Viserys Targaryen
+		limit = {
+			exists = character:Targaryen_34
+			character:Targaryen_34 = { is_alive = no }
+		}
+		character:Targaryen_34 = {
+			clear_traits = yes
+			add_trait = charming
+			add_trait = compassionate
+			add_trait = brave
+			add_trait = squire
+		}
+	}
+	if = { # Aerea Targaryen
+		limit = {
+			exists = character:Targaryen_41
+			character:Targaryen_41 = { is_alive = no }
+		}
+		character:Targaryen_41 = {
+			clear_traits = yes
+			add_trait = twin
+			add_trait = stubborn
+			add_trait = brave
+			add_trait = rowdy
+		}
+	}
+	if = { # Archmaester Vaegon
+		limit = {
+			exists = character:Targaryen_49
+			character:Targaryen_49 = { is_alive = no }
+		}
+		character:Targaryen_49 = {
+			make_trait_inactive = archmaester_red_gold
+		}
+	}
+	if = { # Daeron Targaryen
+		limit = {
+			exists = character:Targaryen_68
+			character:Targaryen_68 = { is_alive = no }
+		}
+		character:Targaryen_68 = {
+			clear_traits = yes
+			add_trait = education_martial_2
+			add_trait = intellect_good_1
+			add_trait = charming
+			add_trait = vengeful
+			add_trait = gregarious
+			add_trait = dragonrider
+			add_trait = humble
+			add_trait = brave
+			add_trait = knight
+		}
+	}
+	if = { # Jaehaera Targaryen
+		limit = {
+			exists = character:Targaryen_71
+			character:Targaryen_71 = { is_alive = no }
+		}
+		character:Targaryen_71 = {
+			clear_traits = yes
+			add_trait = twin
+			add_trait = intellect_bad_1
+			add_trait = beauty_good_2
+			add_trait = pensive
+			add_trait = depressed_1
+			add_trait = content
+		}
+	}
+	if = { # Jacaerys Velaryon
+		limit = {
+			exists = character:Targaryen_75
+			character:Targaryen_75 = { is_alive = no }
+		}
+		character:Targaryen_75 = {
+			clear_traits = yes
+			add_trait = intellect_good_1
+			add_trait = beauty_good_1
+			add_trait = strong
+			add_trait = just
+			add_trait = diligent
+			add_trait = trusting
+			add_trait = disputed_heritage
+			add_trait = charming
+			add_trait = dragonrider
+			add_trait = gregarious
+			set_real_father = character:Strong_30 # Harwin Strong
+		}
+	}
+	if = { # Lucerys Velaryon
+		limit = {
+			exists = character:Targaryen_76
+			character:Targaryen_76 = { is_alive = no }
+		}
+		character:Targaryen_76 = {
+			clear_traits = yes
+			add_trait = beauty_good_1
+			add_trait = strong
+			add_trait = diligent
+			add_trait = disputed_heritage
+			add_trait = curious
+			add_trait = trusting
+			add_trait = dragonrider
+			add_trait = brave
+			add_trait = honest
+			set_real_father = character:Strong_30 # Harwin Strong
+		}
+	}
+	if = { # Joffrey Velaryon
+		limit = {
+			exists = character:Targaryen_77
+			character:Targaryen_77 = { is_alive = no }
+		}
+		character:Targaryen_77 = {
+			clear_traits = yes
+			add_trait = beauty_good_1
+			add_trait = strong
+			add_trait = disputed_heritage
+			add_trait = rowdy
+			add_trait = brave
+			add_trait = impatient
+			add_trait = ambitious
+			set_real_father = character:Strong_30 # Harwin Strong
+		}
+	}
+	if = { # Trystane Truefyre
+		limit = {
+			exists = character:Truefyre_1
+			character:Truefyre_1 = { is_alive = no }
+		}
+		character:Truefyre_1 = {
+			set_real_father = character:Targaryen_60 # Viserys I Targaryen
+			clear_traits = yes
+			add_trait = bastard
+			add_trait = education_martial_2
+			add_trait = brave
+			add_trait = ambitious
+			add_trait = bossy
+			add_trait = knight
+		}
+	}
+	if = { # Gaemon Palehair
+		limit = {
+			exists = character:Palehair_1
+			character:Palehair_1 = { is_alive = no }
+		}
+		character:Palehair_1 = {
+			set_real_father = character:Targaryen_65 # Aegon II Targaryen
+		}
+	}
+	if = { # Addam Velaryon
+		limit = {
+			exists = character:Velaryon_43
+			character:Velaryon_43 = { is_alive = no }
+		}
+		character:Velaryon_43 = {
+			set_father = character:Velaryon_35 # Laenor Velaryon
+			set_real_father = character:Velaryon_31 # Corlys Velaryon
+			remove_trait = bastard
+			add_trait = legitimized_bastard
+		}
+	}
+	if = { # Alyn Velaryon
+		limit = {
+			exists = character:Velaryon_44
+			character:Velaryon_44 = { is_alive = no }
+		}
+		character:Velaryon_44 = {
+			set_father = character:Velaryon_35 # Laenor Velaryon
+			set_real_father = character:Velaryon_31 # Corlys Velaryon
+			remove_trait = bastard
+			add_trait = legitimized_bastard
+		}
+	}
+	if = { # Silver Denys' grandmother
+		limit = {
+			exists = character:Silver_Denys_1
+			character:Silver_Denys_1 = { is_alive = no }
+		}
+		character:Silver_Denys_1 = {
+			set_real_father = character:Velaryon_21 # Lucerys Velaryon, because Maegor-story is obviously a hoax
+		}
+	}
+	if = { # Duncan the Small
+		limit = {
+			exists = character:Targaryen_126
+			character:Targaryen_126 = { is_alive = no }
+		}
+		character:Targaryen_126 = {
+			make_trait_inactive = black_hair
+		}
+	}
+	if = { # Rhaenys Targaryen
+		limit = {
+			exists = character:Targaryen_10
+			character:Targaryen_10 = { is_alive = no }
+		}
+		character:Targaryen_10 = {
+			make_trait_inactive = black_hair
+		}
+	}
+	if = { # Aegon Blackfyre
+		limit = {
+			exists = character:Blackfyre_1
+			character:Blackfyre_1 = { is_alive = no }
+		}
+		character:Blackfyre_1 = {
+			clear_traits = yes
+			add_trait = twin
+			add_trait = brave
+			add_trait = ambitious
+			add_trait = arrogant
+			add_trait = callous
+			add_trait = bossy
+			add_trait = squire
+		}
+	}
+	if = { # Aemon Blackfyre
+		limit = {
+			exists = character:Blackfyre_2
+			character:Blackfyre_2 = { is_alive = no }
+		}
+		character:Blackfyre_2 = {
+			clear_traits = yes
+			add_trait = twin
+			add_trait = brave
+			add_trait = gregarious
+			add_trait = arrogant
+			add_trait = callous
+			add_trait = rowdy
+			add_trait = squire
+		}
+	}
+	if = { # Rohanne Atuhoris AKA: Rohanne of Tyrosh
+		limit = {
+			exists = character:Atuhoris_26
+			character:Atuhoris_26 = { is_alive = no }
+		}
+		character:Atuhoris_26 = {
+			make_trait_inactive = pink_graces_hair_dye
+		}
+	}
+	if = { # Kiera Camardoon AKA: Kiera of Tyrosh
+		limit = {
+			exists = character:Camardoon_7_A
+			character:Camardoon_7_A = { is_alive = no }
+		}
+		character:Camardoon_7_A = {
+			make_trait_inactive = sunset_on_the_narrows_hair_dye
+		}
+	}
+	if = { # Aerion Brightflame
+		limit = {
+			exists = character:Targaryen_119
+			character:Targaryen_119 = { is_alive = no }
+		}
+		character:Targaryen_119 = {
+			make_trait_inactive = left_second_sons
+		}
+	}
+	if = { # Calla Blackfyre
+		limit = {
+			exists = character:Blackfyre_3
+			character:Blackfyre_3 = { is_alive = no }
+		}
+		character:Blackfyre_3 = {
+			make_trait_inactive = lavender_haze_hair_dye
+		}
+	}
+	if = { # Aenys Blackfyre
+		limit = {
+			exists = character:Blackfyre_7
+			character:Blackfyre_7 = { is_alive = no }
+		}
+		character:Blackfyre_7 = {
+			make_trait_inactive = spirit_of_sapphire_hair_dye
+		}
+	}
+	if = { # Aurane Waters
+		limit = {
+			exists = character:Velaryon_5
+			character:Velaryon_5 = { is_alive = no }
+		}
+		character:Velaryon_5 = {
+			make_trait_inactive = neutral_silver_hair
+			make_trait_inactive = surname_waters
+		}
+	}
+	if = { # Ulf White
+		limit = {
+			exists = character:White_1
+			character:White_1 = { is_alive = no }
+		}
+		character:White_1 = {
+			make_trait_inactive = neutral_silver_hair
+			set_real_father = character:Targaryen_46 # Baelon the Brave
+			make_unprunable = yes
+		}
+	}
+	if = { # Shiera Seastar
+		limit = {
+			exists = character:Targaryen_97
+			character:Targaryen_97 = { is_alive = no }
+		}
+		character:Targaryen_97 = {
+			make_trait_inactive = heterochromia_blue2
+			make_trait_inactive = surname_waters
+		}
+	}
+	if = { # Alyssa Targaryen
+		limit = {
+			exists = character:Targaryen_47
+			character:Targaryen_47 = { is_alive = no }
+		}
+		character:Targaryen_47 = {
+			make_trait_inactive = heterochromia_green1
+		}
+	}
+	if = { # Aemon Targaryen
+		limit = {
+			exists = character:Targaryen_120
+			character:Targaryen_120 = { is_alive = no }
+		}
+		character:Targaryen_120 = {
+			make_trait_inactive = aged
+		}
+	}
+	if = { # Hugh's mother
+		limit = {
+			exists = character:Hammer_3
+			character:Hammer_3 = { is_alive = no }
+		}
+		character:Hammer_3 = {
+			set_real_father = character:Targaryen_35 # Jaehaerys Targaryen
+		}
+	}
+	if = { # Hugh Hammer
+		limit = {
+			exists = character:Hammer_1
+			character:Hammer_1 = { is_alive = no }
+		}
+		character:Hammer_1 = {
+			make_unprunable = yes
+		}
+	}
+	if = { # Nettles
+		limit = {
+			exists = character:Farseed_1
+			character:Farseed_1 = { is_alive = no }
+		}
+		character:Farseed_1 = {
+			make_unprunable = yes
+		}
+	}
+	if = { # Marston Waters
+		limit = {
+			exists = character:Kingsguard_6
+			character:Kingsguard_6 = { is_alive = no }
+		}
+		character:Kingsguard_6 = {
+			set_to_lowborn = yes
+		}
+	}
+	if = { # Serwyn of the Mirror Shield
+		limit = {
+			exists = character:Heroes_25
+			character:Heroes_25 = { is_alive = no }
+		}
+		character:Heroes_25 = {
+			make_unprunable = yes
+		}
+	}
+	if = { # Symeon Star-Eyes
+		limit = {
+			exists = character:Heroes_24
+			character:Heroes_24 = { is_alive = no }
+		}
+		character:Heroes_24 = {
+			make_unprunable = yes
+		}
+	}
+	if = { # Eddard Waters
+		limit = {
+			exists = character:Knight_Kings_Landing_16
+			character:Knight_Kings_Landing_16 = { is_alive = no }
+		}
+		character:Knight_Kings_Landing_16 = {
+			make_unprunable = yes
+		}
+	}
+	if = { # The Shepherd
+		limit = {
+			exists = character:The_Shepherd_1
+			character:The_Shepherd_1 = { is_alive = no }
+		}
+		character:The_Shepherd_1 = {
+			make_unprunable = yes
+		}
+	}
+	if = { # The Burning Knight
+		limit = {
+			exists = character:Knight_Kings_Landing_17
+			character:Knight_Kings_Landing_17 = { is_alive = no }
+		}
+		character:Knight_Kings_Landing_17 = {
+			make_unprunable = yes
+		}
+	}
+	if = { # Aemond Rivers
+		limit = {
+			exists = character:Targaryen_74
+			character:Targaryen_74 = { is_alive = no }
+		}
+		character:Targaryen_74 = {
+			make_trait_inactive = surname_rivers
+		}
+	}
+	if = { # Alysanne Waters
+		limit = {
+			exists = character:Targaryen_98
+			character:Targaryen_98 = { is_alive = no }
+		}
+		character:Targaryen_98 = {
+			make_trait_inactive = surname_waters
+		}
+	}
+	if = { # Lily Waters
+		limit = {
+			exists = character:Targaryen_99
+			character:Targaryen_99 = { is_alive = no }
+		}
+		character:Targaryen_99 = {
+			make_trait_inactive = surname_waters
+		}
+	}
+	if = { # Willow Waters
+		limit = {
+			exists = character:Targaryen_100
+			character:Targaryen_100 = { is_alive = no }
+		}
+		character:Targaryen_100 = {
+			make_trait_inactive = surname_waters
+		}
+	}
+	if = { # Rosey Waters
+		limit = {
+			exists = character:Targaryen_101
+			character:Targaryen_101 = { is_alive = no }
+		}
+		character:Targaryen_101 = {
+			make_trait_inactive = surname_waters
+		}
+	}
+	if = { # Aegor Bittersteel
+		limit = {
+			exists = character:Targaryen_95
+			character:Targaryen_95 = { is_alive = no }
+		}
+		character:Targaryen_95 = {
+			make_trait_inactive = surname_rivers
+			make_trait_inactive = left_second_sons
+		}
+	}
+	if = { # Mya Rivers
+		limit = {
+			exists = character:Targaryen_105
+			character:Targaryen_105 = { is_alive = no }
+		}
+		character:Targaryen_105 = {
+			make_trait_inactive = surname_rivers
+		}
+	}
+	if = { # Gwenys Rivers
+		limit = {
+			exists = character:Targaryen_106
+			character:Targaryen_106 = { is_alive = no }
+		}
+		character:Targaryen_106 = {
+			make_trait_inactive = surname_rivers
+		}
+	}
+	if = { # Brynden Bloodraven
+		limit = {
+			exists = character:Targaryen_96
+			character:Targaryen_96 = { is_alive = no }
+		}
+		character:Targaryen_96 = {
+			make_trait_inactive = surname_rivers
+		}
+	}
+	if = { # Sylvenna Sand
+		limit = {
+			exists = character:Palehair_hh_2
+			character:Palehair_hh_2 = { is_alive = no }
+		}
+		character:Palehair_hh_2 = {
+			make_trait_inactive = surname_sand
+		}
+	}
+	if = { # Jon Waters
+		limit = {
+			exists = character:Velaryon_45
+			character:Velaryon_45 = { is_alive = no }
+		}
+		character:Velaryon_45 = {
+			make_trait_inactive = surname_waters
+		}
+	}
+	if = { # Jeyne Waters
+		limit = {
+			exists = character:Velaryon_46
+			character:Velaryon_46 = { is_alive = no }
+		}
+		character:Velaryon_46 = {
+			make_trait_inactive = surname_waters
+		}
+	}
+	if = { # Marston Waters
+		limit = {
+			exists = character:Kingsguard_6
+			character:Kingsguard_6 = { is_alive = no }
+		}
+		character:Kingsguard_6 = {
+			make_trait_inactive = surname_waters
+		}
+	}
+	if = { # Horys Hill
+		limit = {
+			exists = character:Poor_Fellows_2
+			character:Poor_Fellows_2 = { is_alive = no }
+		}
+		character:Poor_Fellows_2 = {
+			make_trait_inactive = surname_hill
+		}
+	}
+	if = { # Eddard Waters
+		limit = {
+			exists = character:Knight_Kings_Landing_16
+			character:Knight_Kings_Landing_16 = { is_alive = no }
+		}
+		character:Knight_Kings_Landing_16 = {
+			make_trait_inactive = surname_waters
+		}
+	}
+	if = { # Byren Flowers
+		limit = {
+			exists = character:Knight_Kings_Landing_12
+			character:Knight_Kings_Landing_12 = { is_alive = no }
+		}
+		character:Knight_Kings_Landing_12 = {
+			make_trait_inactive = surname_flowers
+		}
+	}
+	### Grand Maesters
+	if = { # Grand Maester Ollidar
+		limit = {
+			exists = character:Grand_Maester_1
+			character:Grand_Maester_1 = { is_alive = no }
+		}
+		character:Grand_Maester_1 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Lyonce
+		limit = {
+			exists = character:Grand_Maester_2
+			character:Grand_Maester_2 = { is_alive = no }
+		}
+		character:Grand_Maester_2 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Gawen
+		limit = {
+			exists = character:Grand_Maester_3
+			character:Grand_Maester_3 = { is_alive = no }
+		}
+		character:Grand_Maester_3 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Myros
+		limit = {
+			exists = character:Grand_Maester_4
+			character:Grand_Maester_4 = { is_alive = no }
+		}
+		character:Grand_Maester_4 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Desmond
+		limit = {
+			exists = character:Grand_Maester_5
+			character:Grand_Maester_5 = { is_alive = no }
+		}
+		character:Grand_Maester_5 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Benifer
+		limit = {
+			exists = character:Grand_Maester_6
+			character:Grand_Maester_6 = { is_alive = no }
+		}
+		character:Grand_Maester_6 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Elysar
+		limit = {
+			exists = character:Grand_Maester_7
+			character:Grand_Maester_7 = { is_alive = no }
+		}
+		character:Grand_Maester_7 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Allar
+		limit = {
+			exists = character:Grand_Maester_8
+			character:Grand_Maester_8 = { is_alive = no }
+		}
+		character:Grand_Maester_8 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Runciter
+		limit = {
+			exists = character:Grand_Maester_9
+			character:Grand_Maester_9 = { is_alive = no }
+		}
+		character:Grand_Maester_9 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Mellos
+		limit = {
+			exists = character:Grand_Maester_10
+			character:Grand_Maester_10 = { is_alive = no }
+		}
+		character:Grand_Maester_10 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Orwyle
+		limit = {
+			exists = character:Waynwood_64
+			character:Waynwood_64 = { is_alive = no }
+		}
+		character:Waynwood_64 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Munkun
+		limit = {
+			exists = character:Grand_Maester_12
+			character:Grand_Maester_12 = { is_alive = no }
+		}
+		character:Grand_Maester_12 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Alford
+		limit = {
+			exists = character:Grand_Maester_13
+			character:Grand_Maester_13 = { is_alive = no }
+		}
+		character:Grand_Maester_13 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Clement
+		limit = {
+			exists = character:Risley_23
+			character:Risley_23 = { is_alive = no }
+		}
+		character:Risley_23 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Utherydes
+		limit = {
+			exists = character:Grand_Maester_15
+			character:Grand_Maester_15 = { is_alive = no }
+		}
+		character:Grand_Maester_15 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Moslander
+		limit = {
+			exists = character:Grand_Maester_16
+			character:Grand_Maester_16 = { is_alive = no }
+		}
+		character:Grand_Maester_16 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Portifer
+		limit = {
+			exists = character:Grand_Maester_17
+			character:Grand_Maester_17 = { is_alive = no }
+		}
+		character:Grand_Maester_17 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Greydon
+		limit = {
+			exists = character:Grand_Maester_18
+			character:Grand_Maester_18 = { is_alive = no }
+		}
+		character:Grand_Maester_18 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Murenmure
+		limit = {
+			exists = character:Grand_Maester_19
+			character:Grand_Maester_19 = { is_alive = no }
+		}
+		character:Grand_Maester_19 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Perceon
+		limit = {
+			exists = character:Grand_Maester_20
+			character:Grand_Maester_20 = { is_alive = no }
+		}
+		character:Grand_Maester_20 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Halbert
+		limit = {
+			exists = character:Grand_Maester_21
+			character:Grand_Maester_21 = { is_alive = no }
+		}
+		character:Grand_Maester_21 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Lucan
+		limit = {
+			exists = character:Grand_Maester_22
+			character:Grand_Maester_22 = { is_alive = no }
+		}
+		character:Grand_Maester_22 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Alesandor
+		limit = {
+			exists = character:Grand_Maester_23
+			character:Grand_Maester_23 = { is_alive = no }
+		}
+		character:Grand_Maester_23 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Harstyn
+		limit = {
+			exists = character:Grand_Maester_24
+			character:Grand_Maester_24 = { is_alive = no }
+		}
+		character:Grand_Maester_24 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Runceford
+		limit = {
+			exists = character:Grand_Maester_25
+			character:Grand_Maester_25 = { is_alive = no }
+		}
+		character:Grand_Maester_25 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Jarreth
+		limit = {
+			exists = character:Grand_Maester_26
+			character:Grand_Maester_26 = { is_alive = no }
+		}
+		character:Grand_Maester_26 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Bonifer
+		limit = {
+			exists = character:Grand_Maester_27
+			character:Grand_Maester_27 = { is_alive = no }
+		}
+		character:Grand_Maester_27 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Ossifer
+		limit = {
+			exists = character:Grand_Maester_28
+			character:Grand_Maester_28 = { is_alive = no }
+		}
+		character:Grand_Maester_28 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Clegg
+		limit = {
+			exists = character:Grand_Maester_29
+			character:Grand_Maester_29 = { is_alive = no }
+		}
+		character:Grand_Maester_29 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Thurgood
+		limit = {
+			exists = character:Grand_Maester_30
+			character:Grand_Maester_30 = { is_alive = no }
+		}
+		character:Grand_Maester_30 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Hareth
+		limit = {
+			exists = character:Grand_Maester_31
+			character:Grand_Maester_31 = { is_alive = no }
+		}
+		character:Grand_Maester_31 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Jeomar
+		limit = {
+			exists = character:Grand_Maester_32
+			character:Grand_Maester_32 = { is_alive = no }
+		}
+		character:Grand_Maester_32 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Urmen
+		limit = {
+			exists = character:Grand_Maester_33
+			character:Grand_Maester_33 = { is_alive = no }
+		}
+		character:Grand_Maester_33 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Aethelmure
+		limit = {
+			exists = character:Grand_Maester_34
+			character:Grand_Maester_34 = { is_alive = no }
+		}
+		character:Grand_Maester_34 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Wynton
+		limit = {
+			exists = character:Grand_Maester_35
+			character:Grand_Maester_35 = { is_alive = no }
+		}
+		character:Grand_Maester_35 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Jonothor
+		limit = {
+			exists = character:Grand_Maester_36
+			character:Grand_Maester_36 = { is_alive = no }
+		}
+		character:Grand_Maester_36 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Eldrick
+		limit = {
+			exists = character:Grand_Maester_37
+			character:Grand_Maester_37 = { is_alive = no }
+		}
+		character:Grand_Maester_37 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Garrison
+		limit = {
+			exists = character:Grand_Maester_38
+			character:Grand_Maester_38 = { is_alive = no }
+		}
+		character:Grand_Maester_38 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Maelleon
+		limit = {
+			exists = character:Grand_Maester_39
+			character:Grand_Maester_39 = { is_alive = no }
+		}
+		character:Grand_Maester_39 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Keath
+		limit = {
+			exists = character:Grand_Maester_40
+			character:Grand_Maester_40 = { is_alive = no }
+		}
+		character:Grand_Maester_40 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Ellendor
+		limit = {
+			exists = character:Grand_Maester_41
+			character:Grand_Maester_41 = { is_alive = no }
+		}
+		character:Grand_Maester_41 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Merion
+		limit = {
+			exists = character:Grand_Maester_42
+			character:Grand_Maester_42 = { is_alive = no }
+		}
+		character:Grand_Maester_42 = { make_trait_inactive = grandmaester }
+	}
+	if = { # Grand Maester Pycelle
+		limit = {
+			exists = character:Pycelle_1
+			character:Pycelle_1 = { is_alive = no }
+		}
+		character:Pycelle_1 = { make_trait_inactive = grandmaester }
+	}
+
+	### THE REACH
+	##############################
+	if = { # Steffon Footly
+		limit = {
+			exists = character:Footly_22
+			character:Footly_22 = { is_alive = no }
+		}
+		character:Footly_22 = {
+			set_real_father = character:Roxton_45 # Bold Jon Roxton
+		}
+	}
+	if = { # Hamish Flowers
+		limit = {
+			exists = character:Knight_Reach_4
+			character:Knight_Reach_4 = { is_alive = no }
+		}
+		character:Knight_Reach_4 = {
+			make_trait_inactive = surname_flowers
+		}
+	}
+	if = { # Willam Flowers
+		limit = {
+			exists = character:Dule_26
+			character:Dule_26 = { is_alive = no }
+		}
+		character:Dule_26 = {
+			make_trait_inactive = surname_flowers
+		}
+	}
+	if = { # Arthor Flowers
+		limit = {
+			exists = character:Dule_27
+			character:Dule_27 = { is_alive = no }
+		}
+		character:Dule_27 = {
+			make_trait_inactive = surname_flowers
+		}
+	}
+	if = { # Richard Flowers
+		limit = {
+			exists = character:Dule_28
+			character:Dule_28 = { is_alive = no }
+		}
+		character:Dule_28 = {
+			make_trait_inactive = surname_flowers
+		}
+	}
+	### Citadel
+	if = { # Archmaester Agrivane
+		limit = {
+			exists = character:Citadel_11
+			character:Citadel_11 = { is_alive = no }
+		}
+		character:Citadel_11 = { make_trait_inactive = archmaester_steel }
+	}
+	if = { # Archmaester Benedict
+		limit = {
+			exists = character:Citadel_12
+			character:Citadel_12 = { is_alive = no }
+		}
+		character:Citadel_12 = { make_trait_inactive = archmaester_antimony }
+	}
+	if = { # Archmaester Castos
+		limit = {
+			exists = character:Citadel_13
+			character:Citadel_13 = { is_alive = no }
+		}
+		character:Citadel_13 = { make_trait_inactive = archmaester_nickel }
+	}
+	if = { # Archmaester Cetheres
+		limit = {
+			exists = character:Citadel_14
+			character:Citadel_14 = { is_alive = no }
+		}
+		character:Citadel_14 = { make_trait_inactive = archmaester_pewter }
+	}
+	if = { # Archmaester Ebrose
+		limit = {
+			exists = character:Citadel_15
+			character:Citadel_15 = { is_alive = no }
+		}
+		character:Citadel_15 = { make_trait_inactive = archmaester_silver }
+	}
+	if = { # Archmaester Gallard
+		limit = {
+			exists = character:Citadel_16
+			character:Citadel_16 = { is_alive = no }
+		}
+		character:Citadel_16 = { make_trait_inactive = archmaester_white_copper }
+	}
+	if = { # Archmaester Garizon
+		limit = {
+			exists = character:Citadel_17
+			character:Citadel_17 = { is_alive = no }
+		}
+		character:Citadel_17 = { make_trait_inactive = archmaester_brass }
+	}
+	if = { # Archmaester Guyne
+		limit = {
+			exists = character:Citadel_18
+			character:Citadel_18 = { is_alive = no }
+		}
+		character:Citadel_18 = { make_trait_inactive = archmaester_platinum }
+	}
+	if = { # Archmaester Harodon
+		limit = {
+			exists = character:Citadel_19
+			character:Citadel_19 = { is_alive = no }
+		}
+		character:Citadel_19 = { make_trait_inactive = archmaester_aluminum }
+	}
+	if = { # Archmaester Marwyn
+		limit = {
+			exists = character:Citadel_20
+			character:Citadel_20 = { is_alive = no }
+		}
+		character:Citadel_20 = { make_trait_inactive = archmaester_vs }
+	}
+	if = { # Archmaester Mollos
+		limit = {
+			exists = character:Citadel_21
+			character:Citadel_21 = { is_alive = no }
+		}
+		character:Citadel_21 = { make_trait_inactive = archmaester_cast_iron }
+	}
+	if = { # Archmaester Norren
+		limit = {
+			exists = character:Citadel_22
+			character:Citadel_22 = { is_alive = no }
+		}
+		character:Citadel_22 = { make_trait_inactive = archmaester_electrum }
+	}
+	if = { # Archmaester Nymos
+		limit = {
+			exists = character:Citadel_23
+			character:Citadel_23 = { is_alive = no }
+		}
+		character:Citadel_23 = { make_trait_inactive = archmaester_zinc }
+	}
+	if = { # Archmaester Ocley
+		limit = {
+			exists = character:Citadel_24
+			character:Citadel_24 = { is_alive = no }
+		}
+		character:Citadel_24 = { make_trait_inactive = archmaester_iron }
+	}
+	if = { # Archmaester Perestan
+		limit = {
+			exists = character:Citadel_25
+			character:Citadel_25 = { is_alive = no }
+		}
+		character:Citadel_25 = { make_trait_inactive = archmaester_copper }
+	}
+	if = { # Archmaester Ryam
+		limit = {
+			exists = character:Citadel_27
+			character:Citadel_27 = { is_alive = no }
+		}
+		character:Citadel_27 = { make_trait_inactive = archmaester_yellow_gold }
+	}
+	if = { # Archmaester Theobald
+		limit = {
+			exists = character:Citadel_28
+			character:Citadel_28 = { is_alive = no }
+		}
+		character:Citadel_28 = { make_trait_inactive = archmaester_lead }
+	}
+	if = { # Archmaester Vaellyn
+		limit = {
+			exists = character:Citadel_29
+			character:Citadel_29 = { is_alive = no }
+		}
+		character:Citadel_29 = { make_trait_inactive = archmaester_bronze }
+	}
+	if = { # Archmaester Walgrave
+		limit = {
+			exists = character:Citadel_30
+			character:Citadel_30 = { is_alive = no }
+		}
+		character:Citadel_30 = { make_trait_inactive = archmaester_black_iron }
+	}
+	if = { # Archmaester Willifer
+		limit = {
+			exists = character:Citadel_31
+			character:Citadel_31 = { is_alive = no }
+		}
+		character:Citadel_31 = { make_trait_inactive = archmaester_red_gold }
+	}
+	if = { # Archmaester Zarabelo
+		limit = {
+			exists = character:Citadel_32
+			character:Citadel_32 = { is_alive = no }
+		}
+		character:Citadel_32 = { make_trait_inactive = archmaester_bismuth }
+	}
+	if = { # Archmaester Timotty
+		limit = {
+			exists = character:Citadel_1
+			character:Citadel_1 = { is_alive = no }
+		}
+		character:Citadel_1 = { make_trait_inactive = archmaester_iron }
+	}
+	if = { # Archmaester Goodwyn
+		limit = {
+			exists = character:Citadel_2
+			character:Citadel_2 = { is_alive = no }
+		}
+		character:Citadel_2 = { make_trait_inactive = archmaester_brass }
+	}
+	if = { # Archmaester Crey
+		limit = {
+			exists = character:Citadel_3
+			character:Citadel_3 = { is_alive = no }
+		}
+		character:Citadel_3 = { make_trait_inactive = archmaester_aluminum }
+	}
+	if = { # Archmaester Sandeman
+		limit = {
+			exists = character:Citadel_4
+			character:Citadel_4 = { is_alive = no }
+		}
+		character:Citadel_4 = { make_trait_inactive = archmaester_silver }
+	}
+	if = { # Archmaester Gyldayn
+		limit = {
+			exists = character:Citadel_5
+			character:Citadel_5 = { is_alive = no }
+		}
+		character:Citadel_5 = { make_trait_inactive = archmaester_copper }
+	}
+	if = { # Archmaester Haereg
+		limit = {
+			exists = character:Citadel_6
+			character:Citadel_6 = { is_alive = no }
+		}
+		character:Citadel_6 = { make_trait_inactive = archmaester_copper }
+	}
+	if = { # Archmaester Hake
+		limit = {
+			exists = character:Citadel_7
+			character:Citadel_7 = { is_alive = no }
+		}
+		character:Citadel_7 = { make_trait_inactive = archmaester_red_gold }
+	}
+	if = { # Archmaester Harmune
+		limit = {
+			exists = character:Citadel_8
+			character:Citadel_8 = { is_alive = no }
+		}
+		character:Citadel_8 = { make_trait_inactive = archmaester_bismuth }
+	}
+	if = { # Archmaester Colin
+		limit = {
+			exists = character:Citadel_9
+			character:Citadel_9 = { is_alive = no }
+		}
+		character:Citadel_9 = { make_trait_inactive = archmaester_cast_iron }
+	}
+	if = { # Archmaester Omer
+		limit = {
+			exists = character:Citadel_10
+			character:Citadel_10 = { is_alive = no }
+		}
+		character:Citadel_10 = { make_trait_inactive = archmaester_tin }
+	}
+	if = { # Archmaester Rigney
+		limit = {
+			exists = character:Citadel_26
+			character:Citadel_26 = { is_alive = no }
+		}
+		character:Citadel_26 = { make_trait_inactive = archmaester_bismuth }
+	}
+	if = { # Archmaester Mancaster
+		limit = {
+			exists = character:Citadel_38
+			character:Citadel_38 = { is_alive = no }
+		}
+		character:Citadel_38 = { make_trait_inactive = archmaester_bismuth }
+	}
+	if = { # Archmaester Lyman
+		limit = {
+			exists = character:Citadel_39
+			character:Citadel_39 = { is_alive = no }
+		}
+		character:Citadel_39 = { make_trait_inactive = archmaester_bronze }
+	}
+	if = { # Archmaester Umbert
+		limit = {
+			exists = character:Citadel_40
+			character:Citadel_40 = { is_alive = no }
+		}
+		character:Citadel_40 = { make_trait_inactive = archmaester_white_copper }
+	}
+	if = { # Archmaester Perceon
+		limit = {
+			exists = character:Citadel_41
+			character:Citadel_41 = { is_alive = no }
+		}
+		character:Citadel_41 = { make_trait_inactive = archmaester_silver }
+	}
+	if = { # Archmaester Abelon
+		limit = {
+			exists = character:Citadel_42
+			character:Citadel_42 = { is_alive = no }
+		}
+		character:Citadel_42 = { make_trait_inactive = archmaester_white_copper }
+	}
+	if = { # Archmaester Edgerran
+		limit = {
+			exists = character:Citadel_52
+			character:Citadel_52 = { is_alive = no }
+		}
+		character:Citadel_52 = { make_trait_inactive = archmaester_silver }
+	}
+	if = { # Archmaester Laurent
+		limit = {
+			exists = character:Citadel_54
+			character:Citadel_54 = { is_alive = no }
+		}
+		character:Citadel_54 = { make_trait_inactive = archmaester_antimony }
+	}
+	if = { # Archmaester Gerold
+		limit = {
+			exists = character:Citadel_55
+			character:Citadel_55 = { is_alive = no }
+		}
+		character:Citadel_55 = { make_trait_inactive = archmaester_copper }
+	}
+	if = { # Archmaester Eyron
+		limit = {
+			exists = character:Citadel_56
+			character:Citadel_56 = { is_alive = no }
+		}
+		character:Citadel_56 = { make_trait_inactive = archmaester_vs }
+	}
+	if = { # Archmaester Arnel
+		limit = {
+			exists = character:Citadel_57
+			character:Citadel_57 = { is_alive = no }
+		}
+		character:Citadel_57 = { make_trait_inactive = archmaester_antimony }
+	}
+	if = { # Archmaester Quillion
+		limit = {
+			exists = character:Citadel_58
+			character:Citadel_58 = { is_alive = no }
+		}
+		character:Citadel_58 = { make_trait_inactive = archmaester_pewter }
+	}
+	if = { # Archmaester Cassander
+		limit = {
+			exists = character:Citadel_59
+			character:Citadel_59 = { is_alive = no }
+		}
+		character:Citadel_59 = { make_trait_inactive = archmaester_antimony }
+	}
+	if = { # Archmaester Hagedorn
+		limit = {
+			exists = character:Citadel_60
+			character:Citadel_60 = { is_alive = no }
+		}
+		character:Citadel_60 = { make_trait_inactive = archmaester_iron }
+	}
+	if = { # Archmaester Brude
+		limit = {
+			exists = character:Citadel_62
+			character:Citadel_62 = { is_alive = no }
+		}
+		character:Citadel_62 = { make_trait_inactive = archmaester_aluminum }
+	}
+	if = { # Archmaester Fomas
+		limit = {
+			exists = character:Citadel_63
+			character:Citadel_63 = { is_alive = no }
+		}
+		character:Citadel_63 = { make_trait_inactive = archmaester_brass }
+	}
+	if = { # Archmaester Glaive
+		limit = {
+			exists = character:Citadel_64
+			character:Citadel_64 = { is_alive = no }
+		}
+		character:Citadel_64 = { make_trait_inactive = archmaester_brass }
+	}
+	if = { # Archmaester Gramyon
+		limit = {
+			exists = character:Citadel_65
+			character:Citadel_65 = { is_alive = no }
+		}
+		character:Citadel_65 = { make_trait_inactive = archmaester_bismuth }
+	}
+	if = { # Archmaester Margate
+		limit = {
+			exists = character:Citadel_66
+			character:Citadel_66 = { is_alive = no }
+		}
+		character:Citadel_66 = { make_trait_inactive = archmaester_vs }
+	}
+	if = { # Archmaester Matthar
+		limit = {
+			exists = character:Citadel_67
+			character:Citadel_67 = { is_alive = no }
+		}
+		character:Citadel_67 = { make_trait_inactive = archmaester_yellow_gold }
+	}
+	if = { # Archmaester Thurgood
+		limit = {
+			exists = character:Citadel_68
+			character:Citadel_68 = { is_alive = no }
+		}
+		character:Citadel_68 = { make_trait_inactive = archmaester_steel }
+	}
+	if = { # Archmaester Vyron
+		limit = {
+			exists = character:Citadel_69
+			character:Citadel_69 = { is_alive = no }
+		}
+		character:Citadel_69 = { make_trait_inactive = archmaester_iron }
+	}
+	if = { # Archmaester Walgram
+		limit = {
+			exists = character:Citadel_70
+			character:Citadel_70 = { is_alive = no }
+		}
+		character:Citadel_70 = { make_trait_inactive = archmaester_copper }
+	}
+	if = { # Archmaester Malleon
+		limit = {
+			exists = character:Citadel_72
+			character:Citadel_72 = { is_alive = no }
+		}
+		character:Citadel_72 = { make_trait_inactive = archmaester_cast_iron }
+	}
+
+	### THE WESTERLANDS
+	##############################
+	if = { # Tansy Waters
+		limit = {
+			exists = character:Lydden_39
+			character:Lydden_39 = { is_alive = no }
+		}
+		character:Lydden_39 = {
+			set_real_father = character:Targaryen_88 # Aegon IV Targaryen
+			make_trait_inactive = cool_neutral_silver_hair
+			make_trait_inactive = purple_eyes_2
+			make_trait_inactive = surname_waters
+		}
+	}
+	if = { # Viserys Plumm
+		limit = {
+			exists = character:Plumm_20
+			character:Plumm_20 = { is_alive = no }
+		}
+		character:Plumm_20 = {
+			set_real_father = character:Targaryen_88 # Aegon IV Targaryen
+			make_trait_inactive = cool_neutral_silver_hair
+			make_trait_inactive = purple_eyes_3
+		}
+	}
+	if = { # Nerys
+		limit = {
+			exists = character:Prester_rs_38
+			character:Prester_rs_38 = { is_alive = no }
+		}
+		character:Prester_rs_38 = {
+			set_real_father = character:Velaryon_44 # Alyn Velaryon
+			make_trait_inactive = surname_hill
+		}
+	}
+	if = { # Nerys Hill
+		limit = {
+			exists = character:Prester_42
+			character:Prester_42 = { is_alive = no }
+		}
+		character:Prester_42 = {
+			make_trait_inactive = cool_silver_hair
+			make_trait_inactive = purple_eyes_1
+		}
+	}
+	if = { # Marei
+		limit = {
+			exists = character:Lannister_137
+			character:Lannister_137 = { is_alive = no }
+		}
+		character:Lannister_137 = {
+			set_real_father = character:Lannister_1 # Tywin Lannister
+			make_trait_inactive = gold_hair
+			make_trait_inactive = emerald_eyes
+		}
+	}
+	if = { # Tysha
+		limit = {
+			exists = character:Lannister_rs_8
+			character:Lannister_rs_8 = { is_alive = no }
+		}
+		character:Lannister_rs_8 = {
+			clear_traits = yes
+			make_trait_inactive = blue_eyes
+			add_trait = beauty_good_2
+			add_trait = charming
+			add_trait = trusting
+			add_trait = humble
+			add_trait = compassionate
+		}
+	}
+	if = { # Joffrey Lannister
+		limit = {
+			exists = character:Lannister_122
+			character:Lannister_122 = { is_alive = no }
+		}
+		character:Lannister_122 = {
+			make_trait_inactive = black_hair
+		}
+	}
+	if = { # Myrcella Lannister
+		limit = {
+			exists = character:Lannister_123
+			character:Lannister_123 = { is_alive = no }
+		}
+		character:Lannister_123 = {
+			make_trait_inactive = black_hair
+		}
+	}
+	if = { # Tyrion Lannister
+		limit = {
+			exists = character:Lannister_8
+			character:Lannister_8 = { is_alive = no }
+		}
+		character:Lannister_8 = {
+			make_trait_inactive = heterochromia_black1
+		}
+	}
+	if = { # Cersei Lannister
+		limit = {
+			exists = character:Lannister_124
+			character:Lannister_124 = { is_alive = no }
+		}
+		character:Lannister_124 = {
+			make_trait_inactive = black_hair
+		}
+	}
+	if = { # Joanna Lannister
+		limit = {
+			exists = character:Lannister_125
+			character:Lannister_125 = { is_alive = no }
+		}
+		character:Lannister_125 = {
+			make_trait_inactive = black_hair
+		}
+	}
+	if = { # Tommen Lannister
+		limit = {
+			exists = character:Lannister_131
+			character:Lannister_131 = { is_alive = no }
+		}
+		character:Lannister_131 = {
+			make_trait_inactive = black_hair
+		}
+	}
+	if = { # Cerelle Tarbeck
+		limit = {
+			exists = character:Tarbeck_35
+			character:Tarbeck_35 = { is_alive = no }
+		}
+		character:Tarbeck_35 = {
+			make_trait_inactive = red_hair
+			make_trait_inactive = emerald_eyes
+		}
+	}
+	if = { # Tion Tarbeck
+		limit = {
+			exists = character:Tarbeck_33
+			character:Tarbeck_33 = { is_alive = no }
+		}
+		character:Tarbeck_33 = {
+			make_trait_inactive = red_hair
+			make_trait_inactive = emerald_eyes
+		}
+	}
+	if = { # Melara Hetherspoon
+		limit = {
+			exists = character:Hetherspoon_3
+			character:Hetherspoon_3 = { is_alive = no }
+		}
+		character:Hetherspoon_3 = {
+			clear_traits = yes
+			add_trait = beauty_good_1
+			add_trait = bossy
+			add_trait = brave
+			add_trait = trusting
+		}
+	}
+	if = { # Short Tom Tinker
+		limit = {
+			exists = character:Dulver_hh_2
+			character:Dulver_hh_2 = { is_alive = no }
+		}
+		character:Dulver_hh_2 = {
+			make_trait_inactive = surname_hill
+		}
+	}
+	if = { # Albert Hill
+		limit = {
+			exists = character:Lannister_142
+			character:Lannister_142 = { is_alive = no }
+		}
+		character:Lannister_142 = {
+			make_trait_inactive = surname_hill
+		}
+	}
+	if = { # Rickard Hill
+		limit = {
+			exists = character:Lannister_143
+			character:Lannister_143 = { is_alive = no }
+		}
+		character:Lannister_143 = {
+			make_trait_inactive = surname_hill
+		}
+	}
+	if = { # Sirona Hill
+		limit = {
+			exists = character:Lannister_144
+			character:Lannister_144 = { is_alive = no }
+		}
+		character:Lannister_144 = {
+			make_trait_inactive = surname_hill
+		}
+	}
+	if = { # Landon Hill
+		limit = {
+			exists = character:Lannister_145
+			character:Lannister_145 = { is_alive = no }
+		}
+		character:Lannister_145 = {
+			make_trait_inactive = surname_hill
+		}
+	}
+	if = { # Robin Hill
+		limit = {
+			exists = character:Hawthorne_29
+			character:Hawthorne_29 = { is_alive = no }
+		}
+		character:Hawthorne_29 = {
+			make_trait_inactive = surname_hill
+		}
+	}
+
+	### THE STORMLANDS
+	##############################
+	if = { # Aemon Tarth
+		limit = {
+			exists = character:Tarth_35
+			character:Tarth_35 = { is_alive = no }
+		}
+		character:Tarth_35 = {
+			set_real_father = character:Tall_1 # Duncan the Tall
+		}
+	}
+	if = { # Joffrey Baratheon
+		limit = {
+			exists = character:Baratheon_5
+			character:Baratheon_5 = { is_alive = no }
+		}
+		character:Baratheon_5 = {
+			make_trait_inactive = gold_hair
+			make_trait_inactive = emerald_eyes
+			set_real_father = character:Lannister_7 # Jaime Lannister
+		}
+	}
+	if = { # Myrcella Baratheon
+		limit = {
+			exists = character:Baratheon_6
+			character:Baratheon_6 = { is_alive = no }
+		}
+		character:Baratheon_6 = {
+			make_trait_inactive = gold_hair
+			make_trait_inactive = emerald_eyes
+			set_real_father = character:Lannister_7 # Jaime Lannister
+		}
+	}
+	if = { # Tommen Baratheon
+		limit = {
+			exists = character:Baratheon_7
+			character:Baratheon_7 = { is_alive = no }
+		}
+		character:Baratheon_7 = {
+			make_trait_inactive = gold_hair
+			make_trait_inactive = emerald_eyes
+			set_real_father = character:Lannister_7 # Jaime Lannister
+		}
+	}
+	if = { # Mya Stone
+		limit = {
+			exists = character:Baratheon_10
+			character:Baratheon_10 = { is_alive = no }
+		}
+		character:Baratheon_10 = {
+			set_real_father = character:Baratheon_2 # Robert Baratheon
+			make_trait_inactive = black_hair
+			make_trait_inactive = blue_eyes
+			make_trait_inactive = surname_stone
+		}
+	}
+	if = { # Cedric Rivers
+		limit = {
+			exists = character:Baratheon_11
+			character:Baratheon_11 = { is_alive = no }
+		}
+		character:Baratheon_11 = {
+			set_real_father = character:Baratheon_2 # Robert Baratheon
+			make_trait_inactive = black_hair
+			make_trait_inactive = blue_eyes
+			make_trait_inactive = smol_tol
+			make_trait_inactive = surname_rivers
+		}
+	}
+	if = { # Bella
+		limit = {
+			exists = character:Baratheon_rs_6
+			character:Baratheon_rs_6 = { is_alive = no }
+		}
+		character:Baratheon_rs_6 = {
+			set_real_father = character:Baratheon_2 # Robert Baratheon
+			make_trait_inactive = black_hair
+			make_trait_inactive = blue_eyes
+			make_trait_inactive = smol_tol
+		}
+	}
+	if = { # Arlaine
+		limit = {
+			exists = character:Baratheon_103
+			character:Baratheon_103 = { is_alive = no }
+		}
+		character:Baratheon_103 = {
+			set_real_father = character:Baratheon_2 # Robert Baratheon
+			make_trait_inactive = black_hair
+			make_trait_inactive = blue_eyes
+			make_trait_inactive = smol_tol
+		}
+	}
+	if = { # Gendry
+		limit = {
+			exists = character:Baratheon_9
+			character:Baratheon_9 = { is_alive = no }
+		}
+		character:Baratheon_9 = {
+			set_real_father = character:Baratheon_2 # Robert Baratheon
+			make_trait_inactive = black_hair
+			make_trait_inactive = blue_eyes
+			make_trait_inactive = smol_tol
+		}
+	}
+	if = { # Harry Waters
+		limit = {
+			exists = character:Baratheon_12
+			character:Baratheon_12 = { is_alive = no }
+		}
+		character:Baratheon_12 = {
+			set_real_father = character:Baratheon_2 # Robert Baratheon
+			make_trait_inactive = black_hair
+			make_trait_inactive = blue_eyes
+			make_trait_inactive = smol_tol
+			make_trait_inactive = surname_waters
+		}
+	}
+	if = { # Violet
+		limit = {
+			exists = character:Baratheon_106
+			character:Baratheon_106 = { is_alive = no }
+		}
+		character:Baratheon_106 = {
+			set_real_father = character:Baratheon_2 # Robert Baratheon
+			make_trait_inactive = black_hair
+			make_trait_inactive = blue_eyes
+			make_trait_inactive = smol_tol
+		}
+	}
+	if = { # Rodrik
+		limit = {
+			exists = character:Baratheon_105
+			character:Baratheon_105 = { is_alive = no }
+		}
+		character:Baratheon_105 = {
+			set_real_father = character:Baratheon_2 # Robert Baratheon
+			make_trait_inactive = black_hair
+			make_trait_inactive = blue_eyes
+			make_trait_inactive = smol_tol
+		}
+	}
+	if = { # Borros Flowers
+		limit = {
+			exists = character:Baratheon_104
+			character:Baratheon_104 = { is_alive = no }
+		}
+		character:Baratheon_104 = {
+			set_real_father = character:Baratheon_2 # Robert Baratheon
+			make_trait_inactive = black_hair
+			make_trait_inactive = blue_eyes
+			make_trait_inactive = smol_tol
+			make_trait_inactive = surname_flowers
+		}
+	}
+	if = { # Glenna
+		limit = {
+			exists = character:Baratheon_107
+			character:Baratheon_107 = { is_alive = no }
+		}
+		character:Baratheon_107 = {
+			set_real_father = character:Baratheon_2 # Robert Baratheon
+			make_trait_inactive = black_hair
+			make_trait_inactive = blue_eyes
+			make_trait_inactive = smol_tol
+		}
+	}
+	if = { # Cynthia
+		limit = {
+			exists = character:Baratheon_90
+			character:Baratheon_90 = { is_alive = no }
+		}
+		character:Baratheon_90 = {
+			set_real_father = character:Baratheon_2 # Robert Baratheon
+			make_trait_inactive = black_hair
+			make_trait_inactive = blue_eyes
+			make_trait_inactive = smol_tol
+		}
+	}
+	if = { # Bethany
+		limit = {
+			exists = character:Baratheon_91
+			character:Baratheon_91 = { is_alive = no }
+		}
+		character:Baratheon_91 = {
+			set_real_father = character:Baratheon_2 # Robert Baratheon
+			make_trait_inactive = black_hair
+			make_trait_inactive = blue_eyes
+			make_trait_inactive = smol_tol
+		}
+	}
+	if = { # Manly Waters
+		limit = {
+			exists = character:Baratheon_109
+			character:Baratheon_109 = { is_alive = no }
+		}
+		character:Baratheon_109 = {
+			set_real_father = character:Baratheon_2 # Robert Baratheon
+			make_trait_inactive = black_hair
+			make_trait_inactive = blue_eyes
+			make_trait_inactive = smol_tol
+			make_trait_inactive = surname_waters
+		}
+	}
+	if = { # Elenda
+		limit = {
+			exists = character:Baratheon_108
+			character:Baratheon_108 = { is_alive = no }
+		}
+		character:Baratheon_108 = {
+			set_real_father = character:Baratheon_2 # Robert Baratheon
+			make_trait_inactive = black_hair
+			make_trait_inactive = blue_eyes
+			make_trait_inactive = smol_tol
+		}
+	}
+	if = { # Barra
+		limit = {
+			exists = character:Baratheon_rs_4
+			character:Baratheon_rs_4 = { is_alive = no }
+		}
+		character:Baratheon_rs_4 = {
+			set_real_father = character:Baratheon_2 # Robert Baratheon
+			make_trait_inactive = black_hair
+			make_trait_inactive = blue_eyes
+			make_trait_inactive = smol_tol
+		}
+	}
+	if = { # Jon Connington
+		limit = {
+			exists = character:Connington_4
+			character:Connington_4 = { is_alive = no }
+		}
+		character:Connington_4 = {
+			make_trait_inactive = left_golden_company
+		}
+	}
+	if = { # Rolly Duckfield
+		limit = {
+			exists = character:Duckfield_1
+			character:Duckfield_1 = { is_alive = no }
+		}
+		character:Duckfield_1 = {
+			make_trait_inactive = left_golden_company
+		}
+	}
+	if = { # Colton Buckler
+		limit = {
+			exists = character:Buckler_25
+			character:Buckler_25 = { is_alive = no }
+		}
+		character:Buckler_25 = {
+			make_trait_inactive = neutral_silver_hair
+		}
+	}
+	if = { # Endros Buckler
+		limit = {
+			exists = character:Buckler_26
+			character:Buckler_26 = { is_alive = no }
+		}
+		character:Buckler_26 = {
+			make_trait_inactive = neutral_silver_hair
+		}
+	}
+	if = { # Aurana Buckler
+		limit = {
+			exists = character:Buckler_29
+			character:Buckler_29 = { is_alive = no }
+		}
+		character:Buckler_29 = {
+			make_trait_inactive = neutral_silver_hair
+		}
+	}
+	if = { # Athan Buckler
+		limit = {
+			exists = character:Buckler_30
+			character:Buckler_30 = { is_alive = no }
+		}
+		character:Buckler_30 = {
+			make_trait_inactive = neutral_silver_hair
+		}
+	}
+	if = { # Darren Rivers
+		limit = {
+			exists = character:Bartheld_hh_1
+			character:Bartheld_hh_1 = { is_alive = no }
+		}
+		character:Bartheld_hh_1 = {
+			make_trait_inactive = surname_rivers
+		}
+	}
+	if = { # Rolland Storm
+		limit = {
+			exists = character:Caron_6
+			character:Caron_6 = { is_alive = no }
+		}
+		character:Caron_6 = {
+			make_trait_inactive = surname_storm
+		}
+	}
+	if = { # Ronard Storm
+		limit = {
+			exists = character:Durrandon_37
+			character:Durrandon_37 = { is_alive = no }
+		}
+		character:Durrandon_37 = {
+			make_trait_inactive = surname_storm
+		}
+	}
+	if = { # Lynett Storm
+		limit = {
+			exists = character:Baratheon_47
+			character:Baratheon_47 = { is_alive = no }
+		}
+		character:Baratheon_47 = {
+			make_trait_inactive = surname_storm
+		}
+	}
+	if = { # Aethan Storm
+		limit = {
+			exists = character:Baratheon_48
+			character:Baratheon_48 = { is_alive = no }
+		}
+		character:Baratheon_48 = {
+			make_trait_inactive = surname_storm
+		}
+	}
+	if = { # Genald Storm
+		limit = {
+			exists = character:Baratheon_49
+			character:Baratheon_49 = { is_alive = no }
+		}
+		character:Baratheon_49 = {
+			make_trait_inactive = surname_storm
+		}
+	}
+	if = { # Sirawen Storm
+		limit = {
+			exists = character:Baratheon_hh_1
+			character:Baratheon_hh_1 = { is_alive = no }
+		}
+		character:Baratheon_hh_1 = {
+			make_trait_inactive = surname_storm
+		}
+	}
+	if = { # Keira Sand
+		limit = {
+			exists = character:Connington_hh_1
+			character:Connington_hh_1 = { is_alive = no }
+		}
+		character:Connington_hh_1 = {
+			make_trait_inactive = surname_sand
+		}
+	}
+	if = { # Yonel Storm
+		limit = {
+			exists = character:Mertyns_51
+			character:Mertyns_51 = { is_alive = no }
+		}
+		character:Mertyns_51 = {
+			make_trait_inactive = surname_storm
+		}
+	}
+	if = { # Patrek Storm
+		limit = {
+			exists = character:Mertyns_52
+			character:Mertyns_52 = { is_alive = no }
+		}
+		character:Mertyns_52 = {
+			make_trait_inactive = surname_storm
+		}
+	}
+	if = { # Talbard Storm
+		limit = {
+			exists = character:Mertyns_53
+			character:Mertyns_53 = { is_alive = no }
+		}
+		character:Mertyns_53 = {
+			make_trait_inactive = surname_storm
+		}
+	}
+	if = { # Sarella Storm
+		limit = {
+			exists = character:Mertyns_54
+			character:Mertyns_54 = { is_alive = no }
+		}
+		character:Mertyns_54 = {
+			make_trait_inactive = surname_storm
+		}
+	}
+	if = { # Beric Storm
+		limit = {
+			exists = character:Dondarrion_13
+			character:Dondarrion_13 = { is_alive = no }
+		}
+		character:Dondarrion_13 = {
+			make_trait_inactive = surname_storm
+		}
+	}
+	if = { # Osmund Storm
+		limit = {
+			exists = character:Caron_36
+			character:Caron_36 = { is_alive = no }
+		}
+		character:Caron_36 = {
+			make_trait_inactive = surname_storm
+		}
+	}
+	if = { # Venessa Storm
+		limit = {
+			exists = character:Caron_43
+			character:Caron_43 = { is_alive = no }
+		}
+		character:Caron_43 = {
+			make_trait_inactive = surname_storm
+		}
+	}
+	if = { # Brus, "bastard son" of Gyles Langward
+		limit = {
+			exists = character:Langward_62
+			character:Langward_62 = { is_alive = no }
+		}
+		character:Langward_62 = {
+			set_real_father = character:Langward_hh_2 # Stevron, as he is not a Gyles' son
+		}
+	}
+
+	### DORNE
+	##############################
+	if = { # Emery Wells
+		limit = {
+			exists = character:Wells_43
+			character:Wells_43 = { is_alive = no }
+		}
+		character:Wells_43 = {
+			set_real_father = character:Jordayne_65 # Desmond Jordayne
+		}
+	}
+	if = { # Ashara Dayne
+		limit = {
+			exists = character:Dayne_4
+			character:Dayne_4 = { is_alive = no }
+		}
+		character:Dayne_4 = {
+			make_trait_inactive = black_hair
+			make_trait_inactive = purple_eyes_1
+		}
+	}
+	if = { # Oberyn Martell
+		limit = {
+			exists = character:Martell_8
+			character:Martell_8 = { is_alive = no }
+		}
+		character:Martell_8 = {
+			make_trait_inactive = left_second_sons
+		}
+	}
+	if = { # Arianne Martell
+		limit = {
+			exists = character:Martell_84
+			character:Martell_84 = { is_alive = no }
+		}
+		character:Martell_84 = {
+			make_trait_inactive = neutral_silver_hair
+			make_trait_inactive = purple_eyes_3
+		}
+	}
+	if = { # Dorea Martell
+		limit = {
+			exists = character:Martell_85
+			character:Martell_85 = { is_alive = no }
+		}
+		character:Martell_85 = {
+			make_trait_inactive = neutral_silver_hair
+			make_trait_inactive = purple_eyes_3
+		}
+	}
+	if = { # Samwell Starfire
+		limit = {
+			exists = character:Dayne_15
+			character:Dayne_15 = { is_alive = no }
+		}
+		character:Dayne_15 = {
+			make_trait_inactive = cool_neutral_silver_hair
+			make_trait_inactive = purple_eyes_3
+		}
+	}
+	if = { # Trystane Dayne
+		limit = {
+			exists = character:Dayne_19
+			character:Dayne_19 = { is_alive = no }
+		}
+		character:Dayne_19 = {
+			make_trait_inactive = cool_neutral_silver_hair
+			make_trait_inactive = purple_eyes_4
+		}
+	}
+	if = { # Gerold Dayne
+		limit = {
+			exists = character:Dayne_20
+			character:Dayne_20 = { is_alive = no }
+		}
+		character:Dayne_20 = {
+			make_trait_inactive = cool_silver_hair
+			make_trait_inactive = purple_eyes_1
+		}
+	}
+	if = { # Franklyn Dayne
+		limit = {
+			exists = character:Dayne_21
+			character:Dayne_21 = { is_alive = no }
+		}
+		character:Dayne_21 = {
+			make_trait_inactive = neutral_silver_hair
+			make_trait_inactive = purple_eyes_1
+		}
+	}
+	if = { # Edric Dayne
+		limit = {
+			exists = character:Dayne_22
+			character:Dayne_22 = { is_alive = no }
+		}
+		character:Dayne_22 = {
+			make_trait_inactive = cool_silver_hair
+			make_trait_inactive = purple_eyes_1
+		}
+	}
+	if = { # Arthur Dayne
+		limit = {
+			exists = character:Dayne_23
+			character:Dayne_23 = { is_alive = no }
+		}
+		character:Dayne_23 = {
+			make_trait_inactive = neutral_silver_hair
+			make_trait_inactive = purple_eyes_1
+		}
+	}
+	if = { # Ulrick Dayne
+		limit = {
+			exists = character:Dayne_24
+			character:Dayne_24 = { is_alive = no }
+		}
+		character:Dayne_24 = {
+			make_trait_inactive = neutral_silver_hair
+			make_trait_inactive = purple_eyes_1
+		}
+	}
+	if = { # Edric Dayne
+		limit = {
+			exists = character:Dayne_25
+			character:Dayne_25 = { is_alive = no }
+		}
+		character:Dayne_25 = {
+			make_trait_inactive = cool_silver_hair
+			make_trait_inactive = purple_eyes_1
+		}
+	}
+	if = { # Joffrey Dayne
+		limit = {
+			exists = character:Dayne_30
+			character:Dayne_30 = { is_alive = no }
+		}
+		character:Dayne_30 = {
+			make_trait_inactive = neutral_silver_hair
+			make_trait_inactive = purple_eyes_2
+		}
+	}
+	if = { # Gerold Dayne
+		limit = {
+			exists = character:Dayne_31
+			character:Dayne_31 = { is_alive = no }
+		}
+		character:Dayne_31 = {
+			make_trait_inactive = neutral_silver_hair
+			make_trait_inactive = purple_eyes_4
+		}
+	}
+	if = { # Gerris Dayne
+		limit = {
+			exists = character:Dayne_33
+			character:Dayne_33 = { is_alive = no }
+		}
+		character:Dayne_33 = {
+			make_trait_inactive = neutral_silver_hair
+			make_trait_inactive = purple_eyes_1
+		}
+	}
+	if = { # Arron Dayne
+		limit = {
+			exists = character:Dayne_32
+			character:Dayne_32 = { is_alive = no }
+		}
+		character:Dayne_32 = {
+			make_trait_inactive = cool_neutral_silver_hair
+			make_trait_inactive = purple_eyes_2
+		}
+	}
+	if = { # Leslyn Sand
+		limit = {
+			exists = character:Allyrion_rs_1
+			character:Allyrion_rs_1 = { is_alive = no }
+		}
+		character:Allyrion_rs_1 = {
+			make_trait_inactive = surname_sand
+		}
+	}
+	if = { # Brys Sand
+		limit = {
+			exists = character:Martell_89
+			character:Martell_89 = { is_alive = no }
+		}
+		character:Martell_89 = {
+			make_trait_inactive = surname_sand
+		}
+	}
+	if = { # Blane Sand
+		limit = {
+			exists = character:Martell_90
+			character:Martell_90 = { is_alive = no }
+		}
+		character:Martell_90 = {
+			make_trait_inactive = surname_sand
+		}
+	}
+	if = { # Alara Sand
+		limit = {
+			exists = character:Martell_91
+			character:Martell_91 = { is_alive = no }
+		}
+		character:Martell_91 = {
+			make_trait_inactive = surname_sand
+		}
+	}
+	if = { # Devlin Sand
+		limit = {
+			exists = character:Martell_92
+			character:Martell_92 = { is_alive = no }
+		}
+		character:Martell_92 = {
+			make_trait_inactive = surname_sand
+		}
+	}
+	if = { # Morna Sand
+		limit = {
+			exists = character:Martell_93
+			character:Martell_93 = { is_alive = no }
+		}
+		character:Martell_93 = {
+			make_trait_inactive = surname_sand
+		}
+	}
+	if = { # Samara Sand
+		limit = {
+			exists = character:Uller_46
+			character:Uller_46 = { is_alive = no }
+		}
+		character:Uller_46 = {
+			make_trait_inactive = surname_sand
+		}
+	}
+
+	### THE RIVERLANDS
+	##############################
+	if = { # Jeyne Lothston
+		limit = {
+			exists = character:Lothston_14
+			character:Lothston_14 = { is_alive = no }
+		}
+		character:Lothston_14 = {
+			set_real_father = character:Targaryen_88 # Aegon IV Targaryen
+		}
+	}
+	if = { # Walda Frey
+		limit = {
+			exists = character:Frey_10
+			character:Frey_10 = { is_alive = no }
+		}
+		character:Frey_10 = {
+			set_real_father = character:Frey_8 # Black Walder Frey
+		}
+	}
+	if = { # Perra Frey
+		limit = {
+			exists = character:Frey_11
+			character:Frey_11 = { is_alive = no }
+		}
+		character:Frey_11 = {
+			set_real_father = character:Frey_8 # Black Walder Frey
+		}
+	}
+	if = { # Lady Stoneheart
+		limit = {
+			exists = character:Tully_5
+			character:Tully_5 = { is_alive = no }
+		}
+		character:Tully_5 = {
+			set_real_father = character:Tully_1 # Hoster Tully
+			set_real_mother = character:Whent_6 # Minisa Whent
+		}
+	}
+	if = { # Addam Rivers
+		limit = {
+			exists = character:Kytley_hh_3
+			character:Kytley_hh_3 = { is_alive = no }
+		}
+		character:Kytley_hh_3 = {
+			make_trait_inactive = surname_rivers
+		}
+	}
+	if = { # Garrett Snow
+		limit = {
+			exists = character:Barnell_3
+			character:Barnell_3 = { is_alive = no }
+		}
+		character:Barnell_3 = {
+			make_trait_inactive = surname_snow
+		}
+	}
+	if = { # Hothor Rivers
+		limit = {
+			exists = character:Tully_56
+			character:Tully_56 = { is_alive = no }
+		}
+		character:Tully_56 = {
+			make_trait_inactive = surname_rivers
+		}
+	}
+	if = { # Walda Rivers
+		limit = {
+			exists = character:Tully_57
+			character:Tully_57 = { is_alive = no }
+		}
+		character:Tully_57 = {
+			make_trait_inactive = surname_rivers
+		}
+	}
+	if = { # Doryssa Rivers
+		limit = {
+			exists = character:Smallwood_32
+			character:Smallwood_32 = { is_alive = no }
+		}
+		character:Smallwood_32 = {
+			make_trait_inactive = surname_rivers
+		}
+	}
+	if = { # Tristan Rivers
+		limit = {
+			exists = character:Smallwood_33
+			character:Smallwood_33 = { is_alive = no }
+		}
+		character:Smallwood_33 = {
+			make_trait_inactive = surname_rivers
+		}
+	}
+	if = { # Marq Snow
+		limit = {
+			exists = character:Rankenfell_12
+			character:Rankenfell_12 = { is_alive = no }
+		}
+		character:Rankenfell_12 = {
+			make_trait_inactive = surname_snow
+		}
+	}
+	if = { # Jostyn Rivers
+		limit = {
+			exists = character:Tullison_9
+			character:Tullison_9 = { is_alive = no }
+		}
+		character:Tullison_9 = {
+			make_trait_inactive = surname_rivers
+		}
+	}
+	if = { # Walda Rivers
+		limit = {
+			exists = character:Crossing_2
+			character:Crossing_2 = { is_alive = no }
+		}
+		character:Crossing_2 = {
+			make_trait_inactive = surname_rivers
+		}
+	}
+	if = { # Aemon Rivers
+		limit = {
+			exists = character:Crossing_3
+			character:Crossing_3 = { is_alive = no }
+		}
+		character:Crossing_3 = {
+			make_trait_inactive = surname_rivers
+		}
+	}
+	if = { # Walda Rivers
+		limit = {
+			exists = character:Crossing_4
+			character:Crossing_4 = { is_alive = no }
+		}
+		character:Crossing_4 = {
+			make_trait_inactive = surname_rivers
+		}
+	}
+	if = { # Lucas Lothston
+		limit = {
+			exists = character:Lothston_7
+			character:Lothston_7 = { is_alive = no }
+		}
+		character:Lothston_7 = {
+			set_real_father = character:Targaryen_88 # Aegon IV Targaryen
+		}
+	}
+	if = { # Willem Lothston
+		limit = {
+			exists = character:Lothston_8
+			character:Lothston_8 = { is_alive = no }
+		}
+		character:Lothston_8 = {
+			set_real_father = character:Targaryen_88 # Aegon IV Targaryen
+		}
+	}
+	if = { # Hoster Lothston
+		limit = {
+			exists = character:Lothston_13
+			character:Lothston_13 = { is_alive = no }
+		}
+		character:Lothston_13 = {
+			set_real_father = character:Targaryen_88 # Aegon IV Targaryen
+		}
+	}
+	if = { # Manfryd o the Black Hood Lothston
+		limit = {
+			exists = character:Lothston_16
+			character:Lothston_16 = { is_alive = no }
+		}
+		character:Lothston_16 = {
+			set_real_father = character:Targaryen_88 # Aegon IV Targaryen
+		}
+	}
+
+	### THE VALE
+	##############################
+	if = { # Carina Stone
+		limit = {
+			exists = character:ArrynGT_21
+			character:ArrynGT_21 = { is_alive = no }
+		}
+		character:ArrynGT_21 = {
+			make_trait_inactive = surname_stone
+		}
+	}
+	if = { # Yve Stone
+		limit = {
+			exists = character:ArrynGT_22
+			character:ArrynGT_22 = { is_alive = no }
+		}
+		character:ArrynGT_22 = {
+			make_trait_inactive = surname_stone
+		}
+	}
+	if = { # Harlan Stone
+		limit = {
+			exists = character:ArrynGT_23
+			character:ArrynGT_23 = { is_alive = no }
+		}
+		character:ArrynGT_23 = {
+			make_trait_inactive = surname_stone
+		}
+	}
+	if = { # Tim Stone
+		limit = {
+			exists = character:Castle_Black_14
+			character:Castle_Black_14 = { is_alive = no }
+		}
+		character:Castle_Black_14 = {
+			make_trait_inactive = surname_stone
+		}
+	}
+
+	### THE NORTH
+	##############################
+	if = { # Robb Stark
+		limit = {
+			exists = character:Stark_6
+			character:Stark_6 = { is_alive = no }
+		}
+		character:Stark_6 = {
+			make_trait_inactive = auburn_hair
+			make_trait_inactive = blue_eyes
+		}
+	}
+	if = { # Jon Snow
+		limit = {
+			exists = character:Stark_7
+			character:Stark_7 = { is_alive = no }
+		}
+		character:Stark_7 = {
+			set_real_father = character:Targaryen_3 # Rhaegar Targaryen
+			set_real_mother = character:Stark_5 # Lyanna Stark
+		}
+	}
+	if = { # Sansa Stark (Alayne Stone)
+		limit = {
+			exists = character:Stark_Dummy_8
+			character:Stark_Dummy_8 = { is_alive = no }
+		}
+		character:Stark_Dummy_8 = {
+			set_real_father = character:Stark_3 # Eddard Stark
+			set_real_mother = character:Tully_4 # Catelyn Tully
+			make_trait_inactive = surname_stone
+		}
+	}
+	if = { # Arya Stark (Arry)
+		limit = {
+			exists = character:Stark_Dummy_9
+			character:Stark_Dummy_9 = { is_alive = no }
+		}
+		character:Stark_Dummy_9 = {
+			set_real_father = character:Stark_3 # Eddard Stark
+			set_real_mother = character:Tully_4 # Catelyn Tully
+		}
+	}
+	if = { # Brandon Stark (on exile)
+		limit = {
+			exists = character:Stark_Dummy_10
+			character:Stark_Dummy_10 = { is_alive = no }
+		}
+		character:Stark_Dummy_10 = {
+			set_real_father = character:Stark_3 # Eddard Stark
+			set_real_mother = character:Tully_4 # Catelyn Tully
+		}
+	}
+	if = { # Rickon Stark (on exile)
+		limit = {
+			exists = character:Stark_Dummy_11
+			character:Stark_Dummy_11 = { is_alive = no }
+		}
+		character:Stark_Dummy_11 = {
+			set_real_father = character:Stark_3 # Eddard Stark
+			set_real_mother = character:Tully_4 # Catelyn Tully
+		}
+	}
+	if = { # Jeyne Poole (Arya Stark)
+		limit = {
+			exists = character:Poole_Dummy_3
+			character:Poole_Dummy_3 = { is_alive = no }
+		}
+		character:Poole_Dummy_3 = {
+			set_real_father = character:Poole_2 # Vayon Poole
+			set_real_mother = character:Poole_rs_2
+		}
+	}
+	if = { # Asher Forrester
+		limit = {
+			exists = character:Forrester_4
+			character:Forrester_4 = { is_alive = no }
+		}
+		character:Forrester_4 = {
+			make_trait_inactive = left_windblown
+		}
+	}
+	if = { # Josera Snow
+		limit = {
+			exists = character:Forrester_30
+			character:Forrester_30 = { is_alive = no }
+		}
+		character:Forrester_30 = {
+			set_real_father = character:Forrester_2 # Gregor Forrester
+			make_trait_inactive = surname_snow
+		}
+	}
+	if = { # Elsera Snow
+		limit = {
+			exists = character:Forrester_31
+			character:Forrester_31 = { is_alive = no }
+		}
+		character:Forrester_31 = {
+			set_real_father = character:Forrester_2 # Gregor Forrester
+			make_trait_inactive = surname_snow
+		}
+	}
+	if = { # Byron Rivers
+		limit = {
+			exists = character:Renn_90 
+			character:Renn_90  = { is_alive = no }
+		}
+		character:Renn_90  = {
+			make_trait_inactive = surname_rivers
+		}
+	}
+	if = { # Rodrik the Wandering Wolf
+		limit = {
+			exists = character:Stark_120
+			character:Stark_120 = { is_alive = no }
+		}
+		character:Stark_120 = {
+			make_trait_inactive = left_second_sons
+		}
+	}
+	if = { # Tommard Snow
+		limit = {
+			exists = character:Karstark_hh_2
+			character:Karstark_hh_2 = { is_alive = no }
+		}
+		character:Karstark_hh_2 = {
+			make_trait_inactive = surname_snow
+		}
+	}
+	if = { # Darrian Snow
+		limit = {
+			exists = character:Karstark_hh_4
+			character:Karstark_hh_4 = { is_alive = no }
+		}
+		character:Karstark_hh_4 = {
+			make_trait_inactive = surname_snow
+		}
+	}
+
+	### IRON ISLANDS
+	##############################
+	if = { # Euron Greyjoy
+		limit = {
+			exists = character:Greyjoy_6
+			character:Greyjoy_6 = { is_alive = no }
+		}
+		character:Greyjoy_6 = {
+			make_trait_inactive = heterochromia_black2
+		}
+	}
+	if = { # Harwyn Hardhand
+		limit = {
+			exists = character:Hoare_28
+			character:Hoare_28 = { is_alive = no }
+		}
+		character:Hoare_28 = {
+			make_trait_inactive = left_second_sons
+		}
+	}
+	if = { # Ragnor Pyke
+		limit = {
+			exists = character:Greyjoy_hh_13
+			character:Greyjoy_hh_13 = { is_alive = no }
+		}
+		character:Greyjoy_hh_13 = {
+			make_trait_inactive = surname_pyke
+		}
+	}
+	if = { # Longwater Pyke
+		limit = {
+			exists = character:Greyjoy_hh_18
+			character:Greyjoy_hh_18 = { is_alive = no }
+		}
+		character:Greyjoy_hh_18 = {
+			make_trait_inactive = surname_pyke
+		}
+	}
+	if = { # Kemmett Pyke the Bastard
+		limit = {
+			exists = character:Captain_Iron_Islands_2
+			character:Captain_Iron_Islands_2 = { is_alive = no }
+		}
+		character:Captain_Iron_Islands_2 = {
+			make_trait_inactive = surname_pyke
+		}
+	}
+	if = { # Mhaegen Pyke
+		limit = {
+			exists = character:Codd_12
+			character:Codd_12 = { is_alive = no }
+		}
+		character:Codd_12 = {
+			make_trait_inactive = surname_pyke
+		}
+	}
+	if = { # Cotter Pyke
+		limit = {
+			exists = character:Eastwatch_By_The_Sea_1
+			character:Eastwatch_By_The_Sea_1 = { is_alive = no }
+		}
+		character:Eastwatch_By_The_Sea_1 = {
+			make_trait_inactive = surname_pyke
+		}
+	}
+
+	### THE CROWNLANDS
+	##############################
+	if = { # Justin Massey, AKA: Milk-Eye, a Pirate King
+		limit = {
+			exists = character:Massey_13
+			character:Massey_13 = { is_alive = no }
+		}
+		character:Massey_13 = {
+			make_trait_inactive = halfblind_scar
+		}
+	}
+	if = { # Ector Manning
+		limit = {
+			exists = character:Manning_23
+			character:Manning_23 = { is_alive = no }
+		}
+		character:Manning_23 = {
+			set_real_father = character:Hogg_24 # Ethan Hogg
+		}
+	}
+	if = { # Glendon Waters
+		limit = {
+			exists = character:Staunton_46
+			character:Staunton_46 = { is_alive = no }
+		}
+		character:Staunton_46 = {
+			make_trait_inactive = surname_waters
+		}
+	}
+	if = { # Gueren Waters
+		limit = {
+			exists = character:Bar_Emmon_36
+			character:Bar_Emmon_36 = { is_alive = no }
+		}
+		character:Bar_Emmon_36 = {
+			make_trait_inactive = surname_waters
+		}
+	}
+	if = { # Ondryn Waters
+		limit = {
+			exists = character:Bar_Emmon_37
+			character:Bar_Emmon_37 = { is_alive = no }
+		}
+		character:Bar_Emmon_37 = {
+			make_trait_inactive = surname_waters
+		}
+	}
+	if = { # Jonlon Waters
+		limit = {
+			exists = character:Bar_Emmon_38
+			character:Bar_Emmon_38 = { is_alive = no }
+		}
+		character:Bar_Emmon_38 = {
+			make_trait_inactive = surname_waters
+		}
+	}
+	if = { # Ryssa Waters
+		limit = {
+			exists = character:Bar_Emmon_39
+			character:Bar_Emmon_39 = { is_alive = no }
+		}
+		character:Bar_Emmon_39 = {
+			make_trait_inactive = surname_waters
+		}
+	}
+	if = { # Tarber Waters
+		limit = {
+			exists = character:Follard_15_A
+			character:Follard_15_A = { is_alive = no }
+		}
+		character:Follard_15_A = {
+			make_trait_inactive = surname_waters
+		}
+	}
+
+	### SPECIAL
+	##############################
+	if = { # Miquella Erdtree
+		limit = {
+			exists = character:Erdtree_7
+			character:Erdtree_7 = { is_alive = no }
+		}
+		character:Erdtree_7 = {
+			make_trait_inactive = gold_hair
+			make_trait_inactive = gold_eyes
+			set_real_father = character:Erdtree_3 # Radagon
+		}
+	}
+	if = { # Malenia Erdtree
+		limit = {
+			exists = character:Erdtree_8
+			character:Erdtree_8 = { is_alive = no }
+		}
+		character:Erdtree_8 = {
+			make_trait_inactive = red_hair
+			make_trait_inactive = gold_eyes
+			set_real_father = character:Erdtree_3 # Radagon
+		}
+	}
+	if = { # Rennala Carian
+		limit = {
+			exists = character:Carian_1
+			character:Carian_1 = { is_alive = no }
+		}
+		character:Carian_1 = {
+			make_trait_inactive = black_hair
+		}
+	}
+	if = { # Radahn Carian
+		limit = {
+			exists = character:Carian_2
+			character:Carian_2 = { is_alive = no }
+		}
+		character:Carian_2 = {
+			make_trait_inactive = kissed_by_fire_hair
+			make_trait_inactive = gold_eyes
+		}
+	}
+	if = { # Rykard Carian
+		limit = {
+			exists = character:Carian_3
+			character:Carian_3 = { is_alive = no }
+		}
+		character:Carian_3 = {
+			make_trait_inactive = kissed_by_fire_hair
+			make_trait_inactive = gold_eyes
+		}
+	}
+	if = { # Ranni Carian
+		limit = {
+			exists = character:Carian_4
+			character:Carian_4 = { is_alive = no }
+		}
+		character:Carian_4 = {
+			make_trait_inactive = kissed_by_fire_hair
+			make_trait_inactive = gold_eyes
+		}
+	}
+	if = { # Godwyn Erdtree
+		limit = {
+			exists = character:Erdtree_1
+			character:Erdtree_1 = { is_alive = no }
+		}
+		character:Erdtree_1 = {
+			make_trait_inactive = red_hair
+		}
+	}
+	if = { # Marika Erdtree
+		limit = {
+			exists = character:Erdtree_2
+			character:Erdtree_2 = { is_alive = no }
+		}
+		character:Erdtree_2 = {
+			make_trait_inactive = gold_hair
+		}
+	}
+	if = { # Radagon Erdtree
+		limit = {
+			exists = character:Erdtree_3
+			character:Erdtree_3 = { is_alive = no }
+		}
+		character:Erdtree_3 = {
+			make_trait_inactive = kissed_by_fire_hair
+			make_trait_inactive = gold_eyes
+		}
+	}
+	if = { # Godwyn Erdtree
+		limit = {
+			exists = character:Erdtree_4
+			character:Erdtree_4 = { is_alive = no }
+		}
+		character:Erdtree_4 = {
+			make_trait_inactive = gold_hair
+		}
+	}
+
+	### BEYOND THE WALL
+	##############################
+	if = { # Sylvi
+		limit = {
+			exists = character:Castle_Black_35
+			character:Castle_Black_35 = { is_alive = no }
+		}
+		character:Castle_Black_35 = {
+			make_trait_inactive = neutral_silver_hair
+		}
+	}
+
+	### ESSOS
+	##############################
+	if = { # The Tattered Prince
+		limit = {
+			exists = character:Togaraz_96
+			character:Togaraz_96 = { is_alive = no }
+		}
+		character:Togaraz_96 = {
+			make_trait_inactive = left_second_sons
+		}
+	}
+
+	### DRAGONS
+	##############################
+	if = { # Progenitor of Targaryen Dragons
+		limit = {
+			exists = character:dragon_ancestor_5
+			character:dragon_ancestor_5 = { is_alive = no }
+		}
+		character:dragon_ancestor_5 = {
+			make_unprunable = yes
+		}
+	}
+	if = { # Progenitor of Varezys Dragons
+		limit = {
+			exists = character:dragon_ancestor_2
+			character:dragon_ancestor_2 = { is_alive = no }
+		}
+		character:dragon_ancestor_2 = {
+			make_unprunable = yes
+		}
+	}
+	if = { # Progenitor of Urnebar Dragons
+		limit = {
+			exists = character:dragon_ancestor_3
+			character:dragon_ancestor_3 = { is_alive = no }
+		}
+		character:dragon_ancestor_3 = {
+			make_unprunable = yes
+		}
+	}
+	if = { # Progenitor of Sonaryen Dragons
+		limit = {
+			exists = character:dragon_ancestor_4
+			character:dragon_ancestor_4 = { is_alive = no }
+		}
+		character:dragon_ancestor_4 = {
+			make_unprunable = yes
+		}
+	}
+	if = { # Pythax
+		limit = {
+			exists = character:dragon_pythax
+			character:dragon_pythax = { is_alive = no }
+		}
+		character:dragon_pythax = {
+			make_unprunable = yes
+		}
+	}
+	if = { # Terrax
+		limit = {
+			exists = character:dragon_terrax
+			character:dragon_terrax = { is_alive = no }
+		}
+		character:dragon_terrax = {
+			make_unprunable = yes
+		}
+	}
+	if = { # Nagga
+		limit = {
+			exists = character:dragon_nagga
+			character:dragon_nagga = { is_alive = no }
+		}
+		character:dragon_nagga = {
+			make_unprunable = yes
+		}
+	}
+	if = { # Urrax
+		limit = {
+			exists = character:dragon_urrax
+			character:dragon_urrax = { is_alive = no }
+		}
+		character:dragon_urrax = {
+			make_unprunable = yes
+		}
+	}
+	if = { # Progenitor of Belaerys Dragons
+		limit = {
+			exists = character:dragon_terrax
+			character:dragon_terrax = { is_alive = no }
+		}
+		character:dragon_terrax = {
+			make_unprunable = yes
+		}
+	}
+	if = { # Orion
+		limit = {
+			exists = character:dragon_maegor_3
+			character:dragon_maegor_3 = { is_alive = no }
+		}
+		character:dragon_maegor_3 = {
+			clear_traits = yes
+			add_trait = dragon
+		}
+	}
+	if = { # Winged Stranger
+		limit = {
+			exists = character:dragon_aemond_1
+			character:dragon_aemond_1 = { is_alive = no }
+		}
+		character:dragon_aemond_1 = {
+			clear_traits = yes
+			add_trait = dragon
+		}
+	}
+	if = { # Moondancer
+		limit = {
+			exists = character:dragon_moondancer
+			character:dragon_moondancer = { is_alive = no }
+		}
+		character:dragon_moondancer = {
+			clear_traits = yes
+			add_trait = dragon
+			add_trait = dragon_physique_good_1
+			add_trait = dragon_swift
+			add_trait = dragon_restrained
+			add_trait = dragon_solitary
+			add_trait = dragon_friendly
+		}
+	}
+	if = { # Starhunter
+		limit = {
+			exists = character:dragon_rhaena_1
+			character:dragon_rhaena_1 = { is_alive = no }
+		}
+		character:dragon_rhaena_1 = {
+			clear_traits = yes
+			add_trait = dragon
+			add_trait = dragon_physique_bad_3
+		}
+	}
+	if = { # Shrykos
+		limit = {
+			exists = character:dragon_shrykos
+			character:dragon_shrykos = { is_alive = no }
+		}
+		character:dragon_shrykos = {
+			clear_traits = yes
+			add_trait = dragon
+		}
+	}
+	if = { # Morghul
+		limit = {
+			exists = character:dragon_morghul
+			character:dragon_morghul = { is_alive = no }
+		}
+		character:dragon_morghul = {
+			clear_traits = yes
+			add_trait = dragon
+		}
+	}
+	if = { # Vermax
+		limit = {
+			exists = character:dragon_vermax
+			character:dragon_vermax = { is_alive = no }
+		}
+		character:dragon_vermax = {
+			clear_traits = yes
+			add_trait = dragon
+			add_trait = dragon_physique_good_2
+			add_trait = dragon_solitary
+			add_trait = dragon_aggressive
+			add_trait = dragon_impulsive
+		}
+	}
+	if = { # Arrax
+		limit = {
+			exists = character:dragon_arrax
+			character:dragon_arrax = { is_alive = no }
+		}
+		character:dragon_arrax = {
+			clear_traits = yes
+			add_trait = dragon
+			add_trait = dragon_swift
+			add_trait = dragon_defiant
+			add_trait = dragon_aggressive
+			add_trait = dragon_solitary
+		}
+	}
+	if = { # Tyraxes
+		limit = {
+			exists = character:dragon_tyraxes
+			character:dragon_tyraxes = { is_alive = no }
+		}
+		character:dragon_tyraxes = {
+			clear_traits = yes
+			add_trait = dragon
+			add_trait = dragon_physique_good_2
+			add_trait = dragon_bloodthirsty
+			add_trait = dragon_impulsive
+		}
+	}
+	if = { # Stormcloud
+		limit = {
+			exists = character:dragon_stormcloud
+			character:dragon_stormcloud = { is_alive = no }
+		}
+		character:dragon_stormcloud = {
+			clear_traits = yes
+			add_trait = dragon
+			add_trait = dragon_friendly
+			add_trait = dragon_impulsive
+		}
+	}
+	if = { # The Last Dragon
+		limit = {
+			exists = character:dragon_the_last
+			character:dragon_the_last = { is_alive = no }
+		}
+		character:dragon_the_last = {
+			clear_traits = yes
+			add_trait = dragon
+			add_trait = dragon_physique_bad_3
+			add_trait = dragon_spindly
+			add_trait = dragon_ugly
+		}
+	}
+}
+
+agot_adjust_adult_traits_posthistory_effect = {
+	if = {
+		limit = { age < 12 }
+		remove_trait = lustful
+		remove_trait = chaste
+		remove_trait = authoritative
+	}
+	if = {
+		limit = { age < 6 }
+		remove_trait = greedy
+		remove_trait = generous
+		remove_trait = wrathful
+		remove_trait = calm
+		remove_trait = patient
+		remove_trait = impatient
+		remove_trait = arrogant
+		remove_trait = humble
+		remove_trait = deceitful
+		remove_trait = honest
+		remove_trait = craven
+		remove_trait = brave
+		remove_trait = shy
+		remove_trait = gregarious
+		remove_trait = ambitious
+		remove_trait = content
+		remove_trait = arbitrary
+		remove_trait = just
+		remove_trait = cynical
+		remove_trait = zealous
+		remove_trait = compassionate
+		remove_trait = callous
+		remove_trait = sadistic
+		remove_trait = vengeful
+		remove_trait = forgiving
+
+		# Requires some work
+		remove_trait = strong
+		remove_trait = shrewd
+	}
+	if = {
+		limit = { age < 3 }
+		remove_trait = lazy
+		remove_trait = diligent
+		remove_trait = gluttonous
+		remove_trait = temperate
+		remove_trait = paranoid
+		remove_trait = trusting
+		remove_trait = stubborn
+		remove_trait = fickle
+		remove_trait = eccentric
+		remove_trait = inquisitive
+		remove_trait = rude
+	}
+}
