@@ -4140,12 +4140,15 @@ Frey_133 = {
 	}
 	8245.1.1 = { death = yes }
 }
-Frey_rs_133 = {
+Frey_rs_133 = { # edited 7/26 slambroski
 	name = Roslin
+	dynasty = dynn_Erenford
 	female = yes
 
 	religion = the_seven_main
 	culture = riverlander
+
+	father = Erenford_18
 
 	8176.1.1 = { birth = yes }
 	8235.1.1 = { death = yes }
@@ -9869,7 +9872,7 @@ Mallister_47 = {
 	8190.1.1 = { trait = knight }
 	8205.1.1 = { death = yes }
 }
-Mallister_48 = {
+Mallister_48 = { # edited 7/26 slambroski
 	name = Lewys # Semi-Canon
 	dynasty = dynn_Mallister
 
@@ -9883,7 +9886,10 @@ Mallister_48 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
 	}
-	8190.1.1 = { trait = knight }
+	8190.1.1 = { 
+		trait = knight 
+		add_spouse = Terrick_56
+	}
 	8212.1.1 = { death = yes }
 }
 ### Issue of Owain
@@ -9930,6 +9936,7 @@ Mallister_79 = { # created 7/08 slambroski
 	culture = riverlander
 
 	father = Mallister_48
+	mother = Terrick_56
 
 	8193.1.1 = { birth = yes }
 	8247.1.1 = { death = yes }
@@ -53465,7 +53472,7 @@ Ryger_40 = {
 	}
 	8150.6.1 = { death = { death_reason = death_sickly } }
 }
-Ryger_41 = {
+Ryger_41 = { # edited 7/26 slambroski
 	name = Garyn # Semi-Canon
 	dynasty = dynn_Ryger
 
@@ -53480,6 +53487,7 @@ Ryger_41 = {
 		add_character_flag = canon_status_semicanon
 	}
 	8166.1.1 = { trait = knight }
+	8178.1.1 = { add_spouse = Forthe_30 }
 	8212.1.1 = { death = yes }
 }
 ### Issue of Garyn
@@ -53492,6 +53500,7 @@ Ryger_57 = { # created 7/08 slambroski
 	culture = riverlander
 
 	father = Ryger_41
+	mother = Forthe_30
 
 	8181.1.1 = { birth = yes }
 	8244.1.1 = { death = yes }
