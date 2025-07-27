@@ -16728,8 +16728,8 @@ Targaryen_hh_10 = {
 
 ### Mistress and Bastards of Aegon IV Crownlanders
 ############################
-LAM_Crownlander_1 = {
-	name = Marei
+LAM_Crownlander_1 = { # mace prostitute self insert
+	name = Maisie
 	female = yes 
 
 	religion = the_seven_main
@@ -16746,8 +16746,8 @@ LAM_Crownlander_1 = {
 	}
 	8210.1.1 = { death = yes }
 }
-LAB_Crownlander_1 = {
-	name = Joffrey
+LAB_Crownlander_1_A = {
+	name = Bartimos
 
 	religion = the_seven_main
 	culture = crownlander
@@ -16767,6 +16767,29 @@ LAB_Crownlander_1 = {
 		}
 	}
 	8224.1.1 = { death = yes }
+}
+LAB_Crownlander_1_B = {
+	name = Shaena
+	female = yes
+
+	religion = the_seven_main
+	culture = crownlander
+
+	trait = beauty_good_2
+	trait = bastard
+
+	mother = LAM_Crownlander_1
+
+	8178.1.1 = { 
+		birth = yes
+		effect = {
+			set_real_father = character:Targaryen_88 # Aegon IV Targaryen
+		}
+		effect = {
+			agot_safe_set_location_history_effect = { CASTLE = title:b_hookmarket }
+		}
+	}
+	8213.1.1 = { death = yes }
 }
 LAM_Crownlander_2 = { # cafe prostitute self-insert
 	name = Alys
