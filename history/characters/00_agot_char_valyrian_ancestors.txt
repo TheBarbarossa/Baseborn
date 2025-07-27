@@ -16937,6 +16937,49 @@ LAB_Crownlander_4 = {
 	8190.1.1 = { trait = septon }
 	8245.1.1 = { death = yes }
 }
+LAM_Crownlander_5 = { # rosey prostitute self insert
+	name = Rosey
+	female = yes
+
+	religion = the_seven_main
+	culture = westerosi_valyrian
+
+	trait = beauty_good_1
+	trait = intellect_good_1
+
+	8152.1.1 = { 
+		birth = yes 
+		effect = {
+			agot_safe_set_location_history_effect = { CASTLE = title:b_spicetown }
+		}
+	}
+	8171.1.1 = { trait = fornicator }
+	8186.1.1 = { death = yes }
+}
+LAB_Crownlander_5 = {
+	name = Viserra
+	female = yes
+
+	religion = the_seven_main
+	culture = westerosi_valyrian
+
+	trait = beauty_good_1
+	trait = bastard
+
+	mother = LAM_Crownlander_5
+
+	8171.1.1 = {
+		birth = yes
+		effect = {
+			set_real_father = character:Targaryen_88 # Aegon IV Targaryen
+		}
+		effect = {
+			agot_safe_set_location_history_effect = { CASTLE = title:b_spicetown }
+		}
+	}
+	8233.1.1 = { death = yes }
+}
+
 
 
 
