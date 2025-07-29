@@ -1,0 +1,40 @@
+pdxmesh = {
+	name = "lys_mesh"
+	file = "lys.mesh"
+
+	meshsettings = {
+		name = "lys_housesShape"
+		index = 0
+		texture_diffuse = "lys_houses_diffuse.dds"
+		texture_normal = "lys_houses_normal.dds"
+		texture_specular = "lys_houses_properties.dds"
+		shader = "standard_winter"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+	
+	meshsettings = {
+		name = "lys_otherShape"
+		index = 0
+		texture_diffuse = "lys_other_diffuse.dds"
+		texture_normal = "lys_other_normal.dds"
+		texture_specular = "lys_other_properties.dds"
+		shader = "standard_winter"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+	
+	meshsettings = {
+		name = "lys_wallsShape"
+		index = 0
+		texture_diffuse = "lys_walls_diffuse.dds"
+		texture_normal = "lys_walls_normal.dds"
+		texture_specular = "lys_walls_properties.dds"
+		shader = "standard_winter"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+	
+}
+
+entity = {
+	name = "lys_entity"
+	pdxmesh = "lys_mesh"
+}
