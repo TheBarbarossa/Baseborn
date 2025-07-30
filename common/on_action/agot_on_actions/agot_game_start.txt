@@ -2511,3 +2511,37 @@ agot_artifacts_sell = {
 		agot_get_artifact_keeper = yes
 	}
 }
+
+Baseborn_hill_clans = {
+	effect = {
+		every_county_in_region = {
+			region = world_westeros_the_north
+			add_county_modifier = agot_holding_build_speed_north
+		}
+		every_county_in_region = {
+			region = world_westeros_beyond_the_wall
+			add_county_modifier = agot_holding_build_speed_btw
+		}
+		every_county_in_region = {
+			region = world_westeros_the_wall
+			add_county_modifier = agot_holding_build_speed_north
+		}
+	}
+}
+
+
+
+baseborn_hill_clans = {
+	effect = {
+		#Slap on those silly hill clans - Barb
+		title:b_moons_approach.title_province = {
+			add_province_modifier = baseborn_hill_clans_modifier
+		}
+				title:b_rivers_high_road.title_province = {
+			add_province_modifier = baseborn_hill_clans_modifier
+		}
+				title:b_bloody_high_road.title_province = {
+			add_province_modifier = baseborn_hill_clans_modifier
+		}
+	}
+}
