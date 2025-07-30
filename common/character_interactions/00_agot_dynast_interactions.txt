@@ -495,11 +495,21 @@
 
 	ai_potential = {
 		is_at_war = no
-		is_dynast = yes
 
-		dynasty = {
-			has_dynasty_perk = north_legacy_2
-		}
+			culture = { # Edited - Sleepingcafe 14/06/25
+				OR = {
+					this = culture:northman 
+					this = culture:barrowman
+					this = culture:crannogman
+					any_parent_culture_or_above = {
+						OR = {
+							this = culture:northman
+							this = culture:barrowman
+							this = culture:crannogman
+						}
+					}
+				}
+			}
 
 		exists = title:k_the_wall.holder
 		NOR = {
