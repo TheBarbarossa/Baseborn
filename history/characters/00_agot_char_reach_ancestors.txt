@@ -50035,7 +50035,11 @@ Rowan_57 = {
 	father = Rowan_49
 	mother = Penrose_32
 
-	8203.1.1 = { birth = yes }
+	8203.1.1 = { 
+		birth = yes
+		employer = Penrose_29
+	}
+	8208.1.1 = { employer = Penrose_31 }
 	8266.1.1 = { death = yes }
 }
 ### Issue of Ronald
@@ -74474,7 +74478,7 @@ Westbrook_58 = {
 		death = { death_reason = death_treatment }
 	}
 }
-Westbrook_59 = {
+Westbrook_59 = { # edited 7/31 slambroski
 	name = Dalla
 	dynasty = dynn_Westbrook
 	female = yes
@@ -74486,6 +74490,10 @@ Westbrook_59 = {
 	mother = Westbrook_53
 
 	8175.1.1 = { birth = yes }
+		8196.6.1 = {
+		effect = { agot_join_golden_company_history_effect = yes }
+	}
+	8208.1.1 = { agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_blackfyre } }	
 	8235.1.1 = {
 		trait = consumption
 		death = { death_reason = death_consumption }
@@ -78378,6 +78386,7 @@ Crane_rs_36 = {
 	mother = Meadows_28
 
 	8164.1.1 = { birth = yes }
+	8192.1.1 = { employer = Crane_32 }
 	8235.1.1 = { death = yes }
 }
 ### Issue of Vortimer
@@ -98051,20 +98060,26 @@ Ball_76 = {
 
 	8174.1.1 = { birth = yes }
 	8190.1.1 = { trait = knight }
+	8196.6.1 = { employer = Ball_82 }
 	8199.1.1 = { add_spouse = Ball_rs_76 }
 	8232.1.1 = {
 		trait = cancer
 		death = { death_reason = death_cancer }
 	}
 }
-Ball_rs_76 = {
+Ball_rs_76 = { # edited 7/31 slambroski
 	name = Rosamund
+	dynasty = dynn_Lansdale
 	female = yes
 
 	religion = the_seven_main
-	culture = reachman
+	culture = westerman # reachman
+
+	father = Lansdale_82
+	mother = Lansdale_rs_82
 
 	8179.1.1 = { birth = yes }
+	8199.1.1 = { employer = Ball_82 }
 	8248.1.1 = { death = yes }
 }
 Ball_31 = {
@@ -98078,7 +98093,10 @@ Ball_31 = {
 	mother = Ball_rs_72
 
 	8175.1.1 = { birth = yes }
-	8194.1.1 = { trait = knight }
+	8194.1.1 = { 
+		trait = knight
+		add_spouse = Westbrook_59
+	}
 	8196.6.1 = {
 		effect = { agot_join_golden_company_history_effect = yes }
 	}
@@ -98102,19 +98120,25 @@ Ball_77 = {
 
 	8177.1.1 = { birth = yes }
 	8193.1.1 = { trait = knight }
+	8196.6.1 = { employer = Ball_82 }
 	8198.1.1 = { add_spouse = Ball_rs_77 }
 	8239.1.1 = {
 		death = { death_reason = death_murder }
 	}
 }
-Ball_rs_77 = {
+Ball_rs_77 = { # edited 7/31 slambroski
 	name = Lysa
+	dynasty = dynn_Pommingham
 	female = yes
 
 	religion = the_seven_main
 	culture = reachman
 
-	8179.1.1 = { birth = yes }
+	father = Pommingham_41
+	mother = Pommingham_rs_41
+
+	8180.1.1 = { birth = yes }
+	8198.1.1 = { employer = Ball_82 }
 	8214.1.1 = { death = yes }
 }
 Ball_78 = {
@@ -98128,6 +98152,7 @@ Ball_78 = {
 	mother = Ball_rs_72
 
 	8180.1.1 = { birth = yes }
+	8196.6.1 = { employer = Ball_82 }
 	8199.1.1 = {
 		add_spouse = Ball_rs_78
 		trait = knight
@@ -98137,14 +98162,19 @@ Ball_78 = {
 		death = { death_reason = death_ill }
 	}
 }
-Ball_rs_78 = {
+Ball_rs_78 = { # edited 7/31 slambroski
 	name = Tanera
+	dynasty = dynn_Lychester
 	female = yes
 
 	religion = the_seven_main
-	culture = reachman
+	culture = riverlander # reachman
+
+	father = Lychester_49
+	mother = Lychester_rs_49
 
 	8181.1.1 = { birth = yes }
+	8199.1.1 = { employer = Ball_82 }
 	8232.1.1 = { death = yes }
 }
 ### Issue of Jonah
@@ -98158,7 +98188,10 @@ Ball_86 = {
 	father = Ball_77
 	mother = Ball_rs_77
 
-	8201.1.1 = { birth = yes }
+	8201.1.1 = { 
+		birth = yes 
+		employer = Ball_82
+	}
 	8217.1.1 = { trait = knight }
 	8226.1.1 = { add_spouse = Ball_rs_86 }
 	8240.1.1 = { death = yes }
@@ -98185,7 +98218,10 @@ Ball_80 = {
 	father = Ball_76
 	mother = Ball_rs_76
 
-	8202.1.1 = { birth = yes }
+	8202.1.1 = { 
+		birth = yes
+		employer = Ball_82
+	}
 	8257.1.1 = {
 		trait = ill
 		death = { death_reason = death_ill }
@@ -98203,7 +98239,10 @@ Ball_79 = {
 	father = Ball_78
 	mother = Ball_rs_78
 
-	8200.1.1 = { birth = yes }
+	8200.1.1 = { 
+		birth = yes
+		employer = Ball_82
+	}
 	8269.1.1 = {
 		death = { death_reason = death_natural_causes }
 	}
@@ -98349,6 +98388,7 @@ Ball_32 = {
 	culture = reachman
 
 	father = Ball_31
+	mother = Westbrook_59 
 
 	8194.1.1 = { birth = yes }
 	8196.6.1 = {
@@ -98371,6 +98411,7 @@ Ball_33 = {
 	culture = reachman
 
 	father = Ball_31
+	mother = Westbrook_59
 
 	8200.1.1 = {
 		birth = yes
