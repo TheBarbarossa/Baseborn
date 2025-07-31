@@ -10006,6 +10006,7 @@ Royce_103 = {
 	8205.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
+		employer = Royce_83
 	}
 	8221.1.1 = { trait = knight }
 	8223.1.1 = {
@@ -10031,7 +10032,10 @@ Royce_79 = {
 	father = Royce_101
 	mother = Crayne_24
 
-	8206.1.1 = { birth = yes }
+	8206.1.1 = { 
+		birth = yes 
+		employer = Royce_83
+	}
 	8257.1.1 = { death = yes }
 }
 Royce_80 = {
@@ -10049,6 +10053,7 @@ Royce_80 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
 		add_character_flag = canon_status_canon
+		employer = Royce_83
 	}
 	8245.1.1 = { death = yes }
 }
@@ -12322,6 +12327,7 @@ Redfort_31 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
 	}
+	8172.1.1 = { add_matrilineal_spouse = Warl_56_B }
 	8196.1.1 = { death = yes }
 }
 ### Issue of Maery
@@ -12333,6 +12339,7 @@ Redfort_47 = { # created 7/08 slambroski
 	religion = the_seven_main
 	culture = moonman
 
+	father = Warl_56_B
 	mother = Redfort_31
 
 	8173.1.1 = { birth = yes }
@@ -12346,6 +12353,7 @@ Redfort_48 = { # created 7/08 slambroski
 	religion = the_seven_main
 	culture = moonman
 
+	father = Warl_56_B
 	mother = Redfort_31
 
 	8179.1.1 = { birth = yes }
@@ -19033,6 +19041,7 @@ Moore_35 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
 	}
+	8181.1.1 = { employer = Royce_83 }
 	8215.1.1 = { death = yes }
 }
 Moore_56 = {
@@ -38842,6 +38851,7 @@ Donniger_rs_101 = { # edited 7/22 slambroski
 	mother = Warrick_23
 
 	8184.1.1 = { birth = yes }
+	8204.1.1 = { employer = Donniger_98 }
 	8248.1.1 = { death = yes }
 }
 Donniger_102 = {
@@ -43801,12 +43811,16 @@ LynderlySC_1 = {
 	8193.10.25 = { add_spouse = LynderlySC_rs_1 }
 	8234.4.9 = { death = yes }
 }
-LynderlySC_rs_1 = {
-	name = Alyssa
+LynderlySC_rs_1 = { # edited 7/31 slambroski 
+	name = Maris # Alyssa
+	dynasty = dynn_Bleaker
 	female = yes
 
 	religion = the_seven_main
 	culture = fingerman
+
+	father = Bleaker_rs_45
+	mother = Bleaker_45 
 
 	8175.8.25 = { birth = yes }
 	8248.9.16 = { death = yes }
@@ -45305,6 +45319,8 @@ Hersy_rs_62 = { # Edited
 
 	8167.1.1 = { birth = yes }
 	8185.1.1 = { trait = knight }
+	8191.1.1 = { employer = Hersy_60 }
+	8198.1.1 = { employer = Hersy_59 }
 	8215.1.1 = { death = yes }
 }
 ### Issue of Norella
@@ -47201,12 +47217,16 @@ Elesham_84 = {
 		death = { death_reason = death_fire }
 	}
 }
-Elesham_rs_84 = {
+Elesham_rs_84 = { # edited 7/31 slambroski
 	name = Anya
+	dynasty = dynn_Wiltwood
 	female = yes
 
 	religion = the_seven_main
 	culture = fingerman
+
+	father = Wiltwood_42
+	mother = Wiltwood_rs_42
 
 	8176.1.1 = { birth = yes }
 	8198.1.1 = { death = yes }
@@ -59140,6 +59160,7 @@ Sunderland_47 = {
 	mother = Torrent_30
 
 	8191.1.1 = { birth = yes }
+	8204.1.1 = { employer = Borrell_25 }
 	8232.1.1 = { death = yes }
 }
 ### Issue of Osmund
