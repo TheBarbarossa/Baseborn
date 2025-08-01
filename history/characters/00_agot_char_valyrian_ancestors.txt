@@ -9927,7 +9927,10 @@ Velaryon_64 = {
 	father = Velaryon_55
 	mother = Scales_59
 
-	8200.1.1 = { birth = yes }
+	8200.1.1 = { 
+		birth = yes
+		employer = Velaryon_54
+	}
 	8220.1.1 = { trait = knight }
 	8233.6.1 = {
 		trait = nightswatch_historical
@@ -11077,7 +11080,7 @@ Celtigar_44 = {
 	}
 	8190.1.1 = { death = yes }
 }
-Celtigar_45 = {
+Celtigar_45 = { # edited 7/31 slambroski
 	name = Annos # Semi-Canon, a lord
 	dynasty = dynn_Celtigar
 
@@ -11091,6 +11094,7 @@ Celtigar_45 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
 	}
+	8172.1.1 = { add_spouse = Quince_42 }
 	8188.1.1 = { death = yes }
 }
 Celtigar_46 = {
@@ -11133,7 +11137,7 @@ Celtigar_47 = {
 	8221.1.1 = { death = yes }
 }
 ### Issue of Annos
-Celtigar_48 = {
+Celtigar_48 = { # edited 7/31 slambroski
 	name = Bartimos # a lord
 	dynasty = dynn_Celtigar
 	dna = Celtigar_48
@@ -11142,17 +11146,22 @@ Celtigar_48 = {
 	culture = westerosi_valyrian
 
 	father = Celtigar_45
+	mother = Quince_42
 
 	8173.1.1 = { birth = yes }
 	8190.1.1 = { add_spouse = Celtigar_rs_48 }
 	8248.1.1 = { death = yes }
 }
-Celtigar_rs_48 = {
+Celtigar_rs_48 = { # edited 7/31 slambroski
 	name = Elysa
+	dynasty = dynn_Langward
 	female = yes
 
 	religion = the_seven_main
-	culture = westerosi_valyrian
+	culture = riverlander
+
+	father = Langward_rs_42
+	mother = Langward_42 
 
 	8178.1.1 = { birth = yes }
 	8226.1.1 = { death = yes }
@@ -11167,6 +11176,7 @@ Celtigar_49 = {
 	culture = westerosi_valyrian
 
 	father = Celtigar_48
+	mother = Celtigar_rs_48
 
 	8193.1.1 = { birth = yes }
 	8220.1.1 = { add_spouse = Celtigar_p_1 }
@@ -11193,6 +11203,7 @@ Celtigar_56 = {
 	culture = westerosi_valyrian
 
 	father = Celtigar_48
+	mother = Celtigar_rs_48
 
 	8199.1.1 = { birth = yes }
 	8244.1.1 = { death = yes }
@@ -12710,7 +12721,7 @@ Scales_rs_63 = {
 	8206.1.1 = { death = yes }
 }
 ### Issue of Aurion
-Scales_59 = {
+Scales_59 = { # edited 7/31 slambroski
 	name = Laena
 	dynasty = dynn_Scales
 	female = yes
@@ -12722,6 +12733,7 @@ Scales_59 = {
 	mother = Scales_rs_58
 
 	8180.1.1 = { birth = yes }
+	8199.1.1 = { employer = Velaryon_54 }
 	8219.1.1 = {
 		trait = cancer
 		death = { death_reason = death_cancer }
