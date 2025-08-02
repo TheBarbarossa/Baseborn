@@ -16566,6 +16566,7 @@ Herston_61 = { # created 7/09 slambroski
 	mother = Herston_rs_50
 
 	8182.1.1 = { birth = yes }
+	8209.1.1 = { add_matrilineal_spouse = Hildreath_109 }
 	8233.1.1 = { death = yes }
 }
 ### Issue of Ethelide
@@ -18051,6 +18052,7 @@ Kellington_19 = {
 
 	8177.1.1 = { birth = yes }
 	8193.1.1 = { trait = knight }
+	8202.1.1 = { add_spouse = Tudbury_45 }
 	8241.1.1 = { death = yes }
 }
 Kellington_87 = { # created 7/09 slambroski
@@ -18068,6 +18070,19 @@ Kellington_87 = { # created 7/09 slambroski
 	8207.1.1 = { employer = Mertyns_38 }
 	8225.1.1 = { death = yes }
 }
+Kellington_88 = {
+	name = Cleoden
+	dynasty = dynn_Kellington
+
+	religion = the_seven_main
+	culture = stormlander
+
+	father = Kellington_17
+
+	8183.1.1 = { birth = yes }
+	8203.1.1 = { trait = knight }
+	8217.1.1 = { death = yes }
+}
 ### Issue of Cressen
 Kellington_20 = {
 	name = Quellon # a lord
@@ -18077,6 +18092,7 @@ Kellington_20 = {
 	culture = stormlander
 
 	father = Kellington_19
+	mother = Tudbury_45
 
 	8203.1.1 = { birth = yes }
 	8219.1.1 = { trait = knight }
@@ -25007,6 +25023,20 @@ Rogers_34 = {
 		trait = spring_sickness
 		death = { death_reason = death_spring_sickness } # Great Spring Sickness
 	}
+}
+### Issue of Benedict
+Rogers_67 = { # created 8/02 slambroski
+	name = Gilroy
+	dynasty = dynn_Rogers
+
+	religion = the_seven_main
+	culture = stormlander
+
+	father = Rogers_29
+
+	8177.1.1 = { birth = yes }
+	8193.1.1 = { trait = knight }
+	8220.1.1 = { death = yes }
 }
 ### Issue of Corwin
 Rogers_35 = {
@@ -33208,6 +33238,35 @@ Bolling_26 = {
 	}
 	8197.1.1 = { death = yes }
 }
+### Issue of Eben
+Bolling_40 = { # created 8/02 slambroski
+	name = Aegon
+	dynasty_house = house_Bolling
+
+	religion = the_seven_main
+	culture = stormlander
+
+	father = Bolling_24
+	mother = Baratheon_47
+
+	8168.1.1 = { birth = yes }
+	8184.1.1 = { trait = knight }
+	8197.1.1 = { death = yes }
+}
+### Issue of Aegon
+Bolling_41 = { # created 8/02 slambroski
+	name = Harrold
+	dynasty_house = house_Bolling
+
+	religion = the_seven_main
+	culture = stormlander
+
+	father = Bolling_40 
+
+	8187.1.1 = { birth = yes }
+	8205.1.1 = { trait = knight }
+	8238.1.1 = { death = yes }
+}
 ### Main Line
 Bolling_28 = {
 	name = Robert # a lord
@@ -34474,6 +34533,20 @@ Wensington_64 = { # created 7/09 slambroski
 
 	8178.1.1 = { birth = yes }
 	8230.1.1 = { death = yes }
+}
+Wensington_65 = { # created 8/02 slambroski
+	name = Ogden
+	dynasty_house = house_Wensington
+
+	religion = the_seven_main
+	culture = stormlander
+
+	father = Wensington_52
+	mother = Wensington_rs_52
+
+	8180.1.1 = { birth = yes }
+	8196.1.1 = { trait = knight }
+	8235.1.1 = { death = yes }
 }
 ### Issue of Galladon
 Wensington_59 = {
@@ -37871,7 +37944,7 @@ Brownhill_32 = {
 	}
 	8191.1.1 = { death = yes }
 }
-### Main Line
+### Issue of Rickard
 Brownhill_33 = {
 	name = Rogar # a lord
 	dynasty = dynn_Brownhill
@@ -37885,7 +37958,8 @@ Brownhill_33 = {
 	8149.1.1 = { trait = knight }
 	8190.1.1 = { death = yes }
 }
-Brownhill_34 = {
+### Issue of Rogar
+Brownhill_34 = { # edited 8/02 slambroski
 	name = Rickard # a lord
 	dynasty = dynn_Brownhill
 
@@ -37896,7 +37970,34 @@ Brownhill_34 = {
 
 	8168.1.1 = { birth = yes }
 	8184.1.1 = { trait = knight }
+	8200.1.1 = { add_spouse = Densmore_63 }
 	8255.1.1 = { death = yes }
+}
+Brownhill_34_B = { # created 8/02 slambroski
+	name = Sebastion
+	dynasty = dynn_Brownhill
+
+	religion = the_seven_main
+	culture = stormlander
+
+	father = Brownhill_33
+
+	8171.1.1 = { birth = yes }
+	8187.1.1 = { trait = knight }
+	8225.1.1 = { death = yes }
+}
+Brownhill_34_C = { # created 8/02 slambroski
+	name = Durran
+	dynasty = dynn_Brownhill
+
+	religion = the_seven_main
+	culture = stormlander
+
+	father = Brownhill_33
+
+	8176.1.1 = { birth = yes }
+	8194.1.1 = { trait = knight }
+	8231.1.1 = { death = yes }
 }
 
 ###### HOUSE STRAW (id = dynn_Straw)
@@ -39792,7 +39893,7 @@ Wormwood_28 = {
 	8175.1.1 = { trait = knight }
 	8196.1.1 = { death = { death_reason = death_battle } }
 }
-Wormwood_31 = {
+Wormwood_31 = { # edited 8/02 slambroski
 	name = Willem # a lord
 	dynasty = dynn_Wormwood
 
@@ -39807,6 +39908,7 @@ Wormwood_31 = {
 
 	8163.1.1 = { birth = yes }
 	8179.1.1 = { trait = knight }
+	8195.1.1 = { add_spouse = Straw_59 }
 	8196.1.1 = {
 		trait = one_eyed
 		trait = scarred
@@ -39852,6 +39954,7 @@ Wormwood_51 = { # created 7/09 slambroski
 	culture = stormlander
 
 	father = Wormwood_31
+	mother = Straw_59
 
 	8196.1.1 = { birth = yes }
 	8240.1.1 = { death = yes }
@@ -39864,6 +39967,7 @@ Wormwood_32 = {
 	culture = stormlander
 
 	father = Wormwood_31
+	mother = Straw_59
 
 	8199.1.1 = { birth = yes }
 	8215.1.1 = { trait = knight }
@@ -54523,6 +54627,33 @@ Wagstaff_rs_60 = {
 	8184.1.1 = { birth = yes }
 	8237.1.1 = { death = yes }
 }
+Wagstaff_60_B = { # created 8/02 slambroski
+	name = Dalia
+	dynasty = dynn_Wagstaff
+	female = yes
+
+	religion = the_seven_main
+	culture = marcher
+
+	father = Wagstaff_59
+	mother = Wagstaff_rs_59
+
+	8188.1.1 = { birth = yes }
+	8257.1.1 = { death = yes }
+}
+Wagstaff_60_C = { # created 8/02 slambroski
+	name = Beric
+	dynasty = dynn_Wagstaff
+
+	religion = the_seven_main
+	culture = marcher
+
+	father = Wagstaff_59
+	mother = Wagstaff_rs_59
+
+	8195.1.1 = { birth = yes }
+	8210.1.1 = { death = yes }
+}
 ### Issue of Manfred
 Wagstaff_61 = {
 	name = Halyard # a lord
@@ -65997,6 +66128,20 @@ Rooke_rs_81 = {
 	8173.1.1 = { birth = yes }
 	8235.1.1 = { death = yes }
 }
+Rooke_81_B = { # created 8/02 slambroski
+	name = Lester
+	dynasty = dynn_Rooke
+
+	religion = the_seven_main
+	culture = stormlander
+
+	father = Rooke_80
+	mother = Rooke_rs_80
+
+	8166.1.1 = { birth = yes }
+	8183.1.1 = { trait = knight }
+	8212.1.1 = { death = yes }
+}
 
 ###### HOUSE DENNECENT (id = dynn_Dennecent)
 ############################
@@ -74825,6 +74970,20 @@ Ripping_rs_67 = {
 	8174.1.1 = { birth = yes }
 	8224.1.1 = { death = yes }
 }
+Ripping_67_B = { # created 8/02 slambroski
+	name = Lorimar
+	dynasty = dynn_Ripping
+
+	religion = the_seven_main
+	culture = marcher
+
+	father = Ripping_65
+	mother = Ripping_rs_65
+
+	8174.1.1 = { birth = yes }
+	8191.1.1 = { trait = knight }
+	8216.1.1 = { death = yes}
+}
 ### Issue of Sarmion
 Ripping_68 = {
 	name = Brella
@@ -74870,6 +75029,20 @@ Ripping_rs_69 = {
 
 	8202.1.1 = { birth = yes }
 	8232.1.1 = { death = yes }
+}
+Ripping_69_B = { # created 8/02 slambroski
+	name = Tommard
+	dynasty = dynn_Ripping
+
+	religion = the_seven_main
+	culture = marcher
+
+	father = Ripping_67
+	mother = Ripping_rs_67
+
+	8201.1.1 = { birth = yes }
+	8219.1.1 = { trait = knight }
+	8252.1.1 = { death = yes }
 }
 ### Issue of Marq
 Ripping_82 = {
