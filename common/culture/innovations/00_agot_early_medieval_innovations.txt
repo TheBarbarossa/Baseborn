@@ -1,0 +1,311 @@
+﻿#### Local Types ####
+@administration_1 = "gfx/interface/icons/culture_innovations/innovation_administration_01.dds"
+@administration_2 = "gfx/interface/icons/culture_innovations/innovation_administration_02.dds"
+@administration_3 = "gfx/interface/icons/culture_innovations/innovation_administration_03.dds"
+@civil_construction_1 = "gfx/interface/icons/culture_innovations/innovation_civil_construction_01.dds"
+@civil_construction_2 = "gfx/interface/icons/culture_innovations/innovation_civil_construction_02.dds"
+@leadership_1 = "gfx/interface/icons/culture_innovations/innovation_leadership_01.dds"
+@leadership_2 = "gfx/interface/icons/culture_innovations/innovation_leadership_02.dds"
+@raised_banner = "gfx/interface/icons/culture_innovations/innovation_raised_banner.dds"
+@fortifications = "gfx/interface/icons/culture_innovations/innovation_fortifications.dds"
+@siege_weapons = "gfx/interface/icons/culture_innovations/innovation_siege_weapons.dds"
+@levy_building = "gfx/interface/icons/culture_innovations/innovation_levy_building.dds"
+@maa_01 = "gfx/interface/icons/culture_innovations/innovation_maa_01.dds"
+@maa_02 = "gfx/interface/icons/culture_innovations/innovation_maa_02.dds"
+@weapons_and_armor_01 = "gfx/interface/icons/culture_innovations/innovation_weapons_and_armor_01.dds"
+@weapons_and_armor_02 = "gfx/interface/icons/culture_innovations/innovation_weapons_and_armor_02.dds"
+@knight = "gfx/interface/icons/culture_innovations/innovation_knight.dds"
+@hird = "gfx/interface/icons/culture_innovations/innovation_hird.dds"
+@longboats = "gfx/interface/icons/culture_innovations/innovation_longboats.dds"
+@majesty_01 = "gfx/interface/icons/culture_innovations/innovation_majesty_01.dds"
+@majesty_02 = "gfx/interface/icons/culture_innovations/innovation_majesty_02.dds"
+@majesty_03 = "gfx/interface/icons/culture_innovations/innovation_majesty_03.dds"
+@nobility_01 = "gfx/interface/icons/culture_innovations/innovation_nobility_01.dds"
+@nobility_02 = "gfx/interface/icons/culture_innovations/innovation_nobility_02.dds"
+@nobility_03 = "gfx/interface/icons/culture_innovations/innovation_nobility_03.dds"
+@nobility_04 = "gfx/interface/icons/culture_innovations/innovation_nobility_04.dds"
+@misc_inventions = "gfx/interface/icons/culture_innovations/innovation_misc_inventions.dds"
+
+@camel = "gfx/interface/icons/culture_innovations/innovation_camel.dds"
+@elephant = "gfx/interface/icons/culture_innovations/innovation_elephant.dds"
+@special_maa_01 = "gfx/interface/icons/culture_innovations/innovation_special_maa_01.dds"
+@special_maa_02 = "gfx/interface/icons/culture_innovations/innovation_special_maa_02.dds"
+
+#AGOT Modified AND MOVED from High Medieval
+innovation_agot_heraldry = {
+	group = culture_group_civic
+	culture_era = culture_era_early_medieval
+	icon = @raised_banner
+
+	unlock_law = single_heir_succession_law
+	unlock_law = single_heir_succession_law_youngest
+	unlock_law = single_heir_dynasty_house
+
+	custom = more_courtly
+
+	flag = global_regular
+	flag = early_medieval_era_regular
+}
+
+#Vanilla, moved from Tribal
+innovation_catapult = {
+	group = culture_group_military
+	culture_era = culture_era_early_medieval
+	icon = @siege_weapons
+
+	unlock_maa = onager
+
+	flag = global_regular
+	flag = early_medieval_era_regular
+}
+
+innovation_agot_mail = {
+	group = culture_group_military
+	culture_era = culture_era_early_medieval
+	icon = @weapons_and_armor_02
+
+	custom = unlock_armored_footmen
+
+	flag = global_regular
+	flag = early_medieval_era_regular
+}
+
+#Vanilla, moved from Tribal
+innovation_elephantry = {
+	group = culture_group_regional
+	culture_era = culture_era_early_medieval
+	#AGOT Disabled
+	#region = world_innovation_elephants
+	icon = @elephant
+
+	unlock_building = elephant_pens_01
+
+	custom = eligible_accolade_elephantry_attribute
+	custom = domicile_building_parameter_camp_reinforce_elephant_regiments_anywhere
+
+	#AGOT Added
+	potential = {
+		OR  = {
+			this = { has_cultural_pillar = heritage_ghiscari }
+			this = culture:rhoynish
+			this = culture:tyroshi
+			this = culture:lyseni
+			this = culture:hartalari
+			this = culture:volantene
+			this = culture:essosi_valyrian
+			this = culture:mantaryan
+			this = culture:tolosi
+			this = culture:elyrian
+			this = culture:painted_clansman
+			AND = {
+				any_parent_culture = {
+					OR = {
+						this = culture:rhoynish
+						this = culture:tyroshi
+						this = culture:lyseni
+						this = culture:hartalari
+						this = culture:volantene
+						this = culture:essosi_valyrian
+						this = culture:mantaryan
+						this = culture:tolosi
+						this = culture:elyrian
+						this = culture:painted_clansman
+					}
+				}
+				NOR = {
+					this = culture:salt_dornish
+					this = culture:sand_dornish
+					this = culture:stone_dornish
+				}
+			}
+		}
+	}
+
+	flag = global_regional
+	flag = early_medieval_era_regular
+}
+
+#Vanilla, moved from Tribal
+innovation_war_camels = {
+	group = culture_group_regional
+	culture_era = culture_era_early_medieval
+	region = world_innovation_camels
+	icon = @camel
+
+	unlock_maa = camel_rider
+	unlock_building = camel_farms_01
+
+	custom = eligible_accolade_camelry_attribute
+
+	#AGOT Added
+	potential = {
+		has_cultural_pillar = heritage_qaathi
+	}
+
+	flag = global_regional
+	flag = early_medieval_era_regular
+}
+
+#AGOT Modified AND MOVED from High Medieval
+innovation_knighthood = {
+	group = culture_group_military
+	culture_era = culture_era_early_medieval
+	icon = @knight
+
+	character_modifier = {
+		active_accolades = 1
+		glory_hound_opinion = 5
+		knight_effectiveness_mult = 0.2
+		accolade_glory_gain_mult = 0.1
+	}
+	custom = more_glory_hounds
+
+	flag = global_regular
+	flag = early_medieval_era_regular
+}
+
+## AGOT Regional ##
+innovation_maesters = {
+	group = culture_group_regional
+	culture_era = culture_era_early_medieval
+	icon = @administration_1
+	region = world_westeros_seven_kingdoms
+
+	unlock_decision = decision_employ_maester
+
+	flag = global_regional
+	flag = early_medieval_era_regular
+}
+
+innovation_agot_dorne_fighting = {
+	group = culture_group_regional
+	culture_era = culture_era_early_medieval
+	icon = @special_maa_02
+
+	custom = unlock_dornish_crossbows
+
+	region = world_westeros_dorne
+
+	flag = global_regional
+	flag = early_medieval_era_regular
+}
+
+innovation_agot_vale_fighting = {
+	group = culture_group_regional
+	culture_era = culture_era_early_medieval
+	icon = @special_maa_02
+
+	custom = unlock_vale_heavy_infantry
+
+	region = world_westeros_the_vale_mainland
+
+	flag = global_regional
+	flag = early_medieval_era_regular
+}
+
+innovation_agot_crownlands_fighting = {
+	group = culture_group_regional
+	culture_era = culture_era_early_medieval
+	icon = @special_maa_02
+
+	custom = unlock_crownlands_spears
+
+	region = world_westeros_the_crownlands
+
+	flag = global_regional
+	flag = early_medieval_era_regular
+}
+
+innovation_agot_reach_fighting = {
+	group = culture_group_regional
+	culture_era = culture_era_early_medieval
+	icon = @special_maa_02
+
+	custom = unlock_reach_light_cavalry
+
+	region = world_westeros_the_reach
+
+	flag = global_regional
+	flag = early_medieval_era_regular
+}
+
+innovation_agot_riverlands_fighting = {
+	group = culture_group_regional
+	culture_era = culture_era_early_medieval
+	icon = @special_maa_02
+
+	custom = unlock_riverlands_light_infantry
+
+	region = world_westeros_the_riverlands
+
+	flag = global_regional
+	flag = early_medieval_era_regular
+}
+
+innovation_agot_westerlands_fighting = {
+	group = culture_group_regional
+	culture_era = culture_era_early_medieval
+	icon = @special_maa_02
+
+	custom = unlock_westerlands_knights
+
+	region = world_westeros_the_westerlands
+
+	flag = global_regional
+	flag = early_medieval_era_regular
+}
+
+innovation_agot_stormlands_fighting = {
+	group = culture_group_regional
+	culture_era = culture_era_early_medieval
+	icon = @special_maa_02
+
+	custom = unlock_stormlands_heavy_infantry
+
+	region = world_westeros_the_stormlands
+
+	flag = global_regional
+	flag = early_medieval_era_regular
+}
+
+## AGOT Cultural ##
+innovation_goldenheart_bowmen = {
+	group = culture_group_military
+	culture_era = culture_era_early_medieval
+	icon = @weapons_and_armor_01
+
+	potential = {
+		has_cultural_pillar = heritage_summer_islander
+	}
+
+	# unlock_maa = goldenhear_bowmen  AGOT MaA TODO - Needs addin'
+
+	flag = global_regional
+	flag = early_medieval_era_regular
+}
+
+innovation_agot_stepstone_fighting = {
+	group = culture_group_regional
+	culture_era = culture_era_early_medieval
+	icon = @special_maa_02
+
+	custom = unlock_stepstone_sailors
+
+	region = world_essos_southern_free_cities
+
+	flag = global_regional
+	flag = early_medieval_era_regular
+}
+
+innovation_agot_anti_dragon_fighting = {
+	group = culture_group_regional
+	culture_era = culture_era_early_medieval
+	icon = @special_maa_02
+
+	custom = unlock_scorpion_defenses
+	custom = unlock_anti_dragon_workshop_bonuses
+	unlock_maa = scorpions
+
+	flag = global_regional
+	flag = early_medieval_era_regular
+}
