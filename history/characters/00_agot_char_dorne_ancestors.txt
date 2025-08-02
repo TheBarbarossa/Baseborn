@@ -8746,6 +8746,7 @@ Jordayne_57 = { # edited 7/18 slambroski
 	8209.1.1 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
+		employer = Jordayne_54
 	}
 	8225.1.1 = { trait = knight }
 	8262.1.1 = { death = yes }
@@ -9027,7 +9028,8 @@ Shells_18 = {
 	8155.1.1 = { trait = knight }
 	8204.1.1 = { death = yes }
 }
-Shells_19 = {
+### Issue of Harmen
+Shells_19 = { # edited 8/02 slambroski
 	name = Maron # a lord
 	dynasty = dynn_Shells
 
@@ -9038,6 +9040,7 @@ Shells_19 = {
 
 	8168.1.1 = { birth = yes }
 	8184.1.1 = { trait = knight }
+	8195.1.1 = { add_spouse = Cook_75 }
 	8212.1.1 = { death = yes }
 }
 Shells_19_B = { # created 7/23 slambroski
@@ -9053,7 +9056,8 @@ Shells_19_B = { # created 7/23 slambroski
 	8195.1.1 = { trait = knight }
 	8240.1.1 = { death = yes }
 }
-Shells_20 = {
+### Issue of Maron
+Shells_20 = { # edited 8/02 slambroski
 	name = Dorea # a lord
 	dynasty = dynn_Shells
 	female = yes
@@ -9062,6 +9066,7 @@ Shells_20 = {
 	culture = salt_dornish
 
 	father = Shells_19
+	mother = Cook_75 
 
 	8200.1.1 = { birth = yes }
 	8218.1.1 = { add_matrilineal_spouse = Shells_rs_4 }
@@ -10710,7 +10715,10 @@ Vaith_48 = { # edited 7/23 slambroski
 	father = Vaith_21 # Davyd Vaith
 	mother = Vaith_46 # Danelle Vaith
 
-	8178.1.1 = { birth = yes }
+	8178.1.1 = { 
+		birth = yes 
+		employer = Vaith_45
+	}
 	8193.1.1 = { add_spouse = Allyrion_59 }
 	8194.1.1 = { trait = knight }
 	8213.1.1 = { death = yes }
@@ -10726,7 +10734,10 @@ Vaith_48_B = { # created 7/18 slambroski
 	father = Vaith_21
 	mother = Vaith_46
 
-	8182.1.1 = { birth = yes }
+	8182.1.1 = { 
+		birth = yes 
+		employer = Vaith_45
+	}
 	8230.1.1 = { death = yes }
 }
 Vaith_49 = { # edited 7/23 slambroski
@@ -10741,7 +10752,10 @@ Vaith_49 = { # edited 7/23 slambroski
 	father = Vaith_48
 	mother = Allyrion_59
 
-	8194.1.1 = { birth = yes }
+	8194.1.1 = { 
+		birth = yes 
+		employer = Vaith_45
+	}
 	8213.1.1 = { add_matrilineal_spouse = Vaith_rs_5 }
 	8238.1.1 = { death = yes }
 }
@@ -11769,6 +11783,7 @@ Allyrion_rs_3 = { # Edited
 	mother = Dalt_37
 
 	8171.1.1 = { birth = yes }
+	8198.1.1 = { employer = Allyrion_51 }
 	8216.1.1 = { trait = knight }
 	8220.1.1 = { death = yes }
 }
@@ -11799,6 +11814,7 @@ Allyrion_59 = { # created 7/22 slambroski
 	mother = Sanders_71
 
 	8178.1.1 = { birth = yes }
+	8193.1.1 = { employer = Vaith_45 }
 	8214.1.1 = { death = yes }
 }
 ### Issue of Allyria
@@ -22598,6 +22614,7 @@ Blackmont_rs_7 = { # Edited
 
 	8168.1.1 = { birth = yes }
 	8184.1.1 = { trait = knight }
+	8191.1.1 = { employer = Blackmont_49 }
 	8210.1.1 = { death = yes }
 }
 Blackmont_51 = {
@@ -22629,6 +22646,7 @@ Blackmont_rs_8 = { # edited 7/22 slambroski
 	mother = Dayne_83
 
 	8191.1.1 = { birth = yes }
+	8209.1.1 = { employer = Blackmont_49 }
 	8228.1.1 = { death = yes }
 }
 Blackmont_52 = {
@@ -23640,6 +23658,7 @@ Wyl_47 = { # edited 7/22 slambroski
 	}
 	8184.1.1 = { trait = knight }
 	8195.1.1 = { add_spouse = Sallow_73 }
+	8209.1.1 = { employer = Wyl_48 }
 	8227.1.1 = { death = yes }
 }
 ### Issue of Mariya
@@ -23701,6 +23720,7 @@ Wyl_65 = { # created 7/10 slambroski
 	mother = Sallow_73
 
 	8199.1.1 = { birth = yes }
+	8209.1.1 = { employer = Wyl_48 }
 	8267.1.1 = { death = yes }
 }
 ### Household
@@ -25615,8 +25635,10 @@ Hood_41 = {
 
 	8162.1.1 = { birth = yes }
 	8178.1.1 = { trait = knight }
+	8181.1.1 = { add_spouse = Ronce_83 }
 	8219.1.1 = { death = yes }
 }
+### Issue of Orivel
 Hood_42 = {
 	name = Halbert # a lord
 	dynasty = dynn_Hood
@@ -25625,6 +25647,7 @@ Hood_42 = {
 	culture = stone_dornish
 
 	father = Hood_41
+	mother = Ronce_83 
 
 	8182.1.1 = { birth = yes }
 	8198.1.1 = { trait = knight }
@@ -25639,6 +25662,7 @@ Hood_43 = { # created 7/10 slambroski
 	culture = stone_dornish
 
 	father = Hood_41
+	mother = Ronce_83
 
 	8185.1.1 = { birth = yes }
 	8232.1.1 = { death = yes }
@@ -41180,6 +41204,7 @@ Sallow_73 = {
 	mother = Sallow_58
 
 	8162.1.1 = { birth = yes }
+	8209.1.1 = { employer = Wyl_48 }
 	8230.1.1 = {
 		death = { death_reason = death_drank_to_death }
 	}
@@ -43010,7 +43035,7 @@ Dryside_63 = {
 		death = { death_reason = death_consumption }
 	}
 }
-Dryside_64 = {
+Dryside_64 = { # edited 8/02 slambroski
 	name = Valena
 	dynasty = dynn_Dryside
 	female = yes
@@ -43022,6 +43047,7 @@ Dryside_64 = {
 	mother = Dryside_rs_59
 
 	8188.1.1 = { birth = yes }
+	8207.1.1 = { employer = Jordayne_54 }
 	8240.1.1 = {
 		death = { death_reason = death_natural_causes }
 	}
@@ -44685,7 +44711,7 @@ Cook_75 = {
 	8172.1.1 = { birth = yes }
 	8222.1.1 = { death = yes }
 }
-Cook_76 = {
+Cook_76 = { # edited 8/02 slambroski
 	name = Tara
 	dynasty = dynn_Cook
 	female = yes
@@ -44697,6 +44723,7 @@ Cook_76 = {
 	mother = Cook_67
 
 	8176.1.1 = { birth = yes }
+	8200.1.1 = { employer = Uller_55 }
 	8236.1.1 = {
 		trait = ill
 		death = { death_reason = death_ill }
