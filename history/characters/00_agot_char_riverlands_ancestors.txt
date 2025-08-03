@@ -4174,6 +4174,7 @@ Frey_134 = {
 		add_character_flag = has_scripted_appearance
 		add_character_flag = canon_status_mentioned
 	}
+	8208.1.1 = { employer = Deddings_19 }
 	8237.1.1 = { death = yes }
 }
 Frey_135 = {
@@ -21634,6 +21635,7 @@ Shawney_18 = {
 	father = Shawney_17
 
 	8173.1.1 = { birth = yes }
+	8190.1.1 = { add_spouse = Haigh_73 }
 	8217.1.1 = { death = yes }
 }
 ### Issue of Elmar
@@ -21645,6 +21647,7 @@ Shawney_20 = {
 	culture = riverlander
 
 	father = Shawney_18
+	mother = Haigh_73
 
 	8191.1.1 = { birth = yes }
 	8258.1.1 = { death = yes }
@@ -21658,9 +21661,23 @@ Shawney_19 = {
 	culture = riverlander
 
 	father = Shawney_18
+	mother = Haigh_73
 
 	8192.1.1 = { birth = yes }
 	8234.1.1 = { death = yes }
+}
+Shawney_20_B = {
+	name = Androw
+	dynasty = dynn_Shawney
+
+	religion = the_seven_main
+	culture = riverlander
+
+	father = Shawney_18
+	mother = Haigh_73
+
+	8195.1.1 = { birth = yes }
+	8243.1.1 = { death = yes }
 }
 ### Issue of Waltyr
 Shawney_21 = {
@@ -38136,7 +38153,21 @@ Harlton_19 = {
 	father = Harlton_17
 
 	8188.1.1 = { birth = yes }
+	8204.1.1 = { trait = knight }
 	8239.1.1 = { death = yes }
+}
+Harlton_19_B = {
+	name = Robin
+	dynasty = dynn_Harlton
+
+	religion = the_seven_main
+	culture = riverlander
+
+	father = Harlton_17
+
+	8191.1.1 = { birth = yes }
+	8207.1.1 = { trait = knight }
+	8228.1.1 = { death = yes }
 }
 ### Issue of Haywood
 Harlton_20 = {
@@ -47366,6 +47397,11 @@ Perryn_24 = {
 	mother = Perryn_rs_57
 
 	8169.1.1 = { birth = yes }
+	8184.1.1 = { 
+		trait = knight
+		add_spouse = Warrens_41
+	}
+	8206.1.1 = { add_spouse = Kemble_58 }
 	8223.1.1 = { death = yes }
 }
 Perryn_63 = {
@@ -47394,6 +47430,7 @@ Perryn_25 = {
 	culture = riverlander
 
 	father = Perryn_24
+	mother = Warrens_41
 
 	8185.1.1 = { birth = yes }
 	8226.1.1 = { death = yes }
@@ -47406,6 +47443,7 @@ Perryn_8 = {
 	culture = riverlander
 
 	father = Perryn_24
+	mother = Kemble_58
 
 	8207.1.1 = { birth = yes }
 	8230.1.1 = { add_spouse = Perryn_p_3 }
@@ -55415,7 +55453,7 @@ Deddings_18 = {
 	8142.1.1 = { birth = yes }
 	8191.1.1 = { death = yes }
 }
-### Main Line
+### Issue of Artos
 Deddings_19 = {
 	name = Brynden # a lord
 	dynasty = dynn_Deddings
@@ -55426,8 +55464,13 @@ Deddings_19 = {
 	father = Deddings_18 # Artos Deddings
 
 	8163.1.1 = { birth = yes }
+	8188.1.1 = {
+		trait = knight
+		add_spouse = Landseer_40
+	}
 	8209.9.1 = { death = yes }
 }
+### Issue of Brynden
 Deddings_20 = {
 	name = Danwell # a lord
 	dynasty = dynn_Deddings
@@ -55438,6 +55481,7 @@ Deddings_20 = {
 	culture = riverlander
 
 	father = Deddings_19
+	mother = Landseer_40
 
 	8189.1.1 = { birth = yes }
 	8208.1.1 = { add_spouse = Frey_134 } # Morya Frey
@@ -55452,10 +55496,12 @@ Deddings_50 = { # created 7/08 slambroski
 	culture = riverlander
 
 	father = Deddings_19
+	mother = Landseer_40
 
 	8191.1.1 = { birth = yes }
 	8240.1.1 = { death = yes }
 }
+### Main Line
 Deddings_21 = {
 	name = Oswell # a lord
 	dynasty = dynn_Deddings
