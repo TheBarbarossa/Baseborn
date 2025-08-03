@@ -1,0 +1,599 @@
+﻿# by TitanRogue | loc by ruffff1
+
+old_gods_religion = {
+	family = rf_westerosi
+	graphical_faith = old_gods_gfx
+	piety_icon_group = "islam"
+
+	pagan_roots = yes
+
+	doctrine = old_gods_hostility_doctrine
+
+	#Main Group
+	doctrine = doctrine_no_head
+	doctrine = doctrine_gender_equal
+	doctrine = doctrine_pluralism_righteous
+	doctrine = doctrine_theocracy_lay_clergy
+	doctrine = doctrine_old_gods_pantheon
+	doctrine = doctrine_fots_syncreticism
+
+	#Marriage
+	doctrine = doctrine_monogamy
+	doctrine = doctrine_divorce_allowed
+	doctrine = doctrine_bastardry_legitimization
+	doctrine = doctrine_consanguinity_cousins
+
+	#Crimes
+	doctrine = doctrine_homosexuality_shunned
+	doctrine = doctrine_adultery_men_shunned
+	doctrine = doctrine_adultery_women_shunned
+	doctrine = doctrine_kinslaying_extended_family_crime
+	doctrine = doctrine_deviancy_shunned
+	doctrine = doctrine_witchcraft_shunned
+
+	#Clerical Functions
+	doctrine = doctrine_clerical_function_taxation
+	doctrine = doctrine_clerical_gender_either
+	doctrine = doctrine_clerical_marriage_allowed
+	doctrine = doctrine_clerical_succession_temporal_appointment
+
+	traits = {
+		virtues = { brave honest just }
+		sins = { craven deceitful sadistic }
+	}
+
+	reserved_male_names = { }
+	reserved_female_names = { }
+
+	custom_faith_icons = {
+		oldgods_brown
+	}
+
+	holy_order_names = {
+		#{ name = "holy_order_jomsvikings" }
+	}
+
+	#holy_order_maa = { huscarl }
+
+	localization = {
+		#HighGodName
+		HighGodName = old_gods_high_god_name
+		HighGodNamePossessive = old_gods_high_god_name_possessive
+		HighGodNameSheHe = CHARACTER_SHEHE_HE
+		HighGodHerselfHimself = CHARACTER_HIMSELF
+		HighGodHerHis = CHARACTER_HERHIS_HIS
+		HighGodNameAlternate = old_gods_high_god_name_alternate
+		HighGodNameAlternatePossessive = old_gods_high_god_name_alternate_possessive
+
+		#Creator
+		CreatorName = old_gods_creator_god_name
+		CreatorNamePossessive = old_gods_creator_god_name_possessive
+		CreatorSheHe = CHARACTER_SHEHE_HE
+		CreatorHerHis = CHARACTER_HERHIS_HIS
+		CreatorHerHim = CHARACTER_HERHIM_HIM
+
+		#HealthGod
+		HealthGodName = old_gods_health_god_name
+		HealthGodNamePossessive = old_gods_health_god_name_possessive
+		HealthGodSheHe = CHARACTER_SHEHE_SHE
+		HealthGodHerHis = CHARACTER_HERHIS_HER
+		HealthGodHerHim = CHARACTER_HERHIM_HER
+
+		#FertilityGod
+		FertilityGodName = old_gods_fertility_god_name
+		FertilityGodNamePossessive = old_gods_fertility_god_name_possessive
+		FertilityGodSheHe = CHARACTER_SHEHE_SHE
+		FertilityGodHerHis = CHARACTER_HERHIS_HER
+		FertilityGodHerHim = CHARACTER_HERHIM_HER
+
+		#WealthGod
+		WealthGodName = old_gods_wealth_god_name
+		WealthGodNamePossessive = old_gods_wealth_god_name_possessive
+		WealthGodSheHe = CHARACTER_SHEHE_HE
+		WealthGodHerHis = CHARACTER_HERHIS_HIS
+		WealthGodHerHim = CHARACTER_HERHIM_HIM
+
+		#HouseholdGod
+		HouseholdGodName = old_gods_household_god_name
+		HouseholdGodNamePossessive = old_gods_household_god_name_possessive
+		HouseholdGodSheHe = CHARACTER_SHEHE_SHE
+		HouseholdGodHerHis = CHARACTER_HERHIS_HER
+		HouseholdGodHerHim = CHARACTER_HERHIM_HER
+
+		#FateGod
+		FateGodName = old_gods_fate_god_name
+		FateGodNamePossessive = old_gods_fate_god_name_possessive
+		FateGodSheHe = CHARACTER_SHEHE_THEY
+		FateGodHerHis = CHARACTER_HERHIS_THEIR
+		FateGodHerHim = CHARACTER_HERHIM_THEM
+
+		#KnowledgeGod
+		KnowledgeGodName = old_gods_knowledge_god_name
+		KnowledgeGodNamePossessive = old_gods_knowledge_god_name_possessive
+		KnowledgeGodSheHe = CHARACTER_SHEHE_HE
+		KnowledgeGodHerHis = CHARACTER_HERHIS_HIS
+		KnowledgeGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WarGod
+		WarGodName = old_gods_war_god_name
+		WarGodNamePossessive = old_gods_war_god_name_possessive
+		WarGodSheHe = CHARACTER_SHEHE_HE
+		WarGodHerHis = CHARACTER_HERHIS_HIS
+		WarGodHerHim = CHARACTER_HERHIM_HIM
+
+		#TricksterGod
+		TricksterGodName = old_gods_trickster_god_name
+		TricksterGodNamePossessive = old_gods_trickster_god_name_possessive
+		TricksterGodSheHe = CHARACTER_SHEHE_HE
+		TricksterGodHerHis = CHARACTER_HERHIS_HIS
+		TricksterGodHerHim = CHARACTER_HERHIM_HIM
+
+		#NightGod
+		NightGodName = old_gods_night_god_name
+		NightGodNamePossessive = old_gods_night_god_name_possessive
+		NightGodSheHe = CHARACTER_SHEHE_SHE
+		NightGodHerHis = CHARACTER_HERHIS_HER
+		NightGodHerHim = CHARACTER_HERHIM_HER
+
+		#WaterGod
+		WaterGodName = old_gods_water_god_name
+		WaterGodNamePossessive = old_gods_water_god_name_possessive
+		WaterGodSheHe = CHARACTER_SHEHE_HE
+		WaterGodHerHis = CHARACTER_HERHIS_HIS
+		WaterGodHerHim = CHARACTER_HERHIM_HIM
+
+
+		PantheonTerm = religion_the_gods
+		PantheonTermHasHave = pantheon_term_have
+		GoodGodNames = {
+			old_gods_high_god_name
+			old_gods_good_god_brandon
+			old_gods_good_god_first_king
+		}
+		DevilName = old_gods_devil_name
+		DevilNamePossessive = old_gods_devil_name_possessive
+		DevilSheHe = CHARACTER_SHEHE_HE
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerselfHimself = CHARACTER_HIMSELF
+		EvilGodNames = {
+			old_gods_evil_god_winter
+			old_gods_evil_god_long_night
+			old_gods_evil_god_white_shadows
+			old_gods_evil_god_white_walkers
+			old_gods_evil_god_cold_gods
+			old_gods_evil_god_night_king
+			old_gods_evil_god_cold_winds
+		}
+		HouseOfWorship = old_gods_house_of_worship
+		HouseOfWorshipPlural = old_gods_house_of_worship_plural
+		ReligiousSymbol = old_gods_religious_symbol
+		ReligiousText = old_gods_religious_text
+		ReligiousHeadName = old_gods_religious_head_title
+		ReligiousHeadTitleName = old_gods_religious_head_title_name
+		DevoteeMale = old_gods_devotee_male
+		DevoteeMalePlural = old_gods_devotee_male_plural
+		DevoteeFemale = old_gods_devotee_female
+		DevoteeFemalePlural = old_gods_devotee_female_plural
+		DevoteeNeuter = old_gods_devotee_neuter
+		DevoteeNeuterPlural = old_gods_devotee_neuter_plural
+		PriestMale = old_gods_priest_male
+		PriestMalePlural = old_gods_priest_male_plural
+		PriestFemale = old_gods_priest_male
+		PriestFemalePlural = old_gods_priest_male_plural
+		PriestNeuter = old_gods_priest_male
+		PriestNeuterPlural = old_gods_priest_male_plural
+		AltPriestTermPlural = old_gods_priest_alternate_plural
+		BishopMale = old_gods_bishop
+		BishopMalePlural = old_gods_bishop_plural
+		BishopFemale = old_gods_bishop
+		BishopFemalePlural = old_gods_bishop_plural
+		BishopNeuter = old_gods_bishop
+		BishopNeuterPlural = old_gods_bishop_plural
+		DivineRealm = germanic_divine_realm
+		PositiveAfterLife = old_gods_positive_afterlife
+		NegativeAfterLife = old_gods_negative_afterlife
+		DeathDeityName = old_gods_death_deity_name
+		DeathDeityNamePossessive = old_gods_death_deity_name_possessive
+		DeathDeitySheHe = CHARACTER_SHEHE_SHE
+		DeathDeityHerHis = CHARACTER_HERHIS_HER
+		WitchGodName = old_gods_witchgodname_the_cold_gods
+		WitchGodHerHis = CHARACTER_HERHIS_HER
+		WitchGodSheHe = CHARACTER_SHEHE_HE
+		WitchGodHerHim = CHARACTER_HERHIM_HER
+		WitchGodMistressMaster = mistress
+		WitchGodMotherFather = mother
+
+
+		GHWName = ghw_great_holy_war
+		GHWNamePlural = ghw_great_holy_wars
+	}
+
+	faiths = {
+		old_gods_south = {
+			color = { 0.95 0.95 0.95 }
+			icon = oldgods
+			reformed_icon = oldgods
+
+			holy_site = gods_eye
+			holy_site = fist_of_the_first_men
+			holy_site = winterfell
+			holy_site = great_barrow
+			holy_site = high_heart
+			holy_site = casterly_rock
+			holy_site = highgarden
+
+			doctrine = unreformed_faith_doctrine
+
+			#Tenets
+			doctrine = tenet_sanctity_of_nature
+			doctrine = tenet_ritual_hospitality
+			doctrine = tenet_godswoods
+			doctrine = tenet_adaptive
+			doctrine = tenet_weirwoods
+
+			#Main Group
+			doctrine = doctrine_gender_equal # Gender
+			doctrine = doctrine_pluralism_righteous # Religious Attitude
+			doctrine = doctrine_theocracy_lay_clergy # Clerical Traditions
+			doctrine = doctrine_no_head # Head of Faith
+			doctrine = doctrine_old_gods_pantheon # Pantheon & Rites
+			doctrine = doctrine_fots_syncreticism # Syncretism
+
+			#Marriage
+			doctrine = doctrine_monogamy # Marriage Type
+			doctrine = doctrine_divorce_allowed # Divorce
+			doctrine = doctrine_bastardry_legitimization # Bastardry
+			doctrine = doctrine_consanguinity_cousins # Consanguinity
+
+			#Criminology
+			doctrine = doctrine_homosexuality_shunned # Same-Sex Relationships
+			doctrine = doctrine_deviancy_shunned # Deviancy
+			doctrine = doctrine_adultery_men_shunned # Male Adultery
+			doctrine = doctrine_adultery_women_shunned # Female Adultery
+			doctrine = doctrine_kinslaying_extended_family_crime # Kinslaying
+			doctrine = doctrine_witchcraft_shunned # Witchcraft
+
+			#Clerical Functions
+			doctrine = doctrine_clerical_function_taxation # Clerical Function
+			doctrine = doctrine_clerical_gender_either # Clerical Gender
+			doctrine = doctrine_clerical_marriage_allowed # Clerical Marriage
+			doctrine = doctrine_clerical_succession_temporal_appointment # Clerical Appointment
+
+			#traits = { # Breaks this faith for some reason
+			#	virtues = { brave wrathful forgiving }
+			#	sins = { craven deceitful vengeful }
+			#}
+		}
+
+		old_gods_btw = {
+			color = { 0.5 0.5 0.5 }
+			icon = oldgodsbtw
+			reformed_icon = oldgodsbtw
+
+
+			holy_site = gods_eye
+			holy_site = fist_of_the_first_men
+			holy_site = thenn
+			holy_site = nightfort
+			holy_site = winterfell
+			#holy_site = hardhome #maybe
+			#holy_site = skane = #maybe
+
+			#Special Tolerance
+			doctrine = unreformed_faith_doctrine
+
+			#Tenets
+			doctrine = tenet_sanctity_of_nature
+			doctrine = tenet_warmonger
+			doctrine = tenet_human_sacrifice
+			doctrine = tenet_godswoods
+			doctrine = tenet_pursuit_of_power
+
+			#Main Group
+			doctrine = doctrine_gender_equal # Gender
+			doctrine = doctrine_pluralism_righteous # Religious Attitude
+			doctrine = doctrine_theocracy_lay_clergy # Clerical Traditions
+			doctrine = doctrine_no_head # Head of Faith
+			doctrine = doctrine_old_gods_btw_pantheon # Pantheon & Rites
+			doctrine = doctrine_no_syncreticism # Syncretism
+
+			#Marriage
+			doctrine = doctrine_polygamy # Marriage Type
+			doctrine = doctrine_divorce_allowed # Divorce
+			doctrine = doctrine_bastardry_none # Bastardry
+			doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece # Consanguinity # Concubinage Type # Stance on Marriage
+
+			#Criminology
+			doctrine = doctrine_homosexuality_shunned # Same-Sex Relationships
+			doctrine = doctrine_deviancy_shunned # Deviancy
+			doctrine = doctrine_adultery_men_shunned # Male Adultery
+			doctrine = doctrine_adultery_women_shunned # Female Adultery
+			doctrine = doctrine_kinslaying_close_kin_crime # Kinslaying
+			doctrine = doctrine_witchcraft_shunned # Witchcraft
+
+			#Clerical Functions
+			doctrine = doctrine_clerical_function_recruitment # Clerical Function
+			doctrine = doctrine_clerical_gender_either # Clerical Gender
+			doctrine = doctrine_clerical_marriage_allowed # Clerical Marriage
+			doctrine = doctrine_clerical_succession_temporal_appointment # Clerical Appointment
+			doctrine = doctrine_funeral_cremation #Wildlings burn their dead
+
+			localization = {
+				#Creator
+				CreatorName = old_gods_btw_creator_god_name
+				CreatorNamePossessive = old_gods_btw_creator_god_name_possessive
+
+				#HealthGod
+				HealthGodName = old_gods_btw_health_god_name
+				HealthGodNamePossessive = old_gods_btw_health_god_name_possessive
+
+				#FertilityGod
+				FertilityGodName = old_gods_btw_fertility_god_name
+				FertilityGodNamePossessive = old_gods_btw_fertility_god_name_possessive
+
+				#WealthGod
+				WealthGodName = old_gods_btw_wealth_god_name
+				WealthGodNamePossessive = old_gods_btw_wealth_god_name_possessive
+
+				#HouseholdGod
+				HouseholdGodName = old_gods_btw_household_god_name
+				HouseholdGodNamePossessive = old_gods_btw_household_god_name_possessive
+
+				#FateGod
+				FateGodName = old_gods_btw_fate_god_name
+				FateGodNamePossessive = old_gods_btw_fate_god_name_possessive
+
+				#KnowledgeGod
+				KnowledgeGodName = old_gods_btw_knowledge_god_name
+				KnowledgeGodNamePossessive = old_gods_btw_knowledge_god_name_possessive
+
+				#WarGod
+				WarGodName = old_gods_btw_war_god_name
+				WarGodNamePossessive = old_gods_btw_war_god_name_possessive
+
+				#TricksterGod
+				TricksterGodName = old_gods_btw_trickster_god_name
+				TricksterGodNamePossessive = old_gods_btw_trickster_god_name_possessive
+
+				#NightGod
+				NightGodName = old_gods_btw_night_god_name
+				NightGodNamePossessive = old_gods_btw_night_god_name_possessive
+
+				#WaterGod
+				WaterGodName = old_gods_btw_water_god_name
+				WaterGodNamePossessive = old_gods_btw_water_god_name_possessive
+			}
+		}
+
+		old_gods_frozen_shore = {
+			color = { 0.58 0.58 0.65 }
+			icon = oldgodsfrozenshore
+			reformed_icon = oldgodsfrozenshore
+
+			holy_site = gods_eye
+			holy_site = fist_of_the_first_men
+			holy_site = thenn
+			holy_site = nightfort
+			holy_site = winterfell
+			#holy_site = hardhome #maybe
+			#holy_site = skane = #maybe
+
+			#Tenets
+			doctrine = tenet_human_sacrifice
+			doctrine = tenet_sanctity_of_nature
+			doctrine = tenet_weirwoods
+			doctrine = tenet_warmonger
+			doctrine = tenet_ritual_cannibalism
+
+			#Special Tolerance
+			doctrine = unreformed_faith_doctrine
+
+			#Main Group
+			doctrine = doctrine_gender_equal # Gender
+			doctrine = doctrine_pluralism_righteous # Religious Attitude
+			doctrine = doctrine_theocracy_lay_clergy # Clerical Traditions
+			doctrine = doctrine_no_head # Head of Faith
+			doctrine = doctrine_old_gods_btw_pantheon # Pantheon & Rites
+			doctrine = doctrine_no_syncreticism # Syncretism
+
+			#Marriage
+			doctrine = doctrine_polygamy # Marriage Type
+			doctrine = doctrine_divorce_allowed # Divorce
+			doctrine = doctrine_bastardry_none # Bastardry
+			doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece # Consanguinity
+
+			#Criminology
+			doctrine = doctrine_homosexuality_shunned # Same-Sex Relationships
+			doctrine = doctrine_deviancy_shunned # Deviancy
+			doctrine = doctrine_adultery_men_shunned # Male Adultery
+			doctrine = doctrine_adultery_women_shunned # Female Adultery
+			doctrine = doctrine_kinslaying_close_kin_crime # Kinslaying
+			doctrine = doctrine_witchcraft_shunned # Witchcraft
+
+			#Clerical Functions
+			doctrine = doctrine_clerical_function_recruitment # Clerical Function
+			doctrine = doctrine_clerical_gender_either # Clerical Gender
+			doctrine = doctrine_clerical_marriage_allowed # Clerical Marriage
+			doctrine = doctrine_clerical_succession_temporal_appointment # Clerical Appointment
+			doctrine = doctrine_funeral_cremation #Wildlings burn their dead
+		}
+
+		magnaric = {
+			color = { 0.6 0.6 0.6 }
+			icon = oldgodsmagnaric
+
+			holy_site = gods_eye
+			holy_site = fist_of_the_first_men
+			holy_site = thenn
+			holy_site = nightfort
+			holy_site = winterfell
+			#holy_site = hardhome #maybe
+			#holy_site = skane = #maybe
+
+			#Tenets
+			doctrine = tenet_godly_leadership
+			doctrine = tenet_cthonic_redoubts
+			doctrine = tenet_megaliths
+			doctrine = tenet_pursuit_of_power
+			doctrine = tenet_communal_identity
+
+			#Main Group
+			doctrine = doctrine_gender_male_dominated # Gender
+			doctrine = doctrine_pluralism_righteous # Religious Attitude
+			doctrine = doctrine_theocracy_lay_clergy # Clerical Traditions
+			doctrine = doctrine_temporal_head # Head of Faith
+			doctrine = doctrine_magnar_pantheon # Pantheon & Rites
+			doctrine = doctrine_old_gods_syncreticism # Syncretism
+
+			#Belief
+
+			#Practices
+
+			#Marriage
+			doctrine = doctrine_polygamy # Marriage Type
+			doctrine = doctrine_divorce_approval # Divorce
+			doctrine = doctrine_bastardry_legitimization # Bastardry
+			doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece # Consanguinity
+
+			#Criminology
+			doctrine = doctrine_homosexuality_crime # Same-Sex Relationships
+			doctrine = doctrine_deviancy_shunned # Deviancy
+			doctrine = doctrine_adultery_men_shunned # Male Adultery
+			doctrine = doctrine_adultery_women_crime # Female Adultery
+			doctrine = doctrine_kinslaying_close_kin_crime # Kinslaying
+			doctrine = doctrine_witchcraft_crime # Witchcraft
+
+			#Clerical Functions
+			doctrine = doctrine_clerical_function_recruitment # Clerical Function
+			doctrine = doctrine_clerical_gender_either # Clerical Gender
+			doctrine = doctrine_clerical_marriage_disallowed # Clerical Marriage
+			doctrine = doctrine_clerical_succession_temporal_appointment # Clerical Appointment
+			doctrine = doctrine_funeral_cremation #Wildlings burn their dead
+
+			localization = {
+				#Creator
+				CreatorName = old_gods_btw_creator_god_name
+				CreatorNamePossessive = old_gods_btw_creator_god_name_possessive
+
+				#HealthGod
+				HealthGodName = old_gods_btw_health_god_name
+				HealthGodNamePossessive = old_gods_btw_health_god_name_possessive
+
+				#FertilityGod
+				FertilityGodName = old_gods_btw_fertility_god_name
+				FertilityGodNamePossessive = old_gods_btw_fertility_god_name_possessive
+
+				#WealthGod
+				WealthGodName = old_gods_btw_wealth_god_name
+				WealthGodNamePossessive = old_gods_btw_wealth_god_name_possessive
+
+				#HouseholdGod
+				HouseholdGodName = old_gods_btw_household_god_name
+				HouseholdGodNamePossessive = old_gods_btw_household_god_name_possessive
+
+				#FateGod
+				FateGodName = old_gods_btw_fate_god_name
+				FateGodNamePossessive = old_gods_btw_fate_god_name_possessive
+
+				#KnowledgeGod
+				KnowledgeGodName = old_gods_btw_knowledge_god_name
+				KnowledgeGodNamePossessive = old_gods_btw_knowledge_god_name_possessive
+
+				#WarGod
+				WarGodName = old_gods_btw_war_god_name
+				WarGodNamePossessive = old_gods_btw_war_god_name_possessive
+
+				#TricksterGod
+				TricksterGodName = old_gods_btw_trickster_god_name
+				TricksterGodNamePossessive = old_gods_btw_trickster_god_name_possessive
+
+				#NightGod
+				NightGodName = old_gods_btw_night_god_name
+				NightGodNamePossessive = old_gods_btw_night_god_name_possessive
+
+				#WaterGod
+				WaterGodName = old_gods_btw_water_god_name
+				WaterGodNamePossessive = old_gods_btw_water_god_name_possessive
+			}
+		}
+
+		old_gods_vale = {
+			color = { 0.38 0.53 0.66 }
+			icon = oldgodsvale
+			reformed_icon = oldgodsvale
+
+
+			holy_site = gods_eye
+			holy_site = high_heart
+			holy_site = gates_of_the_moon
+			holy_site = runestone
+			holy_site = witch_isle
+
+			doctrine = unreformed_faith_doctrine
+
+			#Tenets
+			doctrine = tenet_sanctity_of_nature
+			doctrine = tenet_pursuit_of_power
+			doctrine = tenet_human_sacrifice
+			doctrine = tenet_godswoods
+			doctrine = tenet_unrelenting_faith
+
+			#Doctrines
+			doctrine = doctrine_old_gods_vale_pantheon
+			doctrine = doctrine_bastardry_none
+
+			doctrine = doctrine_deviancy_accepted
+			doctrine = doctrine_kinslaying_shunned
+			doctrine = doctrine_witchcraft_accepted
+
+			doctrine = doctrine_clerical_function_recruitment
+			doctrine = doctrine_no_syncreticism
+
+			localization = {
+				#Creator
+				CreatorName = old_gods_btw_creator_god_name
+				CreatorNamePossessive = old_gods_btw_creator_god_name_possessive
+
+				#HealthGod
+				HealthGodName = old_gods_btw_health_god_name
+				HealthGodNamePossessive = old_gods_btw_health_god_name_possessive
+
+				#FertilityGod
+				FertilityGodName = old_gods_btw_fertility_god_name
+				FertilityGodNamePossessive = old_gods_btw_fertility_god_name_possessive
+
+				#WealthGod
+				WealthGodName = old_gods_btw_wealth_god_name
+				WealthGodNamePossessive = old_gods_btw_wealth_god_name_possessive
+
+				#HouseholdGod
+				HouseholdGodName = old_gods_btw_household_god_name
+				HouseholdGodNamePossessive = old_gods_btw_household_god_name_possessive
+
+				#FateGod
+				FateGodName = old_gods_btw_fate_god_name
+				FateGodNamePossessive = old_gods_btw_fate_god_name_possessive
+
+				#KnowledgeGod
+				KnowledgeGodName = old_gods_btw_knowledge_god_name
+				KnowledgeGodNamePossessive = old_gods_btw_knowledge_god_name_possessive
+
+				#WarGod
+				WarGodName = old_gods_btw_war_god_name
+				WarGodNamePossessive = old_gods_btw_war_god_name_possessive
+
+				#TricksterGod
+				TricksterGodName = old_gods_btw_trickster_god_name
+				TricksterGodNamePossessive = old_gods_btw_trickster_god_name_possessive
+
+				#NightGod
+				NightGodName = old_gods_btw_night_god_name
+				NightGodNamePossessive = old_gods_btw_night_god_name_possessive
+
+				#WaterGod
+				WaterGodName = old_gods_btw_water_god_name
+				WaterGodNamePossessive = old_gods_btw_water_god_name_possessive
+			}
+		}
+	}
+}
