@@ -25,7 +25,7 @@ arbor_marines = { # Edited
 	type = skirmishers
 
 	damage = 16.0
-	toughness = 16.0
+	toughness = 18.0 # Edited
 	pursuit = 10.0
 	screen = 20.0
 
@@ -79,8 +79,8 @@ arbor_marines = { # Edited
 barrow_knights = { # Edited
 	type = light_cavalry
 
-	damage = 22.0
-	toughness = 16.0
+	damage = 36.0 # Edited
+	toughness = 26.0 # Edited
 	pursuit = 30.0
 	screen = 30.0
 
@@ -158,7 +158,7 @@ barrow_knights = { # Edited
 	high_maintenance_cost = { gold = barrow_knights_high_maint_cost }
 	provision_cost = @provisions_cost_cavalry_cheap
 
-	stack = 100.0
+	stack = 80.0 # Edited
 	ai_quality = { value = @cultural_maa_extra_ai_score }
 	icon = light_cavalry
 }
@@ -207,7 +207,7 @@ marsh_walker = { # Edited
 	high_maintenance_cost = { gold = marsh_walker_high_maint_cost }
 	provision_cost = @provisions_cost_infantry_cheap
 
-	stack = 100.0
+	stack = 150.0 # Edited
 	ai_quality = { value = @cultural_maa_extra_ai_score }
 	icon = skirmishers
 }
@@ -269,7 +269,7 @@ frog_spears = { # Edited
 	high_maintenance_cost = { gold = frog_spears_high_maint_cost }
 	provision_cost = @provisions_cost_infantry_cheap
 
-	stack = 80.0
+	stack = 100.0 # Edited
 	ai_quality = { value = @cultural_maa_extra_ai_score }
 	icon = skirmishers
 }
@@ -278,8 +278,8 @@ frog_spears = { # Edited
 royal_crossbowmen = { # Edited
 	type = archers
 
-	damage = 25.0
-	toughness = 20.0
+	damage = 30.0 # Edited
+	toughness = 25.0 # Edited
 	pursuit = 0.0
 	screen = 0.0
 
@@ -335,10 +335,10 @@ royal_crossbowmen = { # Edited
 finger_scouts = { # Edited
 	type = light_cavalry
 
-	damage = 22.0
-	toughness = 15.0
-	pursuit = 25.0
-	screen = 30.0
+	damage = 20.0 # Edited
+	toughness = 23.0 # Edited
+	pursuit = 20.0 # Edited
+	screen = 40.0 # Edited
 
 	terrain_bonus = {
 		hills = { pursuit = 15 }
@@ -583,8 +583,8 @@ green_hand = { # Edited
 dragonkeepers = { # Edited
 	type = heavy_infantry
 
-	damage = 30.0
-	toughness = 30.0
+	damage = 34.0 # Edited
+	toughness = 40.0 # Edited
 	pursuit = 0.0
 	screen = 10.0
 
@@ -639,14 +639,15 @@ dragonkeepers = { # Edited
 honeywine_quirrels = { # Edited
 	type = archers
 
-	damage = 28.0
-	toughness = 20.0
-	pursuit = 0.0
+	damage = 30.0 # Edited
+	toughness = 22.0 # Edited
+	pursuit = 5.0 # Edited
 	screen = 0.0
 
 	counters = {
 		archers = 1
 		archer_cavalry = 1
+		pikemen = 0.5 # Edited
 	}
 
 	terrain_bonus = {
@@ -703,12 +704,13 @@ reavers = { # Edited
 	type = heavy_infantry
 
 	damage = 42.0
-	toughness = 22.0
+	toughness = 26.0 # Edited
 	pursuit = 0.0
 	screen = 0.0
 
 	counters = {
 		skirmishers = 1
+		archers = 0.5 # Edited
 	}
 
 	terrain_bonus = {
@@ -759,7 +761,7 @@ reavers = { # Edited
 longbowmen = { # Edited
 	type = archers
 
-	damage = 52.0
+	damage = 42.0 # Edited
 	toughness = 12.0
 	pursuit = 0.0
 	screen = 0.0
@@ -821,7 +823,7 @@ hunters_of_the_moon = { # Edited
 	type = archers
 
 	damage = 38.0
-	toughness = 10.0
+	toughness = 12.0 # Edited
 	pursuit = 0.0
 	screen = 0.0
 
@@ -1032,8 +1034,8 @@ clan_champions = { # Edited
 winter_wolves = { # Edited
 	type = heavy_infantry
 
-	damage = 35.0
-	toughness = 20.0
+	damage = 40.0 # Edited
+	toughness = 18.0 # Edited
 	pursuit = 0.0
 	screen = 0.0
 
@@ -1304,7 +1306,7 @@ river_bows = { # Edited
 	type = archers
 
 	damage = 42.0
-	toughness = 10.0
+	toughness = 13.0 # Edited
 	pursuit = 0.0
 	screen = 0.0
 
@@ -1362,8 +1364,8 @@ river_bows = { # Edited
 sun_spears = { # Edited
 	type = pikemen
 
-	damage = 25.0
-	toughness = 20.0
+	damage = 26.0 # Edited
+	toughness = 22.0 # Edited
 	pursuit = 0.0
 	screen = 0.0
 
@@ -1436,7 +1438,7 @@ sun_spears = { # Edited
 sand_steeds = { # Edited
 	type = light_cavalry
 
-	damage = 25.0
+	damage = 27.0 # Edited
 	toughness = 15.0
 	pursuit = 45.0
 	screen = 30.0
@@ -1530,14 +1532,14 @@ sand_steeds = { # Edited
 misty_shields = { # Edited
 	type = heavy_infantry
 
-	damage = 30.0
+	damage = 32.0 # Edited
 	toughness = 25.0
 	pursuit = 0.0
 	screen = 0.0
 
 	counters = {
 		skirmishers = 1
-		heavy_infantry = 0.25
+		heavy_infantry = 1 # Edited
 	}
 
 	terrain_bonus = {
@@ -1590,10 +1592,10 @@ misty_shields = { # Edited
 sistermen_pirates = { # Edited
 	type = skirmishers
 
-	damage = 14.0
-	toughness = 12.0
-	pursuit = 15.0
-	screen = 11.0
+	damage = 18.0 # Edited
+	toughness = 14.0 # Edited
+	pursuit = 18.0 # Edited
+	screen = 10.0 # Edited
 
 	terrain_bonus = {
 		plains = { damage = 4 toughness = 6 }
@@ -1928,9 +1930,9 @@ winged_knights = { # Edited
 bloody_balesters = { # Edited
 	type = archers
 
-	damage = 25.0
-	toughness = 23.0
-	pursuit = 0.0
+	damage = 45.0 # Edited
+	toughness = 26.0 # Edited
+ 	pursuit = 0.0
 	screen = 0.0
 
 	counters = {
@@ -1982,7 +1984,7 @@ bloody_balesters = { # Edited
 	high_maintenance_cost = { gold = bloody_balesters_high_maint_cost }
 	provision_cost = @provisions_cost_infantry_moderate
 
-	stack = 100.0
+	stack = 80.0 # Edited
 	ai_quality = { value = @cultural_maa_extra_ai_score }
 	icon = crossbowmen
 }
@@ -1991,8 +1993,8 @@ bloody_balesters = { # Edited
 sea_snakes = { # Edited
 	type = skirmishers
 
-	damage = 15.0
-	toughness = 21.0
+	damage = 20.0 # Edited
+	toughness = 26.0 # Edited
 	pursuit = 10.0
 	screen = 21.0
 
@@ -2024,6 +2026,7 @@ sea_snakes = { # Edited
 
 	counters = {
 		heavy_infantry = 1
+		skirmishers = 0.5 # Edited
 	}
 
 	can_recruit = {
@@ -2049,25 +2052,25 @@ sea_snakes = { # Edited
 wolfswood_hunters = { # Edited
 	type = archers
 
-	damage = 38.0
+	damage = 42.0 # Edited
 	toughness = 12.0
 	pursuit = 0.0
 	screen = 5.0
 
 	terrain_bonus = {
-		taiga = { damage = 4 toughness = 4 pursuit = 5 }
-		majorroad_taiga = { damage = 4 toughness = 4 pursuit = 5 }
-		minorroad_taiga = { damage = 4 toughness = 4 pursuit = 5 }
-		forest = { damage = 4 toughness = 4 pursuit = 5 }
-		majorroad_forest = { damage = 4 toughness = 4 pursuit = 5 }
-		minorroad_forest = { damage = 4 toughness = 4 pursuit = 5 }
-		cloudforest = { damage = 4 toughness = 4 pursuit = 5 }
-		majorroad_cloudforest = { damage = 4 toughness = 4 pursuit = 5 }
-		minorroad_cloudforest = { damage = 4 toughness = 4 pursuit = 5 }
+		taiga = { damage = 10 toughness = 4 pursuit = 5 } # Edited
+		majorroad_taiga = { damage = 10 toughness = 4 pursuit = 5 } # Edited
+		minorroad_taiga = { damage = 10 toughness = 4 pursuit = 5 } # Edited
+		forest = { damage = 10 toughness = 4 pursuit = 5 } # Edited
+		majorroad_forest = { damage = 10 toughness = 4 pursuit = 5 } # Edited
+		minorroad_forest = { damage = 10 toughness = 4 pursuit = 5 } # Edited
+		cloudforest = { damage = 10 toughness = 4 pursuit = 5 } # Edited
+		majorroad_cloudforest = { damage = 10 toughness = 4 pursuit = 5 } # Edited
+		minorroad_cloudforest = { damage = 10 toughness = 4 pursuit = 5 } # Edited
 		
-		taiga_bog = { damage = 4 pursuit = 5 }
-		majorroad_taiga_bog = { damage = 4 pursuit = 5 }
-		minorroad_taiga_bog = { damage = 4 pursuit = 5 }
+		taiga_bog = { damage = 10 pursuit = 5 } # Edited
+		majorroad_taiga_bog = { damage = 10 pursuit = 5 } # Edited
+		minorroad_taiga_bog = { damage = 10 pursuit = 5 } # Edited
 
 		hills = { toughness = 4 }
 		majorroad_hills = { toughness = 4 }
