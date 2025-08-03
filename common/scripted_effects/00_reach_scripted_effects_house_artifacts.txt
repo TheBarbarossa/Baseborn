@@ -2153,3 +2153,101 @@ agot_create_artifact_baseborn_norcross_artifact_effect = {
 		}
 	}
 }
+
+agot_create_artifact_baseborn_costayne_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_costayne_artifact_name
+		description = baseborn_costayne_artifact_description
+		visuals = pocket_goblet
+		type = brooch
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_costayne_artifact_template
+		history = {
+			type = created
+			date = 8110.1.1
+			recipient = character:Costayne_22 # First character to use the artifact
+			location = province:3455 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_costayne_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Costayne.dynasty_founder.house
+		}
+	agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8196.1.1
+		RECIPIENT = character:Costayne_37 # Next user of the artfact
+		}
+
+	agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8110.1.1
+		RECIPIENT = character:Costayne_22 # Next user of the artfact
+		}
+	}
+}
+
+agot_create_artifact_baseborn_bulwer_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_bulwer_artifact_name
+		description = baseborn_bulwer_artifact_description
+		visuals = crown
+		type = helmet
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_bulwer_artifact_template
+		history = {
+			type = created
+			date = 8120.1.1
+			recipient = character:Bulwer_54 # First character to use the artifact
+			location = province:3534 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_bulwer_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Bulwer.dynasty_founder.house
+		}
+	agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8204.1.1
+		RECIPIENT = character:Bulwer_32 # Next user of the artfact
+		}
+
+	agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8120.1.1
+		RECIPIENT = character:Bulwer_54 # Next user of the artfact
+		}
+	}
+}
