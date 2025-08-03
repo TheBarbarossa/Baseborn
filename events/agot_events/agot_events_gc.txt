@@ -1,0 +1,298 @@
+﻿
+namespace = agot_gold_company_formation
+
+scripted_trigger blackfyre_loyalist_houses = {
+	OR = {
+		house ?= dynasty:dynn_Bracken.dynasty_founder.house
+		house ?= dynasty:dynn_Costayne.dynasty_founder.house
+		house ?= dynasty:dynn_Osgrey.dynasty_founder.house
+		house ?= dynasty:dynn_Peake.dynasty_founder.house
+		house ?= dynasty:dynn_Shawney.dynasty_founder.house
+		house ?= dynasty:dynn_Strickland.dynasty_founder.house
+		house ?= dynasty:dynn_Yronwood.dynasty_founder.house
+		house ?= dynasty:dynn_Lothston.dynasty_founder.house
+	}
+}
+
+scripted_trigger candidate_for_golden_company_formation_trigger = {
+	is_human = yes
+	has_bad_opinion_of_root_trigger = yes
+	OR = {
+		has_character_modifier = bittersteel_modifier
+		blackfyre_loyalist_houses = yes
+	}
+}
+
+scripted_effect notify_players_about_golden_company = {
+	every_player = {
+		limit = {
+			this != root
+			this != scope:disgruntled_merc
+		}
+		trigger_event = { 
+			id = agot_gold_company_formation.0002 
+			days = 1
+		}
+	}
+}
+
+scripted_effect spawn_golden_company = {
+	primary_title = {
+		set_coa = laamp_golden_company
+		reset_title_prefix = yes
+		set_title_prefix = AGOT_PREFIX_THE 
+		set_title_name = golden_company
+	}
+	add_realm_law = camp_purpose_mercenaries
+	set_global_variable = {
+		name = dynamic_gc_formed
+		value = primary_title
+	}
+	create_alliance = {
+		target = title:d_laamp_blackfyre.holder
+		allied_through_owner =  scope:disgruntled_merc
+		allied_through_target = title:d_laamp_blackfyre.holder
+	}
+	title:d_laamp_blackfyre.holder = {
+		add_opinion = {
+			modifier = perk_negotiated_alliance_opinion
+			target = scope:disgruntled_merc
+		}
+	}
+} 
+
+agot_gold_company_formation.0001 = {
+	type = character_event
+	title = agot_gold_company_formation.0001.t
+	desc = {
+		desc = agot_gold_company_formation.0001.desc
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:disgruntled_merc = { house ?= house:house_Blackfyre }
+				}
+				desc = agot_gold_company_formation.0001.desc_self_claim
+			}
+			triggered_desc = {
+				trigger = {
+					scope:disgruntled_merc = {
+						any_close_family_member = {
+							house ?= house:house_Blackfyre
+						}
+						any_spouse = {
+							house ?= house:house_Blackfyre						
+						}
+					}
+				}
+				desc = agot_gold_company_formation.0001.desc_family_claim
+			}
+			triggered_desc = {
+				# Blackfyre Loyalists
+				trigger = {
+					scope:disgruntled_merc = {
+						blackfyre_loyalist_houses = yes
+					}
+				}
+				desc = agot_gold_company_formation.0001.desc_blackfyre_loyalist
+			}
+		}
+	}
+	theme = laamp
+	left_portrait = {
+		character = root
+		triggered_animation = {
+			trigger = {
+				OR = {
+					has_trait = compassionate
+					has_trait = craven
+				}
+			}
+			animation = worry
+		}
+		triggered_animation = {
+			trigger = {
+				OR = {
+					has_trait = arrogant
+					has_trait = wrathful
+					has_trait = vengeful
+					has_trait = callous
+				}
+			}
+			animation = anger
+		}
+		animation = stress
+	}
+	right_portrait = {
+		character = scope:disgruntled_merc
+		animation = chess_cocky
+	}
+	override_background = { reference = bp1_bonfire }
+
+	trigger = {
+		has_realm_law = camp_purpose_mercenaries
+		OR = {
+			has_character_flag = agot_lost_or_reneged_merc_contract
+			has_character_flag = fp2_contract_assistance_failure
+			has_domicile_temperament_low = yes
+		}
+		NOR = {
+			exists = title:d_laamp_merc_golden_company
+			exists = global_var:dynamic_gc_formed
+		}
+		exists = global_var:number_of_blackfyre_rebellions
+		any_courtier = {
+			candidate_for_golden_company_formation_trigger = yes
+		}
+	}
+	
+	immediate = {
+		random_courtier = {
+			limit = {
+				candidate_for_golden_company_formation_trigger = yes
+			}
+			weight = {
+				base = 1
+				modifier = {
+					add = 10
+					has_really_bad_opinion_of_root_trigger = yes					
+				}
+				modifier = {
+					add = 50
+					blackfyre_loyalist_houses = yes
+				}
+				modifier = {
+					add = 1000
+					has_character_modifier = bittersteel_modifier
+				}
+			}
+			save_scope_as = disgruntled_merc
+		}
+		every_courtier = {
+			limit = {
+				is_available_healthy_ai_adult = yes
+				OR = {
+					blackfyre_loyalist_houses = yes
+					has_really_bad_opinion_of_root_trigger = yes
+				}
+			}
+			add_to_list = new_company_members
+		}
+        scope:disgruntled_merc = {
+            create_landless_adventurer_title_effect = {
+                REASON = flag:voluntary
+                FLAVOR_CHAR = root
+            }
+			spawn_golden_company = yes
+			hidden_effect = {
+				create_maa_regiment = {
+					type = trebuchet  
+					check_can_recruit = no
+					size = 5
+				}
+				create_maa_regiment = {
+					type = crossbowmen  
+					check_can_recruit = no
+					size = 5
+				}
+				create_maa_regiment = {
+					type = armored_horsemen  
+					check_can_recruit = no
+					size = 5
+				}
+				domicile ?= {
+					add_domicile_building = camp_main_02
+					add_domicile_building = proving_grounds_01
+					add_domicile_building = mess_tent_01
+				}
+				add_gold = 300
+				add_prestige = 100
+				add_prestige_level = 1
+			}
+        }
+		every_in_list = {
+			list = new_company_members
+			limit = {
+				this != scope:disgruntled_merc
+			}
+			save_temporary_scope_as = followers_to_leave
+			scope:disgruntled_merc = { add_courtier = scope:followers_to_leave }
+		}
+	}
+	
+	option = {
+		name = agot_gold_company_formation.0001.a
+		stress_impact = {
+			paranoid = medium_stress_impact_gain
+			wrathful = medium_stress_impact_gain
+			vengeful = medium_stress_impact_gain
+		}
+	}
+	after = {
+		notify_players_about_golden_company = yes
+	}
+}
+
+agot_gold_company_formation.0002 = {
+	type = character_event
+	window = fullscreen_event
+	title = agot_gold_company_formation.0002.t
+	desc = agot_gold_company_formation.0002.desc
+	theme = war
+	override_background = { reference = fp3_fullscreen_temper }
+
+	immediate = {
+		play_music_cue = mood_the_golden_company
+	}
+	
+	option = {
+		name = agot_gold_company_formation.0002.a
+	}
+	option = {
+		name = agot_gold_company_formation.0002.b
+		trigger = {
+			is_ai = no
+			any_player = {
+				count <= 1
+			}
+		}
+		set_player_character = scope:disgruntled_merc
+	}
+}
+
+agot_gold_company_formation.0003 = {
+	hidden = yes
+	immediate = {
+		create_landless_adventurer_title_effect = {
+			REASON = flag:voluntary
+			FLAVOR_CHAR = root
+		}
+		save_scope_as = disgruntled_merc
+		spawn_golden_company = yes
+		hidden_effect = {
+			create_maa_regiment = {
+				type = trebuchet  
+				check_can_recruit = no
+				size = 5
+			}
+			create_maa_regiment = {
+				type = crossbowmen  
+				check_can_recruit = no
+				size = 5
+			}
+			create_maa_regiment = {
+				type = armored_horsemen  
+				check_can_recruit = no
+				size = 5
+			}
+			domicile ?= {
+				add_domicile_building = camp_main_02
+				add_domicile_building = proving_grounds_01
+				add_domicile_building = mess_tent_01
+			}
+			add_gold = 300
+			add_prestige = 100
+			add_prestige_level = 1
+		}
+		notify_players_about_golden_company = yes
+	}
+}
