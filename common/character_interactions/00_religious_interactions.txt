@@ -4861,16 +4861,17 @@ hof_ask_for_gold_interaction = {
 	cooldown_against_recipient = { years = 3 }
 
 	is_shown = {
-		NOT = {
-			scope:recipient = scope:actor
-		}
-		scope:actor.faith = {
-			religious_head = scope:recipient
-			has_doctrine = doctrine_spiritual_head
-		}
-		scope:actor = {
-			is_playable_character = yes
-		}
+		# NOT = {
+		# 	scope:recipient = scope:actor
+		# }
+		# scope:actor.faith = {
+		# 	religious_head = scope:recipient
+		# 	has_doctrine = doctrine_spiritual_head
+		# }
+		# scope:actor = {
+		# 	is_playable_character = yes
+		# }
+		always = no
 	}
 
 	is_valid_showing_failures_only = {
