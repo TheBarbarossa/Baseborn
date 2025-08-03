@@ -1,0 +1,1072 @@
+﻿##############
+## RELIGION ##
+##############
+
+# This is broken, don't uncomment unless it's fixed
+# agot_debug_religion_set_special_incest_flag_interaction = {
+# 	category = interaction_category_agot_debug
+# 	use_diplomatic_range = no
+# 	common_interaction = yes
+
+# 	is_shown = {
+# 		scope:actor = { is_ai = no }
+# 		scope:recipient = { exists = dynasty }
+# 		OR = {
+# 			has_game_rule = agot_debug_on
+# 			debug_only = yes
+# 		}
+# 	}
+
+# 	auto_accept = yes
+
+# 	send_option = {
+# 		flag = unrestricted_incest_for_dynasty
+# 		localization = agot_unrestricted_incest_for_dynasty
+# 	}
+# 	send_option = {
+# 		flag = unrestricted_incest_for_house
+# 		localization = agot_unrestricted_incest_for_house
+# 	}
+# 	send_option = {
+# 		flag = adelphogamous_incest_for_dynasty
+# 		localization = agot_adelphogamous_incest_for_dynasty
+# 	}
+# 	send_option = {
+# 		flag = allow_adelphogamous_incest_for_house
+# 		localization = agot_adelphogamous_incest_for_house
+# 	}
+# 	send_option = {
+# 		flag = agot_no_incest_allowed
+# 		localization = agot_agot_no_incest_allowed
+# 	}
+
+# 	on_accept = {
+# 		if = {
+# 			limit = { exists = scope:unrestricted_incest_for_dynasty }
+
+# 			scope:recipient.dynasty = { set_variable = agot_allow_unrestricted_incest }
+# 		}
+# 		if = {
+# 			limit = { exists = scope:unrestricted_incest_for_house }
+
+# 			scope:recipient.house = { set_variable = agot_allow_unrestricted_incest }
+# 		}
+# 		if = {
+# 			limit = { exists = scope:adelphogamous_incest_for_dynasty }
+
+# 			scope:recipient.house = { set_variable = agot_allow_adelphogamous_incest }
+# 		}
+# 		if = {
+# 			limit = { exists = scope:allow_adelphogamous_incest_for_house }
+
+# 			scope:recipient.house = { set_variable = agot_allow_adelphogamous_incest }
+# 		}
+# 		if = {
+# 			limit = { exists = scope:agot_no_incest_allowed }
+
+# 			scope:recipient.dynasty = {
+# 				remove_variable = agot_allow_unrestricted_incest
+# 				remove_variable = agot_allow_adelphogamous_incest
+# 			}
+# 			scope:recipient.house = {
+# 				remove_variable = agot_allow_unrestricted_incest
+# 				remove_variable = agot_allow_adelphogamous_incest
+# 			}
+# 		}
+# 	}
+# }
+##############
+##  DRAGONS ##
+##############
+
+debug_tame_dragon_interaction = {
+	icon = icon_scheme_dragon
+	category = interaction_category_agot_debug
+	interface_priority = 90
+	ignores_pending_interaction_block = yes
+	auto_accept = yes
+
+	send_option = {
+		is_shown = {
+			scope:actor = {
+				NOR = {
+					has_relation_agot_dragon = scope:recipient
+					any_relation = {
+						type = agot_dragon
+					}
+				}
+			}
+			scope:recipient = {
+				NOT = {
+					any_relation = {
+						type = agot_dragon
+					}
+				}
+			}
+		}
+		flag = debug_bond_dragon
+		localization = debug_bond_dragon
+	}
+	send_option = {
+		is_shown = {
+			scope:actor = {
+				NOT = {
+					has_variable = current_dragon
+				}
+			}
+			scope:recipient = {
+				NOT = {
+					has_variable = current_rider
+				}
+			}
+		}
+		flag = debug_tame_dragon
+		localization = debug_tame_dragon
+	}
+	send_option = {
+		is_shown = {
+			scope:actor = {
+				var:current_dragon ?= scope:recipient
+			}
+		}
+		flag = debug_untame_dragon
+		localization = debug_untame_dragon
+	}
+	send_option = {
+		is_shown = {
+			scope:actor = {
+				any_relation = {
+					type = agot_dragon
+					this = scope:recipient
+				}
+				NOT = {
+					var:current_dragon ?= scope:recipient
+				}
+			}
+		}
+		flag = debug_unbond_dragon
+		localization = debug_unbond_dragon
+	}
+	is_shown = {
+		OR = {
+			has_game_rule = agot_debug_on
+			scope:actor = { has_trait = game_master }
+			debug_only = yes
+		}
+		scope:actor = {
+			is_ai = no
+		}
+		scope:recipient = {
+			has_trait = dragon
+			trigger_if = {
+				limit = {
+					any_relation = {
+						type = agot_dragon
+					}
+				}
+				any_relation = {
+					type = agot_dragon
+					this = scope:actor
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		base = 0
+	}
+	on_accept = {
+		if = {
+			limit = {
+				scope:debug_bond_dragon = yes
+			}
+			scope:actor = {
+				custom_tooltip = {
+					text = debug_bond_dragon_tt
+					agot_bond_dragon_relation_effect = {
+						ACTOR = scope:actor
+						DRAGON = scope:recipient
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:debug_tame_dragon = yes
+			}
+			scope:actor = {
+				custom_tooltip = {
+					text = debug_tame_dragon_tt
+					agot_tame_dragon = {
+						TAMER = scope:actor
+						DRAGON = scope:recipient
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:debug_untame_dragon = yes
+			}
+			scope:recipient = {
+				custom_tooltip = {
+					text = debug_untame_dragon_tt
+					agot_untame_dragon = {
+						OWNER = scope:actor
+						DRAGON = scope:recipient
+					}
+					scope:recipient = {
+						agot_free_dragon = yes
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:debug_unbond_dragon = yes
+			}
+			scope:recipient = {
+				custom_tooltip = {
+					text = debug_unbond_dragon_tt
+					remove_relation_agot_dragon = scope:actor
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:debug_bond_dragon = no
+				scope:debug_tame_dragon = no
+				scope:debug_untame_dragon = no
+				scope:debug_unbond_dragon = no
+			}
+			custom_tooltip = manage_dragon_nothing_tt
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					scope:recipient = { this = character:dragon_cannibal }
+				}
+				scope:actor = {
+					death = { death_reason = death_ratiod }
+				}
+			}
+		}
+	}
+}
+
+
+agot_debug_spawn_egg = {
+	category = interaction_category_agot_debug
+	use_diplomatic_range = no
+
+	is_shown = {
+		scope:actor = { is_ai = no }
+		OR = {
+			has_game_rule = agot_debug_on
+			scope:actor = { has_trait = game_master }
+			debug_only = yes
+		}
+		scope:recipient = {
+			is_ruler = yes
+		}
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		scope:recipient = {
+			agot_spawn_laid_egg = {
+				OWNER_SCOPE = scope:recipient
+				AMOUNT_OF_EGGS_TO_SPAWN = 1
+				DRAGON_PARENT = character:dragon_balerion
+			}
+		}
+	}
+}
+
+agot_debug_spawn_dragon = {
+	category = interaction_category_agot_debug
+	use_diplomatic_range = no
+
+	is_shown = {
+		scope:actor = { is_ai = no }
+		OR = {
+			has_game_rule = agot_debug_on
+			scope:actor = { has_trait = game_master }
+			debug_only = yes
+		}
+	}
+
+	auto_accept = yes
+
+	send_option = {
+		flag = debug_spawn_owned_dragon
+		localization = debug_spawn_owned_dragon
+	}
+	send_option = {
+		flag = debug_spawn_wild_dragon
+		localization = debug_spawn_wild_dragon
+	}
+	send_option = {
+		flag = debug_spawn_tamed_dragon
+		localization = debug_spawn_tamed_dragon
+	}
+	on_accept = {
+		if = {
+			limit = {
+				scope:debug_spawn_owned_dragon = yes
+			}
+			scope:actor = {
+				custom_tooltip = {
+					text = agot_debug_spawn_owned_dragon_tt
+					agot_spawn_owned_adult_dragon_effect = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:debug_spawn_wild_dragon = yes
+			}
+			scope:actor = {
+				custom_tooltip = {
+					text = agot_debug_spawn_wild_dragon_tt
+					agot_spawn_wild_dragon_effect = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:debug_spawn_tamed_dragon = yes
+			}
+			scope:recipient = {
+				custom_tooltip = {
+					text = agot_debug_give_dragon_tt
+					agot_spawn_owned_adult_dragon_effect = yes
+					if = {
+						limit = { exists = scope:dragon }
+						agot_tame_dragon = {
+							TAMER = scope:recipient
+							DRAGON = scope:dragon
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+agot_debug_make_lord_paramount_interaction = {
+	category = interaction_category_agot_debug
+	use_diplomatic_range = no
+
+	is_shown = {
+		scope:actor = { is_ai = no }
+		has_game_rule = agot_debug_on
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		scope:recipient.primary_title = {
+			set_variable = is_lord_paramount
+		}
+	}
+}
+
+###############
+## MEGA WARS ##
+###############
+
+agot_mw_clear_mw_variable = {
+	category = interaction_category_agot_debug
+	use_diplomatic_range = no
+
+	is_shown = {
+		scope:actor = {
+			is_ai = no
+			has_variable = pre_war_liege
+		}
+		scope:recipient = scope:actor
+		OR = {
+			has_game_rule = agot_debug_on
+			scope:actor = { has_trait = game_master }
+			debug_only = yes
+		}
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		scope:recipient = {
+			remove_variable = pre_war_liege
+		}
+	}
+}
+
+agot_mw_debug_start_testing_mode_interaction = {
+	category = interaction_category_agot_debug
+	use_diplomatic_range = no
+
+	is_shown = {
+		scope:recipient = { is_ai = no }
+		has_game_rule = agot_debug_on
+		NOT = { has_global_variable = is_debug_mw_testing_mode }
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		scope:actor = {
+			set_global_variable = is_debug_mw_testing_mode
+		}
+	}
+}
+
+agot_mw_debug_end_testing_mode_interaction = {
+	category = interaction_category_agot_debug
+	use_diplomatic_range = no
+
+	is_shown = {
+		scope:actor = { is_ai = no }
+		scope:recipient = { is_ai = no }
+		has_game_rule = agot_debug_on
+		has_global_variable = is_debug_mw_testing_mode
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		scope:actor = {
+			remove_global_variable = is_debug_mw_testing_mode
+		}
+	}
+}
+
+agot_mw_debug_show_stance_and_side_interaction = {
+	category = interaction_category_agot_debug
+	use_diplomatic_range = no
+	common_interaction = yes
+
+	is_shown = {
+		OR = {
+			has_game_rule = agot_debug_on
+			scope:actor = { has_trait = game_master }
+			debug_only = yes
+		}
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		scope:recipient = {
+			if = { # check if loyalist
+				limit = {
+					any_ruler = {
+						any_owned_story = {
+							story_type = story_agot_mw_crown
+							is_target_in_variable_list = { name = mw_loyalist_list target = scope:recipient }
+						}
+					}
+				}
+				random_ruler = {
+					limit = {
+						any_owned_story = {
+							story_type = story_agot_mw_crown
+							is_target_in_variable_list = { name = mw_loyalist_list target = scope:recipient }
+						}
+					}
+					save_scope_as = debug_mw_loyalist
+					random_owned_story = {
+						limit = {
+							story_type = story_agot_mw_crown
+							is_target_in_variable_list = { name = mw_loyalist_list target = scope:recipient }
+						}
+					}
+				}
+				save_scope_value_as = {
+					name = loyalist_list
+					value = yes
+				}
+			}
+			if = { # check if neutral
+				limit = {
+					any_ruler = {
+						any_owned_story = {
+							story_type = story_agot_mw_crown
+							is_target_in_variable_list = { name = mw_neutral_list target = scope:recipient }
+						}
+					}
+				}
+				random_ruler = {
+					limit = {
+						any_owned_story = {
+							story_type = story_agot_mw_crown
+							is_target_in_variable_list = { name = mw_neutral_list target = scope:recipient }
+						}
+					}
+					save_scope_as = debug_mw_neutral
+					random_owned_story = {
+						limit = {
+							story_type = story_agot_mw_crown
+							is_target_in_variable_list = { name = mw_neutral_list target = scope:recipient }
+						}
+					}
+				}
+				save_scope_value_as = {
+					name = neutral_list
+					value = yes
+				}
+			}
+			if = { # check if rebel
+				limit = {
+					any_ruler = {
+						any_owned_story = {
+							story_type = story_agot_mw_rebel
+							is_target_in_variable_list = { name = mw_rebel_supporter_list target = scope:recipient }
+						}
+					}
+				}
+				random_ruler = {
+					limit = {
+						any_owned_story = {
+							story_type = story_agot_mw_rebel
+							is_target_in_variable_list = { name = mw_rebel_supporter_list target = scope:recipient }
+						}
+					}
+					save_scope_as = debug_mw_rebel
+					random_owned_story = {
+						limit = {
+							story_type = story_agot_mw_rebel
+							is_target_in_variable_list = { name = mw_rebel_supporter_list target = scope:recipient }
+						}
+					}
+				}
+				save_scope_value_as = {
+					name = rebel_supporter_list
+					value = yes
+				}
+			}
+			if = { # check if independence rebel
+				limit = {
+					any_ruler = {
+						is_target_in_variable_list = { name = mw_independence_rebels_list target = scope:recipient }
+					}
+				}
+				random_ruler = {
+					limit = { is_target_in_variable_list = { name = mw_independence_rebels_list target = scope:recipient } }
+
+					save_scope_as = debug_mw_independence_rebel
+				}
+				save_scope_value_as = {
+					name = independence_rebel_list
+					value = yes
+				}
+			}
+			if = { # check if crown
+				limit = { agot_mw_crown_trigger = yes }
+
+				save_scope_value_as = {
+					name = crown
+					value = yes
+				}
+			}
+			if = { # check if rebel leader
+				limit = { agot_mw_rebel_leader_trigger = yes }
+
+				random_owned_story = {
+					limit = { story_type = story_agot_mw_rebel }
+
+					var:mw_target = { save_scope_as = debug_mw_rebel_leader }
+				}
+				save_scope_value_as = {
+					name = rebel_leader
+					value = yes
+				}
+			}
+
+			if = {
+				limit = { exists = scope:loyalist_list }
+
+				custom_tooltip = agot_mw_debug_show_stance_and_side_interaction_tt_loyalist
+			}
+			if = {
+				limit = { exists = scope:neutral_list }
+
+				custom_tooltip = agot_mw_debug_show_stance_and_side_interaction_tt_neutral
+			}
+			if = {
+				limit = { exists = scope:rebel_supporter_list }
+
+				custom_tooltip = agot_mw_debug_show_stance_and_side_interaction_tt_rebel_supporter
+			}
+			if = {
+				limit = { exists = scope:independence_rebel_list }
+
+				custom_tooltip = agot_mw_debug_show_stance_and_side_interaction_tt_independence_rebel
+			}
+			if = {
+				limit = { exists = scope:crown }
+
+				custom_tooltip = agot_mw_debug_show_stance_and_side_interaction_tt_crown
+			}
+			if = {
+				limit = { exists = scope:rebel_leader }
+
+				custom_tooltip = agot_mw_debug_show_stance_and_side_interaction_tt_rebel_leader
+			}
+			if = {
+				limit = {
+					NOR = {
+						exists = scope:loyalist_list
+						exists = scope:neutral_list
+						exists = scope:rebel_supporter_list
+						exists = scope:independence_rebel_list
+						exists = scope:crown
+						exists = scope:rebel_leader
+					}
+				}
+
+				custom_tooltip = agot_mw_debug_show_stance_and_side_interaction_tt_none
+			}
+
+			if = { # show pre_war_liege
+				limit = { exists = var:pre_war_liege }
+
+				custom_tooltip = agot_mw_debug_show_stance_and_side_interaction_tt_pre_war_liege
+			}
+		}
+	}
+}
+
+agot_mw_debug_set_stance_interaction = {
+	category = interaction_category_agot_debug
+	use_diplomatic_range = no
+
+	is_shown = {
+		scope:actor = {
+			NOR = {
+				is_ai = yes
+				this = scope:recipient
+			}
+		}
+		OR = {
+			has_game_rule = agot_debug_on
+			scope:actor = { has_trait = game_master }
+			debug_only = yes
+		}
+	}
+
+	send_option = {
+		flag = mw_debug_set_loyalist
+		localization = mw_debug_set_loyalist_loc
+	}
+	send_option = {
+		flag = mw_debug_set_neutral
+		localization = mw_debug_set_neutral_loc
+	}
+	send_option = {
+		flag = mw_debug_set_rebel
+		localization = mw_debug_set_rebel_loc
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		scope:recipient = {
+			agot_mw_clear_debug_data = yes
+
+			if = {
+				limit = { scope:mw_debug_set_loyalist = yes }
+				set_variable = { name = debug_mw_loyalist days = 20 }
+			}
+			if = {
+				limit = { scope:mw_debug_set_neutral = yes }
+				set_variable = { name = debug_mw_neutral days = 20 }
+			}
+			if = {
+				limit = { scope:mw_debug_set_rebel = yes }
+				set_variable = { name = debug_mw_rebel days = 20 }
+			}
+		}
+	}
+}
+
+agot_mw_debug_set_stance_all_interaction = {
+	category = interaction_category_agot_debug
+	use_diplomatic_range = no
+
+	is_shown = {
+		#scope:actor = { is_ai = no }
+		scope:recipient = { is_ai = no }
+		OR = {
+			has_game_rule = agot_debug_on
+			scope:actor = { has_trait = game_master }
+			debug_only = yes
+		}
+	}
+
+	send_option = {
+		flag = mw_debug_set_all_loyalist
+		localization = mw_debug_set_all_loyalist_loc
+	}
+	send_option = {
+		flag = mw_debug_set_all_neutral
+		localization = mw_debug_set_all_neutral_loc
+	}
+	send_option = {
+		flag = mw_debug_set_all_rebel
+		localization = mw_debug_set_all_rebel_loc
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		every_ruler = {
+			limit = { any_held_title = { has_variable = is_lord_paramount } }
+
+			agot_mw_clear_debug_data = yes
+
+			if = {
+				limit = { scope:mw_debug_set_loyalist = yes }
+				set_variable = { name = debug_mw_loyalist days = 20 }
+			}
+			if = {
+				limit = { scope:mw_debug_set_neutral = yes }
+				set_variable = { name = debug_mw_neutral days = 20 }
+			}
+			if = {
+				limit = { scope:mw_debug_set_rebel = yes }
+				set_variable = { name = debug_mw_rebel days = 20 }
+			}
+		}
+	}
+}
+
+agot_mw_debug_end_story_cicle_interaction = {
+	category = interaction_category_agot_debug
+	use_diplomatic_range = no
+
+	is_shown = {
+		scope:actor = { is_ai = no }
+		#NOT = { scope:recipient = scope:actor }
+		OR = {
+			has_game_rule = agot_debug_on
+			scope:actor = { has_trait = game_master }
+			debug_only = yes
+		}
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		scope:recipient = {
+			set_variable = agot_debug_mw_end_story
+		}
+	}
+}
+
+agot_set_as_rebel_leader_interaction = {
+	category = interaction_category_agot_debug
+	use_diplomatic_range = no
+
+	is_shown = {
+		has_game_rule = agot_debug_on
+		scope:recipient = {
+			highest_held_title_tier > tier_barony
+			highest_held_title_tier < tier_empire
+		}
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		scope:actor = {
+			set_variable = { name = agot_debug_rebel_leader value = scope:recipient days = 2 }
+		}
+	}
+}
+
+agot_set_as_rebel_target_interaction = {
+	category = interaction_category_agot_debug
+	use_diplomatic_range = no
+
+	is_shown = {
+		has_game_rule = agot_debug_on
+		scope:recipient = { highest_held_title_tier > tier_barony }
+	}
+
+	is_valid_showing_failures_only = {
+		custom_description = {
+			text = "AGOT_SET_AS_REBEL_TARGET_VARIABLE_NOT_SET"
+			scope:actor = { has_variable = agot_debug_rebel_leader }
+		}
+		custom_description = {
+			text = "AGOT_SET_AS_REBEL_TARGET_MW_NOT_POSSIBLE"
+			exists = scope:actor.var:agot_debug_rebel_leader
+			agot_mw_is_valid_to_happen = { ATTACKER = scope:actor.var:agot_debug_rebel_leader DEFENDER = scope:recipient }
+		}
+	}
+
+	# Rebellion War
+	send_option = {
+		flag = rebellion_war
+		localization = "AGOT_DEBUG_REBELLION_WAR_OPTION"
+	}
+	# Independence War
+	send_option = {
+		flag = independence_war
+		localization = "AGOT_DEBUG_INDEPENDENCE_WAR_OPTION"
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		scope:actor = {
+			var:agot_debug_rebel_leader = {
+				if = {
+					limit = { scope:rebellion_war = yes }
+
+					start_war = {
+						casus_belli = agot_rebellion_war
+						target = scope:recipient
+					}
+				}
+				if = {
+					limit = { scope:independence_war = yes }
+
+					start_war = {
+						casus_belli = agot_independence_war
+						target = scope:recipient
+					}
+				}
+			}
+			remove_variable = agot_debug_rebel_leader
+		}
+	}
+}
+
+###############
+## KNIGHTING ##
+###############
+
+agot_debug_take_as_squire = {
+	category = interaction_category_agot_debug
+	use_diplomatic_range = no
+
+	is_shown = {
+		scope:actor = {
+			is_ai = no
+			agot_can_take_squire_trigger = yes
+		}
+		OR = {
+			has_game_rule = agot_debug_on
+			scope:actor = { has_trait = game_master }
+			debug_only = yes
+		}
+		scope:recipient = {
+			is_eligible_for_agot_squirehood_trigger = yes
+		}
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		agot_set_squire_effect = { KNIGHT = scope:actor SQUIRE = scope:recipient }
+	}
+}
+
+agot_debug_modify_ptk = {
+	category = interaction_category_agot_debug
+	use_diplomatic_range = no
+
+	is_shown = {
+		scope:actor = { is_ai = no }
+		scope:recipient = {
+			has_trait_xp = {
+				trait = squire
+				track = knight
+				value >= 0
+			}
+		}
+		has_game_rule = agot_debug_on
+	}
+
+	send_option = {
+		flag = increase_ptk_5
+		localization = debug_increase_ptk_5
+	}
+	send_option = {
+		flag = increase_ptk_10
+		localization = debug_increase_ptk_10
+	}
+	send_option = {
+		flag = increase_ptk_15
+		localization = debug_increase_ptk_15
+	}
+	send_option = {
+		flag = increase_ptk_20
+		localization = debug_increase_ptk_20
+	}
+	send_option = {
+		flag = increase_ptk_25
+		localization = debug_increase_ptk_25
+	}
+	send_option = {
+		flag = decrease_ptk_25
+		localization = debug_decrease_ptk_25
+	}
+	send_option = {
+		flag = decrease_ptk_20
+		localization = debug_decrease_ptk_20
+	}
+	send_option = {
+		flag = decrease_ptk_15
+		localization = debug_decrease_ptk_15
+	}
+	send_option = {
+		flag = decrease_ptk_10
+		localization = debug_decrease_ptk_10
+	}
+	send_option = {
+		flag = decrease_ptk_5
+		localization = debug_decrease_ptk_5
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		scope:recipient = {
+			if = {
+				limit = {
+					always = scope:increase_ptk_5
+				}
+				add_trait_xp = {
+					trait = squire
+					track = knight
+					value = 5
+				}
+				custom_tooltip = debug_increase_ptk_5
+			}
+			else_if = {
+				limit = {
+					always = scope:increase_ptk_10
+				}
+				add_trait_xp = {
+					trait = squire
+					track = knight
+					value = 10
+				}
+				custom_tooltip = debug_increase_ptk_10
+			}
+			else_if = {
+				limit = {
+					always = scope:increase_ptk_15
+				}
+				add_trait_xp = {
+					trait = squire
+					track = knight
+					value = 15
+				}
+				custom_tooltip = debug_increase_ptk_15
+			}
+			else_if = {
+				limit = {
+					always = scope:increase_ptk_20
+				}
+				add_trait_xp = {
+					trait = squire
+					track = knight
+					value = 20
+				}
+				custom_tooltip = debug_increase_ptk_20
+			}
+			else_if = {
+				limit = {
+					always = scope:increase_ptk_25
+				}
+				add_trait_xp = {
+					trait = squire
+					track = knight
+					value = 25
+				}
+				custom_tooltip = debug_increase_ptk_25
+			}
+			else_if = {
+				limit = {
+					always = scope:decrease_ptk_5
+				}
+				add_trait_xp = {
+					trait = squire
+					track = knight
+					value = -5
+				}
+				custom_tooltip = debug_decrease_ptk_5
+			}
+			else_if = {
+				limit = {
+					always = scope:decrease_ptk_10
+				}
+				add_trait_xp = {
+					trait = squire
+					track = knight
+					value = -10
+				}
+				custom_tooltip = debug_decrease_ptk_10
+			}
+			else_if = {
+				limit = {
+					always = scope:decrease_ptk_15
+				}
+				add_trait_xp = {
+					trait = squire
+					track = knight
+					value = -15
+				}
+				custom_tooltip = debug_decrease_ptk_15
+			}
+			else_if = {
+				limit = {
+					always = scope:decrease_ptk_20
+				}
+				add_trait_xp = {
+					trait = squire
+					track = knight
+					value = -20
+				}
+				custom_tooltip = debug_decrease_ptk_20
+			}
+			else_if = {
+				limit = {
+					always = scope:decrease_ptk_25
+				}
+				add_trait_xp = {
+					trait = squire
+					track = knight
+					value = -25
+				}
+				custom_tooltip = debug_decrease_ptk_25
+			}
+		}
+	}
+}
+
+agot_show_dragonblood_debug = {
+	category = interaction_category_agot_debug
+	use_diplomatic_range = no
+
+	is_shown = {
+		scope:actor = { is_ai = no }
+		OR = {
+			has_game_rule = agot_debug_on
+			scope:actor = { has_trait = game_master }
+			debug_only = yes
+		}
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		scope:recipient = {
+			custom_tooltip = debug_dragon_blood_value
+		}
+	}	
+}
