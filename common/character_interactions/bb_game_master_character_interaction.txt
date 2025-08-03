@@ -1,0 +1,313 @@
+﻿bbgm_make_announcement = {
+    category = interaction_category_bb_game_master
+    interface_priority = 100
+    icon = icon_contract_modification_single
+    desc = bbgm_make_announcement_desc
+    
+    is_shown = {
+		scope:recipient = scope:actor
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+    }
+
+	send_option = {
+		localization = bbgm_announcement_hotjoin_start_5
+		flag = hotjoin_start_5
+	}
+	send_option = {
+		localization = bbgm_announcement_hotjoin_end_5
+		flag = hotjoin_end_5
+	}
+	send_option = {
+		localization = bbgm_announcement_rehost_10
+		flag = hotjoin_rehost_10
+	}
+	send_option = {
+		localization = bbgm_announcement_rehost_now
+		flag = hotjoin_rehost_now
+	}
+    
+	send_option = {
+		localization = bbgm_announcement_mw_pausing_end
+		flag = mw_pausing_end
+	}
+	send_option = {
+		localization = bbgm_announcement_mw_pausing_100
+		flag = mw_pausing_100
+	}
+	send_option = {
+		localization = bbgm_announcement_mw_pausing_50
+		flag = mw_pausing_50
+	}
+	send_option = {
+		localization = bbgm_announcement_pausing_5
+		flag = mw_pausing_5
+	}
+	send_option = {
+		localization = bbgm_announcement_mw_pausing
+		flag = mw_pausing
+	}
+	send_option = {
+		localization = bbgm_announcement_mw_unpausing
+		flag = mw_unpausing
+	}
+    
+	send_option = {
+		localization = bbgm_announcement_end_session_10
+		flag = end_session_10
+	}
+	send_option = {
+		localization = bbgm_announcement_end_session_now
+		flag = end_session_now
+	}
+
+    on_send = {
+        switch = {
+            trigger = yes
+            scope:hotjoin_start_5 = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_hotjoins_start_5
+                        left_icon = scope:actor
+                    }
+                }
+            }
+            scope:hotjoin_end_5 = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_hotjoins_end_5
+                        left_icon = scope:actor
+                    }
+                }
+            }
+            scope:hotjoin_rehost_10 = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_rehosts_10
+                        left_icon = scope:actor
+                    }
+                }
+            }
+            scope:hotjoin_rehost_now = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_rehosts_now
+                        left_icon = scope:actor
+                    }
+                }
+            }
+            scope:mw_pausing_end = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_pausing_mw_end
+                        left_icon = scope:actor
+                    }
+                }
+            }
+            scope:mw_pausing_100 = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_pausing_mw_100
+                        left_icon = scope:actor
+                    }
+                }
+            }
+            scope:mw_pausing_50 = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_pausing_mw_50
+                        left_icon = scope:actor
+                    }
+                }
+            }
+            scope:mw_pausing_5 = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_pausing_5
+                        left_icon = scope:actor
+                    }
+                }
+            }
+            scope:mw_pausing = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_pausing
+                        left_icon = scope:actor
+                    }
+                }
+            }
+            scope:mw_unpausing = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_unpausing
+                        left_icon = scope:actor
+                    }
+                }
+            }
+            scope:end_session_10 = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_session_end_10
+                        left_icon = scope:actor
+                    }
+                }
+            }
+            scope:end_session_now = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_session_end_now
+                        left_icon = scope:actor
+                    }
+                }
+            }
+        }
+    }
+}
+
+bbgm_make_custom_announcement = {
+    category = interaction_category_bb_game_master
+    interface_priority = 99
+    icon = icon_contract_modification_single
+    desc = bbgm_make_custom_announcement_desc
+    
+    is_shown = {
+		scope:recipient = scope:actor
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+    }
+
+    on_send = {
+        scope:actor = { trigger_event = bb_gm_events.1 }
+    }
+}
+
+bbgm_become_game_master = {
+    category = interaction_category_bb_game_master
+    interface_priority = 0
+    icon = revoke_governorship
+    desc = bbgm_become_game_master_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+
+    is_shown = {
+        scope:actor = {
+            is_ai = no
+            # has_trait = game_master
+        }
+        scope:recipient = {
+            NOT = { has_trait = game_master }
+        }
+    }
+
+    on_send = {
+        scope:actor = {
+            remove_trait = game_master
+            set_player_character = scope:recipient
+            house = { 
+                reset_coa = yes
+                set_house_name_from_house = root.house.dynasty
+            }
+            death = { death_reason = death_vanished }
+        }
+        scope:recipient = {
+            clear_traits = yes
+            add_trait = game_master
+            set_character_faith = faith:fg_pan_bronze
+            change_first_name = The_Game_Master
+            remove_nickname = yes
+            divorce = primary_spouse
+            primary_title = { set_coa = bb_dm_coa }
+            house = {
+                set_house_name = dynn_GM
+                set_coa = bb_dm_coa
+            }
+        }
+    }
+}
+
+bbgm_divorce = {
+    category = interaction_category_bb_game_master
+    interface_priority = 98
+    icon = icon_marriage
+    desc = bbgm_divorce_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+
+    is_shown = {
+		NOT = { scope:recipient = scope:actor }
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+        scope:recipient = { is_married = yes }
+    }
+
+    on_send = {
+       scope:recipient = { divorce = primary_spouse } 
+    }
+}
+
+bbgm_abort = {
+    category = interaction_category_bb_game_master
+    interface_priority = 97
+    icon = child
+    desc = bbgm_abort_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+
+    is_shown = {
+		NOT = { scope:recipient = scope:actor }
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+        scope:recipient = { is_pregnant = yes }
+    }
+
+    on_send = {
+        scope:recipient = { 
+            end_pregnancy = yes
+            remove_trait = pregnant
+        } 
+    }
+}
+
+bbgm_independence = {
+    category = interaction_category_bb_game_master
+    interface_priority = 96
+    icon = icon_found_despotate
+    desc = bbgm_independence_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+
+    is_shown = {
+		NOT = { scope:recipient = scope:actor }
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+        scope:recipient = { is_independent_ruler = no }
+    }
+
+    on_send = {
+		create_title_and_vassal_change = {
+			type = independency
+			save_scope_as = change
+		}
+        scope:recipient = {
+            change_liege_or_become_independent = {
+                CHANGE = scope:change
+                VASSAL = this
+            }
+        }
+		resolve_title_and_vassal_change = scope:change
+    }
+}
