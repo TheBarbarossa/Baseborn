@@ -2251,3 +2251,101 @@ agot_create_artifact_baseborn_bulwer_artifact_effect = {
 		}
 	}
 }
+
+agot_create_artifact_baseborn_cuy_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_cuy_artifact_name
+		description = baseborn_cuy_artifact_description
+		visuals = pocket_goblet
+		type = brooch
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_cuy_artifact_template
+		history = {
+			type = created
+			date = 7850.1.1
+			recipient = character:Cuy_5 # First character to use the artifact
+			location = province:3461 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_cuy_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Cuy.dynasty_founder.house
+		}
+	agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8202.1.1
+		RECIPIENT = character:Cuy_21 # Next user of the artfact
+		}
+
+	agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8093.1.1
+		RECIPIENT = character:Cuy_37 # Next user of the artfact
+		}
+	}
+}
+
+agot_create_artifact_baseborn_osgrey_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_osgrey_artifact_name
+		description = baseborn_osgrey_artifact_description
+		visuals = wall_shield
+		type = armor_mail
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_osgrey_artifact_template
+		history = {
+			type = created
+			date = 7000.1.1
+			recipient = character:Osgrey_12 # First character to use the artifact
+			location = province:3627 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_osgrey_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Osgrey.dynasty_founder.house
+		}
+	agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8172.1.1
+		RECIPIENT = character:Osgrey_55 # Next user of the artfact
+		}
+	agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8087.1.1
+		RECIPIENT = character:Osgrey_47 # Next user of the artfact
+		}
+
+	}
+}
