@@ -194,11 +194,11 @@ bbgm_become_game_master = {
     use_diplomatic_range = no
     ignores_pending_interaction_block = yes
 
-    is_shown = {
-        scope:actor = {
-            is_ai = no
-            # has_trait = game_master
-        }
+	is_shown = {
+		OR = {
+			scope:actor = { has_trait = game_master }
+			debug_only = yes
+		}
         scope:recipient = {
             NOT = { has_trait = game_master }
         }
