@@ -5048,6 +5048,19 @@ Farwynd_40 = {
 	8161.1.1 = { birth = yes }
 	8211.1.1 = { death = yes }
 }
+Farwynd_40_B = { # created 8/05 slambroski
+	name = Urriga
+	dynasty = dynn_Farwynd
+	female = yes 
+
+	religion = drowned_god_main
+	culture = ironborn
+
+	father = Farwynd_39
+
+	8163.1.1 = { birth = yes }
+	8224.1.1 = { death = yes }
+}
 ### Issue of Denys
 Farwynd_41 = {
 	name = Quenton # a lord
@@ -6605,6 +6618,7 @@ Volmark_22 = {
 	father = Volmark_20
 
 	8163.1.1 = { birth = yes }
+	8190.1.1 = { add_spouse = Myre_19_B }
 	8235.1.1 = { death = yes }
 }
 ### Issue of Kemmett
@@ -6644,6 +6658,7 @@ Volmark_23 = {
 	culture = ironborn
 
 	father = Volmark_22
+	mother = Myre_19_B
 
 	8194.1.1 = { birth = yes }
 	8238.1.1 = { death = yes }
@@ -6656,6 +6671,7 @@ Volmark_24 = {
 	culture = ironborn
 
 	father = Volmark_22
+	mother = Myre_19_B
 
 	8196.1.1 = { birth = yes }
 	8214.1.1 = { add_spouse = Volmark_rs_4 }
@@ -6680,6 +6696,7 @@ Volmark_31 = { # created 7/21 slambroski
 	culture = ironborn
 
 	father = Volmark_22
+	mother = Myre_19_B
 
 	8201.1.1 = { birth = yes }
 	8243.1.1 = { death = yes }
@@ -7062,7 +7079,7 @@ Wynch_26 = { # created 7/21 slambroski
 	8185.1.1 = { birth = yes }
 	8253.1.1 = { death = yes }
 }
-### Main Line
+### Issue of Gran
 Wynch_23 = { # edited 7/30 slambroski
 	name = Aeron # a lord
 	dynasty = dynn_Wynch
@@ -7076,6 +7093,7 @@ Wynch_23 = { # edited 7/30 slambroski
 	8195.1.1 = { add_spouse = Freeborn_28}
 	8227.1.1 = { death = yes }
 }
+### Issue of Aeron
 Wynch_24 = { # edited 7/30 slambroski
 	name = Norne # a lord
 	dynasty = dynn_Wynch
@@ -7088,6 +7106,20 @@ Wynch_24 = { # edited 7/30 slambroski
 
 	8196.1.1 = { birth = yes }
 	8248.1.1 = { death = { death_reason = death_murder } }
+}
+Wynch_24_B = { # created 8/05 slambroski
+	name = Tanda
+	dynasty = dynn_Wynch
+	female = yes 
+
+	religion = drowned_god_main
+	culture = ironborn
+
+	father = Wynch_23
+	mother = Freeborn_28
+
+	8199.1.1 = { birth = yes }
+	8218.1.1 = { death = yes }
 }
 
 ###### HOUSE BOTLEY (id = dynn_Botley)
@@ -8775,6 +8807,7 @@ Myre_17 = {
 	8119.1.1 = { birth = yes }
 	8157.1.1 = { death = { death_reason = death_execution } }
 }
+### Issue of Adrack
 Myre_18 = {
 	name = Urek # a lord
 	dynasty = dynn_Myre
@@ -8797,8 +8830,10 @@ Myre_18_B = { # created 7/21 slambroski
 	father = Myre_17
 
 	8148.1.1 = { birth = yes }
+	8174.1.1 = { add_spouse = Stonetree_20_B }
 	8215.1.1 = { death = yes }
 }
+### Issue of Urek
 Myre_19 = {
 	name = Balon # a lord
 	dynasty = dynn_Myre
@@ -8809,8 +8844,23 @@ Myre_19 = {
 	father = Myre_18
 
 	8164.1.1 = { birth = yes }
+	8184.1.1 = { add_spouse = Farwynd_40_B }
 	8220.1.1 = { death = yes }
 }
+Myre_19_B = { # created 8/05 slambroski
+	name = Harra
+	dynasty = dynn_Myre
+	female = yes
+
+	religion = drowned_god_main
+	culture = ironborn
+
+	father = Myre_18
+
+	8168.1.1 = { birth = yes }
+	8223.1.1 = { death = yes }
+}
+### Issue of Balon
 Myre_20 = {
 	name = Tristifer # a lord
 	dynasty = dynn_Myre
@@ -8819,6 +8869,7 @@ Myre_20 = {
 	culture = ironborn
 
 	father = Myre_19
+	mother = Farwynd_40_B
 
 	8185.1.1 = { birth = yes }
 	8252.1.1 = { death = yes }
@@ -8832,6 +8883,7 @@ Myre_22 = { # created 7/11 slambroski
 	culture = ironborn
 
 	father = Myre_19
+	mother = Farwynd_40_B
 
 	8189.1.1 = { birth = yes }
 	8254.1.1 = { death = yes }
@@ -8844,10 +8896,54 @@ Myre_23 = { # created 7/21 slambroski
 	culture = ironborn
 
 	father = Myre_19
+	mother = Farwynd_40_B
 
 	8191.1.1 = { birth = yes }
 	8243.1.1 = { death = yes }
 }
+### Issue of Sigrik
+Myre_24 = { # created 8/05 slambroski
+	name = Rook
+	dynasty = dynn_Myre
+
+	religion = drowned_god_main
+	culture = ironborn
+
+	father = Myre_18_B
+	mother = Stonetree_20_B 
+
+	8175.1.1 = { birth = yes }
+	8206.1.1 = { death = yes }
+}
+Myre_25 = { # created 8/05 slambroski
+	name = Shaella
+	dynasty = dynn_Myre
+	female = yes
+
+	religion = drowned_god_main
+	culture = ironborn
+
+	father = Myre_18_B
+	mother = Stonetree_20_B 
+
+	8178.1.1 = { birth = yes }
+	8235.1.1 = { death = yes }
+}
+### Issue of Rook
+Myre_26 = { # created 8/05 slambroski
+	name = Jyana
+	dynasty = dynn_Myre
+	female = yes
+
+	religion = drowned_god_main
+	culture = ironborn
+
+	father = Myre_24
+
+	8198.1.1 = { birth = yes }
+	8263.1.1 = { death = yes }
+}
+### Issue of Tristifer
 Myre_21 = {
 	name = Victarion # a lord
 	dynasty = dynn_Myre
@@ -9632,6 +9728,20 @@ Stonetree_20 = {
 		add_character_flag = canon_status_semicanon
 	}
 	8205.1.1 = { death = yes }
+}
+Stonetree_20_B = { # created 8/05 slambroski
+	name = Alla
+	dynasty = dynn_Stonetree
+	female = yes 
+
+	religion = drowned_god_main
+	culture = ironborn
+
+	father = Stonetree_18
+	mother = Greyjoy_76
+
+	8153.1.1 = { birth = yes }
+	8211.1.1 = { death = yes }
 }
 Stonetree_21 = {
 	name = Donel # Semi-Canon
@@ -12156,6 +12266,7 @@ Orkwood_25 = { # edited 7/22 slambroski
 	mother = Ironmaker_28_B 
 
 	8184.1.1 = { birth = yes }
+	8204.1.1 = { add_spouse = Farwynd_41_B }
 	8214.1.1 = { death = yes }
 }
 Orkwood_26 = { # edited 7/22 slambroski
@@ -12194,6 +12305,7 @@ Orkwood_27 = {
 	culture = ironborn
 
 	father = Orkwood_25 # Aeron Orkwood
+	mother = Farwynd_41_B
 
 	8207.1.1 = { birth = yes }
 	8249.1.1 = { death = yes }
@@ -13120,6 +13232,7 @@ Humble_24 = {
 	father = Humble_23
 
 	8185.1.1 = { birth = yes }
+	8207.1.1 = { add_spouse = Shepherd_27 }
 	8233.1.1 = { death = yes }
 }
 ### Issue of Bennick
@@ -13145,6 +13258,7 @@ Humble_9 = {
 	culture = ironborn
 
 	father = Humble_24
+	mother = Shepherd_27 
 
 	8208.1.1 = { birth = yes }
 	8253.1.1 = { death = yes }
@@ -13600,6 +13714,19 @@ Weaver_18 = {
 	8188.1.1 = { death = yes }
 }
 ### Issue of Will
+Weaver_19_A = { # created 8/05 slambroski
+	name = Frynne
+	dynasty = dynn_Weaver
+	female = yes 
+
+	religion = drowned_god_main
+	culture = ironborn
+
+	father = Weaver_18
+
+	8165.1.1 = { birth = yes }
+	8231.1.1 = { death = yes }
+}
 Weaver_19 = {
 	name = Gevin # a lord
 	dynasty = dynn_Weaver
@@ -13788,6 +13915,7 @@ Netley_18 = {
 	8114.1.1 = { birth = yes }
 	8166.1.1 = { death = yes }
 }
+### Issue of Norfryd
 Netley_19 = {
 	name = Eldred # a lord
 	dynasty = dynn_Netley
@@ -14100,6 +14228,7 @@ Sharp_24 = {
 	father = Sharp_23
 
 	8165.1.1 = { birth = yes }
+	8188.1.1 = { add_spouse = Weaver_19_A }
 	8213.1.1 = { death = yes }
 }
 ### Issue of Dunstan
@@ -14111,6 +14240,7 @@ Sharp_25 = {
 	culture = ironborn
 
 	father = Sharp_24
+	mother = Weaver_19_A
 
 	8189.1.1 = { birth = yes }
 	8233.1.1 = { death = yes }
@@ -14124,6 +14254,7 @@ Sharp_29 = { # created 7/11 slambroski
 	culture = ironborn
 
 	father = Sharp_24
+	mother = Weaver_19_A
 
 	8191.1.1 = { birth = yes }
 	8249.1.1 = { death = yes }
@@ -14136,6 +14267,7 @@ Sharp_30 = { # created 7/21 slambroski
 	culture = ironborn
 
 	father = Sharp_24
+	mother = Weaver_19_A
 
 	8195.1.1 = { birth = yes }
 	8241.1.1 = { death = yes }
