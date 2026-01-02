@@ -1,0 +1,4346 @@
+﻿historical_characters_accessories = {
+	usage = game
+	selection_behavior = max
+	priority = 2
+
+	Arryn_3 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp1_07
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_western_10
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = male_clothes_secular_free_cities_doublet_02
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_secular_agot_trousers_dynastic_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_arryn_3 = yes
+			}
+		}
+	}
+	Arryn_80_young = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = female_hair_western_01
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_arryn_80 = yes
+				is_female = yes
+			}
+		}
+	}
+	Arryn_80 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = female_hair_western_01
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = female_clothes_secular_aelora_dress_03
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age >= 18
+				is_character_arryn_80 = yes
+				is_female = yes
+			}
+		}
+	}
+	Baratheon_2 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_mena_02
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_house_clothes
+				accessory = male_clothes_stormland_overcoat_04
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_stormlander_boots_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				age < 26
+				is_character_baratheon_2 = yes
+				is_male = yes
+			}
+		}
+	}
+	Baratheon_2_Old = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_mena_02
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_western_06
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_house_clothes
+				accessory = male_clothes_stormland_overcoat_04
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_stormlander_boots_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 25
+				is_character_baratheon_2 = yes
+				is_male = yes
+			}
+		}
+	}
+	#Stannis
+	Baratheon_3 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_western_09
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_mena_04
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_house_clothes
+				accessory = male_clothes_stormland_overcoat_04
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_stormlander_boots_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				is_character_baratheon_3 = yes
+				is_male = yes
+			}
+		}
+	}
+	#Stannis Malding
+	Baratheon_3_mald = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = male_hair_custom_02
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_mena_04
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_house_clothes
+				accessory = male_clothes_stormland_overcoat_04
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_stormlander_boots_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 110
+				exists = this
+				age >= 28
+				is_character_baratheon_3 = yes
+				is_male = yes
+				NOT = {
+					any_held_title = {
+						this = title:k_the_stormlands
+					}
+				}
+			}
+		}
+	}
+	Baratheon_3_Rooloo = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_western_09
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = male_clothes_stormland_overcoat_03
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_boots_legwear
+				accessory = male_legwear_stormlander_boots_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 102
+				exists = this
+				age > 4
+				is_character_baratheon_3 = yes
+				has_religion = religion:the_rhllor_religion
+				is_male = yes
+			}
+		}
+	}
+	#Stannis Rooloo Malding
+	Baratheon_3_Rooloo = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = male_hair_custom_02
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_mena_04
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_house_clothes
+				accessory = male_clothes_stormland_overcoat_04
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_stormlander_boots_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 110
+				exists = this
+				age >= 28
+				is_character_baratheon_3 = yes
+				has_religion = religion:the_rhllor_religion
+				is_male = yes
+				NOT = {
+					any_held_title = {
+						this = title:k_the_stormlands
+					}
+				}
+			}
+		}
+	}
+	Baratheon_4 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp1_02
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = male_clothes_stormland_undercoat_02
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_boots_legwear
+				accessory = male_legwear_dragon_prince02
+			}
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = stormcloak_01
+				accessory = male_cloaks_secular_stormcloak_coa_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				is_character_baratheon_4 = yes
+				is_male = yes
+			}
+		}
+	}
+	Baratheon_4_Tyrell = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp1_02
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = male_clothes_stormland_undercoat_03
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_boots_legwear
+				accessory = male_legwear_dragon_prince02
+			}
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = agot_historic_capes
+				accessory = male_cloaks_secular_stormcloak_02
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 102
+				exists = this
+				age > 4
+				is_character_baratheon_4 = yes
+				OR = {
+					AND = {
+						exists = character:Tyrell_13
+						has_relation_lover = character:Tyrell_13
+					}
+					AND = {
+						exists = primary_spouse
+						primary_spouse.dynasty ?= dynasty:dynn_Tyrell
+					}
+				}
+				is_male = yes
+			}
+		}
+	}
+	Baratheon_14 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp2_iberian_muslim_03
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_fp2_iberian_muslim_01
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_stormlander_low_fabrics
+				accessory = male_clothes_stormland_overcoat_02
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_baratheon_14 = yes
+				is_male = yes
+			}
+		}
+	}
+	Baratheon_33 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = female_hair_fp2_iberian_muslim_01_common
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = female_clothes_secular_agot_summer_dress_02
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_baratheon_33 = yes
+				is_female = yes
+			}
+		}
+	}
+	Blackfyre_3 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = f_hair_ep2_western_02
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_free_cities_01_clothes
+				accessory = female_clothes_secular_agot_free_cities_dress_01
+				type = female
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_eyeliner
+				template = iranian_1
+				value = 0.12
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_eyeshadow
+				template = iranian_1
+				value = 0.25
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_lipcolor
+				template = byzantine_1
+				value = 0.75
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_blush
+				template = byzantine_1
+				value = 0.75
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_blackfyre_3 = yes
+				is_female = yes
+			}
+		}
+	}
+	Durrandon_88 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = female_hair_fp2_iberian_christian_01
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_stormlander_low_fabrics
+				accessory = female_clothes_secular_agot_summer_dress_02
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_durrandon_88 = yes
+				is_female = yes
+			}
+		}
+	}
+	Eunuch_1 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = no_hairstyles
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = male_essosi_spider_02
+			}
+
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				is_character_eunuch_1 = yes
+				has_trait = eunuch
+				is_male = yes
+			}
+		}
+	}
+	Fossoway_7 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_western_09
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				NOT = { age >= 32 }
+				is_character_fossoway_7 = yes
+				is_male = yes
+			}
+		}
+	}
+	Fossoway_7_bald = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = no_hairstyles
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age >= 32
+				is_character_fossoway_7 = yes
+				is_male = yes
+			}
+		}
+	}
+	Greyjoy_9 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp1_06
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = m_beard_ep3_byzantine_03
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				NOT = { age >= 25 }
+				is_character_greyjoy_9 = yes
+				is_male = yes
+			}
+		}
+	}
+	Greyjoy_9_adult = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_northern_01
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_fp1_05
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age >= 25
+				is_character_greyjoy_9 = yes
+				is_male = yes
+			}
+		}
+	}
+	Greyjoy_13 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = f_hair_byz_short_hair_01
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = female_clothes_secular_north_high_winter_dynastic_01
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = female_legwear_dragon_prince01
+				type = female
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_eyeliner
+				template = iranian_1
+				value = 0
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_eyeshadow
+				template = iranian_1
+				value = 0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_greyjoy_13 = yes
+				is_female = yes
+			}
+		}
+	}
+	Greyjoy_14 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp1_01
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				NOT = { age >= 32 }
+				is_character_greyjoy_14 = yes
+				is_male = yes
+			}
+		}
+	}
+	Greyjoy_14_adult = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = m_hair_fp3_iranian_03
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age >= 32
+				is_character_greyjoy_14 = yes
+				is_male = yes
+			}
+		}
+	}
+	Hightower_90 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp1_04
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = m_beard_ep3_byzantine_02
+
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = male_clothes_reach_ottos_outfit_01
+
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_hightower_90 = yes
+				is_male = yes
+			}
+		}
+	}
+	Hightower_97 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = female_hair_custom_13
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = pious_dress_02
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_hightower_97 = yes
+				is_female = yes
+			}
+		}
+	}
+	Lannister_1 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = no_hairstyles
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = beard_tywins_muttonchops
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_house_clothes
+				accessory = male_clothes_westerland_doublet_03
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_boots_legwear
+				accessory = male_legwear_dragon_prince02
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				is_character_lannister_1 = yes
+				age > 30
+				is_male = yes
+			}
+		}
+	}
+	Lannister_1_Young = { #Gives Young Tywin Hair so he doesn't insta Mald
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_indian_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				is_character_lannister_1 = yes
+				age <= 30
+				is_male = yes
+			}
+		}
+	}
+	Lannister_2 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = male_hair_custom_02
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_western_03
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				is_character_lannister_2 = yes
+				age > 30
+				is_male = yes
+			}
+		}
+	}
+	Lannister_2_Young = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_western_09
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_western_03
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				is_character_lannister_2 = yes
+				age <= 30
+				is_male = yes
+			}
+		}
+	}
+	Lannister_6_young = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = female_hair_custom_26
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_house_clothes
+				accessory = female_clothes_secular_crownlands_dress_02
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = female_legwear_secular_agot_trousers_dynastic_01
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = special_accessories_jewelry
+				template = female_westerosi_necklace_01
+				accessory = female_westerosi_necklace_01
+				type = female
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_lipcolor
+				template = european_1
+				value = 0.12
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_blush
+				template = european_1
+				value = 1
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_eyeshadow
+				template = european_1
+				value = 0.75
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				age < 30
+				is_character_lannister_6 = yes
+				is_female = yes
+			}
+		}
+	}
+	Lannister_6 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = female_hair_custom_26
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = female_clothes_secular_rhaenyra_dress_03
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = special_accessories_jewelry
+				template = pearl_necklace
+				accessory = pearl_necklace
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = female_legwear_secular_agot_trousers_dynastic_01
+				type = female
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_lipcolor
+				template = european_1
+				value = 0.12
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_blush
+				template = european_1
+				value = 1
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_eyeshadow
+				template = european_1
+				value = 0.75
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 102
+				exists = this
+				age >= 30
+				is_character_lannister_6 = yes
+				is_female = yes
+			}
+		}
+	}
+	Martell_9_adult = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = female_hair_fp2_iberian_muslim_02_common
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = female_clothes_secular_agot_free_cities_dress_01
+				type = female
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_eyeliner
+				template = iranian_1
+				value = 0.12
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_eyeshadow
+				template = iranian_1
+				value = 0.25
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				age > 17
+				is_character_martell_9 = yes
+				is_female = yes
+			}
+		}
+	}
+	Martell_9_child = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = female_hair_fp2_iberian_muslim_02_common
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_martell_9 = yes
+				is_female = yes
+			}
+		}
+	}
+	#Jorah Maldmont
+	Mormont_3_bald = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = male_hair_custom_02
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_fp2_iberian_muslim_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				age > 25
+				is_character_mormont_3 = yes
+				is_male = yes
+			}
+		}
+	}
+	Redwyne_4 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_western_03
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				NOT = { age >= 30 }
+				is_character_redwyne_4 = yes
+				is_male = yes
+			}
+		}
+	}
+	Redwyne_4_balding = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = male_hair_custom_01
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age >= 30
+				NOT = { age >= 40 }
+				is_character_redwyne_4 = yes
+				is_male = yes
+			}
+		}
+	}
+	Redwyne_4_baldinger = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = male_hair_custom_02
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age >= 40
+				is_character_redwyne_4 = yes
+				is_male = yes
+			}
+		}
+	}
+	Reyne_46_young = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = female_hair_custom_27
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				age < 18
+				is_character_reyne_46 = yes
+				is_female = yes
+			}
+		}
+	}
+	Reyne_46 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = female_hair_custom_27
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = female_clothes_secular_rhaenyra_dress_03
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 17
+				is_character_reyne_46 = yes
+				is_female = yes
+			}
+		}
+	}
+	Rogare_12 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = female_hair_custom_05
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_free_cities_01_clothes
+				accessory = female_clothes_secular_agot_free_cities_dress_01
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_rogare_12 = yes
+				is_female = yes
+			}
+		}
+	}
+	RoyceGOTM_1 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_fp2_iberian_muslim_01
+			}
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp1_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				NOT = { age >= 42 }
+				is_character_roycegotm_1 = yes
+				is_male = yes
+			}
+		}
+	}
+	RoyceGOTM_1_bald = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_fp2_iberian_muslim_01
+			}
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = no_hairstyles
+				value = 0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age >= 42
+				is_character_roycegotm_1 = yes
+				is_male = yes
+			}
+		}
+	}
+	Seaworth_2 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = m_beard_ep3_byzantine_01
+			}
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_western_06
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				NOT = { age >= 20 }
+				is_character_seaworth_2 = yes
+				is_male = yes
+			}
+		}
+	}
+	Seaworth_2_beard = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = m_beard_ep3_byzantine_04
+			}
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_western_06
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age >= 20
+				is_character_seaworth_2 = yes
+				is_male = yes
+			}
+		}
+	}
+	Stark_1 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp2_iberian_muslim_03
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				NOT = { age >= 24 }
+				is_character_stark_1 = yes
+				is_male = yes
+			}
+		}
+	}
+	Stark_1_beard = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = male_hair_custom_08
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_fp2_iberian_muslim_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age >= 24
+				is_character_stark_1 = yes
+				is_male = yes
+			}
+		}
+	}
+	Stark_3 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_mena_04
+			}
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp1_07
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = male_clothes_secular_north_high_winter_stark_01
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = dragon_rider_legwear
+				accessory = male_legwear_special_dragon_rider_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_stark_3 = yes
+				is_male = yes
+			}
+		}
+	}
+	Stark_66 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_mena_04
+			}
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = male_hair_custom_10_2
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = male_clothes_secular_north_high_winter_torrhen_01
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = dragon_rider_legwear
+				accessory = male_legwear_special_dragon_rider_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_stark_66 = yes
+				is_male = yes
+			}
+		}
+	}
+	Stark_86 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_western_07
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				NOT = { age >= 24 }
+				is_character_stark_86 = yes
+				is_male = yes
+			}
+		}
+	}
+	Stark_86_beard = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp1_08
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_fp2_iberian_muslim_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age >= 24
+				is_character_stark_86 = yes
+				is_male = yes
+			}
+		}
+	}
+	Tall_1 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = m_hair_fp3_iranian_03
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_tall_1 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_1 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp2_iberian_muslim_03
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_indian_02
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				is_character_targaryen_1 = yes
+				game_start_date <= 8277.10.1 #Becomes Stinky at Defiance of Duskendale
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_1_Mad = { #Post Duskendale Aerys
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp1_05
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_rtt_01
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = religious_jewish_high_clothes
+				accessory = male_clothes_religious_jewish_high_01
+			}
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = no_cloak
+				value = 0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				is_character_targaryen_1 = yes
+				OR = {
+					game_start_date > 8277.10.1
+					has_trait = uncouth
+				}
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_3 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = male_valyrian_loose_hair_02
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = male_clothes_westerland_doublet_no_cloak_01
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				is_character_targaryen_3 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_3_Female = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = female_hair_custom_12
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				is_character_targaryen_3 = yes
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_9 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = female_hair_custom_19
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				is_character_targaryen_9 = yes
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_9_Essos_Young = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = female_hair_custom_19
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = female_clothes_secular_agot_dany_dress_01
+				type = girl
+			}
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = no_cloak
+				value = 0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 102
+				has_character_flag = dany_fled_to_essos
+				is_female = yes
+				age > 4
+				age < 18
+			}
+		}
+	}
+	Targaryen_9_Essos_Old = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = female_hair_custom_19
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = female_clothes_secular_agot_free_cities_dress_03
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = no_cloak
+				value = 0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 102
+				has_character_flag = dany_fled_to_essos
+				is_female = yes
+				age > 17
+			}
+		}
+	}
+	Targaryen_27 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp1_01
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_western_high_nobility_clothes_male_pants
+				accessory = male_clothes_westerland_doublet_02
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_27 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_28 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = female_hair_custom_12
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_28 = yes
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_28_armor = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = female_hair_custom_12
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_armors
+				accessory = female_clothes_valyrian_war_03_high
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = female_legwear_secular_valyrian_war_03_high
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				age > 4
+				is_character_targaryen_28 = yes
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_29 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = female_hair_fp2_iberian_christian_02
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = western_high_nobility_clothes
+				accessory = female_clothes_secular_unlikely_gown_dynastic_01
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_29 = yes
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_30 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp2_iberian_muslim_02
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_fp2_iberian_christian_02
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_stormlander_low_fabrics
+				accessory = male_clothes_stormland_overcoat_02
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_secular_agot_trousers_black_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_30 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_31 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_western_09
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_mena_04
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_armors
+				accessory = male_clothes_north_war_ned_coa_01
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_secular_north_stark_war_03
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_31 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_35_prince = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_fp2_iberian_christian_03
+			}
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = male_valyrian_braid_02
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_35 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_35_king = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = m_beard_ep3_byzantine_04
+			}
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = male_valyrian_braid_02
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = male_clothes_jaehaerys_royal_attire_01
+			}
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = sp3_cloak
+				accessory = m_cloaks_sec_sp3_western_roy_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				age > 18
+				age < 60
+				is_character_targaryen_35 = yes
+				highest_held_title_tier = tier_empire
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_35_old_king = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = agot_special_scripted_beards
+				accessory = male_agot_old_king_beard_01
+			}
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp1_05
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = male_clothes_jaehaerys_royal_attire_01
+			}
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = sp3_cloak
+				accessory = m_cloaks_sec_sp3_western_roy_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				age >= 60
+				is_character_targaryen_35 = yes
+				highest_held_title_tier = tier_empire
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_45 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp1_06
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = male_clothes_stormland_undercoat_02
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_boots_legwear
+				accessory = male_legwear_dragon_prince02
+			}
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = stormcloak_01
+				accessory = male_cloaks_secular_stormcloak_coa_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				is_character_targaryen_45 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_46 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = male_hair_the_brave_cut_01
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = male_clothes_dragonbane_doublet_03
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_boots_legwear
+				accessory = male_legwear_dragon_prince02
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_46 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_47 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = female_hair_northern_03
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = female_clothes_special_dragon_rider_dynastic_alt_01
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_boots_legwear
+				accessory = female_legwear_dragon_prince02
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_47 = yes
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_50_young = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = female_hair_custom_15
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_50 = yes
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_50 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = female_hair_custom_15
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = female_clothes_sleeved_bodice_dress_02
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = special_accessories_jewelry
+				template = pearl_and_gem
+				accessory = pearl_and_gem
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age >= 18
+				is_character_targaryen_50 = yes
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_51 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = female_hair_fp2_iberian_christian_03
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_51 = yes
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_51_Lys = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = female_hair_fp2_iberian_christian_03
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_free_cities_01_clothes
+				accessory = female_clothes_lyseni_noblewoman_01
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				age > 18
+				age > 4
+				is_character_targaryen_51 = yes
+				location ?= {
+					geographical_region = world_essos
+				}
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_52 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = female_hair_agot_valyrian_princess
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				age < 18
+				is_character_targaryen_52 = yes
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_52_adult = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = female_hair_agot_valyrian_princess
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = female_clothes_secular_rhaenyra_dress_vis_01
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = headgear
+				template = agot_most_headgears
+				accessory = female_reach_hood_02g
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = special_accessories_jewelry
+				template = female_westerosi_necklace_03
+				accessory = female_westerosi_necklace_03
+				type = female
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_eyeliner
+				template = byzantine_1
+				value = 1.0
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_lipcolor
+				template = byzantine_1
+				value = 0.75
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_blush
+				template = iranian_1
+				value = 0.26
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				age >= 18
+				is_character_targaryen_52 = yes
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_60 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_indian_01
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_fp2_iberian_christian_04
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = male_clothes_secular_viserys_doublet_01
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_boots_legwear
+				accessory = male_legwear_dragon_prince02
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_60 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_61 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = male_hair_custom_05
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = male_clothes_westerland_doublet_02
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_boots_legwear
+				accessory = male_legwear_dragon_prince02
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_61 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_63 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = fem_valyrian_large_braid_01 #Large Braid Left Side
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_house_clothes
+				accessory = female_clothes_secular_crownlands_dress_05
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = special_accessories_jewelry
+				template = female_westerosi_necklace_03_rhaenyra
+				accessory = female_westerosi_necklace_03_rhaenyra
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				age > 4
+				age < 18
+				is_character_targaryen_63 = yes
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_63_adult = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = fem_valyrian_large_braid_01 #Large Braid Left Side
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = female_clothes_secular_rhaenyra_dress_01
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = special_accessories_jewelry
+				template = female_westerosi_necklace_03_rhaenyra
+				accessory = female_westerosi_necklace_03_rhaenyra
+				type = female
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_eyeliner
+				template = byzantine_1
+				value = 1.0
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_eyeshadow
+				template = byzantine_1
+				value = 0.75
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_lipcolor
+				template = byzantine_1
+				value = 0.75
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_blush
+				template = byzantine_1
+				value = 0.0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				age >= 18
+				is_character_targaryen_63 = yes
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_65_king = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_indian_01
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_armors
+				accessory = male_clothes_valyrian_war_dynastic_02
+			}
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = agot_coa_cloaks_ep2
+				accessory = m_cloaks_sec_ep2_western_travel_01_agot
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				age > 18
+				is_character_targaryen_65 = yes
+				highest_held_title_tier = tier_empire
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_65_prince = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_indian_01
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_65 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_69_child = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = female_hair_fp2_iberian_christian_01
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_69 = yes
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_69_dragonrider = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = fem_dragonrider_hair_01
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				age > 16
+				is_character_targaryen_69 = yes
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_78 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp1_01
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_western_10
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = male_clothes_dragonbane_doublet_02
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_boots_legwear
+				accessory = male_legwear_dragon_prince02
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				is_character_targaryen_78 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_79 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_western_07
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = male_clothes_crownlands_surcoat_01
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_secular_agot_trousers_black_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				age > 4
+				is_character_targaryen_79 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_81_prince = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = male_hair_custom_10_2
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_81 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_81_king = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = male_hair_custom_10_2
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_armors
+				accessory = male_clothes_valyrian_war_02
+			}
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = agot_coa_cloaks_sp2
+				accessory = m_cloaks_sec_sp2_western_imp_01_agot
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_secular_valyrian_war_02
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				age >= 18
+				is_character_targaryen_81 = yes
+				highest_held_title_tier = tier_empire
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_82_young = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_northern_01
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_western_09
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_82 = yes
+				is_male = yes
+				NOT = { has_trait = septon}
+			}
+		}
+	}
+	Targaryen_82_septon_king = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_northern_01
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_western_09
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = male_clothes_blessed_robes
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = no_legwear
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				is_character_targaryen_82 = yes
+				is_male = yes
+				has_trait = septon
+			}
+		}
+	}
+	Targaryen_83 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = female_hair_fp2_iberian_christian_03
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = female_clothes_secular_crownlands_dress_01_dynastic
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = female_legwear_secular_agot_trousers_black_01
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_83 = yes
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_85 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = female_hair_custom_36
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = female_clothes_secular_agot_summer_dress_05
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = female_legwear_secular_agot_trousers_black_01
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_85 = yes
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_88 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp1_02
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = male_clothes_secular_unlikely_gown_dynastic_01
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_secular_agot_trousers_black_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				age < 40
+				is_character_targaryen_88 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_88_Old = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp1_05
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_fp2_iberian_muslim_02
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = male_clothes_secular_unlikely_gown_dynastic_01
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_secular_agot_trousers_black_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age >= 40
+				is_character_targaryen_88 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_90 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = f_hair_fp3_iranian_02_common
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = naerys_dress_02
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = headgear
+				template = agot_most_headgears
+				accessory = naerys_hood_02
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_90 = yes
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_91_prince = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = m_hair_ep2_western_01
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = male_clothes_secular_agot_royal_doublet_01
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_secular_agot_trousers_black_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_91 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_91_king = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = m_hair_ep2_western_01
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = male_clothes_secular_agot_royal_doublet_01
+			}
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = sp3_cloak
+				accessory = m_cloaks_sec_sp3_western_roy_01
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_secular_agot_trousers_black_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				age > 4
+				is_character_targaryen_91 = yes
+				highest_held_title_tier = tier_empire
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_92 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = female_hair_custom_42
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_92 = yes
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_94_child = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_western_07
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_94 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_94_prince_king = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_western_07
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_armors
+				accessory = male_clothes_stormlands_coa_war_04
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_secular_stormlands_baratheon_war_03
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				age > 18
+				age > 4
+				is_character_targaryen_94 = yes
+				is_agot_knight_trigger = yes
+				OR = {
+					has_trait = education_martial_prowess_4
+					has_trait = education_martial_prowess_3
+				}
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_95_child = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp1_02
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_95 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_95_armor = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp1_02
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_armors
+				accessory = male_clothes_vale_war_03
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_secular_vale_war_03
+			}
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = male_goldcloak_01
+				accessory = male_goldcloak_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				age > 18
+				is_character_targaryen_95 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_96_prince_scarred = {
+		dna_modifiers = {
+			morph = {
+				mode = add
+				gene = gene_bloodraven
+				template = bloodraven_birthmark
+				value = 1
+			}
+			accessory = {
+				mode = add
+				gene = heterochromia_eye
+				template = heterochromia_eye_bloodraven
+				accessory = heterochromia_bloodraven
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp2_iberian_muslim_03
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = male_clothes_secular_north_high_winter_dynastic_02
+			}
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = agot_coa_cloaks_ep2
+				accessory = m_cloaks_sec_ep2_western_travel_01_agot
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_secular_agot_trousers_black_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 102
+				age > 4
+				has_trait = one_eyed
+				is_character_targaryen_96 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_96_prince = {
+		dna_modifiers = {
+			morph = {
+				mode = add
+				gene = gene_bloodraven
+				template = bloodraven_birthmark
+				value = 1
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp2_iberian_muslim_03
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = male_clothes_secular_north_high_winter_dynastic_02
+			}
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = agot_coa_cloaks_ep2
+				accessory = m_cloaks_sec_ep2_western_travel_01_agot
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_secular_agot_trousers_black_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				age > 4
+				is_character_targaryen_96 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_97 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = female_hair_fp2_iberian_christian_01
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = shiera_dress_01
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = female_legwear_sandals
+				type = female
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_eyeshadow
+				template = european_1
+				value = 0.75
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_97 = yes
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_102 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = female_hair_mena_02
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_free_cities_01_clothes
+				accessory = female_clothes_secular_agot_free_cities_dress_02
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_102 = yes
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_103 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = female_hair_fp2_iberian_muslim_02
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_free_cities_01_clothes
+				accessory = female_clothes_secular_agot_free_cities_dress_01
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_103 = yes
+				is_female = yes
+			}
+		}
+	}
+	Targaryen_104 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_mena_01
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = male_clothes_secular_free_cities_doublet_02
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_104 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_108 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp1_05
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = m_beard_ep2_western_02
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = sp2_western_royalty_clothes
+				accessory = m_clothes_sec_sp2_western_imp_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_108 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_110_king_kid = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_indian_01
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_fp2_iberian_muslim_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_110 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_110_prince = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_indian_01
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_fp2_iberian_muslim_01
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_armors
+				accessory = male_clothes_valyrian_war_03_high
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_secular_valyrian_war_04
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 18
+				is_character_targaryen_110 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_110_king = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_indian_01
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_fp2_iberian_muslim_01
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_armors
+				accessory = male_clothes_valyrian_war_03_high_decorated
+			}
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = agot_coa_cloaks_sp2
+				accessory = m_cloaks_sec_sp2_western_imp_01_agot
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_secular_valyrian_war_03_high_decorated
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				age > 18
+				is_character_targaryen_110 = yes
+				highest_held_title_tier = tier_empire
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_119 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_western_07
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_free_cities_01_clothes
+				accessory = male_clothes_secular_free_cities_doublet_02
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_119 = yes
+				is_male = yes
+			}
+		}
+	}
+	agot_Targaryen_122_prince_king = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp2_iberian_muslim_03
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_historic_characters
+				accessory = male_clothes_secular_unlikely_gown_02
+			}
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = agot_historic_capes
+				accessory = unlikely_cape_02
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_secular_agot_trousers_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 102
+				exists = this
+				age > 18
+				is_character_targaryen_122 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_122_prince_king_young = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp2_iberian_muslim_03
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 18
+				is_character_targaryen_122 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_122_squire = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = no_hairstyles
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			 accessory = {
+				mode = add
+				gene = clothes
+				template = ep3_byzantine_era1_commoner_clothes
+				accessory = m_clothes_sec_ep3_byzantine_era1_com_01
+			}
+			accessory = {
+				mode = add
+				gene = headgear
+				template = fp4_western_era3_common
+				accessory = m_headgear_sec_fp4_western_era3_com_01
+			}
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = no_cloak
+				value = 0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				exists = this
+				age > 4
+				has_trait = squire
+				is_character_targaryen_122 = yes
+				is_male = yes
+			}
+		}
+	}
+	Targaryen_127 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_steppe_02
+			}
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_western_07
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = male_clothes_secular_agot_royal_doublet_dynastic_01
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_secular_agot_trousers_black_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				age > 4
+				is_character_targaryen_127 = yes
+				is_male = yes
+			}
+		}
+	}
+	Tyrell_8 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp2_iberian_muslim_02
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_steppe_01
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_house_clothes
+				accessory = male_clothes_stormland_undercoat_05
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_boots_legwear
+				accessory = male_legwear_dragon_prince02
+			}
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = agot_historic_capes
+				accessory = male_cloaks_secular_stormcloak_03
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				is_character_tyrell_8 = yes
+				is_male = yes
+			}
+		}
+	}
+	Tyrell_14_Child = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = female_hair_custom_14
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_house_clothes
+				accessory = female_clothes_secular_agot_summer_dress_06
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				is_character_tyrell_14 = yes
+				is_female = yes
+			}
+		}
+	}
+	Tyrell_14 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = female_hair_custom_14
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_house_clothes
+				accessory = female_clothes_secular_agot_maiden_dress_03
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 102
+				exists = this
+				age > 17
+				is_character_tyrell_14 = yes
+				is_female = yes
+			}
+		}
+	}
+
+	#DNA-less Characters
+	#Trusty Patches
+	Patches_1 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = no_hairstyles
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				exists = character:Patches_1
+				this = character:Patches_1
+			}
+		}
+	}
+	#Carians
+	Carian_2 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp1_05
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				exists = character:Carian_2
+				this = character:Carian_2
+			}
+		}
+	}
+	Carian_3 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_western_07
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = m_beard_ep3_byzantine_02
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				exists = character:Carian_3
+				this = character:Carian_3
+			}
+		}
+	}
+	Carian_4 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = female_hair_fp2_iberian_christian_01
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				exists = character:Carian_4
+				this = character:Carian_4
+			}
+		}
+	}
+	Rychard_1 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = special_headgear_spectacles
+				template = spectacles
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				exists = character:Rychard_1
+				this = character:Rychard_1
+			}
+		}
+	}
+	Golinne_1 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = female_clothes_northern_dress_01_dynastic
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 10
+				exists = character:Golinne_1
+				this = character:Golinne_1
+			}
+		}
+	}
+	Buckler_46 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = male_clothes_crownlands_surcoat_03
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 10
+				exists = character:Buckler_46
+				this = character:Buckler_46
+			}
+		}
+	}
+	Mitchell_60_B = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_armors
+				accessory = male_clothes_osgrey_war_dynastic_02
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 8
+				exists = character:Mitchell_60_B
+				this = character:Mitchell_60_B
+			}
+		}
+	}
+	Tully_5 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = naerys_dress_03
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = headgear
+				template = agot_most_headgears
+				accessory = naerys_hood_03
+				type = female
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 10
+				exists = character:Tully_5
+				this = character:Tully_5
+			}
+		}
+	}
+
+	# BRAAVOS BOOKMARK CHARACTERS
+	Ran_Ennox_80 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = f_hair_byz_short_hair_01
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = fp2_christian_war_nobility_clothes
+				accessory = f_clothes_sec_fp2_iberian_christian_war_nob_01_hi
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = headgear
+				template = fp2_christian_war_nobility
+				accessory = f_headgear_sec_fp2_iberian_christian_war_nob_01_hi
+				type = female
+			}
+		}
+
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				exists = character:Ran_Ennox_80
+				this = character:Ran_Ennox_80
+			}
+		}
+	}
+	Velaron_48 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = m_hair_ep3_byzantine_03
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_armors
+				accessory = male_clothes_secular_braavos_war_high_01
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = agot_all_legwear
+				accessory = male_legwear_secular_braavos_war_high_01
+			}
+			accessory = {
+				mode = add
+				gene = headgear
+				template = agot_most_headgears
+				accessory = braavosi_hat_high_02
+			}
+		}
+
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				exists = character:Velaron_48
+				this = character:Velaron_48
+			}
+		}
+	}
+	Estatis_6_B = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = all_hairstyles
+				accessory = male_hair_fp2_iberian_muslim_02
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_fp2_iberian_christian_02
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_all_clothes
+				accessory = male_clothes_secular_agot_myrish_clothes_04
+			}
+			accessory = {
+				mode = add
+				gene = headgear
+				template = agot_most_headgears
+				accessory = pirate_hat_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				exists = character:Estatis_6_B
+				this = character:Estatis_6_B
+			}
+		}
+	}
+	Prestayn_74 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = agot_all_hairstyles
+				accessory = male_hair_custom_10_2
+			}
+			accessory = {
+				mode = add
+				gene = beards
+				template = all_beards
+				accessory = male_beard_fp2_iberian_christian_02
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = agot_free_cities_01_clothes
+				accessory = male_clothes_secular_free_cities_doublet_01
+			}
+			accessory = {
+				mode = add
+				gene = headgear
+				template = agot_most_headgears
+				accessory = pirate_bandana_02
+			}
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = male_cloaks_secular_shouldercape_01
+				accessory = male_cloaks_secular_shouldercape_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				exists = this
+				age > 4
+				exists = character:Prestayn_74
+				this = character:Prestayn_74
+			}
+		}
+	}
+}

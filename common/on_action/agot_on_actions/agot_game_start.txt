@@ -3240,6 +3240,7 @@ baseborn_wilderness = { # bookmark setup
 			}
 			make_settlement_county_wilderness = { COUNTY = this }
 		}
+		# Levy Depletion
 		every_county_in_region = {
 			region = world_westeros_the_north
 			limit = {
@@ -3253,5 +3254,7 @@ baseborn_wilderness = { # bookmark setup
 				years = 1
 			}
 		}
+		# Brightroar -> Oathkeeper
+		character:Tarth_6 = { agot_create_artifact_vs_oathkeeper_effect = { OWNER = this } }
 	}
 }
