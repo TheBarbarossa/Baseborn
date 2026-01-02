@@ -1,0 +1,116 @@
+﻿baseborn_nights_watch_election = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = major
+	desc = baseborn_nights_watch_election_desc
+	
+	is_shown = {
+		is_ai = no
+        title:k_the_wall.holder = root
+        NOT = { title:k_the_wall.holder = character:Stark_7 }
+        character:Stark_7 = { is_alive = yes }
+	}
+	
+	is_valid = {
+        NOT = {
+            title:k_the_wall.holder = character:Stark_7
+        }
+	}
+	
+	cost = {
+		prestige = 100
+	}
+	
+	effect = {
+        character:Stark_7 = { release_from_prison = yes }
+        hidden_effect = {
+		title:k_the_wall.holder = {
+			every_held_title = { add_to_list = nw_election_titles }
+		}
+		create_title_and_vassal_change = {
+			type = election
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+        every_in_list = {
+            list = nw_election_titles
+            change_title_holder = {
+                holder = character:Stark_7
+                change = scope:change
+            }
+        }
+        resolve_title_and_vassal_change = scope:change
+        }
+        set_player_character = character:Stark_7
+        trigger_event = {
+			id = agot_nightswatch_maintenance.0001
+			days = 1
+		}
+		hidden_effect = {
+			character:Stark_7 = {
+				add_character_modifier = {
+					modifier = nw_warden
+					months = 3
+				}
+			}
+		}
+	}
+
+	ai_potential = {
+	}
+	
+	ai_will_do = {
+		base = 0
+	}
+}
+
+baseborn_tyrion_patricide = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = major
+	desc = baseborn_tyrion_patricide_desc
+	
+	is_shown = {
+		is_ai = no
+		is_character_lannister_1 = yes
+        character:Lannister_8 = { is_imprisoned = yes }
+	}
+	
+	is_valid = {
+        character:Lannister_8 = { is_imprisoned = yes }
+	}
+
+	cost = {
+		prestige = 100
+	}
+
+	effect = {
+		character:Lannister_8 = {
+			release_from_prison = yes
+			add_trait = murderer # Tywin Lannister
+			add_trait = kinslayer_3 # Tywin Lannister
+			death = {
+				death_reason = death_vanished
+			}
+		}
+		death = {
+			death_reason = death_shot_arrow_murder
+			killer = character:Lannister_8
+		}
+        # set_player_character = character:Lannister_6
+		character:Lannister_6 = {
+			add_trait = drunkard
+			add_trait = paranoid
+			remove_trait = ambitious
+		}
+	}
+
+	ai_potential = {
+	}
+	
+	ai_will_do = {
+		base = 0
+	}
+}

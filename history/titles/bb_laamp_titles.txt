@@ -1,0 +1,123 @@
+﻿
+### Stannis
+d_laamp_stannis = {
+	8300.1.1 = {
+		liege = 0
+		holder = Baratheon_3
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_legitimists
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_legitimists
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+}
+
+### Brotherhood Without Banners
+d_laamp_bwob = {
+	8298.10.28 = {
+		liege = 0
+		holder = Dondarrion_2
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_brigands
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_brigands
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	8299.12.18 = {
+		holder = Tully_5
+	}
+}
+
+### Sandor
+d_laamp_sandor = {
+	8300.1.1 = {
+		liege = 0
+		holder = Clegane_4
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_brigands
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_brigands
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+}
+
+### Brienne
+d_laamp_brienne = {
+	8300.1.1 = {
+		liege = 0
+		holder = Tarth_6
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_explorers
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_explorers
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+}
+
+### Bran
+d_laamp_bran = {
+	8300.1.1 = {
+		liege = 0
+		holder = Stark_Dummy_10
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_explorers
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_explorers
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+}

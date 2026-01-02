@@ -351,7 +351,7 @@ Tully_5 = {
 			copy_traits = character:Tully_4 # Catelyn Tully
 			remove_trait = gregarious
 			add_trait = faith_warrior # Favored by Rhllor
-			change_first_name = Lady_Stoneheart
+			change_first_name = Stoneheart
 			set_real_father = character:Tully_1 # Hoster Tully
 			set_real_mother = character:Whent_6 # Minisa Whent
 			add_gold = 80
@@ -378,7 +378,6 @@ Tully_5 = {
 		trait = disfigured
 		trait = infertile
 		trait = callous
-		give_nickname = nick_agot_historical_stoneheart
 		make_trait_inactive = visible_disfigurement_2
 	}
 }
@@ -763,7 +762,9 @@ Tully_hh_5 = {
 	8254.1.1 = { trait = lifestyle_poet }
 	8265.1.1 = { employer = Tully_1 } # Hoster Tully
 	8298.10.28 = { employer = Dondarrion_2 } # Beric Dondarrion
-	8299.12.18 = { employer = Tully_5 } # Lady Stoneheart
+	8300.1.10 = {
+		agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_bwob }
+	}
 }
 Tully_hh_6 = {
 	name = Rymund # Canon, Rymund the Rhymer
@@ -16072,7 +16073,6 @@ Brotherhood_8 = {
 			# }
 		# }
 	}
-	8299.12.18 = { employer = Tully_5 } # Lady Stoneheart
 	8300.1.1 = {
 		effect = {
 			if = {
@@ -16084,6 +16084,9 @@ Brotherhood_8 = {
 				}
 			}
 		}
+	}
+	8300.1.10 = {
+		agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_bwob }
 	}
 }
 Brotherhood_1 = {
@@ -16116,7 +16119,9 @@ Brotherhood_1 = {
 		religion = rhllor_fots
 	}
 	8299.6.1 = { trait = scarred }
-	8299.12.18 = { employer = Tully_5 } # Lady Stoneheart
+	8300.1.10 = {
+		agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_bwob }
+	}
 }
 Brotherhood_9 = {
 	name = Anguy # Canon
@@ -16154,7 +16159,9 @@ Brotherhood_9 = {
 		employer = Dondarrion_2 # Beric Dondarrion
 		religion = rhllor_fots
 	}
-	8299.12.18 = { employer = Tully_5 } # Lady Stoneheart
+	8300.1.10 = {
+		agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_bwob }
+	}
 }
 Brotherhood_7 = {
 	name = Pello # Canon, AKA: The Greenbeard
@@ -16183,7 +16190,9 @@ Brotherhood_7 = {
 		employer = Dondarrion_2 # Beric Dondarrion
 		religion = rhllor_fc
 	}
-	8299.12.18 = { employer = Tully_5 } # Lady Stoneheart
+	8300.1.10 = {
+		agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_bwob }
+	}
 }
 ### Family of Jack-Be-Lucky
 Brotherhood_2 = {
@@ -16234,7 +16243,9 @@ Brotherhood_3 = {
 		employer = Dondarrion_2 # Beric Dondarrion
 		religion = rhllor_fots
 	}
-	8299.12.18 = { employer = Tully_5 } # Lady Stoneheart
+	8300.1.10 = {
+		agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_bwob }
+	}
 }
 Brotherhood_4 = {
 	name = Wat # Mentioned

@@ -3225,7 +3225,7 @@ agot_silly_mode = {
 	}
 }
 
-baseborn_wilderness = {
+baseborn_wilderness = { # bookmark setup
 	effect = {
 		every_county_in_region = {
 			region = world_essos
@@ -3239,6 +3239,19 @@ baseborn_wilderness = {
 				}
 			}
 			make_settlement_county_wilderness = { COUNTY = this }
+		}
+		every_county_in_region = {
+			region = world_westeros_the_north
+			limit = {
+				NOR = {
+					de_jure_liege = title:d_the_dreadfort
+					de_jure_liege = title:d_karhold
+				}
+			}
+			add_county_modifier = {
+				modifier = red_wedding_aftermath
+				years = 1
+			}
 		}
 	}
 }
