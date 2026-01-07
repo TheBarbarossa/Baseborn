@@ -3225,7 +3225,7 @@ agot_silly_mode = {
 	}
 }
 
-baseborn_wilderness = { # bookmark setup
+baseborn_wilderness = { # Bookmark setup
 	effect = {
 		every_county_in_region = {
 			region = world_essos
@@ -3236,6 +3236,7 @@ baseborn_wilderness = { # bookmark setup
 					this = title:c_ragmans_harbor
 					this = title:c_sellagoros_shields
 					this = title:c_the_jagged_shields
+					this = title:c_aegenkagon
 				}
 			}
 			make_settlement_county_wilderness = { COUNTY = this }
@@ -3256,5 +3257,45 @@ baseborn_wilderness = { # bookmark setup
 		}
 		# Brightroar -> Oathkeeper
 		character:Tarth_6 = { agot_create_artifact_vs_oathkeeper_effect = { OWNER = this } }
+		# Lobotomise NPRs
+		every_county_in_region = {
+			region = world_westeros_the_crownlands
+			limit = {
+				holder = {
+					is_ai = yes
+					NOR = {
+						primary_title = title:e_the_iron_throne
+						primary_title = title:k_dragonstone
+					}
+				}
+			}
+			holder = { add_trait = bb_inactive }
+		}
+		every_county_in_region = {
+			region = world_westeros_the_stormlands
+			limit = {
+				holder = {
+					is_ai = yes
+					NOT = { primary_title = title:k_the_stormlands }
+				}
+			}
+			holder = { add_trait = bb_inactive }
+		}
+		every_county_in_region = {
+			region = world_westeros_the_reach
+			limit = {
+				holder = { is_ai = yes }
+			}
+			holder = { add_trait = bb_inactive }
+		}
+		every_county_in_region = {
+			region = world_westeros_dorne
+			limit = {
+				holder = { is_ai = yes }
+			}
+			holder = { add_trait = bb_inactive }
+		}
+		# For some reason Stoneheart refuses to keep this solely via history files
+		character:Tully_5 = { add_trait = undead }
 	}
 }
