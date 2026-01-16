@@ -8,6 +8,7 @@ d_laamp_stannis = {
 		succession_laws = { landless_adventurer_succession_law }
 		effect = {
 			holder ?= {
+				add_character_flag = block_laamp_starting_event
 				if = {
 					limit = {
 						NOT = {
@@ -15,6 +16,31 @@ d_laamp_stannis = {
 						}
 					}
 					add_realm_law_skip_effects = camp_purpose_legitimists
+				}
+				create_maa_regiment = {
+					type = storm_knights
+					check_can_recruit = no
+					size = 4
+				}
+				create_maa_regiment = {
+					type = stormlands_heavy_infantry
+					check_can_recruit = no
+					size = 4
+				}
+				create_maa_regiment = {
+					type = bowmen
+					check_can_recruit = no
+					size = 4
+				}
+				create_maa_regiment = {
+					type = light_footmen
+					check_can_recruit = no
+					size = 2
+				}
+				create_maa_regiment = {
+					type = pikemen_unit
+					check_can_recruit = no
+					size = 3
 				}
 			}
 			create_landless_adventurer_title_history_effect = yes

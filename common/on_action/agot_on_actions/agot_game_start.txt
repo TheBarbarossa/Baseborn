@@ -3236,7 +3236,7 @@ baseborn_wilderness = { # Bookmark setup
 					this = title:c_ragmans_harbor
 					this = title:c_sellagoros_shields
 					this = title:c_the_jagged_shields
-					this = title:c_aegenkagon
+					this = title:c_ironport_isles
 				}
 			}
 			make_settlement_county_wilderness = { COUNTY = this }
@@ -3255,6 +3255,22 @@ baseborn_wilderness = { # Bookmark setup
 				years = 1
 			}
 		}
+		# Wildling levy boost
+		every_county_in_region = {
+			region = world_westeros_beyond_the_wall
+			limit = {
+				holder = {
+					OR = {
+						has_title = title:e_beyond_the_wall
+						any_liege_or_above = { has_title = title:e_beyond_the_wall }
+					}
+				}
+			}
+			add_county_modifier = {
+				modifier = wildling_plight
+				years = 1
+			}
+		}
 		# Brightroar -> Oathkeeper
 		character:Tarth_6 = { agot_create_artifact_vs_oathkeeper_effect = { OWNER = this } }
 		# Lobotomise NPRs
@@ -3269,7 +3285,12 @@ baseborn_wilderness = { # Bookmark setup
 					}
 				}
 			}
-			holder = { add_trait = bb_inactive }
+			holder = {
+				add_trait = bb_inactive
+				house = {
+					every_house_member = { add_trait = bb_inactive }
+				}
+			}
 		}
 		every_county_in_region = {
 			region = world_westeros_the_stormlands
@@ -3279,23 +3300,63 @@ baseborn_wilderness = { # Bookmark setup
 					NOT = { primary_title = title:k_the_stormlands }
 				}
 			}
-			holder = { add_trait = bb_inactive }
+			holder = {
+				add_trait = bb_inactive
+				house = {
+					every_house_member = { add_trait = bb_inactive }
+				}
+			}
 		}
 		every_county_in_region = {
 			region = world_westeros_the_reach
 			limit = {
 				holder = { is_ai = yes }
 			}
-			holder = { add_trait = bb_inactive }
+			holder = {
+				add_trait = bb_inactive
+				house = {
+					every_house_member = { add_trait = bb_inactive }
+				}
+			}
 		}
 		every_county_in_region = {
 			region = world_westeros_dorne
 			limit = {
 				holder = { is_ai = yes }
 			}
-			holder = { add_trait = bb_inactive }
+			holder = {
+				add_trait = bb_inactive
+				house = {
+					every_house_member = { add_trait = bb_inactive }
+				}
+			}
 		}
 		# For some reason Stoneheart refuses to keep this solely via history files
 		character:Tully_5 = { add_trait = undead }
+		# Stannis LAAMP setup
+		title:d_laamp_stannis.holder.domicile ?= {
+			if = {
+				limit = {
+					is_domicile_type = camp
+				}
+				add_domicile_building = camp_main_02
+				add_domicile_building = camp_main_03
+				add_domicile_building = camp_main_04
+				add_domicile_building = supply_tent_01
+				add_domicile_building = supply_tent_02
+				add_domicile_building = supply_tent_03
+				add_domicile_building = supply_tent_04
+				add_domicile_building = camp_fire_01
+				add_domicile_building = camp_fire_02
+				add_domicile_building = camp_fire_03
+				add_domicile_building = camp_fire_04
+				add_domicile_building = camp_fire_05
+				add_domicile_building = camp_fire_06
+				add_domicile_building = baggage_train_01
+				add_domicile_building = baggage_train_02
+				add_domicile_building = baggage_train_03
+				add_domicile_building = proving_grounds_01
+			}
+		}
 	}
 }
