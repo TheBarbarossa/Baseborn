@@ -9448,7 +9448,7 @@ Mormont_2 = {
 		}
 	}
 }
-Mormont_4 = {
+Mormont_4 = { # edited 01/23 slambroski
 	name = Maege # Canon, a lord
 	dynasty = dynn_Mormont
 	female = yes
@@ -9487,6 +9487,7 @@ Mormont_4 = {
 	}
 	8299.12.15 = { # Red Wedding
 		#trait = in_hiding # Gone into the Neck and nobody knows what happened to her # AGOT TODO trait
+		trait = reclusive
 		effect = { # Dacey killed, hostile toward Boltons and Freys
 			if = {
 				limit = { character:Bolton_1 = { is_alive = yes } }
@@ -9506,7 +9507,7 @@ Mormont_4 = {
 	}
 }
 ### Issue of Jeor
-Mormont_3 = {
+Mormont_3 = { # edited 01/23 slambroski
 	name = Jorah # Canon, THE Jorah Mormont, a lord
 	dynasty = dynn_Mormont
 	dna = Mormont_3
@@ -9583,13 +9584,14 @@ Mormont_3 = {
 	#	employer = Targaryen_9 # Daenerys Targaryen
 	# }
 	8299.12.1 = {
+		death = { death_reason = death_vanished }
 		# employer = 147174371 # Malaquo Maegyr; Reenable once Volantis is added
 	}
-	8300.7.9 = {
-		effect = {
-			agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_merc_second_sons }
-		}
-	}
+	# 8300.7.9 = {
+	#	effect = {
+	#		agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_merc_second_sons }
+	#	}
+	# }
 }
 ### Issue of Maege
 Mormont_5 = {
@@ -9613,6 +9615,7 @@ Mormont_5 = {
 	trait = education_martial_1
 	trait = physique_good_1
 	trait = beauty_good_1
+	trait = disputed_heritage
 	trait = brave
 	trait = compassionate
 	trait = temperate
@@ -9664,8 +9667,9 @@ Mormont_6 = {
 	mother = Mormont_4
 
 	trait = education_martial_2
-	trait = physique_good_1
+	trait = physique_good_2
 	trait = beauty_bad_1
+	trait = disputed_heritage
 	trait = brave
 	trait = compassionate
 	trait = wrathful
@@ -9703,6 +9707,7 @@ Mormont_7 = {
 	mother = Mormont_4
 
 	trait = physique_good_1
+	trait = disputed_heritage
 
 	8280.1.1 = {
 		birth = yes
@@ -9729,6 +9734,7 @@ Mormont_8 = {
 	mother = Mormont_4
 
 	trait = physique_good_1
+	trait = disputed_heritage
 
 	8284.1.1 = {
 		birth = yes
@@ -9755,6 +9761,7 @@ Mormont_9 = {
 	mother = Mormont_4
 
 	trait = physique_good_1
+	trait = disputed_heritage
 	trait = arrogant
 	trait = stubborn
 
@@ -9769,8 +9776,8 @@ Mormont_9 = {
 	}
 }
 ### Issue of Alysane
-Mormont_10 = {
-	name = Maege # Mentioned
+Mormont_10 = { # edited 01/23 slambroski
+	name = Owella # Mentioned
 	dynasty = dynn_Mormont
 	dna = Mormont_10
 	female = yes
@@ -9780,14 +9787,16 @@ Mormont_10 = {
 
 	mother = Mormont_6
 
-	8294.1.1 = {
+	trait = disputed_heritage
+
+	8291.6.1 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
 		add_character_flag = canon_status_mentioned
 	}
 }
-Mormont_11 = {
-	name = Jeor # Mentioned
+Mormont_11 = { # edited 01/23 slambroski
+	name = Cregan # Mentioned
 	dynasty = dynn_Mormont
 	dna = Mormont_11
 
@@ -9796,7 +9805,9 @@ Mormont_11 = {
 
 	mother = Mormont_6
 
-	8297.1.1 = {
+	trait = disputed_heritage
+
+	8298.1.1 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
 		add_character_flag = canon_status_mentioned
