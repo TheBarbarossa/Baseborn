@@ -3305,7 +3305,9 @@ baseborn_wilderness = { # Bookmark setup
 				house = {
 					every_house_member = { 
 						add_trait = bb_inactive
-						limit = { NOT = { primary_title = title:d_laamp_brienne } }
+						limit = { 
+							NOT = { has_character_flag = bb_active_character } 
+						}
 					}
 				}
 			}
@@ -3318,7 +3320,12 @@ baseborn_wilderness = { # Bookmark setup
 			holder = {
 				add_trait = bb_inactive
 				house = {
-					every_house_member = { add_trait = bb_inactive }
+					every_house_member = { 
+						add_trait = bb_inactive
+						limit = { 
+							NOT = { has_character_flag = bb_active_character } 
+						}
+					}
 				}
 			}
 		}
