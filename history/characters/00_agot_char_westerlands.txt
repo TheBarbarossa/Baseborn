@@ -5198,12 +5198,13 @@ Brax_5 = {
 		death = { death_reason = death_battle } # Battle of the Fords
 	}
 }
-Brax_6 = {
+Brax_6 = { # edited 01/25 slambroski
 	name = Flement # Canon
 	dynasty = dynn_Brax
 
 	dna = Brax_6
 
+	martial = 10
 	prowess = 6
 
 	religion = fots_seven
@@ -5212,12 +5213,19 @@ Brax_6 = {
 	father = Brax_1
 	mother = Thanders_61
 
+	trait = education_martial_3
+	trait = education_martial_prowess_2
+
 	8265.1.1 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
 		add_character_flag = canon_status_canon
 	}
-	8281.1.1 = { trait = knight }
+	8275.1.1 = { trait = diligent }
+	8281.1.1 = { 
+		trait = knight
+		trait = fashionable
+	}
 	8288.1.1 = {
 		add_spouse = Frey_67 # Morya Frey.
 		employer = Lannister_1 # Tywin Lannister
@@ -5336,7 +5344,7 @@ Lydden_2 = {
 		death = { death_reason = death_accident }
 	}
 }
-Lydden_3 = {
+Lydden_3 = { # edited 01/25 slambroski
 	name = Lewys # Canon, a lord
 	dynasty = dynn_Lydden
 
@@ -5348,15 +5356,20 @@ Lydden_3 = {
 	father = Lydden_1
 	mother = Durwell_59
 
+	trait = education_martial_prowess_1
+
 	8239.1.1 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
 		add_character_flag = canon_status_canon
 	}
-	8255.1.1 = { add_spouse = Bettley_24 } # Benera Bettley
+	8255.1.1 = { 
+		trait = knight
+		add_spouse = Bettley_24 # Benera Bettley
+	} 
 }
 ### Issue of Lewys
-Lydden_4 = {
+Lydden_4 = { # edited 01/25 slambroski
 	name = Jonos
 	dynasty = dynn_Lydden
 
@@ -5368,11 +5381,16 @@ Lydden_4 = {
 	father = Lydden_3
 	mother = Bettley_24
 
+	trait = education_martial_prowess_1
+
 	8259.1.1 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
 	}
-	8277.1.1 = { add_spouse = Malloway_2 } # Tyanne Malloway
+	8277.1.1 = { 
+		trait = knight
+		add_spouse = Malloway_2 # Tyanne Malloway
+	} 
 }
 Lydden_98 = {
 	name = Teora
@@ -5412,7 +5430,7 @@ Lydden_5 = {
 		add_character_flag = has_scripted_appearance
 	}
 }
-Lydden_6 = {
+Lydden_6 = { # edited 01/25 slambroski
 	name = Harys
 	dynasty = dynn_Lydden
 
@@ -5424,10 +5442,13 @@ Lydden_6 = {
 	father = Lydden_4
 	mother = Malloway_2
 
+	trait = education_martial_prowess_3
+
 	8281.1.1 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
 	}
+	8298.1.1 = { trait = knight }
 }
 Lydden_7 = {
 	name = Bethany
@@ -6229,7 +6250,7 @@ Vikary_22 = {
 	}
 }
 ### Issue of Damion
-Vikary_1 = {
+Vikary_1 = { # edited 01/25 slambroski
 	name = Lymond # Canon, a lord
 	dynasty_house = house_Vikary
 
@@ -6242,6 +6263,8 @@ Vikary_1 = {
 
 	father = Vikary_23
 	mother = Pendric_53
+
+	trait = education_martial_prowess_1
 
 	8254.1.1 = {
 		birth = yes
@@ -7196,6 +7219,7 @@ Prester_1 = { # edited 01/25 slambroski
 		add_character_flag = has_scripted_appearance
 		add_character_flag = canon_status_canon
 	}
+	8277.1.1 = { trait = knight }
 	8277.1.1 = { add_spouse = Merrell_32 } # Jeane Merrell
 }
 ### Issue of Geremy, first cousins to Garrison
