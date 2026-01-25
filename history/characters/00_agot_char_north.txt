@@ -9475,7 +9475,6 @@ Mormont_4 = { # edited 01/23 slambroski
 	trait = wrathful
 	trait = stubborn
 	trait = refusing_marriage
-	trait = bb_missing
 	trait = bossy
 
 	disallow_random_traits = yes
@@ -9488,6 +9487,7 @@ Mormont_4 = { # edited 01/23 slambroski
 	}
 	8299.12.15 = { # Red Wedding
 		#trait = in_hiding # Gone into the Neck and nobody knows what happened to her # AGOT TODO trait
+		trait = bb_missing
 		effect = { # Dacey killed, hostile toward Boltons and Freys
 			if = {
 				limit = { character:Bolton_1 = { is_alive = yes } }
@@ -9693,7 +9693,7 @@ Mormont_6 = {
 		}
 	}
 }
-Mormont_7 = {
+Mormont_7 = { # edited 01/24 slambroski
 	name = Lyra # Canon
 	dynasty = dynn_Mormont
 	female = yes
@@ -9718,9 +9718,10 @@ Mormont_7 = {
 			set_real_father = character:Giantsbane_1 # Tormund Giantsbane
 		}
 	}
+	8299.12.15 = { trait = bb_missing }
 	# 8299.12.15 = { trait = in_hiding } # With her mother
 }
-Mormont_8 = {
+Mormont_8 = { # edited 01/24 slambroski
 	name = Jorelle # Canon
 	dynasty = dynn_Mormont
 	female = yes
@@ -9745,6 +9746,7 @@ Mormont_8 = {
 			set_real_father = character:Giantsbane_1 # Tormund Giantsbane
 		}
 	}
+	8299.12.15 = { trait = bb_missing }
 	# 8299.12.15 = { trait = in_hiding } # With her mother
 }
 Mormont_9 = {
@@ -15203,7 +15205,7 @@ Glover_3 = {
 		death = { death_reason = death_depressed }
 	}
 }
-Glover_4 = {
+Glover_4 = { # edited 01/24 slambroski
 	name = Galbart # Canon, a lord
 	dynasty = dynn_Glover
 	dna = Glover_4
@@ -15236,6 +15238,9 @@ Glover_4 = {
 	}
 	8284.1.1 = { add_spouse = Elliver_20 } # Bethany Elliver
 	8293.1.1 = { trait = widowed }
+	8299.12.15 = { # Red Wedding
+		trait = bb_missing
+	}
 }
 Glover_5 = {
 	name = Robett # Canon
