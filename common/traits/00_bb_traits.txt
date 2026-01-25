@@ -50,3 +50,30 @@ bb_inactive = {
 	ai_greed = 1000
 	ai_zeal = -1000
 }
+
+bb_missing = { # created 01/24 slambroski
+	icon = follower.dds
+
+	diplomacy = -4
+	intrigue = 4
+
+	incapacitating = yes
+
+	disables_combat_leadership = yes
+
+	shown_in_ruler_designer = no 
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_bb_missing_desc
+			}
+			desc = trait_bb_missing_desc
+		}
+	}
+
+	ai_sociability = -100
+}
