@@ -2770,6 +2770,7 @@ Weeper_1 = {
 	dna = Weeper_1
 
 	martial = 6
+	prowess = 6
 
 	religion = old_gods_btw_fnf
 	culture = fangman
@@ -2788,7 +2789,7 @@ Weeper_1 = {
 		add_character_flag = has_scripted_appearance
 		add_character_flag = canon_status_canon
 	}
-	8275.1.1 = { trait = education_martial_prowess_3 }
+	8275.1.1 = { trait = education_martial_prowess_4 }
 	8279.1.1 = { give_nickname = nick_agot_historical_the_weeper_gendel }
 }
 ### Devyn Sealskinner
@@ -3098,6 +3099,35 @@ Wooden_Ear_2 = {
 		}
 	}
 }
+Wooden_Ear_3 = { # created 01/25 slambroski
+	name = Ygon
+	dynasty = dynn_Wooden_Ear
+
+	religion = old_gods_btw_sas
+	culture = forestman
+
+	father = Wooden_Ear_1
+	mother = Stonemorn_6
+
+	8291.1.1 = { birth = yes }
+	8295.1.1 = {
+		trait = pneumonic
+		death = { death_reason = death_pneumonic }
+	}
+}
+Wooden_Ear_4 = { # created 01/25 slambroski
+	name = Roka
+	dynasty = dynn_Wooden_Ear
+	female = yes
+
+	religion = old_gods_btw_sas
+	culture = forestman
+
+	father = Wooden_Ear_1
+	mother = Stonemorn_6
+
+	8298.6.1 = { birth = yes }
+}
 ### Soren Shieldbreaker
 Shieldbreaker_1 = {
 	name = Soren # Canon, AKA: Soren Shieldbreaker
@@ -3404,7 +3434,7 @@ Gavin_The_Trader_1 = {
 	8300.8.17 = { employer = Stark_7 } # Jon Snow
 }
 ### Dim Dalba
-Dalba_1 = {
+Dalba_1 = { # edited 01/25 slambroski
 	name = Dalba # Semi-Canon, AKA: Dim Dalba
 
 	religion = old_gods_btw_fnf
@@ -3417,7 +3447,18 @@ Dalba_1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
 	}
+	8272.1.1 = { add_spouse = Dalba_s_1 }
 	8277.1.1 = { give_nickname = nick_agot_historical_dim }
+}
+Dalba_s_1 = { # created 01/25 slambroski
+	name = Hali
+	female = yes 
+
+	religion = old_gods_btw_fnf
+	culture = forestman
+
+	8253.1.1 = { birth = yes }
+	8310.1.1 = { death = yes }
 }
 Dalba_2 = { # created 01/25 slambroski
 	name = Eik
@@ -3426,8 +3467,10 @@ Dalba_2 = { # created 01/25 slambroski
 	culture = forestman
 
 	father = Dalba_1
+	mother = Dalba_s_1
 
 	8273.1.1 = { birth = yes }
+	8290.1.1 = { add_spouse = Dalba_s_2 }
 }
 Dalba_3 = { # created 01/25 slambroski
 	name = Skeyga
@@ -3437,8 +3480,41 @@ Dalba_3 = { # created 01/25 slambroski
 	culture = forestman
 
 	father = Dalba_1
+	mother = Dalba_s_1
 
 	8276.1.1 = { birth = yes }
+}
+Dalba_4 = { # created 01/25 slambroski
+	name = Meha
+	female = yes
+
+	religion = old_gods_btw_fnf
+	culture = forestman
+
+	father = Dalba_1
+	mother = Dalba_s_1
+
+	8281.1.1 = { birth = yes }
+}
+Dalba_s_2 = { # created 01/25 slambroski
+	name = Thistle
+	female = yes
+
+	religion = old_gods_btw_fnf
+	culture = forestman
+
+	8272.1.1 = { birth = yes }
+}
+Dalba_5 = { # created 01/25 slambroski
+	name = Mance
+
+	religion = old_gods_btw_fnf
+	culture = forestman
+
+	father = Dalba_2
+	mother = Dalba_s_2
+
+	8295.1.1 = { birth = yes }
 }
 ### Morga Bearkin
 Bearkin_1 = {
