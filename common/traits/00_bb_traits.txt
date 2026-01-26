@@ -77,3 +77,99 @@ bb_missing = { # created 01/24 slambroski
 
 	ai_sociability = -100
 }
+
+### Skinchanger traits
+bb_skinchanger_1 = { # Novice
+	intrigue = 1
+	prowess = 2
+
+	dread_baseline_add = 5
+
+	stress_gain_mult = 0.25
+
+	inherit_chance = 0.5
+	random_creation = 0
+
+	group = skinchanger
+	level = 1
+
+	genetic = yes
+
+	shown_in_ruler_designer = yes
+	ruler_designer_cost = 50
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_bb_skinchanger_1_desc
+			}
+			desc = trait_bb_skinchanger_1_desc
+		}
+	}
+}
+bb_skinchanger_2 = { # Intermediate
+	intrigue = 2
+	prowess = 4
+
+	dread_baseline_add = 10
+
+	stress_gain_mult = 0.25
+
+	inherit_chance = 0.5
+	random_creation = 0
+
+	group = skinchanger
+	level = 2
+
+	genetic = yes
+
+	shown_in_ruler_designer = yes
+	ruler_designer_cost = 75
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_bb_skinchanger_2_desc
+			}
+			desc = trait_bb_skinchanger_2_desc
+		}
+	}
+}
+bb_skinchanger_3 = { # Master
+	intrigue = 2
+	learning = 2
+	prowess = 6
+
+	dread_baseline_add = 20
+
+	stress_gain_mult = 0.20
+
+	inherit_chance = 0.5
+	random_creation = 0
+
+	group = skinchanger
+	level = 3
+
+	genetic = yes
+
+	shown_in_ruler_designer = yes
+	ruler_designer_cost = 100
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_bb_skinchanger_3_desc
+			}
+			desc = trait_bb_skinchanger_3_desc
+		}
+	}
+}
