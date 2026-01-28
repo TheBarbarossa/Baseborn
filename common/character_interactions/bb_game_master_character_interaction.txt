@@ -331,13 +331,71 @@ bbgm_break_alliances = {
             is_allied_to = scope:recipient
         }
     }
-    
+
     on_send = {
        scope:recipient = {
             every_ally = {
 				break_alliance = scope:recipient
             }
         } 
+    }
+}
+
+bbgm_enforce_contraceptives = {
+    category = interaction_category_bb_game_master
+    interface_priority = 94
+    icon = icon_force_to_step_down
+    desc = bbgm_enforce_contraceptives_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+
+    is_shown = {
+		NOT = { scope:recipient = scope:actor }
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+        scope:recipient = {
+			is_adult = yes
+			NOT = { has_character_modifier = contraceptives_modifier }
+
+        }
+    }
+    
+    on_send = {
+		scope:recipient = {
+			add_character_modifier = contraceptives_modifier
+		}
+    }
+}
+
+bbgm_remove_contraceptives = {
+    category = interaction_category_bb_game_master
+    interface_priority = 93
+    icon = icon_scheme_seduce
+    desc = bbgm_remove_contraceptives_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+
+    is_shown = {
+		NOT = { scope:recipient = scope:actor }
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+        scope:recipient = {
+			is_adult = yes
+			has_character_modifier = contraceptives_modifier
+
+        }
+    }
+    
+    on_send = {
+		scope:recipient = {
+			remove_character_modifier = contraceptives_modifier
+		}
     }
 }
 
