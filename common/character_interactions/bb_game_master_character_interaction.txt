@@ -312,6 +312,35 @@ bbgm_independence = {
     }
 }
 
+bbgm_break_alliances = {
+    category = interaction_category_bb_game_master
+    interface_priority = 95
+    icon = change_allegiance
+    desc = bbgm_break_alliances_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+
+    is_shown = {
+		NOT = { scope:recipient = scope:actor }
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+        any_ruler = {
+            is_allied_to = scope:recipient
+        }
+    }
+    
+    on_send = {
+       scope:recipient = {
+            every_ally = {
+				break_alliance = scope:recipient
+            }
+        } 
+    }
+}
+
 bbgm_make_character_inactive = {
     category = interaction_category_bb_game_master
     interface_priority = 0
