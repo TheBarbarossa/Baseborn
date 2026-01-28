@@ -311,3 +311,53 @@ bbgm_independence = {
 		resolve_title_and_vassal_change = scope:change
     }
 }
+
+bbgm_make_character_inactive = {
+    category = interaction_category_bb_game_master
+    interface_priority = 0
+    icon = icon_scheme_abduct
+    desc = bbgm_make_character_inactive_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+
+    is_shown = {
+        scope:recipient = {
+            NOT = { has_trait = bb_inactive }
+        }
+        scope:actor = {
+            has_trait = game_master
+        }
+    }
+
+    on_send = {
+        scope:recipient = {
+            add_trait = bb_inactive
+        }
+    }
+}
+
+bbgm_make_character_active = {
+    category = interaction_category_bb_game_master
+    interface_priority = 0
+    icon = icon_scheme_befriend
+    desc = bbgm_make_character_active_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+
+    is_shown = {
+        scope:recipient = {
+            has_trait = bb_inactive
+        }
+        scope:actor = {
+            has_trait = game_master
+        }
+    }
+
+    on_send = {
+        scope:recipient = {
+            remove_trait = bb_inactive
+        }
+    }
+}
