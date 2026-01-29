@@ -1,0 +1,170 @@
+﻿# GENERIC NORTHERN LEGACIES
+
+north_legacy_1 = { # LAW / GLORY MIX
+	legacy = north_legacy_track
+
+	can_be_picked = {
+		OR = {
+			dynasty = { has_dynasty_perk = north_legacy_1 }
+			culture = {
+				OR = {
+					this = culture:northman
+					this = culture:barrowman
+					this = culture:crannogman
+					any_parent_culture_or_above = {
+						OR = {
+							this = culture:northman
+							this = culture:barrowman
+							this = culture:crannogman
+						}
+					}
+				}
+			}
+		}
+	}
+
+	character_modifier = {
+		martial = 1
+		prowess = 1
+		winter_advantage = 5
+	}
+
+	ai_chance = {
+		value = 11
+		if = {
+			limit = {
+				can_start_new_legacy_track_trigger = no
+			}
+			multiply = 0
+		}
+	}
+}
+
+north_legacy_2 = { # Watchers on the Wall
+	legacy = north_legacy_track
+
+	effect = {
+		# Send to nightswatch
+		custom_description_no_bullet = { text = north_legacy_2_effect }
+	}
+
+}
+
+north_legacy_3 = { # Unconquered
+	legacy = north_legacy_track
+
+	character_modifier = {
+		knight_effectiveness_mult = 0.15
+		defender_advantage = 5
+		knight_limit = 1
+	}
+}
+
+north_legacy_4 = { # Builder's Blood
+	legacy = north_legacy_track
+
+	character_modifier = {
+		domain_limit = 1
+		build_gold_cost = -0.05
+		holding_build_gold_cost = -0.05
+		build_speed = -0.1
+		holding_build_speed = -0.1
+	}
+}
+
+north_legacy_5 = { # Hungry Wolves
+	legacy = north_legacy_track
+
+	character_modifier = {
+		prowess = 5
+	}
+}
+
+# STARK LEGACIES
+
+stark_legacy_1 = { # Winter Kings
+	legacy = stark_legacy_track
+
+	can_be_picked = {
+		dynasty = dynasty:dynn_Stark
+	}
+
+	character_modifier = {
+		vassal_opinion = 10
+		vassal_levy_contribution_mult = 0.1
+	}
+
+	ai_chance = {
+		value = 0
+	}
+}
+
+# BOLTON LEGACIES
+
+bolton_legacy_1 = { # Red Kings
+	legacy = bolton_legacy_track
+
+	can_be_picked = {
+		dynasty = dynasty:dynn_Bolton
+	}
+
+	character_modifier = {
+		dread_baseline_add = 10
+		#vassal_levy_contribution_mult = 0.1
+	}
+
+	effect = {
+		custom_description_no_bullet = {
+			text = bolton_legacy_effect
+		}
+	}
+
+	ai_chance = {
+		value = 0
+	}
+}
+
+# UMBER LEGACIES
+
+umber_legacy_1 = { # Blood of the First Men
+	legacy = umber_legacy_track
+
+	can_be_picked = {
+		dynasty = dynasty:dynn_Umber
+	}
+
+	ai_chance = {
+		value = 0
+	}
+
+	effect = {
+		# Effect is applied in the on action 'on_birth_child'
+		custom_description_no_bullet = {
+			text = umber_legacy_1_effect
+		}
+	}
+
+	traits = {
+		physique_good_1 = 100
+	}
+}
+
+# FORRESTER LEGACY
+
+forrester_legacy_1 = {
+	legacy = forrester_legacy_track
+
+	can_be_picked = {
+		dynasty = dynasty:dynn_Forrester
+	}
+
+	ai_chance = {
+		value = 0
+	}
+
+	character_modifier = {
+		heavy_infantry_toughness_mult = 0.10
+		domain_tax_mult = 0.10
+		enemy_hostile_scheme_phase_duration_add = minor_scheme_phase_duration_malus_value
+	}
+}
