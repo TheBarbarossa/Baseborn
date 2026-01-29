@@ -26,7 +26,7 @@ north_legacy_1 = { # LAW / GLORY MIX
 	character_modifier = {
 		martial = 1
 		prowess = 1
-		winter_advantage = 5
+		winter_advantage = 3
 	}
 
 	ai_chance = {
@@ -40,12 +40,14 @@ north_legacy_1 = { # LAW / GLORY MIX
 	}
 }
 
-north_legacy_2 = { # Watchers on the Wall
+north_legacy_2 = { # Rough as Stone
 	legacy = north_legacy_track
 
-	effect = {
-		# Send to nightswatch
-		custom_description_no_bullet = { text = north_legacy_2_effect }
+	character_modifier = {
+		monthly_county_control_change_add = 0.02
+		monthly_lifestyle_xp_gain_mult = 0.1
+		levy_size = 0.1
+		men_at_arms_toughness = 0.1
 	}
 
 }
@@ -55,8 +57,8 @@ north_legacy_3 = { # Unconquered
 
 	character_modifier = {
 		knight_effectiveness_mult = 0.15
-		defender_advantage = 5
-		knight_limit = 1
+		defender_advantage = 6
+		knight_limit = 3
 	}
 }
 
