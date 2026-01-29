@@ -36,9 +36,20 @@
 			is_dynast = yes
 			dynasty = scope:recipient.dynasty
 
-			dynasty = {
-				has_dynasty_perk = north_legacy_2
-			}
+			culture = { #e
+				OR = {
+					this = culture:northman 
+					this = culture:barrowman
+					this = culture:crannogman
+					any_parent_culture_or_above = {
+						OR = {
+							this = culture:northman
+							this = culture:barrowman
+							this = culture:crannogman
+						}
+					}
+				}
+			}			
 
 			exists = title:k_the_wall.holder #cant go where there ain't
 			NOR = {
