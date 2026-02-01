@@ -1,0 +1,518 @@
+﻿############################       CRASTER'S KEEP       ############################
+####################################################################################
+
+###### CLAN OF CRASTER (id = dynn_Crasters_Keep)
+############################
+###
+###
+Craster_1 = {
+	name = Craster # Canon, THE Craster
+	dynasty = dynn_Crasters_Keep
+
+	dna = Craster_1
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	trait = wild_oat
+
+	trait = education_martial_2
+	trait = strong
+	trait = sadistic
+	trait = arrogant
+	trait = greedy
+	trait = rowdy
+
+	disallow_random_traits = yes
+
+	8235.1.1 = {
+		birth = yes
+		add_character_flag = has_scripted_appearance
+		add_character_flag = canon_status_canon
+	}
+	8249.1.1 = { trait = lustful }
+	8299.12.4 = {
+		death = {
+			death_reason = death_murder_known # Mutiny at Craster's Keep
+			killer = Mutineers_1 # Dirk
+		}
+	}
+}
+### Marriages are in wives entries as a technical workaround
+### Two unrelated wives to make timeline work bit better
+Craster_2 = {
+	name = Esgred # Mentioned, first wife of Craster
+	female = yes
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	8235.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_mentioned
+	}
+	8252.1.1 = { add_spouse = Craster_1 } # Craster
+	8269.1.1 = {
+		death = { death_reason = death_childbirth }
+	}
+}
+Craster_3 = {
+	name = Dalla # Mentioned, second wife of Craster
+	female = yes
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	8237.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_mentioned
+	}
+	8252.1.1 = { add_spouse = Craster_1 } # Craster
+	8272.1.1 = {
+		death = { death_reason = death_suicide }
+	}
+}
+
+### Craster's daughter-wives
+############################
+
+### Issue of Craster and his first wife
+Craster_4 = {
+	name = Ferny # Canon, older-wives group
+	dynasty = dynn_Crasters_Keep
+	female = yes
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	father = Craster_1
+	mother = Craster_2
+
+	trait = education_stewardship_2
+	trait = compassionate
+	trait = brave
+	trait = diligent
+	trait = bossy
+
+	disallow_random_traits = yes
+
+	8253.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8269.1.1 = { add_spouse = Craster_1 } # Craster
+}
+Craster_5 = {
+	name = Morag # Semi-Canon, older-wives group
+	dynasty = dynn_Crasters_Keep
+	female = yes
+
+	dna = Craster_5
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	father = Craster_1
+	mother = Craster_2
+
+	trait = education_diplomacy_2
+	trait = vengeful
+	trait = patient
+	trait = diligent
+	trait = bossy
+
+	disallow_random_traits = yes
+
+	8255.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_semicanon
+	}
+	8271.1.1 = { add_spouse = Craster_1 } # Craster
+}
+Craster_6 = {
+	name = Rynny # Mentioned, older-wives group
+	dynasty = dynn_Crasters_Keep
+	female = yes
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	father = Craster_1
+	mother = Craster_2
+
+	8258.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_mentioned
+	}
+	8274.1.1 = { add_spouse = Craster_1 } # Craster
+}
+Craster_7 = {
+	name = Larra # Mentioned, older-wives group
+	dynasty = dynn_Crasters_Keep
+	female = yes
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	father = Craster_1
+	mother = Craster_2
+
+	8260.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_mentioned
+	}
+	8276.1.1 = { add_spouse = Craster_1 } # Craster
+}
+Craster_8 = {
+	name = Maerydah # Mentioned, younger-wives group
+	dynasty = dynn_Crasters_Keep
+	female = yes
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	father = Craster_1
+	mother = Craster_2
+
+	8264.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_mentioned
+	}
+	8280.1.1 = { add_spouse = Craster_1 } # Craster
+}
+Craster_9 = {
+	name = Layayella # Mentioned, younger-wives group
+	dynasty = dynn_Crasters_Keep
+	female = yes
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	father = Craster_1
+	mother = Craster_2
+
+	8269.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_mentioned
+	}
+	8280.1.1 = { add_spouse = Craster_1 } # Craster
+}
+### Issue of Craster and his second wife
+Craster_10 = {
+	name = Yegresch # Mentioned, older-wives group
+	female = yes
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	father = Craster_1
+	mother = Craster_3
+
+	8254.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_mentioned
+	}
+	8270.1.1 = { add_spouse = Craster_1 } # Craster
+}
+Craster_11 = {
+	name = Jonellar # Mentioned, older-wives group
+	female = yes
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	father = Craster_1
+	mother = Craster_3
+
+	8257.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_mentioned
+	}
+	8273.1.1 = { add_spouse = Craster_1 } # Craster
+}
+Craster_12 = {
+	name = Kyrar # Mentioned, older-wives group
+	dynasty = dynn_Crasters_Keep
+	female = yes
+
+	dna = Craster_12
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	father = Craster_1
+	mother = Craster_3
+
+	8260.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_mentioned
+	}
+	8276.1.1 = { add_spouse = Craster_1 } # Craster
+}
+Craster_13 = {
+	name = Morra # Mentioned, younger-wives group
+	dynasty = dynn_Crasters_Keep
+	female = yes
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	father = Craster_1
+	mother = Craster_3
+
+	8264.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_mentioned
+	}
+	8280.1.1 = { add_spouse = Craster_1 } # Craster
+}
+
+### Craster's granddaughter-wives
+############################
+
+### Issue of Craster and Ferny
+Craster_14 = {
+	name = Nella # Canon, born six sons, younger-wives group
+	dynasty = dynn_Crasters_Keep
+	female = yes
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	father = Craster_1
+	mother = Craster_4
+
+	8270.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8286.1.1 = { add_spouse = Craster_1 } # Craster
+}
+Craster_15 = {
+	name = Dyah # Canon, younger-wives group
+	dynasty = dynn_Crasters_Keep
+	female = yes
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	father = Craster_1
+	mother = Craster_4
+
+	8275.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8291.1.1 = { add_spouse = Craster_1 } # Craster
+}
+### Issue of Craster and Morag
+Craster_16 = {
+	name = Valwyla # Mentioned, younger-wives group
+	dynasty = dynn_Crasters_Keep
+	female = yes
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	father = Craster_1
+	mother = Craster_5
+
+	8276.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_mentioned
+	}
+	8292.1.1 = { add_spouse = Craster_1 } # Craster
+}
+### Issue of Craster and Rynny
+Craster_17 = {
+	name = Ysilla # Mentioned, younger-wives group
+	dynasty = dynn_Crasters_Keep
+	female = yes
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	father = Craster_1
+	mother = Craster_6
+
+	trait = inbred
+
+	8278.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_mentioned
+	}
+	8294.1.1 = { add_spouse = Craster_1 } # Craster
+}
+### Issue of Craster and Larra
+Craster_18 = {
+	name = Snowilhd # Mentioned, younger-wives group
+	dynasty = dynn_Crasters_Keep
+	female = yes
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	father = Craster_1
+	mother = Craster_7
+
+	trait = inbred
+
+	8277.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_mentioned
+	}
+	8293.1.1 = { add_spouse = Craster_1 } # Craster
+}
+### Issue of Craster and Morra
+Craster_19 = {
+	name = Gilly # Canon, younger-wives group
+	dynasty = dynn_Crasters_Keep
+	female = yes
+	dna = Craster_19
+
+	learning = 0
+	stewardship = 0
+	martial = 0
+	diplomacy = 3
+	intrigue = 4
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	father = Craster_1
+	mother = Craster_13
+
+	trait = education_diplomacy_1
+	trait = compassionate
+	trait = brave
+	trait = shy
+	trait = honest
+	trait = pensive
+
+	disallow_random_traits = yes
+
+	8283.1.1 = {
+		birth = yes
+		add_character_flag = has_scripted_appearance
+		add_character_flag = canon_status_canon
+	}
+	8299.1.1 = { add_spouse = Craster_1 } # Craster
+	8299.12.4 = { employer = Slynt_1 } # Janos Slynt
+	8300.2.10 = { employer = Stark_7 } # Jon Snow
+}
+Craster_22 = {
+	name = Hina # Mentioned, not-a-wife group
+	dynasty = dynn_Crasters_Keep
+	female = yes
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	father = Craster_1
+	mother = Craster_13
+
+	trait = inbred
+
+	8288.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_mentioned
+	}
+}
+### Issue of Craster and Layayella
+Craster_20 = {
+	name = Sissy # Semi-Canon, younger-wives group
+	dynasty = dynn_Crasters_Keep
+	female = yes
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	father = Craster_1
+	mother = Craster_9
+
+	trait = brave
+
+	8282.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_semicanon
+	}
+	8298.1.1 = { add_spouse = Craster_1 } # Craster
+}
+Craster_21 = {
+	name = Willow # Mentioned, not-a-wife group
+	dynasty = dynn_Crasters_Keep
+	female = yes
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	father = Craster_1
+	mother = Craster_9
+
+	trait = inbred
+
+	8287.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_mentioned
+	}
+}
+
+### Craster's great-grandchildren
+############################
+
+### Issue of Craster and Dyah
+Craster_23 = {
+	name = Cortah # Mentioned, not-a-wife group
+	dynasty = dynn_Crasters_Keep
+	female = yes
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	father = Craster_1
+	mother = Craster_15
+
+	trait = inbred
+
+	8292.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_mentioned
+	}
+}
+### Issue of Craster and Valwyla
+Craster_24 = {
+	name = Meri # Mentioned, not-a-wife group
+	dynasty = dynn_Crasters_Keep
+	female = yes
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	father = Craster_1
+	mother = Craster_16
+
+	trait = inbred
+
+	8294.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_mentioned
+	}
+}
+### Issue of Craster and Gilly
+Craster_25 = { # edited 02/01 slambroski
+	name = Monster # Owen, AKA Little Sam, Mentioned, AKA: Monster
+	dynasty = dynn_Crasters_Keep
+
+	religion = cold_gods_wildling
+	culture = forestman
+
+	father = Craster_1
+	mother = Craster_19
+
+	8299.12.4 = {
+		birth = yes
+		add_character_flag = canon_status_mentioned
+		employer = Slynt_1 # Janos Slynt
+	}
+	8300.2.10 = { employer = Stark_7 } # Jon Snow
+}

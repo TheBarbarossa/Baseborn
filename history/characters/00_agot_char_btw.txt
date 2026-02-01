@@ -2805,7 +2805,7 @@ Weeper_1 = { # edited 01/25 slambroski
 	8279.1.1 = { give_nickname = nick_agot_historical_the_weeper_gendel }
 }
 ### Devyn Sealskinner
-Sealskinner_1 = {
+Sealskinner_1 = { # edited 02/01 slambroski
 	name = Devyn # Canon, AKA: Devyn Sealskinner
 	dynasty = dynn_Iceguard
 
@@ -2826,9 +2826,30 @@ Sealskinner_1 = {
 		birth = yes
 		add_character_flag = canon_status_canon
 	}
+	8283.1.1 = { add_spouse = Sealskinner_s_1 }
 	8279.1.1 = { give_nickname = nick_agot_historical_sealskinner }
 }
-Sealskinner_2 = {
+Sealskinner_s_1 = { # created 02/01 slambroski
+	name = Tansa
+	female = yes
+
+	religion = old_gods_btw_sni
+	culture = forestman
+
+	8260.1.1 = { birth = yes }
+	8306.1.1 = { death = yes }
+}
+Sealskinner_m_1 = { # created 02/01 slambroski
+	name = Olma
+	female = yes
+
+	religion = old_gods_btw_sni
+	culture = forestman
+
+	8268.1.1 = { birth = yes }
+	8301.1.1 = { death = yes }
+}
+Sealskinner_2 = { # edited 02/01 slambroski
 	name = Rory # Mentioned
 	dynasty = dynn_Iceguard
 
@@ -2842,17 +2863,18 @@ Sealskinner_2 = {
 	culture = forestman
 
 	father = Sealskinner_1
+	mother = Sealskinner_s_1
 
 	trait = twin
 	trait = brave
 
-	8285.1.1 = {
+	8285.6.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 	8300.8.17 = { employer = Sealskinner_1 } # Devyn Sealskinner
 }
-Sealskinner_3 = {
+Sealskinner_3 = { # edited 02/01 slambroski
 	name = Cory # Mentioned
 	dynasty = dynn_Iceguard
 
@@ -2866,11 +2888,12 @@ Sealskinner_3 = {
 	culture = forestman
 
 	father = Sealskinner_1
+	mother = Sealskinner_s_1
 
 	trait = twin
 	trait = brave
 
-	8289.1.1 = {
+	8285.6.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
@@ -2880,6 +2903,67 @@ Sealskinner_3 = {
 				WARDEN = title:k_the_wall.holder
 			}
 		}
+	}
+}
+Sealskinner_4 = { # created 02/01 slambroski
+	name = Hrolf
+	dynasty = dynn_Iceguard
+
+	religion = old_gods_btw_sni
+	culture = forestman
+
+	father = Sealskinner_1
+	mother = Sealskinner_m_1
+
+	trait = wild_oat
+
+	8288.1.1 = {
+		birth = yes
+	}
+}
+Sealskinner_5 = { # created 02/01 slambroski
+	name = Lenn
+	dynasty = dynn_Iceguard
+
+	religion = old_gods_btw_sni
+	culture = forestman
+
+	father = Sealskinner_1
+	mother = Sealskinner_s_1
+
+	8290.1.1 = {
+		birth = yes
+	}
+}
+Sealskinner_6 = { # created 02/01 slambroski
+	name = Efla
+	dynasty = dynn_Iceguard
+	female = yes 
+
+	religion = old_gods_btw_sni
+	culture = forestman
+
+	father = Sealskinner_1
+	mother = Sealskinner_m_1
+
+	trait = wild_oat
+
+	8293.1.1 = {
+		birth = yes
+	}
+}
+Sealskinner_7 = { # created 02/01 slambroski
+	name = Haggon
+	dynasty = dynn_Iceguard
+
+	religion = old_gods_btw_sni
+	culture = forestman
+
+	father = Sealskinner_1
+	mother = Sealskinner_s_1
+
+	8296.6.1 = {
+		birth = yes
 	}
 }
 ### Morna White-Mask
