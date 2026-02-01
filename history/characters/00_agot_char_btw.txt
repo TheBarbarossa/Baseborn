@@ -2826,7 +2826,6 @@ Sealskinner_1 = { # edited 02/01 slambroski
 		birth = yes
 		add_character_flag = canon_status_canon
 	}
-	8283.1.1 = { add_spouse = Sealskinner_s_1 }
 	8279.1.1 = { give_nickname = nick_agot_historical_sealskinner }
 }
 Sealskinner_s_1 = { # created 02/01 slambroski
@@ -2837,6 +2836,7 @@ Sealskinner_s_1 = { # created 02/01 slambroski
 	culture = forestman
 
 	8260.1.1 = { birth = yes }
+	8283.1.1 = { add_spouse = Sealskinner_1 }
 	8306.1.1 = { death = yes }
 }
 Sealskinner_m_1 = { # created 02/01 slambroski
@@ -2847,6 +2847,7 @@ Sealskinner_m_1 = { # created 02/01 slambroski
 	culture = forestman
 
 	8268.1.1 = { birth = yes }
+	8287.1.1 = { add_spouse = Sealskinner_1 }
 	8301.1.1 = { death = yes }
 }
 Sealskinner_2 = { # edited 02/01 slambroski
@@ -2915,8 +2916,6 @@ Sealskinner_4 = { # created 02/01 slambroski
 	father = Sealskinner_1
 	mother = Sealskinner_m_1
 
-	trait = wild_oat
-
 	8288.1.1 = {
 		birth = yes
 	}
@@ -2946,9 +2945,7 @@ Sealskinner_6 = { # created 02/01 slambroski
 	father = Sealskinner_1
 	mother = Sealskinner_m_1
 
-	trait = wild_oat
-
-	8293.1.1 = {
+	8294.1.1 = {
 		birth = yes
 	}
 }
@@ -2967,7 +2964,7 @@ Sealskinner_7 = { # created 02/01 slambroski
 	}
 }
 ### Morna White-Mask
-White_Mask_1 = {
+White_Mask_1 = { # edited 02/01 slambroski
 	name = Morna # Canon, AKA: Morna White Mask
 	dynasty = dynn_Whitemask
 	female = yes
@@ -2995,7 +2992,27 @@ White_Mask_1 = {
 	8279.1.1 = { give_nickname = nick_agot_historical_white_mask }
 	8280.1.1 = { trait = lifestyle_mystic }
 }
-White_Mask_2 = {
+White_Mask_s_1 = {
+	name = Drald
+
+	religion = old_gods_btw_fnf
+	culture = forestman
+
+	8255.1.1 = { birth = yes }
+	8288.1.1 = { add_matrilineal_spouse = White_Mask_1 }
+	8296.1.1 = { death = { death_reason = death_battle }}
+}
+White_Mask_s_2 = {
+	name = Thorik
+
+	religion = old_gods_btw_fnf
+	culture = forestman
+
+	8260.1.1 = { birth = yes }
+	8291.1.1 = { add_matrilineal_spouse = White_Mask_1 }
+	8300.6.1 = { death = { death_reason = death_battle }}
+}
+White_Mask_2 = { # edited 02/01 slambroski
 	name = Soren # Mentioned
 	dynasty = dynn_Whitemask
 
@@ -3005,6 +3022,7 @@ White_Mask_2 = {
 	trait = education_martial_2
 
 	mother = White_Mask_1
+	father = White_Mask_s_1 # Drald
 
 	8289.1.1 = {
 		birth = yes
@@ -3016,6 +3034,54 @@ White_Mask_2 = {
 				WARDEN = title:k_the_wall.holder
 			}
 		}
+	}
+}
+White_Mask_3 = { # created 02/01 slambroski
+	name = Corah
+	dynasty = dynn_Whitemask
+	female = yes 
+
+	religion = old_gods_btw_fnf
+	culture = forestman
+
+	mother = White_Mask_1
+	father = White_Mask_s_2 # Thorik
+
+	trait = twin
+
+	8292.1.1 = {
+		birth = yes
+	}
+}
+White_Mask_4 = { # created 02/01 slambroski
+	name = Kormak
+	dynasty = dynn_Whitemask
+
+	religion = old_gods_btw_fnf
+	culture = forestman
+
+	mother = White_Mask_1
+	father = White_Mask_s_2 # Thorik
+
+	trait = twin
+
+	8292.1.1 = {
+		birth = yes
+	}
+}
+White_Mask_5 = { # created 02/01 slambroski
+	name = Vikunna
+	dynasty = dynn_Whitemask
+	female = yes 
+
+	religion = old_gods_btw_fnf
+	culture = forestman
+
+	mother = White_Mask_1
+	father = White_Mask_s_1 # Drald
+
+	8296.1.1 = {
+		birth = yes
 	}
 }
 ### Alfyn Crowkiller
