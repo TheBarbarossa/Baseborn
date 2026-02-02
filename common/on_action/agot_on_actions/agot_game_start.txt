@@ -3288,7 +3288,12 @@ baseborn_wilderness = { # Bookmark setup
 			holder = {
 				add_trait = bb_inactive
 				house = {
-					every_house_member = { add_trait = bb_inactive }
+					every_house_member = { 
+						add_trait = bb_inactive 
+						limit = { 
+							NOT = { has_character_flag = bb_active_character } 
+						}
+					}
 				}
 			}
 		}
