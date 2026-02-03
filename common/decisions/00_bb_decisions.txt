@@ -114,3 +114,40 @@ baseborn_tyrion_patricide = {
 		base = 0
 	}
 }
+
+baseborn_knight_glory_decision = {
+	ai_check_interval = 24
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+	}
+
+	desc = baseborn_knight_glory_decision_desc
+
+    cost = {
+        prestige = 500
+    }
+
+	selection_tooltip = baseborn_knight_glory_decision_tooltip
+
+	cooldown = { years = 5 }
+
+	is_shown = {
+		landed = yes
+	}
+
+	is_valid_showing_failures_only = {
+		root = {
+			num_active_accolades > 0
+		}
+	}
+
+	effect = {
+		if = {
+			limit = { has_trait = august}
+			every_active_accolade = { add_glory = major_glory_gain }
+		}
+		else = {
+			every_active_accolade = { add_glory = minor_glory_gain }
+		}
+	}
+}
