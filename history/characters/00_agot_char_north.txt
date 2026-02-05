@@ -8696,7 +8696,7 @@ FlintFC_71 = {
 
 	8279.1.1 = { birth = yes }
 }
-FlintFC_72 = {
+FlintFC_72 = { # edited 02/05 slambroski
 	name = Lars
 	dynasty_house = house_FlintFF
 
@@ -8707,7 +8707,13 @@ FlintFC_72 = {
 	mother = Leadranack_94
 
 	8281.1.1 = { birth = yes }
-	8297.1.1 = { add_spouse = Slate_3 } # Sansa Slate
+	# 8297.1.1 = { add_spouse = Slate_3 } # Sansa Slate
+	8299.12.15 = {
+		death = {
+			death_reason = death_bloody_wedding # The Red Wedding
+			killer = Frey_1 # Walder Frey
+		}
+	}
 }
 FlintFC_73 = {
 	name = Wynton
@@ -9003,35 +9009,35 @@ FlintFC_95 = {
 	8298.1.1 = { birth = yes }
 }
 ### Issue of Lars
-FlintFC_90 = {
-	name = Osric
-	dynasty_house = house_FlintFF
-
-	religion = old_gods_wnw
-	culture = northman
-
-	father = FlintFC_72
-	mother = Slate_3
-
-	trait = twin
-
-	8298.1.1 = { birth = yes }
-}
-FlintFC_91 = {
-	name = Robyn
-	dynasty_house = house_FlintFF
-	female = yes
-
-	religion = old_gods_wnw
-	culture = northman
-
-	father = FlintFC_72
-	mother = Slate_3
-
-	trait = twin
-
-	8298.1.1 = { birth = yes }
-}
+#FlintFC_90 = {
+#	name = Osric
+#	dynasty_house = house_FlintFF
+#
+#	religion = old_gods_wnw
+#	culture = northman
+#
+#	father = FlintFC_72
+#	mother = Slate_3
+#
+#	trait = twin
+#
+#	8298.1.1 = { birth = yes }
+#}
+#FlintFC_91 = {
+#	name = Robyn
+#	dynasty_house = house_FlintFF
+#	female = yes
+#
+#	religion = old_gods_wnw
+#	culture = northman
+#
+#	father = FlintFC_72
+#	mother = Slate_3
+#
+#	trait = twin
+#
+#	8298.1.1 = { birth = yes }
+#}
 ### Issue of Aberdolf
 FlintFC_89 = {
 	name = Alaric
@@ -13788,7 +13794,7 @@ Ryswell_m_3 = { # Lowborn mistress of Rickard, created 02/05 slambroski
 	religion = old_gods_wnw
 	culture = barrowman
 
-	8287.1.1 = { birth = yes }
+	8279.1.1 = { birth = yes }
 	8298.1.1 = { death = { death_reason = death_childbirth } }
 }
 
@@ -13814,8 +13820,8 @@ Slate_1 = {
 	}
 	8275.1.1 = { add_spouse = Rouse_80 } # Tyalla Rouse
 }
-Slate_59 = {
-	name = Garenna # married Kerwick Lesper
+Slate_59 = { # edited 02/05 slambroski
+	name = Garenna # married Kerwick Lesper (jk), changed to Lord Gareth Nash
 	dynasty = dynn_Slate
 	female = yes
 
@@ -13826,6 +13832,20 @@ Slate_59 = {
 	mother = Orlych_76
 
 	8262.1.1 = { birth = yes }
+}
+Slate_1_A = { # created 02/05 slambroski
+	name = Porther
+	dynasty = dynn_Slate
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Slate_58
+	mother = Orlych_76
+
+	8264.1.1 = { birth = yes }
+	8284.1.1 = { add_spouse = Shale_54_B }
+	8299.8.1 = { death = { death_reason = death_battle } }
 }
 ### Issue of Rorge
 Slate_2 = { # edited 02/04 slambroski
@@ -13839,9 +13859,15 @@ Slate_2 = { # edited 02/04 slambroski
 	mother = Rouse_80
 
 	8278.1.1 = { birth = yes }
+	8299.12.15 = {
+		death = {
+			death_reason = death_bloody_wedding # The Red Wedding
+			killer = Frey_1 # Walder Frey
+		}
+	}
 }
 Slate_3 = { # edited 02/04 slambroski
-	name = Sansa # married Lars Flint of Flint's Finger
+	name = Sansa # married Lars Flint of Flint's Finger (jk)
 	dynasty = dynn_Slate
 	female = yes
 
@@ -13877,6 +13903,19 @@ Slate_2_C = { # created 02/04 slambroski
 
 	8286.1.1 = { birth = yes }
 	8288.1.1 = { death = { death_reason = death_sickly } }
+}
+### Issue of Porther
+Slate_3_A = { # created 02/05 slambroski
+	name = Morgan
+	dynasty = dynn_Slate
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Slate_1_A
+	mother = Shale_54_B
+
+	8289.1.1 = { birth = yes }
 }
 ### Household
 Slate_hh_1 = {
@@ -34279,7 +34318,7 @@ Nash_83 = {
 	8282.1.1 = { birth = yes }
 }
 ### Issue of Belthasar
-Nash_62 = {
+Nash_62 = { # edited 02/05 slambroski
 	name = Gareth # a lord
 	dynasty = dynn_Nash
 
@@ -34290,19 +34329,19 @@ Nash_62 = {
 	mother = Grayson_51
 
 	8254.1.1 = { birth = yes }
-	8275.1.1 = { add_spouse = Nash_rs_62 }
+	8278.1.1 = { add_spouse = Slate_59 } # Garenna Slate
 }
-Nash_rs_62 = {
-	name = Frenya
-	female = yes
-
-	religion = old_gods_wnw
-	culture = northman
-
-	8258.1.1 = { birth = yes }
-}
+#Nash_rs_62 = {
+#	name = Frenya
+#	female = yes
+#
+#	religion = old_gods_wnw
+#	culture = northman
+#
+#	8258.1.1 = { birth = yes }
+#}
 ### Issue of Gareth
-Nash_76 = {
+Nash_76 = { # edited 02/05 slambroski
 	name = Veron
 	dynasty = dynn_Nash
 
@@ -34310,11 +34349,11 @@ Nash_76 = {
 	culture = northman
 
 	father = Nash_62
-	mother = Nash_rs_62
+	mother = Slate_59
 
 	8279.1.1 = { birth = yes }
 }
-Nash_77 = {
+Nash_77 = { # edited 02/05 slambroski
 	name = Moryne
 	dynasty = dynn_Nash
 	female = yes
@@ -34323,11 +34362,11 @@ Nash_77 = {
 	culture = northman
 
 	father = Nash_62
-	mother = Nash_rs_62
+	mother = Slate_59
 
 	8280.1.1 = { birth = yes }
 }
-Nash_78 = {
+Nash_78 = { # edited 02/05 slambroski
 	name = Alys
 	dynasty = dynn_Nash
 	female = yes
@@ -34336,11 +34375,11 @@ Nash_78 = {
 	culture = northman
 
 	father = Nash_62
-	mother = Nash_rs_62
+	mother = Slate_59
 
 	8283.1.1 = { birth = yes }
 }
-Nash_79 = {
+Nash_79 = { # edited 02/05 slambroski
 	name = Robard
 	dynasty = dynn_Nash
 
@@ -34348,7 +34387,7 @@ Nash_79 = {
 	culture = northman
 
 	father = Nash_62
-	mother = Nash_rs_62
+	mother = Slate_59
 
 	8287.1.1 = { birth = yes }
 }
@@ -38494,6 +38533,19 @@ Shale_54 = {
 	mother = Cairns_54
 
 	8261.1.1 = { birth = yes }
+}
+Shale_54_B = { # created 02/05 slambroski
+	name = Fryda
+	dynasty = dynn_Shale
+	female = yes
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Shale_49
+	mother = Cairns_54
+
+	8266.1.1 = { birth = yes }
 }
 ### Issue of Arnolf
 Shale_55 = {
