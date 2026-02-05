@@ -2751,7 +2751,7 @@ Marsh_1 = {
 	8246.1.1 = { add_spouse = Reamy_88 } # Shyra Reamy
 	8270.1.1 = { death = yes }
 }
-Marsh_2 = {
+Marsh_2 = { # edited 02/04 slambroski
 	name = Jojen
 	dynasty = dynn_Marsh
 
@@ -2766,7 +2766,18 @@ Marsh_2 = {
 	trait = education_martial_2
 
 	8233.1.1 = { birth = yes }
+	8260.1.1 = { add_spouse = Marsh_s_2 }
 	8286.1.1 = { death = yes }
+}
+Marsh_s_2 = { # created 02/04 slambroski
+	name = Beth
+	female = yes
+
+	religion = fots_oldnew
+	culture = harborman
+
+	8240.1.1 = { birth = yes }
+	8293.1.1 = { death = yes }
 }
 Marsh_78 = {
 	name = Liane # married Desmond Flint of Flint's Finger
@@ -2816,7 +2827,7 @@ Marsh_80 = {
 	}
 }
 ### Issue of Dorey
-Marsh_3 = {
+Marsh_3 = { # edited 02/04 slambroski
 	name = Glavias
 	dynasty = dynn_Marsh
 
@@ -2825,6 +2836,8 @@ Marsh_3 = {
 
 	father = Marsh_1
 	mother = Reamy_88
+
+	trait = infertile
 
 	8250.1.1 = { birth = yes }
 	8266.1.1 = { add_spouse = Weir_84 } # Lyanna Weir
@@ -2881,6 +2894,29 @@ Marsh_5 = {
 		}
 	}
 }
+### Issue of Jojen
+Marsh_2_A = { # created slambroski 02/04
+	name = Deston
+	dynasty = dynn_Marsh
+
+	religion = fots_oldnew
+	culture = harborman
+
+	father = Marsh_2
+	mother = Marsh_s_2
+
+	8262.1.1 = { birth = yes }
+	8282.1.1 = { add_spouse = Marsh_s_2_A }
+}
+Marsh_s_2_A = { # created slambroski 02/04
+	name = Melene
+	female = yes
+
+	religion = fots_oldnew
+	culture = harborman
+
+	8261.1.1 = { birth = yes }
+}
 ### Issue of Glavias
 Marsh_4 = {
 	name = Eyron
@@ -2893,6 +2929,32 @@ Marsh_4 = {
 	mother = Weir_84
 
 	8281.1.1 = { birth = yes }
+}
+### Issue of Deston
+Marsh_2_B = { # created slambroski 02/04
+	name = Lucan
+	dynasty = dynn_Marsh
+
+	religion = fots_oldnew
+	culture = harborman
+
+	father = Marsh_2_A
+	mother = Marsh_s_2_A
+
+	8285.1.1 = { birth = yes }
+}
+Marsh_2_C = { # created slambroski 02/04
+	name = Katrina
+	dynasty = dynn_Marsh
+	female = yes 
+
+	religion = fots_oldnew
+	culture = harborman
+
+	father = Marsh_2_A
+	mother = Marsh_s_2_A
+
+	8288.1.1 = { birth = yes }
 }
 
 ###### HOUSE WATERMAN (id = dynn_Waterman)
@@ -11543,7 +11605,7 @@ Orlych_51 = {
 	8273.1.1 = { birth = yes }
 	8295.1.1 = { add_spouse = Risk_78 } # Moryne Risk
 }
-Orlych_52 = {
+Orlych_52 = { # edited 02/04 slambroski
 	name = Varly
 	dynasty = dynn_Orlych
 
@@ -11554,7 +11616,17 @@ Orlych_52 = {
 	mother = Pale_57
 
 	8280.1.1 = { birth = yes }
-	8296.1.1 = { add_spouse = FisherSS_3 } # Jutta FisherSS
+	# 8296.1.1 = { add_spouse = FisherSS_3 } # Jutta FisherSS
+	8296.1.1 = { add_spouse = Orlych_s_52 }
+}
+Orlych_s_52 = { # created 02/04 slambroski
+	name = Alys
+	female = yes
+
+	religion = old_gods_wnw
+	culture = northman
+
+	8280.1.1 = { birth = yes }
 }
 ### Issue of Brandon
 Orlych_50 = {
@@ -11598,13 +11670,13 @@ Orlych_67 = {
 	culture = northman
 
 	father = Orlych_52
-	mother = FisherSS_3
+	mother = Orlych_s_52
 
 	trait = twin
 
 	8299.1.1 = { birth = yes }
 }
-Orlych_68 = {
+ Orlych_68 = {
 	name = Gareth
 	dynasty = dynn_Orlych
 
@@ -11612,7 +11684,7 @@ Orlych_68 = {
 	culture = northman
 
 	father = Orlych_52
-	mother = FisherSS_3
+	mother = Orlych_s_52
 
 	trait = twin
 
@@ -13610,8 +13682,8 @@ Slate_59 = {
 	8262.1.1 = { birth = yes }
 }
 ### Issue of Rorge
-Slate_2 = {
-	name = Rorge
+Slate_2 = { # edited 02/04 slambroski
+	name = Arthor
 	dynasty = dynn_Slate
 
 	religion = old_gods_wnw
@@ -13620,9 +13692,9 @@ Slate_2 = {
 	father = Slate_1
 	mother = Rouse_80
 
-	8276.1.1 = { birth = yes }
+	8278.1.1 = { birth = yes }
 }
-Slate_3 = {
+Slate_3 = { # edited 02/04 slambroski
 	name = Sansa # married Lars Flint of Flint's Finger
 	dynasty = dynn_Slate
 	female = yes
@@ -13633,7 +13705,32 @@ Slate_3 = {
 	father = Slate_1
 	mother = Rouse_80
 
-	8280.1.1 = { birth = yes }
+	8281.1.1 = { birth = yes }
+}
+Slate_2_B = { # created 02/04 slambroski
+	name = Gared
+	dynasty = dynn_Slate
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Slate_1
+	mother = Rouse_80
+
+	8282.6.1 = { birth = yes }
+}
+Slate_2_C = { # created 02/04 slambroski
+	name = Erik
+	dynasty = dynn_Slate
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Slate_1
+	mother = Rouse_80
+
+	8286.1.1 = { birth = yes }
+	8288.1.1 = { death = { death_reason = death_sickly } }
 }
 ### Household
 Slate_hh_1 = {
@@ -13769,13 +13866,15 @@ FisherSS_97 = {
 	8269.1.1 = { birth = yes }
 }
 ### Issue of Theo
-FisherSS_2 = {
+FisherSS_2 = { # edited 02/04 slambroski
 	name = Mallador
 	dynasty = dynn_FisherSS
 	dna = FisherSS_2
 
 	religion = old_gods_wnw
 	culture = barrowman
+
+	trait = physique_bad_1
 
 	father = FisherSS_1
 	mother = Catcher_44
@@ -13786,7 +13885,7 @@ FisherSS_2 = {
 	}
 }
 FisherSS_3 = {
-	name = Jutta # married Varly Orlych
+	name = Jutta # married Varly Orlych (removed 02/04 slambroski)
 	dynasty = dynn_FisherSS
 	female = yes
 	dna = FisherSS_3
@@ -13801,6 +13900,33 @@ FisherSS_3 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
 	}
+}
+FisherSS_3_B = { # created 02/04 slambroski
+	name = Wylla
+	dynasty = dynn_FisherSS
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = FisherSS_1
+	mother = Catcher_44
+
+	8286.1.1 = { birth = yes }
+}
+### Issue of Ecton
+FisherSS_97_A = { # created 02/04 slambroski
+	name = Dywen
+	dynasty = dynn_FisherSS
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = FisherSS_97
+
+	trait = bastard
+
+	8288.1.1 = { birth = yes }
 }
 ### Issue of Namond
 FisherSS_93 = {
@@ -14382,7 +14508,7 @@ Brownbarrow_1 = {
 		}
 	}
 }
-Brownbarrow_70 = {
+Brownbarrow_70 = { # edited 02/04 slambroski
 	name = Jorah
 	dynasty = dynn_Brownbarrow
 
@@ -14395,6 +14521,7 @@ Brownbarrow_70 = {
 	trait = twin
 
 	8256.1.1 = { birth = yes }
+	8280.1.1 = { add_spouse = Verran_56_B }
 }
 Brownbarrow_71 = {
 	name = Lyra # married Jon Dustin
@@ -14463,6 +14590,34 @@ Brownbarrow_20 = {
 
 	8282.1.1 = { birth = yes }
 }
+### Issue of Jorah
+Brownbarrow_70_A = { # created 02/04 slambroski
+	name = Alybeth
+	dynasty = dynn_Brownbarrow
+	female = yes
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Brownbarrow_70
+	mother = Verran_56_B
+
+	8284.1.1 = { birth = yes }
+}
+Brownbarrow_70_B = { # created 02/04 slambroski
+	name = Dacey
+	dynasty = dynn_Brownbarrow
+	female = yes
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Brownbarrow_70
+	mother = Verran_56_B
+
+	8291.1.1 = { birth = yes }
+}
+
 
 ###### HOUSE RYDER (id = dynn_Ryder)
 ############################
@@ -14619,7 +14774,7 @@ Wibberley_18 = {
 	8297.1.1 = { death = yes }
 }
 ### Issue of Corbett
-Wibberley_19 = {
+Wibberley_19 = { # edited 02/04 slambroski
 	name = Bessa
 	dynasty = dynn_Wibberley
 	female = yes
@@ -14631,6 +14786,7 @@ Wibberley_19 = {
 	mother = Flade_79
 
 	8268.1.1 = { birth = yes }
+	8290.1.1 = { add_spouse = Wibberley_21 }
 }
 ### Issue of Ethan
 Wibberley_20 = {
@@ -16914,7 +17070,7 @@ Grayson_2 = {
 	}
 	8296.1.1 = { death = yes }
 }
-Grayson_5 = {
+Grayson_5 = { # edited 02/04 slambroski
 	name = Ondrew
 	dynasty = dynn_Grayson
 
@@ -16925,6 +17081,7 @@ Grayson_5 = {
 	mother = Howle_68
 
 	8260.1.1 = { birth = yes }
+	8282.1.1 = { add_spouse = Burl_100_B } # Serena Burl
 	8299.12.15 = {
 		death = {
 			death_reason = death_bloody_wedding # The Red Wedding
@@ -16933,7 +17090,7 @@ Grayson_5 = {
 	}
 }
 ### Issue of Ethan
-Grayson_21 = {
+Grayson_21 = { # edited 02/05 slambroski
 	name = Talia # a lord
 	dynasty = dynn_Grayson
 	female = yes
@@ -16944,9 +17101,11 @@ Grayson_21 = {
 	father = Grayson_2
 	mother = Woods_28
 
+	trait = twin
+
 	8280.1.1 = { birth = yes }
 }
-Grayson_3 = {
+Grayson_3 = { # edited 02/05 slambroski
 	name = Robett # a lord
 	dynasty = dynn_Grayson
 
@@ -16955,6 +17114,8 @@ Grayson_3 = {
 
 	father = Grayson_2
 	mother = Woods_28
+
+	trait = twin 
 
 	8280.1.1 = { birth = yes }
 	8295.1.1 = {
@@ -16989,6 +17150,59 @@ Grayson_4 = {
 			killer = Frey_1 # Walder Frey
 		}
 	}
+}
+### Issue of Ondrew
+Grayson_5_A = { # created 02/05 slambroski
+	name = Jonelle
+	dynasty = dynn_Grayson
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = wolfswood_clansman
+
+	father = Grayson_5
+	mother = Burl_100_B
+
+	8283.1.1 = { birth = yes }
+}
+Grayson_5_B = { # created 02/05 slambroski
+	name = Lyra
+	dynasty = dynn_Grayson
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = wolfswood_clansman
+
+	father = Grayson_5
+	mother = Burl_100_B
+
+	8285.1.1 = { birth = yes }
+	8286.1.1 = { death = { death_reason = death_sickly } }
+}
+Grayson_5_C = { # created 02/05 slambroski
+	name = Desmyn
+	dynasty = dynn_Grayson
+
+	religion = old_gods_wnw
+	culture = wolfswood_clansman
+
+	father = Grayson_5
+	mother = Burl_100_B
+
+	8289.1.1 = { birth = yes }
+}
+Grayson_5_D = { # created 02/05 slambroski
+	name = Robyn
+	dynasty = dynn_Grayson
+	female = yes
+
+	religion = old_gods_wnw
+	culture = wolfswood_clansman
+
+	father = Grayson_5
+	mother = Burl_100_B
+
+	8295.1.1 = { birth = yes }
 }
 
 ###### HOUSE ELLIVER (id = dynn_Elliver)
@@ -17070,6 +17284,19 @@ Elliver_20 = {
 		death = { death_reason = death_ill }
 	}
 }
+Elliver_2_B = { # created 02/04 slambroski
+	name = Walton
+	dynasty = dynn_Elliver
+
+	religion = old_gods_wnw
+	culture = wolfswood_clansman
+
+	father = Elliver_1
+	mother = Logg_57
+
+	8272.1.1 = { birth = yes }
+	8294.1.1 = { add_spouse = Sapp_68_B }
+}
 ### Issue of Jon
 Elliver_3 = {
 	name = Malcolm
@@ -17101,6 +17328,21 @@ Elliver_18 = {
 
 	8287.1.1 = { birth = yes }
 }
+### Issue of Walton
+Elliver_2_C = { # created 02/04 slambroski
+	name = Aisling
+	dynasty = dynn_Elliver
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = wolfswood_clansman
+
+	father = Elliver_2_B
+	mother = Sapp_68_B
+
+	8296.1.1 = { birth = yes }
+}
+
 
 ###### HOUSE MOSS (id = dynn_Moss)
 ############################
@@ -36666,6 +36908,18 @@ Somber_67_B = {
 
 	8270.1.1 = { birth = yes }
 }
+Somber_67_C = { # created 02/04 slambroski
+	name = Harrion
+	dynasty = dynn_Somber
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Somber_63
+	mother = Somber_rs_63
+
+	8275.1.1 = { birth = yes }
+}
 
 ###### HOUSE BATES (id = dynn_Bates)
 ############################
@@ -37692,6 +37946,32 @@ Kiddle_101 = {
 
 	8286.1.1 = { birth = yes }
 }
+Kiddle_101_B = { # created 02/04 slambroski
+	name = Morah
+	dynasty = dynn_Kiddle
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Kiddle_99
+	mother = Orcutt_44
+
+	8288.1.1 = { birth = yes }
+}
+Kiddle_101_C = { # created 02/04 slambroski
+	name = Leona
+	dynasty = dynn_Kiddle
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Kiddle_99
+	mother = Orcutt_44
+
+	8292.6.1 = { birth = yes }
+}
 
 ###### HOUSE CAIRNS (id = dynn_Cairns)
 ############################
@@ -38435,6 +38715,20 @@ Burl_rs_100 = {
 	8260.1.1 = { birth = yes }
 	8290.1.1 = { death = yes }
 }
+Burl_100_B = { # created 02/04 slambroski
+	name = Serena
+	dynasty = dynn_Burl
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = wolfswood_clansman
+
+	father = Burl_89
+	mother = Branch_49
+
+	8262.1.1 = { birth = yes }
+	8295.1.1 = { death = { death_reason = death_childbirth }}
+}
 ### Issue of Donnel
 Burl_102 = {
 	name = Alanna
@@ -38767,6 +39061,19 @@ Sapp_68 = {
 	mother = Sapp_rs_60
 
 	8271.1.1 = { birth = yes }
+}
+Sapp_68_B = { # created 02/04 slambroski
+	name = Lyanna # married Walton Elliver
+	dynasty = dynn_Sapp
+	female = yes
+
+	religion = old_gods_wnw
+	culture = northman
+
+	father = Sapp_60
+	mother = Sapp_rs_60
+
+	8274.1.1 = { birth = yes }
 }
 ### Issue of Denys
 Sapp_69 = {
@@ -44244,6 +44551,19 @@ Verran_rs_56 = {
 
 	8252.1.1 = { birth = yes }
 }
+Verran_56_B = { # created 02/04 slambroski
+	name = Mellesa # married Jorah Brownbarrow
+	dynasty = dynn_Verran
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Verran_55
+	mother = Mack_61
+
+	8256.1.1 = { birth = yes }
+}
 ### Issue of Mickon
 Verran_57 = {
 	name = Jaremy
@@ -44274,6 +44594,32 @@ Verran_58 = {
 	mother = Verran_rs_56
 
 	8276.1.1 = { birth = yes }
+}
+Verran_57_B = { # created 02/04 slambroski
+	name = Gwyn
+	dynasty = dynn_Verran
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Verran_56
+	mother = Verran_rs_56
+
+	8281.1.1 = { birth = yes }
+}
+Verran_57_C = { # created 02/04 slambroski
+	name = Frenya
+	dynasty = dynn_Verran
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Verran_56
+	mother = Verran_rs_56
+
+	8287.1.1 = { birth = yes }
 }
 ### Issue of Jaremy
 Verran_59 = {
@@ -49414,6 +49760,19 @@ Arden_17 = {
 	8284.1.1 = { add_spouse = Brewer_77 } # Elena Brewer
 }
 ### Issue of Heward
+Arden_17_A = { # created 02/04 slambroski
+	name = Ethan
+	dynasty = dynn_Arden
+
+	religion = old_gods_wnw
+	culture = northman
+
+	father = Arden_17
+
+	trait = bastard
+
+	8278.1.1 = { birth = yes }
+}
 Arden_20 = {
 	name = Alarra
 	dynasty = dynn_Arden
@@ -49438,6 +49797,19 @@ Arden_21 = {
 	mother = Brewer_77
 
 	8289.1.1 = { birth = yes }
+}
+Arden_21_B = { # created 02/04 slambroski
+	name = Sansa
+	dynasty = dynn_Arden
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = northman
+
+	father = Arden_17
+	mother = Brewer_77
+
+	8299.2.1 = { birth = yes }
 }
 ### Issue of Margaret
 Arden_22 = {
