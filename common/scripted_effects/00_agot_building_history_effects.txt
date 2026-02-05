@@ -29482,6 +29482,12 @@ agot_add_building_on_start_the_north = {
 			agot_add_building_if_possible = { BUILDING = peat_quarries_03 }
 		}
 	}
+	province:534 = { # edited 02/05 slambroski
+		agot_destroy_all_generic_buildings = yes
+		agot_add_building_if_possible = { BUILDING = ramparts_02 }
+		agot_add_building_if_possible = { BUILDING = godswood_01 }
+		agot_add_building_if_possible = { BUILDING = logging_camps_01 }
+	}
 	province:536 = {
 		agot_destroy_all_generic_buildings = yes
 		if = {
@@ -29611,6 +29617,13 @@ agot_add_building_on_start_the_north = {
 			agot_add_building_if_possible = { BUILDING = guild_halls_02 }
 			agot_add_building_if_possible = { BUILDING = hill_farms_03 }
 		}
+	}
+	province:579 = { # edited 02/05 slambroski
+		agot_destroy_all_generic_buildings = yes
+		agot_add_building_if_possible = { BUILDING = ramparts_03 }
+		agot_add_building_if_possible = { BUILDING = godswood_03 }
+		agot_add_building_if_possible = { BUILDING = stables_02 }
+		agot_add_building_if_possible = { BUILDING = logging_camps_02 }
 	}
 	province:581 = {
 		agot_destroy_all_generic_buildings = yes
@@ -30096,6 +30109,37 @@ agot_add_building_on_start_the_north = {
 			agot_add_building_if_possible = { BUILDING = agot_steppe_farms_03 }
 		}
 	}
+	province:764 = { # edited 02/05 slambroski
+		agot_destroy_all_generic_buildings = yes
+		if = {
+			limit = {
+				game_start_date >= 8000.1.1
+				game_start_date < 8100.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = ramparts_02 }
+			agot_add_building_if_possible = { BUILDING = godswood_02 }
+			agot_add_building_if_possible = { BUILDING = logging_camps_01 }
+		}
+		if = {
+			limit = {
+				game_start_date >= 8100.1.1
+				game_start_date < 8200.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = ramparts_02 }
+			agot_add_building_if_possible = { BUILDING = godswood_02 }
+			agot_add_building_if_possible = { BUILDING = logging_camps_02 }
+			agot_add_building_if_possible = { BUILDING = breweries_01 }
+		}
+		if = {
+			limit = {
+				game_start_date >= 8200.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = ramparts_03 }
+			agot_add_building_if_possible = { BUILDING = godswood_02 }
+			agot_add_building_if_possible = { BUILDING = logging_camps_02 }
+			agot_add_building_if_possible = { BUILDING = breweries_02 }
+		}
+	}
 	province:784 = {
 		agot_destroy_all_generic_buildings = yes
 		if = {
@@ -30146,6 +30190,38 @@ agot_add_building_on_start_the_north = {
 			}
 			agot_add_building_if_possible = { BUILDING = guild_halls_02 }
 			agot_add_building_if_possible = { BUILDING = agot_steppe_farms_03 }
+		}
+	}
+	province:830 = { # edited 02/05 slambroski
+		agot_destroy_all_generic_buildings = yes
+		if = {
+			limit = {
+				game_start_date >= 8000.1.1
+				game_start_date < 8100.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = hill_forts_02 }
+			agot_add_building_if_possible = { BUILDING = godswood_02 }
+			agot_add_building_if_possible = { BUILDING = hill_farms_02 }
+			agot_add_building_if_possible = { BUILDING = smiths_01 }
+		}
+		if = {
+			limit = {
+				game_start_date >= 8100.1.1
+				game_start_date < 8200.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = hill_forts_02 }
+			agot_add_building_if_possible = { BUILDING = godswood_02 }
+			agot_add_building_if_possible = { BUILDING = hill_farms_02 }
+			agot_add_building_if_possible = { BUILDING = smiths_02 }
+		}
+		if = {
+			limit = {
+				game_start_date >= 8200.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = hill_forts_02 }
+			agot_add_building_if_possible = { BUILDING = godswood_02 }
+			agot_add_building_if_possible = { BUILDING = hill_farms_02 }
+			agot_add_building_if_possible = { BUILDING = smiths_03 }
 		}
 	}
 	province:843 = {
@@ -30654,6 +30730,37 @@ agot_add_building_on_start_the_north = {
 			}
 			agot_add_building_if_possible = { BUILDING = guild_halls_02 }
 			agot_add_building_if_possible = { BUILDING = hill_farms_03 }
+		}
+	}
+	province:1072 = { # edited 02/05 slambroski
+		agot_destroy_all_generic_buildings = yes
+		if = {
+			limit = {
+				game_start_date >= 8000.1.1
+				game_start_date < 8100.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = ramparts_01 }
+			agot_add_building_if_possible = { BUILDING = godswood_02 }
+			agot_add_building_if_possible = { BUILDING = hunting_grounds_02 }
+		}
+		if = {
+			limit = {
+				game_start_date >= 8100.1.1
+				game_start_date < 8200.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = ramparts_02 }
+			agot_add_building_if_possible = { BUILDING = godswood_02 }
+			agot_add_building_if_possible = { BUILDING = hunting_grounds_03 }
+			agot_add_building_if_possible = { BUILDING = stables_01 }
+		}
+		if = {
+			limit = {
+				game_start_date >= 8200.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = ramparts_03 }
+			agot_add_building_if_possible = { BUILDING = godswood_02 }
+			agot_add_building_if_possible = { BUILDING = hunting_grounds_03 }
+			agot_add_building_if_possible = { BUILDING = stables_02 }
 		}
 	}
 	province:1079 = {
