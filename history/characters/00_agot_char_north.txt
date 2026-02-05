@@ -16128,6 +16128,13 @@ Forrester_3 = {
 			agot_set_as_loyalist_history_effect = { LOYALIST = character:Branfield_2 } # Malcolm Branfield
 			agot_set_as_loyalist_history_effect = { LOYALIST = character:Forrester_4 } # Asher Forrester
 			agot_set_as_loyalist_history_effect = { LOYALIST = character:Forrester_5 } # Mira Forrester
+			if = {
+				limit = { character:Bolton_5 = { is_alive = yes } }
+				add_opinion = {
+					modifier = murdered_close_family_crime
+					target = character:Bolton_5 # Ramsay Bolton
+				}
+			}
 		}
 		add_spouse = Glenmore_7 # Elaena Glenmore
 	}
@@ -16189,6 +16196,17 @@ Forrester_4 = {
 		trait = adventurer_follower
 		make_trait_inactive = left_windblown
 	}
+	8300.1.15 = {
+		effect = {
+			if = {
+				limit = { character:Bolton_5 = { is_alive = yes } }
+				add_opinion = {
+					modifier = murdered_close_family_crime
+					target = character:Bolton_5 # Ramsay Bolton
+				}
+			}
+		}
+	}
 }
 Forrester_5 = {
 	name = Mira # Semi-Canon
@@ -16238,6 +16256,17 @@ Forrester_5 = {
 		}
 	}
 	8300.1.1 = { employer = Baratheon_7 } # Tommen Baratheon
+	8300.1.15 = {
+		effect = {
+			if = {
+				limit = { character:Bolton_5 = { is_alive = yes } }
+				add_opinion = {
+					modifier = murdered_close_family_crime
+					target = character:Bolton_5 # Ramsay Bolton
+				}
+			}
+		}
+	}
 }
 Forrester_6 = {
 	name = Ethan # Semi-Canon, a lord
@@ -16304,6 +16333,17 @@ Forrester_7 = {
 		trait = lifestyle_poet
 		trait = just
 	}
+	8300.1.15 = {
+		effect = {
+			if = {
+				limit = { character:Bolton_5 = { is_alive = yes } }
+				add_opinion = {
+					modifier = murdered_close_family_crime
+					target = character:Bolton_5 # Ramsay Bolton
+				}
+			}
+		}
+	}
 	8350.1.1 = { death = yes }
 }
 Forrester_8 = {
@@ -16332,6 +16372,13 @@ Forrester_8 = {
 				imprison = {
 					target = ROOT
 					type = house_arrest
+				}
+			}
+			if = {
+				limit = { character:Bolton_5 = { is_alive = yes } }
+				add_opinion = {
+					modifier = murdered_close_family_crime
+					target = character:Bolton_5 # Ramsay Bolton
 				}
 			}
 		}
