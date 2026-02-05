@@ -13297,6 +13297,7 @@ Ryswell_4 = {
 
 	trait = education_diplomacy_2
 	trait = beauty_good_1
+	trait = twin
 	trait = vengeful
 	trait = arrogant
 	trait = stubborn
@@ -13377,7 +13378,7 @@ Ryswell_5 = {
 		death = { death_reason = death_ill }
 	}
 }
-Ryswell_7 = {
+Ryswell_7 = { # edited slambroski 02/05
 	name = Rickard # Canon
 	dynasty = dynn_Ryswell
 	dna = Ryswell_7
@@ -13389,6 +13390,7 @@ Ryswell_7 = {
 	mother = Silverfield_62
 
 	trait = education_diplomacy_1
+	trait = twin
 	trait = ambitious
 	trait = arrogant
 	trait = bossy
@@ -13401,6 +13403,7 @@ Ryswell_7 = {
 		add_character_flag = canon_status_canon
 	}
 	8274.1.1 = { trait = lustful }
+	8285.1.1 = { add_spouse = Bray_87_A }
 }
 Ryswell_6 = {
 	name = Roger # Canon
@@ -13446,6 +13449,114 @@ Ryswell_8 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
 		add_character_flag = canon_status_canon
+	}
+}
+### Issue of Rickard
+Ryswell_7_A = { # created 02/05 slambroski
+	name = Rysella
+	dynasty = dynn_Ryswell
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Ryswell_7
+	mother = Ryswell_m_1
+
+	trait = beauty_good_1
+	trait = bastard
+
+	8277.6.1 = { birth = yes }
+	8281.1.1 = { employer = Silverfield_17 }
+}
+Ryswell_7_B = { # created 02/05 slambroski
+	name = Rickon
+	dynasty = dynn_Ryswell
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Ryswell_7
+	mother = Ryswell_m_1
+
+	trait = bastard
+
+	8280.1.1 = { birth = yes }
+	8281.1.1 = { employer = Silverfield_17 }
+}
+Ryswell_7_C = { # created 02/05 slambroski
+	name = Rodrik
+	dynasty = dynn_Ryswell
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Ryswell_7
+	mother = Bray_87_A
+
+	trait = twin
+
+	8286.6.1 = { birth = yes }
+}
+Ryswell_7_D = { # created 02/05 slambroski
+	name = Rodwell
+	dynasty = dynn_Ryswell
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Ryswell_7
+	mother = Bray_87_A
+
+	trait = twin
+
+	8286.6.1 = { birth = yes }
+}
+Ryswell_7_E = { # created 02/05 slambroski
+	name = Royce
+	dynasty = dynn_Ryswell
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Ryswell_7
+	mother = Ryswell_m_2
+
+	trait = bastard
+
+	8290.1.1 = { 
+		birth = yes
+		employer = Ryswell_6
+	}
+}
+Ryswell_7_F = { # created 02/05 slambroski
+	name = Rosalei
+	dynasty = dynn_Ryswell
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Ryswell_7
+	mother = Bray_87_A
+
+	8294.1.1 = { birth = yes }
+}
+Ryswell_7_G = { # created 02/05 slambroski
+	name = Ryon
+	dynasty = dynn_Ryswell
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Ryswell_7
+	mother = Ryswell_m_3
+
+	trait = bastard
+
+	8298.1.1 = { 
+		birth = yes
+		employer = Ryswell_8
 	}
 }
 ### Issue of Brandon
@@ -13644,6 +13755,41 @@ Ryswell_90 = {
 	mother = Ryswell_rs_88
 
 	8297.1.1 = { birth = yes }
+}
+### Household
+Ryswell_m_1 = { # Lowborn mistress of Rickard, created 02/05 slambroski
+	name = Hilda
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	trait = beauty_good_1
+
+	8259.1.1 = { birth = yes }
+	8281.1.1 = { employer = Silverfield_17 }
+}
+Ryswell_m_2 = { # Lowborn mistress of Rickard, created 02/05 slambroski
+	name = Sarra
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = northman
+
+	trait = beauty_good_1
+
+	8266.1.1 = { birth = yes }
+	8290.1.1 = { employer = Ryswell_6}
+}
+Ryswell_m_3 = { # Lowborn mistress of Rickard, created 02/05 slambroski
+	name = Bella
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	8287.1.1 = { birth = yes }
+	8298.1.1 = { death = { death_reason = death_childbirth } }
 }
 
 ###### HOUSE SLATE (id = dynn_Slate)
@@ -36619,6 +36765,19 @@ Bray_85 = {
 	8276.1.1 = { birth = yes }
 }
 ### Issue of Harkon
+Bray_87_A = { # created 02/05 slambroski
+	name = Derissa
+	dynasty = dynn_Bray
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Bray_82
+	mother = Bray_rs_82
+
+	8266.1.1 = { birth = yes }
+}
 Bray_87 = {
 	name = Alfyn
 	dynasty = dynn_Bray
