@@ -1,0 +1,543 @@
+﻿#Keep gold cost synced with agot_start_city_construction_gold_cost, agot_upgrade_good_city_construction_gold_cost, agot_upgrade_best_city_construction_gold_cost
+agot_holding_build_speed_north = {
+	icon = county_modifier_development_negative
+	holding_build_speed = 1
+	holding_build_gold_cost = 1
+}
+
+agot_holding_build_speed_btw = {
+	icon = county_modifier_development_negative
+	holding_build_speed = 1
+	holding_build_gold_cost = 1
+}
+
+agot_holding_logistics_dorne_desert = { # Flumph
+	icon = county_modifier_development_negative
+	provisions_use_mult = 2.5
+	desert_supply_limit_mult = -0.5
+	desert_mountains_supply_limit_mult = -0.5
+	desert_holding_construction_gold_cost  = 0.5
+	desert_mountains_holding_construction_gold_cost = 0.5
+}
+
+agot_dune_road_modifier = {
+	icon = county_modifier_development_positive
+	development_growth_factor = small_development_growth_gain
+}
+
+agot_minority_upset = { #Righ
+	icon = county_modifier_control_negative
+	monthly_county_control_growth_factor = -0.1
+	county_opinion_add = 30
+}
+
+agot_minority_respected = { #Righ
+	icon = county_modifier_opinion_negative
+	county_opinion_add = -10
+}
+
+agot_crannogman_settlements_redone = { #Righ
+	icon = county_modifier_opinion_negative
+	levy_size = 0.1
+	county_opinion_add = -40
+}
+
+agot_crannogman_driven_out = { #Righ
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 40
+	tax_mult = 0.05
+	levy_size = -0.15
+}
+
+agot_crannogman_domain_reduced = { #Righ
+	icon = county_modifier_control_negative
+	county_opinion_add = 30
+	levy_size = -0.05
+}
+
+agot_ignored_demands = { #Righ
+	icon = county_modifier_opinion_negative
+	county_opinion_add = -20
+}
+
+agot_mills_network = { #Righ
+	icon = county_modifier_development_positive
+	tax_mult = 0.2
+	supply_limit_mult = 0.1
+	county_opinion_add = 20
+}
+
+agot_improved_canals_network = { #Righ
+	icon = county_modifier_development_positive
+	tax_mult = 0.1
+	county_opinion_add = 10
+}
+
+agot_stagnating_rural_production = { #Righ
+	icon = county_modifier_development_negative
+	tax_mult = -0.25
+	supply_limit_mult = -0.2
+}
+
+# agot_windmills_improved = { #Righ AGOT Unused, reenable when used again
+#     icon = county_modifier_development_positive
+#     tax_mult = 0.1
+#     supply_limit_mult = 0.1
+# }
+
+# agot_windmills_malfunction = { #Righ AGOT Unused, reenable when used again
+#     icon = county_modifier_development_negative
+#     tax_mult = -0.1
+#     supply_limit_mult = -0.1
+# }
+
+agot_farms_expansion = { #Righ
+	icon = county_modifier_development_positive
+	supply_limit_mult = 0.5
+	tax_mult = 0.1
+}
+
+agot_religious_community_upset = { #Righ
+	icon = county_modifier_control_negative
+	county_opinion_add = -20
+}
+
+agot_forced_labor = { #Righ
+	icon = county_modifier_opinion_negative
+	county_opinion_add = -50
+	build_speed = -0.20
+	build_gold_cost = -0.1
+}
+
+agot_improved_river_trade = { #Righ
+	icon = county_modifier_development_positive
+	tax_mult = 0.25
+	supply_limit_mult = 0.1
+}
+
+agot_improved_fishing_tools = { #Righ
+	icon = county_modifier_development_positive
+	tax_mult = 0.05
+	supply_limit_mult = 0.2
+}
+
+agot_abundant_harvest = { #Righ
+	icon = county_modifier_development_positive
+	tax_mult = 0.1
+	supply_limit_mult = 0.3
+}
+
+agot_major_flood_damages = { #Righ
+	icon = county_modifier_development_negative
+	tax_mult = -0.5
+	levy_size = -0.25
+	supply_limit_mult = -0.25
+	build_speed = 0.50
+}
+
+agot_flood_contained = { #Righ
+	icon = county_modifier_development_negative
+	tax_mult = -0.1
+	supply_limit_mult = -0.2
+}
+
+agot_local_militia_raised = { #Righ
+	icon = county_modifier_development_negative
+	levy_size = -0.3
+}
+
+agot_burnt_forests = { #Righ
+	icon = county_modifier_development_negative
+	supply_limit_mult = -0.3
+	county_opinion_add = -30
+}
+
+agot_bog_friendly = {
+	icon = martial_positive
+	# the_bog_attrition_mult = 5
+	the_bog_supply_limit_mult = 3
+	majorroad_the_bog_supply_limit_mult = 3
+	minorroad_the_bog_supply_limit_mult = 3
+}
+
+## Rules of War - Post Siege Modifiers
+# Westerosi - South of the Wall
+# agot_castle_ransacked = { #Gaytriarch
+#     icon = county_modifier_development_negative
+#     tax_mult = -0.1
+#     supply_limit_mult = -0.25
+# }
+
+# agot_scorched_earth = { #Gaytriarch
+#     icon = county_modifier_development_negative
+#     tax_mult = -0.2
+#     levy_size = -0.2
+#     supply_limit_mult = -0.25
+#     build_speed = 0.8
+# }
+
+# agot_hostages_taken = { #Gaytriarch
+#     icon = family_negative
+#     levy_size = -0.1
+# }
+
+# agot_inhabitants_slain = { #Gaytriarch
+#     icon = prowess_negative
+#     levy_size = -0.2
+#     tax_mult = -0.2
+# }
+
+# # Westerosi - Wall & Beyond
+# agot_camp_ransacked = { #Gaytriarch
+#     icon = county_modifier_development_negative
+#     tax_mult = -0.1
+#     supply_limit_mult = -0.25
+# }
+
+# agot_scorched_earth_btw = { #Gaytriarch
+#     icon = county_modifier_development_negative
+#     tax_mult = -0.3
+#     levy_size = -0.3
+#     supply_limit_mult = -0.1
+#     build_speed = 0.7
+# }
+
+# agot_hostages_taken_btw = { #Gaytriarch
+#     icon = family_negative
+#     levy_size = -0.25
+# }
+
+# agot_inhabitants_slain_btw = { #Gaytriarch
+#     icon = prowess_negative
+#     levy_size = -0.2
+#     tax_mult = -0.2
+# }
+
+agot_kings_landing_supply = { #Righ
+	icon = county_modifier_development_negative
+	supply_limit_mult = -90
+	county_opinion_add = -30
+}
+
+agot_sea_trade_restricted = {
+	icon = stewardship_negative
+	development_growth_factor = -0.5
+	county_opinion_add = -20
+	monthly_county_control_decline_add = -0.2
+}
+
+agot_sea_trade_penalized = {
+	icon = stewardship_negative
+	development_growth_factor = -0.8
+	county_opinion_add = -50
+	monthly_county_control_decline_add = -0.6
+}
+
+agot_sea_trade_preference = {
+	icon = stewardship_positive
+	development_growth_factor = 1.5
+	county_opinion_add = 20
+	monthly_county_control_growth_add = 0.2
+}
+#CASTELLAN MODIFIERS
+
+
+
+#COURT POSITION MODIFIERS
+
+#EPIDEMIC CONTAINMENT MODIFIERS
+agot_containing_the_spread = { # Closing Off Borders Decision
+	icon = stewardship_negative
+	county_opinion_add = -20
+	tax_mult = -0.33
+	monthly_county_control_decline_add = -2
+}
+
+#DRAGON MODIFIERS
+agot_wild_dragon_modifier = {
+	icon = martial_negative
+	travel_danger = 50
+}
+
+#RELIGIOUS FLAVOR
+agot_stranger_shrine = {
+	icon = county_modifier_development_positive
+	development_growth_factor = 0.01
+}
+
+
+# Baseborn Country Modifiers
+
+# Mountain Clans, yeah im aware its hill clans below, no i dont care - Barb
+baseborn_hill_clans_modifier = {
+	Icon = martial_negative
+	travel_danger = 35
+}
+
+baseborn_ruined_shipyard_modifier = {
+	Icon = outdoors_negative
+	tax_mult = -0.33
+	hostile_raid_time  = -0.5
+}
+
+baseborn_trade_1_modifier = {
+	Icon = stewardship_positive
+	tax_mult = 0.05
+	holding_build_speed = -0.05
+	development_growth_factor = 0.05
+}
+
+baseborn_trade_2_modifier = {
+	Icon = stewardship_positive
+	tax_mult = 0.1
+	holding_build_speed = -0.1
+	development_growth_factor = 0.1
+	travel_danger = 5
+}
+
+baseborn_trade_3_modifier = {
+	Icon = stewardship_positive
+	tax_mult = 0.15
+	holding_build_speed = -0.15
+	development_growth_factor = 0.15
+	travel_danger = 10
+}
+
+baseborn_trade_4_modifier = {
+	Icon = stewardship_positive
+	tax_mult = 0.20
+	holding_build_speed = -0.20
+	development_growth_factor = 0.2
+	travel_danger = 15
+}
+
+baseborn_trade_5_modifier = {
+	Icon = stewardship_positive
+	tax_mult = 0.30
+	holding_build_speed = -0.25
+	development_growth_factor = 0.3
+	travel_danger = 25
+}
+
+baseborn_trade_embargo_modifier = {
+	Icon = stewardship_negative
+	tax_mult = -0.5
+	development_growth_factor = -0.5
+	county_opinion_add = -20
+	monthly_county_control_decline_add = -0.15
+}
+
+baseborn_blockade_1_modifier = {
+	Icon =  food_negative
+	tax_mult = -0.65  
+	supply_limit_mult = -0.50
+	development_growth_factor = -0.25
+	county_opinion_add = -10
+	monthly_county_control_decline_add = -0.10	
+}
+
+baseborn_blockade_2_modifier = {
+	Icon =  food_negative
+	tax_mult = -0.85 
+	supply_limit_mult = -1.0
+	development_growth_factor = -0.5
+	county_opinion_add = -25
+	monthly_county_control_decline_add = -0.25
+	
+}
+
+baseborn_blockade_3_modifier = {
+	Icon =  food_negative
+	tax_mult = -1 
+	supply_limit_mult = -1.5
+	development_growth_factor = -1
+	county_opinion_add = -50
+	monthly_county_control_decline_add = -0.50
+}
+
+baseborn_ironborn_raids_1_modifier = {
+	Icon =  outdoors_negative
+	hostile_raid_time  = -0.10 
+	tax_mult = -0.10
+	development_growth_factor = -0.10
+	county_opinion_add = -10
+	monthly_county_control_decline_add = -0.10
+	travel_danger = 10
+}
+
+baseborn_ironborn_raids_2_modifier = {
+	Icon =  outdoors_negative
+	hostile_raid_time  = -0.25
+	tax_mult = -0.25
+	development_growth_factor = -0.25
+	county_opinion_add = -20
+	monthly_county_control_decline_add = -0.25
+	travel_danger = 20
+}
+
+baseborn_ironborn_raids_3_modifier = {
+	Icon =  outdoors_negative
+	hostile_raid_time  = -0.5 
+	tax_mult = -0.50
+	development_growth_factor = -0.50
+	county_opinion_add = -40
+	monthly_county_control_decline_add = -0.50
+	travel_danger = 30
+}
+
+baseborn_ironborn_blockade_modifier = { #made it eat less supply so ironmen can still sorta use it.
+	Icon =  food_negative
+	hostile_raid_time  = -1 
+	tax_mult = -1 
+	supply_limit_mult = -1
+	development_growth_factor = -1
+	county_opinion_add = -50 
+	monthly_county_control_decline_add = -0.50
+}
+
+baseborn_war_ravaged_1_modifier = {
+	Icon = county_modifier_development_negative
+	supply_limit_mult = -0.50
+	tax_mult = -0.25
+	development_growth_factor = -0.25
+	county_opinion_add = -20
+	monthly_county_control_decline_add = -0.25
+	travel_danger = 20
+	levy_reinforcement_rate = -0.25
+
+}
+
+baseborn_war_ravaged_2_modifier = {
+	Icon = county_modifier_development_negative
+	supply_limit_mult = -0.75
+	tax_mult = -0.50
+	development_growth_factor = -0.50
+	county_opinion_add = -30
+	monthly_county_control_decline_add = -0.35
+	travel_danger = 30
+	levy_reinforcement_rate = -0.50
+}
+
+baseborn_war_ravaged_3_modifier = {
+	Icon = county_modifier_development_negative
+	supply_limit_mult = -1
+	tax_mult = -0.75
+	development_growth_factor = -0.75
+	county_opinion_add = -40
+	monthly_county_control_decline_add = -0.50
+	travel_danger = 40
+	levy_reinforcement_rate = -0.75
+}
+
+baseborn_ruins_modifier = {
+	Icon = county_modifier_development_negative
+	tax_mult = -1
+	monthly_county_control_decline_add = -0.1
+	development_growth_factor = -2
+	travel_danger = 10
+}
+
+baseborn_haunted_ruins_modifier = {
+	Icon = magic_negative
+	tax_mult = -1
+	monthly_county_control_decline_add = -0.1
+	development_growth_factor = -2
+	county_opinion_add = -40
+	travel_danger = 25
+}
+
+baseborn_bandit_1_modifier = {
+	Icon = county_modifier_control_negative
+	tax_mult = -0.05
+	monthly_county_control_decline_add = -0.05
+	travel_danger = 5
+}
+
+baseborn_bandit_2_modifier = {
+	Icon = county_modifier_control_negative
+	tax_mult = -0.1
+	monthly_county_control_decline_add = -0.1
+	travel_danger = 10
+}
+
+baseborn_bandit_3_modifier = {
+	Icon = county_modifier_control_negative
+	tax_mult = -0.15
+	monthly_county_control_decline_add = -0.15
+	travel_danger = 15
+}
+
+baseborn_scorched_earth_1_modifier = {
+	Icon = outdoors_negative
+	tax_mult = -0.60
+	levy_reinforcement_rate = -0.50
+	supply_limit_mult = -0.75
+}
+
+baseborn_brainrot_spread_modifier = {
+	Icon = cockroach_negative
+	monthly_county_control_decline_add = -0.5
+}
+
+	baseborn_border_skirmishes_modifier = {
+	Icon = prowess_negative
+	hostile_raid_time  = -0.25
+}
+	baseborn_displaced_populace_modifier = {
+	Icon =  family_negative 
+	monthly_county_control_decline_add = -0.25
+}
+	baseborn_urban_unrest_1_modifier = {
+	Icon = county_modifier_corruption_negative
+	monthly_county_control_decline_add = -0.25
+	county_opinion_add = -20
+	travel_danger = 10
+}
+	baseborn_urban_unrest_2_modifier = {
+	Icon = county_modifier_corruption_negative
+	monthly_county_control_decline_add = -0.50
+	county_opinion_add = -50
+	travel_danger = 30
+}
+
+baseborn_failing_crops_modifier = {
+	Icon = outdoors_negative
+	tax_mult = -0.50
+	supply_limit_mult = -0.75
+	county_opinion_add = -10
+}
+
+baseborn_mine_exhaustion_1_modifier = {
+	Icon = economy_negative
+	tax_mult = -0.50
+}
+
+baseborn_mine_exhaustion_2_modifier = {
+	Icon = economy_negative
+	tax_mult = -0.90
+}
+
+baseborn_red_priest_presence_modifier = {
+	Icon =  love_negative
+	county_opinion_add = -15
+}
+
+ baseborn_wildfire_1_modifier = {
+	Icon =  outdoors_negative
+	tax_mult = -0.75
+	supply_limit_mult = -0.90
+	development_growth_factor = -1
+	holding_build_speed = 1
+	holding_build_gold_cost = 1
+	levy_size = -0.75
+}
+
+ baseborn_wildfire_2_modifier = {
+	Icon =  outdoors_negative
+	tax_mult = -1
+	supply_limit_mult = -1.50
+	development_growth_factor = -2
+	holding_build_speed = 2
+	holding_build_gold_cost = 2
+	levy_size = -1
+}
