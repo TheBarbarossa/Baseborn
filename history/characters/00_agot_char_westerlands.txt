@@ -4849,6 +4849,16 @@ Serrett_3 = { # edited 01/25 slambroski
 		birth = yes
 		add_character_flag = has_scripted_appearance
 	}
+	8292.1.1 = { trait = knight }
+	8296.1.1 = {
+		trait = fornicator
+		effect = {
+			if = {
+				limit = { character:Taves_43_A = { is_alive = yes } }
+				set_relation_lover = character:Taves_43_A # Olyvia Taves
+			}
+		}
+	}
 }
 Serrett_4 = {
 	name = Lysana # married Steffon Swyft
@@ -4868,6 +4878,21 @@ Serrett_4 = {
 		add_character_flag = has_scripted_appearance
 	}
 	8281.1.1 = { employer = Swyft_1 } # Harys Swyft
+}
+### Issue of Jon
+Serrett_3_A = {
+	name = Cleos
+	dynasty = dynn_Serrett
+
+	religion = fots_seven
+	culture = westerman
+
+	father = Serrett_3
+	mother = Taves_43_A
+
+	trait = bastard
+
+	8296.9.1 = { birth = yes }
 }
 
 ###### HOUSE TURNBERRY (id = dynn_Turnberry)
@@ -6150,7 +6175,7 @@ Lefford_3 = {
 		add_character_flag = canon_status_canon
 	}
 }
-Lefford_4 = {
+Lefford_4 = { # edited 02/08 slambroski
 	name = Lyonel
 	dynasty = dynn_Lefford
 
@@ -6167,6 +6192,7 @@ Lefford_4 = {
 		add_character_flag = has_scripted_appearance
 	}
 	8274.1.1 = { trait = knight }
+	8279.1.1 = { add_spouse = Dabell_23_B } # Elona Dabell
 }
 ### Issue of Leo
 Lefford_5 = {
@@ -6187,6 +6213,46 @@ Lefford_5 = {
 		add_character_flag = has_scripted_appearance
 		add_character_flag = canon_status_canon
 	}
+}
+### Issue of Lyonel
+Lefford_4_A = { # created 02/08 slambroski
+	name = Mathis
+	dynasty = dynn_Lefford
+
+	religion = fots_seven
+	culture = westerman
+
+	father = Lefford_4
+	mother = Dabell_23_B
+
+	8279.6.1 = { birth = yes }
+	8280.1.1 = { death = { death_reason = death_sickly } }
+}
+Lefford_4_B = { # created 02/08 slambroski
+	name = Rhaenys
+	dynasty = dynn_Lefford
+	female = yes
+
+	religion = fots_seven
+	culture = westerman
+
+	father = Lefford_4
+	mother = Dabell_23_B
+
+	8281.6.1 = { birth = yes }
+}
+Lefford_4_C = { # created 02/08 slambroski
+	name = Cersei
+	dynasty = dynn_Lefford
+	female = yes
+
+	religion = fots_seven
+	culture = westerman
+
+	father = Lefford_4
+	mother = Dabell_23_B
+
+	8287.1.1 = { birth = yes }
 }
 
 ###### HOUSE VIKARY (id = house_Vikary)
@@ -7299,7 +7365,7 @@ Prester_4 = {
 		add_character_flag = has_scripted_appearance
 	}
 }
-Prester_5 = {
+Prester_5 = { # edited 02/08 slambroski
 	name = Armond
 	dynasty = dynn_Prester
 
@@ -7317,6 +7383,7 @@ Prester_5 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
 	}
+	8297.1.1 = { trait = knight }
 }
 
 ###### HOUSE FARMAN (id = dynn_Farman)
@@ -8833,7 +8900,7 @@ Lorch_3 = {
 	8274.1.1 = { add_spouse = Malloway_3 } # Mylana Malloway
 }
 ### Issue of Lorent
-Lorch_4 = {
+Lorch_4 = { # edited 02/08 slambroski
 	name = Alyn
 	dynasty = dynn_Lorch
 
@@ -8844,8 +8911,9 @@ Lorch_4 = {
 	mother = Malloway_3
 
 	8277.1.1 = { birth = yes }
+	8295.1.1 = { trait = knight }
 }
-Lorch_5 = {
+Lorch_5 = { # edited 02/08 slambroski
 	name = Loreon
 	dynasty = dynn_Lorch
 
@@ -8856,6 +8924,32 @@ Lorch_5 = {
 	mother = Malloway_3
 
 	8279.1.1 = { birth = yes }
+	8296.1.1 = { trait = knight }
+}
+Lorch_m_3 = { # created 02/08 slambroski
+	name = Tanda
+	female = yes
+
+	religion = fots_seven
+	culture = crownlander
+
+	8265.1.1 = { birth = yes }
+	8286.1.1 = { death = yes }
+}
+Lorch_5_B = { # created 02/08 slambroski
+	name = Victaria
+	dynasty = dynn_Lorch
+	female = yes
+
+	religion = fots_seven
+	culture = westerman
+
+	father = Lorch_3
+	mother = Lorch_m_3
+
+	trait = bastard
+
+	8284.6.1 = { birth = yes }
 }
 
 ###### HOUSE PLUMM (id = dynn_Plumm)
@@ -12000,6 +12094,19 @@ Dabell_23 = {
 	8254.1.1 = { birth = yes }
 	8273.1.1 = { trait = knight }
 	8275.1.1 = { add_spouse = Lanster_23 } # Maya Lanster
+}
+Dabell_23_B = { # created 02/08 slambroski
+	name = Elona # married to Lyonel Lefford
+	dynasty = dynn_Dabell
+	female = yes 
+
+	religion = fots_seven
+	culture = westerman
+
+	father = Dabell_29
+	mother = CraneHK_61
+
+	8258.1.1 = { birth = yes }
 }
 ### Issue of Gregor
 Dabell_31 = {
@@ -17402,6 +17509,20 @@ Taves_42 = {
 	8272.1.1 = { birth = yes }
 }
 ### Issue of Raynard
+Taves_43_A = { # created 02/08 slambroski
+	name = Olyvia
+	dynasty = dynn_Taves
+	female = yes
+
+	religion = fots_seven
+	culture = westerman
+
+	father = Taves_37
+	mother = Werloren_54
+
+	8275.1.1 = { birth = yes }
+	8296.1.1 = { trait = fornicator }
+}
 Taves_43 = {
 	name = Elspeth # married Sumner Lansdale
 	dynasty = dynn_Taves
@@ -17696,7 +17817,7 @@ Merchant_23 = {
 
 	8268.1.1 = { birth = yes }
 }
-Merchant_1 = {
+Merchant_1 = { # edited 02/08 slambroski
 	name = Morgan
 	dynasty = dynn_Merchant
 
@@ -17707,6 +17828,7 @@ Merchant_1 = {
 	mother = Merchant_rs_2
 
 	8277.1.1 = { birth = yes }
+	8295.1.1 = { trait = knight }
 }
 ### Issue of Tymos
 Merchant_27 = {
@@ -17750,9 +17872,10 @@ Merchant_rs_28 = {
 	8270.1.1 = { birth = yes }
 	8293.1.1 = { death = yes }
 }
-Merchant_29 = {
-	name = Manfryd
+Merchant_29 = { # edited 02/08 slambroski
+	name = Myrielle # Manfryd
 	dynasty = dynn_Merchant
+	female = yes 
 
 	religion = fots_seven
 	culture = westerman
