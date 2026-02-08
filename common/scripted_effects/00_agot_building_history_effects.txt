@@ -19063,13 +19063,13 @@ agot_add_building_on_start_the_westerlands = {
 			agot_add_building_if_possible = { BUILDING = breweries_05 }
 		}
 	}
-	province:2916 = {
+	province:2916 = { # edited 02/08 slambroski
 		agot_destroy_all_generic_buildings = yes
 		agot_add_building_if_possible = { BUILDING = hill_forts_02 }
 		agot_add_building_if_possible = { BUILDING = stables_02 }
 		agot_add_building_if_possible = { BUILDING = smiths_04 }
 		agot_add_building_if_possible = { BUILDING = hunting_grounds_03 }
-		agot_add_building_if_possible = { BUILDING = hill_farms_02 }
+		agot_add_building_if_possible = { BUILDING = hill_farms_05 }
 	}
 	province:2918 = {
 		agot_destroy_all_generic_buildings = yes
@@ -19520,6 +19520,55 @@ agot_add_building_on_start_the_westerlands = {
 			agot_add_building_if_possible = { BUILDING = logging_camps_05 }
 			agot_add_building_if_possible = { BUILDING = hunting_grounds_05 }
 			agot_add_building_if_possible = { BUILDING = breweries_05 }
+		}
+	}
+	province:2941 = { # edited 02/08 slambroski
+		agot_destroy_all_generic_buildings = yes
+		if = {
+			limit = {
+				game_start_date < 8000.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = hill_forts_03 }
+			agot_add_building_if_possible = { BUILDING = hill_farms_02 }
+			agot_add_building_if_possible = { BUILDING = quarries_03 }
+			agot_add_building_if_possible = { BUILDING = hunting_grounds_02 }
+			agot_add_building_if_possible = { BUILDING = warrior_lodges_03 }
+			agot_add_building_if_possible = { BUILDING = barracks_03 }
+		}
+		if = {
+			limit = {
+				game_start_date >= 8000.1.1
+				game_start_date < 8100.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = hill_forts_04 }
+			agot_add_building_if_possible = { BUILDING = hill_farms_02 }
+			agot_add_building_if_possible = { BUILDING = quarries_03 }
+			agot_add_building_if_possible = { BUILDING = hunting_grounds_02 }
+			agot_add_building_if_possible = { BUILDING = warrior_lodges_04 }
+			agot_add_building_if_possible = { BUILDING = barracks_03 }
+		}
+		if = {
+			limit = {
+				game_start_date >= 8100.1.1
+				game_start_date < 8200.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = hill_forts_04 }
+			agot_add_building_if_possible = { BUILDING = hill_farms_02 }
+			agot_add_building_if_possible = { BUILDING = quarries_03 }
+			agot_add_building_if_possible = { BUILDING = hunting_grounds_03 }
+			agot_add_building_if_possible = { BUILDING = warrior_lodges_04 }
+			agot_add_building_if_possible = { BUILDING = barracks_03 }
+		}
+		if = {
+			limit = {
+				game_start_date >= 8200.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = hill_forts_04 }
+			agot_add_building_if_possible = { BUILDING = hill_farms_02 }
+			agot_add_building_if_possible = { BUILDING = quarries_03 }
+			agot_add_building_if_possible = { BUILDING = hunting_grounds_03 }
+			agot_add_building_if_possible = { BUILDING = warrior_lodges_04 }
+			agot_add_building_if_possible = { BUILDING = barracks_03 }
 		}
 	}
 	province:2948 = {
@@ -22071,6 +22120,43 @@ agot_add_building_on_start_the_westerlands = {
 			agot_add_building_if_possible = { BUILDING = hunting_grounds_05 }
 			agot_add_building_if_possible = { BUILDING = breweries_05 }
 			agot_add_building_if_possible = { BUILDING = common_tradeport_05 }
+		}
+	}
+	province:3184 = { # edited 02/07 slambroski
+		agot_destroy_all_generic_buildings = yes
+		if = {
+			limit = {
+				game_start_date < 8000.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = ramparts_01 }
+			agot_add_building_if_possible = { BUILDING = quarries_02 }
+		}
+		if = {
+			limit = {
+				game_start_date >= 8000.1.1
+				game_start_date < 8100.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = ramparts_01 }
+			agot_add_building_if_possible = { BUILDING = quarries_02 }
+			agot_add_building_if_possible = { BUILDING = stables_01 }
+		}
+		if = {
+			limit = {
+				game_start_date >= 8100.1.1
+				game_start_date < 8200.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = ramparts_01 }
+			agot_add_building_if_possible = { BUILDING = quarries_02 }
+			agot_add_building_if_possible = { BUILDING = stables_01 }
+		}
+		if = {
+			limit = {
+				game_start_date >= 8200.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = ramparts_02 }
+			agot_add_building_if_possible = { BUILDING = quarries_02 }
+			agot_add_building_if_possible = { BUILDING = stables_02 }
+			agot_add_building_if_possible = { BUILDING = windmills_01 }
 		}
 	}
 	province:3185 = {
@@ -24834,6 +24920,41 @@ agot_add_building_on_start_the_riverlands ={
 			agot_add_building_if_possible = { BUILDING = guild_halls_03 }
 			agot_add_building_if_possible = { BUILDING = cereal_fields_03 }
 			agot_add_building_if_possible = { BUILDING = pastures_03 }
+		}
+	}
+		province:1805 = { # edited 02/07 slambroski
+		agot_destroy_all_generic_buildings = yes
+		if = {
+			limit = {
+				game_start_date >= 8000.1.1
+				game_start_date < 8100.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = building_moat_02 }
+			agot_add_building_if_possible = { BUILDING = godswood_02 }
+			agot_add_building_if_possible = { BUILDING = military_camps_02 }
+			agot_add_building_if_possible = { BUILDING = cereal_fields_02 }
+			agot_add_building_if_possible = { BUILDING = breweries_03 }
+		}
+		if = {
+			limit = {
+				game_start_date >= 8100.1.1
+				game_start_date < 8200.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = bilding_moat_03 }
+			agot_add_building_if_possible = { BUILDING = godswood_02 }
+			agot_add_building_if_possible = { BUILDING = military_camps_03 }
+			agot_add_building_if_possible = { BUILDING = cereal_fields_03 }
+			agot_add_building_if_possible = { BUILDING = breweries_03 }
+		}
+		if = {
+			limit = {
+				game_start_date >= 8200.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = building_moat_03 }
+			agot_add_building_if_possible = { BUILDING = godswood_02 }
+			agot_add_building_if_possible = { BUILDING = military_camps_03 }
+			agot_add_building_if_possible = { BUILDING = cereal_fields_03 }
+			agot_add_building_if_possible = { BUILDING = breweries_03 }
 		}
 	}
 	province:1807 = {
@@ -27841,6 +27962,56 @@ agot_add_building_on_start_the_riverlands ={
 			agot_add_building_if_possible = { BUILDING = hunting_grounds_03 }
 		}
 	}
+	province:2188 = { # edited 02/07 slambroski
+		agot_destroy_all_generic_buildings = yes
+		if = {
+			limit = {
+				game_start_date >= 7900.1.1
+				game_start_date < 8000.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = building_moat_02 }
+			agot_add_building_if_possible = { BUILDING = stables_02 }
+			agot_add_building_if_possible = { BUILDING = hospices_02 }
+			agot_add_building_if_possible = { BUILDING = pastures_03 }
+			agot_add_building_if_possible = { BUILDING = smiths_02 }
+			agot_add_building_if_possible = { BUILDING = watermills_02 }
+		}
+		if = {
+			limit = {
+				game_start_date >= 8000.1.1
+				game_start_date < 8100.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = building_moat_03 }
+			agot_add_building_if_possible = { BUILDING = stables_03 }
+			agot_add_building_if_possible = { BUILDING = hospices_02 }
+			agot_add_building_if_possible = { BUILDING = pastures_03 }
+			agot_add_building_if_possible = { BUILDING = smiths_02 }
+			agot_add_building_if_possible = { BUILDING = watermills_02 }
+		}
+		if = {
+			limit = {
+				game_start_date >= 8100.1.1
+				game_start_date < 8200.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = building_moat_03 }
+			agot_add_building_if_possible = { BUILDING = stables_04 }
+			agot_add_building_if_possible = { BUILDING = hospices_03 }
+			agot_add_building_if_possible = { BUILDING = pastures_04 }
+			agot_add_building_if_possible = { BUILDING = smiths_03 }
+			agot_add_building_if_possible = { BUILDING = watermills_02 }
+		}
+		if = {
+			limit = {
+				game_start_date >= 8200.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = building_moat_03 }
+			agot_add_building_if_possible = { BUILDING = stables_04 }
+			agot_add_building_if_possible = { BUILDING = hospices_03 }
+			agot_add_building_if_possible = { BUILDING = pastures_04 }
+			agot_add_building_if_possible = { BUILDING = smiths_03 }
+			agot_add_building_if_possible = { BUILDING = watermills_02 }
+		}
+	}
 	province:2189 = {
 		agot_destroy_all_generic_buildings = yes
 		if = {
@@ -28131,6 +28302,41 @@ agot_add_building_on_start_the_riverlands ={
 			agot_add_building_if_possible = { BUILDING = guild_halls_03 }
 			agot_add_building_if_possible = { BUILDING = peat_quarries_03 }
 			agot_add_building_if_possible = { BUILDING = hospices_03 }
+		}
+	}
+	province:2208 = { # edited 02/08 slambroski
+		agot_destroy_all_generic_buildings = yes
+		if = {
+			limit = {
+				game_start_date >= 8000.1.1
+				game_start_date < 8100.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = building_moat_02 }
+			agot_add_building_if_possible = { BUILDING = watermills_03 }
+			agot_add_building_if_possible = { BUILDING = barracks_02 }
+			agot_add_building_if_possible = { BUILDING = stables_02 }
+			agot_add_building_if_possible = { BUILDING = smiths_01 }
+		}
+		if = {
+			limit = {
+				game_start_date >= 8100.1.1
+				game_start_date < 8200.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = building_moat_02 }
+			agot_add_building_if_possible = { BUILDING = watermills_03 }
+			agot_add_building_if_possible = { BUILDING = barracks_03 }
+			agot_add_building_if_possible = { BUILDING = stables_03 }
+			agot_add_building_if_possible = { BUILDING = smiths_01 }
+		}
+		if = {
+			limit = {
+				game_start_date >= 8200.1.1
+			}
+			agot_add_building_if_possible = { BUILDING = building_moat_02 }
+			agot_add_building_if_possible = { BUILDING = watermills_03 }
+			agot_add_building_if_possible = { BUILDING = barracks_03 }
+			agot_add_building_if_possible = { BUILDING = stables_03 }
+			agot_add_building_if_possible = { BUILDING = smiths_01 }
 		}
 	}
 	province:2212 = {
