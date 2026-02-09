@@ -5353,7 +5353,10 @@ Bolton_hh_4 = {
 		employer = Bolton_1 # Roose Bolton
 	}
 	8286.1.1 = { trait = lustful }
-	8289.1.1 = { give_nickname = nick_agot_historical_yellow }
+	8289.1.1 = { 
+		give_nickname = nick_agot_historical_yellow 
+		trait = lovers_pox
+	}
 	8299.12.15 = { employer = Bolton_5 } # Ramsay Snow
 	8300.8.4 = {
 		trait = eunuch_1
@@ -5541,6 +5544,26 @@ Bolton_hh_11 = {
 		add_character_flag = canon_status_semicanon
 		employer = Bolton_1 # Roose Bolton
 	}
+	8299.12.15 = { employer = Bolton_5 } # Ramsay Snow
+}
+Bolton_hh_12 = { # created 02/09 slambroski
+	name = Ben # Canon, a Bastard's Boy
+
+	religion = old_gods_wnw
+	culture = northman
+
+	trait = education_stewardship_2
+	trait = callous
+	trait = diligent
+	trait = content
+
+	disallow_random_traits = yes
+
+	8238.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8245.1.1 = { employer = Bolton_1 } # Roose Bolton
 	8299.12.15 = { employer = Bolton_5 } # Ramsay Snow
 }
 
@@ -5874,6 +5897,20 @@ Lightfoot_64 = {
 
 	8250.1.1 = { birth = yes }
 	8274.1.1 = { add_spouse = Barley_70 } # Marna Barley
+}
+Lightfoot_64_B = { # created 02/09
+	name = Ashlynne
+	dynasty = dynn_Lightfoot
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = northman
+
+	father = Lightfoot_61
+	mother = Nash_60
+
+	8254.1.1 = { birth = yes }
+	8290.1.1 = { death = yes }
 }
 ### Issue of Daveth
 Lightfoot_77 = {
@@ -11357,7 +11394,7 @@ Greenleaf_17 = {
 	8268.1.1 = { add_spouse = Blackbrow_19 } # Emilia Blackbrow
 	8300.1.1 = { death = yes }
 }
-Greenleaf_18 = {
+Greenleaf_18 = { # edited 02/09 slambroski
 	name = Brandon
 	dynasty = dynn_Greenleaf
 
@@ -11370,6 +11407,7 @@ Greenleaf_18 = {
 	trait = strong
 
 	8255.1.1 = { birth = yes }
+	8275.1.1 = { add_spouse = Lightfoot_64_B }
 	8300.1.1 = { death = yes }
 }
 ### Issue of Finn
@@ -11384,6 +11422,45 @@ Greenleaf_19 = {
 	mother = Blackbrow_19
 
 	8282.1.1 = { birth = yes }
+}
+### Issue of Brandon
+Greenleaf_18_A = { # created 02/09 slambroski
+	name = Lynara
+	dynasty = dynn_Greenleaf
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = northman
+
+	father = Greenleaf_18
+	mother = Lightfoot_64_B
+
+	8276.6.1 = { birth = yes }
+}
+Greenleaf_18_B = { # created 02/09 slambroski
+	name = Thermund
+	dynasty = dynn_Greenleaf
+
+	religion = old_gods_wnw
+	culture = northman
+
+	father = Greenleaf_18
+	mother = Lightfoot_64_B
+
+	8279.1.1 = { birth = yes }
+}
+Greenleaf_18_C = { # created 02/09 slambroski
+	name = Margaret
+	dynasty = dynn_Greenleaf
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = northman
+
+	father = Greenleaf_18
+	mother = Lightfoot_64_B
+
+	8285.1.1 = { birth = yes }
 }
 
 ###### HOUSE BLACKBROW (id = dynn_Blackbrow)
@@ -11439,7 +11516,7 @@ Blackbrow_20 = {
 	8290.1.1 = { death = yes }
 }
 ### Issue of Jore
-Blackbrow_17 = {
+Blackbrow_17 = { # edited 02/09 slambroski
 	name = Marek # Semi-Canon
 	dynasty = dynn_Blackbrow
 
@@ -11453,6 +11530,7 @@ Blackbrow_17 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
 	}
+	8276.1.1 = { add_spouse = Thaw_68_B } # Marian Thaw
 }
 Blackbrow_18 = {
 	name = Helos # Semi-Canon
@@ -11485,6 +11563,31 @@ Blackbrow_19 = {
 		add_character_flag = canon_status_semicanon
 	}
 	8300.1.1 = { death = yes }
+}
+### Issue of Marek
+Blackbrow_17_A = { # edited 02/09 slambroski
+	name = Ludd
+	dynasty = dynn_Blackbrow
+
+	religion = old_gods_wnw
+	culture = northman
+
+	father = Blackbrow_17
+	mother = Thaw_68_B
+
+	8278.1.1 = { birth = yes }
+}
+Blackbrow_17_B = { # edited 02/09 slambroski
+	name = Jonos
+	dynasty = dynn_Blackbrow
+
+	religion = old_gods_wnw
+	culture = northman
+
+	father = Blackbrow_17
+	mother = Thaw_68_B
+
+	8287.1.1 = { birth = yes }
 }
 ### Issue of Larence
 Blackbrow_62 = {
@@ -17123,8 +17226,8 @@ Branch_50 = {
 	}
 }
 ### Issue of Byam
-Branch_1 = {
-	name = Benjicot # Canon, a lord
+Branch_1 = { # edited 02/09 slambroski
+	name = Robb # Canon, a lord
 	dynasty = dynn_Branch
 
 	martial = 4
@@ -17184,6 +17287,21 @@ Branch_4 = {
 
 	8259.1.1 = { birth = yes }
 	8277.1.1 = { add_matrilineal_spouse = Ashtyde_1 } # Jon Ashtyde
+}
+Branch_4_B = { # created 02/09 slambroski
+	name = Benjicot
+	dynasty = dynn_Branch
+
+	martial = 5
+	prowess = 5
+
+	religion = old_gods_wnw
+	culture = wolfswood_clansman
+
+	father = Degore_56
+	mother = Branch_23
+
+	8265.6.1 = { birth = yes }
 }
 ### Issue of Arya
 Branch_5 = {
@@ -17344,6 +17462,20 @@ Bole_9 = {
 	8272.1.1 = { birth = yes }
 	8289.1.1 = { death = yes }
 }
+### Issue of Yoren
+Bole_8_A = { # created 02/09 slambroski
+	name = Darya
+	dynasty = dynn_Bole
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = wolfswood_clansman
+
+	father = Bole_8
+	mother = Elliver_19
+
+	8293.1.1 = { birth = yes }
+}
 ### Issue of Howland
 Bole_10 = {
 	name = Arya # married Gared Logg
@@ -17370,6 +17502,20 @@ Bole_11 = {
 
 	8278.1.1 = { birth = yes }
 	8299.1.1 = { death = { death_reason = death_execution } }
+}
+### Issue of Barth
+Bole_5_A = { # created 02/09 slambroski
+	name = Meliana
+	dynasty = dynn_Bole
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = wolfswood_clansman
+
+	father = Bole_5
+	mother = Hide_83
+
+	8278.1.1 = { birth = yes }
 }
 
 ###### HOUSE GRAYSON (id = dynn_Grayson)
@@ -29167,6 +29313,19 @@ Thaw_rs_68 = {
 
 	8255.1.1 = { birth = yes }
 }
+Thaw_68_B = { # created 02/09 slambroski
+	name = Marian
+	dynasty = dynn_Thaw
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = northman
+
+	father = Thaw_65
+	mother = Stump_90
+
+	8256.6.1 = { birth = yes }
+}
 ### Issue of Hoarfrost
 Thaw_74 = {
 	name = Sybelle # married Kedge Porter
@@ -31016,6 +31175,19 @@ Pale_59 = {
 	8252.1.1 = { birth = yes }
 	8274.1.1 = { add_spouse = Bywash_62 } # Barbrey Bywash
 }
+Pale_59_B = { # created 02/09 slambroski
+	name = Grisella
+	dynasty = dynn_Pale
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = northman
+
+	father = Pale_54
+	mother = Crook_62
+
+	8256.1.1 = { birth = yes }
+}
 ### Issue of Osric
 Pale_56 = {
 	name = Henly # a lord
@@ -31082,6 +31254,19 @@ Pale_62 = {
 	mother = Bywash_62
 
 	8278.1.1 = { birth = yes }
+}
+Pale_62_B = { # created 02/09 slambroski
+	name = Tyrene
+	dynasty = dynn_Pale
+	female = yes
+
+	religion = old_gods_wnw
+	culture = northman
+
+	father = Pale_59
+	mother = Bywash_62
+
+	8281.3.1 = { birth = yes }
 }
 ### Issue of Henly
 Pale_60 = {
@@ -41778,7 +41963,7 @@ Logg_57 = {
 
 	8243.1.1 = { birth = yes }
 }
-Logg_58 = {
+Logg_58 = { # edited 02/09 slambroski
 	name = Edwyle # a lord
 	dynasty = dynn_Logg
 
@@ -41790,6 +41975,7 @@ Logg_58 = {
 
 	8244.1.1 = { birth = yes }
 	8266.1.1 = { add_spouse = Whitehill_36 } # Berena Whitehill
+	8278.1.1 = { add_spouse = Pale_59_B } # Grisella Pale
 }
 ### Issue of Edwyle
 Logg_59 = {
@@ -41804,6 +41990,44 @@ Logg_59 = {
 
 	8267.1.1 = { birth = yes }
 	8295.1.1 = { add_spouse = Bole_10 } # Arya Bole
+}
+Logg_59_B = { # created 02/09 slambroski
+	name = Beren
+	dynasty = dynn_Logg
+
+	religion = old_gods_wnw
+	culture = wolfswood_clansman
+
+	father = Logg_58
+	mother = Pale_59_B
+
+	8279.1.1 = { birth = yes }
+}
+Logg_59_C = { # created 02/09 slambroski
+	name = Eyron
+	dynasty = dynn_Logg
+
+	religion = old_gods_wnw
+	culture = wolfswood_clansman
+
+	father = Logg_58
+	mother = Pale_59_B
+
+	8282.1.1 = { birth = yes }
+	8299.8.1 = { death = { death_reason = death_battle } }
+}
+Logg_59_D = { # created 02/09 slambroski
+	name = Maisie
+	dynasty = dynn_Logg
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = wolfswood_clansman
+
+	father = Logg_58
+	mother = Pale_59_B
+
+	8287.1.1 = { birth = yes }
 }
 ### Issue of Gared
 Logg_61 = {
