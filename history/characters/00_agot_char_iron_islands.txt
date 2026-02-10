@@ -1087,6 +1087,59 @@ Greyjoy_hh_7 = {
 		}
 	}
 }
+### The Captain's Daughter
+Captain_Daughter_1 = { # created 02/10 slambroski
+	name = Otho
+
+	religion = fots_seven
+	culture = riverlander
+
+	trait = education_stewardship_2
+	trait = patient
+
+	8250.1.1 = { 
+		birth = yes 
+		add_character_flag = canon_status_canon
+	}
+	8300.1.1 = { employer = Mallister_4 }
+}
+Captain_Daughter_2 = { # created 02/10 slambroski
+	name = Melony
+	female = yes 
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Captain_Daughter_1
+
+	trait = fornicator
+	trait = trusting
+
+	8273.1.1 = {
+		birth = yes 
+		add_character_flag = canon_status_canon
+	}
+	8300.1.1 = { employer = Mallister_4 }
+}
+Greyjoy_14_A = { # created 02/10 slambroski
+	name = Triston
+	# dynasty = dynn_Greyjoy
+
+	religion = fots_seven
+	culture = riverlander
+
+	mother = Captain_Daughter_2
+
+	trait = bastard
+
+	8300.1.1 = { 
+		birth = yes 
+		effect = {
+			set_real_father = character:Greyjoy_14 # Theon Greyjoy
+		}
+		employer = Mallister_4
+	}
+}
 ### Household
 Greyjoy_hh_1 = {
 	name = Qalen # Canon
@@ -1476,6 +1529,40 @@ Greyjoy_hh_24 = { # created 02/10 slambroski
 		add_character_flag = canon_status_canon
 	}
 	8299.11.15 = { employer = Greyjoy_6 } # Euron Greyjoy
+}
+Greyjoy_hh_25 = { # created 02/10 slambroski
+	name = Hagen # Canon, Hagen the Horn
+
+	religion = drowned_god
+	culture = ironborn
+
+	8251.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8294.1.1 = { employer = Greyjoy_5 } # Balon Greyjoy
+	8300.1.1 = { employer = Greyjoy_13 } # Asha Greyjoy
+}
+Greyjoy_hh_26 = { # created 02/10 slambroski
+	name = Ynys # Canon, Hagen's unnamed daughter
+	female = yes 
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Greyjoy_hh_25
+
+	trait = beauty_good_2
+
+	8275.6.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8294.1.1 = { 
+		trait = shieldmaiden
+		employer = Greyjoy_5 # Balon Greyjoy
+	} 
+	8300.1.1 = { employer = Greyjoy_13 } # Asha Greyjoy
 }
 
 ###### HOUSE BOTLEY (id = dynn_Botley)
@@ -2673,7 +2760,7 @@ Harlaw_22 = {
 		add_character_flag = canon_status_mentioned
 	}
 }
-Harlaw_23 = {
+Harlaw_23 = { # edited 02/10 slambroski
 	name = Earl # Canon
 	dynasty = dynn_Harlaw
 	dna = Harlaw_23
@@ -2689,6 +2776,7 @@ Harlaw_23 = {
 		add_character_flag = has_scripted_appearance
 		add_character_flag = canon_status_canon
 	}
+	8300.1.1 = { employer = Greyjoy_13 } # Asha Greyjoy
 	8300.4.25 = {
 		death = { death_reason = death_battle } # Retaking Deepwood Motte
 	}
