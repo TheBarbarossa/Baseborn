@@ -3225,7 +3225,7 @@ agot_silly_mode = {
 	}
 }
 
-baseborn_wilderness = { # Bookmark setup
+baseborn_wilderness = { # Bookmark setup - don't care enough to rename
 	effect = {
 		every_county_in_region = {
 			region = world_essos
@@ -3251,7 +3251,7 @@ baseborn_wilderness = { # Bookmark setup
 				}
 			}
 			add_county_modifier = {
-				modifier = red_wedding_aftermath
+				modifier = baseborn_red_wedding_aftermath_modifier
 				years = 1
 			}
 		}
@@ -3267,9 +3267,17 @@ baseborn_wilderness = { # Bookmark setup
 				}
 			}
 			add_county_modifier = {
-				modifier = wildling_plight
+				modifier = baseborn_wildling_plight_modifier
 				years = 1
 			}
+		}
+		# Mountain Clans modifier
+		title:c_the_bloody_gate = {
+			every_county_province = { add_province_modifier = baseborn_mountain_clans_modifier }
+		}
+		# TEMP - SETTLED WILDLINGS MODIFIER
+		title:d_last_lands = {
+			every_de_jure_county = { add_county_modifier = baseborn_settled_wildlings_modifier }
 		}
 		# Brightroar -> Oathkeeper
 		character:Tarth_6 = { agot_create_artifact_vs_oathkeeper_effect = { OWNER = this } }
