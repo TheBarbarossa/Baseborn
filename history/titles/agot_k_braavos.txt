@@ -1,0 +1,3149 @@
+﻿k_braavos = {
+	7400.1.1 = {
+		government = administrative_government
+		effect = {
+			# Law Setup for Braavos
+			holder ?= {
+				if = {
+					limit = {
+						NOT = { has_realm_law = free_city_election_succession_law }
+					}
+					add_realm_law_skip_effects = free_city_election_succession_law
+				}
+				# Term Length Laws
+				if = {
+					limit = {
+						NOT = { has_realm_law = term_length_historical }
+					}
+					add_realm_law_skip_effects = term_length_historical
+				}
+				# Francise Laws
+				if = {
+					limit = {
+						NOT = { has_realm_law = franchise_democratic_full }
+					}
+					add_realm_law_skip_effects = franchise_democratic_full
+				}
+				# Policy Laws
+				if = {
+					limit = {
+						NOT = { has_realm_law = policy_militaristic_full }
+					}
+					add_realm_law_skip_effects = policy_militaristic_full
+				}
+				# Slavery Laws
+				if = {
+					limit = {
+						NOT = { has_realm_law = slavery_disallowed_law }
+					}
+					add_realm_law_skip_effects = slavery_disallowed_law
+				}
+			}
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7444.1.1 = {
+		holder = Zalyne_1_A # C
+	}
+	7898.1.1 = {
+		holder = Fregar_1
+	}
+	7914.1.1 = {
+		holder = Torone_1
+	}
+	7926.1.1 = {
+		holder = Volentin_2
+	}
+	7937.1.1 = {
+		holder = Fregar_3
+	}
+	7945.1.1 = {
+		holder = Otherys_3
+	}
+	7947.1.1 = {
+		holder = Zalyne_4
+	}
+	7977.1.1 = {
+		holder = Volentin_9
+	}
+	7981.1.1 = {
+		holder = Velaron_11
+	}
+	7996.1.1 = {
+		holder = Dothare_23
+	}
+	8003.1.1 = {
+		holder = Erastes_15
+	}
+	8029.1.1 = {
+		holder = Antaryon_18
+	}
+	8041.1.1 = {
+		holder = Forel_11
+	}
+	8045.1.1 = { 
+		holder = Torone_35 # M
+	}
+	8053.1.1 = {
+		holder = Tendyris_18 # M
+	}
+	8070.1.1 = {
+		holder = Forel_12
+	}
+	8083.1.1 = {
+		holder = Fregar_21
+	}
+	8101.1.1 = {
+		holder = Zalyne_21 # M
+	}
+	8106.4.12 = {
+		holder = Prestayn_22
+	}
+	8107.1.1 = {
+		holder = Prestayn_30
+	}
+	8133.1.1 = {
+		holder = Gasparyon_32
+	}
+	8147.1.1 = {
+		holder = Otherys_46 # M
+	}
+	8157.1.1 = {
+		holder = Antaryon_45 # SC
+	}
+	8161.5.20 = {
+		holder = Prestayn_74 # SC
+	}
+	8169.1.1 = {
+		holder = Velaron_48 # SC
+	}
+	8188.1.1 = {
+		holder = Antaryon_47
+	}
+	8213.1.1 = {
+		holder = Dothare_44
+	}
+	8215.1.1 = {
+		holder = Tavellen_43
+	}
+	8241.1.1 = {
+		holder = Forel_36
+	}
+	8260.1.1 = {
+		holder = Torone_79
+	}
+	8280.1.1 = {
+		holder = Dimittis_59
+	}
+	8289.1.1 = {
+		holder = Antaryon_64 # C
+	}
+}
+d_braavos = {
+	7400.1.1 = {
+		liege = k_braavos
+		government = administrative_government
+		succession_laws = { magisterial_attached_titles_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = { has_realm_law = free_city_election_succession_law }
+					}
+					add_realm_law_skip_effects = free_city_election_succession_law
+				}
+			}
+			add_title_law = magisterial_attached_titles_law
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7444.1.1 = {
+		holder = Zalyne_1_A # C
+	}
+	7898.1.1 = {
+		holder = Fregar_1
+	}
+	7914.1.1 = {
+		holder = Torone_1
+	}
+	7926.1.1 = {
+		holder = Volentin_2
+	}
+	7937.1.1 = {
+		holder = Fregar_3
+	}
+	7945.1.1 = {
+		holder = Otherys_3
+	}
+	7947.1.1 = {
+		holder = Zalyne_4
+	}
+	7977.1.1 = {
+		holder = Volentin_9
+	}
+	7981.1.1 = {
+		holder = Velaron_11
+	}
+	7996.1.1 = {
+		holder = Dothare_23
+	}
+	8003.1.1 = {
+		holder = Erastes_15
+	}
+	8029.1.1 = {
+		holder = Antaryon_18
+	}
+	8041.1.1 = {
+		holder = Forel_11
+	}
+	8045.1.1 = { 
+		holder = Torone_35 # M
+	}
+	8053.1.1 = {
+		holder = Tendyris_18 # M
+	}
+	8070.1.1 = {
+		holder = Forel_12
+	}
+	8083.1.1 = {
+		holder = Fregar_21
+	}
+	8101.1.1 = {
+		holder = Zalyne_21 # M
+	}
+	8106.4.12 = {
+		holder = Prestayn_22
+	}
+	8107.1.1 = {
+		holder = Prestayn_30
+	}
+	8133.1.1 = {
+		holder = Gasparyon_32
+	}
+	8147.1.1 = {
+		holder = Otherys_46 # M
+	}
+	8157.1.1 = {
+		holder = Antaryon_45 # SC
+	}
+	8161.5.20 = {
+		holder = Prestayn_74 # SC
+	}
+	8169.1.1 = {
+		holder = Velaron_48 # SC
+	}
+	8188.1.1 = {
+		holder = Antaryon_47
+	}
+	8213.1.1 = {
+		holder = Dothare_44
+	}
+	8215.1.1 = {
+		holder = Tavellen_43
+	}
+	8241.1.1 = {
+		holder = Forel_36
+	}
+	8260.1.1 = {
+		holder = Torone_79
+	}
+	8280.1.1 = {
+		holder = Dimittis_59
+	}
+	8289.1.1 = {
+		holder = Antaryon_64 # C
+	}
+}
+c_braavos = {
+	7400.1.1 = {
+		liege = k_braavos
+		government = administrative_government
+		succession_laws = { magisterial_attached_titles_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = { has_realm_law = free_city_election_succession_law }
+					}
+					add_realm_law_skip_effects = free_city_election_succession_law
+				}
+			}
+			add_title_law = magisterial_attached_titles_law
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7444.1.1 = {
+		holder = Zalyne_1_A # C
+	}
+	7898.1.1 = {
+		holder = Fregar_1
+	}
+	7914.1.1 = {
+		holder = Torone_1
+	}
+	7926.1.1 = {
+		holder = Volentin_2
+	}
+	7937.1.1 = {
+		holder = Fregar_3
+	}
+	7945.1.1 = {
+		holder = Otherys_3
+	}
+	7947.1.1 = {
+		holder = Zalyne_4
+	}
+	7977.1.1 = {
+		holder = Volentin_9
+	}
+	7981.1.1 = {
+		holder = Velaron_11
+	}
+	7996.1.1 = {
+		holder = Dothare_23
+	}
+	8003.1.1 = {
+		holder = Erastes_15
+	}
+	8029.1.1 = {
+		holder = Antaryon_18
+	}
+	8041.1.1 = {
+		holder = Forel_11
+	}
+	8045.1.1 = { 
+		holder = Torone_35 # M
+	}
+	8053.1.1 = {
+		holder = Tendyris_18 # M
+	}
+	8070.1.1 = {
+		holder = Forel_12
+	}
+	8083.1.1 = {
+		holder = Fregar_21
+	}
+	8101.1.1 = {
+		holder = Zalyne_21 # M
+	}
+	8106.4.12 = {
+		holder = Prestayn_22
+	}
+	8107.1.1 = {
+		holder = Prestayn_30
+	}
+	8133.1.1 = {
+		holder = Gasparyon_32
+	}
+	8147.1.1 = {
+		holder = Otherys_46 # M
+	}
+	8157.1.1 = {
+		holder = Antaryon_45 # SC
+	}
+	8161.5.20 = {
+		holder = Prestayn_74 # SC
+	}
+	8169.1.1 = {
+		holder = Velaron_48 # SC
+	}
+	8188.1.1 = {
+		holder = Antaryon_47
+	}
+	8213.1.1 = {
+		holder = Dothare_44
+	}
+	8215.1.1 = {
+		holder = Tavellen_43
+	}
+	8241.1.1 = {
+		holder = Forel_36
+	}
+	8260.1.1 = {
+		holder = Torone_79
+	}
+	8280.1.1 = {
+		holder = Dimittis_59
+	}
+	8289.1.1 = {
+		holder = Antaryon_64 # C
+	}
+}
+c_truth_canals = {
+	7800.1.1 = {
+		liege = k_braavos
+		government = administrative_government
+		succession_laws = { noble_family_succession_law }
+		effect = {
+			add_title_law = magisterial_attached_titles_law
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7444.1.1 = {
+		holder = Zalyne_1_A # C
+	}
+	7898.1.1 = {
+		holder = Fregar_1
+	}
+	7914.1.1 = {
+		holder = Torone_1
+	}
+	7926.1.1 = {
+		holder = Volentin_2
+	}
+	7937.1.1 = {
+		holder = Fregar_3
+	}
+	7945.1.1 = {
+		holder = Otherys_3
+	}
+	7947.1.1 = {
+		holder = Zalyne_4
+	}
+	7977.1.1 = {
+		holder = Volentin_9
+	}
+	7981.1.1 = {
+		holder = Velaron_11
+	}
+	7996.1.1 = {
+		holder = Dothare_23
+	}
+	8003.1.1 = {
+		holder = Erastes_15
+	}
+	8029.1.1 = {
+		holder = Antaryon_18
+	}
+	8041.1.1 = {
+		holder = Forel_11
+	}
+	8045.1.1 = { 
+		holder = Torone_35 # M
+	}
+	8053.1.1 = {
+		holder = Tendyris_18 # M
+	}
+	8070.1.1 = {
+		holder = Forel_12
+	}
+	8083.1.1 = {
+		holder = Fregar_21
+	}
+	8101.1.1 = {
+		holder = Zalyne_21 # M
+	}
+	8106.4.12 = {
+		holder = Prestayn_22
+	}
+	8107.1.1 = {
+		holder = Prestayn_30
+	}
+	8133.1.1 = {
+		holder = Gasparyon_32
+	}
+	8147.1.1 = {
+		holder = Otherys_46 # M
+	}
+	8157.1.1 = {
+		holder = Antaryon_45 # SC
+	}
+	8161.5.20 = {
+		holder = Prestayn_74 # SC
+	}
+	8169.1.1 = {
+		holder = Velaron_48 # SC
+	}
+	8188.1.1 = {
+		holder = Antaryon_47
+	}
+	8213.1.1 = {
+		holder = Dothare_44
+	}
+	8215.1.1 = {
+		holder = Tavellen_43
+	}
+	8241.1.1 = {
+		holder = Forel_36
+	}
+	8260.1.1 = {
+		holder = Torone_79
+	}
+	8280.1.1 = {
+		holder = Dimittis_59
+	}
+	8289.1.1 = {
+		holder = Antaryon_64 # C
+	}
+}
+c_ragmans_harbor = {
+	7800.1.1 = {
+		liege = k_braavos
+		government = administrative_government
+		succession_laws = { noble_family_succession_law }
+		effect = {
+			add_title_law = magisterial_attached_titles_law
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7444.1.1 = {
+		holder = Zalyne_1_A # C
+	}
+	7898.1.1 = {
+		holder = Fregar_1
+	}
+	7914.1.1 = {
+		holder = Torone_1
+	}
+	7926.1.1 = {
+		holder = Volentin_2
+	}
+	7937.1.1 = {
+		holder = Fregar_3
+	}
+	7945.1.1 = {
+		holder = Otherys_3
+	}
+	7947.1.1 = {
+		holder = Zalyne_4
+	}
+	7977.1.1 = {
+		holder = Volentin_9
+	}
+	7981.1.1 = {
+		holder = Velaron_11
+	}
+	7996.1.1 = {
+		holder = Dothare_23
+	}
+	8003.1.1 = {
+		holder = Erastes_15
+	}
+	8029.1.1 = {
+		holder = Antaryon_18
+	}
+	8041.1.1 = {
+		holder = Forel_11
+	}
+	8045.1.1 = { 
+		holder = Torone_35 # M
+	}
+	8053.1.1 = {
+		holder = Tendyris_18 # M
+	}
+	8070.1.1 = {
+		holder = Forel_12
+	}
+	8083.1.1 = {
+		holder = Fregar_21
+	}
+	8101.1.1 = {
+		holder = Zalyne_21 # M
+	}
+	8106.4.12 = {
+		holder = Prestayn_22
+	}
+	8107.1.1 = {
+		holder = Prestayn_30
+	}
+	8133.1.1 = {
+		holder = Gasparyon_32
+	}
+	8147.1.1 = {
+		holder = Otherys_46 # M
+	}
+	8157.1.1 = {
+		holder = Antaryon_45 # SC
+	}
+	8161.5.20 = {
+		holder = Prestayn_74 # SC
+	}
+	8169.1.1 = {
+		holder = Velaron_48 # SC
+	}
+	8188.1.1 = {
+		holder = Antaryon_47
+	}
+	8213.1.1 = {
+		holder = Dothare_44
+	}
+	8215.1.1 = {
+		holder = Tavellen_43
+	}
+	8241.1.1 = {
+		holder = Forel_36
+	}
+	8260.1.1 = {
+		holder = Torone_79
+	}
+	8280.1.1 = {
+		holder = Dimittis_59
+	}
+	8289.1.1 = {
+		holder = Antaryon_64 # C
+	}
+}
+# c_abberyn = {
+# 	7800.1.1 = {
+# 		liege = k_braavos
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			add_title_law = magisterial_attached_titles_law
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7444.1.1 = {
+# 		holder = Zalyne_1_A # C
+# 	}
+# 	7898.1.1 = {
+# 		holder = Fregar_1
+# 	}
+# 	7914.1.1 = {
+# 		holder = Torone_1
+# 	}
+# 	7926.1.1 = {
+# 		holder = Volentin_2
+# 	}
+# 	7937.1.1 = {
+# 		holder = Fregar_3
+# 	}
+# 	7945.1.1 = {
+# 		holder = Otherys_3
+# 	}
+# 	7947.1.1 = {
+# 		holder = Zalyne_4
+# 	}
+# 	7977.1.1 = {
+# 		holder = Volentin_9
+# 	}
+# 	7981.1.1 = {
+# 		holder = Velaron_11
+# 	}
+# 	7996.1.1 = {
+# 		holder = Dothare_23
+# 	}
+# 	8003.1.1 = {
+# 		holder = Erastes_15
+# 	}
+# 	8029.1.1 = {
+# 		holder = Antaryon_18
+# 	}
+# 	8041.1.1 = {
+# 		holder = Forel_11
+# 	}
+# 	8045.1.1 = { 
+# 		holder = Torone_35 # M
+# 	}
+# 	8053.1.1 = {
+# 		holder = Tendyris_18 # M
+# 	}
+# 	8070.1.1 = {
+# 		holder = Forel_12
+# 	}
+# 	8083.1.1 = {
+# 		holder = Fregar_21
+# 	}
+# 	8101.1.1 = {
+# 		holder = Zalyne_21 # M
+# 	}
+# 	8106.4.12 = {
+# 		holder = Prestayn_22
+# 	}
+# 	8107.1.1 = {
+# 		holder = Prestayn_30
+# 	}
+# 	8133.1.1 = {
+# 		holder = Gasparyon_32
+# 	}
+# 	8147.1.1 = {
+# 		holder = Otherys_46 # M
+# 	}
+# 	8157.1.1 = {
+# 		holder = Antaryon_45 # SC
+# 	}
+# 	8161.5.20 = {
+# 		holder = Prestayn_74 # SC
+# 	}
+# 	8169.1.1 = {
+# 		holder = Velaron_48 # SC
+# 	}
+# 	8188.1.1 = {
+# 		holder = Antaryon_47
+# 	}
+# 	8213.1.1 = {
+# 		holder = Dothare_44
+# 	}
+# 	8215.1.1 = {
+# 		holder = Tavellen_43
+# 	}
+# 	8241.1.1 = {
+# 		holder = Forel_36
+# 	}
+# 	8260.1.1 = {
+# 		holder = Torone_79
+# 	}
+# 	8280.1.1 = {
+# 		holder = Dimittis_59
+# 	}
+# 	8289.1.1 = {
+# 		holder = Antaryon_64 # C
+# 	}
+# }
+# c_sellagoros_shields = {
+# 	7800.1.1 = {
+# 		liege = k_braavos
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			add_title_law = magisterial_attached_titles_law
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7444.1.1 = {
+# 		holder = Zalyne_1_A # C
+# 	}
+# 	7898.1.1 = {
+# 		holder = Fregar_1
+# 	}
+# 	7914.1.1 = {
+# 		holder = Torone_1
+# 	}
+# 	7926.1.1 = {
+# 		holder = Volentin_2
+# 	}
+# 	7937.1.1 = {
+# 		holder = Fregar_3
+# 	}
+# 	7945.1.1 = {
+# 		holder = Otherys_3
+# 	}
+# 	7947.1.1 = {
+# 		holder = Zalyne_4
+# 	}
+# 	7977.1.1 = {
+# 		holder = Volentin_9
+# 	}
+# 	7981.1.1 = {
+# 		holder = Velaron_11
+# 	}
+# 	7996.1.1 = {
+# 		holder = Dothare_23
+# 	}
+# 	8003.1.1 = {
+# 		holder = Erastes_15
+# 	}
+# 	8029.1.1 = {
+# 		holder = Antaryon_18
+# 	}
+# 	8041.1.1 = {
+# 		holder = Forel_11
+# 	}
+# 	8045.1.1 = { 
+# 		holder = Torone_35 # M
+# 	}
+# 	8053.1.1 = {
+# 		holder = Tendyris_18 # M
+# 	}
+# 	8070.1.1 = {
+# 		holder = Forel_12
+# 	}
+# 	8083.1.1 = {
+# 		holder = Fregar_21
+# 	}
+# 	8101.1.1 = {
+# 		holder = Zalyne_21 # M
+# 	}
+# 	8106.4.12 = {
+# 		holder = Prestayn_22
+# 	}
+# 	8107.1.1 = {
+# 		holder = Prestayn_30
+# 	}
+# 	8133.1.1 = {
+# 		holder = Gasparyon_32
+# 	}
+# 	8147.1.1 = {
+# 		holder = Otherys_46 # M
+# 	}
+# 	8157.1.1 = {
+# 		holder = Antaryon_45 # SC
+# 	}
+# 	8161.5.20 = {
+# 		holder = Prestayn_74 # SC
+# 	}
+# 	8169.1.1 = {
+# 		holder = Velaron_48 # SC
+# 	}
+# 	8188.1.1 = {
+# 		holder = Antaryon_47
+# 	}
+# 	8213.1.1 = {
+# 		holder = Dothare_44
+# 	}
+# 	8215.1.1 = {
+# 		holder = Tavellen_43
+# 	}
+# 	8241.1.1 = {
+# 		holder = Forel_36
+# 	}
+# 	8260.1.1 = {
+# 		holder = Torone_79
+# 	}
+# 	8280.1.1 = {
+# 		holder = Dimittis_59
+# 	}
+# 	8289.1.1 = {
+# 		holder = Antaryon_64 # C
+# 	}
+# }
+# c_the_jagged_shields = {
+# 	7800.1.1 = {
+# 		liege = k_braavos
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			add_title_law = magisterial_attached_titles_law
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7444.1.1 = {
+# 		holder = Zalyne_1_A # C
+# 	}
+# 	7898.1.1 = {
+# 		holder = Fregar_1
+# 	}
+# 	7914.1.1 = {
+# 		holder = Torone_1
+# 	}
+# 	7926.1.1 = {
+# 		holder = Volentin_2
+# 	}
+# 	7937.1.1 = {
+# 		holder = Fregar_3
+# 	}
+# 	7945.1.1 = {
+# 		holder = Otherys_3
+# 	}
+# 	7947.1.1 = {
+# 		holder = Zalyne_4
+# 	}
+# 	7977.1.1 = {
+# 		holder = Volentin_9
+# 	}
+# 	7981.1.1 = {
+# 		holder = Velaron_11
+# 	}
+# 	7996.1.1 = {
+# 		holder = Dothare_23
+# 	}
+# 	8003.1.1 = {
+# 		holder = Erastes_15
+# 	}
+# 	8029.1.1 = {
+# 		holder = Antaryon_18
+# 	}
+# 	8041.1.1 = {
+# 		holder = Forel_11
+# 	}
+# 	8045.1.1 = { 
+# 		holder = Torone_35 # M
+# 	}
+# 	8053.1.1 = {
+# 		holder = Tendyris_18 # M
+# 	}
+# 	8070.1.1 = {
+# 		holder = Forel_12
+# 	}
+# 	8083.1.1 = {
+# 		holder = Fregar_21
+# 	}
+# 	8101.1.1 = {
+# 		holder = Zalyne_21 # M
+# 	}
+# 	8106.4.12 = {
+# 		holder = Prestayn_22
+# 	}
+# 	8107.1.1 = {
+# 		holder = Prestayn_30
+# 	}
+# 	8133.1.1 = {
+# 		holder = Gasparyon_32
+# 	}
+# 	8147.1.1 = {
+# 		holder = Otherys_46 # M
+# 	}
+# 	8157.1.1 = {
+# 		holder = Antaryon_45 # SC
+# 	}
+# 	8161.5.20 = {
+# 		holder = Prestayn_74 # SC
+# 	}
+# 	8169.1.1 = {
+# 		holder = Velaron_48 # SC
+# 	}
+# 	8188.1.1 = {
+# 		holder = Antaryon_47
+# 	}
+# 	8213.1.1 = {
+# 		holder = Dothare_44
+# 	}
+# 	8215.1.1 = {
+# 		holder = Tavellen_43
+# 	}
+# 	8241.1.1 = {
+# 		holder = Forel_36
+# 	}
+# 	8260.1.1 = {
+# 		holder = Torone_79
+# 	}
+# 	8280.1.1 = {
+# 		holder = Dimittis_59
+# 	}
+# 	8289.1.1 = {
+# 		holder = Antaryon_64 # C
+# 	}
+# }
+
+# d_teggarlozar = {
+# 	7800.1.1 = {
+# 		liege = k_braavos
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7860.1.1 = {
+# 		holder = Antaryon_1
+# 	}
+# 	7871.1.1 = {
+# 		holder = Antaryon_2
+# 	}
+# 	7890.1.1 = {
+# 		holder = Antaryon_5
+# 	}
+# 	7915.1.1 = {
+# 		holder = Antaryon_6
+# 	}
+# 	7948.1.1 = {
+# 		holder = Antaryon_7
+# 	}
+# 	7960.1.1 = {
+# 		holder = Antaryon_9
+# 	}
+# 	7996.1.1 = {
+# 		holder = Antaryon_15
+# 	}
+# 	8016.1.1 = {
+# 		holder = Antaryon_18
+# 	}
+# 	8041.1.1 = {
+# 		holder = Antaryon_25
+# 	}
+# 	8075.1.1 = {
+# 		holder = Antaryon_29
+# 	}
+# 	8088.1.1 = {
+# 		holder = Antaryon_32
+# 	}
+# 	8109.1.1 = {
+# 		holder = Antaryon_39
+# 	}
+# 	8151.1.1 = {
+# 		holder = Antaryon_45
+# 	}
+# 	8161.5.20 = {
+# 		holder = Antaryon_47
+# 	}
+# 	8213.1.1 = {
+# 		holder = Antaryon_51
+# 	}
+# 	8217.1.1 = {
+# 		holder = Antaryon_52
+# 	}
+# 	8223.1.1 = {
+# 		holder = Antaryon_58
+# 	}
+# 	8259.1.1 = {
+# 		holder = Antaryon_60
+# 	}
+# 	8289.1.1 = {
+# 		holder = Antaryon_64
+# 	}
+# }
+# c_ironport = {
+# 	7800.1.1 = {
+# 		liege = d_teggarlozar
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7860.1.1 = {
+# 		holder = Antaryon_1
+# 	}
+# 	7871.1.1 = {
+# 		holder = Antaryon_2
+# 	}
+# 	7890.1.1 = {
+# 		holder = Antaryon_5
+# 	}
+# 	7915.1.1 = {
+# 		holder = Antaryon_6
+# 	}
+# 	7948.1.1 = {
+# 		holder = Antaryon_7
+# 	}
+# 	7960.1.1 = {
+# 		holder = Antaryon_9
+# 	}
+# 	7996.1.1 = {
+# 		holder = Antaryon_15
+# 	}
+# 	8016.1.1 = {
+# 		holder = Antaryon_18
+# 	}
+# 	8041.1.1 = {
+# 		holder = Antaryon_25
+# 	}
+# 	8075.1.1 = {
+# 		holder = Antaryon_29
+# 	}
+# 	8088.1.1 = {
+# 		holder = Antaryon_32
+# 	}
+# 	8109.1.1 = {
+# 		holder = Antaryon_39
+# 	}
+# 	8151.1.1 = {
+# 		holder = Antaryon_45
+# 	}
+# 	8161.5.20 = {
+# 		holder = Antaryon_47
+# 	}
+# 	8213.1.1 = {
+# 		holder = Antaryon_51
+# 	}
+# 	8217.1.1 = {
+# 		holder = Antaryon_52
+# 	}
+# 	8223.1.1 = {
+# 		holder = Antaryon_58
+# 	}
+# 	8259.1.1 = {
+# 		holder = Antaryon_60
+# 	}
+# 	8289.1.1 = {
+# 		holder = Antaryon_64
+# 	}
+# }
+# c_ironport_isles = {
+# 	7800.1.1 = {
+# 		liege = d_teggarlozar
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7860.1.1 = {
+# 		holder = Antaryon_1
+# 	}
+# 	7871.1.1 = {
+# 		holder = Antaryon_2
+# 	}
+# 	7890.1.1 = {
+# 		holder = Antaryon_5
+# 	}
+# 	7915.1.1 = {
+# 		holder = Antaryon_6
+# 	}
+# 	7948.1.1 = {
+# 		holder = Antaryon_7
+# 	}
+# 	7960.1.1 = {
+# 		holder = Antaryon_9
+# 	}
+# 	7996.1.1 = {
+# 		holder = Antaryon_15
+# 	}
+# 	8016.1.1 = {
+# 		holder = Antaryon_18
+# 	}
+# 	8041.1.1 = {
+# 		holder = Antaryon_25
+# 	}
+# 	8075.1.1 = {
+# 		holder = Antaryon_29
+# 	}
+# 	8088.1.1 = {
+# 		holder = Antaryon_32
+# 	}
+# 	8109.1.1 = {
+# 		holder = Antaryon_39
+# 	}
+# 	8151.1.1 = {
+# 		holder = Antaryon_45
+# 	}
+# 	8161.5.20 = {
+# 		holder = Antaryon_47
+# 	}
+# 	8213.1.1 = {
+# 		holder = Antaryon_51
+# 	}
+# 	8217.1.1 = {
+# 		holder = Antaryon_52
+# 	}
+# 	8223.1.1 = {
+# 		holder = Antaryon_58
+# 	}
+# 	8259.1.1 = {
+# 		holder = Antaryon_60
+# 	}
+# 	8289.1.1 = {
+# 		holder = Antaryon_64
+# 	}
+# }
+# c_the_marshes = {
+# 	7800.1.1 = {
+# 		liege = d_teggarlozar
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7894.1.1 = {
+# 		holder = Pranelis_1
+# 	}
+# 	7959.1.1 = {
+# 		holder = Pranelis_3
+# 	}
+# 	7989.1.1 = {
+# 		holder = Pranelis_5
+# 	}
+# 	8005.1.1 = {
+# 		holder = Pranelis_8
+# 	}
+# 	8038.1.1 = {
+# 		holder = Pranelis_9
+# 	}
+# 	8040.1.1 = {
+# 		holder = Pranelis_10
+# 	}
+# 	8076.1.1 = {
+# 		holder = Pranelis_14
+# 	}
+# 	8122.1.1 = {
+# 		holder = Pranelis_19
+# 	}
+# 	8152.1.1 = {
+# 		holder = Pranelis_31
+# 	}
+# 	8183.1.1 = {
+# 		holder = Pranelis_38
+# 	}
+# 	8189.1.1 = {
+# 		holder = Pranelis_44
+# 	}
+# 	8214.1.1 = {
+# 		holder = Pranelis_49
+# 	}
+# 	8257.1.1 = {
+# 		holder = Pranelis_51
+# 	}
+# 	8263.1.1 = {
+# 		holder = Pranelis_52
+# 	}
+# }
+# c_nabyspharos = {
+# 	7800.1.1 = {
+# 		liege = d_teggarlozar
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7888.1.1 = {
+# 		holder = Avoo_1
+# 	}
+# 	7935.1.1 = {
+# 		holder = Avoo_3
+# 	}
+# 	7967.1.1 = {
+# 		holder = Avoo_6
+# 	}
+# 	8022.1.1 = {
+# 		holder = Avoo_8
+# 	}
+# 	8033.1.1 = {
+# 		holder = Avoo_12
+# 	}
+# 	8062.1.1 = {
+# 		holder = Avoo_13
+# 	}
+# 	8099.1.1 = {
+# 		holder = Avoo_17
+# 	}
+# 	8123.1.1 = {
+# 		holder = Avoo_18
+# 	}
+# 	8156.1.1 = {
+# 		holder = Avoo_21
+# 	}
+# 	8175.1.1 = {
+# 		holder = Avoo_23
+# 	}
+# 	8196.1.1 = {
+# 		holder = Avoo_29
+# 	}
+# 	8214.1.1 = {
+# 		holder = Avoo_31
+# 	}
+# 	8245.1.1 = {
+# 		holder = Avoo_38
+# 	}
+# 	8279.1.1 = {
+# 		holder = Avoo_43
+# 	}
+# }
+# c_moonbridge = {
+# 	7800.1.1 = {
+# 		liege = d_teggarlozar
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7897.1.1 = {
+# 		holder = Karamyn_1
+# 	}
+# 	7913.1.1 = {
+# 		holder = Karamyn_3
+# 	}
+# 	7949.1.1 = {
+# 		holder = Karamyn_7
+# 	}
+# 	7970.1.1 = {
+# 		holder = Karamyn_11
+# 	}
+# 	7986.1.1 = {
+# 		holder = Karamyn_14
+# 	}
+# 	8001.1.1 = {
+# 		holder = Karamyn_16
+# 	}
+# 	8043.1.1 = {
+# 		holder = Karamyn_26
+# 	}
+# 	8064.1.1 = {
+# 		holder = Karamyn_27
+# 	}
+# 	8069.1.1 = {
+# 		holder = Karamyn_37
+# 	}
+# 	8116.1.1 = {
+# 		holder = Karamyn_41
+# 	}
+# 	8124.1.1 = {
+# 		holder = Karamyn_49
+# 	}
+# 	8163.1.1 = {
+# 		holder = Karamyn_52
+# 	}
+# 	8191.1.1 = {
+# 		holder = Karamyn_53
+# 	}
+# 	8203.1.1 = {
+# 		holder = Karamyn_55
+# 	}
+# 	8229.1.1 = {
+# 		holder = Karamyn_59
+# 	}
+# 	8250.1.1 = {
+# 		holder = Karamyn_64
+# 	}
+# 	8272.1.1 = {
+# 		holder = Karamyn_72
+# 	}
+# 	8284.1.1 = {
+# 		holder = Karamyn_83
+# 	}
+# }
+
+# d_braavosian_coastlands = {
+# 	7800.1.1 = {
+# 		liege = k_braavos
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7884.1.1 = {
+# 		holder = Fregar_1
+# 	}
+# 	7914.1.1 = {
+# 		holder = Fregar_3
+# 	}
+# 	7945.1.1 = {
+# 		holder = Fregar_9
+# 	}
+# 	7951.1.1 = {
+# 		holder = Fregar_10
+# 	}
+# 	8001.1.1 = {
+# 		holder = Fregar_14
+# 	}
+# 	8024.1.1 = {
+# 		holder = Fregar_16
+# 	}
+# 	8041.1.1 = {
+# 		holder = Fregar_20
+# 	}
+# 	8068.1.1 = {
+# 		holder = Fregar_21
+# 	}
+# 	8101.1.1 = {
+# 		holder = Fregar_31
+# 	}
+# 	8150.1.1 = {
+# 		holder = Fregar_36
+# 	}
+# 	8183.1.1 = {
+# 		holder = Fregar_37
+# 	}
+# 	8218.1.1 = {
+# 		holder = Fregar_39
+# 	}
+# 	8246.1.1 = {
+# 		holder = Fregar_55
+# 	}
+# 	8275.1.1 = {
+# 		holder = Fregar_56
+# 	}
+# 	8290.1.1 = {
+# 		holder = Fregar_66
+# 	}
+# }
+# c_freneros = {
+# 	7800.1.1 = {
+# 		liege = d_braavosian_coastlands
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7884.1.1 = {
+# 		holder = Fregar_1
+# 	}
+# 	7914.1.1 = {
+# 		holder = Fregar_3
+# 	}
+# 	7945.1.1 = {
+# 		holder = Fregar_9
+# 	}
+# 	7951.1.1 = {
+# 		holder = Fregar_10
+# 	}
+# 	8001.1.1 = {
+# 		holder = Fregar_14
+# 	}
+# 	8024.1.1 = {
+# 		holder = Fregar_16
+# 	}
+# 	8041.1.1 = {
+# 		holder = Fregar_20
+# 	}
+# 	8068.1.1 = {
+# 		holder = Fregar_21
+# 	}
+# 	8101.1.1 = {
+# 		holder = Fregar_31
+# 	}
+# 	8150.1.1 = {
+# 		holder = Fregar_36
+# 	}
+# 	8183.1.1 = {
+# 		holder = Fregar_37
+# 	}
+# 	8218.1.1 = {
+# 		holder = Fregar_39
+# 	}
+# 	8246.1.1 = {
+# 		holder = Fregar_55
+# 	}
+# 	8275.1.1 = {
+# 		holder = Fregar_56
+# 	}
+# 	8290.1.1 = {
+# 		holder = Fregar_66
+# 	}
+# }
+# c_terys_isles = {
+# 	7800.1.1 = {
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7876.1.1 = {
+# 		holder = Lostayn_1
+# 	}
+# 	7884.1.1 = {
+# 		liege = d_braavosian_coastlands
+# 	}
+# 	7901.1.1 = {
+# 		holder = Lostayn_2
+# 	}
+# 	7930.1.1 = {
+# 		holder = Lostayn_4
+# 	}
+# 	7960.1.1 = {
+# 		holder = Lostayn_8
+# 	}
+# 	7998.1.1 = {
+# 		holder = Lostayn_10
+# 	}
+# 	8021.1.1 = {
+# 		holder = Lostayn_15
+# 	}
+# 	8029.1.1 = {
+# 		holder = Lostayn_17
+# 	}
+# 	8048.1.1 = {
+# 		holder = Lostayn_22
+# 	}
+# 	8080.1.1 = {
+# 		holder = Lostayn_35
+# 	}
+# 	8109.1.1 = {
+# 		holder = Lostayn_36
+# 	}
+# 	8109.2.1 = {
+# 		holder = Lostayn_49
+# 	}
+# 	8177.1.1 = {
+# 		holder = Lostayn_51
+# 	}
+# 	8190.1.1 = {
+# 		holder = Lostayn_52
+# 	}
+# 	8203.1.1 = {
+# 		holder = Lostayn_54
+# 	}
+# 	8254.1.1 = {
+# 		holder = Lostayn_55
+# 	}
+# 	8292.1.1 = {
+# 		holder = Lostayn_60
+# 	}
+# }
+# c_masked_ridge = {
+# 	7800.1.1 = {
+# 		liege = d_braavosian_coastlands
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7890.1.1 = {
+# 		holder = Romaris_1
+# 	}
+# 	7922.1.1 = {
+# 		holder = Romaris_2
+# 	}
+# 	7951.1.1 = {
+# 		holder = Romaris_11
+# 	}
+# 	7976.1.1 = {
+# 		holder = Romaris_20
+# 	}
+# 	7988.1.1 = {
+# 		holder = Romaris_21
+# 	}
+# 	8020.1.1 = {
+# 		holder = Romaris_24
+# 	}
+# 	8035.1.1 = {
+# 		holder = Romaris_28
+# 	}
+# 	8061.1.1 = {
+# 		holder = Romaris_29
+# 	}
+# 	8067.1.1 = {
+# 		holder = Romaris_30
+# 	}
+# 	8133.1.1 = {
+# 		holder = Romaris_35
+# 	}
+# 	8142.1.1 = {
+# 		holder = Romaris_37
+# 	}
+# 	8181.1.1 = {
+# 		holder = Romaris_40
+# 	}
+# 	8203.1.1 = {
+# 		holder = Romaris_42
+# 	}
+# 	8226.1.1 = {
+# 		holder = Romaris_52
+# 	}
+# 	8271.1.1 = {
+# 		holder = Romaris_56
+# 	}
+# }
+# c_zelaan_garab = {
+# 	7800.1.1 = {
+# 		liege = d_braavosian_coastlands
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7893.1.1 = {
+# 		holder = Ketharys_1
+# 	}
+# 	7907.1.1 = {
+# 		holder = Ketharys_2
+# 	}
+# 	7922.1.1 = {
+# 		holder = Ketharys_3
+# 	}
+# 	7939.1.1 = {
+# 		holder = Ketharys_4
+# 	}
+# 	7962.1.1 = {
+# 		holder = Ketharys_5
+# 	}
+# 	8008.1.1 = {
+# 		holder = Ketharys_14
+# 	}
+# 	8033.1.1 = {
+# 		holder = Ketharys_20
+# 	}
+# 	8073.1.1 = {
+# 		holder = Ketharys_24
+# 	}
+# 	8098.1.1 = {
+# 		holder = Ketharys_29
+# 	}
+# 	8118.1.1 = { # Second Braavosi-Pentoshi War
+# 		liege = k_pentos
+# 	}
+# 	8120.1.1 = {
+# 		holder = Ketharys_36
+# 	}
+# 	8142.1.1 = {
+# 		holder = Ketharys_42
+# 	}
+# 	8157.1.1 = { # Third Braavosi-Pentoshi War
+# 		liege = d_braavosian_coastlands
+# 	}
+# 	8164.1.1 = {
+# 		holder = Ketharys_43
+# 	}
+# 	8172.1.1 = {
+# 		holder = Ketharys_51
+# 	}
+# 	8191.1.1 = {
+# 		holder = Ketharys_58
+# 	}
+# 	8222.1.1 = {
+# 		holder = Ketharys_59
+# 	}
+# 	8232.1.1 = {
+# 		holder = Ketharys_63
+# 	}
+# 	8270.1.1 = {
+# 		holder = Ketharys_65
+# 	}
+# }
+# c_revosghar = {
+# 	7800.1.1 = {
+# 		liege = d_braavosian_coastlands
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7893.1.1 = {
+# 		holder = Ketharys_1
+# 	}
+# 	7907.1.1 = {
+# 		holder = Ketharys_2
+# 	}
+# 	7922.1.1 = {
+# 		holder = Ketharys_3
+# 	}
+# 	7939.1.1 = {
+# 		holder = Ketharys_4
+# 	}
+# 	7962.1.1 = {
+# 		holder = Ketharys_5
+# 	}
+# 	8008.1.1 = {
+# 		holder = Ketharys_14
+# 	}
+# 	8033.1.1 = {
+# 		holder = Ketharys_20
+# 	}
+# 	8073.1.1 = {
+# 		holder = Ketharys_24
+# 	}
+# 	8098.1.1 = {
+# 		holder = Ketharys_29
+# 	}
+# 	8118.1.1 = { # Second Braavosi-Pentoshi War
+# 		liege = k_pentos
+# 	}
+# 	8120.1.1 = {
+# 		holder = Ketharys_36
+# 	}
+# 	8142.1.1 = {
+# 		holder = Ketharys_42
+# 	}
+# 	8157.1.1 = { # Third Braavosi-Pentoshi War
+# 		liege = d_braavosian_coastlands
+# 	}
+# 	8164.1.1 = {
+# 		holder = Ketharys_43
+# 	}
+# 	8172.1.1 = {
+# 		holder = Ketharys_51
+# 	}
+# 	8191.1.1 = {
+# 		holder = Ketharys_58
+# 	}
+# 	8222.1.1 = {
+# 		holder = Ketharys_59
+# 	}
+# 	8232.1.1 = {
+# 		holder = Ketharys_63
+# 	}
+# 	8270.1.1 = {
+# 		holder = Ketharys_65
+# 	}
+# }
+# c_othoggos = {
+# 	7800.1.1 = {
+# 		liege = d_braavosian_coastlands
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7890.1.1 = {
+# 		holder = Ferys_1
+# 	}
+# 	7938.1.1 = {
+# 		holder = Ferys_6
+# 	}
+# 	7953.1.1 = {
+# 		holder = Ferys_7
+# 	}
+# 	7973.1.1 = {
+# 		holder = Ferys_11
+# 	}
+# 	8003.1.1 = {
+# 		holder = Ferys_15
+# 	}
+# 	8020.1.1 = {
+# 		holder = Ferys_18
+# 	}
+# 	8062.1.1 = {
+# 		holder = Ferys_19
+# 	}
+# 	8101.1.1 = {
+# 		holder = Ferys_23
+# 	}
+# 	8118.1.1 = { # Second Braavosi-Pentoshi War
+# 		liege = k_pentos
+# 	}
+# 	8121.1.1 = {
+# 		holder = Ferys_25
+# 	}
+# 	8141.1.1 = {
+# 		holder = Ferys_26
+# 	}
+# 	8157.1.1 = { # Third Braavosi-Pentoshi War
+# 		liege = d_braavosian_coastlands
+# 	}
+# 	8182.1.1 = {
+# 		holder = Ferys_33
+# 	}
+# 	8204.1.1 = {
+# 		holder = Ferys_34
+# 	}
+# 	8219.1.1 = {
+# 		holder = Ferys_35
+# 	}
+# 	8268.1.1 = {
+# 		holder = Ferys_37
+# 	}
+# 	8290.1.1 = {
+# 		holder = Ferys_39
+# 	}
+# }
+
+# d_inkolantibyr = {
+# 	7800.1.1 = {
+# 		liege = k_braavos
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7895.1.1 = {
+# 		holder = Torone_1
+# 	}
+# 	7926.1.1 = {
+# 		holder = Torone_3
+# 	}
+# 	7930.1.1 = {
+# 		holder = Torone_8
+# 	}
+# 	7967.1.1 = {
+# 		holder = Torone_27
+# 	}
+# 	7975.1.1 = {
+# 		holder = Torone_28
+# 	}
+# 	8018.1.1 = {
+# 		holder = Torone_35
+# 	}
+# 	8053.1.1 = {
+# 		holder = Torone_40
+# 	}
+# 	8055.1.1 = {
+# 		holder = Torone_57
+# 	}
+# 	8090.1.1 = {
+# 		holder = Torone_66
+# 	}
+# 	8131.1.1 = {
+# 		holder = Torone_70
+# 	}
+# 	8159.1.1 = {
+# 		holder = Torone_72
+# 	}
+# 	8161.1.1 = {
+# 		holder = Torone_73
+# 	}
+# 	8199.1.1 = {
+# 		holder = Torone_74
+# 	}
+# 	8220.1.1 = {
+# 		holder = Torone_78
+# 	}
+# 	8255.1.1 = {
+# 		holder = Torone_79
+# 	}
+# 	8280.1.1 = {
+# 		holder = Torone_84
+# 	}
+# }
+# c_byraabelmos = {
+# 	7800.1.1 = {
+# 		liege = d_inkolantibyr
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7895.1.1 = {
+# 		holder = Torone_1
+# 	}
+# 	7926.1.1 = {
+# 		holder = Torone_3
+# 	}
+# 	7930.1.1 = {
+# 		holder = Torone_8
+# 	}
+# 	7967.1.1 = {
+# 		holder = Torone_27
+# 	}
+# 	7975.1.1 = {
+# 		holder = Torone_28
+# 	}
+# 	8018.1.1 = {
+# 		holder = Torone_35
+# 	}
+# 	8053.1.1 = {
+# 		holder = Torone_40
+# 	}
+# 	8055.1.1 = {
+# 		holder = Torone_57
+# 	}
+# 	8090.1.1 = {
+# 		holder = Torone_66
+# 	}
+# 	8131.1.1 = {
+# 		holder = Torone_70
+# 	}
+# 	8159.1.1 = {
+# 		holder = Torone_72
+# 	}
+# 	8161.1.1 = {
+# 		holder = Torone_73
+# 	}
+# 	8199.1.1 = {
+# 		holder = Torone_74
+# 	}
+# 	8220.1.1 = {
+# 		holder = Torone_78
+# 	}
+# 	8255.1.1 = {
+# 		holder = Torone_79
+# 	}
+# 	8280.1.1 = {
+# 		holder = Torone_84
+# 	}
+# }
+# c_daerves_hills = {
+# 	7800.1.1 = {
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7866.1.1 = {
+# 		holder = Valagel_1
+# 	}
+# 	7895.1.1 = {
+# 		liege = d_inkolantibyr
+# 	}
+# 	7901.1.1 = {
+# 		holder = Valagel_2
+# 	}
+# 	7923.1.1 = {
+# 		holder = Valagel_10
+# 	}
+# 	7935.1.1 = {
+# 		holder = Valagel_11
+# 	}
+# 	7975.1.1 = {
+# 		holder = Valagel_14
+# 	}
+# 	7988.1.1 = {
+# 		holder = Valagel_15
+# 	}
+# 	8012.1.1 = {
+# 		holder = Valagel_16
+# 	}
+# 	8049.1.1 = {
+# 		holder = Valagel_18
+# 	}
+# 	8077.1.1 = {
+# 		holder = Valagel_19
+# 	}
+# 	8086.1.1 = {
+# 		holder = Valagel_20
+# 	}
+# 	8128.1.1 = {
+# 		holder = Valagel_21
+# 	}
+# 	8154.1.1 = {
+# 		holder = Valagel_22
+# 	}
+# 	8181.1.1 = {
+# 		holder = Valagel_31
+# 	}
+# 	8201.1.1 = {
+# 		holder = Valagel_33
+# 	}
+# 	8241.1.1 = {
+# 		holder = Valagel_34
+# 	}
+# 	8270.1.1 = {
+# 		holder = Valagel_36
+# 	}
+# 	8288.1.1 = {
+# 		holder = Valagel_46
+# 	}
+# }
+# c_lower_daerves = {
+# 	7800.1.1 = {
+# 		liege = d_inkolantibyr
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7895.1.1 = {
+# 		holder = Torone_1
+# 	}
+# 	7926.1.1 = {
+# 		holder = Torone_3
+# 	}
+# 	7930.1.1 = {
+# 		holder = Torone_8
+# 	}
+# 	7967.1.1 = {
+# 		holder = Torone_27
+# 	}
+# 	7975.1.1 = {
+# 		holder = Torone_28
+# 	}
+# 	8018.1.1 = {
+# 		holder = Torone_35
+# 	}
+# 	8053.1.1 = {
+# 		holder = Torone_40
+# 	}
+# 	8055.1.1 = {
+# 		holder = Torone_57
+# 	}
+# 	8090.1.1 = {
+# 		holder = Torone_66
+# 	}
+# 	8131.1.1 = {
+# 		holder = Torone_70
+# 	}
+# 	8159.1.1 = {
+# 		holder = Torone_72
+# 	}
+# 	8161.1.1 = {
+# 		holder = Torone_73
+# 	}
+# 	8199.1.1 = {
+# 		holder = Torone_74
+# 	}
+# 	8220.1.1 = {
+# 		holder = Torone_78
+# 	}
+# 	8255.1.1 = {
+# 		holder = Torone_79
+# 	}
+# 	8280.1.1 = {
+# 		holder = Torone_84
+# 	}
+# }
+
+# d_lunar_bay_hills = {
+# 	7800.1.1 = {
+# 		liege = k_braavos
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7880.1.1 = {
+# 		holder = Otherys_1
+# 	}
+# 	7922.1.1 = {
+# 		holder = Otherys_3
+# 	}
+# 	7947.1.1 = {
+# 		holder = Otherys_7
+# 	}
+# 	7958.1.1 = {
+# 		holder = Otherys_10
+# 	}
+# 	7975.1.1 = {
+# 		holder = Otherys_20
+# 	}
+# 	8008.1.1 = {
+# 		holder = Otherys_26
+# 	}
+# 	8053.1.1 = {
+# 		holder = Otherys_27
+# 	}
+# 	8079.1.1 = {
+# 		holder = Otherys_35
+# 	}
+# 	8088.1.1 = {
+# 		holder = Otherys_37
+# 	}
+# 	8134.1.1 = {
+# 		holder = Otherys_92
+# 	}
+# 	8181.1.1 = {
+# 		holder = Otherys_56
+# 	}
+# 	8220.1.1 = {
+# 		holder = Otherys_69
+# 	}
+# 	8241.1.1 = {
+# 		holder = Otherys_71
+# 	}
+# 	8253.1.1 = {
+# 		holder = Otherys_72
+# 	}
+# 	8291.1.1 = {
+# 		holder = Otherys_73
+# 	}
+# 	8298.1.1 = {
+# 		holder = Otherys_75
+# 	}
+# }
+# c_pearl_point = {
+# 	7800.1.1 = {
+# 		liege = d_lunar_bay_hills
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7880.1.1 = {
+# 		holder = Otherys_1
+# 	}
+# 	7922.1.1 = {
+# 		holder = Otherys_3
+# 	}
+# 	7947.1.1 = {
+# 		holder = Otherys_7
+# 	}
+# 	7958.1.1 = {
+# 		holder = Otherys_10
+# 	}
+# 	7975.1.1 = {
+# 		holder = Otherys_20
+# 	}
+# 	8008.1.1 = {
+# 		holder = Otherys_26
+# 	}
+# 	8053.1.1 = {
+# 		holder = Otherys_27
+# 	}
+# 	8079.1.1 = {
+# 		holder = Otherys_35
+# 	}
+# 	8088.1.1 = {
+# 		holder = Otherys_37
+# 	}
+# 	8134.1.1 = {
+# 		holder = Otherys_92
+# 	}
+# 	8181.1.1 = {
+# 		holder = Otherys_56
+# 	}
+# 	8220.1.1 = {
+# 		holder = Otherys_69
+# 	}
+# 	8241.1.1 = {
+# 		holder = Otherys_71
+# 	}
+# 	8253.1.1 = {
+# 		holder = Otherys_72
+# 	}
+# 	8291.1.1 = {
+# 		holder = Otherys_73
+# 	}
+# 	8298.1.1 = {
+# 		holder = Otherys_75
+# 	}
+# }
+# c_noqostyos = {
+# 	7800.1.1 = {
+# 		liege = d_lunar_bay_hills
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7891.1.1 = {
+# 		holder = Vaar_1
+# 	}
+# 	7927.1.1 = {
+# 		holder = Vaar_2
+# 	}
+# 	7957.1.1 = {
+# 		holder = Vaar_5
+# 	}
+# 	7974.1.1 = {
+# 		holder = Vaar_7
+# 	}
+# 	7979.1.1 = {
+# 		holder = Vaar_8
+# 	}
+# 	8026.1.1 = {
+# 		holder = Vaar_10
+# 	}
+# 	8036.1.1 = {
+# 		holder = Vaar_11
+# 	}
+# 	8073.1.1 = {
+# 		holder = Vaar_12
+# 	}
+# 	8102.1.1 = {
+# 		holder = Vaar_15
+# 	}
+# 	8136.1.1 = {
+# 		holder = Vaar_17
+# 	}
+# 	8149.1.1 = {
+# 		holder = Vaar_18
+# 	}
+# 	8181.1.1 = {
+# 		holder = Vaar_20
+# 	}
+# 	8210.1.1 = {
+# 		holder = Vaar_22
+# 	}
+# 	8247.1.1 = {
+# 		holder = Vaar_24
+# 	}
+# 	8271.1.1 = {
+# 		holder = Vaar_40
+# 	}
+# 	8299.1.1 = {
+# 		holder = Vaar_45
+# 	}
+# }
+# c_crystal_hollow = {
+# 	7800.1.1 = {
+# 		liege = d_lunar_bay_hills
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7898.1.1 = {
+# 		holder = Maros_1
+# 	}
+# 	7909.1.1 = {
+# 		holder = Maros_2
+# 	}
+# 	7932.1.1 = {
+# 		holder = Maros_10
+# 	}
+# 	7936.1.1 = {
+# 		holder = Maros_11
+# 	}
+# 	7956.1.1 = {
+# 		holder = Maros_14
+# 	}
+# 	8004.1.1 = {
+# 		holder = Maros_17
+# 	}
+# 	8031.1.1 = {
+# 		holder = Maros_18
+# 	}
+# 	8060.1.1 = {
+# 		holder = Maros_21
+# 	}
+# 	8068.1.1 = {
+# 		holder = Maros_22
+# 	}
+# 	8122.1.1 = {
+# 		holder = Maros_26
+# 	}
+# 	8155.1.1 = {
+# 		holder = Maros_27
+# 	}
+# 	8184.1.1 = {
+# 		holder = Maros_29
+# 	}
+# 	8220.1.1 = {
+# 		holder = Maros_30
+# 	}
+# 	8229.1.1 = {
+# 		holder = Maros_31
+# 	}
+# 	8276.1.1 = {
+# 		holder = Maros_32
+# 	}
+# 	8286.1.1 = {
+# 		holder = Maros_36
+# 	}
+# }
+
+# c_singers_retreat = {
+# 	7800.1.1 = {
+# 		liege = d_lunar_bay_hills
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7894.1.1 = {
+# 		holder = Marnel_1
+# 	}
+# 	7917.1.1 = {
+# 		holder = Marnel_3
+# 	}
+# 	7961.1.1 = {
+# 		holder = Marnel_4
+# 	}
+# 	7982.1.1 = {
+# 		holder = Marnel_8
+# 	}
+# 	7986.1.1 = {
+# 		holder = Marnel_16
+# 	}
+# 	8012.1.1 = {
+# 		holder = Marnel_17
+# 	}
+# 	8067.1.1 = {
+# 		holder = Marnel_23
+# 	}
+# 	8094.1.1 = {
+# 		holder = Marnel_26
+# 	}
+# 	8109.1.1 = {
+# 		holder = Marnel_29
+# 	}
+# 	8133.1.1 = {
+# 		holder = Marnel_30
+# 	}
+# 	8154.1.1 = {
+# 		holder = Marnel_31
+# 	}
+# 	8196.1.1 = {
+# 		holder = Marnel_32
+# 	}
+# 	8218.1.1 = {
+# 		holder = Marnel_36
+# 	}
+# 	8227.1.1 = {
+# 		holder = Marnel_38
+# 	}
+# 	8265.1.1 = {
+# 		holder = Marnel_39
+# 	}
+# 	8283.1.1 = {
+# 		holder = Marnel_40
+# 	}
+# }
+# c_burning_crescent = {
+# 	7800.1.1 = {
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7871.1.1 = {
+# 		holder = Fentel_87
+# 	}
+# 	7881.1.1 = {
+# 		holder = Fentel_1
+# 	}
+# 	7896.1.1 = {
+# 		liege = d_mothers_crown
+# 	}
+# 	7913.1.1 = {
+# 		holder = Fentel_2
+# 	}
+# 	7928.1.1 = {
+# 		holder = Fentel_14
+# 	}
+# 	7943.1.1 = {
+# 		holder = Fentel_21
+# 	}
+# 	7983.1.1 = {
+# 		holder = Fentel_33
+# 	}
+# 	8000.1.1 = {
+# 		holder = Fentel_34
+# 	}
+# 	8021.1.1 = {
+# 		holder = Fentel_36
+# 	}
+# 	8031.1.1 = {
+# 		holder = Fentel_38
+# 	}
+# 	8081.1.1 = {
+# 		holder = Fentel_41
+# 	}
+# 	8100.1.1 = {
+# 		holder = Fentel_42
+# 	}
+# 	8104.1.1 = {
+# 		holder = Fentel_44
+# 	}
+# 	8116.1.1 = {
+# 		holder = Fentel_46
+# 	}
+# 	8142.1.1 = {
+# 		holder = Fentel_48
+# 	}
+# 	8174.1.1 = {
+# 		holder = Fentel_50
+# 	}
+# 	8187.1.1 = {
+# 		holder = Fentel_54
+# 	}
+# 	8229.1.1 = {
+# 		holder = Fentel_58
+# 	}
+# 	8234.1.1 = {
+# 		holder = Fentel_63
+# 	}
+# 	8277.1.1 = {
+# 		holder = Fentel_68
+# 	}
+# }
+
+# d_mothers_crown = {
+# 	7800.1.1 = {
+# 		liege = k_braavos
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7896.1.1 = {
+# 		holder = Forel_1
+# 	}
+# 	7899.1.1 = {
+# 		holder = Forel_4
+# 	}
+# 	7960.1.1 = {
+# 		holder = Forel_7
+# 	}
+# 	7995.1.1 = {
+# 		holder = Forel_9
+# 	}
+# 	8032.1.1 = {
+# 		holder = Forel_11
+# 	}
+# 	8045.1.1 = {
+# 		holder = Forel_12
+# 	}
+# 	8083.1.1 = {
+# 		holder = Forel_14
+# 	}
+# 	8121.1.1 = {
+# 		holder = Forel_19
+# 	}
+# 	8129.1.1 = {
+# 		holder = Forel_22
+# 	}
+# 	8166.1.1 = {
+# 		holder = Forel_27
+# 	}
+# 	8212.1.1 = {
+# 		holder = Forel_29
+# 	}
+# 	8221.1.1 = {
+# 		holder = Forel_36
+# 	}
+# 	8260.1.1 = {
+# 		holder = Forel_47
+# 	}
+# 	8289.1.1 = {
+# 		holder = Forel_52
+# 	}
+# }
+# c_naqio = {
+# 	7800.1.1 = {
+# 		liege = d_mothers_crown
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7896.1.1 = {
+# 		holder = Forel_1
+# 	}
+# 	7899.1.1 = {
+# 		holder = Forel_4
+# 	}
+# 	7960.1.1 = {
+# 		holder = Forel_7
+# 	}
+# 	7995.1.1 = {
+# 		holder = Forel_9
+# 	}
+# 	8032.1.1 = {
+# 		holder = Forel_11
+# 	}
+# 	8045.1.1 = {
+# 		holder = Forel_12
+# 	}
+# 	8083.1.1 = {
+# 		holder = Forel_14
+# 	}
+# 	8121.1.1 = {
+# 		holder = Forel_19
+# 	}
+# 	8129.1.1 = {
+# 		holder = Forel_22
+# 	}
+# 	8166.1.1 = {
+# 		holder = Forel_27
+# 	}
+# 	8212.1.1 = {
+# 		holder = Forel_29
+# 	}
+# 	8221.1.1 = {
+# 		holder = Forel_36
+# 	}
+# 	8260.1.1 = {
+# 		holder = Forel_47
+# 	}
+# 	8289.1.1 = {
+# 		holder = Forel_52
+# 	}
+# }
+# c_mothermont = {
+# 	7800.1.1 = {
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7893.1.1 = {
+# 		holder = Braybale_1
+# 	}
+# 	7896.1.1 = {
+# 		liege = d_mothers_crown
+# 	}
+# 	7911.1.1 = {
+# 		holder = Braybale_2
+# 	}
+# 	7942.1.1 = {
+# 		holder = Braybale_3
+# 	}
+# 	7959.1.1 = {
+# 		holder = Braybale_7
+# 	}
+# 	7961.1.1 = {
+# 		holder = Braybale_8
+# 	}
+# 	8006.1.1 = {
+# 		holder = Braybale_9
+# 	}
+# 	8024.1.1 = {
+# 		holder = Braybale_14
+# 	}
+# 	8026.1.1 = {
+# 		holder = Braybale_15
+# 	}
+# 	8070.1.1 = {
+# 		holder = Braybale_18
+# 	}
+# 	8075.1.1 = {
+# 		holder = Braybale_20
+# 	}
+# 	8114.1.1 = {
+# 		holder = Braybale_25
+# 	}
+# 	8139.1.1 = {
+# 		holder = Braybale_27
+# 	}
+# 	8167.1.1 = {
+# 		holder = Braybale_35
+# 	}
+# 	8195.1.1 = {
+# 		holder = Braybale_39
+# 	}
+# 	8239.1.1 = {
+# 		holder = Braybale_44
+# 	}
+# 	8259.1.1 = {
+# 		holder = Braybale_45
+# 	}
+# 	8271.1.1 = {
+# 		holder = Braybale_52
+# 	}
+# 	8275.1.1 = {
+# 		holder = Braybale_54
+# 	}
+# }
+# c_drohonargos = {
+# 	7800.1.1 = {
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7882.1.1 = {
+# 		holder = Manterys_91
+# 	}
+# 	7896.1.1 = {
+# 		liege = d_mothers_crown
+# 	}
+# 	7905.1.1 = {
+# 		holder = Manterys_7
+# 	}
+# 	7953.1.1 = {
+# 		holder = Manterys_13
+# 	}
+# 	7958.1.1 = {
+# 		holder = Manterys_18
+# 	}
+# 	7976.1.1 = {
+# 		holder = Manterys_21
+# 	}
+# 	7996.1.1 = {
+# 		holder = Manterys_28
+# 	}
+# 	8035.1.1 = {
+# 		holder = Manterys_34
+# 	}
+# 	8074.1.1 = {
+# 		holder = Manterys_43
+# 	}
+# 	8114.1.1 = {
+# 		holder = Manterys_52
+# 	}
+# 	8149.1.1 = {
+# 		holder = Manterys_55
+# 	}
+# 	8161.1.1 = {
+# 		holder = Manterys_58
+# 	}
+# 	8194.1.1 = {
+# 		holder = Manterys_61
+# 	}
+# 	8209.1.1 = {
+# 		holder = Manterys_67
+# 	}
+# 	8243.1.1 = {
+# 		holder = Manterys_69
+# 	}
+# 	8283.1.1 = {
+# 		holder = Manterys_71
+# 	}
+# }
+
+# d_sweetwater = {
+# 	7800.1.1 = {
+# 		liege = k_braavos
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7887.1.1 = {
+# 		holder = Dimittis_1
+# 	}
+# 	7919.1.1 = {
+# 		holder = Dimittis_2
+# 	}
+# 	7935.1.1 = {
+# 		holder = Dimittis_10
+# 	}
+# 	7966.1.1 = {
+# 		holder = Dimittis_11
+# 	}
+# 	7987.1.1 = {
+# 		holder = Dimittis_14
+# 	}
+# 	8000.1.1 = {
+# 		holder = Dimittis_18
+# 	}
+# 	8025.1.1 = {
+# 		holder = Dimittis_20
+# 	}
+# 	8064.1.1 = {
+# 		holder = Dimittis_22
+# 	}
+# 	8096.1.1 = {
+# 		holder = Dimittis_25
+# 	}
+# 	8128.1.1 = {
+# 		holder = Dimittis_27
+# 	}
+# 	8140.1.1 = {
+# 		holder = Dimittis_28
+# 	}
+# 	8182.1.1 = {
+# 		holder = Dimittis_30
+# 	}
+# 	8196.1.1 = {
+# 		holder = Dimittis_41
+# 	}
+# 	8245.1.1 = {
+# 		holder = Dimittis_49
+# 	}
+# 	8260.1.1 = {
+# 		holder = Dimittis_59
+# 	}
+# 	8289.1.1 = {
+# 		holder = Dimittis_52
+# 	}
+# }
+# c_ryqelbar = {
+# 	7800.1.1 = {
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7880.1.1 = {
+# 		holder = Zheyme_1
+# 	}
+# 	7887.1.1 = {
+# 		liege = d_sweetwater
+# 	}
+# 	7922.1.1 = {
+# 		holder = Zheyme_4
+# 	}
+# 	7944.1.1 = {
+# 		holder = Zheyme_7
+# 	}
+# 	7952.1.1 = {
+# 		holder = Zheyme_12
+# 	}
+# 	7990.1.1 = {
+# 		holder = Zheyme_13
+# 	}
+# 	8034.1.1 = {
+# 		holder = Zheyme_15
+# 	}
+# 	8078.1.1 = {
+# 		holder = Zheyme_16
+# 	}
+# 	8113.1.1 = {
+# 		holder = Zheyme_21
+# 	}
+# 	8132.1.1 = {
+# 		holder = Zheyme_22
+# 	}
+# 	8154.1.1 = {
+# 		holder = Zheyme_24
+# 	}
+# 	8195.1.1 = {
+# 		holder = Zheyme_36
+# 	}
+# 	8198.1.1 = {
+# 		holder = Zheyme_51
+# 	}
+# 	8236.1.1 = {
+# 		holder = Zheyme_63
+# 	}
+# 	8271.1.1 = {
+# 		holder = Zheyme_71
+# 	}
+# 	8281.1.1 = {
+# 		holder = Zheyme_75
+# 	}
+# }
+# c_tohars_fork = {
+# 	7800.1.1 = {
+# 		liege = d_sweetwater
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7897.1.1 = {
+# 		holder = Aeteno_1
+# 	}
+# 	7908.1.1 = {
+# 		holder = Aeteno_2
+# 	}
+# 	7910.1.1 = {
+# 		holder = Aeteno_10
+# 	}
+# 	7949.1.1 = {
+# 		holder = Aeteno_16
+# 	}
+# 	7984.1.1 = {
+# 		holder = Aeteno_23
+# 	}
+# 	8002.1.1 = {
+# 		holder = Aeteno_32
+# 	}
+# 	8041.1.1 = {
+# 		holder = Aeteno_33
+# 	}
+# 	8044.1.1 = {
+# 		holder = Aeteno_78
+# 	}
+# 	8076.1.1 = {
+# 		holder = Aeteno_79
+# 	}
+# 	8087.1.1 = {
+# 		holder = Aeteno_80
+# 	}
+# 	8089.1.1 = {
+# 		holder = Aeteno_38
+# 	}
+# 	8113.1.1 = {
+# 		holder = Aeteno_39
+# 	}
+# 	8132.1.1 = {
+# 		holder = Aeteno_44
+# 	}
+# 	8170.1.1 = {
+# 		holder = Aeteno_45
+# 	}
+# 	8187.1.1 = {
+# 		holder = Aeteno_50
+# 	}
+# 	8204.1.1 = {
+# 		holder = Aeteno_54
+# 	}
+# 	8219.1.1 = {
+# 		holder = Aeteno_58
+# 	}
+# 	8239.1.1 = {
+# 		holder = Aeteno_62
+# 	}
+# 	8268.1.1 = {
+# 		holder = Aeteno_63
+# 	}
+# 	8286.1.1 = {
+# 		holder = Aeteno_67
+# 	}
+# 	8299.1.1 = {
+# 		holder = Aeteno_72
+# 	}
+# }
+# c_ezylla_steps = {
+# 	7800.1.1 = {
+# 		liege = d_sweetwater
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7887.1.1 = {
+# 		holder = Dimittis_1
+# 	}
+# 	7919.1.1 = {
+# 		holder = Dimittis_2
+# 	}
+# 	7935.1.1 = {
+# 		holder = Dimittis_10
+# 	}
+# 	7966.1.1 = {
+# 		holder = Dimittis_11
+# 	}
+# 	7987.1.1 = {
+# 		holder = Dimittis_14
+# 	}
+# 	8000.1.1 = {
+# 		holder = Dimittis_18
+# 	}
+# 	8025.1.1 = {
+# 		holder = Dimittis_20
+# 	}
+# 	8064.1.1 = {
+# 		holder = Dimittis_22
+# 	}
+# 	8096.1.1 = {
+# 		holder = Dimittis_25
+# 	}
+# 	8128.1.1 = {
+# 		holder = Dimittis_27
+# 	}
+# 	8140.1.1 = {
+# 		holder = Dimittis_28
+# 	}
+# 	8182.1.1 = {
+# 		holder = Dimittis_30
+# 	}
+# 	8196.1.1 = {
+# 		holder = Dimittis_41
+# 	}
+# 	8245.1.1 = {
+# 		holder = Dimittis_49
+# 	}
+# 	8260.1.1 = {
+# 		holder = Dimittis_59
+# 	}
+# 	8289.1.1 = {
+# 		holder = Dimittis_52
+# 	}
+# }
+# c_gezelvos = {
+# 	7800.1.1 = {
+# 		liege = d_sweetwater
+# 		government = administrative_government
+# 		succession_laws = { noble_family_succession_law }
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					exists = holder
+# 					NOT = { has_dlc_feature = roads_to_power }
+# 				}
+# 				holder = {
+# 					change_government = republic_government
+# 				}
+# 			}
+# 		}
+# 	}
+# 	7887.1.1 = {
+# 		holder = Dimittis_1
+# 	}
+# 	7919.1.1 = {
+# 		holder = Dimittis_2
+# 	}
+# 	7935.1.1 = {
+# 		holder = Dimittis_10
+# 	}
+# 	7966.1.1 = {
+# 		holder = Dimittis_11
+# 	}
+# 	7987.1.1 = {
+# 		holder = Dimittis_14
+# 	}
+# 	8000.1.1 = {
+# 		holder = Dimittis_18
+# 	}
+# 	8025.1.1 = {
+# 		holder = Dimittis_20
+# 	}
+# 	8064.1.1 = {
+# 		holder = Dimittis_22
+# 	}
+# 	8096.1.1 = {
+# 		holder = Dimittis_25
+# 	}
+# 	8128.1.1 = {
+# 		holder = Dimittis_27
+# 	}
+# 	8140.1.1 = {
+# 		holder = Dimittis_28
+# 	}
+# 	8182.1.1 = {
+# 		holder = Dimittis_30
+# 	}
+# 	8196.1.1 = {
+# 		holder = Dimittis_41
+# 	}
+# 	8245.1.1 = {
+# 		holder = Dimittis_49
+# 	}
+# 	8260.1.1 = {
+# 		holder = Dimittis_59
+# 	}
+# 	8289.1.1 = {
+# 		holder = Dimittis_52
+# 	}
+# }
