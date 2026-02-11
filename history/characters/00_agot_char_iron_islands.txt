@@ -187,7 +187,7 @@ Greyjoy_6 = {
 	intrigue = 5
 	stewardship = 6
 	learning = 5
-	prowess = 7
+	prowess = 5
 
 	religion = drowned_god
 	culture = ironborn
@@ -255,6 +255,7 @@ Greyjoy_6 = {
 		}
 		# trait = shade_of_the_evening # AGOT TODO trait
 		trait = reaver
+		trait = bb_skinchanger_3
 	}
 	8299.11.15 = {
 		effect = {
@@ -616,7 +617,7 @@ Greyjoy_13 = { # edited 01/23 slambroski
 	martial = 6
 	diplomacy = 5
 	intrigue = 7
-	stewardship = 3
+	stewardship = 5
 	learning = 6
 	prowess = 6
 
@@ -650,7 +651,10 @@ Greyjoy_13 = { # edited 01/23 slambroski
 		trait = refusing_marriage
 		effect = { give_nickname = nick_agot_historical_the_krakens_daughter }
 	}
-	8292.1.1 = { trait = arrogant }
+	8292.1.1 = { 
+		trait = arrogant 
+		trait = lifestyle_blademaster
+	}
 	8294.1.1 = {
 		effect = {
 			if = {
@@ -940,7 +944,7 @@ Greyjoy_18 = {
 	}
 }
 ### Issue of Rodrik, second cousins to Balon
-Greyjoy_19 = {
+Greyjoy_19 = { # edited 02/11 slambroski
 	name = Quenton # Canon
 	dynasty = dynn_Greyjoy
 	dna = Greyjoy_19
@@ -965,12 +969,13 @@ Greyjoy_19 = {
 		add_character_flag = has_scripted_appearance
 		add_character_flag = canon_status_canon
 	}
+	8300.1.1 = { employer = Greyjoy_13 } # Asha Greyjoy
 	8300.4.25 = {
 		death = { death_reason = death_battle } # Retaking Deepwood Motte
 	}
 }
 ### Issue of Dalton, second cousins once-removed to Balon
-Greyjoy_20 = {
+Greyjoy_20 = { # edited 02/11 slambroski
 	name = Dagon # Canon, AKA: Dagon the Drunkard
 	dynasty = dynn_Greyjoy
 	dna = Greyjoy_20
@@ -997,6 +1002,7 @@ Greyjoy_20 = {
 	}
 	8264.1.1 = { trait = drunkard }
 	8278.1.1 = { give_nickname = nick_agot_historical_the_drunkard }
+	8300.1.1 = { employer = Greyjoy_13 } # Asha Greyjoy
 	8300.4.25 = {
 		death = { death_reason = death_battle } # Retaking Deepwood Motte
 	}
@@ -1531,12 +1537,12 @@ Greyjoy_hh_24 = { # created 02/10 slambroski
 	8299.11.15 = { employer = Greyjoy_6 } # Euron Greyjoy
 }
 Greyjoy_hh_25 = { # created 02/10 slambroski
-	name = Hagen # Canon, Hagen the Horn
+	name = Hagen # Canon, Hagen the Horn, Asha's crew
 
 	religion = drowned_god
 	culture = ironborn
 
-	8251.1.1 = {
+	8261.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_canon
 	}
@@ -1544,7 +1550,7 @@ Greyjoy_hh_25 = { # created 02/10 slambroski
 	8300.1.1 = { employer = Greyjoy_13 } # Asha Greyjoy
 }
 Greyjoy_hh_26 = { # created 02/10 slambroski
-	name = Ynys # Canon, Hagen's unnamed daughter
+	name = Ynys # Canon, Hagen's unnamed daughter, Asha's crew
 	female = yes 
 
 	religion = drowned_god
@@ -1552,14 +1558,144 @@ Greyjoy_hh_26 = { # created 02/10 slambroski
 
 	father = Greyjoy_hh_25
 
-	trait = beauty_good_2
+	trait = beauty_good_1
 
-	8275.6.1 = {
+	8283.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_canon
 	}
 	8294.1.1 = { 
 		trait = shieldmaiden
+		employer = Greyjoy_5 # Balon Greyjoy
+	} 
+	8300.1.1 = { employer = Greyjoy_13 } # Asha Greyjoy
+}
+Greyjoy_hh_27 = { # created 02/11 slambroski
+	name = Cromm # Canon, Asha's crew
+
+	religion = drowned_god
+	culture = ironborn
+
+	trait = brave
+	trait = lustful
+
+	8268.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8294.1.1 = { 
+		employer = Greyjoy_5 # Balon Greyjoy
+	} 
+	8300.1.1 = { employer = Greyjoy_13 } # Asha Greyjoy
+}
+Greyjoy_hh_28 = { # created 02/11 slambroski
+	name = Dale # Canon, Droopeye Dale, Asha's crew
+
+	religion = drowned_god
+	culture = ironborn
+
+	trait = narcoleptic
+
+	8274.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8294.1.1 = { 
+		employer = Greyjoy_5 # Balon Greyjoy
+	} 
+	8300.1.1 = { employer = Greyjoy_13 } # Asha Greyjoy
+}
+Greyjoy_hh_29 = { # created 02/11 slambroski
+	name = Grimmtongue # Canon, Asha's crew
+
+	religion = drowned_god
+	culture = ironborn
+
+	trait = cynical
+
+	8265.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8294.1.1 = { 
+		employer = Greyjoy_5 # Balon Greyjoy
+	} 
+	8300.1.1 = { employer = Greyjoy_13 } # Asha Greyjoy
+}
+Greyjoy_hh_30 = { # created 02/11 slambroski
+	name = Harl # Canon, Six-Toed Harl, Asha's crew
+
+	religion = drowned_god
+	culture = ironborn
+
+	8270.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8294.1.1 = { 
+		employer = Greyjoy_5 # Balon Greyjoy
+	} 
+	8300.1.1 = { employer = Greyjoy_13 } # Asha Greyjoy
+}
+Greyjoy_hh_31 = { # created 02/11 slambroski
+	name = Fingers # Canon, Asha's crew
+
+	religion = drowned_god
+	culture = ironborn
+
+	8278.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8294.1.1 = { 
+		employer = Greyjoy_5 # Balon Greyjoy
+	} 
+	8300.1.1 = { employer = Greyjoy_13 } # Asha Greyjoy
+}
+Greyjoy_hh_32 = { # created 02/11 slambroski
+	name = Lorren # Canon, Lorren Longaxe, Asha's crew
+
+	religion = drowned_god
+	culture = ironborn
+
+	8272.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8294.1.1 = { 
+		employer = Greyjoy_5 # Balon Greyjoy
+		give_nickname = nick_agot_historical_longaxe
+	} 
+	8300.1.1 = { employer = Greyjoy_13 } # Asha Greyjoy
+}
+Greyjoy_hh_33 = { # created 02/11 slambroski
+	name = Roggen # Canon, Roggen Rustbeard, Asha's crew
+
+	religion = drowned_god
+	culture = ironborn
+
+	8272.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8294.1.1 = { 
+		employer = Greyjoy_5 # Balon Greyjoy
+	} 
+	8300.1.1 = { employer = Greyjoy_13 } # Asha Greyjoy
+}
+Greyjoy_hh_34 = { # created 02/11 slambroski
+	name = Roggen # Canon, Roggen Rustbeard, Asha's crew
+
+	religion = drowned_god
+	culture = ironborn
+
+	trait = giant
+
+	8258.1.1 = {
+		birth = yes
+		add_character_flag = canon_status_canon
+	}
+	8294.1.1 = { 
 		employer = Greyjoy_5 # Balon Greyjoy
 	} 
 	8300.1.1 = { employer = Greyjoy_13 } # Asha Greyjoy
