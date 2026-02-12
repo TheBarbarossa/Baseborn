@@ -4426,5 +4426,34 @@
 				this = character:Prestayn_74
 			}
 		}
+
+		Baratheon_Whipping_Boy = {
+			dna_modifiers = {
+				accessory = {
+					mode = add
+					gene = hairstyles
+					template = rtt_hairstyles
+					accessory = male_hair_rtt_02
+				}
+
+				accessory = {
+					mode = add
+					gene = clothes
+					template = agot_historic_characters
+					accessory = male_clothes_reach_ottos_outfit_01
+				}
+
+				weight = {
+				base = 0
+				modifier = {
+					add = 101
+					exists = this
+					age > 4
+					exists = character:Baratheon_Whipping_Boy
+					this = character:Baratheon_Whipping_Boy
+				}
+			}
+		}
 	}
+}
 }
