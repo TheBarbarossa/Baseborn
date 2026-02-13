@@ -332,12 +332,20 @@ bbgm_break_alliances = {
         }
     }
 
+    populate_actor_list = {
+        scope:recipient = {
+            every_ally = { add_to_list = characters }
+        }
+    }
+
+	can_be_picked = {
+		is_allied_to = scope:recipient
+	}
+
     on_send = {
        scope:recipient = {
-            every_ally = {
-				break_alliance = scope:recipient
-            }
-        } 
+            break_alliance = scope:secondary_actor
+        }
     }
 }
 
