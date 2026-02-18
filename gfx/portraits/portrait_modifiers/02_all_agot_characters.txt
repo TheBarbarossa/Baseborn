@@ -33,7 +33,7 @@
 		weight = {
 			base = 0
 			modifier = {
-				add = 100
+				add = 101
 				age > 4
 				is_character_arryn_3 = yes
 			}
@@ -52,7 +52,7 @@
 		weight = {
 			base = 0
 			modifier = {
-				add = 100
+				add = 101
 				age > 4
 				is_character_arryn_80 = yes
 				is_female = yes
@@ -4305,7 +4305,7 @@ Blackwood_6 = {
 		weight = {
 			base = 0
 			modifier = {
-				add = 100OH
+				add = 100
 				age >= 18
 				exists = character:Blackwood_6
 				this = character:Blackwood_6
@@ -4338,7 +4338,7 @@ Blackwood_6 = {
 		weight = {
 			base = 0
 			modifier = {
-				add = 100OH
+				add = 100
 				age >= 18
 				exists = character:Baseborn_Lowborn_1
 				this = character:Baseborn_Lowborn_1
@@ -4508,34 +4508,75 @@ Blackwood_6 = {
 				this = character:Prestayn_74
 			}
 		}
+	}	
+				Thenn_2 = {
+						dna_modifiers = {
+							accessory = {
+								mode = add
+								gene = hairstyles
+								template = agot_all_hairstyles
+								accessory = male_hair_custom_01
+							}
+								accessory = {
+								mode = add
+								gene = cloaks
+								template = agot_all_no_dlc_cloaks
+								accessory = male_cloaks_secular_north_high_winter_dynastic_01
+							}
+							accessory = {
+								mode = add
+								gene = legwear
+								template = pol_common_legwear
+								accessory = m_legwear_sec_pol_common_01
+							}
 
-		Baratheon_Whipping_Boy = {
-			dna_modifiers = {
-				accessory = {
-					mode = add
-					gene = hairstyles
-					template = rtt_hairstyles
-					accessory = male_hair_rtt_02
-				}
+							accessory = {
+								mode = add
+								gene = clothes
+								template = fp3_iranian_war_nobility_clothes
+								accessory = m_clothes_sec_fp3_iranian_war_nob_01
 
-				accessory = {
-					mode = add
-					gene = clothes
-					template = agot_historic_characters
-					accessory = male_clothes_reach_ottos_outfit_01
-				}
+							}
 
-				weight = {
-				base = 0
-				modifier = {
-					add = 101
-					exists = this
-					age > 4
-					exists = character:Baratheon_Whipping_Boy
-					this = character:Baratheon_Whipping_Boy
-				}
-			}
-		}
-	}
+						}
+						weight = {
+							base = 0
+							modifier = {
+								add = 101
+								age >= 18
+								exists = character:Thenn_2
+								this = character:Thenn_2
+							}
+						}
+					}
+
+	# 	Baratheon_Whipping_Boy = {
+	# 		dna_modifiers = {
+	# 			accessory = {
+	# 				mode = add
+	# 				gene = hairstyles
+	# 				template = rtt_hairstyles
+	# 				accessory = male_hair_rtt_02
+	# 			}
+
+	# 			accessory = {
+	# 				mode = add
+	# 				gene = clothes
+	# 				template = agot_historic_characters
+	# 				accessory = male_clothes_reach_ottos_outfit_01
+	# 			}
+
+	# 			weight = {
+	# 			base = 0
+	# 			modifier = {
+	# 				add = 101
+	# 				age > 4
+	# 				exists = character:Baratheon_Whipping_Boy
+	# 				this = character:Baratheon_Whipping_Boy
+	# 			}
+	# 		}
+	# 	}
+	# }
 }
-}
+				
+
