@@ -35,7 +35,17 @@ baseborn_historical_house_artifacts_setup = {
 			}
 		}
 	}
-
+else_if = {
+		limit = {
+			exists = character:Glover_4
+			character:Glover_4 = { is_alive = yes }
+		}
+		character:Glover_4 = {
+			agot_create_artifact_baseborn_glover_artifact_effect = {
+				OWNER = this
+			}
+		}
+	}
 	if = {
 		limit = {
 			exists = character:Wull_16
