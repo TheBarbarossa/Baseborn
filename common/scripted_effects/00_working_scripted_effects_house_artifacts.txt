@@ -1841,6 +1841,59 @@ agot_create_artifact_baseborn_reed_artifact_effect = {
 	}
 }
 
+
+agot_create_artifact_baseborn_mormont_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_mormont_artifact_name
+		creator = character:Mormont_4 # Remove this line from the code if the creator is unknown
+		description = baseborn_mormont_artifact_description
+		visuals = axe
+		type = axe
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_mormont_artifact_template # Remove this line from the code if the artifact has no restrictions	
+	
+		history = {
+			type = created
+			date = 8299.1.1 # Date the artifact was created
+			recipient = character:Mormont_4 # First character to use the artifact
+			location = province:1636 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_mormont_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_mormont.dynasty_founder.house
+		}
+				agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8299.1.1
+			RECIPIENT = character:Mormont_4 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8300.1.1
+			RECIPIENT = character:Mormont_6 # Next user of the artfact
+		}
+
+	}
+}
+
+
 agot_create_artifact_baseborn_darry_artifact_effect = {
 	$OWNER$ = {
 		save_scope_as = owner
