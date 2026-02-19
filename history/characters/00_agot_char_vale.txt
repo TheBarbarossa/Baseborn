@@ -3776,7 +3776,7 @@ Hunter_57 = {
 ############################
 ###
 ###
-Melcolm_1 = {
+Melcolm_1 = { # edited 02/19 slambroski
 	name = Harrold # a lord
 	dynasty = dynn_Melcolm
 
@@ -3787,10 +3787,13 @@ Melcolm_1 = {
 	mother = MootonHM_80
 
 	8253.1.1 = { birth = yes }
-	8269.1.1 = { add_spouse = Hungerford_23 } # Alda Hungerford
+	8269.1.1 = { 
+		trait = knight
+		add_spouse = Hungerford_23 # Alda Hungerford
+	} 
 }
 ### Issue of Harrold
-Melcolm_2 = {
+Melcolm_2 = { # edited 02/19 slambroski
 	name = Horas
 	dynasty = dynn_Melcolm
 
@@ -3801,9 +3804,10 @@ Melcolm_2 = {
 	mother = Hungerford_23
 
 	8270.1.1 = { birth = yes }
+	8286.1.1 = { trait = knight }
 	8291.1.1 = { add_spouse = Royce_4 } # Alyssa Royce
 }
-Melcolm_3 = {
+Melcolm_3 = { # edited 02/19 slambroski
 	name = Samwell
 	dynasty = dynn_Melcolm
 
@@ -3814,8 +3818,9 @@ Melcolm_3 = {
 	mother = Hungerford_23
 
 	8274.1.1 = { birth = yes }
+	8292.1.1 = { trait = knight }
 }
-Melcolm_4 = {
+Melcolm_4 = { # edited 02/19 slambroski
 	name = Janyce # married Tenesio Ketharys
 	dynasty = dynn_Melcolm
 	female = yes
@@ -3826,9 +3831,9 @@ Melcolm_4 = {
 	father = Melcolm_1
 	mother = Hungerford_23
 
-	8275.1.1 = { birth = yes }
+	8277.1.1 = { birth = yes }
 }
-Melcolm_5 = {
+Melcolm_5 = { # edited 02/19 slambroski
 	name = Hubert
 	dynasty = dynn_Melcolm
 
@@ -3839,6 +3844,34 @@ Melcolm_5 = {
 	mother = Hungerford_23
 
 	8278.1.1 = { birth = yes }
+	8296.1.1 = { trait = knight }
+}
+### Issue of Horas
+Melcolm_2_A = { # created 02/19 slambroski
+	name = Edwina
+	dynasty = dynn_Melcolm
+	female = yes 
+
+	religion = fots_seven
+	culture = valeman
+
+	father = Melcolm_2
+	mother = Royce_4 # Alyssa Royce
+
+	8294.6.1 = { birth = yes }
+}
+Melcolm_2_B = { # created 02/19 slambroski
+	name = Kayla
+	dynasty = dynn_Melcolm
+	female = yes 
+
+	religion = fots_seven
+	culture = valeman
+
+	father = Melcolm_2
+	mother = Royce_4 # Alyssa Royce
+
+	8299.1.1 = { birth = yes }
 }
 
 ###### HOUSE UPCLIFF (id = dynn_Upcliff)
@@ -5214,8 +5247,53 @@ Templeton_3_B = { # created 02/07 slambroski
 	father = Templeton_1
 	mother = RoyceGOTM_12
 
-	8275.1.1 = { birth = yes }
-	8292.1.1 = { trait = knight }
+	8272.1.1 = { 
+		birth = yes 
+		death = { death_reason = death_stillborn }
+	}
+}
+Templeton_3_C = { # created 02/19 slambroski
+	name = Sharra
+	dynasty = dynn_Templeton
+	female = yes 
+
+	religion = fots_seven
+	culture = valeman
+
+	father = Templeton_1
+	mother = RoyceGOTM_12
+
+	8279.6.1 = { birth = yes }
+}
+Templeton_3_D = { # created 02/07 slambroski
+	name = Martyn
+	dynasty = dynn_Templeton
+
+	religion = fots_seven
+	culture = valeman
+
+	father = Templeton_1
+	mother = RoyceGOTM_12
+
+	8284.1.1 = { 
+		birth = yes 
+		death = { death_reason = death_stillborn }
+	}
+}
+Templeton_3_E = { # created 02/07 slambroski
+	name = Emmond
+	dynasty = dynn_Templeton
+
+	religion = fots_seven
+	culture = valeman
+
+	father = Templeton_1
+	mother = RoyceGOTM_12
+
+	trait = sickly
+
+	8286.9.1 = { birth = yes }
+	8288.1.1 = { death = { death_reason = death_sickly } }
 }
 ### Issue of Gerold
 Templeton_4 = {
@@ -7753,7 +7831,7 @@ Belmore_4 = {
 	}
 }
 ### Issue of Benedar
-Belmore_5 = {
+Belmore_5 = { # edited 02/19 slambroski
 	name = Benedict
 	dynasty = dynn_Belmore
 
@@ -7764,7 +7842,10 @@ Belmore_5 = {
 	mother = Woodhull_112
 
 	8264.1.1 = { birth = yes }
-	8280.1.1 = { add_spouse = True_26 } # Perianne True
+	8280.1.1 = { 
+		trait = knight 
+		add_spouse = True_26 # Perianne True
+	} 
 }
 Belmore_59 = {
 	name = Cariah # Mentioned, married Horton Redfort, third wife
@@ -12285,7 +12366,7 @@ Borrell_3 = {
 	8270.1.1 = { add_spouse = Warrick_41 } # Idona Warrick
 }
 ### Issue of Godric
-Borrell_4 = {
+Borrell_4 = { # edited 02/19 slambroski
 	name = Melicent # Mentioned
 	dynasty = dynn_Borrell
 	female = yes
@@ -12296,7 +12377,6 @@ Borrell_4 = {
 	father = Borrell_2
 	mother = Torrent_36
 
-	trait = beauty_bad_1
 	trait = the_mark
 
 	8264.1.1 = {
@@ -12325,7 +12405,7 @@ Borrell_5 = {
 	8282.1.1 = { add_matrilineal_spouse = Pryor_40 } # Colin Pryor
 }
 ### Issue of Melicent
-Borrell_6 = {
+Borrell_6 = { # edited 02/19 slambroski
 	name = Gella # Canon
 	dynasty = dynn_Borrell
 	female = yes
@@ -12336,6 +12416,7 @@ Borrell_6 = {
 	father = Loreley_35
 	mother = Borrell_4
 
+	trait = beauty_bad_1
 	trait = the_mark
 
 	8283.1.1 = {
@@ -16670,6 +16751,18 @@ Verlayn_121 = {
 	mother = Glasser_89
 
 	8284.1.1 = { birth = yes }
+}
+Verlayn_121_B = { # created 02/19 slambroski
+	name = Yorwyck
+	dynasty = dynn_Verlayn
+
+	religion = fots_seven
+	culture = valeman
+
+	father = Verlayn_114
+	mother = Glasser_89
+
+	8286.6.1 = { birth = yes }
 }
 
 ###### HOUSE BEALE (id = dynn_Beale)
