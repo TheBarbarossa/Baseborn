@@ -5274,5 +5274,38 @@ else_if = {
 		}
 	}	
 
+		else_if = {
+		limit = {
+			exists = character:Rayder_1
+			character:Rayder_1 = { is_alive = yes }
+		}
+		character:Rayder_1 = {
+			agot_create_artifact_baseborn_rayder_artifact_effect = {
+				OWNER = this
+			}
+		}
+	}	
+else_if = {
+		limit = {
+			exists = character:Thenn_2
+			character:Rayder_1 = { is_alive = yes }
+		}
+		character:Thenn_2 = {
+			agot_create_artifact_baseborn_thenn_artifact_effect = {
+				OWNER = this
+			}
+		}
+	}	
+	else_if = {
+		limit = {
+			exists = character:Giantsbane_1
+			character:Giantsbane_1 = { is_alive = yes }
+		}
+		character:Giantsbane_1 = {
+			agot_create_artifact_baseborn_giantsbane_artifact_effect = {
+				OWNER = this
+			}
+		}
+	}	
 }
 

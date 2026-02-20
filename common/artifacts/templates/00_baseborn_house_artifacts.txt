@@ -3261,3 +3261,76 @@ baseborn_cuy_artifact_template = {
 	}
 }
 
+baseborn_rayder_artifact_template = {
+    can_equip = {
+        always = yes
+    }
+
+    can_benefit = {
+        dynasty = dynasty:dynn_Rayder
+    }
+
+	fallback = {
+        general_opinion = -15
+	}
+	unique = yes
+	ai_score = {
+        value = 0
+        if = {
+            limit = {
+                dynasty ?= dynasty:dynn_Rayder
+            }
+            add = 100
+        }
+	}
+}
+
+baseborn_thenn_artifact_template = {
+    can_equip = {
+        always = yes
+    }
+
+    can_benefit = {
+        dynasty = dynasty:dynn_thenn
+    }
+
+	fallback = {
+        prowess_no_portrait = 3
+        general_opinion = -15
+	}
+	unique = yes
+	ai_score = {
+        value = 0
+        if = {
+            limit = {
+                dynasty ?= dynasty:dynn_thenn
+            }
+            add = 100
+        }
+	}
+}
+
+baseborn_giantsbane_artifact_template = {
+    can_equip = {
+        always = yes
+    }
+
+    can_benefit = {
+        dynasty = dynasty:giantsbane_thenn
+    }
+
+	fallback = {
+        prowess_no_portrait = 3
+        general_opinion = -15
+	}
+	unique = yes
+	ai_score = {
+        value = 0
+        if = {
+            limit = {
+                dynasty ?= dynasty:giantsbane_thenn
+            }
+            add = 100
+        }
+	}
+}
