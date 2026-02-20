@@ -4222,7 +4222,7 @@ agot_create_artifact_baseborn_thenn_artifact_effect = {
 	set_artifact_rarity_famed = yes
 	create_artifact = {
 		name = baseborn_thenn_artifact_name
-		creator = character:Thenn_1 # Remove this line from the code if the creator is unknown
+		# creator = character:Thenn_1 # Remove this line from the code if the creator is unknown
 		description = baseborn_thenn_artifact_description
 		visuals = longsword
 		type = sword
@@ -4232,9 +4232,9 @@ agot_create_artifact_baseborn_thenn_artifact_effect = {
 		
 		history = {
 			type = created
-			date = 8299.1.1 # Date the artifact was created
-			recipient = character:Thenn_1 # First character to use the artifact
-			location = province:5969 # Location of the first character to use the artifact
+			date = 8300.1.1 # Date the artifact was created
+			recipient = character:Thenn_2 # First character to use the artifact
+			location = province:6070 # Location of the first character to use the artifact
 		}
 		modifier = baseborn_thenn_artifact_modifier
 		save_scope_as = newly_created_artifact
@@ -4250,12 +4250,12 @@ agot_create_artifact_baseborn_thenn_artifact_effect = {
 			name = traditional_house_owner
 			value = dynasty:dynn_Thenn.dynasty_founder.house
 		}
-		agot_add_artifact_history = {
-			ARTIFACT = this
-			TYPE = inherited
-			DATE = 8299.1.1
-			RECIPIENT = character:Thenn_1 # Next user of the artfact
-		}
+		# agot_add_artifact_history = {
+		# 	ARTIFACT = this
+		# 	TYPE = inherited
+		# 	DATE = 8299.1.1
+		# 	RECIPIENT = character:Thenn_1 # Next user of the artfact
+		# }
 			agot_add_artifact_history = {
 			ARTIFACT = this
 			TYPE = inherited

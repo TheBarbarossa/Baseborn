@@ -715,28 +715,10 @@ else_if = {
 		}
 	}
 
-		else_if = {
-		limit = {
-			exists = character:Mormont_4
-			character:Mormont_4 = { is_alive = yes }
+		if = {
+			limit = { game_start_date >= 8300.20.1 }
+			character:Mormont_6 ?= { agot_create_artifact_baseborn_mormont_artifact_effect = { OWNER = THIS } }
 		}
-		character:Mormont_4 = {
-			agot_create_artifact_baseborn_mormont_artifact_effect = {
-				OWNER = this
-			}
-		}
-	}
-			else_if = {
-		limit = {
-			exists = character:Mormont_6
-			character:Mormont_6 = { is_alive = yes }
-		}
-		character:Mormont_6 = {
-			agot_create_artifact_baseborn_mormont_artifact_effect = {
-				OWNER = this
-			}
-		}
-	}
 	########################### RIVERLANDS ###########################
 
 	if = {
@@ -5274,38 +5256,32 @@ else_if = {
 		}
 	}	
 
-		else_if = {
-		limit = {
-			exists = character:Rayder_1
-			character:Rayder_1 = { is_alive = yes }
+	# 	else_if = {
+	# 	limit = {
+	# 		exists = character:Rayder_1
+	# 		character:Rayder_1 = { is_alive = yes }
+	# 	}
+	# 	character:Rayder_1 = {
+	# 		agot_create_artifact_baseborn_rayder_artifact_effect = {
+	# 			OWNER = this
+	# 		}
+	# 	}
+	# }	
+
+		if = {
+			limit = { game_start_date >= 8300.20.1 }
+			character:Rayder_1 ?= { agot_create_artifact_baseborn_rayder_artifact_effect = { OWNER = THIS } }
 		}
-		character:Rayder_1 = {
-			agot_create_artifact_baseborn_rayder_artifact_effect = {
-				OWNER = this
-			}
+
+
+		if = {
+			limit = { game_start_date >= 8300.20.1 }
+			character:Thenn_2 ?= { agot_create_artifact_baseborn_thenn_artifact_effect = { OWNER = THIS } }
 		}
-	}	
-else_if = {
-		limit = {
-			exists = character:Thenn_2
-			character:Rayder_1 = { is_alive = yes }
+
+		if = {
+			limit = { game_start_date >= 8300.20.1 }
+			character:Giantsbane_1 ?= { agot_create_artifact_baseborn_giantsbane_artifact_effect = { OWNER = THIS } }
 		}
-		character:Thenn_2 = {
-			agot_create_artifact_baseborn_thenn_artifact_effect = {
-				OWNER = this
-			}
-		}
-	}	
-	else_if = {
-		limit = {
-			exists = character:Giantsbane_1
-			character:Giantsbane_1 = { is_alive = yes }
-		}
-		character:Giantsbane_1 = {
-			agot_create_artifact_baseborn_giantsbane_artifact_effect = {
-				OWNER = this
-			}
-		}
-	}	
 }
 
