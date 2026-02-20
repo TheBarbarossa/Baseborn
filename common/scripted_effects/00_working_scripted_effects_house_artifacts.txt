@@ -4354,3 +4354,47 @@ agot_create_artifact_baseborn_greyjoy_artifact_vs_dagger_effect = {
 
 	}	
 }
+
+agot_create_artifact_baseborn_greyjoy_artifact_vs_armor_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+		set_artifact_rarity_famed = yes
+			create_artifact = {
+			name = baseborn_greyjoy_artifact_vs_armor_name
+			description = baseborn_greyjoy_artifact_vs_armor_description
+			visuals = royce_runic_armor_visuals
+			type = armor_plate
+			wealth = scope:wealth
+			quality = scope:quality
+			template = baseborn_greyjoy_artifact_vs_armor_template # Remove this line from the code if the artifact has no restrictions
+			
+			history = {
+				type = created
+				date = 6875.1.1 # Date the artifact was created
+				recipient = character:Greyjoy_6 # First character to use the artifact
+				location = province:2819 # Location of the first character to use the artifact
+			}
+		modifier = baseborn_greyjoy_artifact_vs_armor_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}	
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Greyjoy.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8300.1.1
+		RECIPIENT = character:Greyjoy_6 # Next user of the artfact
+		}
+
+	}	
+}
