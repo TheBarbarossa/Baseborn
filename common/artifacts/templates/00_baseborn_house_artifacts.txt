@@ -3316,11 +3316,11 @@ baseborn_giantsbane_artifact_template = {
     }
 
     can_benefit = {
-        dynasty = dynasty:Giantsbane_thenn
+        dynasty = dynasty:dynn_Giantsbane
     }
 
 	fallback = {
-        prowess_no_portrait = 3
+        prowess_no_portrait = 4
         general_opinion = -15
 	}
 	unique = yes
@@ -3328,9 +3328,17 @@ baseborn_giantsbane_artifact_template = {
         value = 0
         if = {
             limit = {
-                dynasty ?= dynasty:Giantsbane_thenn
+                dynasty ?= dynasty:dynn_Giantsbane
             }
             add = 100
         }
+	}
+}
+
+
+
+baseborn_greyjoy_artifact_vs_dagger_template = {
+	can_equip = {
+		always = yes
 	}
 }
