@@ -2162,6 +2162,7 @@ Shawney_2 = {
 
 	8261.1.1 = { birth = yes }
 	8277.1.1 = { trait = knight }
+	8280.1.1 = { add_spouse = Deddings_24_B } # Shaera Deddings
 }
 Shawney_3 = {
 	name = Adele # married Ambrose Butterwell
@@ -2175,6 +2176,57 @@ Shawney_3 = {
 	mother = Blackwood_2
 
 	8259.1.1 = { birth = yes }
+}
+### Issue of Roger
+Shawney_2_A = { # created 02/21 slambroski
+	name = Brenett
+	dynasty = dynn_Shawney
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Shawney_2
+	mother = Deddings_24_B
+
+	8282.1.1 = { birth = yes }
+	8299.8.4 = { death = { death_reason = death_battle } }
+}
+Shawney_2_B = { # created 02/21 slambroski
+	name = Joanna
+	dynasty = dynn_Shawney
+	female = yes 
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Shawney_2
+	mother = Deddings_24_B
+
+	8284.1.1 = { birth = yes }
+}
+Shawney_2_C = { # created 02/21 slambroski
+	name = Lothar
+	dynasty = dynn_Shawney
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Shawney_2
+	mother = Deddings_24_B
+
+	8291.1.1 = { birth = yes }
+}
+Shawney_2_D = { # created 02/21 slambroski
+	name = Oscar
+	dynasty = dynn_Shawney
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Shawney_2
+	mother = Deddings_24_B
+
+	8295.1.1 = { birth = yes }
 }
 
 ###### HOUSE BLACKWOOD (id = dynn_Blackwood)
@@ -7707,6 +7759,19 @@ Deddings_24 = {
 	8283.8.4 = {
 		death = { death_reason = death_battle }
 	}
+}
+Deddings_24_B = { # created 02/21 slambroski
+	name = Shaera
+	dynasty = dynn_Deddings
+	female = yes 
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Deddings_22
+	mother = Baxter_56
+
+	8260.1.1 = { birth = yes }
 }
 ### Issue of Balon
 Deddings_2 = {
@@ -13944,6 +14009,19 @@ Pace_74 = {
 
 	8275.1.1 = { birth = yes }
 }
+Pace_74_B = { # created 02/21 slambroski
+	name = Elton
+	dynasty = dynn_Pace
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Madduc_77
+	mother = Pace_68
+
+	8281.1.1 = { birth = yes }
+	8299.1.1 = { trait = knight }
+}
 
 ###### HOUSE FINCH (id = dynn_Finch)
 ############################
@@ -14113,7 +14191,7 @@ Finch_55 = {
 		death = { death_reason = death_fire }
 	}
 }
-Finch_56 = {
+Finch_56 = { # Edited 02/21 slambroski
 	name = Wenella # a lord
 	dynasty = dynn_Finch
 	female = yes
@@ -14125,6 +14203,33 @@ Finch_56 = {
 	mother = Prosper_64
 
 	8265.1.1 = { birth = yes }
+	8285.1.1 = { add_matrilineal_spouse = Severyn_63 } # Igon Severyn
+}
+### Issue of Wenella 
+Finch_56_A = { # created 02/21 slambroski
+	name = Axel
+	dynasty = dynn_Finch
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Severyn_63
+	mother = Finch_56
+
+	8287.1.1 = { birth = yes }
+}
+Finch_56_B = { # created 02/21 slambroski
+	name = Gwenys
+	dynasty = dynn_Finch
+	female = yes 
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Severyn_63
+	mother = Finch_56
+
+	8292.1.1 = { birth = yes }
 }
 ### Issue of Ambrose
 Finch_74 = {
@@ -15629,6 +15734,18 @@ Fernly_66 = {
 	mother = Werth_101
 
 	8275.1.1 = { birth = yes }
+}
+Fernly_66_B = { # created 02/21 slambroski
+	name = Igon
+	dynasty = dynn_Fernly
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Fernly_62
+	mother = Werth_101
+
+	8286.1.1 = { birth = yes }
 }
 
 ###### HOUSE LEED (id = dynn_Leed)
@@ -19850,7 +19967,7 @@ Severyn_62 = {
 	8278.1.1 = { trait = knight }
 	8284.1.1 = { add_spouse = Fernly_72 } # Melissa Fernly
 }
-Severyn_63 = {
+Severyn_63 = { # edited 02/21 slambroski
 	name = Igon
 	dynasty = dynn_Severyn
 
@@ -19862,7 +19979,7 @@ Severyn_63 = {
 
 	8265.1.1 = { birth = yes }
 	8283.1.1 = { trait = knight }
-	8288.1.1 = { add_spouse = Cooper_47 } # Tanda Cooper
+	# 8288.1.1 = { add_spouse = Cooper_47 } # Tanda Cooper
 }
 ### Issue of Lewys
 Severyn_66 = {
@@ -19904,31 +20021,31 @@ Severyn_68 = {
 	8284.1.1 = { birth = yes }
 }
 ### Issue of Igon
-Severyn_64 = {
-	name = Axel
-	dynasty = dynn_Severyn
-
-	religion = fots_seven
-	culture = riverlander
-
-	father = Severyn_63
-	mother = Cooper_47
-
-	8290.1.1 = { birth = yes }
-}
-Severyn_65 = {
-	name = Mellara
-	dynasty = dynn_Severyn
-	female = yes
-
-	religion = fots_seven
-	culture = riverlander
-
-	father = Severyn_63
-	mother = Cooper_47
-
-	8293.1.1 = { birth = yes }
-}
+#Severyn_64 = {
+#	name = Axel
+#	dynasty = dynn_Severyn
+#
+#	religion = fots_seven
+#	culture = riverlander
+#
+#	father = Severyn_63
+#	mother = Cooper_47
+#
+#	8290.1.1 = { birth = yes }
+#}
+#Severyn_65 = {
+#	name = Mellara
+#	dynasty = dynn_Severyn
+#	female = yes
+#
+#	religion = fots_seven
+#	culture = riverlander
+#
+#	father = Severyn_63
+#	mother = Cooper_47
+#
+#	8293.1.1 = { birth = yes }
+#}
 
 ###### HOUSE GILLMORE (id = dynn_Gillmore)
 ############################
@@ -21158,6 +21275,32 @@ Runny_77 = {
 
 	8276.1.1 = { birth = yes }
 }
+Runny_77_B = { # created 02/21 slambrosk
+	name = Norbert
+	dynasty = dynn_Runny
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Corne_70
+	mother = Runny_69
+
+	8279.6.1 = { birth = yes }
+	8296.1.1 = { trait = knight }
+}
+Runny_77_C = { # created 02/21 slambrosk
+	name = Alysanne
+	dynasty = dynn_Runny
+	female = yes 
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Corne_70
+	mother = Runny_69
+
+	8282.3.1 = { birth = yes }
+}
 ### Issue of Harry
 Runny_75 = {
 	name = Ronald
@@ -22092,6 +22235,20 @@ Kemble_67 = {
 	mother = Kemble_64
 
 	8275.1.1 = { birth = yes }
+	8298.1.1 = { add_matrilineal_spouse = Gillmore_69 } # Walton Gillmore
+}
+### Issue of Megette
+Kemble_67_A = { # created 02/21 slambroski
+	name = Joffrey
+	dynasty = dynn_Kemble
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Gillmore_69
+	mother = Kemble_67
+
+	8300.1.1 = { birth = yes }
 }
 
 ###### HOUSE BEAVER (id = dynn_Beaver)
