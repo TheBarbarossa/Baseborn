@@ -2444,7 +2444,7 @@ Blackwood_12 = { # edited 01/25 slambroski
 	name = Hoster # Canon
 	dynasty = dynn_Blackwood
 
-	dna = Blackwood_12
+	# dna = Blackwood_12
 
 	martial = 4
 
@@ -5984,7 +5984,7 @@ Ryger_2 = {
 	}
 	8291.1.1 = { trait = knight }
 }
-Ryger_3 = {
+Ryger_3 = { # edited 02/21 slambroski
 	name = Danwell
 	dynasty = dynn_Ryger
 
@@ -5994,8 +5994,51 @@ Ryger_3 = {
 	father = Ryger_1
 	mother = Leek_55
 
-	8277.1.1 = { birth = yes }
-	8293.1.1 = { trait = knight }
+	# 8277.1.1 = { birth = yes }
+	8279.6.1 = { birth = yes }
+	8295.6.1 = { trait = knight }
+}
+Ryger_3_B = { # created 02/21 slambroski
+	name = Addam
+	dynasty = dynn_Ryger
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Ryger_1
+	mother = Leek_55
+
+	8283.1.1 = { birth = yes }
+	8300.1.1 = { trait = knight }
+}
+Ryger_3_C = { # created 02/21 slambroski
+	name = Sabrina
+	dynasty = dynn_Ryger
+	female = yes
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Ryger_1
+	mother = Leek_55
+
+	trait = sickly
+
+	8284.1.1 = { birth = yes }
+	8284.3.1 = { death = { death_reason = death_sickly } }
+}
+Ryger_3_D = { # created 02/21 slambroski
+	name = Catelyn
+	dynasty = dynn_Ryger
+	female = yes
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Ryger_1
+	mother = Leek_55
+
+	8288.9.1 = { birth = yes }
 }
 ### Issue of Martyn, first cousins to Roger
 Ryger_4 = {
@@ -8568,7 +8611,7 @@ Pemford_4 = {
 	}
 }
 ### Issue of Edwyn
-Pemford_2 = {
+Pemford_2 = { # edited 02/21 slambroski
 	name = Patrek # a lord
 	dynasty = dynn_Pemford
 
@@ -8580,6 +8623,7 @@ Pemford_2 = {
 
 	8270.1.1 = { birth = yes }
 	8286.1.1 = { trait = knight }
+	8292.1.1 = { add_spouse = Helney_88 } # Hildy Helney
 }
 Pemford_3 = {
 	name = Petyr
@@ -8620,6 +8664,19 @@ Pemford_5 = {
 			killer = Lannister_7 # Jaime Lannister
 		}
 	}
+}
+### Issue of Patrek
+Pemford_2_A = { # created 02/21 slambroski
+	name = Podrick
+	dynasty = dynn_Pemford
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Pemford_2
+	mother = Helney_88
+
+	8294.6.1 = { birth = yes }
 }
 
 ###### HOUSE HEDDLE (id = dynn_Heddle)
@@ -9278,6 +9335,18 @@ Charlton_5 = {
 
 	8281.1.1 = { birth = yes }
 	8298.1.1 = { trait = knight }
+}
+Charlton_5_B = { # created 02/21 slambroski
+	name = Othan
+	dynasty = dynn_Charlton
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Charlton_1
+	mother = Kytley_3
+
+	8287.1.1 = { birth = yes }
 }
 
 ###### HOUSE ERENFORD (id = dynn_Erenford)
@@ -12820,6 +12889,19 @@ Tullison_20 = {
 	8291.1.1 = {
 		death = { death_reason = death_accident }
 	}
+}
+Tullison_20_B = { # created 02/21 slambroski
+	name = Hendry
+	dynasty = dynn_Tullison
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Tullison_19
+	mother = Thanders_54
+
+	8254.1.1 = { birth = yes }
+	8270.1.1 = { trait = knight }
 }
 ### Household
 Tullison_hh_1 = {
@@ -16770,7 +16852,7 @@ Chaynes_63 = {
 	8268.1.1 = { birth = yes }
 }
 ### Issue of Guy
-Chaynes_64 = {
+Chaynes_64 = { # edited 02/21 slambroski
 	name = Alton
 	dynasty = dynn_Chaynes
 
@@ -16782,7 +16864,8 @@ Chaynes_64 = {
 
 	8271.1.1 = { birth = yes }
 	8290.1.1 = { trait = knight }
-	8294.1.1 = { add_spouse = Leed_50 } # Alessa Leed
+	# 8294.1.1 = { add_spouse = Leed_50 } # Alessa Leed
+	8294.1.1 = { add_spouse = Chaynes_63 } # Ilyse Chaynes
 }
 Chaynes_65 = {
 	name = Elona # married Ryan Common
@@ -16798,7 +16881,7 @@ Chaynes_65 = {
 	8275.1.1 = { birth = yes }
 }
 ### Issue of Alton
-Chaynes_66 = {
+Chaynes_66 = { # edited 02/21 slambroski
 	name = Sarya
 	dynasty = dynn_Chaynes
 	female = yes
@@ -16807,11 +16890,12 @@ Chaynes_66 = {
 	culture = riverlander
 
 	father = Chaynes_64
-	mother = Leed_50
+	# mother = Leed_50
+	mother = Chaynes_63
 
 	8296.1.1 = { birth = yes }
 }
-Chaynes_67 = {
+Chaynes_67 = { # edited 02/21 slambroski
 	name = Arwyn
 	dynasty = dynn_Chaynes
 	female = yes
@@ -16820,7 +16904,8 @@ Chaynes_67 = {
 	culture = riverlander
 
 	father = Chaynes_64
-	mother = Leed_50
+	# mother = Leed_50
+	mother = Chaynes_63
 
 	8299.1.1 = { birth = yes }
 }
@@ -18560,6 +18645,19 @@ Forthe_52 = {
 	8261.1.1 = { birth = yes }
 	8280.1.1 = { trait = knight }
 	8288.1.1 = { add_spouse = Brockryn_81 } # Beryssa Brockryn
+}
+Forthe_52_B = { # created 02/21 slambroski
+	name = Alester # a lord
+	dynasty = dynn_Forthe
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Forthe_45
+	mother = Lurrelen_85
+
+	8264.1.1 = { birth = yes }
+	8283.1.1 = { trait = knight }
 }
 ### Issue of Beron
 Forthe_44 = {
