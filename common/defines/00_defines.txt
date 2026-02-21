@@ -970,7 +970,7 @@ NSiege = {
 	DAILY_MORALE_LOSS_FROM_RELATIVE_ATTACKER_MEN = 0.01	# How much morale is lost every day of the siege for extra stack of men defined in RELATIVE_ATTACKER_MEN_STACK_SIZE
 	RELATIVE_ATTACKER_MEN_STACK_SIZE = 200				# Extra stack size of men to start getting daily morale loss
 	MONTHLY_ATTRITION = 0.01							# Monthly attrition during siege
-	BASE_SIEGE_PHASE_LENGTH = 3						# Base length of a siege phase (time between picking new actions) in days
+	BASE_SIEGE_PHASE_LENGTH = 2						# Base length of a siege phase (time between picking new actions) in days
 	BREACH_PHASE_TIMER_LEVELS = {						# How many levels of breach are there and how much (as percentage) is the phase timer reduced by these levels.
 		-0.1
 		-0.3
@@ -1662,18 +1662,18 @@ NMemories = {
 
 # Settings for character based travel (not army travel)
 NTravel = {
-	TRAVEL_SPEED_BASE = 0 # Travel speed base score value
-	TRAVEL_SPEED_BASE_LEADERLESS = 15 # Travel speed base score for characters that cannot have a travel leader
+	TRAVEL_SPEED_BASE = 50 # Travel speed base score value
+	TRAVEL_SPEED_BASE_LEADERLESS = 30 # Travel speed base score for characters that cannot have a travel leader
 
 	TRAVEL_SAFETY_BASE = 0
-	TRAVEL_SAFETY_BASE_LEADERLESS = 30 # Travel safety base score for characters that cannot have a travel leader (usually not needed because they don't get events)
+	TRAVEL_SAFETY_BASE_LEADERLESS = 15 # Travel safety base score for characters that cannot have a travel leader (usually not needed because they don't get events)
 
 	#AGOT Modified
 	#BASE_TRAVEL_SPEED_LAND = 5 # The base speed used when traveling from a land province
-	BASE_TRAVEL_SPEED_LAND = 15 # The base speed used when traveling from a land province
+	BASE_TRAVEL_SPEED_LAND = 50 # The base speed used when traveling from a land province
 	#AGOT Modified
 	#BASE_TRAVEL_SPEED_WATER = 7 # The base speed used when traveling from a water province
-	BASE_TRAVEL_SPEED_WATER = 30 # The base speed used when traveling from a water province
+	BASE_TRAVEL_SPEED_WATER = 80 # The base speed used when traveling from a water province
 
 	TRAVEL_EMBARK_COST = 15 # The cost in days added to traveling from a land province to a water province
 	TRAVEL_DISEMBARK_COST = 5 # The cost in days added to traveling from a water province to a land province
@@ -1714,11 +1714,11 @@ NDiarchy = {
 
 NActivity = {
 	# Number of days until a completed activity involving a player is destroyed, will be destroyed earlier if all players involved close the activity window, must be greater than or equal to MULTIPLAYER_EVENT_TIME_OUT
-	ACTIVITY_DESTROY_AFTER_COMPLETE_WAIT_DAYS = 90
+	ACTIVITY_DESTROY_AFTER_COMPLETE_WAIT_DAYS = 30
 
-	MAX_PHASE_YEARS_ACTIVE = 1 # Maximum amount of years allowed in an active phase state until the phase gets invalidated
-	MAX_PHASE_YEARS_PASSIVE = 10 # Maximum amount of years allowed in passive phase state until the phase gets invalidated
-	MAX_PHASE_DELAY_DAYS = 90 # Max number of days to delay starting a phase by for not-required special guests (we delay forever for hosts and required special guests )
+	MAX_PHASE_YEARS_ACTIVE = 0.1 # Maximum amount of years allowed in an active phase state until the phase gets invalidated
+	MAX_PHASE_YEARS_PASSIVE = 0.1 # Maximum amount of years allowed in passive phase state until the phase gets invalidated
+	MAX_PHASE_DELAY_DAYS = 30 # Max number of days to delay starting a phase by for not-required special guests (we delay forever for hosts and required special guests )
 
 	SPECIAL_BAR_SEGMENTS = { 0 25 50 75 100 } # Display segments for the activity special bar
 
