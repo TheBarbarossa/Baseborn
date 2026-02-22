@@ -3372,3 +3372,27 @@ baseborn_greyjoy_artifact_vs_armor_template = {
 		always = yes
 	}
 }
+
+baseborn_lightbringer_artifact_template = {
+    can_equip = {
+        always = yes
+    }
+
+    can_benefit = {
+        dynasty = dynasty:dynn_Baratheon
+    }
+
+	fallback = {
+        general_opinion = -30
+	}
+	unique = yes
+	ai_score = {
+        value = 0
+        if = {
+            limit = {
+                dynasty ?= dynasty:dynn_Baratheon
+            }
+            add = 100
+        }
+	}
+}
