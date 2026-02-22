@@ -292,6 +292,7 @@ else_if = {
 			}
 		}
 	}
+
 	if = {
 		limit = {
 			exists = character:Flint_53
@@ -5292,6 +5293,11 @@ else_if = {
 				if = {
 			limit = { game_start_date >= 8300.20.1 }
 			character:Greyjoy_6 ?= { agot_create_artifact_baseborn_greyjoy_artifact_vs_armor_effect = { OWNER = THIS } }
+		}
+
+					if = {
+			limit = { game_start_date >= 8300.20.1 }
+			character:Ryswell_4 ?= { agot_create_artifact_baseborn_ryswell_2_artifact_effect = { OWNER = THIS } }
 		}
 }
 

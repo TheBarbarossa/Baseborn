@@ -142,6 +142,30 @@ baseborn_ryswell_artifact_template = {
         }
 	}
 }
+
+baseborn_ryswell_2_artifact_template = {
+	can_equip = {
+		always = yes
+	}
+	# can this character benefit from the full modifiers of the artifact?
+	can_benefit = {
+		dynasty = dynasty:dynn_Ryswell
+	}
+	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
+	fallback = {
+        general_opinion = -15
+	}
+	unique = yes
+	ai_score = {
+        value = 0
+        if = {
+            limit = {
+                dynasty ?= dynasty:dynn_Ryswell
+            }
+            add = 100
+        }
+	}
+}
 baseborn_magnar_artifact_template = {
 	can_equip = {
 		always = yes
