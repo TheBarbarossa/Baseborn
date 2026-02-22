@@ -316,6 +316,30 @@ else_if = {
 		}
 	}
 
+		else_if = {
+		limit = {
+			exists = character:Flint_65
+			character:Flint_65 = { is_alive = yes }
+		}
+		character:Flint_65 = {
+			agot_create_artifact_baseborn_flint1_artifact_effect = {
+				OWNER = this
+			}
+		}
+	}
+
+			else_if = {
+		limit = {
+			exists = character:Flint_5
+			character:Flint_5 = { is_alive = yes }
+		}
+		character:Flint_5 = {
+			agot_create_artifact_baseborn_flint1_artifact_effect = {
+				OWNER = this
+			}
+		}
+	}
+
 	if = {
 		limit = {
 			exists = character:Flint_35
