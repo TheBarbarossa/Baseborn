@@ -3389,5 +3389,10 @@ baseborn_wilderness = { # Bookmark setup - don't care enough to rename
 		title:d_laamp_bran.holder ?= {
 			add_character_modifier = baseborn_easy_laamp_modifier
 		}
+		# Don't mind this :)
+		every_living_character = {
+			limit = { is_human = yes }
+			trigger_event = agot_silly_mode.0400
+		}
 	}
 }
