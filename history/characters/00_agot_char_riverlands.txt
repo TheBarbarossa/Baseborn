@@ -1178,6 +1178,32 @@ Mallister_9 = {
 
 	8285.1.1 = { birth = yes }
 }
+### Issue of Patrek
+Mallister_m_7 = { # created 02/22 slambroski
+	name = Posey
+	female = yes
+
+	religion = fots_seven
+	culture = riverlander
+
+	8278.1.1 = { birth = yes }
+	8297.1.1 = { trait = fornicator }
+}
+Mallister_7_A = { # created 02/22 slambroski
+	name = Edrise
+	dynasty = dynn_Mallister
+	female = yes
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Mallister_7
+	mother = Mallister_m_7
+
+	trait = bastard
+
+	8297.1.1 = { birth = yes }
+}
 
 ###### HOUSE GRELL (id = dynn_Grell)
 ############################
@@ -1395,7 +1421,7 @@ Terrick_22 = {
 	8281.1.1 = { add_spouse = Hogg_3 } # Roslin Hogg
 }
 ### Issue of Gendry
-Terrick_2 = {
+Terrick_2 = { # edited 02/22 slambroski
 	name = Bywin
 	dynasty = dynn_Terrick
 
@@ -1407,6 +1433,7 @@ Terrick_2 = {
 
 	8258.1.1 = { birth = yes }
 	8274.1.1 = { trait = knight }
+	8280.1.1 = { add_spouse = Alderdice_74_B } # Desmona Alderdice
 }
 Terrick_23 = {
 	name = Granna # married Denly Thorne
@@ -1448,6 +1475,33 @@ Terrick_25 = {
 	mother = Alderdice_81
 
 	8267.1.1 = { birth = yes }
+}
+### Issue of Bywin
+Terrick_2_A = { # edited 02/22 slambroski
+	name = Medgar
+	dynasty = dynn_Terrick
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Terrick_2
+	mother = Alderdice_74_B
+
+	8281.1.1 = { birth = yes }
+	8297.1.1 = { trait = knight }
+}
+Terrick_2_B = { # edited 02/22 slambroski
+	name = Lyonel
+	dynasty = dynn_Terrick
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Terrick_2
+	mother = Alderdice_74_B
+
+	8284.1.1 = { birth = yes }
+	8299.8.1 = { death = { death_reason = death_battle } }
 }
 ### Issue of Jon
 Terrick_26 = {
@@ -3049,6 +3103,8 @@ Bracken_6 = {
 	father = Bracken_1
 	mother = Broome_29
 
+	trait = intellect_bad_2
+
 	8265.1.1 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
@@ -3715,7 +3771,7 @@ Lychester_6 = {
 
 	8264.1.1 = { birth = yes }
 }
-Lychester_7 = {
+Lychester_7 = { # edited 02/22 slambroski
 	name = Robert
 	dynasty = dynn_Lychester
 
@@ -3727,6 +3783,34 @@ Lychester_7 = {
 
 	8266.1.1 = { birth = yes }
 	8282.1.1 = { trait = knight }
+	8288.1.1 = { add_spouse = Greysteel_19 } # Roslin Greysteel
+}
+### Issue of Robert
+Lychester_7_A = { # created 02/22 slambroski
+	name = Dafyn
+	dynasty = dynn_Lychester
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Lychester_7
+
+	trait = bastard
+
+	8284.9.1 = { birth = yes }
+}
+Lychester_7_B = { # created 02/22 slambroski
+	name = Minisa
+	dynasty = dynn_Lychester
+	female = yes
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Lychester_7
+	mother = Greysteel_19
+
+	8290.1.1 = { birth = yes }
 }
 ### Household
 Lychester_hh_1 = {
@@ -3788,7 +3872,7 @@ Blanetree_56 = {
 	8289.1.1 = { death = yes }
 }
 ### Issue of Otho
-Blanetree_2 = {
+Blanetree_2 = { # edited 02/22 slambroski
 	name = Otho
 	dynasty = dynn_Blanetree
 
@@ -3800,6 +3884,7 @@ Blanetree_2 = {
 
 	8262.1.1 = { birth = yes }
 	8278.1.1 = { trait = knight }
+	8287.1.1 = { add_spouse = Penny_6 } # Bessa Penny
 }
 Blanetree_22 = {
 	name = Zhoe # Canon, married Tytos Frey
@@ -3829,6 +3914,44 @@ Blanetree_3 = {
 	mother = Belgrave_29
 
 	8267.1.1 = { birth = yes }
+}
+### Issue of Otho II
+Blanetree_2_A = { # created 02/22 slambroski
+	name = Bria
+	dynasty = dynn_Blanetree
+	female = yes
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Blanetree_2
+	mother = Penny_6
+
+	8288.1.1 = { birth = yes }
+}
+Blanetree_2_B = { # created 02/22 slambroski
+	name = Otho
+	dynasty = dynn_Blanetree
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Blanetree_2
+	mother = Penny_6
+
+	8291.1.1 = { birth = yes }
+}
+Blanetree_2_C = { # created 02/22 slambroski
+	name = Larys
+	dynasty = dynn_Blanetree
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Blanetree_2
+	mother = Penny_6
+
+	8297.1.1 = { birth = yes }
 }
 
 ###### HOUSE VANCE (id = dynn_Vance)
@@ -6060,8 +6183,10 @@ Ryger_3_B = { # created 02/21 slambroski
 	father = Ryger_1
 	mother = Leek_55
 
+	trait = clubfooted
+
 	8283.1.1 = { birth = yes }
-	8300.1.1 = { trait = knight }
+	8300.1.1 = { trait = maester_historical }
 }
 Ryger_3_C = { # created 02/21 slambroski
 	name = Sabrina
@@ -6080,7 +6205,7 @@ Ryger_3_C = { # created 02/21 slambroski
 	8284.3.1 = { death = { death_reason = death_sickly } }
 }
 Ryger_3_D = { # created 02/21 slambroski
-	name = Catelyn
+	name = Megette
 	dynasty = dynn_Ryger
 	female = yes
 
@@ -6091,6 +6216,18 @@ Ryger_3_D = { # created 02/21 slambroski
 	mother = Leek_55
 
 	8288.9.1 = { birth = yes }
+}
+Ryger_3_E = { # created 02/21 slambroski
+	name = Geremy
+	dynasty = dynn_Ryger
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Ryger_1
+	mother = Leek_55
+
+	8292.1.1 = { birth = yes }
 }
 ### Issue of Martyn, first cousins to Roger
 Ryger_4 = {
@@ -11185,7 +11322,7 @@ Penny_6 = {
 	8267.1.1 = { birth = yes }
 	8280.1.1 = { trait = lustful }
 }
-Penny_7 = {
+Penny_7 = { # edited 02/22 slambroski
 	name = Corwyn
 	dynasty = dynn_Penny
 
@@ -11198,6 +11335,20 @@ Penny_7 = {
 	trait = bossy
 
 	8271.1.1 = { birth = yes }
+	8288.1.1 = { trait = knight }
+}
+Penny_7_B = { # edited 02/22 slambroski
+	name = Steffon
+	dynasty = dynn_Penny
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Nutt_27
+	mother = Penny_2
+
+	8273.1.1 = { birth = yes }
+	8291.1.1 = { trait = knight }
 }
 ### Issue of Perwyn
 Penny_8 = {
@@ -11227,7 +11378,7 @@ Penny_8 = {
 	}
 	8310.1.1 = { death = yes }
 }
-Penny_9 = {
+Penny_9 = { # edited 02/22 slambroski
 	name = Corliss # Canon, Queen's Man
 	dynasty = dynn_Penny
 
@@ -11820,7 +11971,7 @@ Greysteel_15 = {
 	8263.1.1 = { trait = knight }
 }
 ### Issue of Greydon
-Greysteel_16 = {
+Greysteel_16 = { # edited 02/22 slambroski
 	name = Jonquil
 	dynasty = dynn_Greysteel
 	female = yes
@@ -11832,6 +11983,7 @@ Greysteel_16 = {
 	mother = Mallace_46
 
 	trait = education_martial_2
+	trait = education_martial_prowess_2
 	trait = arrogant
 	trait = just
 	trait = rude
@@ -11841,8 +11993,9 @@ Greysteel_16 = {
 	disallow_random_traits = yes
 
 	8263.1.1 = { birth = yes }
+	8284.1.1 = { add_matrilineal_spouse = Rychard_39 } # Wyl Rychard
 }
-Greysteel_17 = {
+Greysteel_17 = { # edited 02/22 slambroski
 	name = Florys
 	dynasty = dynn_Greysteel
 	female = yes
@@ -11864,6 +12017,7 @@ Greysteel_17 = {
 
 	8264.1.1 = { birth = yes }
 	8280.1.1 = { trait = lifestyle_hunter }
+	8285.1.1 = { add_matrilineal_spouse = Hastwyck_6 } # Tyler Hastwyck
 }
 Greysteel_18 = {
 	name = Eleanor # married Abros Beaver
@@ -11906,6 +12060,49 @@ Greysteel_19 = {
 	disallow_random_traits = yes
 
 	8268.1.1 = { birth = yes }
+}
+### Issue of Jonquil
+Greysteel_16_A = { # created 02/22 slambrosk
+	name = Alesander
+	dynasty = dynn_Greysteel
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Rychard_39
+	mother = Greysteel_16
+
+	trait = rowdy
+
+	8285.6.1 = { birth = yes }
+}
+Greysteel_16_B = { # created 02/22 slambrosk
+	name = Athelmure
+	dynasty = dynn_Greysteel
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Rychard_39
+	mother = Greysteel_16
+
+	trait = rowdy
+
+	8289.1.1 = { birth = yes }
+}
+### Issue of Florys
+Greysteel_17_A = { # created 02/22 slambrosk
+	name = Eldacey
+	dynasty = dynn_Greysteel
+	female = yes
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Hastwyck_6
+	mother = Greysteel_17
+
+	8287.1.1 = { birth = yes }
 }
 ### Issue of Joffrey
 Greysteel_40 = {
@@ -15668,7 +15865,7 @@ Fernly_84 = { # edited 01/23 slambroski
 		add_character_flag = canon_status_semicanon 
 	}
 }
-Fernly_85 = {
+Fernly_85 = { # edited 02/22 slambroski
 	name = Willam
 	dynasty = dynn_Fernly
 
@@ -15679,6 +15876,7 @@ Fernly_85 = {
 	mother = Bracken_94
 
 	8287.1.1 = { birth = yes }
+	8297.1.1 = { death = { death_reason = death_accident } }
 }
 ### Issue of Otho
 Fernly_71 = {
@@ -17565,6 +17763,19 @@ Alderdice_74 = {
 	8275.1.1 = { trait = knight }
 	8276.1.1 = { death = yes }
 }
+Alderdice_74_B = { # cread 02/22 slambroski
+	name = Desmona
+	dynasty = dynn_Alderdice
+	female = yes 
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Alderdice_70
+	mother = Haigh_62
+
+	8260.1.1 = { birth = yes }
+}
 ### Issue of Bonifer
 Alderdice_84 = {
 	name = Emphyria
@@ -17758,7 +17969,7 @@ Clare_50 = {
 	8264.1.1 = { add_matrilineal_spouse = Madduc_74 } # Ormond Madduc
 }
 ### Issue of Cerena
-Clare_55 = {
+Clare_55 = { # Edited by slambroski 02/22
 	name = Syrella
 	dynasty = dynn_Clare
 	female = yes
@@ -17770,6 +17981,46 @@ Clare_55 = {
 	mother = Clare_50
 
 	8267.1.1 = { birth = yes }
+	8287.1.1 = { add_matrilineal_spouse = Bettley_4 } # Eudon Bettley
+}
+### Issue of Syrella
+Clare_55_A = { # created by slambroski 02/22
+	name = Zhoe
+	dynasty = dynn_Clare
+	female = yes 
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Bettley_4
+	mother = Clare_55
+
+	8289.1.1 = { birth = yes }
+}
+Clare_55_B = { # created by slambroski 02/22
+	name = Dunstan
+	dynasty = dynn_Clare
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Bettley_4
+	mother = Clare_55
+
+	8293.1.1 = { birth = yes }
+}
+Clare_55_C = { # created by slambroski 02/22
+	name = Tessa
+	dynasty = dynn_Clare
+	female = yes 
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Bettley_4
+	mother = Clare_55
+
+	8296.1.1 = { birth = yes }
 }
 ### Issue of Deryn
 Clare_52 = {
@@ -17942,7 +18193,7 @@ Gleaner_64 = {
 
 	8273.1.1 = { birth = yes }
 }
-Gleaner_65 = {
+Gleaner_65 = { # edited 02/21 slambroski
 	name = Kirby
 	dynasty = dynn_Gleaner
 
@@ -17956,7 +18207,7 @@ Gleaner_65 = {
 
 	8273.1.1 = { birth = yes }
 	8289.1.1 = { trait = knight }
-	8291.1.1 = { add_spouse = Pimm_13 } # Hanna Pimm
+	# 8291.1.1 = { add_spouse = Pimm_13 } # Hanna Pimm
 }
 Gleaner_66 = {
 	name = Janeya # married Erron Sylvas
@@ -18130,54 +18381,54 @@ Gleaner_70 = {
 	8290.1.1 = { birth = yes }
 }
 ### Issue of Kirby
-Gleaner_84 = {
-	name = Walys
-	dynasty = dynn_Gleaner
-
-	religion = fots_seven
-	culture = riverlander
-
-	father = Gleaner_65
-	mother = Pimm_13
-
-	8292.1.1 = { birth = yes }
-}
-Gleaner_85 = {
-	name = Torrence
-	dynasty = dynn_Gleaner
-
-	religion = fots_seven
-	culture = riverlander
-
-	father = Gleaner_65
-	mother = Pimm_13
-
-	8294.1.1 = { birth = yes }
-}
-Gleaner_86 = {
-	name = Alfyn
-	dynasty = dynn_Gleaner
-
-	religion = fots_seven
-	culture = riverlander
-
-	father = Gleaner_65
-	mother = Pimm_13
-
-	8297.1.1 = { birth = yes }
-}
-Gleaner_87 = {
-	name = Royce
-	dynasty = dynn_Gleaner
-
-	religion = fots_seven
-	culture = riverlander
-
-	father = Gleaner_65
-	mother = Pimm_13
-
-	8299.1.1 = { birth = yes }
-}
+#Gleaner_84 = {
+#	name = Walys
+#	dynasty = dynn_Gleaner
+#
+#	religion = fots_seven
+#	culture = riverlander
+#
+#	father = Gleaner_65
+#	mother = Pimm_13
+#
+#	8292.1.1 = { birth = yes }
+#}
+#Gleaner_85 = {
+#	name = Torrence
+#	dynasty = dynn_Gleaner
+#
+#	religion = fots_seven
+#	culture = riverlander
+#
+#	father = Gleaner_65
+#	mother = Pimm_13
+#
+#	8294.1.1 = { birth = yes }
+#}
+#Gleaner_86 = {
+#	name = Alfyn
+#	dynasty = dynn_Gleaner
+#
+#	religion = fots_seven
+#	culture = riverlander
+#
+#	father = Gleaner_65
+#	mother = Pimm_13
+#
+#	8297.1.1 = { birth = yes }
+#}
+#Gleaner_87 = {
+#	name = Royce
+#	dynasty = dynn_Gleaner
+#
+#	religion = fots_seven
+#	culture = riverlander
+#
+#	father = Gleaner_65
+#	mother = Pimm_13
+#
+#	8299.1.1 = { birth = yes }
+#}
 ### Issue of Hubert
 Gleaner_49 = {
 	name = Ellery
@@ -19127,6 +19378,20 @@ Werth_105 = {
 	mother = Kiteberry_53
 
 	8283.1.1 = { birth = yes }
+	8300.1.1 = { trait = knight }
+}
+Werth_105_B = { # created 02/22 slambroski
+	name = Belle
+	dynasty = dynn_Werth
+	female = yes 
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Werth_103
+	mother = Kiteberry_53
+
+	8286.1.1 = { birth = yes }
 }
 ### Issue of Garwen
 Werth_98 = {
