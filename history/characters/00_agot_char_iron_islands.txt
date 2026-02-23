@@ -2436,11 +2436,12 @@ Volmark_1 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
 	}
-	8273.1.1 = { add_spouse = Haigh_66 } # Alanna Haigh
+	# 8273.1.1 = { add_spouse = Haigh_66 } # Alanna Haigh
+	8274.1.1 = { add_spouse = Orkwood_2_A } # Sallei Orkwood
 	8294.1.1 = { death = yes }
 }
 ### Issue of Harryn
-Volmark_2 = {
+Volmark_2 = { # edited 02/22 slambroski
 	name = Maron # Canon, a lord, Victarion supporter
 	dynasty = dynn_Volmark
 	dna = Volmark_2
@@ -2451,7 +2452,8 @@ Volmark_2 = {
 	culture = ironborn
 
 	father = Volmark_1
-	mother = Haigh_66
+	mother = Orkwood_2_A
+	# mother = Haigh_66
 
 	trait = arrogant
 
@@ -2461,7 +2463,7 @@ Volmark_2 = {
 		add_character_flag = canon_status_canon
 	}
 }
-Volmark_3 = {
+Volmark_3 = { # edited 02/22 slambroski
 	name = Vandya
 	dynasty = dynn_Volmark
 	female = yes
@@ -2472,14 +2474,15 @@ Volmark_3 = {
 	culture = ironborn
 
 	father = Volmark_1
-	mother = Haigh_66
+	mother = Orkwood_2_A
+	# mother = Haigh_66
 
 	8279.1.1 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
 	}
 }
-Volmark_4 = {
+Volmark_4 = { # edited 02/22 slambroski
 	name = Hylda
 	dynasty = dynn_Volmark
 	female = yes
@@ -2490,12 +2493,26 @@ Volmark_4 = {
 	culture = ironborn
 
 	father = Volmark_1
-	mother = Haigh_66
+	mother = Orkwood_2_A
+	# mother = Haigh_66
 
 	8281.1.1 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
 	}
+}
+### Issue of Lucimore
+Volmark_26_B = { # created 02/22 slambroski
+	name = Gorold
+	dynasty = dynn_Volmark
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Volmark_26 # Lucimore Volmark
+	mother = Goodbrother_5 # Helya Goodbrother
+
+	8293.1.1 = { birth = yes }
 }
 
 ###### HOUSE HARLAW (id = dynn_Harlaw)
@@ -2844,7 +2861,7 @@ Harlaw_13 = {
 	}
 }
 ### Issue of Theomore, first cousins to Rodrik
-Harlaw_14 = {
+Harlaw_14 = { # edited 02/22 slambroski
 	name = Boremund # Canon, a lord of Harridan Hill
 	dynasty = dynn_Harlaw
 	dna = Harlaw_14
@@ -2873,7 +2890,8 @@ Harlaw_14 = {
 	}
 	8279.1.1 = {
 		give_nickname = nick_agot_historical_the_blue
-		add_spouse = Temper_42 # Myra Temper
+		# add_spouse = Temper_42 # Myra Temper
+		add_spouse = Netley_7 # Wynafred Netley
 	}
 }
 ### Issue of Hotho
@@ -2894,7 +2912,7 @@ Harlaw_15 = {
 	}
 }
 ### Issue of Boremund
-Harlaw_16 = {
+Harlaw_16 = { # edited 02/22 slambroski
 	name = Steffarion # Mentioned
 	dynasty = dynn_Harlaw
 
@@ -2902,14 +2920,16 @@ Harlaw_16 = {
 	culture = ironborn
 
 	father = Harlaw_14
-	mother = Temper_42
+	mother = Netley_7
+	# mother = Temper_42
 
-	8282.1.1 = {
+	# 8282
+	8283.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 }
-Harlaw_17 = {
+Harlaw_17 = { # edited 02/22 slambroski
 	name = Symond # Mentioned
 	dynasty = dynn_Harlaw
 
@@ -2917,14 +2937,15 @@ Harlaw_17 = {
 	culture = ironborn
 
 	father = Harlaw_14
-	mother = Temper_42
+	mother = Netley_7
+	# mother = Temper_42
 
 	8284.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 }
-Harlaw_18 = {
+Harlaw_18 = { # edited 02/22 slambroski
 	name = Tristifer # Mentioned
 	dynasty = dynn_Harlaw
 
@@ -2932,7 +2953,8 @@ Harlaw_18 = {
 	culture = ironborn
 
 	father = Harlaw_14
-	mother = Temper_42
+	mother = Netley_7
+	# mother = Temper_42
 
 	8287.1.1 = {
 		birth = yes
@@ -3200,6 +3222,19 @@ Orkwood_1 = {
 	}
 	8274.1.1 = { add_spouse = Sparr_5 } # Keryn Sparr
 }
+Orkwood_2_A = { # created 02/22 slambroski
+	name = Sallei
+	dynasty = dynn_Orkwood
+	female = yes
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Orkwood_28
+	mother = Saltcliffe_15
+
+	8257.6.1 = { birth = yes }
+}
 Orkwood_2 = {
 	name = Wulfe
 	dynasty = dynn_Orkwood
@@ -3259,8 +3294,65 @@ Orkwood_4 = {
 		add_character_flag = has_scripted_appearance
 	}
 }
+Orkwood_4_B = { # created 02/22 slambroski
+	name = Ulfhild
+	dynasty = dynn_Orkwood
+	female = yes
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Orkwood_1
+	mother = Sparr_5
+
+	trait = beauty_good_1
+	trait = sickly
+
+	8282.1.1 = { birth = yes }
+	8283.1.1 = { death = { death_reason = death_accident } }
+}
+Orkwood_4_C = { # created 02/22 slambroski
+	name = Herrika
+	dynasty = dynn_Orkwood
+	female = yes
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Orkwood_1
+	mother = Sparr_5
+
+	8288.1.1 = { birth = yes }
+}
+Orkwood_4_D = { # created 02/22 slambroski
+	name = Kenned
+	dynasty = dynn_Orkwood
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Orkwood_1
+	mother = Sparr_5
+
+	trait = beauty_good_1
+
+	8290.1.1 = { birth = yes }
+}
+Orkwood_4_E = { # created 02/22 slambroski
+	name = Victaria
+	dynasty = dynn_Orkwood
+	female = yes
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Orkwood_1
+	mother = Sparr_5
+
+	8295.1.1 = { birth = yes }
+}
 ### Issue of Wulfe
-Orkwood_5 = {
+Orkwood_5 = { # edited 02/22 slambroski
 	name = Aeron
 	dynasty = dynn_Orkwood
 
@@ -3271,8 +3363,9 @@ Orkwood_5 = {
 	mother = Penny_11
 
 	8292.1.1 = { birth = yes }
+	8298.6.1 = { death = { death_reason = death_accident } }
 }
-Orkwood_6 = {
+Orkwood_6 = { # edited 02/22 slambroski
 	name = Victarion
 	dynasty = dynn_Orkwood
 
@@ -3283,6 +3376,7 @@ Orkwood_6 = {
 	mother = Penny_11
 
 	8294.1.1 = { birth = yes }
+	8298.6.1 = { death = { death_reason = death_accident } }
 }
 Orkwood_7 = {
 	name = Ryella
@@ -3380,7 +3474,7 @@ Stonetree_4 = { # edited 02/01 slambroski
 	}
 	8284.1.1 = { add_spouse = Myre_3 } # Selyse Myre
 }
-Stonetree_5 = {
+Stonetree_5 = { # Edited 02/22 slambroski
 	name = Beron
 	dynasty = dynn_Stonetree
 
@@ -3396,6 +3490,7 @@ Stonetree_5 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
 	}
+	8295.1.1 = { add_spouse = Netley_7_C } # Rhonda Netley
 }
 ### Issue of Sigfry
 Stonetree_4_A = { # created 02/01 slambroski
@@ -3435,6 +3530,19 @@ Stonetree_4_C = { # created 02/01 slambroski
 	mother = Myre_3
 
 	8291.1.1 = { birth = yes }
+}
+### Issue of Beron
+Stonetree_5_A = { # created 02/22 slambroski
+	name = Ragnor
+	dynasty = dynn_Stonetree
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Stonetree_5
+	mother = Netley_7_C
+
+	8298.1.1 = { birth = yes }
 }
 
 ###### HOUSE DRUMM (id = dynn_Drumm)
@@ -5140,9 +5248,11 @@ Farwynd_5 = {
 	}
 }
 ### Issue of Adrack
-Farwynd_121 = {
-	name = Gelmarr
+Farwynd_121 = { # edited 02/22 slambroski
+	# name = Gelmarr
+	name = Gwin
 	dynasty = dynn_Farwynd
+	female = yes
 
 	religion = drowned_god
 	culture = ironborn
@@ -5150,7 +5260,9 @@ Farwynd_121 = {
 	father = Farwynd_107
 	mother = Mooton_55
 
-	8263.1.1 = { birth = yes }
+	# 8263
+	8262.1.1 = { birth = yes }
+	8289.3.1 = { trait = widowed }
 }
 Farwynd_122 = {
 	name = Thormor
@@ -5750,7 +5862,8 @@ Blacktyde_1 = {
 		add_character_flag = has_scripted_appearance
 		add_character_flag = canon_status_mentioned
 	}
-	8277.1.1 = { add_spouse = Wayn_2 } # Corrine Wayn
+	# 8277.1.1 = { add_spouse = Wayn_2 } # Corrine Wayn
+	8277.1.1 = { add_spouse = Farwynd_121 } # Gwin Farwynd
 	8289.3.1 = {
 		death = { death_reason = death_battle } # Greyjoy Rebellion
 	}
@@ -5783,7 +5896,7 @@ Blacktyde_2 = {
 	8280.1.1 = { add_spouse = Myre_2 } # Ravella Myre
 }
 ### Issue of Beron
-Blacktyde_3 = {
+Blacktyde_3 = { # edited 02/22 slambroski
 	name = Baelor # Canon, a lord, Asha supporter
 	dynasty = dynn_Blacktyde
 	dna = Blacktyde_3
@@ -5794,7 +5907,8 @@ Blacktyde_3 = {
 	culture = ironborn
 
 	father = Blacktyde_1
-	mother = Wayn_2
+	mother = Farwynd_121
+	# mother = Wayn_2
 
 	trait = education_diplomacy_3
 	trait = beauty_good_1
@@ -6302,7 +6416,7 @@ Ironmaker_8 = {
 	}
 }
 ### Issue of Thormor
-Ironmaker_9 = {
+Ironmaker_9 = { # edited 02/22 slambroski 
 	name = Harlon # Mentioned
 	dynasty = dynn_Ironmaker
 
@@ -6316,6 +6430,7 @@ Ironmaker_9 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
+	8289.6.1 = { death = { death_reason = death_battle } } # Greyjoy Rebellion
 }
 Ironmaker_10 = {
 	name = Balon # Mentioned
@@ -6378,9 +6493,11 @@ Ironmaker_13 = {
 		add_character_flag = canon_status_mentioned
 	}
 }
-Ironmaker_14 = {
-	name = Harren # Mentioned
+Ironmaker_14 = { # edited 02/22 slambroski 
+	# name = Harren # Mentioned
+	name = Harra
 	dynasty = dynn_Ironmaker
+	female = yes
 
 	religion = drowned_god
 	culture = ironborn
@@ -6647,7 +6764,7 @@ Sunderly_4 = {
 	}
 	8288.1.1 = { add_spouse = Salt_12 } # Siglynd Salt
 }
-Sunderly_6 = {
+Sunderly_6 = { # edited 02/22 slambroski
 	name = Norne
 	dynasty = dynn_Sunderly
 
@@ -6658,6 +6775,7 @@ Sunderly_6 = {
 	mother = FarwyndDL_2
 
 	8267.1.1 = { birth = yes }
+	8289.1.1 = { add_spouse = Netley_7_B } # Arwyn Netley
 }
 Sunderly_7 = {
 	name = Jonella # married Kelse Madduc
@@ -6684,6 +6802,32 @@ Sunderly_5 = {
 	mother = Salt_12
 
 	8290.1.1 = { birth = yes }
+}
+### Issue of Norne
+Sunderly_6_A = { # created 02/22 slambroski
+	name = Alannys
+	dynasty = dynn_Sunderly
+	female = yes 
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Sunderly_6
+	mother = Netley_7_B
+
+	8292.1.1 = { birth = yes }
+}
+Sunderly_6_B = { # created 02/22 slambroski
+	name = Will
+	dynasty = dynn_Sunderly
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Sunderly_6
+	mother = Netley_7_B
+
+	8296.1.1 = { birth = yes }
 }
 
 ###### HOUSE KENNING (id = dynn_Kenning)
@@ -7084,6 +7228,20 @@ Myre_4 = {
 	8285.1.1 = { give_nickname = nick_agot_historical_pinchface }
 	8299.11.15 = { employer = Greyjoy_6 } # Euron Greyjoy
 }
+### Issue of Jon
+Myre_4_A = { # Created 02/22 slambroski
+	name = Tom
+	dynasty = dynn_Myre
+	
+	religion = drowned_god
+	culture = ironborn
+
+	father = Myre_4
+
+	trait = bastard
+
+	8290.1.1 = { birth = yes }
+}
 ### Issue of Triston
 Myre_22 = {
 	name = Manfryd
@@ -7108,6 +7266,19 @@ Myre_23 = {
 	mother = Ironspite_89
 
 	8270.1.1 = { birth = yes }
+}
+Myre_23_B = { # created 02/22 slambroski
+	name = Wylla
+	dynasty = dynn_Myre
+	female = yes
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Myre_5
+	mother = Ironspite_89
+
+	8279.3.1 = { birth = yes }
 }
 
 ###### HOUSE STONEHOUSE (id = dynn_Stonehouse)
@@ -8333,6 +8504,32 @@ Weaver_7 = {
 		add_character_flag = has_scripted_appearance
 	}
 }
+### Issue of Romny
+Weaver_4_A = { # created 02/22 slambroski
+	name = Aggar
+	dynasty = dynn_Weaver
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Weaver_4
+	mother = Goodbrother_11
+
+	8291.6.1 = { birth = yes }
+}
+Weaver_4_B = { # created 02/22 slambroski
+	name = Margot
+	dynasty = dynn_Weaver
+	female = yes 
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Weaver_4
+	mother = Goodbrother_11
+
+	8298.1.1 = { birth = yes }
+}
 
 ###### HOUSE NETLEY (id = dynn_Netley)
 ############################
@@ -8453,7 +8650,7 @@ Netley_4 = {
 	}
 }
 Netley_7 = {
-	name = Wynafryd # married Josmon Forthe
+	name = Wynafryd # married Josmon Forthe (jk)
 	dynasty = dynn_Netley
 	female = yes
 
@@ -8465,10 +8662,36 @@ Netley_7 = {
 	father = Netley_5
 	mother = MootonHM_112
 
-	8267.1.1 = {
+	8266.1.1 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
 	}
+}
+Netley_7_B = { # created 02/22 slambroski
+	name = Arwyn
+	dynasty = dynn_Netley
+	female = yes
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Netley_5
+	mother = MootonHM_112
+
+	8269.1.1 = { birth = yes }
+}
+Netley_7_C = { # created 02/22 slambroski
+	name = Rhonda
+	dynasty = dynn_Netley
+	female = yes
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Netley_5
+	mother = MootonHM_112
+
+	8273.1.1 = { birth = yes }
 }
 ### Issue of Boremond
 Netley_2 = {
