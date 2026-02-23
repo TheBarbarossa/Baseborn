@@ -31,18 +31,13 @@
 	}
 	
 	can_start_showing_failures_only = {
-		NOT = { is_activity_type_on_cooldown = activity_tournament }
-		is_available_adult = yes
+		always = no
+		custom_tooltip = { text = bbc8_too_long }
 	}
 
 	is_valid = {
-		# If no one shows up
-		trigger_if = {
-			limit = {
-				is_current_phase_active = yes
-			}
-			has_attending_activity_guests = yes
-		}
+		always = no
+		custom_tooltip = { text = bbc8_too_long }
 	}
 
 	on_invalidated = {

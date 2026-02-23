@@ -29,32 +29,9 @@
 	can_always_plan = no
 
 	is_valid = {
-		# Monarch dying will invalidate
-		scope:activity.special_guest:coronation_target = {
-			is_alive = yes
-		}
-		# Being imprisoned will invalidate
-		scope:activity.special_guest:coronation_target = {
-			is_imprisoned = no
-		}
-		scope:host = {
-			# The host becoming unlanded will invalidate
-			is_landed = yes
-			# The new host being only anything below a empire tier will invalidate
-			highest_held_title_tier = tier_empire
-			# Incapable host will invalidate
-			NOT = { is_incapable = yes }
-		}
-		# Abdicating will invalidate
-		scope:activity = {
-			NOT = { has_variable = coronation_invalidated_ruler_abdicated }
-		}
-		# If no one shows up
-		trigger_if = {
-			limit = {
-				scope:activity = { is_current_phase_active = yes }
-			}
-			has_attending_activity_guests = yes
+		custom_tooltip = {
+			text = bbc8_too_long
+			always = no
 		}
 	}
 

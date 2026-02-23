@@ -47,49 +47,13 @@ activity_gruesome_festival = {
 	}
 
 	can_start_showing_failures_only = {
-		NOT = { is_activity_type_on_cooldown = activity_gruesome_festival }
-		is_available_adult = yes
-		# Must have at least some peasants who are into the idea.
-		custom_tooltip = {
-			text = gf_valid_county_faith
-			any_sub_realm_county = {
-				faith = { has_doctrine_parameter = gruesome_festivals_active }
-			}
-		}
-		# Suitable rank required.
-		trigger_if = {
-			limit = {
-				faith = { has_doctrine_parameter = gruesome_festivals_active }
-			}
-			custom_tooltip = {
-				text = gf_suitable_rank_valid
-				OR = {
-					top_liege = this
-					highest_held_title_tier >= tier_kingdom
-				}
-			}
-		}
-		trigger_else = {
-			highest_held_title_tier >= tier_duchy
-			# Technically, we could make this just mega-stressful, but since you'd have no easy way out, that feels like a newb trap.
-			NOT = { has_trait = zealous }
-		}
+		always = no
+		custom_tooltip = { text = bbc8_too_long }
 	}
 
 	is_valid = {
-		# Generic can-continue check.
-		scope:host = {
-			is_imprisoned = no
-			is_landed_or_landless_administrative = yes
-			NOT = { is_incapable = yes }
-		}
-		# If no one shows up
-		trigger_if = {
-			limit = {
-				is_current_phase_active = yes
-			}
-			has_attending_activity_guests = yes
-		}
+		always = no
+		custom_tooltip = { text = bbc8_too_long }
 	}
 
 	on_invalidated = {

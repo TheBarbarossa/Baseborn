@@ -554,50 +554,9 @@
 	}
 
 	is_valid = {
-		scope:host = {
-			# Standard checks
-			is_alive = yes
-			is_incapable = no
-			is_imprisoned = no
-			is_landed_or_landless_administrative = yes
-			trigger_if = {
-				limit = {
-					scope:activity = {
-						has_activity_option = {
-							category = special_type
-							option = coronation_type_anointment
-						}
-					}
-				}
-				NOT = { has_trait = excommunicated }
-			}
-
-			# If no one shows up
-			trigger_if = {
-				limit = {
-					involved_activity = { is_current_phase_active = yes }
-				}
-				involved_activity = { has_attending_activity_guests = yes }
-			}
-
-			# Dead officiator
-			custom_tooltip = {
-				NOT = {
-					has_character_flag = cancelled_coronation
-				}
-				text = coronation_cancelled_dead_officiator_desc
-			}
-
-			# Somehow lost the primary title
-			trigger_if = {
-				limit = {
-					has_variable = coronation_primary_title
-				}
-				custom_tooltip = {
-					var:coronation_primary_title ?= primary_title
-					text = coronation_cancelled_wrong_primary_title_desc
-				}
-			}		
+		custom_tooltip = {
+			text = bbc8_too_long
+			always = no
 		}
 	}
 
@@ -2554,7 +2513,7 @@
 	province_filter = holy_sites_realm
 	ai_province_filter = holy_sites_realm
 
-	max_guest_arrival_delay_time = { months = 8 }
+	max_guest_arrival_delay_time = { months = 2 }
 
 	ai_check_interval = 6
 
@@ -2684,7 +2643,7 @@
 						}
 					}
 					# Progress activity
-					scope:activity = { progress_activity_phase_after = { weeks = 6 } }
+					scope:activity = { progress_activity_phase_after = { weeks = 3 } }
 					# Set up guest subsets
 					scope:activity = {
 						every_attending_character = {
@@ -3057,7 +3016,7 @@
 						this = scope:host
 						has_multiple_players = yes
 					}
-					scope:activity = { progress_activity_phase_after = { weeks = 8 } }
+					scope:activity = { progress_activity_phase_after = { weeks = 3 } }
 					trigger_event = coronation_events.0050
 				}
 			}
@@ -3083,10 +3042,10 @@
 				trigger_event = coronation_events.0210
 				if = {
 					limit = { this = scope:host }
-					scope:activity = { progress_activity_phase_after = { weeks = 6 } }
+					scope:activity = { progress_activity_phase_after = { weeks = 3 } }
 					trigger_event = { #Coronation ending events	
 						id = coronation_events.0310
-						days = 15
+						days = 10
 					}
 				}
 			}
@@ -3572,7 +3531,7 @@
 						faction_is_type = nation_fracturing_faction
 					}
 					discontent_per_month > 0
-					months_until_max_discontent <= 12
+					months_until_max_discontent <= 2
 				}
 				scope:activity = {
 					change_variable = {
@@ -3588,7 +3547,7 @@
 						faction_is_type = nation_fracturing_faction
 					}
 					discontent_per_month > 0
-					months_until_max_discontent <= 12
+					months_until_max_discontent <= 2
 				}
 				scope:activity = {
 					change_variable = {
@@ -3604,7 +3563,7 @@
 						faction_is_type = nation_fracturing_faction
 					}
 					discontent_per_month > 0
-					months_until_max_discontent <= 8
+					months_until_max_discontent <= 2
 				}
 				scope:activity = {
 					change_variable = {
@@ -3620,7 +3579,7 @@
 						faction_is_type = nation_fracturing_faction
 					}
 					discontent_per_month > 0
-					months_until_max_discontent <= 8
+					months_until_max_discontent <= 2
 				}
 				scope:activity = {
 					change_variable = {

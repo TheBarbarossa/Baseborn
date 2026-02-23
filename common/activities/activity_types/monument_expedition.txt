@@ -18,17 +18,13 @@
 	can_always_plan = no
 
 	can_start_showing_failures_only = {
-		NOT = { is_activity_type_on_cooldown = activity_journey }
-		is_available = yes
-		age >= 16
+		always = no
+		custom_tooltip = { text = bbc8_too_long }
 	}
 
 	is_valid = {
-		scope:host = {
-			is_alive = yes
-			is_imprisoned = no
-			NOT = { is_incapable = yes }
-		}
+		always = no
+		custom_tooltip = { text = bbc8_too_long }
 	}
 
 	is_location_valid = {

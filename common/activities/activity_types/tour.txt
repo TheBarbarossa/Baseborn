@@ -30,27 +30,13 @@
 	}
 
 	can_start_showing_failures_only = {
-		NOT = { is_activity_type_on_cooldown = activity_tour }
-		highest_held_title_tier >= tier_duchy
-		is_available = yes
-		age >= 12
-		custom_tooltip = {
-			text = 3_vassals_or_more
-			vassal_count >= 3
-		}
-		custom_tooltip = {
-			text = 5_courtiers_or_more
-			any_courtier_or_guest = { count >= 5 }
-		}
-		is_in_civil_war = no
+		always = no
+		custom_tooltip = { text = bbc8_too_long }
 	}
 
 	is_valid = {
-		scope:host = {
-			is_landed = yes
-			NOT = { is_incapable = yes }
-			is_in_civil_war = no
-		}
+		always = no
+		custom_tooltip = { text = bbc8_too_long }
 	}
 
 	on_invalidated = {

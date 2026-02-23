@@ -56,32 +56,16 @@ activity_feast = {
 	}
 
 	can_start_showing_failures_only = {
-		NOT = { is_activity_type_on_cooldown = activity_feast }
-		trigger_if = {
-			limit = {
-				OR = {
-					is_ai = no
-					NOT = { has_character_flag = feast_ai_override }
-				}
-			}
-			is_available_adult = yes
+		custom_tooltip = {
+			text = bbc8_too_long
+			always = no
 		}
 	}
 
 	is_valid = {
-		scope:host = {
-			is_alive = yes
-			is_capable_adult = yes
-			is_imprisoned = no
-			is_landed_or_landless_administrative = yes
-			NOT = { is_incapable = yes }
-		}
-		# If no one shows up
-		trigger_if = {
-			limit = {
-				is_current_phase_active = yes
-			}
-			has_attending_activity_guests = yes
+		custom_tooltip = {
+			text = bbc8_too_long
+			always = no
 		}
 	}
 

@@ -30,125 +30,20 @@
 	}
 
 	can_start_showing_failures_only = {
-		NOT = { is_activity_type_on_cooldown = activity_wedding }
-		is_available = yes
-		#You have promised a grand wedding to someone
-		custom_tooltip = {
-			text = wedding_need_to_promise
-			has_variable = promised_grand_wedding_marriage_countdown
-			exists = var:promised_grand_wedding_marriage_countdown.betrothed
-		}
-		trigger_if = {
-			limit = {
-				has_variable = promised_grand_wedding_marriage_countdown
-				exists = var:promised_grand_wedding_marriage_countdown.betrothed
-			}
-			custom_tooltip = {
-				text = wedding_need_to_be_valid
-				#That someone and their betrothed are alive and adults and can marry
-				var:promised_grand_wedding_marriage_countdown = {
-					is_valid_grand_wedding_special_guest_trigger = { OTHER_SPOUSE = root.var:promised_grand_wedding_marriage_countdown.betrothed }
-				}
-				var:promised_grand_wedding_marriage_countdown.betrothed = {
-					is_valid_grand_wedding_special_guest_trigger = { OTHER_SPOUSE = root.var:promised_grand_wedding_marriage_countdown }
-				}
-			}
-		}
+		always = no
+		custom_tooltip = { text = bbc8_too_long }
 	}
 
 	# Require a betrothal for player to start planning a wedding
 	can_always_plan = no
 
 	is_valid = {
-		# A spouse dying will invalidate
-		scope:activity.special_guest:spouse_1 = {
-			is_alive = yes
-		}
-		trigger_if = { # weird workaround because the on_start is parsed after the is_valid the first time
-			limit = { exists = scope:activity.var:spouse_2_var }
-			OR = {
-				scope:activity.var:spouse_2_var = {
-					is_alive = yes
-				}
-				AND = {
-					scope:activity.var:spouse_2_var = {
-						is_alive = no
-					}
-					scope:activity = { #you're in a murder wedding
-						has_activity_option = { 
-							category = special_type 
-							option = wedding_type_bloody
-						}
-					}
-				}
-			}
-		}
-		# Being imprisoned will invalidate
-		scope:activity.special_guest:spouse_1 = {
-			is_imprisoned = no
-		}
-		trigger_if = { # weird workaround because the on_start is parsed after the is_valid the first time
-			limit = { exists = scope:activity.var:spouse_2_var }
-			scope:activity.var:spouse_2_var = {
-				is_imprisoned = no
-			}
-		}
-		scope:host = {
-			# The host becoming unlanded will invalidate
-			is_landed_or_landless_administrative = yes
-			# The new host being only a baron will invalidate
-			highest_held_title_tier >= tier_county
-			# Incapable host will invalidate
-			NOT = { is_incapable = yes }
-		}
-		# Saying no at the altar will invalidate
-		scope:activity = {
-			NOT = { has_variable = wedding_invalidated_said_no }
-		}
-		# If no one shows up
-		trigger_if = {
-			limit = {
-				scope:activity = { is_current_phase_active = yes }
-			}
-			has_attending_activity_guests = yes
-		}
-		# Emergency Invalidation: one of the spouses is not coming for some reason
-		trigger_if = {
-			limit = {
-				scope:activity = {
-					NOT = { has_variable = activity_travel_countdown }
-				}
-				exists = scope:activity.var:spouse_2_var
-				#AGOT Added, Vanilla Bug, prevent invalidation issues when spouse 1 is an located at another court and spouse is at home court and moves to their court after marriage
-				NOT = { scope:activity.special_guest:spouse_1.house = scope:activity.var:spouse_2_var.house }
-			}
-			scope:activity.var:spouse_2_var = {
-				OR = {
-					AND = {
-						is_ai = yes
-						involved_activity ?= scope:activity
-						OR = {
-							location = scope:activity.activity_location
-							current_travel_plan ?= {
-								travel_plan_activity = scope:activity
-							}
-						}
-					}
-					is_ai = no
-					AND = {
-						is_alive = no
-						scope:activity = { #you're in a murder wedding
-							has_activity_option = { 
-								category = special_type 
-								option = wedding_type_bloody
-							}
-						}
-					}
-				}
-			}
+		custom_tooltip = {
+			text = bbc8_too_long
+			always = no
 		}
 	}
-
+	
 	on_invalidated = {
 		scope:host ?= { save_scope_as = previous_host }
 		scope:activity.special_guest:spouse_1 ?= { save_scope_as = spouse_1 }

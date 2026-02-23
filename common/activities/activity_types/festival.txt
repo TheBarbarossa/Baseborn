@@ -12,30 +12,13 @@
 		}
 	}
 	can_start_showing_failures_only = {
-		NOT = { is_activity_type_on_cooldown = activity_festival }
-		is_available_adult = yes
-		custom_tooltip = {
-			text = activity_festival_landed_or_ceremonial_liege_tt
-			trigger_if = {
-				limit = { is_landed = no }
-				tgp_is_ceremonial_liege_trigger = yes
-			}
-		}
+		always = no
+		custom_tooltip = { text = bbc8_too_long }
 	}
 
 	is_valid = {
-		scope:host = {
-			is_alive = yes
-			is_capable_adult = yes
-			is_imprisoned = no
-			is_landed_or_landless_administrative = yes
-			NOT = { is_incapable = yes }
-		}
-		# If no one shows up
-		trigger_if = {
-			limit = { is_current_phase_active = yes }
-			has_attending_activity_guests = yes
-		}
+		always = no
+		custom_tooltip = { text = bbc8_too_long }
 	}
 
 	on_invalidated = {

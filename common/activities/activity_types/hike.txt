@@ -364,44 +364,44 @@
 							}
 						}
 					}
-					scope:activity = { progress_activity_phase_after = { days = 90 } }
+					scope:activity = { progress_activity_phase_after = { days = 30 } }
+					trigger_event = {
+						on_action = random_roaming_event_pulse
+						days = 6
+					}
+					trigger_event = {
+						on_action = random_roaming_event_pulse
+						days = 9
+					}
+					trigger_event = {
+						on_action = roaming_mid_activity_event_pulse
+						days = 12
+					}
 					trigger_event = {
 						on_action = random_roaming_event_pulse
 						days = 15
 					}
 					trigger_event = {
 						on_action = random_roaming_event_pulse
-						days = 30
-					}
-					trigger_event = {
-						on_action = roaming_mid_activity_event_pulse
-						days = 45
-					}
-					trigger_event = {
-						on_action = random_roaming_event_pulse
-						days = 60
-					}
-					trigger_event = {
-						on_action = random_roaming_event_pulse
-						days = 75
+						days = 18
 					}
 				}
 				else_if = {
 					limit = {
 						this = scope:host
 					}
-					scope:activity = { progress_activity_phase_after = { days = 60 } }
+					scope:activity = { progress_activity_phase_after = { days = 30 } }
 					trigger_event = {
 						on_action = random_roaming_event_pulse
-						days = 15
+						days = 6
 					}
 					trigger_event = {
 						on_action = roaming_mid_activity_event_pulse
-						days = 30
+						days = 9
 					}
 					trigger_event = {
 						on_action = random_roaming_event_pulse
-						days = 45
+						days = 12
 					}
 				}
 				if = {
@@ -413,7 +413,7 @@
 					}
 					trigger_event = {
 						id = bp3_roaming.0200
-						days = 40
+						days = 18
 					}
 				}
 			}

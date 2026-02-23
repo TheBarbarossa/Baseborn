@@ -36,63 +36,13 @@
 	can_always_plan = no
 
 	can_start_showing_failures_only = {
-		NOT = { is_activity_type_on_cooldown = activity_survey }
-		#Trigger if chain for good DLC dependent tooltips:
-		#If I  lack both DLC this never shows.
-		trigger_if = { #I have BP3 only - I need the perk
-			limit = {
-				has_bp3_dlc_trigger  = yes
-				NOR = {
-					has_ep3_dlc_trigger = yes
-					has_tgp_dlc_trigger = yes
-				}
-			}
-			has_perk = local_inspection_perk
-		}
-		trigger_else_if = { #I have both TGP/EP3 and BP3
-			limit = {
-				OR = {
-					has_ep3_dlc_trigger = yes
-					has_tgp_dlc_trigger = yes
-				}
-				has_bp3_dlc_trigger = yes
-			}
-			custom_tooltip = {
-				text = neither_local_inspection_perk_nor_merit
-				OR = {
-					has_perk = local_inspection_perk
-					government_allows = administrative
-					faith = { has_doctrine_parameter = inspections_unlocked_and_costs_piety }
-				}
-			}
-		}
-		trigger_else_if = { #I have only TGP/EP3 - I am required to have a bureaucratic government form (i.e. admin based).
-			limit = {
-				OR = {
-					has_ep3_dlc_trigger = yes
-					has_tgp_dlc_trigger = yes
-				}
-				has_bp3_dlc_trigger = no
-			}
-			OR = {
-				government_allows = administrative
-				faith = { has_doctrine_parameter = inspections_unlocked_and_costs_piety }
-			}
-		}
-		trigger_else = {
-			always = no
-		}
-		is_available = yes
-		is_landed = yes
-		age >= 16
+		always = no
+		custom_tooltip = { text = bbc8_too_long }
 	}
 
 	is_valid = {
-		scope:host = {
-			is_alive = yes
-			is_imprisoned = no
-			is_incapable = no
-		}
+		always = no
+		custom_tooltip = { text = bbc8_too_long }
 	}
 
 	is_location_valid = {

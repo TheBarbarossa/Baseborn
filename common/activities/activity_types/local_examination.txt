@@ -20,30 +20,13 @@
 	}
 
 	can_start_showing_failures_only = {
-		NOT = { is_activity_type_on_cooldown = activity_local_examination }
-		is_available_adult = yes
-		trigger_if = {
-			limit = {
-				is_independent_ruler = no
-			}
-			custom_tooltip = {
-				text = activity_local_exam_not_passed_tt
-				has_character_flag = passed_provincial_exam
-			}
-		}
+		always = no
+		custom_tooltip = { text = bbc8_too_long }
 	}
 
 	is_valid = {
-		scope:host = {
-			is_physically_able = yes
-			is_landed = yes
-			government_allows = merit
-		}
-		# If no one shows up
-		trigger_if = {
-			limit = { is_current_phase_active = yes }
-			has_attending_activity_guests = yes
-		}
+		always = no
+		custom_tooltip = { text = bbc8_too_long }
 	}
 
 	on_invalidated = {
