@@ -779,13 +779,12 @@ Greyjoy_14 = {
 		}
 	}
 	8299.9.30 = {
-		employer = Bolton_1 # Roose Bolton
+		employer = Bolton_5
 		effect = {
 			remove_trait = arrogant
 			remove_trait = ambitious
 			remove_trait = lustful
 			remove_trait = lifestyle_hunter
-			add_stress = monumental_stress_gain
 			if = {
 				limit = { character:Stark_6 = { is_alive = yes } }
 				reverse_add_opinion = {
@@ -814,11 +813,14 @@ Greyjoy_14 = {
 		trait = scarred
 		trait = maimed
 		trait = eunuch_1
+		trait = uncouth
 		trait = humble
 		trait = paranoid
 		trait = shy
 	}
-	8299.12.15 = { employer = Bolton_5 } # Ramsay Snow
+	8299.12.15 = { employer = Bolton_5 
+			release_from_prison = yes
+		} # Ramsay Snow
 	8300.1.30 = {
 		effect = {
 			if = {
@@ -833,7 +835,7 @@ Greyjoy_14 = {
 	8300.8.6 = {
 		employer = Baratheon_3 # Stannis Baratheon
 		effect = {
-			release_from_prison = yes
+
 			title:k_the_stormlands.holder = { # Stannis Baratheon
 				imprison = {
 					target = ROOT
