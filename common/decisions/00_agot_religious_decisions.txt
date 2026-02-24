@@ -1,0 +1,987 @@
+﻿#Faith of the Seven
+create_crown_of_hugor_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 120
+	desc = create_crown_of_hugor_decision_desc
+
+	is_shown = {
+		any_character_artifact = {
+			has_variable = stars_of_hugor_artifact
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = create_crown_of_hugor_all_stars
+			any_character_artifact = {
+				count = 7
+				has_variable = stars_of_hugor_artifact
+			}
+		}
+		religion = religion:the_seven_religion
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+
+	effect = {
+		every_character_artifact = {
+			limit = { has_variable = stars_of_hugor_artifact }
+			root = { destroy_owned_artifact = prev }
+		}
+		agot_create_artifact_crown_of_hugor_effect = { OWNER = this }
+		add_piety_level = 1
+	}
+
+	cost = { piety = 1000 }
+}
+
+high_heart_the_seven_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+
+	decision_group_type = religion
+
+	desc = high_heart_the_seven_decision_desc
+	selection_tooltip = high_heart_the_seven_decision_tooltip
+
+	is_shown = {
+		religion = religion:the_seven_religion
+		has_title = title:c_high_heart
+		province:2071 = {
+			has_building = agot_high_heart_01
+		}
+	}
+
+	is_valid = {
+		has_title = title:c_high_heart
+		religion = religion:the_seven_religion
+	}
+
+	effect = {
+		province:2071 = {
+			remove_building = agot_high_heart_01
+			add_special_building = agot_ruin_high_heart_02
+		}
+	}
+
+	cost = {
+		gold = normal_building_tier_1_cost
+	}
+
+	ai_check_interval = 60
+
+	ai_will_do = {
+		base = 20
+		modifier = {
+			add = -100
+			NOT = { short_term_gold >= normal_building_tier_1_cost }
+		}
+		modifier = {
+			add = 70
+			has_trait = zealous
+		}
+		modifier = {
+			add = -70
+			has_trait = cynical
+		}
+	}
+}
+
+#Old Gods
+weirwood_meditate_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+
+	decision_group_type = religion
+
+	desc = weirwood_meditate_decision_desc
+	selection_tooltip = weirwood_meditate_decision_tooltip
+
+	cooldown = { months = 12 }
+
+	is_shown = {
+		faith = {
+			has_doctrine_parameter = can_visit_weirwood_groves
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		trigger_event = agot_religious_decision.1001
+	}
+
+	cost = {
+		gold = visit_weirwood_cost_value
+	}
+
+	ai_check_interval = 60
+
+	ai_will_do = {
+		base = 20
+		modifier = {
+			add = -100
+			NOT = { short_term_gold >= visit_weirwood_cost_value }
+		}
+		modifier = {
+			add = 20
+			piety_level <= 2
+		}
+		modifier = {
+			add = 20
+			has_trait = zealous
+		}
+		modifier = {
+			add = -30
+			has_trait = cynical
+		}
+	}
+}
+
+high_heart_the_pact_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+
+	decision_group_type = religion
+
+	desc = high_heart_the_pact_decision_desc
+	selection_tooltip = high_heart_the_pact_decision_tooltip
+
+	is_shown = {
+		religion = religion:the_pact_religion
+		has_title = title:c_high_heart
+		title:b_high_heart = {
+			title_province = { has_building = agot_ruin_high_heart_02 }
+			NOT = { has_variable = restoring_high_heart }
+		}
+	}
+
+	is_valid = {
+		has_title = title:c_high_heart
+		religion = religion:the_pact_religion
+	}
+
+	effect = {
+		custom_tooltip = high_heart_the_pact_decision_effect
+		title:b_ruins.holder = {
+			trigger_event = {
+				id = agot_religious_decision.1100
+				years = 2
+			}
+		}
+		title:b_high_heart = {
+			set_variable = {
+				name = restoring_high_heart
+				value = yes
+				years = 2
+			}
+		}
+	}
+
+	cost = {
+		gold = expensive_building_tier_1_cost
+	}
+
+	ai_check_interval = 60
+
+	ai_will_do = {
+		base = 20
+		modifier = {
+			add = -100
+			NOT = { short_term_gold >= expensive_building_tier_1_cost }
+		}
+		modifier = {
+			add = 70
+			has_trait = zealous
+		}
+		modifier = {
+			add = -70
+			has_trait = cynical
+		}
+	}
+}
+
+#Drowned God
+
+#Rooloo
+agot_look_into_the_flames_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+
+	decision_group_type = religion
+
+	desc = look_into_the_flames_decision_desc
+	selection_tooltip = look_into_the_flames_decision_tooltip
+
+	is_shown = {
+		faith = {
+			has_doctrine_parameter = can_gaze_into_fire
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = decision_has_court_chaplain
+			root.cp:councillor_court_chaplain ?= {
+				has_trait = red_priest
+				is_available_adult = yes
+			}
+		}
+		custom_description = {
+			text = look_into_flames_decision_no_cooldown_requirement
+			NOT = { has_character_flag = look_into_flames_cooldown }
+		}
+		OR = {
+			has_trait = fire_obsessed
+			has_trait = zealous
+			has_trait = lifestyle_mystic
+		}
+	}
+
+	effect = {
+		custom_tooltip = look_into_flames_decision_effect
+		trigger_event = agot_religious_decision.3001
+	}
+
+	cost = {
+		piety = 100
+	}
+
+	ai_check_interval = 60
+
+	ai_will_do = {
+		base = 50
+
+		# 100% chance at 50 zeal, 0% chance at -50 zeal.
+		ai_value_modifier = {
+			ai_zeal = 1
+		}
+	}
+}
+
+#Free Cities
+agot_fund_trade_expedition_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
+	}
+
+	decision_group_type = religion
+
+	desc = fund_trade_expedition_decision_desc
+	selection_tooltip = fund_trade_expedition_decision_tooltip
+
+	is_shown = {
+		OR = {
+			faith = {
+				has_doctrine_parameter = can_fund_trade_expeditions
+			}
+			dynasty ?= { has_dynasty_perk = velaryon_legacy_1 }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		custom_description = {
+			text = "fund_trade_expedition_expedition_in_progress"
+			NOT = {
+				any_owned_story = {
+					story_type = story_fund_trade_expedition
+					exists = this
+				}
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = fund_trade_expedition_decision_effect
+			trigger_event = agot_religious_decision.4000
+		}
+	}
+
+	cooldown = { months = 120 }
+
+	ai_potential = {
+		short_term_gold >= major_gold_value
+	}
+
+	ai_will_do = {
+		base = 10
+		modifier = {
+			add = 15
+			has_trait = ambitious
+		}
+		modifier = {
+			add = 15
+			has_trait = greedy
+		}
+	}
+
+	ai_check_interval = 180
+}
+
+agot_take_new_face_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+
+	decision_group_type = religion
+
+	desc = agot_take_new_face_decision_desc
+
+	selection_tooltip = agot_take_new_face_decision_tooltip
+
+	is_shown = {
+		exists = global_var:hall_of_faces
+		faith = { has_doctrine_parameter = can_take_new_face }
+		# Must not have a secret identity as this decision begins life anew
+
+		NOR = {
+			has_character_flag = last_face
+			has_character_flag = choosing_face
+			has_character_flag = choosing_character
+			has_character_flag = has_secret_identity
+		}
+
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		custom_tooltip = {
+			text = agot_has_taken_face_recently
+			NOT = { has_character_flag = taken_face_recently }
+		}
+	}
+
+	effect = {
+		add_character_flag = choosing_face
+		trigger_event = agot_faceless_decision.0001
+
+		# Decision Tooltip
+
+		custom_tooltip = agot_take_new_face_decision_tt
+	}
+
+	ai_check_interval = 0
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+agot_faceless_new_adventure_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+
+	decision_group_type = religion
+
+	desc = agot_faceless_new_adventure_decision_desc
+
+	selection_tooltip = agot_faceless_new_adventure_decision_tooltip
+
+	is_shown = {
+		exists = global_var:hall_of_faces
+		faith = { has_doctrine_parameter = can_take_new_face }
+		# Must not have a secret identity as this decision begins life anew
+		has_dlc_feature = roads_to_power
+		NOR = {
+			has_character_flag = last_face
+			has_character_flag = choosing_face
+			has_character_flag = choosing_character
+			has_character_flag = has_secret_identity
+		}
+
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		custom_tooltip = {
+			text = agot_has_taken_face_recently
+			NOT = { has_character_flag = taken_face_recently }
+		}
+	}
+
+	effect = {
+		add_character_flag = choosing_character
+		trigger_event = agot_faceless_decision.0001
+
+		# Decision Tooltip
+
+		custom_tooltip = agot_faceless_new_adventure_decision_tt
+
+		if = {
+			limit = {
+				has_multiple_players = yes
+			}
+			custom_tooltip = agot_take_new_face_multiple_player_warning_tt
+		}
+	}
+
+	ai_check_interval = 0
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+agot_divine_plots_hire_assassin_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
+	}
+
+	decision_group_type = religion
+
+	desc = divine_plots_hire_assassin_decision_desc
+	selection_tooltip = divine_plots_hire_assassin_decision_tooltip
+
+	is_shown = {
+		faith = {
+			has_doctrine_parameter = can_hire_assassin
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		custom_description = {
+			text = "hire_assassin_decision_no_agent_slot"
+			any_scheme = {
+				any_scheme_agent_slot = {
+					is_filled = no
+					is_agent_slot_type = agent_assassin
+				}
+			}
+		}
+		custom_description = {
+			text = "hire_assassin_decision_existing_assassin"
+			NOT = {
+				any_courtier = {
+					has_character_flag = divine_plots_assassin
+				}
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = divine_plots_hire_assassin_decision_effect
+			create_character = {
+				template = divine_plots_assassin
+				employer = root
+				save_scope_as = assassin
+			}
+			add_hook = {
+				type = loyalty_hook
+				target = scope:assassin
+			}
+			random_scheme = {
+				limit = { scheme_type = murder }
+				save_scope_as = murder_scheme
+			}
+			scope:murder_scheme ?= {
+				random_scheme_agent_slot = {
+					limit = {
+						is_filled = no
+						is_agent_slot_type = agent_assassin
+					}
+					save_scope_as = valid_slot
+				}
+			}
+			scope:assassin ?= {
+				create_story = story_divine_plot_assassin
+				if ={
+					limit = { exists = scope:valid_slot }
+					force_add_to_agent_slot = {
+						agent_slot = scope:valid_slot
+						years = 10
+					}
+				}
+			}
+		}
+	}
+
+	cost = {
+		gold = major_gold_value
+	}
+
+	#The AI is too dumb to use this properly
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+
+	ai_check_interval = 120
+}
+
+imbibe_in_shade_of_the_evening_decision = {
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_herbs.dds"}
+
+	decision_group_type = religion
+
+	desc = imbibe_in_shade_of_the_evening_decision_desc
+	selection_tooltip = imbibe_in_shade_of_the_evening_decision_tooltip
+
+	cooldown = { years = 5 }
+
+	is_shown = {
+		faith = {
+			has_doctrine_parameter = can_use_shade_of_the_evening
+		}
+	}
+
+	effect = {
+		add_character_modifier = {
+			modifier = shade_of_the_evening
+			years = 3
+		}
+	}
+
+	cost = {
+		gold = {
+			value = major_gold_value
+		}
+	}
+
+	ai_check_interval = 60
+
+	ai_will_do = {
+		base = 50
+		modifier = {
+			add = 50
+			has_trait = zealous
+		}
+		modifier = {
+			add = 25
+			has_trait = cynical
+		}
+		modifier = {
+			add = -100
+			NOT = { gold >= major_gold_value }
+		}
+	}
+}
+
+blind_self_for_piety_decision = {
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"}
+
+	decision_group_type = religion
+
+	desc = blind_self_for_piety_decision_desc
+	selection_tooltip = blind_self_for_piety_decision_tooltip
+
+	is_shown = {
+		NOT = { has_trait = blind }
+		faith = {
+			has_doctrine_parameter = can_blind_self_for_piety
+		}
+	}
+
+	effect = {
+		add_trait = blind
+		add_character_modifier = {
+			modifier = recently_blinded
+			years = 1
+		}
+		add_piety = major_piety_gain
+		dynasty ?= { add_dynasty_prestige = major_dynasty_prestige_value }
+	}
+
+	ai_check_interval = 120
+
+	ai_will_do = {
+		base = 0
+		modifier = {
+			add = 10
+			has_trait = zealous
+		}
+	}
+}
+
+#Other Essos
+agot_launch_whaling_expedition_expedition_decision = {
+	picture = { reference = "gfx/interface/illustrations/event_scenes/bp1_docks_tribal.dds" }
+
+	decision_group_type = religion
+
+	desc = agot_launch_whaling_expedition_expedition_decision_desc
+	selection_tooltip = agot_launch_whaling_expedition_expedition_decision_tooltip
+
+	is_shown = {
+		is_landed = yes
+		faith = {
+			has_doctrine_parameter = can_go_on_whaling_expeditions
+		}
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = agot_launch_whaling_expedition_expedition_decision_effect
+			trigger_event = agot_religious_decision.5000
+		}
+	}
+
+	cooldown = { years = 3 }
+
+	ai_potential = {
+		short_term_gold >= major_gold_value
+	}
+
+	ai_will_do = {
+		base = 10
+		modifier = {
+			add = 15
+			has_trait = ambitious
+		}
+		modifier = {
+			add = 15
+			has_trait = greedy
+		}
+	}
+
+	ai_check_interval = 180
+}
+
+oily_black_stone_meditate_decision = {
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_oily_black_stone.dds"}
+
+	decision_group_type = religion
+
+	desc = oily_black_stone_meditate_decision_desc
+	selection_tooltip = oily_black_stone_meditate_decision_tooltip
+
+	cooldown = { years = 10 }
+
+	is_shown = {
+		faith = {
+			has_doctrine_parameter = access_to_dark_communion_event
+		}
+	}
+
+	is_valid = {
+		OR = {
+			custom_description = {
+				text = decision_oily_black_stone.has_artifact
+				any_character_artifact = {
+					has_variable = oily_black_stone_artifact
+				}
+			}
+			custom_description = {
+				text = decision_oily_black_stone.control_one_holy_site
+				faith = {
+					any_holy_site = {
+						OR = {
+							county.holder = root
+							county.holder.top_liege = { this = root }
+						}
+					}
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		trigger_event = agot_religious_decision.5100
+	}
+
+	cost = {
+		prestige = {
+			value = major_prestige_value
+		}
+	}
+
+	ai_check_interval = 60
+
+	ai_will_do = {
+		base = 2
+		modifier = {
+			add = -100
+			NOT = { prestige >= major_prestige_value }
+		}
+		modifier = {
+			add = -100
+			NOT = { gold >= major_gold_value }
+		}
+		modifier = {
+			add = 2
+			has_trait = zealous
+		}
+		modifier = {
+			add = -100
+			has_trait = cynical
+		}
+	}
+}
+
+agot_drain_blood_religious_decision = { # Fevre Dream moment
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"}
+
+	decision_group_type = religion
+
+	desc = agot_drain_blood_religious_decision_desc
+	selection_tooltip = agot_drain_blood_religious_decision_tooltip
+
+	cooldown = { years = 1 }
+
+	is_shown = {
+		faith = {
+			has_doctrine_parameter = can_drain_and_consume_prisoners_blood
+		}
+		any_prisoner = {
+			count > 0
+		}
+	}
+
+	effect = {
+		trigger_event = agot_religious_decision.5200
+		custom_tooltip = agot_drain_blood_religious_decision_effect_tt
+	}
+	ai_check_interval = 120
+	ai_will_do = {
+		base = 10
+		modifier = {
+			add = -25
+			ai_compassion > 0
+		}
+		modifier = {
+			add = 25
+			has_trait = zealous
+		}
+		modifier = {
+			add = 50
+			OR = {
+				has_trait = sadistic
+				has_trait = torturer
+			}
+		}
+	}
+}
+
+agot_consume_blood_religious_decision = {
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"}
+
+	decision_group_type = religion
+
+	desc = agot_consume_blood_religious_decision_desc
+	selection_tooltip = agot_consume_blood_religious_decision_tooltip
+
+	cooldown = { years = 1 }
+
+	is_shown = {
+		faith = {
+			has_doctrine_parameter = can_drain_and_consume_prisoners_blood
+		}
+		AND = {
+			has_variable = blood_is_life_blood_counter
+			var:blood_is_life_blood_counter > 0
+		}
+	}
+	widget = {
+		gui = "decision_view_widget_option_list_generic"
+		controller = decision_option_list_controller
+		decision_to_second_step_button = "agot_consume_blood_religious_decision_next_step_button"
+		show_from_start = yes
+
+		item = {
+			value = small_amount_of_blood
+			localization = small_amount_of_blood_desc
+			icon = "gfx/interface/icons/message_feed/religious.dds"
+			is_valid = {
+				custom_tooltip = {
+					has_variable = blood_is_life_blood_counter
+					var:blood_is_life_blood_counter >= 20
+					text = small_amount_of_blood_tooltip
+				}
+			}
+			ai_chance = {
+				value = 25
+			}
+		}
+		item = {
+			value = moderate_amount_of_blood
+			localization = moderate_amount_of_blood_desc
+			icon = "gfx/interface/icons/message_feed/religious.dds"
+			is_valid = {
+				custom_tooltip = {
+					has_variable = blood_is_life_blood_counter
+					var:blood_is_life_blood_counter >= 30
+					text = moderate_amount_of_blood_tooltip
+				}
+			}
+			ai_chance = {
+				value = 25
+			}
+		}
+		item = {
+			value = large_amount_of_blood
+			localization = large_amount_of_blood_desc
+			icon = "gfx/interface/icons/message_feed/religious.dds"
+			is_valid = {
+				custom_tooltip = {
+					has_variable = blood_is_life_blood_counter
+					var:blood_is_life_blood_counter >= 40
+					text = large_amount_of_blood_tooltip
+				}
+			}
+			ai_chance = {
+				value = 25
+			}
+		}
+		item = {
+			value = great_amount_of_blood
+			localization = great_amount_of_blood_desc
+			icon = "gfx/interface/icons/message_feed/religious.dds"
+			is_valid = {
+				custom_tooltip = {
+					has_variable = blood_is_life_blood_counter
+					var:blood_is_life_blood_counter >= 50
+					text = great_amount_of_blood_tooltip
+				}
+			}
+			ai_chance = {
+				value = 25
+			}
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				scope:small_amount_of_blood = yes
+			}
+			add_dread = 5
+		}
+		else_if = {
+			limit = {
+				scope:moderate_amount_of_blood = yes
+			}
+			add_dread = 10
+		}
+		else_if = {
+			limit = {
+				scope:large_amount_of_blood = yes
+			}
+			add_dread = 15
+		}
+		else_if = {
+			limit = {
+				scope:great_amount_of_blood = yes
+			}
+			add_dread = 20
+		}
+	}
+	ai_check_interval = 60
+	ai_will_do = {
+		base = 30
+		modifier = {
+			add = 50
+			OR = {
+				has_trait = sadistic
+				has_trait = cannibal
+			}
+		}
+	}
+}
+
+disavow_incest_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+
+	decision_group_type = religion
+
+	desc = disavow_incest_decision_desc
+
+	selection_tooltip = disavow_incest_decision_tooltip
+
+	is_shown = {
+		dynasty ?= dynasty:dynn_Targaryen
+		is_house_head = yes
+		faith = { has_doctrine = agot_exceptionalism_doctrine }
+		NOT = {
+			house = { has_house_modifier = disavowed_incest_house_modifier }
+		}
+	}
+
+	effect = {
+		house = {
+			add_house_modifier = disavowed_incest_house_modifier
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+reinstate_incest_decision = {
+	ai_check_interval = 0
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+
+	decision_group_type = religion
+
+	desc = reinstate_incest_decision_desc
+
+	selection_tooltip = reinstate_incest_decision_tooltip
+
+	is_shown = {
+		dynasty ?= dynasty:dynn_Targaryen
+		is_house_head = yes
+		house = { has_house_modifier = disavowed_incest_house_modifier }
+	}
+
+	cost = { piety = 2000 }
+
+	effect = {
+		house = {
+			remove_house_modifier = disavowed_incest_house_modifier
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
