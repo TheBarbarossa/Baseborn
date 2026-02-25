@@ -3263,6 +3263,71 @@ baseborn_wilderness = { # Bookmark setup - don't care enough to rename
 				years = 3
 			}
 		}
+		every_county_in_region = {
+			region = world_westeros_the_riverlands
+			limit = {
+				NOR = {
+					de_jure_liege = title:d_cape_of_eagles
+					de_jure_liege = title:d_the_crossing
+				}
+			}
+			add_county_modifier = {
+				modifier = baseborn_war_of_five_riverlands_aftermath_modifier
+				years = 3
+			}
+		}
+		every_county_in_region = {
+			region = world_westeros_the_riverlands
+			limit = {
+					de_jure_liege = title:d_the_crossing
+			}
+			add_county_modifier = {
+				modifier = baseborn_war_of_five_frey_modifier
+				years = 3
+			}
+		}
+		every_county_in_region = {
+			region = world_westeros_the_crownlands
+			limit = {
+				NOR = {
+					de_jure_liege = title:d_dragonstone
+					de_jure_liege = title:d_driftmark
+				}
+			}
+			add_county_modifier = {
+				modifier = baseborn_war_of_five_crownlands_aftermath_modifier
+				years = 3
+			}
+		}
+		every_county_in_region = {
+			region = world_westeros_the_westerlands
+			limit = {
+					de_jure_liege = title:d_the_golden_tooth
+					de_jure_liege = title:d_castamere
+					de_jure_liege = title:d_tarrich
+					de_jure_liege = title:d_the_crag
+					de_jure_liege = title:d_ashemark
+					de_jure_liege = title:d_withermoore
+					de_jure_liege = title:d_goldmarch
+					de_jure_liege = title:d_casterly_rock
+			}
+			add_county_modifier = {
+				modifier = baseborn_war_of_five_westerlands_aftermath_modifier
+				years = 3
+			}
+		}
+		
+		every_county_in_region = {
+			region = world_westeros_the_stormlands
+
+			add_county_modifier = {
+				modifier = baseborn_war_of_five_stormlands_aftermath_modifier
+				years = 3
+			}
+		}
+
+
+
 		# Wildling levy boost
 		every_county_in_region = {
 			region = world_westeros_beyond_the_wall
