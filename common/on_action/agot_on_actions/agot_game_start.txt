@@ -3255,7 +3255,9 @@ baseborn_wilderness = { # Bookmark setup - don't care enough to rename
 					de_jure_liege = title:d_the_neck
 					de_jure_liege = title:d_silvereed
 					de_jure_liege = title:d_fever
-					de_jure_liege = title:the_northern_mountains
+					de_jure_liege = title:d_the_northern_mountains
+					this = title:c_highpoint
+					
 				}
 			}
 			add_county_modifier = {
@@ -3286,6 +3288,17 @@ baseborn_wilderness = { # Bookmark setup - don't care enough to rename
 				years = 3
 			}
 		}
+
+		every_county_in_region = {
+			region = world_westeros_the_vale
+			limit = {
+					de_jure_liege = title:d_gulltown
+			}
+			add_county_modifier = {
+				modifier = baseborn_war_of_five_grafton_modifier
+				years = 1
+			}
+		}
 		every_county_in_region = {
 			region = world_westeros_the_crownlands
 			limit = {
@@ -3312,7 +3325,6 @@ baseborn_wilderness = { # Bookmark setup - don't care enough to rename
 					de_jure_liege = title:d_hornvale
 					de_jure_liege = title:d_lanns_point
 					de_jure_liege = title:d_fair_isle
-
 				}
 			}
 			add_county_modifier = {
