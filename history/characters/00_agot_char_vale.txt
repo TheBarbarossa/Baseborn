@@ -3278,7 +3278,7 @@ Waynwood_21 = {
 	8300.1.1 = { trait = knight }
 }
 ### Issue of Morton
-Waynwood_22 = {
+Waynwood_22 = { # edited 02/25 slambroski
 	name = Roland # Canon
 	dynasty = dynn_Waynwood
 
@@ -3307,7 +3307,10 @@ Waynwood_22 = {
 			add_unpressed_claim = title:c_winterfell
 		}
 	}
-	8297.1.1 = { trait = knight }
+	8297.1.1 = { 
+		trait = knight 
+		trait = strong
+	}
 }
 Waynwood_23 = {
 	name = Anya
@@ -3324,7 +3327,7 @@ Waynwood_23 = {
 		birth = yes
 	}
 }
-Waynwood_24 = {
+Waynwood_24 = { # edited 02/25 slambroski
 	name = Jasper # Mentioned
 	dynasty = dynn_Waynwood
 
@@ -3334,12 +3337,13 @@ Waynwood_24 = {
 	father = Waynwood_16
 	mother = MootonHM_131
 
-	8284.1.1 = {
+	# 8284
+	8286.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 }
-Waynwood_25 = {
+Waynwood_25 = { # edited 02/25 slambroski
 	name = Cersei
 	dynasty = dynn_Waynwood
 	female = yes
@@ -3350,7 +3354,8 @@ Waynwood_25 = {
 	father = Waynwood_16
 	mother = MootonHM_131
 
-	8286.1.1 = { birth = yes }
+	# 8286.1.1 = { birth = yes }
+	8290.1.1 = { birth = yes }
 }
 ### Issue of Waltyr, second cousins to Anya
 Waynwood_79 = {
@@ -3375,7 +3380,7 @@ Waynwood_79 = {
 ############################
 ###
 ###
-Hunter_1 = {
+Hunter_1 = { # edited 02/25 slambroski
 	name = Eon # Canon, a lord
 	dynasty = dynn_Hunter
 	dna = Hunter_1
@@ -3413,7 +3418,7 @@ Hunter_1 = {
 	}
 	8300.1.1 = {
 		death = {
-			death_reason = death_murder_known
+			death_reason = death_murder #_known
 			killer = Hunter_4 # Harlan Hunter
 		}
 	}
@@ -3483,7 +3488,7 @@ Hunter_3 = {
 	8271.1.1 = { trait = knight }
 	8280.1.1 = { add_spouse = ArrynGT_7 } # Perra Arryn of Gulltown
 }
-Hunter_4 = {
+Hunter_4 = { # edited 02/25 slambroski
 	name = Harlan # Canon
 	dynasty = dynn_Hunter
 	dna = Hunter_4
@@ -3512,6 +3517,14 @@ Hunter_4 = {
 	}
 	8275.1.1 = { trait = knight }
 	8285.1.1 = { add_spouse = Hungerford_6 } # Anya Hungerford
+	8300.1.1 = {
+		effect = {
+			add_secret = {
+				type = secret_murder
+				target = character:Hunter_1 # Eon Hunter
+			}
+		}
+	}
 }
 Hunter_5 = {
 	name = Janyce # Canon, married Edwyn Frey
@@ -3534,7 +3547,7 @@ Hunter_5 = {
 	8280.1.1 = { trait = lustful }
 }
 ### Issue of Eustace
-Hunter_6 = {
+Hunter_6 = { # edited 02/25 slambroski
 	name = Alec
 	dynasty = dynn_Hunter
 
@@ -3545,6 +3558,7 @@ Hunter_6 = {
 	mother = ArrynGT_7
 
 	8282.1.1 = { birth = yes }
+	8294.1.1 = { death = { death_reason = death_accident } }
 }
 Hunter_7 = {
 	name = Teora
@@ -3560,8 +3574,9 @@ Hunter_7 = {
 	8284.1.1 = { birth = yes }
 }
 ### Issue of Harlan
-Hunter_8 = {
-	name = Janyce
+Hunter_8 = { # edited 02/25 slambroski
+	# name = Janyce
+	name = Dyanna
 	dynasty = dynn_Hunter
 	female = yes
 
@@ -3572,8 +3587,9 @@ Hunter_8 = {
 	mother = Hungerford_6
 
 	8286.1.1 = { birth = yes }
+	8300.1.1 = { employer = Hunter_2 }
 }
-Hunter_9 = {
+Hunter_9 = { # edited 02/25 slambroski
 	name = Eon
 	dynasty = dynn_Hunter
 
@@ -3586,8 +3602,9 @@ Hunter_9 = {
 	8289.1.1 = {
 		birth = yes
 	}
+	8300.1.1 = { employer = Hunter_2 }
 }
-Hunter_10 = {
+Hunter_10 = { # edited 2/25 slambroski
 	name = Roland
 	dynasty = dynn_Hunter
 
@@ -3597,7 +3614,9 @@ Hunter_10 = {
 	father = Hunter_4
 	mother = Hungerford_6
 
-	8291.1.1 = { birth = yes }
+	# 8291.1.1 = { birth = yes }
+	8293.6.1 = { birth = yes }
+	8300.1.1 = { employer = Hunter_2 }
 }
 ### Issue of Stentey
 Hunter_51 = {
@@ -4103,7 +4122,7 @@ Royce_2 = {
 		add_spouse = Waynwood_17 # Alys Waynwood
 	}
 }
-Royce_3 = {
+Royce_3 = { # edited 02/25 slambroski
 	name = Ryella # Mentioned
 	dynasty = dynn_Royce
 	female = yes
@@ -4114,6 +4133,8 @@ Royce_3 = {
 
 	father = Royce_1
 	mother = Royce_100
+
+	trait = clubfooted
 
 	8273.1.1 = {
 		birth = yes
@@ -4250,7 +4271,7 @@ Royce_7 = {
 	}
 }
 ### Issue of Andar
-Royce_8 = {
+Royce_8 = { # edited 02/25 slambroski
 	name = Lorra # Mentioned
 	dynasty = dynn_Royce
 	female = yes
@@ -4263,10 +4284,11 @@ Royce_8 = {
 
 	8286.1.1 = {
 		birth = yes
+		employer = Royce_1 
 		add_character_flag = canon_status_mentioned
 	}
 }
-Royce_9 = {
+Royce_9 = { # edited 02/25 slambroski
 	name = Myranda # Mentioned
 	dynasty = dynn_Royce
 	female = yes
@@ -4277,12 +4299,14 @@ Royce_9 = {
 	father = Royce_2
 	mother = Waynwood_17
 
-	8287.1.1 = {
+	# 8287.1.1
+	8287.6.1 = {
 		birth = yes
+		employer = Royce_1 
 		add_character_flag = canon_status_mentioned
 	}
 }
-Royce_10 = {
+Royce_10 = { # edited 02/25 slambroski
 	name = Alayne # Mentioned
 	dynasty = dynn_Royce
 	female = yes
@@ -4293,8 +4317,10 @@ Royce_10 = {
 	father = Royce_2
 	mother = Waynwood_17
 
-	8288.1.1 = {
+	# 8288.1.1
+	8291.1.1 = {
 		birth = yes
+		employer = Royce_1 
 		add_character_flag = canon_status_mentioned
 	}
 }
@@ -5297,7 +5323,7 @@ Templeton_3_E = { # created 02/07 slambroski
 	8288.1.1 = { death = { death_reason = death_sickly } }
 }
 ### Issue of Gerold
-Templeton_4 = {
+Templeton_4 = { # edited 02/25 slambroski
 	name = Harrold
 	dynasty = dynn_Templeton
 
@@ -5307,7 +5333,10 @@ Templeton_4 = {
 	father = Templeton_3
 	mother = Wydman_3
 
-	8288.1.1 = { birth = yes }
+	8288.1.1 = { 
+		birth = yes 
+		employer = Templeton_1
+	}
 }
 Templeton_4_B = { # created 02/07 slambroski
 	name = Preston
@@ -5319,7 +5348,10 @@ Templeton_4_B = { # created 02/07 slambroski
 	father = Templeton_3
 	mother = Wydman_3
 
-	8294.1.1 = { birth = yes }
+	8294.1.1 = { 
+		birth = yes
+		employer = Templeton_1
+	}
 }
 ### Household
 Templeton_hh_1 = {
@@ -7161,6 +7193,7 @@ True_23 = {
 
 	8260.1.1 = { birth = yes }
 	8280.1.1 = { add_spouse = Lesper_64 } # Janna Lesper
+	8287.1.1 = { add_spouse = Hunter_59 } # Milicent Hunter
 }
 True_26 = {
 	name = Perianne # married Benedict Belmore
@@ -7208,7 +7241,7 @@ True_24_B = { # created 01/26 slambroski
 	culture = valeman
 
 	father = True_23
-	mother = Lesper_64
+	mother = Hunter_59
 
 	8288.1.1 = { birth = yes }
 }
@@ -12225,7 +12258,7 @@ Sunderland_5 = {
 		add_character_flag = canon_status_mentioned
 	}
 }
-Sunderland_6 = {
+Sunderland_6 = { # edited 02/25 slambroski
 	name = Rolland # Mentioned
 	dynasty = dynn_Sunderland
 
@@ -12234,6 +12267,8 @@ Sunderland_6 = {
 
 	father = Sunderland_1
 	mother = Egen_28
+
+	trait = intellect_bad_1
 
 	8290.1.1 = {
 		birth = yes
@@ -14962,7 +14997,7 @@ Harrow_66 = {
 	8267.1.1 = { trait = knight }
 	8277.1.1 = { add_spouse = Myshkin_137 } # Marissa Myshkin
 }
-Harrow_67 = {
+Harrow_67 = { # edited 02/25 slambroski
 	name = Uthor
 	dynasty = dynn_Harrow
 
@@ -14974,17 +15009,18 @@ Harrow_67 = {
 
 	8252.1.1 = { birth = yes }
 	8268.1.1 = { trait = knight }
-	8272.1.1 = { add_spouse = Harrow_rs_67 }
+	# 8272.1.1 = { add_spouse = Harrow_rs_67 }
+	8274.1.1 = { add_spouse = Hunter_60 } # Sansa Hunter
 }
-Harrow_rs_67 = {
-	name = Lymaria
-	female = yes
-
-	religion = fots_seven
-	culture = moonman
-
-	8252.1.1 = { birth = yes }
-}
+#Harrow_rs_67 = {
+#	name = Lymaria
+#	female = yes
+#
+#	religion = fots_seven
+#	culture = moonman
+#
+#	8252.1.1 = { birth = yes }
+#}
 Harrow_68 = {
 	name = Theona # married Eustace Revere
 	dynasty = dynn_Harrow
@@ -15008,7 +15044,8 @@ Harrow_69 = {
 	culture = moonman
 
 	father = Harrow_67
-	mother = Harrow_rs_67
+	mother = Hunter_60 
+	# mother = Harrow_rs_67
 
 	8276.1.1 = { birth = yes }
 }
@@ -22901,6 +22938,7 @@ Lesper_64 = { # edited 02/05 slambroski
 	mother = Lesper_rs_60
 
 	8258.1.1 = { birth = yes }
+	8283.1.1 = { death = { death_reason = death_childbirth } }
 }
 Lesper_65 = {
 	name = Leorald
