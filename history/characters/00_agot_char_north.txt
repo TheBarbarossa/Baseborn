@@ -5132,6 +5132,7 @@ Bolton_5 = {
 	culture = northman
 
 	father = Bolton_1
+	mother = Miller_Wife_1
 
 	trait = legitimized_bastard # Caution: succession error
 
@@ -5256,6 +5257,74 @@ Bolton_5 = {
 		}
 	}
 	8300.6.14 = { add_spouse = Poole_Dummy_3 } # Jeyne Pool as Arya Stark
+}
+### Ramsay's Mother & Family
+Miller_Wife_1 = { # created 02/24 slambroski
+	name = Myriame # Canon, aka, Miller's wife, aka, Ramsay Snow's mother
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = northman
+
+	trait = glowing
+	trait = brave
+
+	8261.1.1 = { 
+		birth = yes
+		employer = Dusk_52 # Lorick Dusk, Roose was hunting along the Weep
+	}
+	8288.1.1 = { employer = Dusk_56 } # Finn Dusk
+	8297.1.1 = { employer = Dusk_59 } # Palla Dusk
+	8298.2.1 = { death = { death_reason = death_vanished } }
+}
+Miller_Wife_2 = { # created 02/24 slambroski
+	name = Tym # Canon, aka, The Old Miller
+
+	religion = old_gods_wnw
+	culture = northman
+
+	father = Miller_Wife_4
+
+	8242.1.1 = { 
+		birth = yes 
+		employer = Dusk_52 # Lorick Dusk, Roose was hunting along the Weep
+	}
+	8278.1.1 = { add_spouse = Miller_Wife_1 }
+	8278.2.1 = {
+		death = {
+			death_reason = death_murder
+			killer = Bolton_1 # Roose Bolton
+		}
+	}
+}
+Miller_Wife_3 = { # created 02/24 slambroski
+	name = Ben # Canon, aka, The Old Miller's Brother
+
+	religion = old_gods_wnw
+	culture = northman
+
+	father = Miller_Wife_4
+
+	trait = wrathful
+
+	8247.1.1 = { 
+		birth = yes
+		employer = Dusk_52 # Lorick Dusk, Roose was hunting along the Weep
+	}
+	8279.1.1 = {
+		trait = mute
+	}
+	8288.1.1 = { employer = Dusk_56 } # Finn Dusk
+	8297.1.1 = { employer = Dusk_59 } # Palla Dusk
+}
+Miller_Wife_4 = { # created 02/24 slambroski
+	name = Hallis
+
+	religion = old_gods_wnw
+	culture = northman
+
+	8218.1.1 = { birth = yes }
+	8262.1.1 = { death = yes }
 }
 ### Household
 Bolton_hh_1 = {
