@@ -2976,7 +2976,7 @@ Bracken_97 = {
 	8245.1.1 = { birth = yes }
 }
 ### Issue of Amos
-Bracken_3 = {
+Bracken_3 = { # edited 02/24 slambroski
 	name = Jonos # Canon, a lord
 	dynasty = dynn_Bracken
 
@@ -3022,6 +3022,17 @@ Bracken_3 = {
 					target = character:Tully_9 # Brynden Tully
 					modifier = friendliness_opinion
 					opinion = 20
+				}
+			}
+		}
+	}
+	8278.1.1 = {
+		effect = {
+			if = {
+				limit = { character:Blackwood_6 = { is_alive = yes } }
+				set_relation_rival = {
+					target = character:Blackwood_6 # Tytos Blackwood
+					reason = rival_age_old_rivalry
 				}
 			}
 		}

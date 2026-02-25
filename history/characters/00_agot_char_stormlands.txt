@@ -960,7 +960,7 @@ Baratheon_7 = {
 		}
 	}
 }
-Baratheon_10 = {
+Baratheon_10 = { # edited 02/24 slambroski
 	name = Mya # Canon, THE Mya Stone
 	female = yes
 	dna = Baratheon_10
@@ -1004,8 +1004,16 @@ Baratheon_10 = {
 	}
 	8294.1.1 = { trait = lustful 
 		trait = refusing_marriage
-		effect = { add_character_modifier = contraceptives_modifier }}
-	8298.2.24 = { employer = Arryn_8 } # Robert Arryn
+		effect = { 
+			add_character_modifier = contraceptives_modifier 
+			if = {
+				limit = { character:RoyceGOTM_3 = { is_alive = yes } }
+				set_relation_friend = character:RoyceGOTM_3 # Myranda Royce
+			}
+	} 
+	}
+	# 8298.2.24 = { employer = Arryn_8 } # Robert Arryn
+	8298.2.24 = { employer = RoyceGOTM_1 } # Nestor Royce
 }
 Baratheon_11 = {
 	name = Cedric # Semi-Canon
@@ -1995,6 +2003,7 @@ Melisandre_1 = {
 		trait = witch
 		#trait = former_slave # AGOT TODO trait
 		trait = lifestyle_mystic_3_history
+		trait = refusing_marriage
 		effect = {
 			remove_trait = slave
 			#add_character_flag = shadowbinder_magic_knowledge # AGOT TODO
@@ -2010,6 +2019,10 @@ Melisandre_1 = {
 			agot_appoint_as_councillor_for_castle_history_effect = {
 				CASTLE = title:c_dragonstone
 				POSITION = councillor_court_chaplain
+			}
+			if = {
+				limit = { character:Florent_10 = { is_alive = yes } }
+				set_relation_friend = character:Florent_10 # Selyse Florent
 			}
 		}
 	}
