@@ -1697,7 +1697,7 @@ Wayn_26 = {
 }
 ### Issue of Utherydes
 Wayn_2 = {
-	name = Corrine # married Beron Blacktyde
+	name = Corrine # married Beron Blacktyde (jk)
 	dynasty = dynn_Wayn
 	female = yes
 
@@ -1709,7 +1709,7 @@ Wayn_2 = {
 
 	8260.1.1 = { birth = yes }
 }
-Wayn_27 = {
+Wayn_27 = { # edited 02/26 slambroski
 	name = Willifer
 	dynasty = dynn_Wayn
 
@@ -1720,8 +1720,12 @@ Wayn_27 = {
 	mother = Darkwood_48
 
 	8265.1.1 = { birth = yes }
+	8282.1.1 = {
+		trait = knight
+		add_spouse = Nutt_36 # Jeyne Nutt
+	}
 }
-Wayn_3 = {
+Wayn_3 = { # edited 02/26 slambroski
 	name = Hoster
 	dynasty = dynn_Wayn
 
@@ -1732,6 +1736,39 @@ Wayn_3 = {
 	mother = Darkwood_48
 
 	8267.1.1 = { birth = yes }
+	8283.1.1 = { trait = knight }
+	8299.12.15 = {
+		death = {
+			death_reason = death_bloody_wedding # The Red Wedding
+			killer = Frey_1 #Walder Frey
+		}
+	}
+}
+### Issue of Hoster
+Wayn_27_A = { # created 02/26 slambroski
+	name = Olyvar
+	dynasty = dynn_Wayn
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Wayn_27
+	mother = Nutt_36
+
+	8285.1.1 = { birth = yes }
+}
+Wayn_27_B = { # created 02/26 slambroski
+	name = Catelyn
+	dynasty = dynn_Wayn
+	female = yes 
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Wayn_27
+	mother = Nutt_36
+
+	8289.1.1 = { birth = yes }
 }
 ### Issue of Cetheres
 Wayn_28 = {
@@ -1762,7 +1799,7 @@ Wayn_29 = {
 
 	8264.1.1 = { birth = yes }
 }
-Wayn_30 = {
+Wayn_30 = { # edited 02/26 slambroski
 	name = Willem
 	dynasty = dynn_Wayn
 
@@ -1776,6 +1813,12 @@ Wayn_30 = {
 
 	8264.1.1 = { birth = yes }
 	8280.1.1 = { trait = knight }
+	8299.12.15 = {
+		death = {
+			death_reason = death_bloody_wedding # The Red Wedding
+			killer = Frey_1 #Walder Frey
+		}
+	}
 }
 ### Issue of Prentys
 Wayn_31 = {
@@ -8647,7 +8690,7 @@ Bigglestone_2 = {
 	8279.1.1 = { death = yes }
 }
 ### Issue of Meribald
-Bigglestone_3 = {
+Bigglestone_3 = { # edited 02/26 slambroski
 	name = Brynden # a lord
 	dynasty = dynn_Bigglestone
 
@@ -8658,11 +8701,12 @@ Bigglestone_3 = {
 	mother = Bourney_17
 
 	8263.1.1 = { birth = yes }
-	8283.1.1 = { add_spouse = Wallain_27 } # Doreth Wallain
+	# 8283.1.1 = { add_spouse = Wallain_27 } # Doreth Wallain
+	8283.1.1 = { add_spouse = Wayn_2 } # Corrine Wayn
 	8285.1.1 = { trait = knight }
 }
 ### Issue of Brynden
-Bigglestone_4 = {
+Bigglestone_4 = { # edited 02/26 slambroski
 	name = Minisa
 	dynasty = dynn_Bigglestone
 	female = yes
@@ -8671,11 +8715,12 @@ Bigglestone_4 = {
 	culture = riverlander
 
 	father = Bigglestone_3
-	mother = Wallain_27
+	mother = Wayn_2
+	# mother = Wallain_27
 
 	8290.1.1 = { birth = yes }
 }
-Bigglestone_5 = {
+Bigglestone_5 = { # edited 02/26 slambroski
 	name = Lucas
 	dynasty = dynn_Bigglestone
 
@@ -8683,11 +8728,12 @@ Bigglestone_5 = {
 	culture = riverlander
 
 	father = Bigglestone_3
-	mother = Wallain_27
+	mother = Wayn_2
+	# mother = Wallain_27
 
 	8292.1.1 = { birth = yes }
 }
-Bigglestone_6 = {
+Bigglestone_6 = { # edited 02/26 slambroski
 	name = Jon
 	dynasty = dynn_Bigglestone
 
@@ -8695,7 +8741,8 @@ Bigglestone_6 = {
 	culture = riverlander
 
 	father = Bigglestone_3
-	mother = Wallain_27
+	mother = Wayn_2
+	# mother = Wallain_27
 
 	8293.1.1 = { birth = yes }
 }
@@ -13361,8 +13408,8 @@ Wallain_30 = {
 	8283.9.1 = { employer = Blackwood_6 } # Tytos Blackwood
 }
 ### Issue of Jeffory
-Wallain_27 = {
-	name = Doreth # married Brynden Bigglestone
+Wallain_27 = { # edited 02/26 slambroski
+	name = Doreth # married Brynden Bigglestone (jk)
 	dynasty = dynn_Wallain
 	female = yes
 
@@ -13373,6 +13420,45 @@ Wallain_27 = {
 	mother = Dulver_45
 
 	8264.1.1 = { birth = yes }
+	8283.1.1 = { add_matrilineal_spouse = Wayn_30 }
+}
+### Issue of Doreth
+Wallain_27_A = { # created 02/26 slambroski
+	name = Alysanne
+	dynasty = dynn_Wallain
+	female = yes
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Wayn_30
+	mother = Wallain_27
+
+	8284.6.1 = { birth = yes }
+}
+Wallain_27_B = { # created 02/26 slambroski
+	name = Tommen
+	dynasty = dynn_Wallain
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Wayn_30
+	mother = Wallain_27
+
+	8288.1.1 = { birth = yes }
+}
+Wallain_27_C = { # created 02/26 slambroski
+	name = Malwyn
+	dynasty = dynn_Wallain
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Wayn_30
+	mother = Wallain_27
+
+	8293.1.1 = { birth = yes }
 }
 
 ###### HOUSE LANDSEER (id = dynn_Landseer)
