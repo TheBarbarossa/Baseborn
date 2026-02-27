@@ -3341,6 +3341,71 @@ baseborn_wilderness = { # Bookmark setup - don't care enough to rename
 				years = 3
 			}
 		}
+		# Devistation and Ruination of the Riverlands
+
+		every_county_in_region = {
+			region = world_westeros_the_riverlands
+			limit = {
+				NOR = {
+					de_jure_liege = title:d_fairmarket
+					de_jure_liege = title:d_willow_wood
+					de_jure_liege = title:d_the_moonbrooks
+					de_jure_liege = title:d_lakeleaf_highlands
+					de_jure_liege = title:d_the_crossing
+					de_jure_liege = title:d_cape_of_eagles
+					de_jure_liege = title:d_three_forks
+					this = title:c_riverbend
+					this = title:c_spiderwood
+					this = title:c_marstone
+					this = title:c_saltspans
+					this = title:c_saltpans_rise
+					this = title:c_stillside
+				}
+			}
+			add_county_modifier = {
+				modifier = baseborn_war_ravaged_1_modifier
+				years = 3
+			}
+		}
+
+		every_county_in_region = {
+			region = world_westeros_the_riverlands
+			limit = {
+				OR = {
+					this = title:c_hammerford
+					this = title:c_hook_bay
+					this = title:c_whiskermoor
+					this = title:c_ramsford
+					this = title:c_leechpool
+					this = title:c_arganbrook
+					this = title:c_erenford
+					this = title:c_runnymudd
+				}
+			}
+			add_county_modifier = {
+				modifier = baseborn_bandit_3_modifier
+				years = 3
+			}
+		}
+
+		every_county_in_region = {
+			region = world_westeros_the_riverlands
+			limit = {
+				OR = {
+					this = title:c_high_heart
+					this = title:c_stoney_sept
+					this = title:c_riverbend
+					this = title:c_ruby_shoals
+					this = title:c_fairmarket
+					this = title:c_sweetwillow
+				}
+			}
+			add_county_modifier = {
+				modifier = baseborn_bandit_1_modifier
+				years = 3
+			}
+		}
+
 
 
 
