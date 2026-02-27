@@ -384,7 +384,7 @@ Tully_5 = {
 		make_trait_inactive = visible_disfigurement_2
 	}
 }
-Tully_6 = {
+Tully_6 = { # edited 02/27 slambroski
 	name = Lysa # Canon, married Jon Arryn
 	dynasty = dynn_Tully
 	female = yes
@@ -422,6 +422,12 @@ Tully_6 = {
 			agot_safe_crush_history_effect = {
 				TARGET = character:Baelish_2 # Petyr Baelish
 			}
+		}
+	}
+	3288.1.1 = {
+		effect = {
+			change_current_weight = 35
+			target_weight_modifier_effect = { VALUE = 35 }
 		}
 	}
 	# Lover added in Littlefinger's entry
@@ -4105,7 +4111,7 @@ Vance_Wayfarers_Rest_2 = {
 	}
 }
 ### Issue of Lucas
-Vance_Wayfarers_Rest_3 = {
+Vance_Wayfarers_Rest_3 = { # edited 02/27 slambroski
 	name = Karyl # Canon, a lord
 	dynasty = dynn_Vance
 
@@ -4121,6 +4127,7 @@ Vance_Wayfarers_Rest_3 = {
 	mother = Gower_66
 
 	trait = education_martial_2
+	trait = depressed_1
 	trait = pensive
 
 	disallow_random_traits = yes
@@ -6924,7 +6931,7 @@ Mooton_56 = {
 	8295.1.1 = { death = yes }
 }
 ### Issue of Raymun
-Mooton_2 = {
+Mooton_2 = { # edited 02/26 slambroski
 	name = William # Canon, a lord
 	dynasty = dynn_Mooton
 
@@ -6947,7 +6954,13 @@ Mooton_2 = {
 		add_character_flag = canon_status_canon
 		add_character_flag = sexuality_ensure_heterosexual
 	}
-	8280.1.1 = { add_spouse = Wayn_29 } # Ella Wayn
+	8280.1.1 = { 
+		add_spouse = Wayn_29 # Ella Wayn
+		effect = {
+			change_current_weight = 35
+			target_weight_modifier_effect = { VALUE = 35 }
+		}
+	} 
 	8299.11.2 = {
 		effect = {
 			title:d_the_westmarch.holder = { # Randyll Tarly

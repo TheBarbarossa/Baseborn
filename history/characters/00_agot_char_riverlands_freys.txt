@@ -5,7 +5,7 @@
 ############################
 ### We Stand Together
 ###
-Frey_1 = {
+Frey_1 = { # edited 02/27 slambroski
 	name = Walder # Canon, THE Walder Frey
 	dynasty = dynn_Frey
 	dna = Frey_1
@@ -26,6 +26,8 @@ Frey_1 = {
 	mother = Greysteel_26
 
 	trait = education_intrigue_3
+	trait = beauty_bad_2
+	trait = memory_good
 	trait = rude
 	trait = fecund
 	trait = deceitful
@@ -511,6 +513,7 @@ Frey_12 = { # edited 02/26 slambroski
 	father = Frey_6
 	mother = Hardyng_6
 
+	trait = friendly_face
 	trait = compassionate
 	trait = gregarious
 
@@ -569,7 +572,7 @@ Frey_14 = {
 
 ### Lannister-Freys
 ############################
-Frey_15 = {
+Frey_15 = { # edited 02/27 slambroski
 	name = Emmon # Canon, a lord of the Riverrun
 	dynasty = dynn_Frey
 
@@ -590,6 +593,7 @@ Frey_15 = {
 	mother = Royce_80
 
 	trait = education_intrigue_2
+	trait = beauty_bad_2
 	trait = dull
 	trait = pensive
 
@@ -639,6 +643,7 @@ Frey_16 = { # edited 02/26 slambroski
 	mother = Lannister_3
 
 	trait = intellect_bad_1
+	trait = beauty_bad_1
 	trait = education_martial_1
 	trait = arrogant
 	trait = craven
@@ -706,7 +711,7 @@ Frey_17 = {
 	8300.2.7 = { employer = Lannister_6 } # Cersei Lannister
 	8300.5.10 = { employer = Frey_15 } # Emmon Frey
 }
-Frey_18 = {
+Frey_18 = { # edited 02/27 slambroski
 	name = Tion # Canon
 	dynasty = dynn_Frey
 
@@ -719,6 +724,7 @@ Frey_18 = {
 	culture = westerman
 
 	trait = education_martial_2
+	trait = beauty_good_1
 
 	father = Frey_15
 	mother = Lannister_3
@@ -752,7 +758,7 @@ Frey_18 = {
 		}
 	}
 }
-Frey_19 = {
+Frey_19 = { # edited 02/27 slambroski
 	name = Walder # Canon, AKA: Red Walder
 	dynasty = dynn_Frey
 
@@ -764,6 +770,7 @@ Frey_19 = {
 	culture = westerman
 
 	trait = education_martial_2
+	trait = beauty_good_1
 
 	father = Frey_15
 	mother = Lannister_3
@@ -827,7 +834,7 @@ Frey_21 = {
 
 ### Aenys and Perianne Branch
 ############################
-Frey_22 = {
+Frey_22 = { # edited 02/27 slambroski
 	name = Aenys # Canon, took Harrenhal with the Vargo Hoat and Roose Bolton
 	dynasty = dynn_Frey
 	dna = Frey_22
@@ -847,6 +854,7 @@ Frey_22 = {
 
 	trait = education_martial_3
 	trait = education_martial_prowess_1
+	trait = beauty_bad_1
 	trait = sadistic
 	trait = diligent
 	trait = content
@@ -1027,7 +1035,7 @@ Frey_28 = {
 
 ### Swann-Freys
 ############################
-Frey_29 = {
+Frey_29 = { # edited 02/27 slambroski
 	name = Jared # Canon
 	dynasty = dynn_Frey
 	dna = Frey_29
@@ -1062,6 +1070,7 @@ Frey_29 = {
 	8264.1.1 = {
 		add_spouse = Frey_99 # Alys Frey
 		trait = knight
+		trait = scarred
 	}
 	8285.1.1 = { trait = widowed }
 	8299.1.16 = { # Battle of the Green Fork
@@ -1530,7 +1539,7 @@ Frey_41 = {
 	8299.12.15 = { trait = murderer } # Red Wedding
 }
 ### Issue of Hosteen
-Frey_42 = {
+Frey_42 = { # edited 02/27 slambroski
 	name = Arwood # Canon
 	dynasty = dynn_Frey
 
@@ -1543,6 +1552,7 @@ Frey_42 = {
 	mother = Hawick_4
 
 	trait = education_martial_2
+	trait = physique_good_1
 	trait = craven
 
 	8274.1.1 = {
@@ -1731,7 +1741,7 @@ Frey_50 = {
 		trait = fornicator
 	}
 }
-Frey_52 = {
+Frey_52 = { # edited 02/27 slambroski
 	name = Walda # Canon, AKA: Fat Walda, married Roose Bolton
 	dynasty = dynn_Frey
 	female = yes
@@ -1758,7 +1768,13 @@ Frey_52 = {
 		add_character_flag = has_scripted_appearance
 		add_character_flag = canon_status_canon
 	}
-	8294.1.1 = { give_nickname = nick_agot_historical_fat }
+	8294.1.1 = { 
+		effect = {
+			change_current_weight = 50
+			target_weight_modifier_effect = { VALUE = 50 }
+		}
+		give_nickname = nick_agot_historical_fat 
+	}
 	8297.1.1 = { trait = lustful }
 	8300.1.1 = {
 		effect = {
@@ -2077,7 +2093,7 @@ Frey_51 = {
 
 ### Blackwood-Freys
 ############################
-Frey_64 = {
+Frey_64 = { # edited 02/27 slambroski
 	name = Lothar # Canon, AKA: Lame Lothar
 	dynasty = dynn_Frey
 	dna = Frey_64
@@ -2097,6 +2113,7 @@ Frey_64 = {
 
 	trait = education_intrigue_4
 	trait = intellect_good_3
+	trait = memory_good
 	trait = clubfooted
 	trait = patient
 	trait = gregarious
@@ -2112,6 +2129,12 @@ Frey_64 = {
 		add_character_flag = canon_status_canon
 	}
 	8269.1.1 = { give_nickname = nick_agot_historical_lame }
+	8285.1.1 = {
+		effect = {
+			change_current_weight = 35
+			target_weight_modifier_effect = { VALUE = 35 }
+		}
+	}
 	8287.1.1 = {
 		effect = { # Steward of The Twins
 			agot_appoint_as_councillor_for_castle_history_effect = {
@@ -2158,6 +2181,7 @@ Frey_66 = { # edited 01/25 slambroski
 	mother = Blackwood_5
 
 	trait = education_martial_prowess_2
+	trait = beauty_bad_1
 
 	8268.1.1 = {
 		birth = yes
@@ -2423,7 +2447,7 @@ Frey_78 = {
 		}
 	}
 }
-Frey_79 = {
+Frey_79 = { # edited 02/27 slambroski
 	name = Benfrey # Canon
 	dynasty = dynn_Frey
 	dna = Frey_79
@@ -2435,6 +2459,8 @@ Frey_79 = {
 
 	father = Frey_1
 	mother = Rosby_3
+
+	trait = beauty_good_1 # he looks like his sister
 
 	8278.1.1 = {
 		birth = yes
@@ -2552,7 +2578,7 @@ Frey_82 = { # edited 01/25 slambroski
 	}
 }
 ### Issue of Benfrey
-Frey_83 = {
+Frey_83 = { # edited 02/27 slambroski
 	name = Della # Canon
 	dynasty = dynn_Frey
 	female = yes
@@ -2562,6 +2588,8 @@ Frey_83 = {
 
 	father = Frey_79
 	mother = Frey_101
+
+	trait = deaf
 
 	8296.1.1 = {
 		birth = yes

@@ -608,6 +608,7 @@ Stark_7 = { # edited 01/31 slambroski
 	trait = bastard
 
 	trait = education_martial_2
+	trait = education_martial_prowess_3
 	trait = bb_skinchanger_1
 	trait = pensive
 
@@ -2581,7 +2582,7 @@ Manderly_8 = {
 	}
 }
 ### Issue of Wylis
-Manderly_9 = {
+Manderly_9 = { # edited 02/27 slambroski
 	name = Wynafryd # Canon
 	dynasty = dynn_Manderly
 	female = yes
@@ -2605,9 +2606,10 @@ Manderly_9 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
 		add_character_flag = canon_status_canon
+		employer = Manderly_6
 	}
 }
-Manderly_10 = {
+Manderly_10 = { # edited 02/27 slambroski
 	name = Wylla # Canon
 	dynasty = dynn_Manderly
 	female = yes
@@ -2632,6 +2634,14 @@ Manderly_10 = {
 		birth = yes
 		add_character_flag = has_scripted_appearance
 		add_character_flag = canon_status_canon
+		employer = Manderly_6
+	}
+	8297.1.1 = { # green hair and pronouns
+		effect = {
+			add_character_modifier = {
+				modifier = imperial_jade_hair_dye
+			}
+		}
 	}
 }
 ### Issue of Wylis
@@ -4175,7 +4185,7 @@ Karstark_1 = {
 	8246.1.1 = { add_spouse = Broths_75 } # Bethany Broths
 	8257.1.1 = { death = yes }
 }
-Karstark_2 = {
+Karstark_2 = { # edited 02/27 slambroski
 	name = Arnolf # Canon
 	dynasty_house = house_Karstark
 	dna = Karstark_2
@@ -4219,6 +4229,11 @@ Karstark_2 = {
 			}
 		}
 	}
+	# 8299.11.3 = {
+	#	effect = {
+	#		agot_appoint_as_regent_for_castle_history_effect = { CASTLE = title:c_karhold }
+	#	}
+	#}
 	8300.8.10 = {
 		effect = {
 			if = {
@@ -6476,7 +6491,7 @@ Poole_3 = {
 		death = { death_reason = death_vanished }
 	}
 }
-Poole_Dummy_3 = {
+Poole_Dummy_3 = { # edited 02/27 slambroski
 	name = Dummy # Jeyne Poole continued here
 	female = yes
 
@@ -6515,6 +6530,7 @@ Poole_Dummy_3 = {
 			add_unpressed_claim = title:d_riverrun
 			add_unpressed_claim = title:c_riverrun
 		}
+		employer = Bolton_5 # Ramsay Bolton
 	}
 }
 
@@ -21288,6 +21304,8 @@ Reed_2 = { # edited 01/25 slambroski
 	mother = Blackmyre_89
 
 	trait = education_martial_2
+	trait = education_martial_prowess_3
+	trait = agile
 	trait = beauty_good_1
 	trait = diligent
 	trait = compassionate
