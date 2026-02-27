@@ -3397,6 +3397,7 @@ baseborn_wilderness = { # Bookmark setup - don't care enough to rename
 					this = title:c_ruby_shoals
 					this = title:c_fairmarket
 					this = title:c_sweetwillow
+					this = title:c_darry
 				}
 			}
 			add_county_modifier = {
@@ -3534,8 +3535,35 @@ baseborn_wilderness = { # Bookmark setup - don't care enough to rename
 				add_domicile_building = baggage_train_02
 				add_domicile_building = baggage_train_03
 				add_domicile_building = proving_grounds_01
+				add_domicile_building = proving_grounds_02
 			}
 		}
+		title:d_laamp_bwob.holder.domicile ?= {
+			if = {
+				limit = {
+					is_domicile_type = camp
+				}
+				add_domicile_building = camp_main_02
+				add_domicile_building = camp_main_03
+				add_domicile_building = camp_main_04
+				add_domicile_building = supply_tent_01
+				add_domicile_building = supply_tent_02
+				add_domicile_building = supply_tent_03
+				add_domicile_building = supply_tent_04
+				add_domicile_building = camp_fire_01
+				add_domicile_building = camp_fire_02
+				add_domicile_building = camp_fire_03
+				add_domicile_building = camp_fire_04
+				add_domicile_building = camp_fire_05
+				add_domicile_building = camp_fire_06
+				add_domicile_building = baggage_train_01
+				add_domicile_building = baggage_train_02
+				add_domicile_building = baggage_train_03
+				add_domicile_building = proving_grounds_01
+				add_domicile_building = proving_grounds_02
+			}
+		}
+
 		# Easy-Going Adventurer modifier
 		title:d_laamp_brienne.holder ?= {
 			add_character_modifier = baseborn_easy_laamp_modifier
