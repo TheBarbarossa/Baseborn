@@ -1,0 +1,334 @@
+﻿mute_interaction = {
+	interface_priority = 30
+	icon = mute
+
+	category = interaction_category_prison
+
+	desc = mute_interaction_desc
+
+	is_shown = {
+		scope:recipient = {
+			is_imprisoned_by = scope:actor
+			NOT = { has_trait = mute }
+		}
+		scope:actor = {
+			is_adult = yes
+			OR = {
+				has_trait = sadistic
+				has_trait = torturer
+			}
+		}
+		# No non-human interactions
+		scope:actor = { is_human = yes }
+		scope:recipient = { is_human = yes }
+	}
+
+	is_valid_showing_failures_only = {
+		scope:recipient = {
+			custom_description = {
+				text = "currently_being_tortured"
+				NOT = { has_character_flag = is_being_tortured }
+			}
+		}
+	}
+
+	is_highlighted = {
+		OR = {
+			scope:actor = { has_trait = sadistic }
+			scope:actor = { has_trait = torturer }
+			scope:actor = { has_relation_rival = scope:recipient }
+			scope:recipient = {
+				any_claim = {
+					holder = scope:actor
+				}
+			}
+			scope:actor = {
+				OR = {
+					has_execute_reason = scope:recipient
+					has_banish_reason = scope:recipient
+				}
+			}
+		}
+	}
+
+	on_accept = {
+		scope:recipient = {
+			add_character_flag = {
+				flag = is_being_tortured
+				months = 6 # Players in MP can keep the event window open...
+			}
+		}
+
+		blind_castrate_and_disfigure_effect = yes
+
+		show_as_tooltip = {
+			scope:recipient = {
+				add_trait = mute
+			}
+		}
+
+		torture_blind_castrate_disfigure_opinion_effect = { VERB = muted }
+
+		scope:actor = {
+			trigger_event = {
+				id = agot_prison.1001
+				days = 1
+			}
+		}
+	}
+
+	auto_accept = yes
+
+	ai_targets = {
+		ai_recipients = prisoners
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = -20
+
+		modifier = {
+			has_trait = sadistic
+			add = 20
+		}
+		ai_value_modifier = {
+			ai_compassion = tiny_chance_impact_negative_ai_value #Adds +50 for highly uncompassionate characters, -50 for highly compassionate characters
+		}
+		opinion_modifier = {
+			opinion_target = scope:recipient
+			multiplier = -0.25
+		}
+		modifier = { # Family Feud
+			exists = scope:actor.house
+			exists = scope:recipient.house
+			scope:actor = {
+				house_has_feud_relation_with_trigger = { TARGET = scope:recipient }
+			}
+			add = 30
+		}
+	}
+
+	ai_frequency = 36
+}
+
+sell_prisoner_into_slavery_interaction = {
+	interface_priority = 100
+	common_interaction = yes
+	category = interaction_category_prison
+	icon = icon_gold
+
+	desc = sell_prisoner_into_slavery_interaction_desc
+
+	ai_targets = {
+		ai_recipients = prisoners
+	}
+
+	ai_frequency = 12
+
+	ai_potential = {
+		is_at_war = no
+	}
+
+	ai_will_do = {
+		base = 0
+
+		opinion_modifier = {
+			trigger = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			opinion_target = scope:recipient
+			multiplier = -1
+		}
+
+		ai_value_modifier = {
+			ai_compassion = -1
+		}
+		ai_value_modifier = {
+			ai_greed = 1
+		}
+		modifier = {
+			add = -20
+			ai_compassion >= low_positive_ai_value
+			scope:recipient = { is_adult = no }
+		}
+		# Try to avoid Kinslaying
+		modifier = {
+			add = -20
+			scope:actor.dynasty = scope:recipient.dynasty
+			NOT = { faith = { has_doctrine = doctrine_kinslaying_any_dynasty_member_crime } }
+		}
+		modifier = {
+			add = -20
+			is_close_or_extended_family_of = scope:recipient
+			NOT = { faith = { has_doctrine = doctrine_kinslaying_extended_family_crime } }
+		}
+		modifier = {
+			add = -20
+			is_close_family_of = scope:recipient
+			NOT = { faith = { has_doctrine = doctrine_kinslaying_close_kin_crime } }
+		}
+		modifier = {
+			add = 50
+			has_execute_reason = scope:recipient
+			OR = {
+				has_trait = sadistic
+				has_trait = lunatic
+			}
+		}
+		modifier = { # Executing your way to new titles is a worthy cause...
+			add = 20
+			scope:actor = {
+				has_execute_reason = scope:recipient
+				ai_greed > 0
+				any_heir_title = { # Execute rulers you can inherit land from
+					exists = holder
+					holder = scope:recipient
+					place_in_line_of_succession = {
+						target = scope:actor
+						value > 2
+					}
+				}
+			}
+		}
+		modifier = { # Vengeful characters enjoy executing their rivals
+			add = 20
+			scope:actor = {
+				has_execute_reason = scope:recipient
+				ai_vengefulness >= medium_positive_ai_value
+				OR = {
+					has_relation_rival = scope:recipient # Execute rivals
+					has_relation_nemesis = scope:recipient # Execute rivals
+					scope:recipient = {
+						is_spouse_of = scope:actor
+						exposed_cheating_on_spouse_trigger = { SPOUSE = scope:actor }
+					}
+				}
+			}
+		}
+		modifier = { # Executing your way to new titles is a worthy cause... and very greedy characters need no execution reason
+			add = 35
+			scope:actor = {
+				ai_greed >= very_high_positive_ai_value
+				any_heir_title = { # Execute rulers you can inherit land from
+					exists = holder
+					holder = scope:recipient
+					place_in_line_of_succession = {
+						target = scope:actor
+						value > 2
+					}
+				}
+			}
+		}
+		modifier = { # Vengeful characters enjoy executing their rivals, and very vengeful characters need no execution reason
+			add = 35
+			scope:actor = {
+				ai_vengefulness >= very_high_positive_ai_value
+				OR = {
+					has_relation_rival = scope:recipient # Execute rivals
+					has_relation_nemesis = scope:recipient # Execute rivals
+					scope:recipient = {
+						is_spouse_of = scope:actor
+						exposed_cheating_on_spouse_trigger = { SPOUSE = scope:actor }
+					}
+				}
+			}
+		}
+		#Scope:target has caused internal strife in the realm
+		character_hates_scope_due_to_strife_modifier = { TARGET = scope:recipient }
+		modifier = {
+			factor = 0
+			scope:actor = {
+				NOR = { # Do not execute unless you have some sort of reason to do it
+					has_execute_reason = scope:recipient
+					has_relation_rival = scope:recipient # Execute rivals
+					has_relation_nemesis = scope:recipient # Execute rivals
+					scope:recipient = {
+						is_spouse_of = scope:actor
+						exposed_cheating_on_spouse_trigger = { SPOUSE = scope:actor }
+					}
+					any_heir_title = { # Execute rulers you can inherit land from
+						exists = holder
+						holder = scope:recipient
+						place_in_line_of_succession = {
+							target = scope:actor
+							value > 2
+						}
+					}
+					has_trait = lunatic # Self explanatory
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				faith = { has_doctrine = doctrine_slavery_thralls }
+				faith = { has_doctrine = doctrine_slavery_crime }
+			}
+			ai_zeal >= low_positive_ai_value
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				has_trait = slave_master
+			}
+			ai_compassion >= low_positive_ai_value
+		}
+	}
+
+	is_shown = {
+		scope:recipient = {
+			is_imprisoned_by = scope:actor
+			is_adult = yes
+		}
+		scope:actor = {
+			OR = {
+				has_realm_law = slavery_allowed_law
+				is_landless_adventurer = yes
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:recipient = { NOT = { has_strong_hook = scope:actor } }
+		scope:recipient = {
+			custom_description = {
+				text = "currently_being_tortured"
+				NOT = { has_character_flag = is_being_tortured }
+			}
+		}
+	}
+
+	cost = {
+		# Usually, this action is free, but during certain diarchies, we want it to cost.
+		prestige = liege_diarchy_surcharge_interaction_execute_prisoner_interaction_value
+	}
+
+	on_accept = {
+		scope:recipient = {
+			custom_description = {
+				text = sold_into_slavery_effect
+				death = {
+					death_reason = death_vanished_slave_trade
+					killer = scope:actor
+				}
+			}
+		}
+		sell_into_slavery_opinion_effect = { VICTIM = scope:recipient SLAVER = scope:actor }
+		scope:actor = {
+			add_gold = {
+				value = scope:recipient.individual_recruit_guest_interaction_cost
+				divide = 2
+			}
+			if = {
+				limit = {
+					is_landless_adventurer = yes
+				}
+				add_trait = slave_master
+			}
+		}
+	}
+	auto_accept = yes
+}
