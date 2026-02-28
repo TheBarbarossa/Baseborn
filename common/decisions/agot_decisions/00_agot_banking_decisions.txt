@@ -1,0 +1,1400 @@
+﻿#Banking decisions by Ronko
+
+take_loan_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	ai_check_interval = 4
+
+	desc = take_loan_decision_desc
+	selection_tooltip = take_loan_decision_tooltip
+	confirm_text = take_loan_decision_tooltip_confirm_text_desc
+
+	decision_group_type = banking
+
+	is_shown = {
+		is_incapable = no
+		is_landed = yes
+		is_human = yes
+		NOR = {
+			has_trait = kingsguard
+			has_trait = nightswatch
+			has_trait = dragon
+			has_trait = devoted
+		}
+
+		NOT = {
+			has_character_flag = has_a_loan_flag
+		}
+		NOT = {
+			has_character_flag = loan_requested
+		}
+		NOT = {
+			has_character_flag = final_default
+		}
+		location = {
+			NOT = {
+				geographical_region = world_westeros_beyond_the_wall
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		custom_tooltip = {
+			text = take_loan_bank_cash_reserve
+			OR = {
+				AND = {
+					any_in_global_list = {
+						variable = IB_Shareholder
+						has_character_flag = IB_Director
+					}
+					global_var:IB_FreeCapital > min_cash_reserve_IB  # safety cash amount to assure the bank is always able to pay its running costs, 0.15 * Bankvalue
+				}
+				AND = {
+					any_in_global_list = {
+						variable = bank1_Shareholder
+						has_character_flag = bank1_Director
+					}
+					global_var:bank1_FreeCapital > min_cash_reserve_IB  # safety cash amount to assure the bank is always able to pay its running costs, 0.15 * Bankvalue
+				}
+				AND = {
+					any_in_global_list = {
+						variable = bank2_Shareholder
+						has_character_flag = bank2_Director
+					}
+					global_var:bank2_FreeCapital > min_cash_reserve_IB  # safety cash amount to assure the bank is always able to pay its running costs, 0.15 * Bankvalue
+				}
+				AND = {
+					any_in_global_list = {
+						variable = bank3_Shareholder
+						has_character_flag = bank3_Director
+					}
+					global_var:bank3_FreeCapital > min_cash_reserve_IB  # safety cash amount to assure the bank is always able to pay its running costs, 0.15 * Bankvalue
+				}
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = take_loan_decision_effect
+		add_character_flag = loan_requested
+		trigger_event = {
+			id = agot_banking.1001
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 0
+		modifier = {
+			add = 25
+			gold < 0
+		}
+		modifier = {
+			add = 25
+			gold < uncomfortable_ai_bancruptcy_for_wars
+		}
+		modifier = {
+			add = 25
+			gold < minimum_ai_gold_value_for_tyranny_wars
+			is_at_war = yes
+		}
+		modifier = {
+			add = 10
+			gold < minimum_ai_gold_value_for_tyranny_wars
+		}
+		modifier = {
+			add = 35
+			is_imprisoned = yes
+			gold < ransom_cost_value
+		}
+		modifier = {
+			add = 35
+			primary_heir ?= { is_imprisoned = yes }
+			gold < ransom_cost_value
+		}
+		modifier = {
+			factor = 0.5
+			highest_held_title_tier < tier_county
+		}
+		modifier = {   # if any bank has a low interest level the demand is higher
+			factor = 1.1
+			OR = {
+				global_var:IB_InterestLevel = -1
+				global_var:bank1_InterestLevel = -1
+				global_var:bank2_InterestLevel = -1
+				global_var:bank3_InterestLevel = -1
+			}
+		}
+		modifier = {   # unfound banks have an interst level of 1. So if all existing banks have a high interst level the demand is lower.
+			factor = 0.9
+			AND = {
+				global_var:IB_InterestLevel = 1
+				global_var:bank1_InterestLevel = 1
+				global_var:bank2_InterestLevel = 1
+				global_var:bank3_InterestLevel = 1
+			}
+		}
+		#modifier = {
+		#	add = 10
+		#	exists = capital_county
+		#	capital_county.title_province = { free_building_slots > 0 }
+		#}
+	}
+}
+
+agot_repay_loan_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	ai_check_interval = 6
+
+	desc = agot_repay_loan_decision_desc
+	selection_tooltip = agot_repay_loan_decision_tooltip
+	confirm_text = agot_repay_loan_decision_tooltip_confirm_text_desc
+
+	decision_group_type = major
+
+	is_shown = {
+		is_incapable = no
+
+		has_character_flag = has_a_loan_flag
+
+		OR = {
+			AND = {
+				has_character_flag = IB_debtor
+				exists = global_var:IB_location
+			}
+			AND = {
+				has_character_flag = bank1_debtor
+				exists = global_var:bank1_location
+			}
+			AND = {
+				has_character_flag = bank2_debtor
+				exists = global_var:bank2_location
+			}
+			AND = {
+				has_character_flag = bank3_debtor
+				exists = global_var:bank3_location
+			}
+		}
+
+		NOT = {
+			has_character_flag = final_default
+		}
+	}
+
+	is_valid = {
+		OR = {
+			gold >= var:half_repayment
+			AND = {
+				var:half_repayment >= 50
+				gold >= 50
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = agot_repay_loan_decision_effect
+		trigger_event = {
+			id = agot_banking.0005
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 0
+		modifier = {
+			gold > minimum_ai_gold_value_for_tyranny_wars
+			add = 25
+		}
+		modifier = {
+			var:total_repayment > 500
+			gold < var:half_repayment  #to avoid big repayment right after the loan was taken
+			add = 25
+		}
+		modifier = {
+			var:total_repayment < 150
+			factor = 0.25
+		}
+		#modifier = {
+		#	gold >= var:total_repayment
+		#	add = 15
+		#}
+	}
+}
+
+buy_shares_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	ai_check_interval = 24
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					AND = {
+						has_variable = IB_Shares
+						var:IB_Shares > 0
+					}
+				}
+				desc = buy_shares_decision_shareholder_IB_desc
+			}
+			triggered_desc = {
+				trigger = {
+					AND = {
+						has_variable = bank1_Shares
+						var:bank1_Shares > 0
+					}
+				}
+				desc = buy_shares_decision_shareholder_bank1_desc
+			}
+			triggered_desc = {
+				trigger = {
+					AND = {
+						has_variable = bank2_Shares
+						var:bank2_Shares > 0
+					}
+				}
+				desc = buy_shares_decision_shareholder_bank2_desc
+			}
+			triggered_desc = {
+				trigger = {
+					AND = {
+						has_variable = bank3_Shares
+						var:bank3_Shares > 0
+					}
+				}
+				desc = buy_shares_decision_shareholder_bank3_desc
+			}
+			triggered_desc = {
+				trigger = {
+					AND = {
+						OR = {
+							NOT = { has_variable = IB_Shares }
+							var:IB_Shares = 0
+						}
+						OR = {
+							NOT = { has_variable = bank1_Shares }
+							var:bank1_Shares = 0
+						}
+						OR = {
+							NOT = { has_variable = bank2_Shares }
+							var:bank2_Shares = 0
+						}
+						OR = {
+							NOT = { has_variable = bank3_Shares }
+							var:bank3_Shares = 0
+						}
+					}
+				}
+				desc = buy_shares_decision_desc
+			}
+		}
+	}
+
+	selection_tooltip = buy_shares_decision_tooltip
+	confirm_text = buy_shares_decision_tooltip_confirm_text_desc
+
+	decision_group_type = major
+
+	is_shown = {
+		is_incapable = no
+		is_adult = yes
+		is_lowborn = no
+		is_human = yes
+		NOT = { government_has_flag = government_is_tribal }
+		is_playable_character = yes
+		OR = {
+			AND = {
+				exists = global_var:IB_location
+				OR = {
+					top_liege = global_var:IB_location.de_jure_liege.de_jure_liege.de_jure_liege.de_jure_liege.holder
+					top_liege = global_var:IB_location.de_jure_liege.de_jure_liege.de_jure_liege.holder
+					top_liege = global_var:IB_location.de_jure_liege.de_jure_liege.holder
+					top_liege = global_var:IB_location.de_jure_liege.holder
+				}
+
+				#You hold no shares of another bank, even if in the same realm
+				OR = {
+					NOT = { has_variable = bank1_Shares }
+					var:bank1_Shares = 0
+				}
+				OR = {
+					NOT = { has_variable = bank2_Shares }
+					var:bank2_Shares = 0
+				}
+				OR = {
+					NOT = { has_variable = bank3_Shares }
+					var:bank3_Shares = 0
+				}
+				OR = {
+					NOT = {
+						any_in_global_list = {
+							variable = IB_Shareholder
+							has_character_flag = IB_Director
+							has_character_flag = investments_forbidden
+						}
+					}
+					has_character_flag = IB_Director
+				}
+			}
+			AND = {
+				exists = global_var:bank1_location
+				OR = {
+					top_liege = global_var:bank1_location.de_jure_liege.de_jure_liege.de_jure_liege.de_jure_liege.holder
+					top_liege = global_var:bank1_location.de_jure_liege.de_jure_liege.de_jure_liege.holder
+					top_liege = global_var:bank1_location.de_jure_liege.de_jure_liege.holder
+					top_liege = global_var:bank1_location.de_jure_liege.holder
+				}
+
+				#You hold no shares of another bank, even if in the same realm
+				OR = {
+					NOT = { has_variable = IB_Shares }
+					var:IB_Shares = 0
+				}
+				OR = {
+					NOT = { has_variable = bank2_Shares }
+					var:bank2_Shares = 0
+				}
+				OR = {
+					NOT = { has_variable = bank3_Shares }
+					var:bank3_Shares = 0
+				}
+				OR = {
+					NOT = {
+						any_in_global_list = {
+							variable = bank1_Shareholder
+							has_character_flag = bank1_Director
+							has_character_flag = investments_forbidden
+						}
+					}
+					has_character_flag = bank1_Director
+				}
+			}
+			AND = {
+				exists = global_var:bank2_location
+				OR = {
+					top_liege = global_var:bank2_location.de_jure_liege.de_jure_liege.de_jure_liege.de_jure_liege.holder
+					top_liege = global_var:bank2_location.de_jure_liege.de_jure_liege.de_jure_liege.holder
+					top_liege = global_var:bank2_location.de_jure_liege.de_jure_liege.holder
+					top_liege = global_var:bank2_location.de_jure_liege.holder
+				}
+
+				#You hold no shares of another bank, even if in the same realm
+				OR = {
+					NOT = { has_variable = IB_Shares }
+					var:IB_Shares = 0
+				}
+				OR = {
+					NOT = { has_variable = bank1_Shares }
+					var:bank1_Shares = 0
+				}
+				OR = {
+					NOT = { has_variable = bank3_Shares }
+					var:bank3_Shares = 0
+				}
+				OR = {
+					NOT = {
+						any_in_global_list = {
+							variable = bank2_Shareholder
+							has_character_flag = bank2_Director
+							has_character_flag = investments_forbidden
+						}
+					}
+					has_character_flag = bank2_Director
+				}
+			}
+			AND = {
+				exists = global_var:bank3_location
+				OR = {
+					top_liege = global_var:bank3_location.de_jure_liege.de_jure_liege.de_jure_liege.de_jure_liege.holder
+					top_liege = global_var:bank3_location.de_jure_liege.de_jure_liege.de_jure_liege.holder
+					top_liege = global_var:bank3_location.de_jure_liege.de_jure_liege.holder
+					top_liege = global_var:bank3_location.de_jure_liege.holder
+				}
+
+				#You hold no shares of another bank, even if in the same realm
+				OR = {
+					NOT = { has_variable = IB_Shares }
+					var:IB_Shares = 0
+				}
+				OR = {
+					NOT = { has_variable = bank2_Shares }
+					var:bank2_Shares = 0
+				}
+				OR = {
+					NOT = { has_variable = bank1_Shares }
+					var:bank1_Shares = 0
+				}
+				OR = {
+					NOT = {
+						any_in_global_list = {
+							variable = bank3_Shareholder
+							has_character_flag = bank3_Director
+							has_character_flag = investments_forbidden
+						}
+					}
+					has_character_flag = bank3_Director
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		gold > 0
+		culture = { has_innovation = innovation_currency_03 }  # Banking innovation
+		custom_tooltip = {
+			text = bank_needs_no_cash
+			OR = {
+				AND = {
+					exists = global_var:IB_location
+					OR = {
+						top_liege = global_var:IB_location.de_jure_liege.de_jure_liege.de_jure_liege.de_jure_liege.holder
+						top_liege = global_var:IB_location.de_jure_liege.de_jure_liege.de_jure_liege.holder
+						top_liege = global_var:IB_location.de_jure_liege.de_jure_liege.holder
+						top_liege = global_var:IB_location.de_jure_liege.holder
+					}
+					global_var:IB_FreeCapital < invest_threshold_IB   # auto-balances the banks need for fresh capital    0.25 * Bankvalue
+
+					#You hold no shares of another bank, even if in the same realm
+					OR = {
+						NOT = { has_variable = bank1_Shares }
+						var:bank1_Shares = 0
+					}
+					OR = {
+						NOT = { has_variable = bank2_Shares }
+						var:bank2_Shares = 0
+					}
+					OR = {
+						NOT = { has_variable = bank3_Shares }
+						var:bank3_Shares = 0
+					}
+					OR = {
+						NOT = {
+							any_in_global_list = {
+								variable = IB_Shareholder
+								has_character_flag = IB_Director
+								has_character_flag = investments_forbidden
+							}
+						}
+						has_character_flag = IB_Director
+					}
+				}
+				AND = {
+					exists = global_var:bank1_location
+					OR = {
+						top_liege = global_var:bank1_location.de_jure_liege.de_jure_liege.de_jure_liege.de_jure_liege.holder
+						top_liege = global_var:bank1_location.de_jure_liege.de_jure_liege.de_jure_liege.holder
+						top_liege = global_var:bank1_location.de_jure_liege.de_jure_liege.holder
+						top_liege = global_var:bank1_location.de_jure_liege.holder
+					}
+					global_var:bank1_FreeCapital < invest_threshold_bank1   # auto-balances the banks need for fresh capital    0.25 * Bankvalue
+
+					#You hold no shares of another bank, even if in the same realm
+					OR = {
+						NOT = { has_variable = IB_Shares }
+						var:IB_Shares = 0
+					}
+					OR = {
+						NOT = { has_variable = bank2_Shares }
+						var:bank2_Shares = 0
+					}
+					OR = {
+						NOT = { has_variable = bank3_Shares }
+						var:bank3_Shares = 0
+					}
+					OR = {
+						NOT = {
+							any_in_global_list = {
+								variable = bank1_Shareholder
+								has_character_flag = bank1_Director
+								has_character_flag = investments_forbidden
+							}
+						}
+						has_character_flag = bank1_Director
+					}
+				}
+				AND = {
+					exists = global_var:bank2_location
+					OR = {
+						top_liege = global_var:bank2_location.de_jure_liege.de_jure_liege.de_jure_liege.de_jure_liege.holder
+						top_liege = global_var:bank2_location.de_jure_liege.de_jure_liege.de_jure_liege.holder
+						top_liege = global_var:bank2_location.de_jure_liege.de_jure_liege.holder
+						top_liege = global_var:bank2_location.de_jure_liege.holder
+					}
+					global_var:bank2_FreeCapital < invest_threshold_bank2   # auto-balances the banks need for fresh capital    0.25 * Bankvalue
+
+					#You hold no shares of another bank, even if in the same realm
+					OR = {
+						NOT = { has_variable = IB_Shares }
+						var:IB_Shares = 0
+					}
+					OR = {
+						NOT = { has_variable = bank1_Shares }
+						var:bank1_Shares = 0
+					}
+					OR = {
+						NOT = { has_variable = bank3_Shares }
+						var:bank3_Shares = 0
+					}
+					OR = {
+						NOT = {
+							any_in_global_list = {
+								variable = bank2_Shareholder
+								has_character_flag = bank2_Director
+								has_character_flag = investments_forbidden
+							}
+						}
+						has_character_flag = bank2_Director
+					}
+				}
+				AND = {
+					exists = global_var:bank3_location
+					OR = {
+						top_liege = global_var:bank3_location.de_jure_liege.de_jure_liege.de_jure_liege.de_jure_liege.holder
+						top_liege = global_var:bank3_location.de_jure_liege.de_jure_liege.de_jure_liege.holder
+						top_liege = global_var:bank3_location.de_jure_liege.de_jure_liege.holder
+						top_liege = global_var:bank3_location.de_jure_liege.holder
+					}
+					global_var:bank3_FreeCapital < invest_threshold_bank3   # auto-balances the banks need for fresh capital    0.25 * Bankvalue
+
+					#You hold no shares of another bank, even if in the same realm
+					OR = {
+						NOT = { has_variable = IB_Shares }
+						var:IB_Shares = 0
+					}
+					OR = {
+						NOT = { has_variable = bank2_Shares }
+						var:bank2_Shares = 0
+					}
+					OR = {
+						NOT = { has_variable = bank1_Shares }
+						var:bank1_Shares = 0
+					}
+					OR = {
+						NOT = {
+							any_in_global_list = {
+								variable = bank3_Shareholder
+								has_character_flag = bank3_Director
+								has_character_flag = investments_forbidden
+							}
+						}
+						has_character_flag = bank3_Director
+					}
+				}
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = buy_shares_decision_effect
+		trigger_event = {
+			id = agot_banking.0203
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 33
+		modifier = {  # slower growth for new banks in Westeros
+			add = -25
+			top_liege = { government_has_flag = government_is_feudal }
+		}
+		modifier = {  # slower growth for new banks in Westeros
+			factor = 0
+			top_liege = { government_has_flag = government_is_feudal }
+			has_education_stewardship_trigger = no
+		}
+		modifier = {
+			factor = 0
+			gold < minimum_ai_gold_value_for_tyranny_wars
+		}
+		modifier = {
+			factor = 0
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 0
+			is_imprisoned = yes
+		}
+	}
+}
+
+sell_shares_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	ai_check_interval = 12
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					AND = {
+						has_variable = IB_Shares
+						var:IB_Shares > 0
+					}
+				}
+				desc = sell_shares_decision_IB_desc
+			}
+			triggered_desc = {
+				trigger = {
+					AND = {
+						has_variable = bank1_Shares
+						var:bank1_Shares > 0
+					}
+				}
+				desc = sell_shares_decision_bank1_desc
+			}
+			triggered_desc = {
+				trigger = {
+					AND = {
+						has_variable = bank2_Shares
+						var:bank2_Shares > 0
+					}
+				}
+				desc = sell_shares_decision_bank2_desc
+			}
+			triggered_desc = {
+				trigger = {
+					AND = {
+						has_variable = bank3_Shares
+						var:bank3_Shares > 0
+					}
+				}
+				desc = sell_shares_decision_bank3_desc
+			}
+		}
+	}
+
+	selection_tooltip = sell_shares_decision_tooltip
+	confirm_text = sell_shares_decision_tooltip_confirm_text_desc
+
+	decision_group_type = banking
+
+	is_shown = {
+		OR = {
+			AND = {
+				has_variable = IB_Shares
+				var:IB_Shares > 0
+				global_var:IB_FreeCapital > min_cash_reserve_IB   # some safety margin to avoid negative cash, 0.15 * Bankvalue
+				OR = {  # avoid losing the banks director
+					NOT = { has_character_flag = IB_Director }
+					var:IB_Shares > 1
+				}
+			}
+			AND = {
+				has_variable = bank1_Shares
+				var:bank1_Shares > 0
+				global_var:bank1_FreeCapital > min_cash_reserve_bank1   # some safety margin to avoid negative cash, 0.15 * Bankvalue
+				OR = {  # avoid losing the banks director
+					NOT = { has_character_flag = bank1_Director }
+					var:bank1_Shares > 1
+				}
+			}
+			AND = {
+				has_variable = bank2_Shares
+				var:bank2_Shares > 0
+				global_var:bank2_FreeCapital > min_cash_reserve_bank2   # some safety margin to avoid negative cash, 0.15 * Bankvalue
+				OR = {  # avoid losing the banks director
+					NOT = { has_character_flag = bank2_Director }
+					var:bank2_Shares > 1
+				}
+			}
+			AND = {
+				has_variable = bank3_Shares
+				var:bank3_Shares > 0
+				global_var:bank3_FreeCapital > min_cash_reserve_bank3   # some safety margin to avoid negative cash, 0.15 * Bankvalue
+				OR = {  # avoid losing the banks director
+					NOT = { has_character_flag = bank3_Director }
+					var:bank3_Shares > 1
+				}
+			}
+		}
+		is_incapable = no
+	}
+
+	effect = {
+		custom_tooltip = sell_shares_decision_effect
+		trigger_event = {
+			id = agot_banking.0204
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {  # First take a loan, then think about selling shares
+		base = 0
+		modifier = {
+			gold < 0
+			has_character_flag = has_a_loan_flag
+			add = 25
+		}
+		modifier = {
+			gold < uncomfortable_ai_bancruptcy_for_wars
+			has_character_flag = has_a_loan_flag
+			add = 25
+		}
+		modifier = {
+			gold < minimum_ai_gold_value_for_tyranny_wars
+			is_at_war = yes
+			has_character_flag = has_a_loan_flag
+			add = 25
+		}
+		modifier = {
+			add = 10
+			gold < minimum_ai_gold_value_for_tyranny_wars
+			has_character_flag = has_a_loan_flag
+		}
+		modifier = {
+			add = 35
+			is_imprisoned = yes
+			gold < ransom_cost_value
+			has_character_flag = has_a_loan_flag
+		}
+		modifier = {
+			add = 35
+			primary_heir ?= { is_imprisoned = yes }
+			gold < ransom_cost_value
+			has_character_flag = has_a_loan_flag
+		}
+	}
+}
+
+set_risk_level_decision = {  # AI only version
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	ai_check_interval = 36
+
+	desc = set_risk_level_decision_desc
+	selection_tooltip = set_risk_level_decision_tooltip
+	confirm_text = set_risk_level_decision_tooltip_confirm_text_desc
+
+	decision_group_type = banking
+
+	is_shown = {
+		OR = {
+			AND = {
+				has_variable = IB_Shares
+				var:IB_Shares > 0
+				has_character_flag = IB_Director
+			}
+			AND = {
+				has_variable = bank1_Shares
+				var:bank1_Shares > 0
+				has_character_flag = bank1_Director
+			}
+			AND = {
+				has_variable = bank2_Shares
+				var:bank2_Shares > 0
+				has_character_flag = bank2_Director
+			}
+			AND = {
+				has_variable = bank3_Shares
+				var:bank3_Shares > 0
+				has_character_flag = bank3_Director
+			}
+		}
+		is_incapable = no
+		is_adult = yes
+		is_ai = yes
+	}
+
+	effect = {
+		custom_tooltip = set_risk_level_decision_effect
+		trigger_event = {
+			id = agot_banking.0206
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {  # real decision is made in the event
+		base = 0
+		modifier = {
+			add = 100
+		}
+	}
+}
+
+set_dividend_level_decision = {  # AI only version
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	ai_check_interval = 36
+
+	desc = set_dividend_level_decision_desc
+	selection_tooltip = set_dividend_level_decision_tooltip
+	confirm_text = set_dividend_level_decision_tooltip_confirm_text_desc
+
+	decision_group_type = banking
+
+	is_shown = {
+		OR = {
+			AND = {
+				has_variable = IB_Shares
+				var:IB_Shares > 0
+				has_character_flag = IB_Director
+			}
+			AND = {
+				has_variable = bank1_Shares
+				var:bank1_Shares > 0
+				has_character_flag = bank1_Director
+			}
+			AND = {
+				has_variable = bank2_Shares
+				var:bank2_Shares > 0
+				has_character_flag = bank2_Director
+			}
+			AND = {
+				has_variable = bank3_Shares
+				var:bank3_Shares > 0
+				has_character_flag = bank3_Director
+			}
+		}
+		is_incapable = no
+		is_adult = yes
+		is_ai = yes
+	}
+
+	effect = {
+		custom_tooltip = set_dividend_level_decision_effect
+		trigger_event = {
+			id = agot_banking.0207
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {  # real decision is made in the event
+		base = 0
+		modifier = {
+			add = 100
+		}
+	}
+}
+
+set_interest_level_decision = {  # AI only version
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	ai_check_interval = 24
+
+	desc = set_interest_level_decision_desc
+	selection_tooltip = set_interest_level_decision_tooltip
+	confirm_text = set_interest_level_decision_tooltip_confirm_text_desc
+
+	decision_group_type = banking
+
+	is_shown = {
+		OR = {
+			AND = {
+				has_variable = bank1_Shares
+				var:bank1_Shares > 0
+				has_character_flag = bank1_Director
+			}
+			AND = {
+				has_variable = bank2_Shares
+				var:bank2_Shares > 0
+				has_character_flag = bank2_Director
+			}
+			AND = {
+				has_variable = bank3_Shares
+				var:bank3_Shares > 0
+				has_character_flag = bank3_Director
+			}
+			AND = {
+				has_variable = IB_Shares
+				var:IB_Shares > 0
+				has_character_flag = IB_Director
+			}
+		}
+		is_incapable = no
+		is_adult = yes
+		is_ai = yes
+	}
+
+	effect = {
+		custom_tooltip = set_interest_level_decision_effect
+		trigger_event = {
+			id = agot_banking.0208
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {  # real decision is made in the event
+		base = 0
+		modifier = {
+			add = 100
+		}
+	}
+}
+
+show_bank_numbers_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+
+	desc = show_bank_numbers_decision_desc
+	selection_tooltip = show_bank_numbers_decision_tooltip
+	confirm_text = show_bank_numbers_decision_confirm
+
+	ai_check_interval = 0
+
+	decision_group_type = banking
+
+	is_shown = {
+		OR = {
+			AND = {
+				has_variable = IB_Shares
+				var:IB_Shares > 0
+			}
+			AND = {
+				has_variable = bank1_Shares
+				var:bank1_Shares > 0
+			}
+			AND = {
+				has_variable = bank2_Shares
+				var:bank2_Shares > 0
+			}
+			AND = {
+				has_variable = bank3_Shares
+				var:bank3_Shares > 0
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = show_bank_numbers_decision_effect
+		trigger_event = {
+			id = agot_banking.0301
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+fill_investment_fund_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	ai_check_interval = 12
+
+	desc = fill_investment_fund_decision_desc
+	selection_tooltip = fill_investment_fund_decision_tooltip
+	confirm_text = fill_investment_fund_decision_tooltip_confirm_text_desc
+
+	decision_group_type = major
+
+	is_shown = {
+		OR = {
+			AND = {
+				has_variable = bank1_Shares
+				var:bank1_Shares > 0
+				has_character_flag = bank1_Director
+				global_var:bank1_FreeCapital > invest_threshold_bank1
+				global_var:bank1_FreeCapital > 2000
+			}
+			AND = {
+				has_variable = bank2_Shares
+				var:bank2_Shares > 0
+				has_character_flag = bank2_Director
+				global_var:bank2_FreeCapital > invest_threshold_bank2
+				global_var:bank2_FreeCapital > 2000
+			}
+			AND = {
+				has_variable = bank3_Shares
+				var:bank3_Shares > 0
+				has_character_flag = bank3_Director
+				global_var:bank3_FreeCapital > invest_threshold_bank3
+				global_var:bank3_FreeCapital > 2000
+			}
+			AND = {
+				has_variable = IB_Shares
+				var:IB_Shares > 0
+				has_character_flag = IB_Director
+				global_var:IB_FreeCapital > invest_threshold_IB
+				global_var:IB_FreeCapital > 2000
+			}
+		}
+		is_incapable = no
+		is_adult = yes
+	}
+
+	cooldown = { days = 729 }
+
+	effect = {
+		custom_tooltip = fill_investment_fund_decision_effect
+		trigger_event = {
+			id = agot_banking.0401
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {  # real decision is made in the event
+		base = 0
+		modifier = {
+			add = 100
+		}
+	}
+}
+
+repay_vassal_loan_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+
+	desc = repay_vassal_loan_decision_desc
+	selection_tooltip = repay_vassal_loan_decision_tooltip
+	confirm_text = repay_vassal_loan_decision_tooltip_confirm_text_desc
+
+	ai_check_interval = 0
+
+	decision_group_type = banking
+
+	is_shown = {
+		is_incapable = no
+		has_character_flag = has_a_vassal_loan
+		exists = var:vassal_loan_creditor
+	}
+
+	is_valid = {
+		gold >= var:vassal_loan_total_amount
+	}
+
+	effect = {
+		custom_tooltip = repay_vassal_loan_decision_effect
+		remove_short_term_gold = var:vassal_loan_total_amount
+
+		var:vassal_loan_creditor = {
+			add_gold = {
+				value = var:liege_loan_amount
+				multiply = 1.25
+			}
+
+			if = {
+				limit = { has_variable = liege_loan_amount }
+				remove_variable = liege_loan_amount
+			}
+			if = {
+				limit = { has_variable = vassal_loan_debtor }
+				remove_variable = vassal_loan_debtor
+			}
+			remove_character_flag = has_granted_liege_loan
+		}
+
+		remove_character_flag = has_a_vassal_loan
+		remove_character_flag = vassal_loan_first_default_liege
+
+		if = {
+			limit = { has_variable = vassal_loan_amount }
+			remove_variable = vassal_loan_amount
+		}
+		if = {
+			limit = { has_variable = vassal_loan_total_amount }
+			remove_variable = vassal_loan_total_amount
+		}
+		if = {
+			limit = { has_variable = vassal_loan_interest }
+			remove_variable = vassal_loan_interest
+		}
+		if = {
+			limit = { has_variable = vassal_loan_creditor }
+			remove_variable = vassal_loan_creditor
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+found_bank_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	ai_check_interval = 36
+
+	desc = found_bank_decision_desc
+	selection_tooltip = found_bank_decision_tooltip
+	confirm_text = found_bank_decision_tooltip_confirm_text_desc
+
+	decision_group_type = major
+
+	is_shown = {
+		is_ai = yes
+		NOT = {  # not member of another bank
+			OR = {
+				AND = {
+					has_variable = IB_Shares
+					var:IB_Shares > 0
+				}
+				AND = {
+					has_variable = bank1_Shares
+					var:bank1_Shares > 0
+				}
+				AND = {
+					has_variable = bank2_Shares
+					var:bank2_Shares > 0
+				}
+				AND = {
+					has_variable = bank3_Shares
+					var:bank3_Shares > 0
+				}
+			}
+		}
+		OR = {  # a free bank slot
+			global_var:bank1_BankValue = 0
+			global_var:bank2_BankValue = 0
+			global_var:bank3_BankValue = 0
+		}
+		NOT = {  # no bank in your realm
+			OR = {
+				AND = {
+					exists = global_var:IB_location
+					top_liege = global_var:IB_location.holder.top_liege
+				}
+				AND = {
+					exists = global_var:bank1_location
+					top_liege = global_var:bank1_location.holder.top_liege
+				}
+				AND = {
+					exists = global_var:bank2_location
+					top_liege = global_var:bank2_location.holder.top_liege
+				}
+				AND = {
+					exists = global_var:bank3_location
+					top_liege = global_var:bank3_location.holder.top_liege
+				}
+			}
+		}
+		is_incapable = no
+		is_adult = yes
+		is_human = yes
+		is_landless_adventurer = no
+		OR = {
+			is_landed = yes
+			any_held_title = {
+				is_noble_family_title = yes
+			}
+		}
+		NOR = {
+			has_trait = kingsguard
+			has_trait = nightswatch
+			has_trait = dragon
+			has_trait = devoted
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		stewardship >= 15
+		culture = { has_innovation = innovation_currency_03 }  # Banking innovation
+		is_at_war = no
+		# prevent megawar shenanigans
+		custom_tooltip = {
+			text = not_in_a_megawar_realm
+			agot_mw_is_sub_realm_in_mw_trigger = no
+		}
+	}
+
+	cost = {
+		gold = 1000
+	}
+
+	effect = {
+		custom_tooltip = agot_found_bank_decision_effect_tooltip
+
+		trigger_event = {
+			id = agot_banking.0601
+		}
+	}
+
+	ai_potential = {
+		gold > 1000
+	}
+
+	ai_will_do = {
+		base = 0
+		modifier = {
+			has_trait = ambitious
+			add = 5
+		}
+		modifier = {
+			has_education_stewardship_trigger = yes
+			add = 5
+		}
+		modifier = {
+			highest_held_title_tier < tier_county
+			factor = 0
+		}
+	}
+}
+
+rename_bank_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	ai_check_interval = 0
+
+	desc = rename_bank_decision_desc
+	selection_tooltip = rename_bank_decision_tooltip
+	confirm_text = rename_bank_decision_tooltip_confirm_text_desc
+
+	decision_group_type = banking
+
+	is_shown = {
+		OR = {
+			has_character_flag = bank1_Director
+			has_character_flag = bank2_Director
+			has_character_flag = bank3_Director
+		}
+	}
+
+	effect = {
+		custom_tooltip = agot_rename_bank_decision_effect_tooltip
+
+		trigger_event = {
+			id = agot_banking.0607
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+show_shareholders_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+
+	ai_check_interval = 0
+
+	desc = show_shareholders_decision_desc
+
+	decision_group_type = banking
+
+	is_shown = {
+		OR = {
+			AND = {
+				has_variable = IB_Shares
+				var:IB_Shares > 0
+			}
+			AND = {
+				has_variable = bank1_Shares
+				var:bank1_Shares > 0
+			}
+			AND = {
+				has_variable = bank2_Shares
+				var:bank2_Shares > 0
+			}
+			AND = {
+				has_variable = bank3_Shares
+				var:bank3_Shares > 0
+			}
+		}
+		is_ai = no
+	}
+
+	effect = {
+		custom_tooltip = show_shareholders_decision_effect
+		trigger_event = {
+			id = agot_banking.0603
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+show_debtors_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+
+	ai_check_interval = 0
+
+	desc = show_debtors_decision_desc
+
+	decision_group_type = banking
+
+	is_shown = {
+		OR = {
+			AND = {
+				has_variable = IB_Shares
+				var:IB_Shares > 0
+			}
+			AND = {
+				has_variable = bank1_Shares
+				var:bank1_Shares > 0
+			}
+			AND = {
+				has_variable = bank2_Shares
+				var:bank2_Shares > 0
+			}
+			AND = {
+				has_variable = bank3_Shares
+				var:bank3_Shares > 0
+			}
+		}
+		is_ai = no
+	}
+
+	effect = {
+		custom_tooltip = show_debtors_decision_effect
+		trigger_event = {
+			id = agot_banking.0604
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
