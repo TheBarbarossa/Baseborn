@@ -3424,6 +3424,21 @@ baseborn_wilderness = { # Bookmark setup - don't care enough to rename
 		title:c_the_bloody_gate = {
 			every_county_province = { add_province_modifier = baseborn_mountain_clans_modifier }
 		}
+		# The Blockade
+		every_county_in_region = {
+			region = world_westeros_the_crownlands
+			limit = {
+				OR = {
+					de_jure_liege = title:d_dragonstone
+					de_jure_liege = title:d_driftmark
+				}
+			}
+			add_county_modifier = {
+				modifier = baseborn_blockade_2_modifier
+				years = 2
+			}
+		}
+
 		# Bolton Fuckery
 		title:b_winter_town.title_province = { add_province_modifier = baseborn_winter_town_modifier }
         title:b_winterfell.title_province = { add_province_modifier = baseborn_winterfell_ramsay_modifier }
