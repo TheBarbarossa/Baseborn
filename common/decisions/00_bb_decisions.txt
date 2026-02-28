@@ -67,6 +67,37 @@
 	ai_check_interval = 0
 }
 
+baseborn_iron_debt_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = major
+	desc = baseborn_iron_debt_decision_desc
+	
+	is_shown = {
+		is_ai = no
+		is_character_baratheon_7 = yes
+	}
+	cost = {
+		gold = 21389
+	}
+
+	effect = {
+		character:Baratheon_7 = {
+			remove_character_modifier = baseborn_iron_debt_modifier
+		}
+	}
+
+	ai_potential = {
+	}
+	
+	ai_will_do = {
+		base = 0
+	}
+	
+	ai_check_interval = 0
+}
+
 baseborn_tyrion_patricide = {
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
@@ -118,6 +149,9 @@ baseborn_tyrion_patricide = {
 	
 	ai_check_interval = 0
 }
+
+
+
 
 baseborn_knight_glory_decision = {
 	ai_check_interval = 24
