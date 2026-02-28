@@ -73,9 +73,10 @@
 			}
 		}
 	}
+	
+	is_ai = no
 
 	is_shown = {
-		is_ai = no
 		scope:recipient = {
 			NOT = { this = scope:actor }
 		}
@@ -83,21 +84,11 @@
 		NOT = { scope:actor.liege = scope:actor }
 		NOT = { scope:actor.liege = scope:recipient }
 		scope:recipient = {
-#			liege = this
 			is_landed = yes
 		}
 	}
 
 	is_valid_showing_failures_only = {
-		scope:actor = {
-			is_imprisoned = no
-			is_at_war = no
-			custom_description = {
-				text = "betray_neighboring_condition"
-				subject = scope:recipient
-				scope:actor.highest_held_title_tier < scope:recipient.highest_held_title_tier
-			}
-		}
 		scope:recipient = {
 			custom_description = {
 				text = "betray_opinion_condition"
@@ -110,12 +101,6 @@
 			custom_description = {
 				text = "offer_fealty_neighboring_condition"
 				subject = scope:recipient
-#				OR = {
-#					any_neighboring_and_across_water_top_liege_realm_owner = { this = scope:actor }
-#					any_held_title = {
-#						is_de_jure_liege_or_above_target = scope:actor.capital_barony
-#					}
-#				}
 			}
 		}
 	}
@@ -449,18 +434,13 @@
 		}
 	}
 }
+
 offer_betray = {
 	category = interaction_category_vassal
 	icon = icon_vassal
 
 	desc = offer_vassalization_interaction_desc
 
-#	ai_targets = {
-#		ai_recipients = neighboring_rulers
-#	}
-#	ai_target_quick_trigger = {
-#		adult = yes
-#	}
 	ai_frequency = 12
 
 	is_shown = {
@@ -470,9 +450,7 @@ offer_betray = {
 				NOT = { this = scope:actor }
 			}
 			is_landed = yes
-#			is_independent_ruler = yes
 			highest_held_title_tier < scope:actor.highest_held_title_tier
-#			NOT = { government_has_flag = can_not_be_vassal_or_liege }
 		}
 	}
 
@@ -480,11 +458,6 @@ offer_betray = {
 		scope:recipient = {
 			is_at_war = no
 
-			custom_description = {
-				text = "offer_betray_neighboring_condition"
-				subject = scope:recipient
-				any_neighboring_and_across_water_top_liege_realm_owner = { this = scope:actor }
-			}
 			custom_description = {
 				text = "offer_betray_opinion_condition_1"
 				subject = scope:recipient
@@ -501,15 +474,6 @@ offer_betray = {
 					value < 0
 				}
 			}
-#			custom_description = {
-#				text = was_recently_granted_independence
-#				NOT = {
-#					has_opinion_modifier = {
-#						modifier = granted_independence_opinion
-#						target = scope:actor
-#					}
-#				}
-#			}
 		}
 	}
 
@@ -880,55 +844,6 @@ offer_betray = {
 			}
 			add = 20
 		}
-#		modifier = { #Distant Realm — Overseas Connection
-#			desc = offer_vassalization_interaction_aibehavior_distantrealm_tt
-#			trigger = {
-#				scope:actor = {
-#					character_is_realm_neighbor = scope:recipient
-#					NOT = { #Ibiza should want to be a vassal of Mallorca, etc.
-#						character_is_land_realm_neighbor = scope:recipient
-#						scope:actor = { is_rightful_liege_of = scope:recipient }
-#					}
-#				}
-#			}
-#			add = -100
-#		}
-#		modifier = { #Distant Realm — No Connection
-#			desc = offer_vassalization_interaction_aibehavior_distantrealm_tt
-#			trigger = {
-#				scope:actor = {
-#					NOT = {
-#						character_is_realm_neighbor = scope:recipient
-#					}
-#				}
-#				scope:recipient.capital_province = { squared_distance = { target = scope:actor.capital_province value < 200000 } }
-#			}
-#			add = -250
-#		}
-#		modifier = { #Remote Realm.
-#			desc = offer_vassalization_interaction_aibehavior_remoterealm_tt
-#			trigger = {
-#				scope:actor = {
-#					NOT = {
-#						character_is_realm_neighbor = scope:recipient
-#					}
-#				}
-#				scope:recipient.capital_province = { squared_distance = { target = scope:actor.capital_province value >= 200000 } }
-#			}
-#			add = -500
-#		}
-#		modifier = {
-#			desc = offer_vassalization_interaction_aibehavior_power_tt
-#	  	  	add = {
-#				value = 1
-#				subtract = {
-#					value = scope:recipient.max_military_strength # Intended for recipient to use max, to avoid having vassalizations become too easy for weakened realms
-#					divide = { value = scope:actor.current_military_strength min = 1 }
-#				}
-#				multiply = 20
-#				ceiling = yes
-#	  		}
-#		}
 		modifier = {
 			desc = offer_betray_interaction_aibehavior_power_1
 			trigger = {
@@ -1121,16 +1036,6 @@ offer_betray = {
 			add = -20
 		}
 
-#		modifier = { # Ambitious
-#			desc = TAKE_THE_VOWS_AMBITIOUS
-#			trigger = {
-#				scope:recipient = {
-#					has_trait = ambitious
-#				}
-#			}
-#			add = -20
-#		}
-
 		modifier = { # Paranoid
 			desc = INTERACTION_PARANOID
 			trigger = {
@@ -1140,16 +1045,6 @@ offer_betray = {
 			}
 			add = -20
 		}
-
-#		modifier = { # Arrogant
-#			desc = INTERACTION_ARROGANT
-#			trigger = {
-#				scope:recipient = {
-#					has_trait = arrogant
-#				}
-#			}
-#			add = -20
-#		}
 
 		modifier = { # Fickle
 			desc = INTERACTION_FICKLE
@@ -1171,25 +1066,6 @@ offer_betray = {
 			add = -10
 		}
 
-#		modifier = { # Trusting
-#			desc = TAKE_THE_VOWS_TRUSTING
-#			trigger = {
-#				scope:recipient = {
-#					has_trait = trusting
-#				}
-#			}
-#			add = 5
-#		}
-
-#		modifier = { # Content
-#			desc = INTERACTION_CONTENT
-#			trigger = {
-#				scope:recipient = {
-#					has_trait = content
-#				}
-#			}
-#			add = 5
-#		}
 		modifier = { # loyal
 			desc = INTERACTION_LOYAL
 			trigger = {
@@ -1486,7 +1362,6 @@ offer_betray = {
 
 	ai_potential = {
 		is_adult = yes
-#		is_independent_ruler = yes
 		highest_held_title_tier > tier_county
 	}
 
@@ -1508,24 +1383,5 @@ offer_betray = {
 			add = 4
 			scope:high_obligations = yes
 		}
-
-		# Cynical rulers are happy to offer religious protection to potential vassals, but only when it makes them accept a vassalization offer they would otherwise refuse.
-		# Zealous rulers become increasingly reluctant to offer religious protection, as they want to enforce religious homogeneity in their realm.
-#		modifier = {
-#			add = {
-#				value = ai_zeal
-#				multiply = -2
-#				max = 1
-#			}
-#			scope:religious_exemption = yes
-#		}
-
-
-#		modifier = { # If the recipient is a player, do not bother sending
-#			factor = 0
-#			scope:recipient = {
-#				is_ai = no
-#			}
-#		}
 	}
 }
