@@ -2186,6 +2186,7 @@ LannisterLP_8 = {
 		add_character_flag = canon_status_canon
 	}
 	8299.7.1 = {
+		employer = Martell_4
 		effect = {
 			agot_set_as_ward_history_effect = { GUARDIAN = character:Martell_4 } # Doran Martell
 		}
@@ -5013,6 +5014,53 @@ Serrett_79_E = { # created 02/19 slambroski
 
 	8280.1.1 = { birth = yes }
 	8288.1.1 = { death = { death_reason = death_ill } }
+}
+### Household
+Swyft_hh_1 = { # created 03/01 slambroski
+	name = Willit # Canon, Goodman Willit
+
+	religion = fots_seven
+	culture = westerman
+
+	trait = education_martial_prowess_3
+	trait = lifestyle_blademaster
+
+	8262.1.1 = { 
+		birth = yes 
+		employer = Swyft_1 # Harys Swyft
+	}
+}
+Swyft_hh_2 = { # created 03/01 slambroski
+	name = Dunsen # Mentioned, older son of Goodman Willit
+
+	religion = fots_seven
+	culture = westerman
+
+	father = Swyft_hh_1
+
+	8288.1.1 = {
+		birth = yes
+		employer = Swyft_1
+	}
+	8299.10.1 = {
+		employer = Lannister_1 # Tywin Lannister
+	}
+}
+Swyft_hh_3 = { # created 03/01 slambroski
+	name = Rollam # Mentioned, younger son of Goodman Willit
+
+	religion = fots_seven
+	culture = westerman
+
+	father = Swyft_hh_1
+
+	8293.1.1 = {
+		birth = yes
+		employer = Swyft_1
+	}
+	8299.10.1 = {
+		employer = Lannister_1 # Tywin Lannister
+	}
 }
 
 ###### HOUSE TURNBERRY (id = dynn_Turnberry)
@@ -10964,7 +11012,7 @@ Doggett_26 = {
 	8278.1.1 = { trait = knight }
 }
 ### Issue of Damion
-Doggett_2 = {
+Doggett_2 = { # edited 03/01 slambroski
 	name = Damon
 	dynasty = dynn_Doggett
 
@@ -10975,6 +11023,7 @@ Doggett_2 = {
 	mother = Becker_92
 
 	8270.1.1 = { birth = yes }
+	8288.1.1 = { trait = knight }
 }
 Doggett_27 = {
 	name = Alysanne # married Harrold Tarwick
@@ -10989,7 +11038,7 @@ Doggett_27 = {
 
 	8272.1.1 = { birth = yes }
 }
-Doggett_28 = {
+Doggett_28 = { # edited 03/01 slambroski
 	name = Roland
 	dynasty = dynn_Doggett
 
@@ -11000,6 +11049,7 @@ Doggett_28 = {
 	mother = Becker_92
 
 	8274.1.1 = { birth = yes }
+	8292.1.1 = { trait = knight }
 }
 
 ###### HOUSE STACKSPEAR (id = dynn_Stackspear)
