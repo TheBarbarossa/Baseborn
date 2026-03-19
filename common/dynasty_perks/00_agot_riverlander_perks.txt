@@ -1,0 +1,86 @@
+﻿# GENERIC Riverlander LEGACIES
+
+riverlander_legacy_1 = { # Stuff
+	legacy = riverlander_legacy_track
+
+	can_be_picked = {
+		culture = {
+			OR = {
+			this = culture:riverman_main
+			any_parent_culture_or_above = {
+				this = culture:riverman_main
+				}
+			}
+		}
+	}
+
+	character_modifier = {
+		direct_vassal_opinion = 10
+		diplomacy = 2
+		fertility = 0.2
+	}
+
+	ai_chance = {
+		value = 11
+		if = {
+			limit = {
+				can_start_new_legacy_track_trigger = no
+			}
+			multiply = 0
+		}
+	}
+}
+
+riverlander_legacy_2 = { #River Boats
+	legacy = riverlander_legacy_track
+
+	character_modifier = {
+		monthly_income_mult = 0.05
+		holding_build_gold_cost = -0.05
+		build_gold_cost = -0.05
+		cultural_head_fascination_mult = 0.1
+	}
+
+
+	effect = {
+		custom_description_no_bullet = { text = riverlander_legacy_2_effect }
+	}
+}
+
+riverlander_legacy_3 = { # Tough Fishy Bois idk
+	legacy = riverlander_legacy_track
+
+	character_modifier = {
+		skirmishers_damage_add = 6
+		skirmishers_toughness_add = 6
+		skirmishers_pursuit_add = -4
+		skirmishers_maintenance = 0.4
+		archers_damage_add = 3
+		archers_toughness_add = 3
+		archers_screen_add = 5
+	}
+}
+
+riverlander_legacy_4 = { # Water Stuff?
+	legacy = riverlander_legacy_track
+
+
+
+	character_modifier = {
+		stress_gain_mult = -0.15
+		health = 1
+	}
+}
+
+riverlander_legacy_5 = { # Convergent Blood
+	legacy = riverlander_legacy_track
+
+	effect = {
+	}
+
+	character_modifier = {
+		monthly_lifestyle_xp_gain_mult = 0.25
+		dynasty_house_opinion = 15
+	}
+}
+
