@@ -295,14 +295,6 @@ Greyjoy_6 = {
 			add_dread = major_dread_gain
 		}
 	}
-	8300.4.30 = { # Occupy Shield Isles
-		effect = {
-			agot_safe_concubine_history_effect = {
-				TARGET = character:Hewett_11 # Falia Flowers
-			}
-			remove_short_term_gold = 500 # Expended some on kignsmoot
-		}
-	}
 }
 Greyjoy_7 = {
 	name = Victarion # Canon
@@ -369,14 +361,6 @@ Greyjoy_7 = {
 			add_gold = 450
 			add_prestige = 150
 		}
-	}
-	8300.6.30 = {
-		religion = rhllor_fc
-		effect = { remove_trait = brave } # Four Traits Rule
-		trait = ambitious
-		trait = vengeful
-		trait = faith_warrior # Favored by Rhllor
-		trait = scarred
 	}
 }
 Greyjoy_8 = {
@@ -523,22 +507,6 @@ Greyjoy_9 = {
 		add_trait = temperate
 		add_trait = drowned_man # Drowned Man
 		give_nickname = nick_agot_historical_damphair
-	}
-	8300.1.30 = {
-		effect = {
-			if = {
-				limit = { character:Greyjoy_6 = { is_alive = yes } }
-				reverse_add_opinion = {
-					target = character:Greyjoy_6 # Euron Greyjoy
-					modifier = plotting_against_liege_opinion
-				}
-			}
-			agot_safe_imprison_in_castle_history_effect = {
-				CASTLE = title:e_the_iron_islands
-				RELEASE_DATE = 9999.1.1
-				TYPE = dungeon
-			}
-		}
 	}
 }
 Greyjoy_10 = {
@@ -713,27 +681,6 @@ Greyjoy_13 = {
 			}
 		}
 	}
-	8300.1.30 = {
-		add_spouse = Ironmaker_1 # Erik Ironmaker, wed in Asha's absence
-		effect = {
-			if = {
-				limit = { character:Greyjoy_6 = { is_alive = yes } }
-				set_relation_rival = {
-					target = character:Greyjoy_6 # Euron Greyjoy
-					reason = rival_claimant_fight
-				}
-			}
-		}
-	}
-	8300.4.25 = { # Retaking Deepwood Motte
-		effect = {
-			agot_safe_imprison_in_castle_history_effect = {
-				CASTLE = title:k_dragonstone
-				RELEASE_DATE = 9999.1.1
-				TYPE = house_arrest
-			}
-		}
-	}
 }
 Greyjoy_14 = {
 	name = Theon # Canon, THE Theon
@@ -877,27 +824,6 @@ Greyjoy_14 = {
 		trait = shy
 	}
 	8299.12.15 = { employer = Bolton_5 } # Ramsay Snow
-	8300.1.30 = {
-		effect = {
-			if = {
-				limit = { character:Greyjoy_6 = { is_alive = yes } }
-				set_relation_rival = {
-					target = character:Greyjoy_6 # Euron Greyjoy
-					reason = rival_usurper
-				}
-			}
-		}
-	}
-	8300.8.6 = {
-		employer = Baratheon_3 # Stannis Baratheon
-		effect = {
-			agot_safe_imprison_in_castle_history_effect = {
-				CASTLE = title:k_dragonstone
-				RELEASE_DATE = 9999.1.1
-				TYPE = dungeon
-			}
-		}
-	}
 }
 ### Issue of Victarion
 Greyjoy_15 = {

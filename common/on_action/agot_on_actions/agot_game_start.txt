@@ -1813,6 +1813,7 @@ on_game_start_after_lobby = {
 		agot_silly_mode
 		agot_nf_estate_locations
 		agot_laamp_camp_locations
+		baseborn_after_lobby
 	}
 }
 
@@ -3629,7 +3630,7 @@ agot_traditional_coronation_setup = {
 	}
 }
 
-baseborn_game_start = { # Bookmark setup - don't care enough to rename
+baseborn_game_start = { # Bookmark setup every_noble_family
 	effect = {
 		every_county_in_region = {
 			region = world_essos
@@ -3644,6 +3645,7 @@ baseborn_game_start = { # Bookmark setup - don't care enough to rename
 				}
 			}
 			make_settlement_county_wilderness = { COUNTY = this }
+			add_county_modifier = block_settlement_ability
 		}
 		# Levy Depletion
 		every_county_in_region = {
@@ -3872,7 +3874,7 @@ baseborn_game_start = { # Bookmark setup - don't care enough to rename
 				holder = {
 					is_ai = yes
 					NOR = {
-						primary_title = title:e_the_iron_throne
+						primary_title = title:h_the_iron_throne
 						primary_title = title:k_dragonstone
 					}
 				}
@@ -4002,8 +4004,15 @@ baseborn_game_start = { # Bookmark setup - don't care enough to rename
 		title:d_laamp_bran.holder ?= {
 			add_character_modifier = baseborn_easy_laamp_modifier
 		}
-		title:e_the_iron_throne.holder ?= {
+		title:h_the_iron_throne.holder ?= {
 			add_character_modifier = baseborn_iron_debt_modifier
 		}
+	}
+}
+
+baseborn_after_lobby = {
+	effect = {
+		# No Noble Families
+		every_ruler = { every_held_title = { limit = { is_noble_family_title = yes } holder = { destroy_title = prev } } }
 	}
 }
