@@ -1,4 +1,4 @@
-﻿﻿############################        THE CROSSING        ############################
+﻿############################        THE CROSSING        ############################
 ####################################################################################
 
 ###### HOUSE FREY (id = dynn_Frey)
@@ -6,7 +6,7 @@
 ### We Stand Together
 ###
 Frey_1 = {
-	name = Walder # Canon, THE Walder Frey
+	name = Walder # Canon, THE Walder Frey, a lord
 	dynasty = dynn_Frey
 	dna = Frey_1
 
@@ -19,7 +19,7 @@ Frey_1 = {
 	health = 9
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 	sexuality = heterosexual
 
 	father = Frey_132
@@ -36,7 +36,7 @@ Frey_1 = {
 
 	8208.10.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 		add_character_flag = sexuality_ensure_heterosexual
 	}
@@ -52,6 +52,7 @@ Frey_1 = {
 		add_spouse = Swann_7 # Cyrenna Swann
 	}
 	8255.1.1 = { # Third Marriage - Mother to Hosteen, Lythene, Danwell, Merret, Geremy and Rymund
+		agot_safe_buy_family_man_perk_history_effect = yes
 		trait = family_first
 		add_spouse = Crakehall_2 # Amarei Crackhall
 	}
@@ -63,6 +64,10 @@ Frey_1 = {
 	}
 	8276.1.1 = { # Sixth Marriage - Mother to Perwyn, Benfry, Willamen, Olyvar and Roslin
 		add_spouse = Rosby_3 # Bethany Rosby
+	}
+	8278.1.1 = {
+		agot_safe_buy_schemer_perk_history_effect = yes
+		trait = schemer
 	}
 	8283.8.4 = { # Battle of the Trident
 		trait = disloyal
@@ -171,7 +176,7 @@ Frey_2 = {
 	#health = 7 # AGOT TODO
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 	sexuality = heterosexual
 
 	father = Frey_1
@@ -188,7 +193,7 @@ Frey_2 = {
 
 	8234.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 		add_character_flag = sexuality_ensure_heterosexual
 	}
@@ -220,7 +225,7 @@ Frey_3 = {
 	prowess = 6
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 	sexuality = heterosexual
 
 	father = Frey_2 # Stevron Frey
@@ -237,13 +242,19 @@ Frey_3 = {
 
 	8250.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 		add_character_flag = sexuality_ensure_heterosexual
 	}
 	8264.1.1 = {
 		trait = drunkard
 		trait = lustful
+		trait = tourney_participant
+		add_trait_xp = {
+			trait = tourney_participant
+			track = horse
+			value = 30
+		}
 	}
 	8266.1.1 = { trait = knight }
 	8268.1.1 = { add_spouse = Blount_2 } # Eleanor Blount
@@ -263,7 +274,7 @@ Frey_4 = {
 	prowess = 0
 
 	religion = fots_seven
-	culture = westerman
+	culture = riverman_main
 
 	father = Frey_2 # Stevron Frey
 	mother = Lydden_2 # Jeyne Lydden
@@ -281,10 +292,18 @@ Frey_4 = {
 
 	8251.12.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
-	8271.12.1 = { give_nickname = nick_agot_historical_jingelbells }
+	8271.12.1 = {
+		give_nickname = nick_agot_historical_jingelbells
+		effect = { # Court Jester at Twins
+			agot_appoint_as_court_position_for_castle_history_effect = {
+				CASTLE = title:c_the_twins
+				POSITION = court_jester_court_position
+			}
+		}
+	}
 	8299.12.15 = {
 		death = {
 			death_reason = death_murder_known
@@ -299,14 +318,14 @@ Frey_5 = {
 	dna = Frey_5
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_2 # Stevron Frey
 	mother = Lydden_2 # Jeyne Lydden
 
 	8252.8.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8288.1.1 = {
@@ -317,12 +336,10 @@ Frey_6 = {
 	name = Walton # Canon
 	dynasty = dynn_Frey
 
-	prowess = 6
-
 	dna = Frey_6
 
 	religion = fots_seven
-	culture = westerman
+	culture = riverman_main
 	sexuality = heterosexual
 
 	father = Frey_2 # Stevron Frey
@@ -333,10 +350,13 @@ Frey_6 = {
 	trait = temperate
 	trait = callous
 	trait = content
+	trait = bossy
+
+	disallow_random_traits = yes
 
 	8255.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 		add_character_flag = sexuality_ensure_heterosexual
 	}
@@ -355,7 +375,7 @@ Frey_7 = {
 	prowess = 2
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_3
 	mother = Blount_2
@@ -370,7 +390,7 @@ Frey_7 = {
 
 	8269.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8285.1.1 = {
@@ -401,7 +421,7 @@ Frey_8 = {
 	prowess = 7
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 	sexuality = heterosexual
 
 	father = Frey_3
@@ -417,11 +437,14 @@ Frey_8 = {
 
 	8271.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 		add_character_flag = sexuality_ensure_heterosexual
 	}
-	8279.1.1 = { give_nickname = nick_agot_historical_the_black_prefix }
+	8287.1.1 = {
+		trait = refusing_marriage
+		give_nickname = nick_agot_historical_black_Frey_8
+	}
 	8288.1.1 = {
 		effect = {
 			if = {
@@ -457,7 +480,7 @@ Frey_9 = {
 	prowess = 3
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_3
 	mother = Blount_2
@@ -468,7 +491,7 @@ Frey_9 = {
 
 	8281.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8289.1.1 = { give_nickname = nick_agot_historical_pimple }
@@ -489,7 +512,7 @@ Frey_10 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	mother = Hunter_5
 	father = Frey_7
@@ -509,7 +532,7 @@ Frey_11 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_9
 	mother = Caron_4
@@ -529,7 +552,7 @@ Frey_12 = {
 	dna = Frey_12
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_6
 	mother = Hardyng_6
@@ -539,10 +562,10 @@ Frey_12 = {
 
 	8278.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
-	8294.1.1 = { give_nickname = nick_agot_historical_the_sweet }
+	8294.1.1 = { give_nickname = nick_agot_historical_the_sweet_Frey_12 }
 }
 Frey_13 = {
 	name = Walda # Canon, AKA: Fair Walda
@@ -552,7 +575,8 @@ Frey_13 = {
 	dna = Frey_13
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
+	sexuality = heterosexual
 
 	father = Frey_6
 	mother = Hardyng_6
@@ -561,10 +585,12 @@ Frey_13 = {
 
 	8281.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
+		add_character_flag = sexuality_ensure_not_asexual
+		add_character_flag = sexuality_ensure_not_homosexual
 	}
-	8297.1.1 = { give_nickname = nick_agot_historical_fair }
+	8297.1.1 = { give_nickname = nick_agot_historical_fair_Frey_13 }
 }
 Frey_14 = {
 	name = Bryan # Canon
@@ -572,14 +598,14 @@ Frey_14 = {
 	dna = Frey_14
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_6
 	mother = Hardyng_6
 
 	8282.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8295.1.1 = {
@@ -603,7 +629,7 @@ Frey_15 = {
 	prowess = 3
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 	sexuality = heterosexual
 
 	father = Frey_1
@@ -617,7 +643,7 @@ Frey_15 = {
 
 	8238.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 		add_character_flag = sexuality_ensure_heterosexual
 	}
@@ -630,11 +656,9 @@ Frey_15 = {
 	8252.1.1 = { add_spouse = Lannister_3 } # Genna Lannister, seven at the time
 	8254.1.1 = { trait = knight }
 	8267.1.1 = { employer = Lannister_1 } # Tywin Lannister
-	8299.12.10 = {
-		effect = {
-			add_pressed_claim = title:d_riverrun
-			add_pressed_claim = title:c_riverrun
-		}
+	8281.1.1 = {
+		agot_safe_buy_august_perk_history_effect = yes
+		trait = august
 	}
 	8300.2.7 = { employer = Lannister_6 } # Cersei Lannister
 }
@@ -653,7 +677,7 @@ Frey_16 = {
 	prowess = 3
 
 	religion = fots_seven
-	culture = riverlander
+	culture = westerman_main
 
 	father = Frey_15
 	mother = Lannister_3
@@ -669,7 +693,7 @@ Frey_16 = {
 
 	8265.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8267.1.1 = { employer = Lannister_1 } # Tywin Lannister
@@ -682,11 +706,10 @@ Frey_16 = {
 	}
 	8299.1.9 = {
 		effect = { # Battle of Whispering Wood
-			title:c_winterfell.holder = { # Robb Stark
-				imprison = {
-					target = ROOT
-					type = house_arrest
-				}
+			agot_safe_imprison_in_castle_history_effect = {
+				CASTLE = title:e_the_north
+				RELEASE_DATE = 9999.1.1
+				TYPE = house_arrest
 			}
 		}
 	}
@@ -700,11 +723,8 @@ Frey_17 = {
 
 	dna = Frey_17
 
-	martial = 6
-	prowess = 3
-
 	religion = fots_seven
-	culture = westerman
+	culture = westerman_main
 
 	father = Frey_15
 	mother = Lannister_3
@@ -714,7 +734,7 @@ Frey_17 = {
 
 	8276.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 		employer = Lannister_1 # Tywin Lannister
 	}
@@ -735,7 +755,7 @@ Frey_18 = {
 	prowess = 6
 
 	religion = fots_seven
-	culture = westerman
+	culture = westerman_main
 
 	trait = education_martial_2
 
@@ -744,7 +764,7 @@ Frey_18 = {
 
 	8284.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 		employer = Lannister_1 # Tywin Lannister
 	}
@@ -755,11 +775,10 @@ Frey_18 = {
 	}
 	8299.1.9 = {
 		effect = { # Battle of Whispering Wood
-			title:c_winterfell.holder = { # Robb Stark
-				imprison = {
-					target = ROOT
-					type = house_arrest
-				}
+			agot_safe_imprison_in_castle_history_effect = {
+				CASTLE = title:e_the_north
+				RELEASE_DATE = 9999.1.1
+				TYPE = house_arrest
 			}
 		}
 	}
@@ -780,7 +799,7 @@ Frey_19 = {
 	dna = Frey_19
 
 	religion = fots_seven
-	culture = westerman
+	culture = westerman_main
 
 	trait = education_martial_2
 
@@ -789,9 +808,10 @@ Frey_19 = {
 
 	8285.2.1 = {
 		birth = yes
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 		employer = Lannister_1 # Tywin Lannister
-		give_nickname = nick_agot_historical_red
+		give_nickname = nick_agot_historical_red_Frey_19
 	}
 	8300.2.7 = { employer = Lannister_6 } # Cersei Lannister
 	8300.5.10 = { employer = Frey_15 } # Emmon Frey
@@ -801,14 +821,17 @@ Frey_20 = {
 	name = Tywin # Canon
 	dynasty = dynn_Frey
 
+	dna = Frey_20
+
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_16
 	mother = Darry_9
 
 	8288.1.1 = {
 		birth = yes
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 		employer = Lannister_1 # Tywin Lannister
 	}
@@ -824,14 +847,17 @@ Frey_21 = {
 	name = Willem # Canon
 	dynasty = dynn_Frey
 
+	dna = Frey_21
+
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_16
 	mother = Darry_9
 
 	8290.1.1 = {
 		birth = yes
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 		employer = Lannister_1 # Tywin Lannister
 	}
@@ -859,7 +885,7 @@ Frey_22 = {
 	prowess = 3
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Royce_80
@@ -875,7 +901,7 @@ Frey_22 = {
 
 	8242.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8258.1.1 = {
@@ -897,20 +923,20 @@ Frey_23 = {
 	dna = Frey_23
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Royce_80
 
 	8244.10.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 }
 ### Issue of Aenys
 Frey_24 = {
-	name = Aegon # Canon, AKA: Aegon the Bloodborn
+	name = Aegon # Canon, AKA: Aegon the Bloodborn, Landless Adventurer
 	dynasty = dynn_Frey
 
 	dna = Frey_24
@@ -923,7 +949,7 @@ Frey_24 = {
 	prowess = 6
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_22
 	mother = Wylde_6
@@ -939,7 +965,7 @@ Frey_24 = {
 
 	8262.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8278.1.1 = { trait = knight }
@@ -965,7 +991,7 @@ Frey_25 = {
 	prowess = 6
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 	sexuality = heterosexual
 
 	father = Frey_22
@@ -982,7 +1008,7 @@ Frey_25 = {
 
 	8270.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 		add_character_flag = sexuality_ensure_heterosexual
 	}
@@ -1000,7 +1026,7 @@ Frey_26 = {
 	dynasty = dynn_Frey
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_25
 	mother = Beesbury_6
@@ -1016,7 +1042,7 @@ Frey_27 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_25
 	mother = Beesbury_6
@@ -1025,14 +1051,14 @@ Frey_27 = {
 		birth = yes
 		add_character_flag = canon_status_canon
 	}
-	8298.1.1 = { give_nickname = nick_agot_historical_white }
+	8298.1.1 = { give_nickname = nick_agot_historical_white_Frey_27 }
 }
 Frey_28 = {
 	name = Jonos # Canon
 	dynasty = dynn_Frey
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_25
 	mother = Beesbury_6
@@ -1055,10 +1081,10 @@ Frey_29 = {
 	intrigue = 5
 	stewardship = 7
 	learning = 5
-	prowess = 12
+	prowess = 8
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Swann_7
@@ -1074,7 +1100,7 @@ Frey_29 = {
 
 	8248.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8264.1.1 = {
@@ -1084,16 +1110,12 @@ Frey_29 = {
 	8285.1.1 = { trait = widowed }
 	8299.1.16 = { # Battle of the Green Fork
 		effect = {
-			title:k_the_westerlands.holder = { # Tywin Lannister
-				imprison = {
-					target = ROOT
-					type = house_arrest
-				}
+			agot_safe_imprison_in_castle_history_effect = {
+				CASTLE = title:e_the_westerlands
+				RELEASE_DATE = 8299.6.10
+				TYPE = house_arrest
 			}
 		}
-	}
-	8299.6.10 = {
-		effect = { release_from_prison = yes }
 	}
 	8300.4.18 = {
 		death = {
@@ -1107,7 +1129,7 @@ Frey_30 = {
 	dna = Frey_30
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Swann_7
@@ -1123,7 +1145,7 @@ Frey_30 = {
 
 	8249.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8269.1.1 = {
@@ -1146,7 +1168,7 @@ Frey_31 = {
 	prowess = 6
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_29
 	mother = Frey_99
@@ -1161,9 +1183,8 @@ Frey_31 = {
 	8285.1.1 = { trait = knight }
 	8299.12.15 = {
 		death = {
-			death_reason = death_battle
-			# killer = Clegane_4 # Sandor Clegane
-			killer = Stark_6 # Robb Stark, officially
+			death_reason = death_framed_battle_robb
+			killer = Clegane_4 # Sandor Clegane
 		}
 	}
 }
@@ -1173,7 +1194,7 @@ Frey_32 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	dna = Frey_32
 
@@ -1182,7 +1203,7 @@ Frey_32 = {
 
 	8267.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8299.12.15 = { trait = widowed }
@@ -1194,7 +1215,7 @@ Frey_33 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_31
 	mother = Blanetree_22
@@ -1211,7 +1232,7 @@ Frey_34 = {
 	learning = 15
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_31
 	mother = Blanetree_22
@@ -1251,12 +1272,13 @@ Frey_35 = {
 	prowess = 8
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Crakehall_2
 
 	trait = education_martial_1
+	trait = education_martial_prowess_3
 	trait = dull
 	trait = brave
 	trait = arrogant
@@ -1269,27 +1291,27 @@ Frey_35 = {
 
 	8257.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8273.1.1 = {
 		trait = knight
-		trait = education_martial_prowess_3
-		trait = lifestyle_blademaster
+		trait = tourney_participant
+		add_trait_xp = {
+			trait = tourney_participant
+			track = horse
+			value = 30
+		}
 		add_spouse = Hawick_4 # Bellena Hawick
 	}
 	8299.1.16 = { # Battle of the Green Fork
 		effect = {
-			title:k_the_westerlands.holder = { # Tywin Lannister
-				imprison = {
-					target = ROOT
-					type = house_arrest
-				}
+			agot_safe_imprison_in_castle_history_effect = {
+				CASTLE = title:e_the_westerlands
+				RELEASE_DATE = 8299.6.10
+				TYPE = house_arrest
 			}
 		}
-	}
-	8299.6.10 = {
-		effect = { release_from_prison = yes }
 	}
 	8299.12.15 = { trait = murderer } # Red Wedding
 }
@@ -1300,7 +1322,7 @@ Frey_36 = {
 	dna = Frey_36
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Crakehall_2
@@ -1309,7 +1331,7 @@ Frey_36 = {
 
 	8259.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 }
@@ -1323,7 +1345,7 @@ Frey_37 = {
 	prowess = 3
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Crakehall_2
@@ -1339,7 +1361,7 @@ Frey_37 = {
 
 	8260.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8277.1.1 = { add_spouse = Frey_hh_1 } # Betharios of Braavos
@@ -1370,7 +1392,7 @@ Frey_38 = {
 	prowess = 3
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 	sexuality = heterosexual
 
 	father = Frey_1
@@ -1383,7 +1405,7 @@ Frey_38 = {
 
 	8261.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 		add_character_flag = sexuality_ensure_heterosexual
 		employer = Frey_1 # Walder Frey
@@ -1395,16 +1417,12 @@ Frey_38 = {
 	}
 	8299.1.16 = { # Battle of the Green Fork
 		effect = {
-			title:k_the_westerlands.holder = { # Tywin Lannister
-				imprison = {
-					target = ROOT
-					type = house_arrest
-				}
+			agot_safe_imprison_in_castle_history_effect = {
+				CASTLE = title:e_the_westerlands
+				RELEASE_DATE = 8299.6.10
+				TYPE = house_arrest
 			}
 		}
-	}
-	8299.6.10 = {
-		effect = { release_from_prison = yes }
 	}
 	8299.12.15 = {
 		trait = murderer # Red Wedding
@@ -1425,7 +1443,7 @@ Frey_39 = {
 	prowess = 3
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 	sexuality = heterosexual
 
 	father = Frey_1
@@ -1443,7 +1461,7 @@ Frey_39 = {
 
 	8262.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 		add_character_flag = sexuality_ensure_heterosexual
 	}
@@ -1492,7 +1510,7 @@ Frey_40 = {
 	prowess = 6
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Crakehall_2
@@ -1507,7 +1525,7 @@ Frey_40 = {
 
 	8263.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8279.1.1 = { trait = knight }
@@ -1521,10 +1539,8 @@ Frey_41 = {
 	dynasty = dynn_Frey
 	dna = Frey_41
 
-	prowess = 6
-
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 	sexuality = heterosexual
 
 	father = Frey_1
@@ -1535,7 +1551,7 @@ Frey_41 = {
 
 	8264.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 		add_character_flag = sexuality_ensure_heterosexual
 	}
@@ -1550,10 +1566,8 @@ Frey_42 = {
 	name = Arwood # Canon
 	dynasty = dynn_Frey
 
-	prowess = 6
-
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_35
 	mother = Hawick_4
@@ -1579,7 +1593,7 @@ Frey_43 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_42
 	mother = RoyceGOTM_13
@@ -1596,7 +1610,7 @@ Frey_44 = {
 	dynasty = dynn_Frey
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_42
 	mother = RoyceGOTM_13
@@ -1615,7 +1629,7 @@ Frey_45 = {
 	dynasty = dynn_Frey
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_42
 	mother = RoyceGOTM_13
@@ -1635,7 +1649,7 @@ Frey_46 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_42
 	mother = RoyceGOTM_13
@@ -1655,7 +1669,7 @@ Frey_47 = {
 	dna = Frey_47
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_37
 	mother = Frey_hh_1
@@ -1666,7 +1680,7 @@ Frey_47 = {
 
 	8278.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8294.1.1 = { trait = lifestyle_poet }
@@ -1681,7 +1695,7 @@ Frey_48 = {
 	dna = Frey_48
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_37
 	mother = Frey_hh_1
@@ -1690,7 +1704,7 @@ Frey_48 = {
 
 	8282.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 }
@@ -1699,7 +1713,7 @@ Frey_49 = {
 	dynasty = dynn_Frey
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_37
 	mother = Frey_hh_1
@@ -1722,7 +1736,7 @@ Frey_50 = {
 	dna = Frey_50
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_39
 	mother = Darry_5
@@ -1738,12 +1752,12 @@ Frey_50 = {
 
 	8282.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8295.1.1 = { trait = lustful }
-	8297.1.1 = { 
-		give_nickname = nick_agot_historical_gatehouse 
+	8297.1.1 = {
+		give_nickname = nick_agot_historical_gatehouse
 		trait = fornicator
 	}
 }
@@ -1757,7 +1771,7 @@ Frey_52 = {
 	martial = 3
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_39
 	mother = Darry_5
@@ -1771,10 +1785,10 @@ Frey_52 = {
 
 	8284.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
-	8294.1.1 = { give_nickname = nick_agot_historical_fat }
+	8294.1.1 = { give_nickname = nick_agot_historical_fat_Frey_52 }
 	8297.1.1 = { trait = lustful }
 	8300.1.1 = {
 		effect = {
@@ -1791,7 +1805,7 @@ Frey_53 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_39
 	mother = Darry_5
@@ -1808,7 +1822,7 @@ Frey_54 = {
 	dynasty = dynn_Frey
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_39
 	mother = Darry_5
@@ -1830,7 +1844,7 @@ Frey_54 = {
 		effect = {
 			agot_set_as_ward_history_effect = { GUARDIAN = character:Stark_6 } # Robb Stark
 		}
-		give_nickname = nick_agot_historical_little_walder_frey
+		give_nickname = nick_agot_historical_little_Frey_54
 	}
 	8299.1.10 = { employer = Stark_6 } # Robb Stark
 	8299.4.1 = { trait = wrathful }
@@ -1856,10 +1870,8 @@ Frey_55 = {
 	name = Sandor # Canon
 	dynasty = dynn_Frey
 
-	prowess = 3
-
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_40
 	mother = Waynwood_18
@@ -1881,7 +1893,7 @@ Frey_56 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_40
 	mother = Waynwood_18
@@ -1904,14 +1916,17 @@ Frey_57 = {
 
 	learning = 15
 
+	dna = Frey_57
+
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_41
 	mother = Beesbury_4
 
 	8283.1.1 = {
 		birth = yes
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8298.1.1 = {
@@ -1937,8 +1952,10 @@ Frey_58 = {
 	intrigue = 4
 	prowess = 3
 
+	dna = Frey_58
+
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_41
 	mother = Beesbury_4
@@ -1948,6 +1965,7 @@ Frey_58 = {
 
 	8284.1.1 = {
 		birth = yes
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8300.1.1 = {
@@ -1962,8 +1980,10 @@ Frey_59 = {
 	dynasty = dynn_Frey
 	female = yes
 
+	dna = Frey_59
+
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_41
 	mother = Beesbury_4
@@ -1973,6 +1993,7 @@ Frey_59 = {
 
 	8285.1.1 = {
 		birth = yes
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 }
@@ -1981,8 +2002,10 @@ Frey_60 = {
 	dynasty = dynn_Frey
 	female = yes
 
+	dna = Frey_60
+
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_41
 	mother = Beesbury_4
@@ -1992,6 +2015,7 @@ Frey_60 = {
 
 	8285.1.1 = {
 		birth = yes
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 }
@@ -2000,14 +2024,17 @@ Frey_61 = {
 	dynasty = dynn_Frey
 	female = yes
 
+	dna = Frey_61
+
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_41
 	mother = Beesbury_4
 
 	8293.1.1 = {
 		birth = yes
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8298.1.1 = { give_nickname = nick_agot_historical_the_little_bee }
@@ -2017,7 +2044,7 @@ Frey_62 = {
 	dynasty = dynn_Frey
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_41
 	mother = Beesbury_4
@@ -2034,7 +2061,7 @@ Frey_63 = {
 	dynasty = dynn_Frey
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_41
 	mother = Beesbury_4
@@ -2060,7 +2087,7 @@ Frey_hh_1 = {
 
 	8261.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 }
@@ -2071,7 +2098,7 @@ Frey_51 = {
 	prowess = 6
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	trait = education_martial_1
 	trait = greedy
@@ -2080,6 +2107,7 @@ Frey_51 = {
 	8278.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_canon
+		set_to_lowborn = yes # Lowborn Laamp Bugfix
 	}
 	8294.1.1 = { trait = knight }
 	8297.1.1 = { add_spouse = Frey_50 } # Gatehouse Ami Frey
@@ -2105,7 +2133,7 @@ Frey_64 = {
 	learning = 6
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Blackwood_5
@@ -2123,7 +2151,7 @@ Frey_64 = {
 
 	8266.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8269.1.1 = { give_nickname = nick_agot_historical_lame }
@@ -2143,17 +2171,15 @@ Frey_65 = {
 	dynasty = dynn_Frey
 	dna = Frey_65
 
-	prowess = 6
-
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Blackwood_5
 
 	8267.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8283.1.1 = { trait = knight }
@@ -2164,17 +2190,15 @@ Frey_66 = {
 	dynasty = dynn_Frey
 	dna = Frey_66
 
-	prowess = 6
-
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Blackwood_5
 
 	8268.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8284.1.1 = { trait = knight }
@@ -2189,14 +2213,14 @@ Frey_67 = {
 	dna = Frey_67
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Blackwood_5
 
 	8269.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 }
@@ -2207,17 +2231,17 @@ Frey_68 = {
 	dna = Frey_68
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Blackwood_5
 
 	8270.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
-	8297.1.1 = { give_nickname = nick_agot_historical_the_maid }
+	8297.1.1 = { give_nickname = nick_agot_historical_the_maid_Frey_68 }
 }
 ### Issue of Lothar
 Frey_69 = {
@@ -2226,7 +2250,7 @@ Frey_69 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_64
 	mother = Lefford_3
@@ -2242,7 +2266,7 @@ Frey_70 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_64
 	mother = Lefford_3
@@ -2258,7 +2282,7 @@ Frey_71 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_64
 	mother = Lefford_3
@@ -2274,7 +2298,7 @@ Frey_72 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_64
 	mother = Lefford_3
@@ -2291,7 +2315,7 @@ Frey_73 = {
 	dynasty = dynn_Frey
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_65
 	mother = Paege_3
@@ -2312,7 +2336,7 @@ Frey_73 = {
 		effect = {
 			agot_set_as_ward_history_effect = { GUARDIAN = character:Stark_6 } # Robb Stark
 		}
-		give_nickname = nick_agot_historical_big_walder_frey
+		give_nickname = nick_agot_historical_big_Frey_73
 	}
 	8299.1.10 = { employer = Stark_6 } # Robb Stark
 	8299.2.8 = { trait = arrogant }
@@ -2330,7 +2354,7 @@ Frey_74 = {
 	dynasty = dynn_Frey
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	trait = twin
 
@@ -2347,7 +2371,7 @@ Frey_75 = {
 	dynasty = dynn_Frey
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	trait = twin
 
@@ -2364,10 +2388,8 @@ Frey_76 = {
 	name = Hoster # Canon
 	dynasty = dynn_Frey
 
-	prowess = 3
-
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_66
 	mother = Paege_2
@@ -2388,7 +2410,7 @@ Frey_77 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_66
 	mother = Paege_2
@@ -2410,7 +2432,7 @@ Frey_78 = {
 	prowess = 6
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Rosby_3
@@ -2421,10 +2443,18 @@ Frey_78 = {
 
 	8277.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
-	8293.1.1 = { trait = knight }
+	8293.1.1 = { 
+		trait = knight
+		trait = tourney_participant
+		add_trait_xp = {
+			trait = tourney_participant
+			track = horse
+			value = 30
+		}
+	}
 	8295.1.1 = {
 		effect = {
 			add_pressed_claim = title:d_rosby
@@ -2440,14 +2470,14 @@ Frey_79 = {
 	prowess = 3
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Rosby_3
 
 	8278.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8285.1.1 = {
@@ -2475,7 +2505,7 @@ Frey_80 = {
 	learning = 13
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Rosby_3
@@ -2484,7 +2514,7 @@ Frey_80 = {
 
 	8279.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8298.1.1 = {
@@ -2503,15 +2533,14 @@ Frey_81 = {
 	dynasty = dynn_Frey
 	dna = Frey_81
 
-	prowess = 6
-
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Rosby_3
 
 	trait = education_martial_1
+	trait = education_martial_prowess_2
 	trait = honest
 	trait = brave
 	trait = charming
@@ -2520,7 +2549,7 @@ Frey_81 = {
 
 	8281.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8287.1.1 = { trait = diligent }
@@ -2538,7 +2567,7 @@ Frey_82 = {
 	dna = Frey_82
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Rosby_3
@@ -2554,7 +2583,7 @@ Frey_82 = {
 
 	8283.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 }
@@ -2565,7 +2594,7 @@ Frey_83 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_79
 	mother = Frey_101
@@ -2580,7 +2609,7 @@ Frey_84 = {
 	dynasty = dynn_Frey
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_79
 	mother = Frey_101
@@ -2598,14 +2627,17 @@ Frey_85 = {
 	dynasty = dynn_Frey
 	female = yes
 
+	dna = Frey_85
+
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Farring_4
 
 	8285.6.1 = {
 		birth = yes
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 		trait = disputed_heritage
 	}
@@ -2614,14 +2646,17 @@ Frey_86 = {
 	name = Wendel # Canon
 	dynasty = dynn_Frey
 
+	dna = Frey_86
+
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Farring_4
 
 	8286.5.1 = {
 		birth = yes
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 		trait = disputed_heritage
 	}
@@ -2637,8 +2672,10 @@ Frey_87 = {
 
 	learning = 10
 
+	dna = Frey_87
+
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Farring_4
@@ -2650,6 +2687,7 @@ Frey_87 = {
 
 	8288.4.1 = {
 		birth = yes
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 		trait = disputed_heritage
 	}
@@ -2668,14 +2706,17 @@ Frey_88 = {
 	name = Waltyr # Canon
 	dynasty = dynn_Frey
 
+	dna = Frey_88
+
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Farring_4
 
 	8289.3.1 = {
 		birth = yes
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 		trait = disputed_heritage
 	}
@@ -2684,10 +2725,10 @@ Frey_89 = {
 	name = Elmar # Canon, betrothed to Arya Stark
 	dynasty = dynn_Frey
 
-	prowess = 3
+	dna = Frey_89
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Farring_4
@@ -2699,6 +2740,7 @@ Frey_89 = {
 
 	8290.2.1 = {
 		birth = yes
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 		trait = disputed_heritage
 	}
@@ -2715,16 +2757,23 @@ Frey_90 = {
 	dynasty = dynn_Frey
 	female = yes
 
+	dna = Frey_90
+
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 	mother = Farring_4
 
+	# canon_children_bastard_parent_status unmarried_father_married_mother
+	# canon_children_bastard_reveal canon_bastard_unknown_father
+
 	8293.1.1 = {
 		birth = yes
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 		trait = disputed_heritage
+		effect = { set_real_father = character:Frey_8 } # Black Walder Frey
 	}
 }
 
@@ -2738,10 +2787,10 @@ Crossing_1 = {
 
 	martial = 12
 	stewardship = 10
-	prowess = 12
+	prowess = 7
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 
@@ -2758,7 +2807,8 @@ Crossing_1 = {
 
 	8246.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = surname_rivers
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8262.1.1 = { trait = knight }
@@ -2777,7 +2827,7 @@ Frey_91 = {
 	learning = 14
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 
@@ -2787,7 +2837,8 @@ Frey_91 = {
 
 	8250.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = surname_rivers
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8270.1.1 = {
@@ -2809,7 +2860,7 @@ Frey_92 = {
 	dna = Frey_92
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 
@@ -2817,7 +2868,8 @@ Frey_92 = {
 
 	8265.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = surname_rivers
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 }
@@ -2825,13 +2877,10 @@ Frey_93 = {
 	name = Martyn # Canon
 	dynasty = dynn_Frey
 
-	martial = 8
-	prowess = 6
-
 	dna = Frey_93
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 
@@ -2841,20 +2890,27 @@ Frey_93 = {
 
 	8271.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = surname_rivers
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
+	}
+	8287.1.1 = {
+		trait = tourney_participant
+		add_trait_xp = {
+			trait = tourney_participant
+			track = horse
+			value = 30
+		}
 	}
 }
 Frey_94 = {
 	name = Ryger # Canon
 	dynasty = dynn_Frey
 
-	prowess = 3
-
 	dna = Frey_94
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 
@@ -2865,7 +2921,8 @@ Frey_94 = {
 
 	8272.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = surname_rivers
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 }
@@ -2875,11 +2932,8 @@ Frey_95 = {
 
 	dna = Frey_95
 
-	martial = 8
-	prowess = 6
-
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 
@@ -2889,21 +2943,18 @@ Frey_95 = {
 
 	8273.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = surname_rivers
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8299.1.16 = { # Battle of the Green Fork
 		effect = {
-			title:k_the_westerlands.holder = { # Tywin Lannister
-				imprison = {
-					target = ROOT
-					type = house_arrest
-				}
+			agot_safe_imprison_in_castle_history_effect = {
+				CASTLE = title:e_the_westerlands
+				RELEASE_DATE = 8299.6.10
+				TYPE = house_arrest
 			}
 		}
-	}
-	8299.6.10 = {
-		effect = { release_from_prison = yes }
 	}
 	8299.12.15 = {
 		effect = {
@@ -2919,7 +2970,7 @@ Frey_96 = {
 	dna = Frey_96
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_1
 
@@ -2927,7 +2978,8 @@ Frey_96 = {
 
 	8274.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = surname_rivers
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 }
@@ -2940,14 +2992,14 @@ Crossing_2 = {
 	dna = Crossing_2
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Crossing_1
 	mother = Charlton_2
 
 	8270.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 		make_trait_inactive = surname_rivers
 	}
@@ -2956,10 +3008,8 @@ Crossing_3 = {
 	name = Aemon # Canon
 	dynasty_house = house_Crossing
 
-	prowess = 6
-
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Crossing_1
 	mother = Charlton_2
@@ -2984,7 +3034,7 @@ Crossing_4 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Crossing_3
 	mother = Common_110
@@ -3004,17 +3054,15 @@ Frey_97 = {
 
 	dna = Frey_97
 
-	prowess = 6
-
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_132
 	mother = Greysteel_26
 
 	8211.2.9 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 	}
 	8227.4.1 = {
 		trait = knight
@@ -3031,17 +3079,15 @@ Frey_98 = {
 
 	dna = Frey_98
 
-	prowess = 3
-
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_97
 	mother = Dunford_76
 
 	8230.4.10 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 	}
 	8246.7.4 = {
 		trait = knight
@@ -3059,7 +3105,7 @@ Frey_138 = {
 	dna = Frey_138
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_97
 	mother = Dunford_76
@@ -3071,7 +3117,7 @@ Frey_138 = {
 
 	8231.6.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 	}
 }
 Frey_147 = {
@@ -3079,7 +3125,7 @@ Frey_147 = {
 	dynasty = dynn_Frey
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_97
 	mother = Dunford_76
@@ -3099,7 +3145,7 @@ Frey_rs_147 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	8240.1.1 = {
 		birth = yes
@@ -3114,7 +3160,7 @@ Frey_161 = {
 	dynasty = dynn_Frey
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_97
 	mother = Dunford_76
@@ -3134,14 +3180,14 @@ Frey_99 = {
 	dna = Frey_99
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_98
 	mother = Cox_63
 
 	8248.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8285.1.1 = { death = yes }
@@ -3153,14 +3199,14 @@ Frey_139 = {
 	dna = Frey_139
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_98
 	mother = Cox_63
 
 	8250.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 	}
 	8268.1.1 = { add_spouse = Vypren_79 } # Taria Vypren
 	8292.1.1 = { death = yes }
@@ -3171,17 +3217,17 @@ Frey_100 = {
 
 	dna = Frey_100
 
-	prowess = 6
-
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_98
 	mother = Cox_63
 
+	trait = education_martial_1
+
 	8257.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8273.1.1 = {
@@ -3194,7 +3240,7 @@ Frey_149 = {
 	dynasty = dynn_Frey
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_98
 	mother = Cox_63
@@ -3222,7 +3268,7 @@ Frey_151 = {
 	dynasty = dynn_Frey
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_161
 	mother = Finch_52
@@ -3239,7 +3285,7 @@ Frey_162 = {
 	dynasty = dynn_Frey
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_161
 	mother = MootonHM_123
@@ -3257,7 +3303,7 @@ Frey_157 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_161
 	mother = MootonHM_123
@@ -3273,7 +3319,7 @@ Frey_158 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_161
 	mother = MootonHM_123
@@ -3289,7 +3335,7 @@ Frey_159 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_161
 	mother = MootonHM_123
@@ -3307,7 +3353,7 @@ Frey_160 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_161
 	mother = MootonHM_123
@@ -3324,7 +3370,7 @@ Frey_156 = {
 	dynasty = dynn_Frey
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_161
 	mother = MootonHM_123
@@ -3340,7 +3386,7 @@ Frey_146 = {
 	dynasty = dynn_Frey
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_100
 	mother = Weller_38
@@ -3357,7 +3403,7 @@ Frey_rs_146 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	8280.1.1 = {
 		birth = yes
@@ -3371,14 +3417,14 @@ Frey_101 = {
 	dna = Frey_101
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_100
 	mother = Weller_38
 
 	8279.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 }
@@ -3391,7 +3437,7 @@ Frey_140 = {
 	dna = Frey_140
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_139
 	mother = Vypren_79
@@ -3406,7 +3452,7 @@ Frey_140 = {
 
 	8270.1.1 = {
 		birth = yes
-		add_character_flag = has_scripted_appearance
+		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_semicanon
 	}
 	8286.1.1 = { trait = authoritative }
@@ -3418,7 +3464,7 @@ Frey_148 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_147
 	mother = Frey_rs_147
@@ -3436,7 +3482,7 @@ Frey_150 = {
 	dynasty = dynn_Frey
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Perryn_73
 	mother = Frey_148
@@ -3458,6 +3504,22 @@ Frey_150 = {
 		# dynasty = dynn_Barnell # took the name of his stepfather, disabled to not bug the family tree
 		employer = Barnell_2 # Tomas Barnell
 	}
+	8289.1.1 = {
+		effect = {
+			if = {
+				limit = { character:Barnell_3 = { is_alive = yes } }
+				set_relation_friend = character:Barnell_3 # Garrett Barnell
+			}
+		}
+	}
+	8298.1.1 = {
+		effect = {
+			if = {
+				limit = { character:Barnell_2  = { is_alive = yes } }
+				set_relation_grudge = character:Barnell_2  # Tomas Barnell
+			}
+		}
+	}
 }
 ### Issue of Franklyn
 Frey_152 = {
@@ -3466,7 +3528,7 @@ Frey_152 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_151
 	mother = Ward_58
@@ -3482,7 +3544,7 @@ Frey_153 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_151
 	mother = Ward_58
@@ -3498,7 +3560,7 @@ Frey_154 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_151
 	mother = Ward_58
@@ -3514,7 +3576,7 @@ Frey_155 = {
 	female = yes
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	father = Frey_151
 	mother = Ward_58
@@ -3529,7 +3591,7 @@ Frey_hh_2 = {
 	name = Brenett # Canon
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	learning = 9
 
@@ -3560,7 +3622,7 @@ Frey_hh_3 = {
 	name = Gyles # Semi-Canon, mentioned
 
 	religion = fots_seven
-	culture = riverlander
+	culture = riverman_main
 
 	trait = education_learning_1
 	trait = physique_bad_1
