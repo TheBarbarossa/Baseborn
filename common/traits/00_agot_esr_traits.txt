@@ -1,0 +1,338 @@
+﻿esr_social_standing = {
+	#icon = "esr_social_standing_neutral.dds"
+
+	flag = no_message
+	shown_in_ruler_designer = no
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					trigger_if = {
+						limit = {
+							NOT = { exists = this }
+						}
+					}
+					trigger_else_if = {
+						limit = { has_trait = esr_social_standing }
+						has_trait_xp = {
+							trait = esr_social_standing
+							track = esr_well_connected
+							value < 60
+						}
+						has_trait_xp = {
+							trait = esr_social_standing
+							track = esr_friends_in_high_places
+							value < 60
+						}
+						has_trait_xp = {
+							trait = esr_social_standing
+							track = esr_social_pariah
+							value < 60
+						}
+					}
+					trigger_else = {
+						NOT = { has_trait = esr_social_standing }
+					}
+				}
+				desc = trait_esr_social_standing_neutral
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait = esr_social_standing
+					OR = {
+						has_trait_xp = {
+							trait = esr_social_standing
+							track = esr_well_connected
+							value >= 60
+						}
+						has_trait_xp = {
+							trait = esr_social_standing
+							track = esr_friends_in_high_places
+							value >= 60
+						}
+					}
+					NOT = {
+						has_trait_xp = {
+							trait = esr_social_standing
+							track = esr_social_pariah
+							value >= 60
+						}
+					}
+				}
+				desc = trait_esr_social_standing_good
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait = esr_social_standing
+					has_trait_xp = {
+						trait = esr_social_standing
+						track = esr_well_connected
+						value < 60
+					}
+					has_trait_xp = {
+						trait = esr_social_standing
+						track = esr_friends_in_high_places
+						value < 60
+					}
+					has_trait_xp = {
+						trait = esr_social_standing
+						track = esr_social_pariah
+						value >= 60
+					}
+				}
+				desc = trait_esr_social_standing_bad
+			}
+			desc = trait_esr_social_standing_mixed
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_esr_social_standing_neutral_desc
+			}
+			triggered_desc = {
+				trigger = {
+					trigger_if = {
+						limit = { has_trait = esr_social_standing }
+						has_trait_xp = {
+							trait = esr_social_standing
+							track = esr_well_connected
+							value < 60
+						}
+						has_trait_xp = {
+							trait = esr_social_standing
+							track = esr_friends_in_high_places
+							value < 60
+						}
+						has_trait_xp = {
+							trait = esr_social_standing
+							track = esr_social_pariah
+							value < 60
+						}
+					}
+				}
+				desc = trait_esr_social_standing_neutral_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait = esr_social_standing
+					OR = {
+						has_trait_xp = {
+							trait = esr_social_standing
+							track = esr_well_connected
+							value >= 60
+						}
+						has_trait_xp = {
+							trait = esr_social_standing
+							track = esr_friends_in_high_places
+							value >= 60
+						}
+					}
+					NOT = {
+						has_trait_xp = {
+							trait = esr_social_standing
+							track = esr_social_pariah
+							value >= 60
+						}
+					}
+				}
+				desc = trait_esr_social_standing_good_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait = esr_social_standing
+					has_trait_xp = {
+						trait = esr_social_standing
+						track = esr_well_connected
+						value < 60
+					}
+					has_trait_xp = {
+						trait = esr_social_standing
+						track = esr_friends_in_high_places
+						value < 60
+					}
+					has_trait_xp = {
+						trait = esr_social_standing
+						track = esr_social_pariah
+						value >= 60
+					}
+				}
+				desc = trait_esr_social_standing_bad_desc
+			}
+			desc = trait_esr_social_standing_mixed_desc
+		}
+	}
+
+	icon = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = esr_social_standing_neutral.dds
+			}
+			triggered_desc = {
+				trigger = {
+					trigger_if = {
+						limit = { has_trait = esr_social_standing }
+						has_trait_xp = {
+							trait = esr_social_standing
+							track = esr_well_connected
+							value < 60
+						}
+						has_trait_xp = {
+							trait = esr_social_standing
+							track = esr_friends_in_high_places
+							value < 60
+						}
+						has_trait_xp = {
+							trait = esr_social_standing
+							track = esr_social_pariah
+							value < 60
+						}
+					}
+				}
+				desc = esr_social_standing_neutral.dds
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait = esr_social_standing
+					OR = {
+						has_trait_xp = {
+							trait = esr_social_standing
+							track = esr_well_connected
+							value >= 60
+						}
+						has_trait_xp = {
+							trait = esr_social_standing
+							track = esr_friends_in_high_places
+							value >= 60
+						}
+					}
+					NOT = {
+						has_trait_xp = {
+							trait = esr_social_standing
+							track = esr_social_pariah
+							value >= 60
+						}
+					}
+				}
+				desc = esr_social_standing_good.dds
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait = esr_social_standing
+					has_trait_xp = {
+						trait = esr_social_standing
+						track = esr_well_connected
+						value < 60
+					}
+					has_trait_xp = {
+						trait = esr_social_standing
+						track = esr_friends_in_high_places
+						value < 60
+					}
+					has_trait_xp = {
+						trait = esr_social_standing
+						track = esr_social_pariah
+						value >= 60
+					}
+				}
+				desc = esr_social_standing_bad.dds
+			}
+			desc = esr_social_standing_mixed.dds
+		}
+	}
+
+	flag = esr_increased_swing_relation
+
+	tracks = {
+		esr_well_connected = {
+			30 = {
+				monthly_diplomacy_lifestyle_xp_gain_mult = 0.05
+				personal_scheme_phase_duration_add = minor_scheme_phase_duration_bonus_value
+				courtly_opinion = 5
+			}
+			60 = {
+				diplomacy = 1
+				enemy_hostile_scheme_phase_duration_add = minor_scheme_phase_duration_malus_value
+				courtly_opinion = 5
+				ai_sociability = low_positive_ai_value
+			}
+			90 = {
+				monthly_diplomacy_lifestyle_xp_gain_mult = 0.15
+				personal_scheme_phase_duration_add = minor_scheme_phase_duration_bonus_value
+				hostile_scheme_phase_duration_add = minor_scheme_phase_duration_bonus_value
+				enemy_hostile_scheme_phase_duration_add = minor_scheme_phase_duration_malus_value
+				courtly_opinion = 5
+			}
+		}
+		esr_popular_among_peers = {
+			30 = {
+				liege_opinion = -5
+			}
+			60 = {
+				liege_opinion = -5
+				glory_hound_opinion = 5
+				ai_boldness = low_positive_ai_value
+			}
+			90 = {
+				liege_opinion = -10
+				glory_hound_opinion = 5
+				hostile_scheme_phase_duration_add = minor_scheme_phase_duration_bonus_value
+			}
+		}
+		esr_friends_in_high_places = {
+			30 = {
+				diplomacy = 1
+				glory_hound_opinion = 5
+				monthly_prestige_gain_mult = 0.05
+			}
+			60 = {
+				liege_opinion = -5
+				glory_hound_opinion = 5
+				monthly_prestige_gain_mult = 0.05
+				dread_baseline_add = 10
+				ai_boldness = low_positive_ai_value
+			}
+			90 = {
+				diplomacy = 1
+				liege_opinion = -5
+				glory_hound_opinion = 5
+				monthly_diplomacy_lifestyle_xp_gain_mult = 0.1
+				monthly_prestige_gain_mult = 0.1
+				dread_gain_mult = 0.15
+			}
+		}
+		esr_social_pariah = {
+			30 = {
+				courtly_opinion = -5
+				personal_scheme_phase_duration_add = minor_scheme_phase_duration_malus_value
+				dread_baseline_add = 5
+				stress_gain_mult = 0.1
+			}
+			60 = {
+				diplomacy = -1
+				courtly_opinion = -5
+				dread_baseline_add = 5
+				dread_decay_mult = -0.1
+				stress_gain_mult = 0.15
+			}
+			90 = {
+				diplomacy = -2
+				courtly_opinion = -5
+				dynasty_opinion = -5
+				personal_scheme_phase_duration_add = minor_scheme_phase_duration_malus_value
+				dread_baseline_add = 15
+				dread_gain_mult = 0.15
+				dread_decay_mult = -0.1
+				monthly_dynasty_prestige_mult = -0.1
+			}
+		}
+	}
+}

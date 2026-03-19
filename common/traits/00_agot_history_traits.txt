@@ -1,0 +1,164 @@
+﻿# Standard Values
+@pos_compat_high = 30
+@pos_compat_medium = 15
+@pos_compat_low = 5
+
+@neg_compat_high = -30
+@neg_compat_medium = -15
+@neg_compat_low = -5
+
+nightswatch_historical = {
+	opposites = {
+		deserter
+	}
+
+	shown_in_ruler_designer = no
+	shown_in_encyclopedia = no
+
+	monthly_piety_gain_mult = 0.02
+
+	same_opinion = 5
+	dynasty_opinion = 5
+	opposite_opinion = -20
+	ignore_negative_culture_opinion = yes
+	ignore_negative_opinion_of_culture = yes
+
+	flag = can_not_marry
+	inheritance_blocker = all
+	claim_inheritance_blocker = all
+
+	ai_honor = 10
+
+	icon = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = this
+				}
+				desc = nightswatch.dds
+			}
+			desc = scholar.dds
+		}
+	}
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = this
+				}
+				desc = trait_nightswatch_sworn
+			}
+			desc = trait_history
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = this
+				}
+				desc = trait_nightswatch_character_desc
+			}
+			desc = trait_nightswatch_desc
+		}
+	}
+}
+
+maester_historical = {
+
+	shown_in_ruler_designer = no
+	shown_in_encyclopedia = no
+
+	inheritance_blocker = all
+	claim_inheritance_blocker = all
+
+	flag = can_not_marry
+
+	same_opinion = 10
+	opposite_opinion = -10
+
+	ai_rationality = 10
+	ai_greed = -10
+	ai_sociability = -5
+	ai_boldness = -5
+
+	opposites = {
+		disgraced_maester
+	}
+	icon = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = this
+				}
+				desc = maester.dds
+			}
+			desc = scholar.dds
+		}
+	}
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_history
+			}
+			desc = trait_maester
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_citadel_desc
+			}
+			desc = trait_maester_character_desc
+		}
+	}
+
+}
+
+knight = {
+	physical = no
+	category = fame
+
+	attraction_opinion = 5
+	same_opinion = 5
+	monthly_prestige = 0.25
+	heavy_cavalry_damage_mult = 0.05
+	knight_effectiveness_mult = 0.02
+
+	culture_modifier = {
+		parameter = knight_trait_more_valued
+		general_opinion = 10
+	}
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					this ?= character:Gates_1
+				}
+				desc = trait_knight_questionable
+			}
+			desc = trait_knight
+		}
+	}
+
+	desc = {
+		first_valid ={
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_knight_desc
+			}
+			desc = trait_knight_character_desc
+		}
+	}
+}

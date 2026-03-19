@@ -1,0 +1,2808 @@
+﻿# Standard Values
+@pos_compat_high = 30
+@pos_compat_medium = 15
+@pos_compat_low = 5
+
+@neg_compat_high = -30
+@neg_compat_medium = -15
+@neg_compat_low = -5
+
+################### LIFESTYLE ##################
+
+squire = {
+	physical = no
+	monthly_prestige = 0.1
+	same_opinion = 5
+	shown_in_ruler_designer = no
+
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = this
+					is_squire_with_trait_xp = yes
+				}
+				desc = trait_squire
+			}
+			triggered_desc = {
+				trigger = {
+					exists = this
+					is_agot_knight_trigger = yes
+					AND = {
+						has_trait = gallowsbait
+						has_trait_xp = {
+							trait = gallowsbait
+							track = bandit
+							value >= 51
+						}
+					}
+				}
+				desc = trait_robber_knight
+			}
+			triggered_desc = {
+				trigger = {
+					exists = this
+					is_agot_knight_trigger = yes
+				}
+				desc = trait_knight
+			}
+			desc = trait_knight
+		}
+	}
+
+	icon = {
+		first_valid = {
+			triggered_desc = { # If no character exists
+				trigger = { NOT = { exists = this } }
+				desc = squire.dds
+			}
+			triggered_desc = {
+				trigger = {
+					is_squire_with_trait_xp = yes
+				}
+				desc = squire.dds
+			}
+			triggered_desc = {
+				trigger = {
+					is_agot_knight_trigger = yes
+				}
+				desc = knight.dds
+			}
+			desc = knight.dds
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_squire_desc
+			}
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+					is_agot_knight_trigger = yes
+				}
+				desc = trait_knight_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = agot_knighthood_knightless_squire_flag
+				}
+				desc = trait_squire_no_knight_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = agot_favors_being_a_squire_flag
+				}
+				desc = trait_prefers_being_a_squire_desc
+			}
+			triggered_desc = {
+				trigger = {
+					exists = this
+					is_agot_knight_trigger = yes
+					AND = {
+						has_trait = gallowsbait
+						has_trait_xp = {
+							trait = gallowsbait
+							track = bandit
+							value >= 51
+						}
+					}
+				}
+				desc = trait_robber_knight_character_desc
+			}
+			triggered_desc = {
+				trigger = {
+					exists = this
+					is_agot_knight_trigger = yes
+				}
+				desc = trait_knight_character_desc
+			}
+			triggered_desc = {
+				trigger = {
+					exists = this
+					any_owned_story = {
+						story_type = story_agot_squire_ongoing
+					}
+				}
+				desc = trait_squire_character_desc
+			}
+			desc = trait_squire_desc
+		}
+	}
+
+	tracks = {
+		knight = {
+			100 = {
+				attraction_opinion = 5
+				monthly_prestige = 0.15
+				heavy_cavalry_damage_mult = 0.05
+				knight_effectiveness_mult = 0.02
+				culture_modifier = {
+					parameter = knight_trait_more_valued
+					general_opinion = 10
+				}
+			}
+		}
+	}
+}
+
+stripped_knight = {
+	physical = no
+	category = fame
+	opposite_opinion = -10
+	monthly_prestige_gain_mult = -0.01
+	opposites = { squire }
+	faith_modifier = {
+		parameter = can_grant_knighthood
+		diplomacy = -1
+	}
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_stripped_knight
+			}
+			desc = trait_stripped_knight
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_stripped_knight_desc
+			}
+			desc = trait_stripped_knight_character_desc
+		}
+	}
+	ai_sociability = -5
+}
+
+maester = {
+
+	shown_in_ruler_designer = no
+
+	inheritance_blocker = all
+	claim_inheritance_blocker = all
+
+	flag = can_not_marry
+
+	same_opinion = 10
+	opposite_opinion = -10
+
+	ai_rationality = 10
+	ai_greed = -10
+	ai_sociability = -5
+	ai_boldness = -5
+
+	opposites = {
+		disgraced_maester
+	}
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_maester
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = maester
+						value < 34
+					}
+				}
+				desc = trait_novice
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = maester
+						value < 100
+					}
+				}
+				desc = trait_acolyte
+			}
+			desc = trait_maester
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_maester_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = maester
+						value < 34
+					}
+				}
+				desc = trait_novice_character_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = maester
+						value < 100
+					}
+				}
+				desc = trait_acolyte_character_desc
+			}
+			desc = trait_maester_character_desc
+		}
+	}
+
+	track = {
+		34 = {}
+
+		100 = {
+			dynasty_house_opinion = 5
+			liege_opinion = 20
+		}
+	}
+}
+
+disgraced_maester = {
+	icon = maester_disgraced.dds
+
+	shown_in_ruler_designer = no
+
+	same_opinion = 10
+	opposite_opinion = -10
+
+	ai_rationality = 10
+	ai_greed = 10
+	ai_sociability = -5
+	ai_boldness = 5
+
+	opposites = {
+		maester
+	}
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_disgraced_maester
+			}
+			desc = trait_disgraced_maester
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_disgraced_maester_desc
+			}
+			desc = trait_disgraced_maester_character_desc
+		}
+	}
+}
+
+archmaester = {
+	shown_in_ruler_designer = no
+
+	icon = maester.dds
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					OR = {
+						NOT = { exists = this }
+					}
+				}
+				desc = trait_archmaester
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait = archmaester
+				}
+				desc = trait_archmaester_typed
+			}
+			desc = trait_archmaester
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_archmaester_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait = archmaester
+				}
+				desc = trait_archmaester_typed_desc
+			}
+			desc = trait_archmaester_desc
+		}
+	}
+}
+
+kingsguard = {
+	category = fame
+
+	shown_in_ruler_designer = no
+
+	same_opinion = 5
+	liege_opinion = 30
+	diplomacy = 1
+	prowess = 4
+	monthly_prestige_gain_mult = 0.2
+	monthly_piety_gain_mult = 0.01
+
+	inheritance_blocker = all
+	claim_inheritance_blocker = all
+
+	flag = can_not_marry
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_kingsguard_desc
+			}
+			desc = trait_kingsguard_character_desc
+		}
+	}
+}
+
+former_kingsguard = {
+	category = fame
+
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_former_kingsguard_desc
+			}
+			desc = trait_former_kingsguard_character_desc
+		}
+	}
+}
+
+nightswatch = {
+	opposites = {
+		deserter
+	}
+
+	same_opinion = 5
+	dynasty_opinion = 5
+	opposite_opinion = -20
+
+	flag = can_not_marry
+	inheritance_blocker = all
+	claim_inheritance_blocker = all
+
+	shown_in_ruler_designer = yes
+
+	ai_honor = 10
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_nightswatch
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = nightswatch
+						value < 100
+					}
+				}
+				desc = trait_flappers
+			}
+			desc = trait_nightswatch_sworn
+		}
+	}
+
+	icon = {
+		first_valid = {
+			triggered_desc = { # If no character exists
+				trigger = { NOT = { exists = this } }
+				desc = nightswatch.dds
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = nightswatch
+						value < 100
+					}
+				}
+				desc = flappers.dds
+			}
+			desc = nightswatch.dds
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_nightswatch_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = nightswatch
+						value < 100
+					}
+				}
+				desc = trait_flappers_desc
+			}
+			desc = trait_nightswatch_character_desc
+		}
+	}
+
+	track = {
+		100 = {
+			prowess = 2
+			dynasty_opinion = 5
+			monthly_piety_gain_mult = 0.02
+			ignore_negative_culture_opinion = yes
+			ignore_negative_opinion_of_culture = yes
+		}
+	}
+}
+
+lifestyle_nw_builder = {
+	category = lifestyle
+	icon = nw_builder.dds
+
+	shown_in_ruler_designer = no
+
+	# Modifiers
+	stewardship = 1
+	prowess = 1
+	monthly_stewardship_lifestyle_xp_gain_mult = 0.10
+
+	track = {
+		50 = {
+			stewardship = 1
+			prowess = 1
+			build_speed = -0.05
+			holding_build_speed = -0.05
+		}
+		100 = {
+			stewardship = 2
+			prowess = 2
+			build_speed = -0.05
+			holding_build_speed = -0.05
+			build_gold_cost = -0.10
+			holding_build_gold_cost = -0.10
+			siege_phase_time = -0.2
+		}
+	}
+
+	name = {
+		first_valid = {
+			#Master Builder
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = lifestyle_nw_builder
+						value >= 100
+					}
+				}
+				desc = trait_nw_builder_3
+			}
+			#Journeyman Builder
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = lifestyle_nw_builder
+						value >= 50
+					}
+				}
+				desc = trait_nw_builder_2
+			}
+			#Novice Builder
+			triggered_desc = {
+				trigger = {
+					exists = this
+				}
+				desc = trait_nw_builder_1
+			}
+			desc = trait_nw_builder
+		}
+	}
+
+	# Loc
+	desc = {
+		first_valid = {
+			#The trait can never go higher than the first level if it's not assigned to a character
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_nw_builder_1_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = lifestyle_nw_builder
+						value >= 100
+					}
+				}
+				desc = trait_nw_builder_3_character_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = lifestyle_nw_builder
+						value >= 50
+					}
+				}
+				desc = trait_nw_builder_2_character_desc
+			}
+			desc = trait_nw_builder_1_character_desc
+		}
+	}
+
+	ai_rationality = 10
+	ai_energy = 5
+
+	compatibility = {
+		architect = @pos_compat_medium
+		administrator = @pos_compat_medium
+		avaricious = @pos_compat_medium
+		diligent = @pos_compat_low
+		lazy = @neg_compat_low
+		lifestyle_gardener = @pos_compat_low
+	}
+}
+
+lifestyle_nw_ranger = {
+	category = lifestyle
+	icon = nw_ranger.dds
+
+	shown_in_ruler_designer = no
+
+	# Modifiers
+	martial = 1
+	prowess = 1
+	monthly_martial_lifestyle_xp_gain_mult = 0.10
+
+	track = {
+		50 = {
+			martial = 1
+			prowess = 1
+			movement_speed = 0.1
+			character_travel_safety_mult = 0.05
+		}
+		100 = {
+			martial = 2
+			prowess = 2
+			character_travel_safety_mult = 0.05
+			men_at_arms_maintenance = -0.10
+			winter_movement_speed = 0.25
+			winter_advantage = 10
+		}
+	}
+
+	name = {
+		first_valid = {
+			#Master Ranger
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = lifestyle_nw_ranger
+						value >= 100
+					}
+				}
+				desc = trait_nw_ranger_3
+			}
+			#Journeyman Ranger
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = lifestyle_nw_ranger
+						value >= 50
+					}
+				}
+				desc = trait_nw_ranger_2
+			}
+			#Novice Ranger
+			triggered_desc = {
+				trigger = {
+					exists = this
+				}
+				desc = trait_nw_ranger_1
+			}
+			desc = trait_nw_ranger
+		}
+	}
+
+	# Loc
+	desc = {
+		first_valid = {
+			#The trait can never go higher than the first level if it's not assigned to a character
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_nw_ranger_1_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = lifestyle_nw_ranger
+						value >= 100
+					}
+				}
+				desc = trait_nw_ranger_3_character_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = lifestyle_nw_ranger
+						value >= 50
+					}
+				}
+				desc = trait_nw_ranger_2_character_desc
+			}
+			desc = trait_nw_ranger_1_character_desc
+		}
+	}
+
+	compatibility = {
+		brave = @pos_compat_low
+		diligent = @pos_compat_low
+		craven = @neg_compat_low
+		lazy = @neg_compat_low
+	}
+
+	ai_energy = 15
+}
+
+lifestyle_nw_steward = {
+	category = lifestyle
+	icon = nw_steward.dds
+
+	shown_in_ruler_designer = no
+
+	# Modifiers
+	stewardship = 1
+	prowess = 1
+	monthly_stewardship_lifestyle_xp_gain_mult = 0.10
+
+	track = {
+		50 = {
+			stewardship = 1
+			prowess = 1
+			development_growth_factor = 0.05
+		}
+		100 = {
+			stewardship = 2
+			prowess = 2
+			development_growth_factor = 0.1
+			supply_duration = 1
+		}
+	}
+
+	name = {
+		first_valid = {
+			#Master Steward
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = lifestyle_nw_steward
+						value >= 100
+					}
+				}
+				desc = trait_nw_steward_3
+			}
+			#Journeyman Steward
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = lifestyle_nw_steward
+						value >= 50
+					}
+				}
+				desc = trait_nw_steward_2
+			}
+			#Novice Steward
+			triggered_desc = {
+				trigger = {
+					exists = this
+				}
+				desc = trait_nw_steward_1
+			}
+			desc = trait_nw_steward
+		}
+	}
+
+	# Loc
+	desc = {
+		first_valid = {
+			#The trait can never go higher than the first level if it's not assigned to a character
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_nw_steward_1_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = lifestyle_nw_steward
+						value >= 100
+					}
+				}
+				desc = trait_nw_steward_3_character_desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = lifestyle_nw_steward
+						value >= 50
+					}
+				}
+				desc = trait_nw_steward_2_character_desc
+			}
+			desc = trait_nw_steward_1_character_desc
+		}
+	}
+
+	ai_rationality = 20
+	ai_energy = 10
+
+	compatibility = {
+		architect = @pos_compat_medium
+		administrator = @pos_compat_medium
+		avaricious = @pos_compat_medium
+		diligent = @pos_compat_low
+		lazy = @neg_compat_low
+	}
+}
+
+nightswatch_temp = {
+	name = trait_nightswatch
+	icon = nightswatch.dds
+	opposites = {
+		deserter
+	}
+
+	shown_in_ruler_designer = no
+
+	monthly_piety_gain_mult = 0.02
+
+	same_opinion = 5
+	dynasty_opinion = 5
+	opposite_opinion = -20
+	ignore_negative_culture_opinion = yes
+	ignore_negative_opinion_of_culture = yes
+
+	flag = can_not_marry
+
+	ai_honor = 10
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_nightswatch_desc
+			}
+			desc = trait_nightswatch_character_desc
+		}
+	}
+}
+
+deserter = {
+	category = fame
+	opposites = {
+		nightswatch
+	}
+
+	shown_in_ruler_designer = no
+
+	same_opinion = 20
+	general_opinion = -20
+	opposite_opinion = -20
+	monthly_piety_gain_mult = -0.02
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_deserter_desc
+			}
+			desc = trait_deserter_character_desc
+		}
+	}
+}
+
+ruin = {
+	icon = architect.dds
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_ruin_desc
+			}
+			desc = trait_ruin_character_desc
+		}
+	}
+	flag = ruin_character
+	flag = can_not_marry
+	flag = blocks_getting_non_epidemic_disease
+	health = 100
+	epidemic_resistance = 100
+	fertility = -1
+	prowess = -100
+	immortal = yes
+	inheritance_blocker = all
+	claim_inheritance_blocker = all
+	shown_in_ruler_designer = no
+	ignore_negative_culture_opinion = yes
+	ignore_negative_opinion_of_culture = yes
+	ai_sociability = -1000
+	ai_energy = -1000
+	ai_rationality = -1000
+	ai_boldness = -1000
+	ai_greed = 1000
+	ai_zeal = -1000
+	monthly_prestige_gain_mult = -1
+	monthly_piety_gain_mult = -1
+	domain_limit = 10000
+	enemy_hostile_scheme_phase_duration_add = 100
+	enemy_hostile_scheme_success_chance_max_add = -100
+	enemy_hostile_scheme_success_chance_growth_add = -100
+}
+
+unknown = {
+	icon = reclusive.dds
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_unknown_desc
+			}
+			desc = trait_unknown_character_desc
+		}
+	}
+	flag = unknown_character
+	flag = can_not_marry
+	flag = blocks_getting_non_epidemic_disease
+	health = 100
+	epidemic_resistance = 100
+	fertility = -1
+	prowess = -100
+	immortal = yes
+	inheritance_blocker = all
+	claim_inheritance_blocker = all
+	shown_in_ruler_designer = no
+	ignore_negative_culture_opinion = yes
+	ignore_negative_opinion_of_culture = yes
+	ai_sociability = -1000
+	ai_energy = -1000
+	ai_rationality = -1000
+	ai_boldness = -1000
+	ai_greed = 1000
+	ai_zeal = -1000
+	monthly_prestige_gain_mult = -1
+	monthly_piety_gain_mult = -1
+	domain_limit = 100
+}
+
+wilderness = {
+	icon = lifestyle_seasoned_pastor.dds
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_wilderness_desc
+			}
+			desc = trait_wilderness_character_desc
+		}
+	}
+	flag = wilderness_character
+	flag = can_not_marry
+	flag = blocks_getting_non_epidemic_disease
+	health = 100
+	epidemic_resistance = 100
+	fertility = -1
+	prowess = -100
+	immortal = yes
+	inheritance_blocker = all
+	claim_inheritance_blocker = all
+	shown_in_ruler_designer = no
+	ignore_negative_culture_opinion = yes
+	ignore_negative_opinion_of_culture = yes
+	ai_sociability = -1000
+	ai_energy = -1000
+	ai_rationality = -1000
+	ai_boldness = -1000
+	ai_greed = 1000
+	ai_zeal = -1000
+	monthly_prestige_gain_mult = -1
+	monthly_piety_gain_mult = -1
+	monthly_income_mult = -1
+	stress_gain_mult = -1
+	stress_loss_mult = 1
+	domain_limit = 10000
+	enemy_hostile_scheme_phase_duration_add = 100
+	enemy_hostile_scheme_success_chance_max_add = -100
+	enemy_hostile_scheme_success_chance_growth_add = -100
+}
+
+agot_dummy_trait = {
+	icon = reclusive.dds
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_agot_dummy_trait_desc
+			}
+			desc = trait_agot_dummy_trait_character_desc
+		}
+	}
+	flag = ruin_character
+	flag = can_not_marry
+	flag = blocks_getting_non_epidemic_disease
+	health = 100
+	epidemic_resistance = 100
+	fertility = -1
+	prowess = -100
+	immortal = yes
+	inheritance_blocker = all
+	claim_inheritance_blocker = all
+	shown_in_ruler_designer = no
+	ignore_negative_culture_opinion = yes
+	ignore_negative_opinion_of_culture = yes
+	ai_sociability = -1000
+	ai_energy = -1000
+	ai_rationality = -1000
+	ai_boldness = -1000
+	ai_greed = 1000
+	ai_zeal = -1000
+	monthly_prestige_gain_mult = -1
+	monthly_piety_gain_mult = -1
+}
+
+line_of_char = {
+	shown_in_ruler_designer = no
+	icon = scholar.dds
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_line_of_char_desc
+			}
+			desc = trait_line_of_char_character_desc
+		}
+	}
+}
+
+house_customizer = {
+	shown_in_ruler_designer = yes
+	ruler_designer_cost = 0
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_house_customizer_desc
+			}
+			desc = trait_house_customizer_character_desc
+		}
+	}
+}
+
+vs_customizer = {
+	shown_in_ruler_designer = yes
+	ruler_designer_cost = 100
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_vs_customizer_desc
+			}
+			desc = trait_vs_customizer_character_desc
+		}
+	}
+}
+
+heterochromia_customizer = {
+	shown_in_ruler_designer = yes
+	ruler_designer_cost = 0
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_heterochromia_customizer_desc
+			}
+			desc = trait_heterochromia_customizer_character_desc
+		}
+	}
+}
+
+################ PERSONALITY ###############
+
+authoritative = {
+	category = personality
+	opposites = {
+		humble
+	}
+
+	martial = 1
+	diplomacy = 1
+	#dragon_taming = 1
+
+	dread_baseline_add = 10
+	tyranny_gain_mult = -0.2
+	dread_decay_mult = -0.15
+	dread_gain_mult = 0.1
+
+	opinion_of_liege = -10
+	same_opinion = -10
+
+	ruler_designer_cost = 15
+
+	ai_boldness = very_high_positive_ai_value
+	ai_greed = medium_negative_ai_value
+	ai_zeal = medium_positive_ai_value
+	ai_energy = high_positive_ai_value
+	ai_sociability = very_low_negative_ai_value
+	ai_rationality = medium_positive_ai_value
+	ai_vengefulness = low_positive_ai_value
+
+	compatibility = {
+		diligent = @pos_compat_high
+		compassionate = @neg_compat_high
+		gallant = @neg_compat_low
+		brave = @pos_compat_low
+		rude = @pos_compat_medium
+		callous = @pos_compat_medium
+		vengeful = @pos_compat_medium
+		inquisitive = @neg_compat_low
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_authoritative_desc
+			}
+			desc = trait_authoritative_character_desc
+		}
+	}
+}
+
+rude = {
+	category = personality
+	opposites = {
+		compassionate
+		humble
+	}
+
+	diplomacy = -1
+	intrigue = 2
+
+	attraction_opinion = -5
+	general_opinion = -5
+	liege_opinion = -5
+
+	stress_gain_mult = -0.15
+
+	ruler_designer_cost = -5
+
+	ai_boldness = high_positive_ai_value
+	ai_sociability = low_negative_ai_value
+	ai_vengefulness = medium_positive_ai_value
+	ai_compassion = high_negative_ai_value
+
+	compatibility = {
+		diligent = @pos_compat_high
+		compassionate = @neg_compat_high
+		gallant = @neg_compat_medium
+		brave = @pos_compat_low
+		sadistic = @pos_compat_high
+		callous = @pos_compat_high
+		vengeful = @pos_compat_high
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_rude_desc
+			}
+			desc = trait_rude_character_desc
+		}
+	}
+}
+
+inquisitive = {
+	category = personality
+
+	opposites = {
+		zealous
+	}
+
+	learning = 2
+	intrigue = 1
+	learn_language_scheme_phase_duration_add = medium_scheme_phase_duration_bonus_value
+	glory_hound_opinion = -15
+
+	flag = more_xp_from_points_of_interest
+
+	shown_in_ruler_designer = yes
+
+	ruler_designer_cost = 20
+
+	ai_rationality = medium_positive_ai_value
+	ai_energy = medium_positive_ai_value
+	ai_boldness = low_positive_ai_value
+	ai_zeal = low_negative_ai_value
+
+	compatibility = {
+		scholar = @pos_compat_high
+		theologian = @pos_compat_high
+		shrewd = @pos_compat_high
+		lifestyle_mystic = @pos_compat_high
+		adventurer = @pos_compat_high
+		curious = @pos_compat_medium
+		inquisitive = @pos_compat_medium
+		lifestyle_herbalist = @pos_compat_medium
+		intellect_good_1 = @pos_compat_low
+		intellect_good_2 = @pos_compat_low
+		intellect_good_3 = @pos_compat_low
+		cynical = @pos_compat_low
+		paranoid = @neg_compat_low
+		shy = @neg_compat_low
+		intellect_bad_1 = @neg_compat_medium
+		intellect_bad_2 = @neg_compat_medium
+		intellect_bad_3 = @neg_compat_medium
+		zealous = @neg_compat_medium
+		arrogant = @neg_compat_medium
+		dull = @neg_compat_high
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_inquisitive_desc
+			}
+			desc = trait_inquisitive_character_desc
+		}
+	}
+}
+
+############### STRESS TRAITS ##############
+
+uncouth = {
+	category = fame
+	opposites = {
+		fashionable
+	}
+
+	diplomacy = -1
+
+	attraction_opinion = -10
+	same_opinion = -5
+	opposite_opinion = -5
+
+	monthly_prestige_gain_mult = -0.1
+
+	stress_gain_mult = -0.2
+
+	ruler_designer_cost = -10
+
+	ai_rationality = very_high_negative_ai_value
+	ai_honor = high_negative_ai_value
+	ai_energy = very_high_negative_ai_value
+	ai_sociability = dominant_negative_ai_value
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_uncouth_desc
+			}
+			desc = trait_uncouth_character_desc
+		}
+	}
+}
+
+############### HEALTH ##############
+
+one_handed = {
+	category = health
+
+	prowess = -15
+
+	same_opinion = 5
+	attraction_opinion = -5
+
+	ruler_designer_cost = -15
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_one_handed_desc
+			}
+			desc = trait_one_handed_character_desc
+		}
+	}
+}
+
+scurvy = {
+	health = -2
+	category = health
+
+	diplomacy = -1
+	stewardship = -1
+	martial = -1
+	intrigue = -1
+	learning = -2
+	prowess = -20
+
+	ruler_designer_cost = -10
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_scurvy_desc
+			}
+			desc = trait_scurvy_character_desc
+		}
+	}
+
+	ai_energy = -25
+}
+
+crippled = {
+	category = health
+
+	fertility = -0.5
+	martial = -3
+	diplomacy = -1
+	prowess = -30
+
+	attraction_opinion = -15
+	general_opinion = -5
+	same_opinion = 5
+
+	dread_baseline_add = -5
+	dread_loss_mult = 0.75
+
+	ruler_designer_cost = -40
+
+	ai_energy = -20
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_crippled_desc
+			}
+			desc = trait_crippled_character_desc
+		}
+	}
+}
+
+greyscale = {
+	category = health
+
+	health = -3
+	diplomacy = -5
+	prowess = -5
+
+	attraction_opinion = -20
+	general_opinion = -20
+
+	ruler_designer_cost = -30
+
+	ai_energy = -10
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_greyscale_2.desc
+			}
+			desc = trait_greyscale_2_character.desc
+		}
+	}
+}
+
+burned = {
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					trigger_if = {
+						limit = {
+							NOT = { exists = this }
+						}
+					}
+					trigger_else_if = {
+						limit = { has_trait = burned }
+						has_trait_xp = {
+							trait = burned
+							track = burned
+							value < 50
+						}
+					}
+					trigger_else = {
+						NOT = { has_trait = burned }
+					}
+				}
+				desc = trait_burned
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait = burned
+					OR = {
+						has_trait_xp = {
+							trait = burned
+							track = burned
+							value = 100
+						}
+					}
+				}
+				desc = trait_burned_3
+			}
+			desc = trait_burned_2
+		}
+	}
+	category = health
+
+	same_opinion = 5
+	child_opinion = -5
+	dread_baseline_add = 2
+
+	ruler_designer_cost = 0
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_burned_desc
+			}
+			desc = trait_burned_character_desc
+		}
+	}
+
+	culture_modifier = {
+		parameter = wounds_and_scars_give_bonuses
+		monthly_prestige_gain_mult = 0.1
+		same_culture_opinion = 5
+	}
+
+	tracks = {
+		burned = {
+			trait_second_level = { # Badly
+				diplomacy = -2
+				dread_baseline_add = 3
+				attraction_opinion = -5
+				child_opinion = -10
+				health = -0.1
+			}
+			trait_third_level = { # Severely
+				diplomacy = -2
+				dread_baseline_add = 5
+				child_opinion = -10
+				attraction_opinion = -5
+				health = -0.1
+				dread_gain_mult = 0.1
+				monthly_prestige = 0.05
+			}
+		}
+	}
+}
+
+mute = {
+	diplomacy = -5
+	intrigue = 2
+
+	owned_scheme_secrecy_add = 30
+
+	physical = yes
+
+	same_opinion = 30
+
+	ruler_designer_cost = -15
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					this ?= character:Stark_hh_2
+				}
+				desc = nick_agot_historical_hodor
+			}
+			desc = trait_mute
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mute_desc
+			}
+			triggered_desc = {
+				trigger = {
+					this ?= character:Stark_hh_2
+				}
+				desc = nick_agot_historical_hodor
+			}
+			desc = trait_mute_character_desc
+		}
+	}
+
+	ai_sociability = high_negative_ai_value
+}
+
+half_blind = {
+	category = health
+	prowess = -2
+
+	dread_baseline_add = 10
+
+	attraction_opinion = -5
+
+	culture_modifier = {
+		parameter = wounds_and_scars_give_bonuses
+		monthly_prestige_gain_mult = 0.1
+		same_culture_opinion = 5
+	}
+
+	ruler_designer_cost = 10
+
+	opposites = {
+		one_eyed #You can't have both
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_half_blind_desc
+			}
+			desc = trait_half_blind_character_desc
+		}
+	}
+
+	icon = half_blind.dds
+}
+
+############### PHSYICAL ##############
+
+the_mark = {
+	physical = yes
+
+	inherit_chance = 2
+
+	attraction_opinion = -10
+	general_opinion = -10
+
+	culture_modifier = {
+		parameter = the_mark_trait_gives_bonuses
+		same_culture_opinion = 25
+		attraction_opinion = 25
+		monthly_piety = 0.2
+	}
+
+	ruler_designer_cost = -5
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_the_mark_desc
+			}
+			desc = trait_the_mark_character_desc
+		}
+	}
+}
+
+
+heterochromia_eyes = {
+	physical = yes
+
+	inherit_chance = 1
+	random_creation = 0.5
+	birth = 0.5
+	inherit_from_real_father = yes
+	attraction_opinion = 5
+
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_heterochromia_desc
+			}
+			desc = trait_heterochromia_character_desc
+		}
+	}
+
+	icon = heterochromia_random.dds
+}
+
+############# RELIGION ############
+
+silent_sister = {
+	physical = no
+	category = fame
+
+
+	flag = can_not_marry
+	inheritance_blocker = all
+	claim_inheritance_blocker = all
+	valid_sex = female
+
+	monthly_piety = 2
+	clergy_opinion = 5
+	general_opinion = -10
+	diplomacy = -5
+	learning = 2
+
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_silent_sister_desc
+			}
+			desc = trait_silent_sister_character_desc
+		}
+	}
+
+	ai_zeal = 30
+	ai_sociability = medium_negative_ai_value
+
+	compatibility = {
+		chaste = @pos_compat_low
+		celibate = @pos_compat_low
+		lustful = @neg_compat_low
+		deviant = @neg_compat_low
+		lovers_pox = @neg_compat_low
+		early_great_pox = @neg_compat_low
+		great_pox = @neg_compat_low
+		lifestyle_reveler = @neg_compat_low
+		seducer = @neg_compat_low
+	}
+}
+
+septon = {
+	physical = no
+	category = fame
+
+	#don't hardcode this; depends on clerical doctrine for heresies
+	#flag = can_not_marry
+	inheritance_blocker = all
+	claim_inheritance_blocker = all
+
+	same_faith_opinion = 5
+	monthly_piety = 1
+	clergy_opinion = 10
+	learning = 1
+
+	shown_in_ruler_designer = no
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_septon
+			}
+			triggered_desc = {
+				trigger = {
+					agot_is_high_septon = yes
+					is_female = yes
+				}
+				desc = trait_high_septon_female
+			}
+			triggered_desc = {
+				trigger = { agot_is_high_septon = yes }
+				desc = trait_high_septon_male
+			}
+			triggered_desc = {
+				trigger = { is_female = yes }
+				desc = trait_septon_female
+			}
+			desc = trait_septon_male
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_septon_desc
+			}
+			triggered_desc = {
+				trigger = {
+					agot_is_high_septon = yes
+					is_female = yes
+				}
+				desc = trait_high_septon_female_desc
+			}
+			triggered_desc = {
+				trigger = { agot_is_high_septon = yes }
+				desc = trait_high_septon_male_desc
+			}
+			triggered_desc = {
+				trigger = { is_female = yes }
+				desc = trait_septon_female_desc
+			}
+			desc = trait_septon_male_desc
+		}
+	}
+}
+
+most_devout_member = {
+	physical = no
+	category = fame
+
+	same_faith_opinion = 15
+	monthly_piety = 0.25
+	monthly_prestige = 0.5
+
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_most_devout_member_desc
+			}
+			desc = trait_most_devout_member_character_desc
+		}
+	}
+}
+
+red_priest = {
+	physical = no
+	category = fame
+
+	same_faith_opinion = 10
+	monthly_piety = 0.25
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = this
+					is_female = yes
+				}
+				desc = trait_red_priest_female
+			}
+			desc = trait_red_priest
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_red_priest_desc
+			}
+			triggered_desc = {
+				trigger = { is_female = yes }
+				desc = trait_red_priest_female_character_desc
+			}
+			desc = trait_red_priest_character_desc
+		}
+	}
+}
+
+drowned_man = {
+	physical = no
+	category = fame
+
+	#don't hardcode this; depends on clerical doctrine for heresies
+	#flag = can_not_marry
+
+	same_faith_opinion = 10
+	monthly_piety = 1
+	clergy_opinion = 10
+	prowess = 2
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_drowned_man_desc
+			}
+			desc = trait_drowned_man_character_desc
+		}
+	}
+}
+
+bearded_priest = {
+	physical = no
+	category = fame
+
+	#don't hardcode this; depends on clerical doctrine for heresies
+	#flag = can_not_marry
+
+	same_faith_opinion = 10
+	monthly_piety = 1
+	clergy_opinion = 10
+	prowess = 2
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_bearded_priest_desc
+			}
+			desc = trait_bearded_priest_character_desc
+		}
+	}
+}
+
+
+########### FAME ##########
+
+dragon_dreams = {
+	category = fame
+
+	intrigue = 4
+
+	same_opinion = 15
+	general_opinion = -10
+	high_valyrian_opinion = 10
+
+	stress_gain_mult = 0.25
+
+	enemy_hostile_scheme_phase_duration_add = medium_scheme_phase_duration_malus_value
+
+	shown_in_ruler_designer = yes
+	ruler_designer_cost = 100
+
+	ai_rationality = 5
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dragon_dreams_desc
+			}
+			desc = trait_dragon_dreams_character_desc
+		}
+	}
+}
+
+greensight = {
+	category = fame
+
+	intrigue = 2
+
+	monthly_piety_gain_mult = 0.25
+
+	same_opinion = 5
+	general_opinion = -5
+	the_pact_religion_opinion = 5
+
+	stress_gain_mult = 0.25
+
+	enemy_hostile_scheme_phase_duration_add = medium_scheme_phase_duration_malus_value
+
+	shown_in_ruler_designer = yes
+	ruler_designer_cost = 100
+
+	ai_rationality = 5
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_greensight_desc
+			}
+			desc = trait_greensight_character_desc
+		}
+	}
+}
+
+widowed = {
+	same_opinion = 5
+	fertility = -0.2
+	health = -0.2
+
+	flag = can_not_marry
+
+	shown_in_ruler_designer = no
+
+	ai_energy = -15
+	ai_sociability = medium_negative_ai_value
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_widowed_desc
+			}
+			desc = trait_widowed_character_desc
+		}
+	}
+}
+
+refusing_marriage = {
+	flag = can_not_marry
+	dynasty_house_opinion = -5
+
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_refusing_marriage_desc
+			}
+			desc = trait_refusing_marriage_character_desc
+		}
+	}
+
+	icon = refusing_marriage.dds
+}
+
+fashionable = {
+	category = fame
+	opposites = {
+		uncouth
+	}
+
+	diplomacy = 1
+
+	attraction_opinion = 10
+	same_opinion = 5
+	opposite_opinion = -10
+
+	monthly_income_mult = -0.05
+
+	monthly_prestige_gain_mult = 0.1
+
+	stress_gain_mult = 0.1
+
+	ruler_designer_cost = 10
+
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_fashionable_desc
+			}
+			desc = trait_fashionable_character_desc
+		}
+	}
+}
+
+fire_obsessed = {
+	category = fame
+
+	learning = 2
+	stewardship = -1
+
+	same_opinion = 15
+
+	ruler_designer_cost = 10
+
+	ai_rationality = -15
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_fire_obsessed_desc
+			}
+			desc = trait_fire_obsessed_character_desc
+		}
+	}
+
+	icon = fire_obsessed.dds
+}
+
+paramour = {
+	category = fame
+
+	shown_in_ruler_designer = no
+
+	sand_dornish_opinion = 15
+	salt_dornish_opinion = 15
+	stone_dornish_opinion = 15
+
+	triggered_opinion = {
+		parameter = adultery_male_crime
+		male_only = yes
+		opinion_modifier = fornicator_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = adultery_male_shunned
+		male_only = yes
+		opinion_modifier = fornicator_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = adultery_female_crime
+		female_only = yes
+		opinion_modifier = fornicator_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = adultery_female_shunned
+		female_only = yes
+		opinion_modifier = fornicator_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_paramour_desc
+			}
+			desc = trait_paramour_character_desc
+		}
+	}
+}
+
+############### COMBAT ##############
+
+############### AGOT AUDIT ##############
+
+# white_walker = {
+# 	physical = yes
+
+# 	immortal = yes
+
+# 	can_have_children = no
+# 	flag = can_not_marry
+# 	prowess = 45 #will need to exempt white walkers from the muscle effects of prowess, otherwise they'll all be body-builders
+# 	development_growth_factor = -0.90
+
+# 	general_opinion = -100
+# 	same_opinion = 100
+# 	#cold_gods_opinion = 130
+
+# 	shown_in_ruler_designer = no
+
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { exists = this }
+# 				}
+# 				desc = trait_white_walker_desc
+# 			}
+# 			desc = trait_white_walker_character_desc
+# 		}
+# 	}
+# }
+
+#in_hiding = { #AGOT TODO: Trait not yet implemented
+#	shown_in_ruler_designer = no
+
+# 	incapacitating = yes
+
+# 	monthly_prestige = -2
+# 	diplomacy = -5
+# 	vassal_opinion = -10
+
+# 	personal_scheme_power_mult = -0.35 #can't sway/seduce people well when in hiding
+# 	owned_personal_scheme_success_chance_add = -35 #can't sway/seduce ppl when in hiding
+# 	hostile_scheme_power_mult = -0.25 #can't plot to have someone killed as well when you are not directing it
+# 	owned_hostile_scheme_success_chance_add = -25 #can't plot to have someone killed as well when you are not directing it
+# 	hostile_scheme_resistance_mult = 0.9 #protected from hostile schemes
+
+# 	shown_in_ruler_designer = no
+
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { exists = this }
+# 				}
+# 				desc = trait_in_hiding_desc
+# 			}
+# 			desc = trait_in_hiding_character_desc
+# 		}
+# 	}
+#}
+
+# undead = {
+# 	physical = yes
+
+# 	diplomacy = -8
+# 	intrigue = -8
+# 	stewardship = -8
+# 	martial = -8
+# 	learning = -8
+# 	prowess = 10
+
+# 	can_have_children = no
+# 	attraction_opinion = -25
+# 	general_opinion = -30
+
+# 	can_have_children = no
+# 	blocks_from_claim_inheritance = yes
+
+# 	immortal = yes
+
+# 	ai_rationality = -50
+
+# 	shown_in_ruler_designer = no
+
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { exists = this }
+# 				}
+# 				desc = trait_undead_desc
+# 			}
+# 			desc = trait_undead_character_desc
+# 		}
+# 	}
+# }
+
+slave = {  #AGOT TODO: Trait not yet implemented
+	shown_in_ruler_designer = no
+# 	category = fame
+
+	# stress_gain_mult = 0.2
+	# health = -0.5
+
+# 	flag = can_not_marry
+# 	can_inherit = no
+
+# 	shown_in_ruler_designer = no
+
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { exists = this }
+# 				}
+# 				desc = trait_slave_desc
+# 			}
+# 			desc = trait_slave_character_desc
+# 		}
+# 	}
+}
+
+slave_master = {
+	category = fame
+	opposites = {
+		slave
+		freedman
+	}
+
+	opposite_opinion = -100
+
+	dread_baseline_add = 25
+	enemy_hostile_scheme_success_chance_add = 20
+
+	culture_modifier = {
+		parameter = slave_master_trait_looked_down_upon
+		same_culture_opinion = -50
+	}
+
+	name = trait_slaver
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_slaver_desc
+			}
+			desc = trait_slaver_character_desc
+		}
+	}
+}
+
+# liberator = {
+# 	category = fame
+# 	opposites = {
+# 		slave_owner
+# 		slave_trader
+# 	}
+
+# 	opposite_opinion = -20
+# 	same_opinion = 20
+
+# 	ruler_designer_cost = 15
+
+# 	#ai_ambition = 10
+
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { exists = this }
+# 				}
+# 				desc = trait_liberator_desc
+# 			}
+# 			desc = trait_liberator_character_desc
+# 		}
+# 	}
+# }
+
+freedman = {
+	opposites = {
+		slave_master
+		slave
+	}
+
+	stress_loss_mult = 0.2
+	diplomacy = 2
+
+	ruler_designer_cost = 0
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_freedman_desc
+			}
+			desc = trait_freedman_character_desc
+		}
+	}
+}
+
+is_missing = {
+
+	incapacitating = yes
+
+	can_have_children = no
+	flag = can_not_marry
+
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_is_missing_desc
+			}
+			desc = trait_is_missing_character_desc
+		}
+	}
+}
+
+# dancing_plague = {
+# 	category = health
+
+# 	health = -2
+# 	diplomacy = -1
+# 	stewardship = -1
+# 	intrigue = -1
+# 	martial = -1
+# 	learning = -1
+# 	fertility = 0.25
+# 	prowess = -5
+
+# 	attraction_opinion = -10
+
+# 	dread_baseline_add = -10
+# 	dread_loss_mult = 0.5
+
+# 	ruler_designer_cost = -20
+
+# 	ai_energy = 40 #if 'dancing plague' is taken literally, it ought to make you *very* energetic indeed
+
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { exists = this }
+# 				}
+# 				desc = trait_dancing_plague_desc
+# 			}
+# 			desc = trait_dancing_plague_character_desc
+# 		}
+# 	}
+# }
+
+# grey_plague = {
+# 	category = health
+
+# 	health = -7
+# 	diplomacy = -3
+# 	martial = -2
+# 	stewardship = -2
+# 	prowess = -10
+# 	fertility = -0.5
+
+# 	dread_baseline_add = -30
+# 	dread_loss_mult = 1
+
+# 	attraction_opinion = -30
+# 	general_opinion = -5
+
+# 	ruler_designer_cost = -30
+
+# 	ai_energy = -10
+
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { exists = this }
+# 				}
+# 				desc = trait_grey_plague_desc
+# 			}
+# 			desc = trait_grey_plague_character_desc
+# 		}
+# 	}
+# }
+
+# greyscale_1 = { #maybe make this a secret eventually? Can hide it + accidentally secretly spread it
+# 	category = health
+# 	group = greyscale
+# 	level = 1
+
+# 	health = -1.5
+# 	diplomacy = -2
+# 	prowess = -2
+
+# 	attraction_opinion = -10
+# 	general_opinion = -15
+
+# 	ruler_designer_cost = -20
+
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { exists = this }
+# 				}
+# 				desc = trait_greyscale_1_desc
+# 			}
+# 			desc = trait_greyscale_1_character_desc
+# 		}
+# 	}
+# }
+
+# greyscale = { #at this stage hidden events shoul also randomly apply the 'aged' trait (blindness) - Duplicate from 00_traits.txt, change the name to implement it back
+# 	category = health
+# 	# group = greyscale
+# 	# level = 3
+
+# 	health = -5
+# 	diplomacy = -15
+# 	prowess = -10
+
+# 	attraction_opinion = -20
+# 	vassal_opinion = -20
+# 	general_opinion = -30
+# 	same_opinion = 50
+
+# 	ruler_designer_cost = -50
+
+# 	ai_rationality = -200 #same as lunatic_1
+
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { exists = this }
+# 				}
+# 				desc = trait_greyscale_3_desc
+# 			}
+# 			desc = trait_greyscale_3_character_desc
+# 		}
+# 	}
+# }
+
+# greyscale_scarred = { #only possible to stop the spread of greyscale w/ poultices at greyscale_1, so this trait just applies portrait modifier for greyscale_1
+# 	physical = yes
+
+# 	diplomacy = -2
+
+# 	attraction_opinion = -10
+# 	general_opinion = -5
+
+# 	ruler_designer_cost = -5
+
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { exists = this }
+# 				}
+# 				desc = trait_greyscale_scarred_desc
+# 			}
+# 			desc = trait_greyscale_scarred_character_desc
+# 		}
+# 	}
+# }
+
+# bloody_flux = {
+# 	category = health
+
+# 	intrigue = -3
+# 	martial = -3
+# 	stewardship = -2
+# 	health = -3.5
+# 	fertility = -0.25
+# 	prowess = -4
+
+# 	dread_baseline_add = -15
+# 	dread_loss_mult = 1
+
+# 	attraction_opinion = -15
+
+# 	ruler_designer_cost = -20
+
+# 	ai_energy = -50
+
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { exists = this }
+# 				}
+# 				desc = trait_bloody_flux_desc
+# 			}
+# 			desc = trait_bloody_flux_character_desc
+# 		}
+# 	}
+# }
+
+# red_death = {
+# 	category = health
+
+# 	diplomacy = -3
+# 	intrigue = -3
+# 	stewardship = -3
+# 	martial = -3
+# 	learning = -3
+# 	health = -7
+# 	fertility = -0.2
+# 	prowess = -10
+
+# 	dread_baseline_add = -15
+# 	dread_loss_mult = 1
+
+# 	attraction_opinion = -15
+
+# 	ruler_designer_cost = -40
+
+# 	ai_energy = -75
+
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { exists = this }
+# 				}
+# 				desc = trait_red_death_desc
+# 			}
+# 			desc = trait_red_death_character_desc
+# 		}
+# 	}
+# }
+
+# butterfly_fever = {
+# 	category = health
+
+# 	health = -5.5
+# 	fertility = -0.2
+# 	prowess = -15
+
+# 	dread_baseline_add = -10
+# 	dread_loss_mult = 0.75
+
+# 	ruler_designer_cost = -20
+
+# 	ai_energy = -30
+
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { exists = this }
+# 				}
+# 				desc = trait_butterfly_fever_desc
+# 			}
+# 			desc = trait_butterfly_fever_character_desc
+# 		}
+# 	}
+# }
+
+spring_sickness = { #AGOT TODO: Trait not yet implemented
+	shown_in_ruler_designer = no
+# 	category = health
+
+# 	diplomacy = -2
+# 	martial = -3
+# 	stewardship = -2
+# 	intrigue = -3
+# 	learning = -2
+# 	prowess = -10
+# 	health = -6.5
+# 	fertility = -0.50
+
+# 	dread_baseline_add = -30
+# 	dread_loss_mult = 1
+
+# 	attraction_opinion = -30
+
+# 	ruler_designer_cost = -40
+
+# 	ai_energy = -75
+
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { exists = this }
+# 				}
+# 				desc = trait_spring_sickness_desc
+# 			}
+# 			desc = trait_spring_sickness_character_desc
+# 		}
+# 	}
+}
+
+shivers = {
+	shown_in_ruler_designer = no
+# 	category = health
+
+# 	diplomacy = -4
+# 	martial = -4
+# 	stewardship = -3
+# 	intrigue = -3
+# 	learning = -3
+# 	prowess = -15
+# 	health = -7
+# 	fertility = -0.50
+
+# 	dread_baseline_add = -30
+# 	dread_loss_mult = 1
+
+# 	attraction_opinion = -30
+
+# 	ruler_designer_cost = -45
+
+# 	ai_energy = -80
+
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { exists = this }
+# 				}
+# 				desc = trait_shivers_desc
+# 			}
+# 			desc = trait_shivers_character_desc
+# 		}
+# 	}
+}
+
+# winter_fever = {
+# 	category = health
+
+# 	diplomacy = -1
+# 	martial = -1
+# 	stewardship = -2
+# 	intrigue = -1
+# 	learning = -2
+# 	prowess = -4
+# 	health = -3.5
+# 	fertility = -0.25
+
+# 	dread_baseline_add = -15
+# 	dread_loss_mult = 1
+
+# 	attraction_opinion = -10
+
+# 	ruler_designer_cost = -20
+
+# 	ai_energy = -40
+
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { exists = this }
+# 				}
+# 				desc = trait_winter_fever_desc
+# 			}
+# 			desc = trait_winter_fever_character_desc
+# 		}
+# 	}
+# }
+
+# shade_of_the_evening = {
+# 	physical = yes
+
+# 	dread_gain_mult = 0.1
+
+# 	same_opinion = 5
+# 	attraction_opinion = -5
+# 	general_opinion = -5
+
+# 	ruler_designer_cost = 5
+
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { exists = this }
+# 				}
+# 				desc = trait_shade_of_the_evening_desc
+# 			}
+# 			desc = trait_shade_of_the_evening_character_desc
+# 		}
+# 	}
+# }
+
+spider = {
+	category = lifestyle
+
+	dread_gain_mult = 0.25
+	intrigue = 2
+	diplomacy = 2
+
+	ruler_designer_cost = 50
+
+	ai_honor = -20
+
+	compatibility = {
+		schemer = @pos_compat_medium
+		seducer = @pos_compat_medium
+		torturer = @pos_compat_medium
+		deceitful = @pos_compat_low
+		honest = @neg_compat_low
+	}
+}
+
+education_martial_prowess_5 = {
+	minimum_age = 16
+	prowess = 10
+
+	culture_modifier = {
+		parameter = prowess_traits_more_valued
+		same_culture_opinion = 5
+		monthly_prestige = 0.5
+	}
+
+	group = education_martial_prowess
+	level = 5
+
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_education_martial_prowess_5_desc
+			}
+			desc = trait_education_martial_prowess_5_character_desc
+		}
+	}
+}
+
+education_republican_knowledge_5 = {
+	minimum_age = 16
+	learning = 5
+	stewardship = 5
+	#category = education
+
+	shown_in_ruler_designer = no
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_education_republican_knowledge_5_neutral
+			}
+			triggered_desc = {
+				trigger = { is_female = yes }
+				desc = trait_education_republican_knowledge_5_female
+			}
+			desc = trait_education_republican_knowledge_5_male
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_education_republican_knowledge_5_desc
+			}
+			desc = trait_education_republican_knowledge_5_character_desc
+		}
+	}
+
+	group = education_republican_knowledge
+	level = 5
+}
+
+accidental_kinslayer = {
+	dynasty_house_opinion = -5
+	category = fame
+	group = kinslayer
+	level = 4
+	stress_gain_mult = 0.15
+
+	shown_in_ruler_designer = no
+
+	# Criminal for dynasty
+	triggered_opinion = {
+		parameter = kinslaying_close_kin_crime
+		opinion_modifier = accidental_kinslayer_crime_dynasty
+		same_dynasty = yes
+	}
+
+	# Opinion hit for everyone
+	triggered_opinion = {
+		parameter = kinslaying_close_kin_crime
+		opinion_modifier = agot_kinslayer_malus_0
+	}
+	triggered_opinion = {
+		parameter = kinslaying_extended_family_crime
+		opinion_modifier = agot_kinslayer_malus_0
+	}
+	triggered_opinion = {
+		parameter = kinslaying_any_dynasty_member_crime
+		opinion_modifier = agot_kinslayer_malus_0
+	}
+	triggered_opinion = {
+		parameter = kinslaying_shunned
+		opinion_modifier = agot_kinslayer_malus_0
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_accidental_kinslayer_desc
+			}
+			desc = trait_accidental_kinslayer_character_desc
+		}
+	}
+}
