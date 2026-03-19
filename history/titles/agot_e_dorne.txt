@@ -1,0 +1,7980 @@
+﻿e_dorne = {
+	#House Martell
+	7300.1.1 = { # About 700 years before the events of the books Nymeria landed.
+		holder = Martell_23 #Mors
+	}
+	7309.1.1 = {
+		holder = Nymeros_1 #Nymeria
+	}
+	7336.1.1 = {
+		holder = Martell_24 # Nymeria II (nc)
+	}
+	7358.1.1 = {
+		holder = Martell_28 # Mors II (C)
+	}
+	7390.1.1 = {
+		holder = Martell_29 # Myriah (nc)
+	}
+	7418.1.1 = {
+		holder = Martell_30 # Ellaria (nc)
+	}
+	7445.1.1 = {
+		holder = Martell_31 # Garin (nc)
+	}
+	7470.1.1 = {
+		holder = Martell_32 # Nymeria (nc)
+	}
+	7496.1.1 = {
+		holder = Martell_33 # Mors (nc)
+	}
+	7504.1.1 = {
+		holder = Martell_34 # Chroyana (nc)
+	}
+	7532.1.1 = {
+		holder = Martell_35 # Anders (nc)
+	}
+	7567.1.1 = {
+		holder = Martell_36 # Arron (nc)
+	}
+	7596.1.1 = {
+		holder = Martell_37 # Dorea (nc)
+	}
+	7598.1.1 = {
+		holder = Martell_38 # Nymella (nc)
+	}
+	7635.1.1 = {
+		holder = Martell_40 # Theodan (nc)
+	}
+	7664.1.1 = {
+		holder = Martell_41 # Arron (nc)
+	}
+	7712.1.1 = {
+		holder = Martell_42 # Nymerios (nc)
+	}
+	7748.1.1 = {
+		holder = Martell_43 # Oberyn (nc)
+	}
+	7763.1.1 = {
+		holder = Martell_44 # Nyeron (nc)
+	}
+	7779.1.1 = {
+		holder = Martell_45 # Nysterica (nc)
+	}
+	7790.1.1 = {
+		holder = Martell_46 # Doran (nc)
+	}
+	7835.1.1 = {
+		holder = Martell_47 # Nymeria (nc)
+	}
+	7839.1.1 = {
+		holder = Martell_49
+	}
+	7857.1.1 = {
+		holder = Martell_96
+	}
+	7903.1.1 = {
+		holder = Martell_99
+	}
+	7935.1.1 = {
+		holder = Martell_51
+	}
+	7940.1.1 = {
+		holder = Martell_53 # Meria (C)
+	}
+	7999.8.15 = {
+		de_jure_liege = h_the_iron_throne
+	}
+	8013.6.1 = {
+		holder = Martell_54 # Nymor (C)
+	}
+	8015.1.1 = {
+		holder = Martell_55 #Deria (C)
+	}
+	8040.1.1 = {
+		holder = Martell_59 #Lewyn
+	}
+	8048.6.2 = {
+		#law = investiture_law_1 # AGOT TODO
+	}
+	8069.1.1 = {
+		holder = Martell_61 #Mors
+	}
+	8083.1.1 = {
+		holder = Martell_62 #Morion(C)
+	}
+	8083.6.1 = {
+		holder = Martell_63 #Mara(C)
+	}
+	8099.1.1 = {
+		holder = Martell_64 #Qyle
+	}
+	8105.1.1 = {
+		holder = Martell_65 #Qoren (C)
+	}
+	8132.1.1 = {
+		holder = Martell_69 #Aliandra (C)
+	}
+	8140.1.1 = {
+		holder = Martell_71
+	}
+	8147.1.1 = {
+		holder = Martell_72 #Marence
+	}
+	8158.1.3 = { # Daeron I's Conquest of Dorne
+		holder = Tyrell_81
+		liege = h_the_iron_throne
+	}
+	8160.12.4 = { # Dornish Rebellion
+		holder = Martell_72
+		liege = 0
+	}
+	8168.1.1 = {
+		holder = Martell_80 #Maron (C)
+	}
+	8187.6.1 = { # Dorne joins the Seven Kingdoms via marriage
+		liege = h_the_iron_throne
+		effect = {
+			set_variable = {
+				name = historic_lord_house
+				value = house:house_Martell
+			}
+			agot_turn_westerosi_kingdom_into_lordship_history_effect = { YEAR = 8187 }
+			every_in_de_jure_hierarchy = {
+				limit = { tier = tier_kingdom }
+				agot_turn_westerosi_kingdom_into_lordship_history_effect = { YEAR = 8187 }
+			}
+		}
+	}
+	8220.1.1 = {
+		holder = Martell_83
+	}
+	8230.1.1 = {
+		holder = Martell_86
+	}
+	8251.1.1 = {
+		holder = Martell_1
+	}
+	8280.1.1 = {
+		holder = Martell_4
+	}
+	8298.10.24 = {
+		liege = 0
+	}
+	8299.12.15 = {
+		liege = h_the_iron_throne
+	}
+}
+
+k_the_greenblood = {
+	#House Allyrion
+	6107.7.7 = {
+		holder = Allyrion_108
+	}
+	#House Jordayne
+	6140.1.15 = {
+		holder = Jordayne_121
+	}
+	6157.9.16 = {
+		holder = 0
+	}
+	#House Martell
+	7300.1.1 = { # About 700 years before the events of the books Nymeria landed.
+		holder = Martell_23 # Mors
+		liege = e_dorne
+	}
+	7309.1.1 = {
+		holder = Nymeros_1 #Nymeria
+	}
+	7336.1.1 = {
+		holder = Martell_24 # Nymeria II (nc)
+	}
+	7358.1.1 = {
+		holder = Martell_28 # Mors II (C)
+	}
+	7390.1.1 = {
+		holder = Martell_29 # Myriah (nc)
+	}
+	7418.1.1 = {
+		holder = Martell_30 # Ellaria (nc)
+	}
+	7445.1.1 = {
+		holder = Martell_31 # Garin (nc)
+	}
+	7470.1.1 = {
+		holder = Martell_32 # Nymeria (nc)
+	}
+	7496.1.1 = {
+		holder = Martell_33 # Mors (nc)
+	}
+	7504.1.1 = {
+		holder = Martell_34 # Chroyana (nc)
+	}
+	7532.1.1 = {
+		holder = Martell_35 # Anders (nc)
+	}
+	7567.1.1 = {
+		holder = Martell_36 # Arron (nc)
+	}
+	7596.1.1 = {
+		holder = Martell_37 # Dorea (nc)
+	}
+	7598.1.1 = {
+		holder = Martell_38 # Nymella (nc)
+	}
+	7635.1.1 = {
+		holder = Martell_40 # Theodan (nc)
+	}
+	7664.1.1 = {
+		holder = Martell_41 # Arron (nc)
+	}
+	7712.1.1 = {
+		holder = Martell_42 # Nymerios (nc)
+	}
+	7748.1.1 = {
+		holder = Martell_43 # Oberyn (nc)
+	}
+	7763.1.1 = {
+		holder = Martell_44 # Nyeron (nc)
+	}
+	7779.1.1 = {
+		holder = Martell_45 # Nysterica (nc)
+	}
+	7790.1.1 = {
+		holder = Martell_46 # Doran (nc)
+	}
+	7835.1.1 = {
+		holder = Martell_47 # Nymeria (nc)
+	}
+	7839.1.1 = {
+		holder = Martell_49
+	}
+	7857.1.1 = {
+		holder = Martell_96
+	}
+	7903.1.1 = {
+		holder = Martell_99
+	}
+	7935.1.1 = {
+		holder = Martell_51
+	}
+	7940.1.1 = {
+		holder = Martell_53 # Meria (C)
+	}
+	8013.6.1 = {
+		holder = Martell_54 # Nymor (C)
+	}
+	8015.1.1 = {
+		holder = Martell_55 #Deria (C)
+	}
+	8040.1.1 = {
+		holder = Martell_59 #Lewyn
+	}
+	8048.6.2 = {
+		#law = investiture_law_1 # AGOT TODO
+	}
+	8069.1.1 = {
+		holder = Martell_61 #Mors
+	}
+	8083.1.1 = {
+		holder = Martell_62 #Morion(C)
+	}
+	8083.6.1 = {
+		holder = Martell_63 #Mara(C)
+	}
+	8099.1.1 = {
+		holder = Martell_64 #Qyle
+	}
+	8105.1.1 = {
+		holder = Martell_65 #Qoren (C)
+	}
+	8132.1.1 = {
+		holder = Martell_69 #Aliandra (C)
+	}
+	8140.1.1 = {
+		holder = Martell_71
+	}
+	8147.1.1 = {
+		holder = Martell_72 #Marence
+	}
+	8168.1.1 = {
+		holder = Martell_80 #Maron (C)
+	}
+	8220.1.1 = {
+		holder = Martell_83
+	}
+	8230.1.1 = {
+		holder = Martell_86
+	}
+	8251.1.1 = {
+		holder = Martell_1
+	}
+	8280.1.1 = {
+		holder = Martell_4
+	}
+}
+d_sunspear = {
+	7300.1.1 = {
+		liege = k_the_greenblood
+		holder = Martell_23
+	}
+	7309.1.1 = {
+		holder = Nymeros_1
+	}
+	7336.1.1 = {
+		holder = Martell_24
+	}
+	7358.1.1 = {
+		holder = Martell_28
+	}
+	7390.1.1 = {
+		holder = Martell_29
+	}
+	7418.1.1 = {
+		holder = Martell_30
+	}
+	7445.1.1 = {
+		holder = Martell_31
+	}
+	7470.1.1 = {
+		holder = Martell_32
+	}
+	7496.1.1 = {
+		holder = Martell_33
+	}
+	7504.1.1 = {
+		holder = Martell_34
+	}
+	7532.1.1 = {
+		holder = Martell_35
+	}
+	7567.1.1 = {
+		holder = Martell_36
+	}
+	7596.1.1 = {
+		holder = Martell_37
+	}
+	7598.1.1 = {
+		holder = Martell_38
+	}
+	7635.1.1 = {
+		holder = Martell_40
+	}
+	7664.1.1 = {
+		holder = Martell_41
+	}
+	7712.1.1 = {
+		holder = Martell_42
+	}
+	7748.1.1 = {
+		holder = Martell_43
+	}
+	7763.1.1 = {
+		holder = Martell_44
+	}
+	7779.1.1 = {
+		holder = Martell_45
+	}
+	7790.1.1 = {
+		holder = Martell_46
+	}
+	7835.1.1 = {
+		holder = Martell_47
+	}
+	7839.1.1 = {
+		holder = Martell_49
+	}
+	7857.1.1 = {
+		holder = Martell_96
+	}
+	7903.1.1 = {
+		holder = Martell_99
+	}
+	7935.1.1 = {
+		holder = Martell_51
+	}
+	7940.1.1 = {
+		holder = Martell_53
+	}
+	8013.6.1 = {
+		holder = Martell_54
+	}
+	8015.1.1 = {
+		holder = Martell_55
+	}
+	8040.1.1 = {
+		holder = Martell_59
+	}
+	8069.1.1 = {
+		holder = Martell_61
+	}
+	8083.1.1 = {
+		holder = Martell_62
+	}
+	8083.6.1 = {
+		holder = Martell_63
+	}
+	8099.1.1 = {
+		holder = Martell_64
+	}
+	8105.1.1 = {
+		holder = Martell_65
+	}
+	8132.1.1 = {
+		holder = Martell_69
+	}
+	8140.1.1 = {
+		holder = Martell_71
+	}
+	8147.1.1 = {
+		holder = Martell_72
+	}
+	8168.1.1 = {
+		holder = Martell_80
+	}
+	8220.1.1 = {
+		holder = Martell_83
+	}
+	8230.1.1 = {
+		holder = Martell_86
+	}
+	8251.1.1 = {
+		holder = Martell_1
+	}
+	8280.1.1 = {
+		holder = Martell_4
+	}
+}
+c_sunspear = {
+	5633.1.1 = {
+		holder = Shell_Dorne_96
+		effect = {
+			title:b_water_gardens = { set_title_name = b_drygarden }
+		}
+	}
+	5655.1.1 = {
+		holder = Shell_Dorne_97
+	}
+	6029.1.1 = {
+		holder = Shell_Dorne_94
+	}
+	6041.1.1 = {
+		holder = Martell_21
+	}
+	7300.1.1 = {
+		liege = d_sunspear
+		holder = Martell_23
+	}
+	7309.1.1 = {
+		holder = Nymeros_1
+	}
+	7336.1.1 = {
+		holder = Martell_24
+	}
+	7358.1.1 = {
+		holder = Martell_28
+	}
+	7390.1.1 = {
+		holder = Martell_29
+	}
+	7418.1.1 = {
+		holder = Martell_30
+	}
+	7445.1.1 = {
+		holder = Martell_31
+	}
+	7470.1.1 = {
+		holder = Martell_32
+	}
+	7496.1.1 = {
+		holder = Martell_33
+	}
+	7504.1.1 = {
+		holder = Martell_34
+	}
+	7532.1.1 = {
+		holder = Martell_35
+	}
+	7567.1.1 = {
+		holder = Martell_36
+	}
+	7596.1.1 = {
+		holder = Martell_37
+	}
+	7598.1.1 = {
+		holder = Martell_38
+	}
+	7635.1.1 = {
+		holder = Martell_40
+	}
+	7664.1.1 = {
+		holder = Martell_41
+	}
+	7712.1.1 = {
+		holder = Martell_42
+	}
+	7748.1.1 = {
+		holder = Martell_43
+	}
+	7763.1.1 = {
+		holder = Martell_44
+	}
+	7779.1.1 = {
+		holder = Martell_45
+	}
+	7790.1.1 = {
+		holder = Martell_46
+	}
+	7835.1.1 = {
+		holder = Martell_47
+	}
+	7839.1.1 = {
+		holder = Martell_49
+	}
+	7857.1.1 = {
+		holder = Martell_96
+	}
+	7903.1.1 = {
+		holder = Martell_99
+	}
+	7935.1.1 = {
+		holder = Martell_51
+	}
+	7940.1.1 = {
+		holder = Martell_53
+	}
+	8013.6.1 = {
+		holder = Martell_54
+	}
+	8015.1.1 = {
+		holder = Martell_55
+	}
+	8040.1.1 = {
+		holder = Martell_59
+	}
+	8069.1.1 = {
+		holder = Martell_61
+	}
+	8083.1.1 = {
+		holder = Martell_62
+	}
+	8083.6.1 = {
+		holder = Martell_63
+	}
+	8099.1.1 = {
+		holder = Martell_64
+	}
+	8105.1.1 = {
+		holder = Martell_65
+	}
+	8132.1.1 = {
+		holder = Martell_69
+	}
+	8140.1.1 = {
+		holder = Martell_71
+	}
+	8147.1.1 = {
+		holder = Martell_72
+	}
+	8168.1.1 = {
+		holder = Martell_80
+	}
+	8187.6.1 = {
+		effect = {
+			title:b_water_gardens = { reset_title_name = yes }
+		}
+	}
+	8220.1.1 = {
+		holder = Martell_83
+	}
+	8230.1.1 = {
+		holder = Martell_86
+	}
+	8251.1.1 = {
+		holder = Martell_1
+	}
+	8280.1.1 = {
+		holder = Martell_4
+	}
+}
+b_castle_deadglade = {
+	7907.1.1 = {
+		holder = Citrion_1
+	}
+	7930.1.1 = {
+		holder = Citrion_2
+	}
+	7970.1.1 = {
+		holder = Citrion_6
+	}
+	7997.1.1 = {
+		holder = Citrion_11
+	}
+	8009.1.1 = {
+		holder = Citrion_16
+	}
+	8043.1.1 = {
+		holder = Citrion_17
+	}
+	8054.1.1 = {
+		holder = Citrion_26
+	}
+	8086.1.1 = {
+		holder = Citrion_30
+	}
+	8109.1.1 = {
+		holder = Citrion_35
+	}
+	8153.1.1 = {
+		holder = Citrion_37
+	}
+	8181.1.1 = {
+		holder = Citrion_44
+	}
+	8190.1.1 = {
+		holder = Citrion_49
+	}
+	8217.1.1 = {
+		holder = Citrion_54
+	}
+	8257.1.1 = {
+		holder = Citrion_60
+	}
+	8270.1.1 = {
+		holder = Citrion_61
+	}
+}
+b_water_gardens = {
+	8187.6.1 = {
+		holder = Martell_80
+	}
+	8220.1.1 = {
+		holder = Martell_83
+	}
+	8230.1.1 = {
+		holder = Martell_86
+	}
+	8251.1.1 = {
+		holder = Martell_1
+	}
+	8280.1.1 = {
+		holder = Martell_4
+	}
+}
+c_husk_flats = {
+	5633.1.1 = {
+		holder = Shell_Dorne_96
+	}
+	5655.1.1 = {
+		holder = Shell_Dorne_97
+	}
+	6029.1.1 = {
+		holder = Shell_Dorne_94
+	}
+	7300.1.1 = {
+		liege = d_sunspear
+	}
+	7885.1.1 = {
+		holder = Shell_Dorne_12
+	}
+	7903.1.1 = {
+		holder = Shell_Dorne_13
+	}
+	7917.1.1 = {
+		holder = Shell_Dorne_16
+	}
+	7955.1.1 = {
+		holder = Shell_Dorne_17
+	}
+	7976.1.1 = {
+		holder = Shell_Dorne_19
+	}
+	8032.1.1 = {
+		holder = Shell_Dorne_22
+	}
+	8042.1.1 = {
+		holder = Shell_Dorne_31
+	}
+	8078.1.1 = {
+		holder = Shell_Dorne_36
+	}
+	8103.1.1 = {
+		holder = Shell_Dorne_46
+	}
+	8136.1.1 = {
+		holder = Shell_Dorne_47
+	}
+	8156.1.1 = {
+		holder = Shell_Dorne_49
+	}
+	8178.1.1 = {
+		holder = Shell_Dorne_53
+	}
+	8182.1.1 = {
+		holder = Shell_Dorne_55
+	}
+	8225.1.1 = {
+		holder = Shell_Dorne_11
+	}
+	8260.1.1 = {
+		holder = Shell_Dorne_1
+	}
+}
+c_plankytown = {
+	6041.1.1 = {
+		holder = Martell_21
+	}
+	7300.1.1 = {
+		liege = d_sunspear
+		holder = Martell_23
+	}
+	7309.1.1 = {
+		holder = Nymeros_1
+	}
+	7336.1.1 = {
+		holder = Martell_24
+	}
+	7358.1.1 = {
+		holder = Martell_28
+	}
+	7390.1.1 = {
+		holder = Martell_29
+	}
+	7418.1.1 = {
+		holder = Martell_30
+	}
+	7445.1.1 = {
+		holder = Martell_31
+	}
+	7470.1.1 = {
+		holder = Martell_32
+	}
+	7496.1.1 = {
+		holder = Martell_33
+	}
+	7504.1.1 = {
+		holder = Martell_34
+	}
+	7532.1.1 = {
+		holder = Martell_35
+	}
+	7567.1.1 = {
+		holder = Martell_36
+	}
+	7596.1.1 = {
+		holder = Martell_37
+	}
+	7598.1.1 = {
+		holder = Martell_38
+	}
+	7635.1.1 = {
+		holder = Martell_40
+	}
+	7664.1.1 = {
+		holder = Martell_41
+	}
+	7712.1.1 = {
+		holder = Martell_42
+	}
+	7748.1.1 = {
+		holder = Martell_43
+	}
+	7763.1.1 = {
+		holder = Martell_44
+	}
+	7779.1.1 = {
+		holder = Martell_45
+	}
+	7790.1.1 = {
+		holder = Martell_46
+	}
+	7835.1.1 = {
+		holder = Martell_47
+	}
+	7839.1.1 = {
+		holder = Martell_49
+	}
+	7857.1.1 = {
+		holder = Martell_96
+	}
+	7903.1.1 = {
+		holder = Martell_99
+	}
+	7935.1.1 = {
+		holder = Martell_51
+	}
+	7940.1.1 = {
+		holder = Martell_53
+	}
+	8013.6.1 = {
+		holder = Martell_54
+	}
+	8015.1.1 = {
+		holder = Martell_55
+	}
+	8040.1.1 = {
+		holder = Martell_59
+	}
+	8069.1.1 = {
+		holder = Martell_61
+	}
+	8083.1.1 = {
+		holder = Martell_62
+	}
+	8083.6.1 = {
+		holder = Martell_63
+	}
+	8099.1.1 = {
+		holder = Martell_64
+	}
+	8105.1.1 = {
+		holder = Martell_65
+	}
+	8132.1.1 = {
+		holder = Martell_69
+	}
+	8140.1.1 = {
+		holder = Martell_71
+	}
+	8147.1.1 = {
+		holder = Martell_72
+	}
+	8168.1.1 = {
+		holder = Martell_80
+	}
+	8220.1.1 = {
+		holder = Martell_83
+	}
+	8230.1.1 = {
+		holder = Martell_86
+	}
+	8251.1.1 = {
+		holder = Martell_1
+	}
+	8280.1.1 = {
+		holder = Martell_4
+	}
+}
+c_stinkwater = {
+	7300.1.1 = {
+		liege = d_sunspear
+	}
+	7878.1.1 = {
+		holder = Wade_22
+	}
+	7915.1.1 = {
+		holder = Wade_23
+	}
+	7962.1.1 = {
+		holder = Wade_26
+	}
+	7975.1.1 = {
+		holder = Wade_29
+	}
+	8017.1.1 = {
+		holder = Wade_34
+	}
+	8036.1.1 = {
+		holder = Wade_40
+	}
+	8067.1.1 = {
+		holder = Wade_44
+	}
+	8074.1.1 = {
+		holder = Wade_46
+	}
+	8116.1.1 = {
+		holder = Wade_47
+	}
+	8143.1.1 = {
+		holder = Wade_49
+	}
+	8165.1.1 = {
+		holder = Wade_52
+	}
+	8204.1.1 = {
+		holder = Wade_53
+	}
+	8229.1.1 = {
+		holder = Wade_1
+	}
+	8255.1.1 = {
+		holder = Wade_2
+	}
+	8278.1.1 = {
+		holder = Wade_6
+	}
+	8283.8.4 = {
+		holder = Wade_7
+	}
+}
+k_blackmont = {
+	7278.1.1 = {
+		holder = Blackmont_10
+		de_jure_liege = e_dorne
+	}
+	7305.1.1 = {
+		holder = 0
+	}
+}
+d_blackmont = {
+	7278.1.1 = {
+		holder = Blackmont_10
+		effect = {
+			set_variable = agot_historical_march
+		}
+	}
+	7305.1.1 = {
+		liege = e_dorne
+		holder = Blackmont_109
+	}
+	7844.1.1 = {
+		holder = Blackmont_12
+	}
+	7883.1.1 = {
+		holder = Blackmont_13
+	}
+	7889.1.1 = {
+		holder = Blackmont_14
+	}
+	7905.1.1 = {
+		holder = Blackmont_15
+	}
+	7943.1.1 = {
+		holder = Blackmont_17
+	}
+	7963.1.1 = {
+		holder = Blackmont_18
+	}
+	7993.1.1 = {
+		holder = Blackmont_65
+	}
+	8020.1.1 = {
+		holder = Blackmont_66
+	}
+	8057.1.1 = {
+		holder = Blackmont_70
+	}
+	8079.1.1 = {
+		holder = Blackmont_74
+	}
+	8089.1.1 = {
+		holder = Blackmont_21
+	}
+	8117.1.1 = {
+		holder = Blackmont_22
+	}
+	8127.1.1 = {
+		holder = Blackmont_41
+	}
+	8176.1.1 = {
+		holder = Blackmont_45
+	}
+	8179.1.1 = {
+		holder = Blackmont_49
+	}
+	8213.6.19 = {
+		holder = Blackmont_50
+	}
+	8237.1.1 = {
+		holder = Blackmont_51
+	}
+	8249.1.1 = {
+		holder = Blackmont_52
+	}
+	8272.4.2 = {
+		holder = Blackmont_1
+	}
+}
+c_blackmont = {
+	7278.1.1 = {
+		liege = d_blackmont
+		holder = Blackmont_10
+	}
+	7305.1.1 = {
+		holder = Blackmont_109
+	}
+	7844.1.1 = {
+		holder = Blackmont_12
+	}
+	7883.1.1 = {
+		holder = Blackmont_13
+	}
+	7889.1.1 = {
+		holder = Blackmont_14
+	}
+	7905.1.1 = {
+		holder = Blackmont_15
+	}
+	7943.1.1 = {
+		holder = Blackmont_17
+	}
+	7963.1.1 = {
+		holder = Blackmont_18
+	}
+	7993.1.1 = {
+		holder = Blackmont_65
+	}
+	8020.1.1 = {
+		holder = Blackmont_66
+	}
+	8057.1.1 = {
+		holder = Blackmont_70
+	}
+	8079.1.1 = {
+		holder = Blackmont_74
+	}
+	8089.1.1 = {
+		holder = Blackmont_21
+	}
+	8117.1.1 = {
+		holder = Blackmont_22
+	}
+	8127.1.1 = {
+		holder = Blackmont_41
+	}
+	8176.1.1 = {
+		holder = Blackmont_45
+	}
+	8179.1.1 = {
+		holder = Blackmont_49
+	}
+	8213.6.19 = {
+		holder = Blackmont_50
+	}
+	8237.1.1 = {
+		holder = Blackmont_51
+	}
+	8249.1.1 = {
+		holder = Blackmont_52
+	}
+	8272.4.2 = {
+		holder = Blackmont_1
+	}
+}
+c_baldcrest = {
+	7278.1.1 = {
+		liege = d_blackmont
+	}
+	7798.1.1 = {
+		holder = Trevanion_1
+	}
+	7852.1.1 = {
+		holder = Trevanion_2
+	}
+	7855.1.1 = {
+		holder = Trevanion_6
+	}
+	7879.1.1 = {
+		holder = Trevanion_10
+	}
+	7913.1.1 = {
+		holder = Trevanion_16
+	}
+	7942.1.1 = {
+		holder = Trevanion_17
+	}
+	7973.1.1 = {
+		holder = Trevanion_21
+	}
+	7976.1.1 = {
+		holder = Trevanion_25
+	}
+	8029.1.1 = {
+		holder = Trevanion_28
+	}
+	8044.1.1 = {
+		holder = Trevanion_37
+	}
+	8060.1.1 = {
+		holder = Trevanion_39
+	}
+	8070.1.1 = {
+		holder = Trevanion_48
+	}
+	8124.1.1 = {
+		holder = Trevanion_54
+	}
+	8181.1.1 = {
+		holder = Trevanion_56
+	}
+	8213.1.1 = {
+		holder = Trevanion_58
+	}
+	8242.1.1 = {
+		holder = Trevanion_62
+	}
+	8271.1.1 = {
+		holder = Trevanion_63
+	}
+	8278.1.1 = {
+		holder = Trevanion_69
+	}
+	8296.1.1 = {
+		holder = Trevanion_72
+	}
+}
+c_carrion_heights = {
+	7278.1.1 = {
+		liege = d_blackmont
+	}
+	7840.1.1 = {
+		holder = Offal_3
+	}
+	7883.1.1 = {
+		holder = Offal_5
+	}
+	7897.1.1 = {
+		holder = Offal_6
+	}
+	7929.1.1 = {
+		holder = Offal_9
+	}
+	7970.1.1 = {
+		holder = Offal_10
+	}
+	8004.1.1 = {
+		holder = Offal_19
+	}
+	8018.1.1 = {
+		holder = Offal_26
+	}
+	8041.1.1 = {
+		holder = Offal_32
+	}
+	8077.1.1 = {
+		holder = Offal_36
+	}
+	8109.1.1 = {
+		holder = Offal_38
+	}
+	8124.1.1 = {
+		holder = Offal_41
+	}
+	8132.1.1 = {
+		holder = Offal_51
+	}
+	8169.1.1 = {
+		holder = Offal_54
+	}
+	8197.1.1 = {
+		holder = Offal_61
+	}
+	8222.1.1 = {
+		holder = Offal_64
+	}
+	8245.1.1 = {
+		holder = Offal_79
+	}
+	8263.1.1 = {
+		holder = Offal_88
+	}
+	8286.1.1 = {
+		holder = Offal_100
+	}
+}
+c_the_crawl = {
+	7278.1.1 = {
+		liege = d_blackmont
+	}
+	7832.1.1 = {
+		holder = Gore_1
+	}
+	7853.1.1 = {
+		holder = Gore_2
+	}
+	7868.1.1 = {
+		holder = Gore_7
+	}
+	7888.1.1 = {
+		holder = Gore_8
+	}
+	7891.1.1 = {
+		holder = Gore_9
+	}
+	7935.1.1 = {
+		holder = Gore_12
+	}
+	7971.1.1 = {
+		holder = Gore_19
+	}
+	7975.1.1 = {
+		holder = Gore_20
+	}
+	8013.1.1 = {
+		holder = Gore_22
+	}
+	8026.1.1 = {
+		holder = Gore_23
+	}
+	8036.1.1 = {
+		holder = Gore_24
+	}
+	8080.1.1 = {
+		holder = Gore_31
+	}
+	8109.1.1 = {
+		holder = Gore_32
+	}
+	8113.1.1 = {
+		holder = Gore_35
+	}
+	8139.1.1 = {
+		holder = Gore_40
+	}
+	8183.1.1 = {
+		holder = Gore_48
+	}
+	8202.1.1 = {
+		holder = Gore_60
+	}
+	8227.1.1 = {
+		holder = Gore_63
+	}
+	8264.1.1 = {
+		holder = Gore_78
+	}
+	8276.1.1 = {
+		holder = Gore_90
+	}
+}
+c_westroost = {
+	7278.1.1 = {
+		liege = d_blackmont
+	}
+	7818.1.1 = {
+		holder = Ravencroft_1
+	}
+	7854.1.1 = {
+		holder = Ravencroft_2
+	}
+	7867.1.1 = {
+		holder = Ravencroft_4
+	}
+	7878.1.1 = {
+		holder = Ravencroft_6
+	}
+	7920.1.1 = {
+		holder = Ravencroft_7
+	}
+	7934.1.1 = {
+		holder = Ravencroft_8
+	}
+	7960.1.1 = {
+		holder = Ravencroft_13
+	}
+	7980.1.1 = {
+		holder = Ravencroft_23
+	}
+	8004.1.1 = {
+		holder = Ravencroft_27
+	}
+	8011.1.1 = {
+		holder = Ravencroft_32
+	}
+	8041.1.1 = {
+		holder = Ravencroft_38
+	}
+	8045.1.1 = {
+		holder = Ravencroft_41
+	}
+	8096.1.1 = {
+		holder = Ravencroft_44
+	}
+	8104.1.1 = {
+		holder = Ravencroft_47
+	}
+	8116.1.1 = {
+		holder = Ravencroft_88
+	}
+	8154.1.1 = {
+		holder = Ravencroft_54
+	}
+	8200.1.1 = {
+		holder = Ravencroft_60
+	}
+	8206.1.1 = {
+		holder = Ravencroft_65
+	}
+	8237.1.1 = {
+		holder = Ravencroft_66
+	}
+	8240.1.1 = {
+		holder = Ravencroft_78
+	}
+	8278.1.1 = {
+		holder = Ravencroft_81
+	}
+}
+k_the_drylands = {
+	7274.1.1 = {
+		holder = Dryland_1
+	}
+	7303.1.1 = {
+		liege = 0
+		holder = 0
+	}
+}
+d_brimstone = {
+	7274.1.1 = {
+		holder = Dryland_1
+	}
+	7303.1.1 = {
+		liege = e_dorne
+		holder = Uller_12
+	}
+	7585.1.1 = {
+		holder = Uller_86
+	}
+	7619.1.1 = {
+		holder = Uller_87
+	}
+	7848.1.1 = {
+		holder = Uller_14
+	}
+	7873.1.1 = {
+		holder = Uller_15
+	}
+	7896.1.1 = {
+		holder = Uller_58
+	}
+	7925.1.1 = {
+		holder = Uller_59
+	}
+	7952.1.1 = {
+		holder = Uller_62
+	}
+	7969.1.1 = {
+		holder = Uller_63
+	}
+	7972.1.1 = {
+		holder = Uller_19
+	}
+	8010.6.1 = {
+		holder = Uller_20
+	}
+	8011.1.1 = {
+		holder = Uller_21
+	}
+	8011.6.1 = {
+		holder = Uller_22
+	}
+	8012.1.1 = {
+		holder = Uller_23
+	}
+	8051.1.1 = {
+		holder = Uller_27
+	}
+	8090.1.1 = {
+		holder = Uller_29
+	}
+	8129.1.1 = {
+		holder = Uller_30
+	}
+	8146.1.1 = {
+		holder = Uller_42
+	}
+	8172.1.1 = {
+		holder = Uller_53
+	}
+	8196.4.18 = {
+		holder = Uller_55
+	}
+	8211.2.10 = {
+		holder = Uller_56
+	}
+	8243.1.1 = {
+		holder = Uller_57
+	}
+	8259.2.17 = {
+		holder = Uller_1
+	}
+	8276.2.12 = {
+		holder = Uller_4
+	}
+}
+c_hellholt = {
+	7274.1.1 = {
+		liege = d_brimstone
+	}
+	7303.1.1 = {
+		holder = Uller_12
+	}
+	7585.1.1 = {
+		holder = Uller_86
+	}
+	7619.1.1 = {
+		holder = Uller_87
+	}
+	7848.1.1 = {
+		holder = Uller_14
+	}
+	7873.1.1 = {
+		holder = Uller_15
+	}
+	7896.1.1 = {
+		holder = Uller_58
+	}
+	7925.1.1 = {
+		holder = Uller_59
+	}
+	7952.1.1 = {
+		holder = Uller_62
+	}
+	7969.1.1 = {
+		holder = Uller_63
+	}
+	7972.1.1 = {
+		holder = Uller_19
+	}
+	8010.6.1 = {
+		holder = Uller_20
+	}
+	8011.1.1 = {
+		holder = Uller_21
+	}
+	8011.6.1 = {
+		holder = Uller_22
+	}
+	8012.1.1 = {
+		holder = Uller_23
+	}
+	8051.1.1 = {
+		holder = Uller_27
+	}
+	8090.1.1 = {
+		holder = Uller_29
+	}
+	8129.1.1 = {
+		holder = Uller_30
+	}
+	8146.1.1 = {
+		holder = Uller_42
+	}
+	8172.1.1 = {
+		holder = Uller_53
+	}
+	8196.4.18 = {
+		holder = Uller_55
+	}
+	8211.2.10 = {
+		holder = Uller_56
+	}
+	8243.1.1 = {
+		holder = Uller_57
+	}
+	8259.2.17 = {
+		holder = Uller_1
+	}
+	8276.2.12 = {
+		holder = Uller_4
+	}
+}
+c_bloodbridge = {
+	7274.1.1 = {
+		liege = d_brimstone
+	}
+	7842.1.1 = {
+		holder = Writ_1
+	}
+	7862.1.1 = {
+		holder = Writ_2
+	}
+	7877.1.1 = {
+		holder = Writ_6
+	}
+	7935.1.1 = {
+		holder = Writ_8
+	}
+	7957.1.1 = {
+		holder = Writ_9
+	}
+	7963.1.1 = {
+		holder = Writ_11
+	}
+	7993.1.1 = {
+		holder = Writ_12
+	}
+	8037.1.1 = {
+		holder = Writ_18
+	}
+	8090.1.1 = {
+		holder = Writ_19
+	}
+	8116.1.1 = {
+		holder = Writ_27
+	}
+	8137.1.1 = {
+		holder = Writ_29
+	}
+	8139.1.1 = {
+		holder = Writ_40
+	}
+	8174.1.1 = {
+		holder = Writ_41
+	}
+	8204.1.1 = {
+		holder = Writ_47
+	}
+	8229.1.1 = {
+		holder = Writ_52
+	}
+	8255.1.1 = {
+		holder = Writ_54
+	}
+	8285.1.1 = {
+		holder = Writ_66
+	}
+}
+c_brimstone = {
+	7274.1.1 = {
+		holder = Dryland_1
+		liege = d_brimstone
+	}
+	7303.1.1 = {
+		holder = Uller_12
+	}
+	7841.1.1 = {
+		holder = Seir_1
+	}
+	7865.1.1 = {
+		holder = Seir_92
+	}
+	7902.1.1 = {
+		holder = Seir_100
+	}
+	7937.1.1 = {
+		holder = Seir_114
+	}
+	7969.1.1 = {
+		holder = Seir_120
+	}
+	7980.1.1 = {
+		holder = Seir_128
+	}
+	8011.1.1 = {
+		holder = Seir_134
+	}
+	8026.1.1 = {
+		holder = Seir_135
+	}
+	8072.1.1 = {
+		holder = Seir_136
+	}
+	8101.1.1 = {
+		holder = Seir_139
+	}
+	8131.1.1 = {
+		holder = Seir_141
+	}
+	8186.1.1 = {
+		holder = Seir_143
+	}
+	8199.1.1 = {
+		holder = Seir_144
+	}
+	8227.1.1 = {
+		holder = Seir_145
+	}
+	8259.1.1 = {
+		holder = Seir_153
+	}
+	8283.1.1 = {
+		holder = Seir_160
+	}
+}
+c_burning_dunes = {
+	7274.1.1 = {
+		liege = d_brimstone
+	}
+	7857.1.1 = {
+		holder = Loux_11
+	}
+	7879.1.1 = {
+		holder = Loux_12
+	}
+	7908.1.1 = {
+		holder = Loux_15
+	}
+	7944.1.1 = {
+		holder = Loux_16
+	}
+	7951.1.1 = {
+		holder = Loux_20
+	}
+	7983.1.1 = {
+		holder = Loux_21
+	}
+	8004.1.1 = {
+		holder = Loux_22
+	}
+	8040.1.1 = {
+		holder = Loux_31
+	}
+	8051.1.1 = {
+		holder = Loux_33
+	}
+	8078.1.1 = {
+		holder = Loux_42
+	}
+	8094.1.1 = {
+		holder = Loux_54
+	}
+	8123.1.1 = {
+		holder = Loux_57
+	}
+	8146.1.1 = {
+		holder = Loux_60
+	}
+	8173.1.1 = {
+		holder = Loux_63
+	}
+	8198.1.1 = {
+		holder = Loux_64
+	}
+	8229.1.1 = {
+		holder = Loux_65
+	}
+	8245.1.1 = {
+		holder = Loux_1
+	}
+	8255.1.1 = {
+		holder = Loux_2
+	}
+}
+c_jackalrun = {
+	7274.1.1 = {
+		liege = d_brimstone
+	}
+	7806.1.1 = {
+		holder = Shanin_1
+	}
+	7818.1.1 = {
+		holder = Shanin_2
+	}
+	7850.1.1 = {
+		holder = Shanin_5
+	}
+	7868.1.1 = {
+		holder = Shanin_10
+	}
+	7911.1.1 = {
+		holder = Shanin_11
+	}
+	7940.1.1 = {
+		holder = Shanin_15
+	}
+	7961.1.1 = {
+		holder = Shanin_18
+	}
+	7974.1.1 = {
+		holder = Shanin_19
+	}
+	8004.1.1 = {
+		holder = Shanin_20
+	}
+	8006.1.1 = {
+		holder = Shanin_27
+	}
+	8065.1.1 = {
+		holder = Shanin_29
+	}
+	8079.1.1 = {
+		holder = Shanin_32
+	}
+	8084.1.1 = {
+		holder = Shanin_34
+	}
+	8112.1.1 = {
+		holder = Shanin_36
+	}
+	8147.1.1 = {
+		holder = Shanin_41
+	}
+	8180.1.1 = {
+		holder = Shanin_44
+	}
+	8208.1.1 = {
+		holder = Shanin_47
+	}
+	8223.1.1 = {
+		holder = Shanin_53
+	}
+	8264.1.1 = {
+		holder = Shanin_54
+	}
+	8283.1.1 = {
+		holder = Shanin_59
+	}
+}
+c_steamfall = {
+	7274.1.1 = {
+		liege = d_brimstone
+	}
+	7858.1.1 = {
+		holder = Belam_1
+	}
+	7862.1.1 = {
+		holder = Belam_2
+	}
+	7887.1.1 = {
+		holder = Belam_3
+	}
+	7902.1.1 = {
+		holder = Belam_4
+	}
+	7953.1.1 = {
+		holder = Belam_6
+	}
+	7983.1.1 = {
+		holder = Belam_12
+	}
+	8006.1.1 = {
+		holder = Belam_14
+	}
+	8044.1.1 = {
+		holder = Belam_22
+	}
+	8069.1.1 = {
+		holder = Belam_26
+	}
+	8093.1.1 = {
+		holder = Belam_36
+	}
+	8136.1.1 = {
+		holder = Belam_49
+	}
+	8153.1.1 = {
+		holder = Belam_62
+	}
+	8206.1.1 = {
+		holder = Belam_71
+	}
+	8215.1.1 = {
+		holder = Belam_81
+	}
+	8251.1.1 = {
+		holder = Belam_88
+	}
+	8258.1.1 = {
+		holder = Belam_99
+	}
+}
+c_sulphur_flats = {
+	7274.1.1 = {
+		liege = d_brimstone
+	}
+	7811.1.1 = {
+		holder = Cook_1
+	}
+	7833.1.1 = {
+		holder = Cook_2
+	}
+	7847.1.1 = {
+		holder = Cook_7
+	}
+	7851.1.1 = {
+		holder = Cook_14
+	}
+	7904.1.1 = {
+		holder = Cook_21
+	}
+	7918.1.1 = {
+		holder = Cook_29
+	}
+	7948.1.1 = {
+		holder = Cook_35
+	}
+	7974.1.1 = {
+		holder = Cook_43
+	}
+	7993.1.1 = {
+		holder = Cook_46
+	}
+	8022.1.1 = {
+		holder = Cook_55
+	}
+	8056.1.1 = {
+		holder = Cook_56
+	}
+	8091.1.1 = {
+		holder = Cook_64
+	}
+	8146.1.1 = {
+		holder = Cook_66
+	}
+	8180.1.1 = {
+		holder = Cook_67
+	}
+	8204.1.1 = {
+		holder = Cook_72
+	}
+	8232.1.1 = {
+		holder = Cook_78
+	}
+	8249.1.1 = {
+		holder = Cook_80
+	}
+	8258.1.1 = {
+		holder = Cook_84
+	}
+	8292.1.1 = {
+		holder = Cook_89
+	}
+}
+c_willburn = {
+	7274.1.1 = {
+		liege = d_brimstone
+	}
+	7843.1.1 = {
+		holder = Karlach_1
+	}
+	7865.1.1 = {
+		holder = Karlach_2
+	}
+	7906.1.1 = {
+		holder = Karlach_6
+	}
+	7956.1.1 = {
+		holder = Karlach_9
+	}
+	7979.1.1 = {
+		holder = Karlach_11
+	}
+	8017.1.1 = {
+		holder = Karlach_13
+	}
+	8032.1.1 = {
+		holder = Karlach_15
+	}
+	8060.1.1 = {
+		holder = Karlach_21
+	}
+	8096.1.1 = {
+		holder = Karlach_22
+	}
+	8127.1.1 = {
+		holder = Karlach_26
+	}
+	8131.1.1 = {
+		holder = Karlach_34
+	}
+	8160.1.1 = {
+		holder = Karlach_37
+	}
+	8208.1.1 = {
+		holder = Karlach_39
+	}
+	8238.1.1 = {
+		holder = Karlach_41
+	}
+	8251.1.1 = {
+		holder = Karlach_44
+	}
+	8271.1.1 = {
+		holder = Karlach_52
+	}
+}
+d_broken_arm = {
+	7300.1.1 = {
+		liege = k_the_greenblood
+	}
+	7860.1.1 = {
+		holder = Santagar_8
+	}
+	7885.1.1 = {
+		holder = Santagar_9
+	}
+	7893.1.1 = {
+		holder = Santagar_66
+	}
+	7917.1.1 = {
+		holder = Santagar_68
+	}
+	7942.1.1 = {
+		holder = Santagar_71
+	}
+	7986.1.1 = {
+		holder = Santagar_75
+	}
+	8011.1.1 = {
+		holder = Santagar_80
+	}
+	8044.1.1 = {
+		holder = Santagar_83
+	}
+	8067.1.1 = {
+		holder = Santagar_16
+	}
+	8099.1.1 = {
+		holder = Santagar_17
+	}
+	8126.1.1 = {
+		holder = Santagar_23
+	}
+	8150.1.1 = {
+		holder = Santagar_35
+	}
+	8180.1.1 = {
+		holder = Santagar_49
+	}
+	8188.1.1 = {
+		holder = Santagar_57
+	}
+	8196.6.9 = {
+		holder = Santagar_59
+	}
+	8244.1.1 = {
+		holder = Santagar_60
+	}
+	8259.2.8 = {
+		holder = Santagar_1
+	}
+	8280.2.4 = {
+		holder = Santagar_2
+	}
+}
+c_spottswood = {
+	7860.1.1 = {
+		liege = d_broken_arm
+		holder = Santagar_8
+	}
+	7885.1.1 = {
+		holder = Santagar_9
+	}
+	7893.1.1 = {
+		holder = Santagar_66
+	}
+	7917.1.1 = {
+		holder = Santagar_68
+	}
+	7942.1.1 = {
+		holder = Santagar_71
+	}
+	7986.1.1 = {
+		holder = Santagar_75
+	}
+	8011.1.1 = {
+		holder = Santagar_80
+	}
+	8044.1.1 = {
+		holder = Santagar_83
+	}
+	8067.1.1 = {
+		holder = Santagar_16
+	}
+	8099.1.1 = {
+		holder = Santagar_17
+	}
+	8126.1.1 = {
+		holder = Santagar_23
+	}
+	8150.1.1 = {
+		holder = Santagar_35
+	}
+	8180.1.1 = {
+		holder = Santagar_49
+	}
+	8188.1.1 = {
+		holder = Santagar_57
+	}
+	8196.6.9 = {
+		holder = Santagar_59
+	}
+	8244.1.1 = {
+		holder = Santagar_60
+	}
+	8259.2.8 = {
+		holder = Santagar_1
+	}
+	8280.2.4 = {
+		holder = Santagar_2
+	}
+}
+c_rockwell = {
+	7860.1.1 = {
+		liege = d_broken_arm
+	}
+	7878.1.1 = {
+		holder = Clarisse_1
+	}
+	7881.1.1 = {
+		holder = Clarisse_2
+	}
+	7898.1.1 = {
+		holder = Clarisse_5
+	}
+	7904.1.1 = {
+		holder = Clarisse_10
+	}
+	7952.1.1 = {
+		holder = Clarisse_14
+	}
+	7973.1.1 = {
+		holder = Clarisse_21
+	}
+	7993.1.1 = {
+		holder = Clarisse_23
+	}
+	8019.1.1 = {
+		holder = Clarisse_30
+	}
+	8062.1.1 = {
+		holder = Clarisse_35
+	}
+	8089.1.1 = {
+		holder = Clarisse_36
+	}
+	8090.1.1 = {
+		holder = Clarisse_47
+	}
+	8110.1.1 = {
+		holder = Clarisse_53
+	}
+	8154.1.1 = {
+		holder = Clarisse_56
+	}
+	8182.1.1 = {
+		holder = Clarisse_60
+	}
+	8186.1.1 = {
+		holder = Clarisse_62
+	}
+	8199.1.1 = {
+		holder = Clarisse_65
+	}
+	8248.1.1 = {
+		holder = Clarisse_67
+	}
+	8251.1.1 = {
+		holder = Clarisse_69
+	}
+	8282.1.1 = {
+		holder = Clarisse_81
+	}
+}
+c_torchwood = {
+	7860.1.1 = {
+		liege = d_broken_arm
+		holder = Ladybright_8
+	}
+	7886.1.1 = {
+		holder = Ladybright_9
+	}
+	7929.1.1 = {
+		holder = Ladybright_10
+	}
+	7952.1.1 = {
+		holder = Ladybright_11
+	}
+	7970.1.1 = {
+		holder = Ladybright_13
+	}
+	8004.1.1 = {
+		holder = Ladybright_16
+	}
+	8044.1.1 = {
+		holder = Ladybright_45
+	}
+	8046.1.1 = {
+		holder = Ladybright_53
+	}
+	8075.1.1 = {
+		holder = Ladybright_17
+	}
+	8105.1.1 = {
+		holder = Ladybright_19
+	}
+	8132.1.1 = {
+		holder = Ladybright_22
+	}
+	8159.4.25 = {
+		holder = Ladybright_34
+	}
+	8169.1.1 = {
+		holder = Ladybright_35
+	}
+	8210.1.1 = {
+		holder = Ladybright_36
+	}
+	8241.1.1 = {
+		holder = Ladybright_37
+	}
+	8262.2.12 = {
+		holder = Ladybright_1
+	}
+}
+d_ghaston_grey = {
+	100.1.1 = {
+		de_jure_liege = 0
+	}
+	7311.1.1 = {
+		holder = Nymeros_1
+		de_jure_liege = k_the_greenblood
+		liege = k_the_greenblood
+	}
+	7336.1.1 = {
+		holder = Martell_24
+	}
+	7358.1.1 = {
+		holder = Martell_28
+	}
+	7390.1.1 = {
+		holder = Martell_29
+	}
+	7418.1.1 = {
+		holder = Martell_30
+	}
+	7445.1.1 = {
+		holder = Martell_31
+	}
+	7470.1.1 = {
+		holder = Martell_32
+	}
+	7496.1.1 = {
+		holder = Martell_33
+	}
+	7504.1.1 = {
+		holder = Martell_34
+	}
+	7532.1.1 = {
+		holder = Martell_35
+	}
+	7567.1.1 = {
+		holder = Martell_36
+	}
+	7596.1.1 = {
+		holder = Martell_37
+	}
+	7598.1.1 = {
+		holder = Martell_38
+	}
+	7635.1.1 = {
+		holder = Martell_40
+	}
+	7664.1.1 = {
+		holder = Martell_41
+	}
+	7712.1.1 = {
+		holder = Martell_42
+	}
+	7748.1.1 = {
+		holder = Martell_43
+	}
+	7763.1.1 = {
+		holder = Martell_44
+	}
+	7779.1.1 = {
+		holder = Martell_45
+	}
+	7790.1.1 = {
+		holder = Martell_46
+	}
+	7835.1.1 = {
+		holder = Martell_47
+	}
+	7839.1.1 = {
+		holder = Martell_49
+	}
+	7857.1.1 = {
+		holder = Martell_96
+	}
+	7903.1.1 = {
+		holder = Martell_99
+	}
+	7935.1.1 = {
+		holder = Martell_51
+	}
+	7940.1.1 = {
+		holder = Martell_53
+	}
+	8013.6.1 = {
+		holder = Martell_54
+	}
+	8015.1.1 = {
+		holder = Martell_55
+	}
+	8040.1.1 = {
+		holder = Martell_59
+	}
+	8069.1.1 = {
+		holder = Martell_61
+	}
+	8083.1.1 = {
+		holder = Martell_62
+	}
+	8083.6.1 = {
+		holder = Martell_63
+	}
+	8099.1.1 = {
+		holder = Martell_64
+	}
+	8105.1.1 = {
+		holder = Martell_65
+	}
+	8132.1.1 = {
+		holder = Martell_69
+	}
+	8140.1.1 = {
+		holder = Martell_71
+	}
+	8147.1.1 = {
+		holder = Martell_72
+	}
+	8168.1.1 = {
+		holder = Martell_80
+	}
+	8220.1.1 = {
+		holder = Martell_83
+	}
+	8230.1.1 = {
+		holder = Martell_86
+	}
+	8251.1.1 = {
+		holder = Martell_1
+	}
+	8280.1.1 = {
+		holder = Martell_4
+	}
+}
+c_ghaston_grey = {
+	2210.1.1 = {
+		holder = Yronwood_8
+		liege = k_yronwood
+		de_jure_liege = d_scourgehead
+	}
+	5700.1.1 = {
+		holder = Yronwood_10
+	}
+	5740.1.1 = {
+		holder = Yronwood_11
+	}
+	5768.1.1 = {
+		holder = Yronwood_12
+	}
+	7241.1.1 = {
+		holder = Yronwood_14
+	}
+	7268.1.1 = {
+		holder = Yronwood_15
+	}
+	7295.1.1 = {
+		holder = Yronwood_16
+	}
+	7311.1.1 = {
+		holder = Nymeros_1
+		de_jure_liege = d_ghaston_grey
+		liege = d_ghaston_grey
+	}
+	7336.1.1 = {
+		holder = Martell_24
+	}
+	7358.1.1 = {
+		holder = Martell_28
+	}
+	7390.1.1 = {
+		holder = Martell_29
+	}
+	7418.1.1 = {
+		holder = Martell_30
+	}
+	7445.1.1 = {
+		holder = Martell_31
+	}
+	7470.1.1 = {
+		holder = Martell_32
+	}
+	7496.1.1 = {
+		holder = Martell_33
+	}
+	7504.1.1 = {
+		holder = Martell_34
+	}
+	7532.1.1 = {
+		holder = Martell_35
+	}
+	7567.1.1 = {
+		holder = Martell_36
+	}
+	7596.1.1 = {
+		holder = Martell_37
+	}
+	7598.1.1 = {
+		holder = Martell_38
+	}
+	7635.1.1 = {
+		holder = Martell_40
+	}
+	7664.1.1 = {
+		holder = Martell_41
+	}
+	7712.1.1 = {
+		holder = Martell_42
+	}
+	7748.1.1 = {
+		holder = Martell_43
+	}
+	7763.1.1 = {
+		holder = Martell_44
+	}
+	7779.1.1 = {
+		holder = Martell_45
+	}
+	7790.1.1 = {
+		holder = Martell_46
+	}
+	7835.1.1 = {
+		holder = Martell_47
+	}
+	7839.1.1 = {
+		holder = Martell_49
+	}
+	7857.1.1 = {
+		holder = Martell_96
+	}
+	7903.1.1 = {
+		holder = Martell_99
+	}
+	7935.1.1 = {
+		holder = Martell_51
+	}
+	7940.1.1 = {
+		holder = Martell_53
+	}
+	8013.6.1 = {
+		holder = Martell_54
+	}
+	8015.1.1 = {
+		holder = Martell_55
+	}
+	8040.1.1 = {
+		holder = Martell_59
+	}
+	8069.1.1 = {
+		holder = Martell_61
+	}
+	8083.1.1 = {
+		holder = Martell_62
+	}
+	8083.6.1 = {
+		holder = Martell_63
+	}
+	8099.1.1 = {
+		holder = Martell_64
+	}
+	8105.1.1 = {
+		holder = Martell_65
+	}
+	8132.1.1 = {
+		holder = Martell_69
+	}
+	8140.1.1 = {
+		holder = Martell_71
+	}
+	8147.1.1 = {
+		holder = Martell_72
+	}
+	8168.1.1 = {
+		holder = Martell_80
+	}
+	8220.1.1 = {
+		holder = Martell_83
+	}
+	8230.1.1 = {
+		holder = Martell_86
+	}
+	8251.1.1 = {
+		holder = Martell_1
+	}
+	8280.1.1 = {
+		holder = Martell_4
+	}
+}
+d_ghost_hills = {
+	7300.1.1 = {
+		liege = k_the_greenblood
+		effect = {
+			dynasty:dynn_Toland ?= {
+				set_coa = dynn_Toland_Old
+			}
+		}
+	}
+	7863.1.1 = {
+		holder = Toland_8
+	}
+	7884.1.1 = {
+		holder = Toland_9
+	}
+	7922.1.1 = {
+		holder = Toland_11
+	}
+	7950.1.1 = {
+		holder = Toland_15
+	}
+	7962.1.1 = {
+		holder = Toland_13
+	}
+	8005.1.1 = {
+		effect = {
+			dynasty:dynn_Toland ?= {
+				set_coa = dynn_Toland
+			}
+		}
+	}
+	8007.1.1 = {
+		holder = Toland_14
+	}
+	8012.1.1 = {
+		holder = Toland_70
+	}
+	8058.1.1 = {
+		holder = Toland_17
+	}
+	8080.1.1 = {
+		holder = Toland_18
+	}
+	8108.1.1 = {
+		holder = Toland_23
+	}
+	8131.1.1 = {
+		holder = Toland_41
+	}
+	8157.5.16 = {
+		holder = Toland_42
+	}
+	8183.1.1 = {
+		holder = Toland_47
+	}
+	8254.1.1 = {
+		holder = Toland_49
+	}
+	8259.2.8 = {
+		holder = Toland_52
+	}
+	8279.3.2 = {
+		holder = Toland_1
+	}
+}
+c_ghost_hills = {
+	7863.1.1 = {
+		liege = d_ghost_hills
+		holder = Toland_8
+	}
+	7884.1.1 = {
+		holder = Toland_9
+	}
+	7922.1.1 = {
+		holder = Toland_11
+	}
+	7950.1.1 = {
+		holder = Toland_15
+	}
+	7962.1.1 = {
+		holder = Toland_13
+	}
+	8007.1.1 = {
+		holder = Toland_14
+	}
+	8012.1.1 = {
+		holder = Toland_70
+	}
+	8058.1.1 = {
+		holder = Toland_17
+	}
+	8080.1.1 = {
+		holder = Toland_18
+	}
+	8108.1.1 = {
+		holder = Toland_23
+	}
+	8131.1.1 = {
+		holder = Toland_41
+	}
+	8157.5.16 = {
+		holder = Toland_42
+	}
+	8183.1.1 = {
+		holder = Toland_47
+	}
+	8254.1.1 = {
+		holder = Toland_49
+	}
+	8259.2.8 = {
+		holder = Toland_52
+	}
+	8279.3.2 = {
+		holder = Toland_1
+	}
+}
+c_nymercairn = {
+	7823.1.1 = {
+		liege = d_ghost_hills
+		holder = Jytarn_1
+	}
+	7859.1.1 = {
+		holder = Jytarn_2
+	}
+	7899.1.1 = {
+		holder = Jytarn_5
+	}
+	7935.1.1 = {
+		holder = Jytarn_8
+	}
+	7954.1.1 = {
+		holder = Jytarn_12
+	}
+	7979.1.1 = {
+		holder = Jytarn_18
+	}
+	8016.1.1 = {
+		holder = Jytarn_27
+	}
+	8058.1.1 = {
+		holder = Jytarn_28
+	}
+	8089.1.1 = {
+		holder = Jytarn_31
+	}
+	8114.1.1 = {
+		holder = Jytarn_37
+	}
+	8156.1.1 = {
+		holder = Jytarn_57
+	}
+	8183.1.1 = {
+		holder = Jytarn_62
+	}
+	8208.1.1 = {
+		holder = Jytarn_66
+	}
+	8244.1.1 = {
+		holder = Jytarn_69
+	}
+	8266.1.1 = {
+		holder = Jytarn_73
+	}
+	8290.1.1 = {
+		holder = Jytarn_82
+	}
+}
+c_the_faint = {
+	7863.1.1 = {
+		liege = d_ghost_hills
+		holder = Toland_8
+	}
+	7884.1.1 = {
+		holder = Toland_10
+	}
+	7906.1.1 = {
+		holder = Toland_86
+	}
+	7943.1.1 = {
+		holder = Toland_94
+	}
+	7989.1.1 = {
+		holder = Shade_16
+	}
+	8014.1.1 = {
+		holder = Shade_19
+	}
+	8064.1.1 = {
+		holder = Shade_20
+	}
+	8066.1.1 = {
+		holder = Shade_26
+	}
+	8106.1.1 = {
+		holder = Shade_28
+	}
+	8145.1.1 = {
+		holder = Shade_38
+	}
+	8179.1.1 = {
+		holder = Shade_43
+	}
+	8211.1.1 = {
+		holder = Shade_49
+	}
+	8235.1.1 = {
+		holder = Shade_54
+	}
+	8253.1.1 = {
+		holder = Shade_59
+	}
+	8284.1.1 = {
+		holder = Shade_88
+	}
+}
+d_godsgrace = {
+	6025.1.1 = {
+		holder = Allyrion_106
+		liege = k_the_greenblood
+	}
+	6077.7.7 = {
+		holder = Allyrion_107
+	}
+	6101.1.1 = {
+		holder = Allyrion_108
+	}
+	6140.1.15 = {
+		holder = 0
+	}
+	7853.1.1 = {
+		holder = Allyrion_12
+	}
+	7866.1.1 = {
+		holder = Allyrion_13
+	}
+	7882.1.1 = {
+		holder = Allyrion_14
+	}
+	7937.1.1 = {
+		holder = Allyrion_60
+	}
+	7957.1.1 = {
+		holder = Allyrion_62
+	}
+	7963.1.1 = {
+		holder = Allyrion_64
+	}
+	7991.1.1 = {
+		holder = Allyrion_66
+	}
+	8028.1.1 = {
+		holder = Allyrion_71
+	}
+	8043.1.1 = {
+		holder = Allyrion_72
+	}
+	8086.1.1 = {
+		holder = Allyrion_23
+	}
+	8114.1.1 = {
+		holder = Allyrion_24
+	}
+	8126.1.1 = {
+		holder = Allyrion_28
+	}
+	8127.1.1 = {
+		holder = Allyrion_29
+	}
+	8181.1.1 = {
+		holder = Allyrion_51
+	}
+	8212.1.1 = {
+		holder = Allyrion_52
+	}
+	8220.1.1 = {
+		holder = Allyrion_53
+	}
+	8270.1.1 = {
+		holder = Allyrion_54
+	}
+	8280.1.1 = {
+		holder = Allyrion_1
+	}
+}
+c_godsgrace = {
+	6025.1.1 = {
+		holder = Allyrion_106
+		liege = d_godsgrace
+	}
+	6077.7.7 = {
+		holder = Allyrion_107
+	}
+	6101.1.1 = {
+		holder = Allyrion_108
+	}
+	7853.1.1 = {
+		holder = Allyrion_12
+	}
+	7866.1.1 = {
+		holder = Allyrion_13
+	}
+	7882.1.1 = {
+		holder = Allyrion_14
+	}
+	7937.1.1 = {
+		holder = Allyrion_60
+	}
+	7957.1.1 = {
+		holder = Allyrion_62
+	}
+	7963.1.1 = {
+		holder = Allyrion_64
+	}
+	7991.1.1 = {
+		holder = Allyrion_66
+	}
+	8028.1.1 = {
+		holder = Allyrion_71
+	}
+	8043.1.1 = {
+		holder = Allyrion_72
+	}
+	8086.1.1 = {
+		holder = Allyrion_23
+	}
+	8114.1.1 = {
+		holder = Allyrion_24
+	}
+	8126.1.1 = {
+		holder = Allyrion_28
+	}
+	8127.1.1 = {
+		holder = Allyrion_29
+	}
+	8181.1.1 = {
+		holder = Allyrion_51
+	}
+	8212.1.1 = {
+		holder = Allyrion_52
+	}
+	8220.1.1 = {
+		holder = Allyrion_53
+	}
+	8270.1.1 = {
+		holder = Allyrion_54
+	}
+	8280.1.1 = {
+		holder = Allyrion_1
+	}
+}
+c_goldpeppers = {
+	7866.1.1 = {
+		liege = d_godsgrace
+		holder = Cascabel_1
+	}
+	7870.1.1 = {
+		holder = Cascabel_2
+	}
+	7891.1.1 = {
+		holder = Cascabel_6
+	}
+	7922.1.1 = {
+		holder = Cascabel_7
+	}
+	7923.1.1 = {
+		holder = Cascabel_8
+	}
+	7948.1.1 = {
+		holder = Cascabel_10
+	}
+	8007.1.1 = {
+		holder = Cascabel_11
+	}
+	8049.1.1 = {
+		holder = Cascabel_12
+	}
+	8061.1.1 = {
+		holder = Cascabel_13
+	}
+	8096.1.1 = {
+		holder = Cascabel_16
+	}
+	8128.1.1 = {
+		holder = Cascabel_20
+	}
+	8147.1.1 = {
+		holder = Cascabel_21
+	}
+	8178.1.1 = {
+		holder = Cascabel_23
+	}
+	8199.1.1 = {
+		holder = Cascabel_24
+	}
+	8208.1.1 = {
+		holder = Cascabel_27
+	}
+	8232.1.1 = {
+		holder = Cascabel_32
+	}
+	8274.1.1 = {
+		holder = Cascabel_35
+	}
+	8297.1.1 = {
+		holder = Cascabel_38
+	}
+}
+c_latebloom = {
+	7851.1.1 = {
+		holder = Gerradyn_8
+	}
+	7853.1.1 = {
+		liege = d_godsgrace
+	}
+	7870.1.1 = {
+		holder = Gerradyn_9
+	}
+	7918.1.1 = {
+		holder = Gerradyn_20
+	}
+	7936.1.1 = {
+		holder = Gerradyn_30
+	}
+	7964.1.1 = {
+		holder = Gerradyn_32
+	}
+	7990.1.1 = {
+		holder = Gerradyn_35
+	}
+	8005.1.1 = {
+		holder = Gerradyn_43
+	}
+	8068.1.1 = {
+		holder = Gerradyn_45
+	}
+	8092.1.1 = {
+		holder = Gerradyn_50
+	}
+	8123.1.1 = {
+		holder = Gerradyn_55
+	}
+	8130.1.1 = {
+		holder = Gerradyn_57
+	}
+	8152.1.1 = {
+		holder = Gerradyn_64
+	}
+	8189.1.1 = {
+		holder = Gerradyn_69
+	}
+	8227.1.1 = {
+		holder = Gerradyn_81
+	}
+	8248.1.1 = {
+		holder = Gerradyn_83
+	}
+	8276.1.1 = {
+		holder = Gerradyn_1
+	}
+}
+c_nerandyn = {
+	7840.1.1 = {
+		liege = d_godsgrace
+		holder = Erdinyyra_1
+	}
+	7885.1.1 = {
+		holder = Erdinyyra_2
+	}
+	7902.1.1 = {
+		holder = Erdinyyra_8
+	}
+	7926.1.1 = {
+		holder = Erdinyyra_10
+	}
+	7977.1.1 = {
+		holder = Erdinyyra_19
+	}
+	7992.1.1 = {
+		holder = Erdinyyra_22
+	}
+	8048.1.1 = {
+		holder = Erdinyyra_23
+	}
+	8058.1.1 = {
+		holder = Erdinyyra_39
+	}
+	8060.1.1 = {
+		holder = Erdinyyra_45
+	}
+	8105.1.1 = {
+		holder = Erdinyyra_48
+	}
+	8115.1.1 = {
+		holder = Erdinyyra_58
+	}
+	8165.1.1 = {
+		holder = Erdinyyra_62
+	}
+	8194.1.1 = {
+		holder = Erdinyyra_65
+	}
+	8226.1.1 = {
+		holder = Erdinyyra_69
+	}
+	8252.1.1 = {
+		holder = Erdinyyra_70
+	}
+	8271.1.1 = {
+		holder = Erdinyyra_72
+	}
+	8295.1.1 = {
+		holder = Erdinyyra_76
+	}
+}
+c_orangewood = {
+	7877.1.1 = {
+		liege = d_godsgrace
+		holder = Hull_12
+	}
+	7901.1.1 = {
+		holder = Hull_13
+	}
+	7928.1.1 = {
+		holder = Hull_21
+	}
+	7932.1.1 = {
+		holder = Hull_22
+	}
+	7970.1.1 = {
+		holder = Hull_25
+	}
+	8005.1.1 = {
+		holder = Hull_28
+	}
+	8038.1.1 = {
+		holder = Hull_33
+	}
+	8082.1.1 = {
+		holder = Hull_42
+	}
+	8103.1.1 = {
+		holder = Hull_43
+	}
+	8112.1.1 = {
+		holder = Hull_45
+	}
+	8158.1.1 = {
+		holder = Hull_46
+	}
+	8183.1.1 = {
+		holder = Hull_53
+	}
+	8197.1.1 = {
+		holder = Hull_59
+	}
+	8230.1.1 = {
+		holder = Hull_1
+	}
+	8270.1.1 = {
+		holder = Hull_2
+	}
+	8294.1.1 = {
+		holder = Hull_3
+	}
+}
+c_sevensdunes = {
+	7870.1.1 = {
+		liege = d_godsgrace
+		holder = Vestor_1
+	}
+	7876.1.1 = {
+		holder = Vestor_2
+	}
+	7907.1.1 = {
+		holder = Vestor_3
+	}
+	7921.1.1 = {
+		holder = Vestor_4
+	}
+	7937.1.1 = {
+		holder = Vestor_5
+	}
+	7983.1.1 = {
+		holder = Vestor_7
+	}
+	8003.1.1 = {
+		holder = Vestor_18
+	}
+	8027.1.1 = {
+		holder = Vestor_29
+	}
+	8029.1.1 = {
+		holder = Vestor_30
+	}
+	8031.1.1 = {
+		holder = Vestor_47
+	}
+	8103.1.1 = {
+		holder = Vestor_50
+	}
+	8131.1.1 = {
+		holder = Vestor_60
+	}
+	8138.1.1 = {
+		holder = Vestor_64
+	}
+	8151.1.1 = {
+		holder = Vestor_68
+	}
+	8205.1.1 = {
+		holder = Vestor_72
+	}
+	8211.1.1 = {
+		holder = Vestor_76
+	}
+	8234.1.1 = {
+		holder = Vestor_82
+	}
+	8254.1.1 = {
+		holder = Vestor_95
+	}
+	8297.1.1 = {
+		holder = Vestor_104
+	}
+}
+d_lemonwood = {
+	7300.1.1 = {
+		liege = k_the_greenblood
+	}
+	7850.1.1 = {
+		holder = Dalt_5
+	}
+	7881.1.1 = {
+		holder = Dalt_6
+	}
+	7900.1.1 = {
+		holder = Dalt_82
+	}
+	7936.1.1 = {
+		holder = Dalt_85
+	}
+	7961.1.1 = {
+		holder = Dalt_87
+	}
+	7982.1.1 = {
+		holder = Dalt_91
+	}
+	8021.1.1 = {
+		holder = Dalt_93
+	}
+	8033.1.1 = {
+		holder = Dalt_94
+	}
+	8055.1.1 = {
+		holder = Dalt_14
+	}
+	8062.1.1 = {
+		holder = Dalt_15
+	}
+	8102.1.1 = {
+		holder = Dalt_20
+	}
+	8129.1.1 = {
+		holder = Dalt_29
+	}
+	8140.1.1 = {
+		holder = Dalt_41
+	}
+	8179.1.1 = {
+		holder = Dalt_43
+	}
+	8197.1.1 = {
+		holder = Dalt_46
+	}
+	8226.1.1 = {
+		holder = Dalt_48
+	}
+	8240.1.1 = {
+		holder = Dalt_50
+	}
+	8259.2.9 = {
+		holder = Dalt_1
+	}
+	8291.4.5 = {
+		holder = Dalt_2
+	}
+}
+c_lemonwood = {
+	7850.1.1 = {
+		liege = d_lemonwood
+		holder = Dalt_5
+	}
+	7881.1.1 = {
+		holder = Dalt_6
+	}
+	7900.1.1 = {
+		holder = Dalt_82
+	}
+	7936.1.1 = {
+		holder = Dalt_85
+	}
+	7961.1.1 = {
+		holder = Dalt_87
+	}
+	7982.1.1 = {
+		holder = Dalt_91
+	}
+	8021.1.1 = {
+		holder = Dalt_93
+	}
+	8033.1.1 = {
+		holder = Dalt_94
+	}
+	8055.1.1 = {
+		holder = Dalt_14
+	}
+	8062.1.1 = {
+		holder = Dalt_15
+	}
+	8102.1.1 = {
+		holder = Dalt_20
+	}
+	8129.1.1 = {
+		holder = Dalt_29
+	}
+	8140.1.1 = {
+		holder = Dalt_41
+	}
+	8179.1.1 = {
+		holder = Dalt_43
+	}
+	8197.1.1 = {
+		holder = Dalt_46
+	}
+	8226.1.1 = {
+		holder = Dalt_48
+	}
+	8240.1.1 = {
+		holder = Dalt_50
+	}
+	8259.2.9 = {
+		holder = Dalt_1
+	}
+	8291.4.5 = {
+		holder = Dalt_2
+	}
+}
+c_drillwater_islands = {
+	7850.1.1 = {
+		liege = d_lemonwood
+	}
+	7859.1.1 = {
+		holder = Shells_6
+	}
+	7880.1.1 = {
+		holder = Shells_7
+	}
+	7907.1.1 = {
+		holder = Shells_15
+	}
+	7960.1.1 = {
+		holder = Shells_22
+	}
+	7993.1.1 = {
+		holder = Shells_35
+	}
+	8018.1.1 = {
+		holder = Shells_37
+	}
+	8024.1.1 = {
+		holder = Shells_45
+	}
+	8053.1.1 = {
+		holder = Shells_49
+	}
+	8070.1.1 = {
+		holder = Shells_54
+	}
+	8095.1.1 = {
+		holder = Shells_55
+	}
+	8111.1.1 = {
+		holder = Shells_58
+	}
+	8148.1.1 = {
+		holder = Shells_62
+	}
+	8164.1.1 = {
+		holder = Shells_65
+	}
+	8190.1.1 = {
+		holder = Shells_66
+	}
+	8239.1.1 = {
+		holder = Shells_73
+	}
+	8269.1.1 = {
+		holder = Shells_1
+	}
+	8288.1.1 = {
+		holder = Shells_4
+	}
+}
+c_sourmarket = {
+	7883.1.1 = {
+		liege = d_lemonwood
+		holder = Tart_1
+	}
+	7891.1.1 = {
+		holder = Tart_2
+	}
+	7901.1.1 = {
+		holder = Tart_4
+	}
+	7957.1.1 = {
+		holder = Tart_6
+	}
+	7966.1.1 = {
+		holder = Tart_13
+	}
+	8005.1.1 = {
+		holder = Tart_16
+	}
+	8026.1.1 = {
+		holder = Tart_24
+	}
+	8082.1.1 = {
+		holder = Tart_27
+	}
+	8092.1.1 = {
+		holder = Tart_50
+	}
+	8155.1.1 = {
+		holder = Tart_58
+	}
+	8161.1.1 = {
+		holder = Tart_64
+	}
+	8205.1.1 = {
+		holder = Tart_65
+	}
+	8216.1.1 = {
+		holder = Tart_68
+	}
+	8265.1.1 = {
+		holder = Tart_70
+	}
+	8269.1.1 = {
+		holder = Tart_71
+	}
+}
+c_sweetwater = {
+	7857.1.1 = {
+		liege = d_lemonwood
+		holder = Beveridge_1
+	}
+	7884.1.1 = {
+		holder = Beveridge_2
+	}
+	7890.1.1 = {
+		holder = Beveridge_3
+	}
+	7939.1.1 = {
+		holder = Beveridge_8
+	}
+	7973.1.1 = {
+		holder = Beveridge_9
+	}
+	7988.1.1 = {
+		holder = Beveridge_10
+	}
+	8013.1.1 = {
+		holder = Beveridge_12
+	}
+	8023.1.1 = {
+		holder = Beveridge_13
+	}
+	8040.1.1 = {
+		holder = Beveridge_15
+	}
+	8085.1.1 = {
+		holder = Beveridge_16
+	}
+	8101.1.1 = {
+		holder = Beveridge_24
+	}
+	8129.1.1 = {
+		holder = Beveridge_29
+	}
+	8164.1.1 = {
+		holder = Beveridge_35
+	}
+	8200.1.1 = {
+		holder = Beveridge_37
+	}
+	8221.1.1 = {
+		holder = Beveridge_38
+	}
+	8251.1.1 = {
+		holder = Beveridge_41
+	}
+	8287.1.1 = {
+		holder = Beveridge_46
+	}
+}
+c_first_well = {
+	2940.1.1 = {
+		liege = d_the_princes_pass
+	}
+	7875.1.1 = {
+		holder = Wells_9
+	}
+	7878.1.1 = {
+		holder = Wells_10
+	}
+	7946.1.1 = {
+		holder = Wells_12
+	}
+	7976.1.1 = {
+		holder = Wells_15
+	}
+	8001.1.1 = {
+		holder = Wells_16
+	}
+	8029.1.1 = {
+		holder = Wells_17
+	}
+	8063.1.1 = {
+		holder = Wells_47
+	}
+	8096.1.1 = {
+		holder = Wells_52
+	}
+	8105.1.1 = {
+		holder = Wells_18
+	}
+	8146.1.1 = {
+		holder = Wells_19
+	}
+	8158.1.1 = {
+		holder = Wells_24
+	}
+	8181.1.1 = {
+		holder = Wells_28
+	}
+	8215.1.1 = {
+		holder = Wells_31
+	}
+	8225.1.1 = {
+		holder = Wells_33
+	}
+	8275.1.1 = {
+		holder = Wells_1
+	}
+}
+c_drywell = {
+	6400.1.1 = {
+		liege = k_yronwood
+	}
+	7835.1.1 = {
+		holder = Dryside_1
+	}
+	7847.1.1 = {
+		holder = Dryside_2
+	}
+	7850.1.1 = {
+		holder = Dryside_8
+	}
+	7900.1.1 = {
+		holder = Dryside_13
+	}
+	7939.1.1 = {
+		holder = Dryside_14
+	}
+	7956.1.1 = {
+		holder = Dryside_20
+	}
+	7967.1.1 = {
+		holder = Dryside_21
+	}
+	8007.1.1 = {
+		holder = Dryside_27
+	}
+	8046.1.1 = {
+		holder = Dryside_29
+	}
+	8050.1.1 = {
+		holder = Dryside_33
+	}
+	8057.1.1 = {
+		holder = Dryside_39
+	}
+	8094.1.1 = {
+		holder = Dryside_43
+	}
+	8136.1.1 = {
+		holder = Dryside_48
+	}
+	8146.1.1 = {
+		holder = Dryside_50
+	}
+	8192.1.1 = {
+		holder = Dryside_59
+	}
+	8215.1.1 = {
+		holder = Dryside_62
+	}
+	8247.1.1 = {
+		holder = Dryside_68
+	}
+	8279.1.1 = {
+		holder = Dryside_89
+	}
+}
+c_pronghorn = {
+	7274.1.1 = {
+		liege = d_brimstone
+	}
+	7857.1.1 = {
+		holder = Pronghorn_1
+	}
+	7865.1.1 = {
+		holder = Pronghorn_2
+	}
+	7904.1.1 = {
+		holder = Pronghorn_5
+	}
+	7912.1.1 = {
+		holder = Pronghorn_9
+	}
+	7929.1.1 = {
+		holder = Pronghorn_11
+	}
+	7940.1.1 = {
+		holder = Pronghorn_12
+	}
+	7962.1.1 = {
+		holder = Pronghorn_14
+	}
+	7998.1.1 = {
+		holder = Pronghorn_27
+	}
+	8018.1.1 = {
+		holder = Pronghorn_30
+	}
+	8057.1.1 = {
+		holder = Pronghorn_34
+	}
+	8066.1.1 = {
+		holder = Pronghorn_41
+	}
+	8103.1.1 = {
+		holder = Pronghorn_47
+	}
+	8105.1.1 = {
+		holder = Pronghorn_48
+	}
+	8145.1.1 = {
+		holder = Pronghorn_60
+	}
+	8172.1.1 = {
+		holder = Pronghorn_61
+	}
+	8195.1.1 = {
+		holder = Pronghorn_63
+	}
+	8211.1.1 = {
+		holder = Pronghorn_66
+	}
+	8261.1.1 = {
+		holder = Pronghorn_69
+	}
+	8297.1.1 = {
+		holder = Pronghorn_73
+	}
+}
+c_shady_sands = {
+	7863.1.1 = {
+		liege = k_yronwood
+		holder = Aradesh_1
+	}
+	7871.1.1 = {
+		holder = Aradesh_2
+	}
+	7917.1.1 = {
+		holder = Aradesh_4
+	}
+	7929.1.1 = {
+		holder = Aradesh_5
+	}
+	7963.1.1 = {
+		holder = Aradesh_9
+	}
+	7996.1.1 = {
+		holder = Aradesh_12
+	}
+	8017.1.1 = {
+		holder = Aradesh_16
+	}
+	8027.1.1 = {
+		holder = Aradesh_29
+	}
+	8077.1.1 = {
+		holder = Aradesh_30
+	}
+	8094.1.1 = {
+		holder = Aradesh_36
+	}
+	8103.1.1 = {
+		holder = Aradesh_42
+	}
+	8145.1.1 = {
+		holder = Aradesh_55
+	}
+	8187.1.1 = {
+		holder = Aradesh_58
+	}
+	8225.1.1 = {
+		holder = Aradesh_63
+	}
+	8243.1.1 = {
+		holder = Aradesh_65
+	}
+	8244.1.1 = {
+		holder = Aradesh_71
+	}
+	8283.1.1 = {
+		holder = Aradesh_74
+	}
+}
+c_the_dustbowl = {
+	7818.1.1 = {
+		holder = Flask_1
+	}
+	7843.1.1 = {
+		liege = d_sandstone
+	}
+	7868.1.1 = {
+		holder = Flask_3
+	}
+	7899.1.1 = {
+		holder = Flask_4
+	}
+	7902.1.1 = {
+		holder = Flask_7
+	}
+	7950.1.1 = {
+		holder = Flask_11
+	}
+	7977.1.1 = {
+		holder = Flask_13
+	}
+	8006.1.1 = {
+		holder = Flask_14
+	}
+	8032.1.1 = {
+		holder = Flask_20
+	}
+	8064.1.1 = {
+		holder = Flask_21
+	}
+	8084.1.1 = {
+		holder = Flask_32
+	}
+	8096.1.1 = {
+		holder = Flask_39
+	}
+	8164.1.1 = {
+		holder = Flask_41
+	}
+	8165.1.1 = {
+		holder = Flask_47
+	}
+	8214.1.1 = {
+		holder = Flask_49
+	}
+	8218.1.1 = {
+		holder = Flask_67
+	}
+	8219.1.1 = {
+		holder = Flask_68
+	}
+	8274.1.1 = {
+		holder = Flask_71
+	}
+	8285.1.1 = {
+		holder = Flask_82
+	}
+}
+d_red_dunes = {
+	7300.1.1 = {
+		liege = e_dorne
+	}
+	7854.1.1 = {
+		holder = Vaith_7
+	}
+	7870.1.1 = {
+		holder = Vaith_8
+	}
+	7900.1.1 = {
+		holder = Vaith_11
+	}
+	7951.1.1 = {
+		holder = Vaith_55
+	}
+	7978.1.1 = {
+		holder = Vaith_12
+	}
+	8012.1.1 = {
+		holder = Vaith_69
+	}
+	8043.1.1 = {
+		holder = Vaith_73
+	}
+	8049.1.1 = {
+		holder = Vaith_15
+	}
+	8066.1.1 = {
+		holder = Vaith_16
+	}
+	8128.1.1 = {
+		holder = Vaith_29
+	}
+	8143.1.1 = {
+		holder = Vaith_34
+	}
+	8158.11.12 = {
+		holder = Vaith_36
+	}
+	8160.3.12 = {
+		holder = Vaith_35
+	}
+	8177.1.1 = {
+		holder = Vaith_45
+	}
+	8219.1.1 = {
+		holder = Vaith_49
+	}
+	8238.1.1 = {
+		holder = Vaith_50
+	}
+	8259.2.8 = {
+		holder = Vaith_1
+	}
+	8292.3.5 = {
+		holder = Vaith_3
+	}
+}
+c_vaith = {
+	7854.1.1 = {
+		liege = d_red_dunes
+		holder = Vaith_7
+	}
+	7870.1.1 = {
+		holder = Vaith_8
+	}
+	7900.1.1 = {
+		holder = Vaith_11
+	}
+	7951.1.1 = {
+		holder = Vaith_55
+	}
+	7978.1.1 = {
+		holder = Vaith_12
+	}
+	8012.1.1 = {
+		holder = Vaith_69
+	}
+	8043.1.1 = {
+		holder = Vaith_73
+	}
+	8049.1.1 = {
+		holder = Vaith_15
+	}
+	8066.1.1 = {
+		holder = Vaith_16
+	}
+	8128.1.1 = {
+		holder = Vaith_29
+	}
+	8143.1.1 = {
+		holder = Vaith_34
+	}
+	8158.11.12 = {
+		holder = Vaith_36
+	}
+	8160.3.12 = {
+		holder = Vaith_35
+	}
+	8177.1.1 = {
+		holder = Vaith_45
+	}
+	8219.1.1 = {
+		holder = Vaith_49
+	}
+	8238.1.1 = {
+		holder = Vaith_50
+	}
+	8259.2.8 = {
+		holder = Vaith_1
+	}
+	8292.3.5 = {
+		holder = Vaith_3
+	}
+}
+c_brittlebush = {
+	7866.1.1 = {
+		liege = d_red_dunes
+		holder = Cuttar_1
+	}
+	7869.1.1 = {
+		holder = Cuttar_3
+	}
+	7894.1.1 = {
+		holder = Cuttar_4
+	}
+	7945.1.1 = {
+		holder = Cuttar_7
+	}
+	7959.1.1 = {
+		holder = Cuttar_14
+	}
+	7991.1.1 = {
+		holder = Cuttar_17
+	}
+	8030.1.1 = {
+		holder = Cuttar_23
+	}
+	8062.1.1 = {
+		holder = Cuttar_25
+	}
+	8082.1.1 = {
+		holder = Cuttar_33
+	}
+	8098.1.1 = {
+		holder = Cuttar_37
+	}
+	8151.1.1 = {
+		holder = Cuttar_41
+	}
+	8175.1.1 = {
+		holder = Cuttar_42
+	}
+	8203.1.1 = {
+		holder = Cuttar_52
+	}
+	8221.1.1 = {
+		holder = Cuttar_53
+	}
+	8248.1.1 = {
+		holder = Cuttar_56
+	}
+	8253.1.1 = {
+		holder = Cuttar_68
+	}
+	8274.1.1 = {
+		holder = Cuttar_72
+	}
+}
+c_killburne = {
+	7878.1.1 = {
+		liege = d_red_dunes
+		holder = Brook_21
+	}
+	7911.1.1 = {
+		holder = Brook_22
+	}
+	7951.1.1 = {
+		holder = Brook_25
+	}
+	7965.1.1 = {
+		holder = Brook_31
+	}
+	7994.1.1 = {
+		holder = Brook_32
+	}
+	8008.1.1 = {
+		holder = Brook_39
+	}
+	8019.1.1 = {
+		holder = Brook_46
+	}
+	8036.1.1 = {
+		holder = Brook_47
+	}
+	8074.1.1 = {
+		holder = Brook_49
+	}
+	8115.1.1 = {
+		holder = Brook_51
+	}
+	8135.1.1 = {
+		holder = Brook_52
+	}
+	8156.1.1 = {
+		holder = Brook_53
+	}
+	8172.1.1 = {
+		holder = Brook_56
+	}
+	8218.1.1 = {
+		holder = Brook_1
+	}
+	8241.1.1 = {
+		holder = Brook_2
+	}
+	8262.1.1 = {
+		holder = Brook_5
+	}
+	8293.1.1 = {
+		holder = Brook_8
+	}
+}
+c_red_waste = {
+	7791.1.1 = {
+		holder = Veckryn_1
+	}
+	7832.1.1 = {
+		holder = Veckryn_2
+	}
+	7858.1.1 = {
+		liege = d_red_dunes
+	}
+	7861.1.1 = {
+		holder = Veckryn_5
+	}
+	7867.1.1 = {
+		holder = Veckryn_6
+	}
+	7881.1.1 = {
+		holder = Veckryn_8
+	}
+	7903.1.1 = {
+		holder = Veckryn_20
+	}
+	7946.1.1 = {
+		holder = Veckryn_32
+	}
+	7979.1.1 = {
+		holder = Veckryn_36
+	}
+	8010.1.1 = {
+		holder = Veckryn_40
+	}
+	8013.1.1 = {
+		holder = Veckryn_41
+	}
+	8050.1.1 = {
+		holder = Veckryn_45
+	}
+	8071.1.1 = {
+		holder = Veckryn_50
+	}
+	8078.1.1 = {
+		holder = Veckryn_55
+	}
+	8113.1.1 = {
+		holder = Veckryn_56
+	}
+	8138.1.1 = {
+		holder = Veckryn_58
+	}
+	8171.1.1 = {
+		holder = Veckryn_59
+	}
+	8184.1.1 = {
+		holder = Veckryn_60
+	}
+	8231.1.1 = {
+		holder = Veckryn_61
+	}
+	8237.1.1 = {
+		holder = Veckryn_62
+	}
+	8267.1.1 = {
+		holder = Veckryn_68
+	}
+	8285.1.1 = {
+		holder = Veckryn_73
+	}
+}
+c_the_barrens = {
+	7854.1.1 = {
+		liege = d_red_dunes
+		holder = Qaurovera_1
+	}
+	7871.1.1 = {
+		holder = Qaurovera_2
+	}
+	7908.1.1 = {
+		holder = Qaurovera_8
+	}
+	7940.1.1 = {
+		holder = Qaurovera_9
+	}
+	7970.1.1 = {
+		holder = Qaurovera_10
+	}
+	7990.1.1 = {
+		holder = Qaurovera_14
+	}
+	8021.1.1 = {
+		holder = Qaurovera_17
+	}
+	8049.1.1 = {
+		holder = Qaurovera_24
+	}
+	8073.1.1 = {
+		holder = Qaurovera_29
+	}
+	8093.1.1 = {
+		holder = Qaurovera_31
+	}
+	8115.1.1 = {
+		holder = Qaurovera_42
+	}
+	8142.1.1 = {
+		holder = Qaurovera_46
+	}
+	8175.1.1 = {
+		holder = Qaurovera_47
+	}
+	8180.1.1 = {
+		holder = Qaurovera_52
+	}
+	8230.1.1 = {
+		holder = Qaurovera_56
+	}
+	8252.1.1 = {
+		holder = Qaurovera_58
+	}
+	8275.1.1 = {
+		holder = Qaurovera_63
+	}
+}
+c_the_scablands = {
+	7867.1.1 = {
+		liege = d_red_dunes
+		holder = Newmock_1
+	}
+	7877.1.1 = {
+		holder = Newmock_2
+	}
+	7885.1.1 = {
+		holder = Newmock_3
+	}
+	7896.1.1 = {
+		holder = Newmock_4
+	}
+	7953.1.1 = {
+		holder = Newmock_5
+	}
+	7992.1.1 = {
+		holder = Newmock_7
+	}
+	8009.1.1 = {
+		holder = Newmock_10
+	}
+	8017.1.1 = {
+		holder = Newmock_22
+	}
+	8043.1.1 = {
+		holder = Newmock_32
+	}
+	8071.1.1 = {
+		holder = Newmock_38
+	}
+	8096.1.1 = {
+		holder = Newmock_45
+	}
+	8114.1.1 = {
+		holder = Newmock_55
+	}
+	8127.1.1 = {
+		holder = Newmock_64
+	}
+	8150.1.1 = {
+		holder = Newmock_66
+	}
+	8204.1.1 = {
+		holder = Newmock_69
+	}
+	8229.1.1 = {
+		holder = Newmock_72
+	}
+	8242.1.1 = {
+		holder = Newmock_79
+	}
+	8276.1.1 = {
+		holder = Newmock_80
+	}
+}
+k_kingsgrave = {
+	7274.1.1 = {
+		holder = Manwoody_9
+		de_jure_liege = e_dorne
+	}
+	7308.1.1 = {
+		holder = 0
+	}
+}
+d_redmarch = {
+	7274.1.1 = {
+		holder = Manwoody_9
+	}
+	7300.1.1 = {
+		liege = e_dorne
+		effect = {
+			set_variable = agot_historical_march
+		}
+	}
+	7308.1.1 = {
+		holder = Manwoody_107
+	}
+	7856.1.1 = {
+		holder = Manwoody_11
+	}
+	7870.1.1 = {
+		holder = Manwoody_12
+	}
+	7918.1.1 = {
+		holder = Manwoody_14
+	}
+	7936.1.1 = {
+		holder = Manwoody_16
+	}
+	7967.1.1 = {
+		holder = Manwoody_18
+	}
+	8013.1.1 = {
+		holder = Manwoody_62
+	}
+	8023.1.1 = {
+		holder = Manwoody_64
+	}
+	8040.1.1 = {
+		holder = Manwoody_66
+	}
+	8067.1.1 = {
+		holder = Manwoody_67
+	}
+	8090.1.1 = {
+		holder = Manwoody_21
+	}
+	8122.1.1 = {
+		holder = Manwoody_22
+	}
+	8136.1.1 = {
+		holder = Manwoody_32
+	}
+	8161.5.26 = {
+		holder = Manwoody_49
+	}
+	8215.1.1 = {
+		holder = Manwoody_52
+	}
+	8221.1.1 = {
+		holder = Manwoody_53
+	}
+	8236.1.1 = {
+		holder = Manwoody_1
+	}
+	8270.1.1 = {
+		holder = Manwoody_2
+	}
+}
+c_kingsgrave = {
+	7274.1.1 = {
+		liege = d_redmarch
+		holder = Manwoody_9
+	}
+	7308.1.1 = {
+		holder = Manwoody_107
+	}
+	7856.1.1 = {
+		holder = Manwoody_11
+	}
+	7870.1.1 = {
+		holder = Manwoody_12
+	}
+	7918.1.1 = {
+		holder = Manwoody_14
+	}
+	7936.1.1 = {
+		holder = Manwoody_16
+	}
+	7967.1.1 = {
+		holder = Manwoody_18
+	}
+	8013.1.1 = {
+		holder = Manwoody_62
+	}
+	8023.1.1 = {
+		holder = Manwoody_64
+	}
+	8040.1.1 = {
+		holder = Manwoody_66
+	}
+	8067.1.1 = {
+		holder = Manwoody_67
+	}
+	8090.1.1 = {
+		holder = Manwoody_21
+	}
+	8122.1.1 = {
+		holder = Manwoody_22
+	}
+	8136.1.1 = {
+		holder = Manwoody_32
+	}
+	8161.5.26 = {
+		holder = Manwoody_49
+	}
+	8215.1.1 = {
+		holder = Manwoody_52
+	}
+	8221.1.1 = {
+		holder = Manwoody_53
+	}
+	8236.1.1 = {
+		holder = Manwoody_1
+	}
+	8270.1.1 = {
+		holder = Manwoody_2
+	}
+}
+c_mortberry = {
+	7274.1.1 = {
+		liege = d_redmarch
+	}
+	7793.1.1 = {
+		holder = Stillbloom_1
+	}
+	7849.1.1 = {
+		holder = Stillbloom_2
+	}
+	7860.1.1 = {
+		holder = Stillbloom_4
+	}
+	7902.1.1 = {
+		holder = Stillbloom_7
+	}
+	7922.1.1 = {
+		holder = Stillbloom_9
+	}
+	7951.1.1 = {
+		holder = Stillbloom_10
+	}
+	7966.1.1 = {
+		holder = Stillbloom_13
+	}
+	8002.1.1 = {
+		holder = Stillbloom_21
+	}
+	8052.1.1 = {
+		holder = Stillbloom_24
+	}
+	8055.1.1 = {
+		holder = Stillbloom_26
+	}
+	8066.1.1 = {
+		holder = Stillbloom_27
+	}
+	8119.1.1 = {
+		holder = Stillbloom_29
+	}
+	8130.1.1 = {
+		holder = Stillbloom_32
+	}
+	8184.1.1 = {
+		holder = Stillbloom_39
+	}
+	8207.1.1 = {
+		holder = Stillbloom_44
+	}
+	8233.1.1 = {
+		holder = Stillbloom_58
+	}
+	8257.1.1 = {
+		holder = Stillbloom_63
+	}
+	8287.1.1 = {
+		holder = Stillbloom_67
+	}
+	8298.1.1 = {
+		holder = Stillbloom_73
+	}
+}
+c_redstone_heights = {
+	7274.1.1 = {
+		liege = d_redmarch
+	}
+	7848.1.1 = {
+		holder = Endar_1
+	}
+	7856.1.1 = {
+		holder = Endar_2
+	}
+	7893.1.1 = {
+		holder = Endar_11
+	}
+	7916.1.1 = {
+		holder = Endar_16
+	}
+	7950.1.1 = {
+		holder = Endar_18
+	}
+	7985.1.1 = {
+		holder = Endar_20
+	}
+	8007.1.1 = {
+		holder = Endar_21
+	}
+	8020.1.1 = {
+		holder = Endar_22
+	}
+	8036.1.1 = {
+		holder = Endar_23
+	}
+	8070.1.1 = {
+		holder = Endar_24
+	}
+	8101.1.1 = {
+		holder = Endar_27
+	}
+	8132.1.1 = {
+		holder = Endar_33
+	}
+	8139.1.1 = {
+		holder = Endar_37
+	}
+	8155.1.1 = {
+		holder = Endar_39
+	}
+	8208.1.1 = {
+		holder = Endar_41
+	}
+	8226.1.1 = {
+		holder = Endar_43
+	}
+	8268.1.1 = {
+		holder = Endar_48
+	}
+	8295.1.1 = {
+		holder = Endar_52
+	}
+}
+c_rustbarren = {
+	7274.1.1 = {
+		liege = d_redmarch
+	}
+	7851.1.1 = {
+		holder = Clyffhoof_1
+	}
+	7862.1.1 = {
+		holder = Clyffhoof_2
+	}
+	7890.1.1 = {
+		holder = Clyffhoof_11
+	}
+	7907.1.1 = {
+		holder = Clyffhoof_12
+	}
+	7946.1.1 = {
+		holder = Clyffhoof_14
+	}
+	7956.1.1 = {
+		holder = Clyffhoof_16
+	}
+	7985.1.1 = {
+		holder = Clyffhoof_17
+	}
+	8015.1.1 = {
+		holder = Clyffhoof_23
+	}
+	8043.1.1 = {
+		holder = Clyffhoof_33
+	}
+	8060.1.1 = {
+		holder = Clyffhoof_42
+	}
+	8091.1.1 = {
+		holder = Clyffhoof_48
+	}
+	8111.1.1 = {
+		holder = Clyffhoof_56
+	}
+	8149.1.1 = {
+		holder = Clyffhoof_61
+	}
+	8160.1.1 = {
+		holder = Clyffhoof_66
+	}
+	8184.1.1 = {
+		holder = Clyffhoof_68
+	}
+	8206.1.1 = {
+		holder = Clyffhoof_69
+	}
+	8245.1.1 = {
+		holder = Clyffhoof_75
+	}
+	8261.1.1 = {
+		holder = Clyffhoof_81
+	}
+	8293.1.1 = {
+		holder = Clyffhoof_82
+	}
+	8296.1.1 = {
+		holder = Clyffhoof_83
+	}
+}
+c_strongwine = {
+	7274.1.1 = {
+		liege = d_redmarch
+	}
+	7857.1.1 = {
+		holder = Peele_1
+	}
+	7864.1.1 = {
+		holder = Peele_2
+	}
+	7917.1.1 = {
+		holder = Peele_9
+	}
+	7979.1.1 = {
+		holder = Peele_11
+	}
+	8000.1.1 = {
+		holder = Peele_15
+	}
+	8033.1.1 = {
+		holder = Peele_16
+	}
+	8057.1.1 = {
+		holder = Peele_22
+	}
+	8081.1.1 = {
+		holder = Peele_23
+	}
+	8098.1.1 = {
+		holder = Peele_31
+	}
+	8118.1.1 = {
+		holder = Peele_33
+	}
+	8137.1.1 = {
+		holder = Peele_52
+	}
+	8164.1.1 = {
+		holder = Peele_59
+	}
+	8188.1.1 = {
+		holder = Peele_64
+	}
+	8219.1.1 = {
+		holder = Peele_68
+	}
+	8239.1.1 = {
+		holder = Peele_71
+	}
+	8241.1.1 = {
+		holder = Peele_73
+	}
+	8281.1.1 = {
+		holder = Peele_77
+	}
+	8296.1.1 = {
+		holder = Peele_85
+	}
+}
+d_salt_shore = {
+	7300.1.1 = {
+		liege = k_the_greenblood
+	}
+	7864.1.1 = {
+		holder = Gargalen_7
+	}
+	7880.1.1 = {
+		holder = Gargalen_8
+	}
+	7908.1.1 = {
+		holder = Gargalen_10
+	}
+	7942.1.1 = {
+		holder = Gargalen_67
+	}
+	7976.1.1 = {
+		holder = Gargalen_68
+	}
+	8001.1.1 = {
+		holder = Gargalen_69
+	}
+	8013.1.1 = {
+		holder = Gargalen_70
+	}
+	8053.1.1 = {
+		holder = Gargalen_73
+	}
+	8061.1.1 = {
+		holder = Gargalen_15
+	}
+	8104.1.1 = {
+		holder = Gargalen_16
+	}
+	8137.1.1 = {
+		holder = Gargalen_25
+	}
+	8187.1.1 = {
+		holder = Gargalen_41
+	}
+	8201.1.1 = {
+		holder = Gargalen_45
+	}
+	8244.1.1 = {
+		holder = Gargalen_49
+	}
+	8245.1.1 = {
+		holder = Gargalen_1
+	}
+}
+c_salt_shore = {
+	7864.1.1 = {
+		liege = d_salt_shore
+		holder = Gargalen_7
+	}
+	7880.1.1 = {
+		holder = Gargalen_8
+	}
+	7908.1.1 = {
+		holder = Gargalen_10
+	}
+	7942.1.1 = {
+		holder = Gargalen_67
+	}
+	7976.1.1 = {
+		holder = Gargalen_68
+	}
+	8001.1.1 = {
+		holder = Gargalen_69
+	}
+	8013.1.1 = {
+		holder = Gargalen_70
+	}
+	8053.1.1 = {
+		holder = Gargalen_73
+	}
+	8061.1.1 = {
+		holder = Gargalen_15
+	}
+	8104.1.1 = {
+		holder = Gargalen_16
+	}
+	8137.1.1 = {
+		holder = Gargalen_25
+	}
+	8187.1.1 = {
+		holder = Gargalen_41
+	}
+	8201.1.1 = {
+		holder = Gargalen_45
+	}
+	8244.1.1 = {
+		holder = Gargalen_49
+	}
+	8245.1.1 = {
+		holder = Gargalen_1
+	}
+}
+c_brackish = {
+	7857.1.1 = {
+		liege = d_salt_shore
+		holder = Zundanar_1
+	}
+	7866.1.1 = {
+		holder = Zundanar_2
+	}
+	7889.1.1 = {
+		holder = Zundanar_5
+	}
+	7908.1.1 = {
+		holder = Zundanar_6
+	}
+	7953.1.1 = {
+		holder = Zundanar_8
+	}
+	7978.1.1 = {
+		holder = Zundanar_13
+	}
+	7997.1.1 = {
+		holder = Zundanar_17
+	}
+	8010.1.1 = {
+		holder = Zundanar_18
+	}
+	8028.1.1 = {
+		holder = Zundanar_21
+	}
+	8036.1.1 = {
+		holder = Zundanar_22
+	}
+	8055.1.1 = {
+		holder = Zundanar_23
+	}
+	8065.1.1 = {
+		holder = Zundanar_25
+	}
+	8128.1.1 = {
+		holder = Zundanar_27
+	}
+	8152.1.1 = {
+		holder = Zundanar_29
+	}
+	8168.1.1 = {
+		holder = Zundanar_37
+	}
+	8197.1.1 = {
+		holder = Zundanar_54
+	}
+	8234.1.1 = {
+		holder = Zundanar_62
+	}
+	8237.1.1 = {
+		holder = Zundanar_73
+	}
+	8272.1.1 = {
+		holder = Zundanar_77
+	}
+	8280.1.1 = {
+		holder = Zundanar_80
+	}
+}
+c_saltstone = {
+	7848.1.1 = {
+		liege = d_salt_shore
+		holder = Haulight_1
+	}
+	7872.1.1 = {
+		holder = Haulight_3
+	}
+	7914.1.1 = {
+		holder = Haulight_7
+	}
+	7918.1.1 = {
+		holder = Haulight_8
+	}
+	7963.1.1 = {
+		holder = Haulight_10
+	}
+	7972.1.1 = {
+		holder = Haulight_13
+	}
+	8007.1.1 = {
+		holder = Haulight_14
+	}
+	8035.1.1 = {
+		holder = Haulight_16
+	}
+	8054.1.1 = {
+		holder = Haulight_22
+	}
+	8089.1.1 = {
+		holder = Haulight_30
+	}
+	8090.1.1 = {
+		holder = Haulight_39
+	}
+	8097.1.1 = {
+		holder = Haulight_51
+	}
+	8156.1.1 = {
+		holder = Haulight_64
+	}
+	8180.1.1 = {
+		holder = Haulight_67
+	}
+	8191.1.1 = {
+		holder = Haulight_71
+	}
+	8210.1.1 = {
+		holder = Haulight_77
+	}
+	8262.1.1 = {
+		holder = Haulight_80
+	}
+	8285.1.1 = {
+		holder = Haulight_85
+	}
+}
+c_white_stones = {
+	7806.1.1 = {
+		holder = Mercer_1
+	}
+	7822.1.1 = {
+		holder = Mercer_2
+	}
+	7838.1.1 = {
+		holder = Mercer_8
+	}
+	7864.1.1 = {
+		liege = d_salt_shore
+		holder = Mercer_9
+	}
+	7873.1.1 = {
+		holder = Mercer_13
+	}
+	7894.1.1 = {
+		holder = Mercer_15
+	}
+	7911.1.1 = {
+		holder = Mercer_17
+	}
+	7943.1.1 = {
+		holder = Mercer_18
+	}
+	7972.1.1 = {
+		holder = Mercer_20
+	}
+	7989.1.1 = {
+		holder = Mercer_21
+	}
+	8020.1.1 = {
+		holder = Mercer_23
+	}
+	8033.1.1 = {
+		holder = Mercer_26
+	}
+	8064.1.1 = {
+		holder = Mercer_27
+	}
+	8097.1.1 = {
+		holder = Mercer_28
+	}
+	8111.1.1 = {
+		holder = Mercer_33
+	}
+	8123.1.1 = {
+		holder = Mercer_38
+	}
+	8143.1.1 = {
+		holder = Mercer_46
+	}
+	8185.1.1 = {
+		holder = Mercer_49
+	}
+	8223.1.1 = {
+		holder = Mercer_52
+	}
+	8246.1.1 = {
+		holder = Mercer_59
+	}
+	8271.1.1 = {
+		holder = Mercer_60
+	}
+	8283.1.1 = {
+		holder = Mercer_71
+	}
+}
+d_sandstone = {
+	7300.1.1 = {
+		liege = e_dorne
+	}
+	7843.1.1 = {
+		holder = Qorgyle_121
+	}
+	7849.1.1 = {
+		holder = Qorgyle_122
+	}
+	7861.1.1 = {
+		holder = Qorgyle_13
+	}
+	7886.1.1 = {
+		holder = Qorgyle_14
+	}
+	7900.1.1 = {
+		holder = Qorgyle_19
+	}
+	7924.1.1 = {
+		holder = Qorgyle_21
+	}
+	7956.1.1 = {
+		holder = Qorgyle_80
+	}
+	7999.1.1 = {
+		holder = Qorgyle_81
+	}
+	8005.1.1 = {
+		holder = Qorgyle_82
+	}
+	8051.1.1 = {
+		holder = Qorgyle_95
+	}
+	8079.1.1 = {
+		holder = Qorgyle_23
+	}
+	8110.1.1 = {
+		holder = Qorgyle_36
+	}
+	8177.1.1 = {
+		holder = Qorgyle_49
+	}
+	8178.1.1 = {
+		holder = Qorgyle_60
+	}
+	8190.1.1 = {
+		holder = Qorgyle_65
+	}
+	8209.1.1 = {
+		holder = Qorgyle_66
+	}
+	8236.1.1 = {
+		holder = Qorgyle_67
+	}
+	8259.2.8 = {
+		holder = Qorgyle_1
+	}
+	8259.2.9 = {
+		holder = Qorgyle_4
+	}
+}
+c_sandstone = {
+	7843.1.1 = {
+		liege = d_sandstone
+		holder = Qorgyle_121
+	}
+	7849.1.1 = {
+		holder = Qorgyle_122
+	}
+	7861.1.1 = {
+		holder = Qorgyle_13
+	}
+	7886.1.1 = {
+		holder = Qorgyle_14
+	}
+	7900.1.1 = {
+		holder = Qorgyle_19
+	}
+	7924.1.1 = {
+		holder = Qorgyle_21
+	}
+	7956.1.1 = {
+		holder = Qorgyle_80
+	}
+	7999.1.1 = {
+		holder = Qorgyle_81
+	}
+	8005.1.1 = {
+		holder = Qorgyle_82
+	}
+	8051.1.1 = {
+		holder = Qorgyle_95
+	}
+	8079.1.1 = {
+		holder = Qorgyle_23
+	}
+	8110.1.1 = {
+		holder = Qorgyle_36
+	}
+	8177.1.1 = {
+		holder = Qorgyle_49
+	}
+	8178.1.1 = {
+		holder = Qorgyle_60
+	}
+	8190.1.1 = {
+		holder = Qorgyle_65
+	}
+	8209.1.1 = {
+		holder = Qorgyle_66
+	}
+	8236.1.1 = {
+		holder = Qorgyle_67
+	}
+	8259.2.8 = {
+		holder = Qorgyle_1
+	}
+	8259.2.9 = {
+		holder = Qorgyle_4
+	}
+}
+c_arnight = {
+	7803.1.1 = {
+		holder = Ruthvan_1
+	}
+	7841.1.1 = {
+		holder = Ruthvan_2
+	}
+	7843.1.1 = {
+		liege = d_sandstone
+	}
+	7868.1.1 = {
+		holder = Ruthvan_4
+	}
+	7914.1.1 = {
+		holder = Ruthvan_7
+	}
+	7925.1.1 = {
+		holder = Ruthvan_11
+	}
+	7943.1.1 = {
+		holder = Ruthvan_13
+	}
+	7956.1.1 = {
+		holder = Ruthvan_14
+	}
+	8020.1.1 = {
+		holder = Ruthvan_17
+	}
+	8040.1.1 = {
+		holder = Ruthvan_19
+	}
+	8053.1.1 = {
+		holder = Ruthvan_22
+	}
+	8071.1.1 = {
+		holder = Ruthvan_27
+	}
+	8119.1.1 = {
+		holder = Ruthvan_30
+	}
+	8122.1.1 = {
+		holder = Ruthvan_32
+	}
+	8157.1.1 = {
+		holder = Ruthvan_34
+	}
+	8162.1.1 = {
+		holder = Ruthvan_40
+	}
+	8199.1.1 = {
+		holder = Ruthvan_42
+	}
+	8228.1.1 = {
+		holder = Ruthvan_46
+	}
+	8254.1.1 = {
+		holder = Ruthvan_58
+	}
+	8280.1.1 = {
+		holder = Ruthvan_65
+	}
+}
+c_barbmane = {
+	7843.1.1 = {
+		liege = d_sandstone
+	}
+	7851.1.1 = {
+		holder = Barb_1
+	}
+	7869.1.1 = {
+		holder = Barb_2
+	}
+	7909.1.1 = {
+		holder = Barb_4
+	}
+	7923.1.1 = {
+		holder = Barb_10
+	}
+	7941.1.1 = {
+		holder = Barb_15
+	}
+	7977.1.1 = {
+		holder = Barb_31
+	}
+	8010.1.1 = {
+		holder = Barb_40
+	}
+	8039.1.1 = {
+		holder = Barb_48
+	}
+	8048.1.1 = {
+		holder = Barb_57
+	}
+	8079.1.1 = {
+		holder = Barb_58
+	}
+	8148.1.1 = {
+		holder = Barb_67
+	}
+	8167.1.1 = {
+		holder = Barb_87
+	}
+	8199.1.1 = {
+		holder = Barb_90
+	}
+	8211.1.1 = {
+		holder = Barb_92
+	}
+	8212.1.1 = {
+		holder = Barb_97
+	}
+	8246.1.1 = {
+		holder = Barb_108
+	}
+	8275.1.1 = {
+		holder = Barb_112
+	}
+}
+c_dreadsands = {
+	7843.1.1 = {
+		liege = d_sandstone
+	}
+	7851.1.1 = {
+		holder = Pink_1
+	}
+	7869.1.1 = {
+		holder = Pink_2
+	}
+	7898.1.1 = {
+		holder = Pink_7
+	}
+	7923.1.1 = {
+		holder = Pink_8
+	}
+	7952.1.1 = {
+		holder = Pink_9
+	}
+	7990.1.1 = {
+		holder = Pink_12
+	}
+	8009.1.1 = {
+		holder = Pink_14
+	}
+	8027.1.1 = {
+		holder = Pink_15
+	}
+	8049.1.1 = {
+		holder = Pink_24
+	}
+	8096.1.1 = {
+		holder = Pink_25
+	}
+	8112.1.1 = {
+		holder = Pink_27
+	}
+	8156.1.1 = {
+		holder = Pink_29
+	}
+	8183.1.1 = {
+		holder = Pink_42
+	}
+	8205.1.1 = {
+		holder = Pink_50
+	}
+	8221.1.1 = {
+		holder = Pink_60
+	}
+	8261.1.1 = {
+		holder = Pink_73
+	}
+	8264.1.1 = {
+		holder = Pink_77
+	}
+}
+c_sandhorn = {
+	7836.1.1 = {
+		holder = Maltrevar_1
+	}
+	7843.1.1 = {
+		liege = d_sandstone
+	}
+	7844.1.1 = {
+		holder = Maltrevar_2
+	}
+	7873.1.1 = {
+		holder = Maltrevar_3
+	}
+	7886.1.1 = {
+		holder = Maltrevar_6
+	}
+	7935.1.1 = {
+		holder = Maltrevar_7
+	}
+	7954.1.1 = {
+		holder = Maltrevar_8
+	}
+	7977.1.1 = {
+		holder = Maltrevar_9
+	}
+	8022.1.1 = {
+		holder = Maltrevar_11
+	}
+	8032.1.1 = {
+		holder = Maltrevar_13
+	}
+	8064.1.1 = {
+		holder = Maltrevar_14
+	}
+	8096.1.1 = {
+		holder = Maltrevar_19
+	}
+	8125.1.1 = {
+		holder = Maltrevar_20
+	}
+	8147.1.1 = {
+		holder = Maltrevar_25
+	}
+	8149.1.1 = {
+		holder = Maltrevar_29
+	}
+	8200.1.1 = {
+		holder = Maltrevar_33
+	}
+	8205.1.1 = {
+		holder = Maltrevar_45
+	}
+	8235.1.1 = {
+		holder = Maltrevar_51
+	}
+	8262.1.1 = {
+		holder = Maltrevar_61
+	}
+	8282.1.1 = {
+		holder = Maltrevar_67
+	}
+}
+c_stained_sands = {
+	7843.1.1 = {
+		liege = d_sandstone
+	}
+	7875.1.1 = {
+		holder = Nessarry_1
+	}
+	7885.1.1 = {
+		holder = Nessarry_2
+	}
+	7907.1.1 = {
+		holder = Nessarry_3
+	}
+	7958.1.1 = {
+		holder = Nessarry_5
+	}
+	7983.1.1 = {
+		holder = Nessarry_7
+	}
+	7991.1.1 = {
+		holder = Nessarry_9
+	}
+	7997.1.1 = {
+		holder = Nessarry_10
+	}
+	8050.1.1 = {
+		holder = Nessarry_15
+	}
+	8085.1.1 = {
+		holder = Nessarry_26
+	}
+	8116.1.1 = {
+		holder = Nessarry_28
+	}
+	8148.1.1 = {
+		holder = Nessarry_40
+	}
+	8189.1.1 = {
+		holder = Nessarry_46
+	}
+	8207.1.1 = {
+		holder = Nessarry_48
+	}
+	8243.1.1 = {
+		holder = Nessarry_52
+	}
+	8246.1.1 = {
+		holder = Nessarry_69
+	}
+	8273.1.1 = {
+		holder = Nessarry_74
+	}
+}
+c_stinging_sands = {
+	7843.1.1 = {
+		liege = d_sandstone
+		holder = Qorgyle_121
+	}
+	7845.1.1 = {
+		holder = Qorgyle_124
+	}
+	7862.1.1 = {
+		holder = Flinders_2
+	}
+	7918.1.1 = {
+		holder = Flinders_10
+	}
+	7942.1.1 = {
+		holder = Flinders_11
+	}
+	7971.1.1 = {
+		holder = Flinders_18
+	}
+	7976.1.1 = {
+		holder = Flinders_20
+	}
+	8003.1.1 = {
+		holder = Flinders_34
+	}
+	8041.1.1 = {
+		holder = Flinders_36
+	}
+	8062.1.1 = {
+		holder = Flinders_38
+	}
+	8089.1.1 = {
+		holder = Flinders_40
+	}
+	8108.1.1 = {
+		holder = Flinders_42
+	}
+	8151.1.1 = {
+		holder = Flinders_45
+	}
+	8169.1.1 = {
+		holder = Flinders_46
+	}
+	8184.1.1 = {
+		holder = Flinders_47
+	}
+	8200.1.1 = {
+		holder = Flinders_54
+	}
+	8258.1.1 = {
+		holder = Flinders_57
+	}
+}
+c_white_dunes = {
+	7843.1.1 = {
+		liege = d_sandstone
+	}
+	7864.1.1 = {
+		holder = Roast_1
+	}
+	7888.1.1 = {
+		holder = Roast_2
+	}
+	7915.1.1 = {
+		holder = Roast_4
+	}
+	7943.1.1 = {
+		holder = Roast_6
+	}
+	7948.1.1 = {
+		holder = Roast_7
+	}
+	7974.1.1 = {
+		holder = Roast_12
+	}
+	7978.1.1 = {
+		holder = Roast_13
+	}
+	8035.1.1 = {
+		holder = Roast_15
+	}
+	8053.1.1 = {
+		holder = Roast_18
+	}
+	8085.1.1 = {
+		holder = Roast_20
+	}
+	8091.1.1 = {
+		holder = Roast_22
+	}
+	8098.1.1 = {
+		holder = Roast_23
+	}
+	8156.1.1 = {
+		holder = Roast_30
+	}
+	8172.1.1 = {
+		holder = Roast_35
+	}
+	8212.1.1 = {
+		holder = Roast_36
+	}
+	8221.1.1 = {
+		holder = Roast_40
+	}
+	8284.1.1 = {
+		holder = Roast_50
+	}
+	8295.1.1 = {
+		holder = Roast_54
+	}
+}
+k_stone_and_sky = {
+	6560.1.1 = {
+		holder = Fowler_9
+		de_jure_liege = e_dorne
+	}
+	7120.1.1 = {
+		holder = Fowler_110
+	}
+	7175.1.1 = {
+		holder = Fowler_111
+	}
+	7183.1.1 = {
+		holder = Fowler_113
+	}
+	7218.1.1 = {
+		holder = Fowler_114
+	}
+	7252.1.1 = {
+		holder = Fowler_11
+	}
+	7305.1.1 = {
+		holder = 0
+	}
+}
+d_the_princes_pass = {
+	6560.1.1 = {
+		holder = Fowler_9
+		effect = {
+			set_variable = agot_historical_march
+		}
+	}
+	7120.1.1 = {
+		holder = Fowler_110
+	}
+	7175.1.1 = {
+		holder = Fowler_111
+	}
+	7183.1.1 = {
+		holder = Fowler_113
+	}
+	7218.1.1 = {
+		holder = Fowler_114
+	}
+	7252.1.1 = {
+		holder = Fowler_11
+	}
+	7305.1.1 = {
+		liege = e_dorne
+		holder = Fowler_115
+	}
+	7861.1.1 = {
+		holder = Fowler_13
+	}
+	7883.1.1 = {
+		holder = Fowler_14
+	}
+	7928.1.1 = {
+		holder = Fowler_21
+	}
+	7965.1.1 = {
+		holder = Fowler_65
+	}
+	7975.1.1 = {
+		holder = Fowler_17
+	}
+	8012.1.1 = {
+		holder = Fowler_68
+	}
+	8032.1.1 = {
+		holder = Fowler_71
+	}
+	8073.1.1 = {
+		holder = Fowler_22
+	}
+	8105.1.1 = {
+		holder = Fowler_28
+	}
+	8122.1.1 = {
+		holder = Fowler_40
+	}
+	8157.6.12 = {
+		holder = Fowler_41
+	}
+	8172.1.1 = {
+		holder = Fowler_48
+	}
+	8195.1.1 = {
+		holder = Fowler_51
+	}
+	8237.1.1 = {
+		holder = Fowler_52
+	}
+	8254.1.1 = {
+		holder = Fowler_53
+	}
+	8261.1.1 = {
+		holder = Fowler_1
+	}
+}
+c_skyreach = {
+	6560.1.1 = {
+		liege = d_the_princes_pass
+		holder = Fowler_9
+	}
+	7120.1.1 = {
+		holder = Fowler_110
+	}
+	7175.1.1 = {
+		holder = Fowler_111
+	}
+	7183.1.1 = {
+		holder = Fowler_113
+	}
+	7218.1.1 = {
+		holder = Fowler_114
+	}
+	7252.1.1 = {
+		holder = Fowler_11
+	}
+	7305.1.1 = {
+		holder = Fowler_115
+	}
+	7861.1.1 = {
+		holder = Fowler_13
+	}
+	7883.1.1 = {
+		holder = Fowler_14
+	}
+	7928.1.1 = {
+		holder = Fowler_21
+	}
+	7965.1.1 = {
+		holder = Fowler_65
+	}
+	7975.1.1 = {
+		holder = Fowler_17
+	}
+	8012.1.1 = {
+		holder = Fowler_68
+	}
+	8032.1.1 = {
+		holder = Fowler_71
+	}
+	8073.1.1 = {
+		holder = Fowler_22
+	}
+	8105.1.1 = {
+		holder = Fowler_28
+	}
+	8122.1.1 = {
+		holder = Fowler_40
+	}
+	8157.6.12 = {
+		holder = Fowler_41
+	}
+	8172.1.1 = {
+		holder = Fowler_48
+	}
+	8195.1.1 = {
+		holder = Fowler_51
+	}
+	8237.1.1 = {
+		holder = Fowler_52
+	}
+	8254.1.1 = {
+		holder = Fowler_53
+	}
+	8261.1.1 = {
+		holder = Fowler_1
+	}
+}
+c_cadgemont = {
+	6560.1.1 = {
+		liege = d_the_princes_pass
+		holder = Fowler_9
+	}
+	7120.1.1 = {
+		holder = Fowler_110
+	}
+	7175.1.1 = {
+		holder = Fowler_111
+	}
+	7183.1.1 = {
+		holder = Fowler_113
+	}
+	7218.1.1 = {
+		holder = Fowler_114
+	}
+	7252.1.1 = {
+		holder = Fowler_11
+	}
+	7305.1.1 = {
+		holder = Fowler_115
+	}
+	7861.1.1 = {
+		holder = Fowler_13
+	}
+	7883.1.1 = {
+		holder = Fowler_14
+	}
+	7901.1.1 = {
+		holder = Cage_1
+	}
+	7941.1.1 = {
+		holder = Cage_2
+	}
+	7973.1.1 = {
+		holder = Cage_6
+	}
+	8006.1.1 = {
+		holder = Cage_9
+	}
+	8038.1.1 = {
+		holder = Cage_10
+	}
+	8066.1.1 = {
+		holder = Cage_11
+	}
+	8087.1.1 = {
+		holder = Cage_17
+	}
+	8118.1.1 = {
+		holder = Cage_20
+	}
+	8144.1.1 = {
+		holder = Cage_22
+	}
+	8179.1.1 = {
+		holder = Cage_27
+	}
+	8198.1.1 = {
+		holder = Cage_31
+	}
+	8221.1.1 = {
+		holder = Cage_48
+	}
+	8258.1.1 = {
+		holder = Cage_49
+	}
+	8268.1.1 = {
+		holder = Cage_57
+	}
+	8289.1.1 = {
+		holder = Cage_65
+	}
+}
+c_hoodridge = {
+	2940.1.1 = {
+		liege = d_the_princes_pass
+	}
+	7881.1.1 = {
+		holder = Hood_27
+	}
+	7890.1.1 = {
+		holder = Hood_28
+	}
+	7911.1.1 = {
+		holder = Hood_29
+	}
+	7942.1.1 = {
+		holder = Hood_36
+	}
+	7958.1.1 = {
+		holder = Hood_41
+	}
+	7965.1.1 = {
+		holder = Hood_53
+	}
+	8016.1.1 = {
+		holder = Hood_56
+	}
+	8023.1.1 = {
+		holder = Hood_64
+	}
+	8031.1.1 = {
+		holder = Hood_71
+	}
+	8082.1.1 = {
+		holder = Hood_72
+	}
+	8101.1.1 = {
+		holder = Hood_77
+	}
+	8144.1.1 = {
+		holder = Hood_78
+	}
+	8157.1.1 = {
+		holder = Hood_82
+	}
+	8183.1.1 = {
+		holder = Hood_89
+	}
+	8231.1.1 = {
+		holder = Hood_2
+	}
+	8261.1.1 = {
+		holder = Hood_3
+	}
+	8288.1.1 = {
+		holder = Hood_4
+	}
+}
+c_princemarch = {
+	2940.1.1 = {
+		liege = d_the_princes_pass
+		effect = {
+			title:b_tower_of_joy = { set_title_name = b_lonely_watchtower }
+		}
+	}
+	7852.1.1 = {
+		holder = Warriner_1
+	}
+	7854.1.1 = {
+		holder = Warriner_2
+	}
+	7856.1.1 = {
+		holder = Warriner_6
+	}
+	7898.1.1 = {
+		holder = Warriner_7
+	}
+	7947.1.1 = {
+		holder = Warriner_16
+	}
+	7963.1.1 = {
+		holder = Warriner_19
+	}
+	7967.1.1 = {
+		holder = Warriner_24
+	}
+	8009.1.1 = {
+		holder = Warriner_26
+	}
+	8033.1.1 = {
+		holder = Warriner_27
+	}
+	8038.1.1 = {
+		holder = Warriner_39
+	}
+	8059.1.1 = {
+		holder = Warriner_41
+	}
+	8117.1.1 = {
+		holder = Warriner_46
+	}
+	8129.1.1 = {
+		holder = Warriner_50
+	}
+	8159.1.1 = {
+		holder = Warriner_55
+	}
+	8184.1.1 = {
+		holder = Warriner_59
+	}
+	8208.1.1 = {
+		holder = Warriner_61
+	}
+	8227.1.1 = {
+		holder = Warriner_63
+	}
+	8241.1.1 = {
+		holder = Warriner_70
+	}
+	8282.4.8 = {
+		effect = {
+			title:b_tower_of_joy = { reset_title_name = yes }
+		}
+	}
+	8293.1.1 = {
+		holder = Warriner_72
+	}
+}
+c_thorntree = {
+	2940.1.1 = {
+		liege = d_the_princes_pass
+	}
+	7830.1.1 = {
+		holder = Ronce_1
+	}
+	7843.1.1 = {
+		holder = Ronce_2
+	}
+	7881.1.1 = {
+		holder = Ronce_3
+	}
+	7892.1.1 = {
+		holder = Ronce_4
+	}
+	7940.1.1 = {
+		holder = Ronce_7
+	}
+	7960.1.1 = {
+		holder = Ronce_11
+	}
+	7993.1.1 = {
+		holder = Ronce_13
+	}
+	8009.1.1 = {
+		holder = Ronce_18
+	}
+	8039.1.1 = {
+		holder = Ronce_20
+	}
+	8055.1.1 = {
+		holder = Ronce_22
+	}
+	8081.1.1 = {
+		holder = Ronce_29
+	}
+	8121.1.1 = {
+		holder = Ronce_31
+	}
+	8127.1.1 = {
+		holder = Ronce_39
+	}
+	8138.1.1 = {
+		holder = Ronce_46
+	}
+	8182.1.1 = {
+		holder = Ronce_56
+	}
+	8218.1.1 = {
+		holder = Ronce_61
+	}
+	8230.1.1 = {
+		holder = Ronce_65
+	}
+	8248.1.1 = {
+		holder = Ronce_70
+	}
+	8283.1.1 = {
+		holder = Ronce_75
+	}
+}
+c_wide_way = {
+	6560.1.1 = {
+		liege = d_the_princes_pass
+		holder = Fowler_9
+	}
+	7120.1.1 = {
+		holder = Fowler_110
+	}
+	7175.1.1 = {
+		holder = Fowler_111
+	}
+	7183.1.1 = {
+		holder = Fowler_113
+	}
+	7218.1.1 = {
+		holder = Fowler_114
+	}
+	7252.1.1 = {
+		holder = Fowler_11
+	}
+	7305.1.1 = {
+		holder = Fowler_115
+	}
+	7861.1.1 = {
+		holder = Trapp_1
+	}
+	7872.1.1 = {
+		holder = Trapp_2
+	}
+	7904.1.1 = {
+		holder = Trapp_3
+	}
+	7937.1.1 = {
+		holder = Trapp_4
+	}
+	7957.1.1 = {
+		holder = Trapp_14
+	}
+	7961.1.1 = {
+		holder = Trapp_15
+	}
+	8012.1.1 = {
+		holder = Trapp_18
+	}
+	8024.1.1 = {
+		holder = Trapp_22
+	}
+	8027.1.1 = {
+		holder = Trapp_33
+	}
+	8097.1.1 = {
+		holder = Trapp_48
+	}
+	8116.1.1 = {
+		holder = Trapp_50
+	}
+	8123.1.1 = {
+		holder = Trapp_53
+	}
+	8179.1.1 = {
+		holder = Trapp_63
+	}
+	8219.1.1 = {
+		holder = Trapp_66
+	}
+	8237.1.1 = {
+		holder = Trapp_67
+	}
+	8264.1.1 = {
+		holder = Trapp_78
+	}
+}
+d_the_stoneway = {
+	2200.1.1 = {
+		holder = Wyl_14
+	}
+	7300.1.1 = {
+		liege = k_yronwood
+		effect = {
+			set_variable = agot_historical_march
+		}
+	}
+	7855.1.1 = {
+		holder = Wyl_16
+	}
+	7881.1.1 = {
+		holder = Wyl_17
+	}
+	7906.1.1 = {
+		holder = Wyl_72
+	}
+	7929.1.1 = {
+		holder = Wyl_73
+	}
+	7970.1.1 = {
+		holder = Wyl_76
+	}
+	7988.1.1 = {
+		holder = Wyl_21
+	}
+	8027.1.1 = {
+		holder = Wyl_22
+	}
+	8053.1.1 = {
+		holder = Wyl_23
+	}
+	8075.1.1 = {
+		holder = Wyl_24
+	}
+	8107.1.1 = {
+		holder = Wyl_29
+	}
+	8148.1.1 = {
+		holder = Wyl_33
+	}
+	8199.1.1 = {
+		holder = Wyl_40
+	}
+	8203.1.1 = {
+		holder = Wyl_45
+	}
+	8209.1.1 = {
+		holder = Wyl_48
+	}
+	8248.1.1 = {
+		holder = Wyl_1
+	}
+}
+c_wyl = {
+	2200.1.1 = {
+		liege = d_the_stoneway
+		holder = Wyl_14
+	}
+	7855.1.1 = {
+		holder = Wyl_16
+	}
+	7881.1.1 = {
+		holder = Wyl_17
+	}
+	7906.1.1 = {
+		holder = Wyl_72
+	}
+	7929.1.1 = {
+		holder = Wyl_73
+	}
+	7970.1.1 = {
+		holder = Wyl_76
+	}
+	7988.1.1 = {
+		holder = Wyl_21
+	}
+	8027.1.1 = {
+		holder = Wyl_22
+	}
+	8053.1.1 = {
+		holder = Wyl_23
+	}
+	8075.1.1 = {
+		holder = Wyl_24
+	}
+	8107.1.1 = {
+		holder = Wyl_29
+	}
+	8148.1.1 = {
+		holder = Wyl_33
+	}
+	8199.1.1 = {
+		holder = Wyl_40
+	}
+	8203.1.1 = {
+		holder = Wyl_45
+	}
+	8209.1.1 = {
+		holder = Wyl_48
+	}
+	8248.1.1 = {
+		holder = Wyl_1
+	}
+}
+b_black_adder = {
+	8052.1.1 = {
+		holder = Cullis_1
+	}
+	8084.1.1 = {
+		holder = Cullis_2
+	}
+	8093.1.1 = {
+		holder = Cullis_3
+	}
+	8116.1.1 = {
+		holder = Cullis_5
+	}
+	8146.1.1 = {
+		holder = Cullis_6
+	}
+	8147.1.1 = {
+		holder = Cullis_8
+	}
+	8185.1.1 = {
+		holder = Cullis_12
+	}
+	8226.1.1 = {
+		holder = Cullis_13
+	}
+	8246.1.1 = {
+		holder = Cullis_15
+	}
+	8292.1.1 = {
+		holder = Cullis_18
+	}
+}
+c_blackvein = {
+	200.1.1 = {
+		liege = d_the_stoneway
+	}
+	7803.1.1 = {
+		holder = Sallow_1
+	}
+	7840.1.1 = {
+		holder = Sallow_2
+	}
+	7851.1.1 = {
+		holder = Sallow_4
+	}
+	7891.1.1 = {
+		holder = Sallow_5
+	}
+	7901.1.1 = {
+		holder = Sallow_10
+	}
+	7917.1.1 = {
+		holder = Sallow_16
+	}
+	7964.1.1 = {
+		holder = Sallow_20
+	}
+	7981.1.1 = {
+		holder = Sallow_23
+	}
+	7995.1.1 = {
+		holder = Sallow_26
+	}
+	8007.1.1 = {
+		holder = Sallow_27
+	}
+	8053.1.1 = {
+		holder = Sallow_28
+	}
+	8086.1.1 = {
+		holder = Sallow_35
+	}
+	8111.1.1 = {
+		holder = Sallow_47
+	}
+	8123.1.1 = {
+		holder = Sallow_50
+	}
+	8157.1.1 = {
+		holder = Sallow_57
+	}
+	8183.1.1 = {
+		holder = Sallow_58
+	}
+	8184.1.1 = {
+		holder = Sallow_71
+	}
+	8211.1.1 = {
+		holder = Sallow_75
+	}
+	8241.1.1 = {
+		holder = Sallow_80
+	}
+	8267.1.1 = {
+		holder = Sallow_81
+	}
+	8276.1.1 = {
+		holder = Sallow_83
+	}
+	8278.1.1 = {
+		holder = Sallow_89
+	}
+}
+c_brinkburn = {
+	200.1.1 = {
+		liege = d_the_stoneway
+	}
+	7858.1.1 = {
+		holder = Weekes_1
+	}
+	7870.1.1 = {
+		holder = Weekes_2
+	}
+	7893.1.1 = {
+		holder = Weekes_5
+	}
+	7922.1.1 = {
+		holder = Weekes_7
+	}
+	7973.1.1 = {
+		holder = Weekes_10
+	}
+	7997.1.1 = {
+		holder = Weekes_15
+	}
+	8040.1.1 = {
+		holder = Weekes_19
+	}
+	8066.1.1 = {
+		holder = Weekes_20
+	}
+	8067.1.1 = {
+		holder = Weekes_30
+	}
+	8123.1.1 = {
+		holder = Weekes_34
+	}
+	8149.1.1 = {
+		holder = Weekes_47
+	}
+	8155.1.1 = {
+		holder = Weekes_51
+	}
+	8202.1.1 = {
+		holder = Weekes_89
+	}
+	8225.1.1 = {
+		holder = Weekes_95
+	}
+	8254.1.1 = {
+		holder = Weekes_62
+	}
+	8268.1.1 = {
+		holder = Weekes_63
+	}
+	8279.1.1 = {
+		holder = Weekes_65
+	}
+}
+c_denmont = {
+	200.1.1 = {
+		liege = d_the_stoneway
+	}
+	7852.1.1 = {
+		holder = Regel_1
+	}
+	7866.1.1 = {
+		holder = Regel_2
+	}
+	7923.1.1 = {
+		holder = Regel_3
+	}
+	7943.1.1 = {
+		holder = Regel_9
+	}
+	7988.1.1 = {
+		holder = Regel_11
+	}
+	8022.1.1 = {
+		holder = Regel_17
+	}
+	8051.1.1 = {
+		holder = Regel_32
+	}
+	8077.1.1 = {
+		holder = Regel_43
+	}
+	8097.1.1 = {
+		holder = Regel_58
+	}
+	8121.1.1 = {
+		holder = Regel_68
+	}
+	8134.1.1 = {
+		holder = Regel_85
+	}
+	8152.1.1 = {
+		holder = Regel_91
+	}
+	8195.1.1 = {
+		holder = Regel_98
+	}
+	8201.1.1 = {
+		effect = {
+			title:b_denmont = {
+				set_capital_barony = yes
+			}
+		}
+	}
+	8243.1.1 = {
+		holder = Regel_110
+	}
+	8272.1.1 = {
+		holder = Regel_119
+	}
+	8280.1.1 = {
+		holder = Regel_120
+	}
+}
+c_fangside = {
+	200.1.1 = {
+		liege = d_the_stoneway
+	}
+	7858.1.1 = {
+		holder = Sandracer_1
+	}
+	7873.1.1 = {
+		holder = Sandracer_2
+	}
+	7880.1.1 = {
+		holder = Sandracer_3
+	}
+	7882.1.1 = {
+		holder = Sandracer_9
+	}
+	7953.1.1 = {
+		holder = Sandracer_12
+	}
+	7980.1.1 = {
+		holder = Sandracer_14
+	}
+	8003.1.1 = {
+		holder = Sandracer_24
+	}
+	8037.1.1 = {
+		holder = Sandracer_26
+	}
+	8083.1.1 = {
+		holder = Sandracer_32
+	}
+	8104.1.1 = {
+		holder = Sandracer_37
+	}
+	8116.1.1 = {
+		holder = Sandracer_38
+	}
+	8133.1.1 = {
+		holder = Sandracer_39
+	}
+	8145.1.1 = {
+		holder = Sandracer_41
+	}
+	8217.1.1 = {
+		holder = Sandracer_42
+	}
+	8236.1.1 = {
+		holder = Sandracer_43
+	}
+	8252.1.1 = {
+		holder = Sandracer_44
+	}
+	8264.1.1 = {
+		holder = Sandracer_46
+	}
+	8278.1.1 = {
+		holder = Sandracer_48
+	}
+}
+c_highgrave = {
+	200.1.1 = {
+		liege = d_the_stoneway
+	}
+	7858.1.1 = {
+		holder = Bellows_1
+	}
+	7864.1.1 = {
+		holder = Bellows_2
+	}
+	7899.1.1 = {
+		holder = Bellows_4
+	}
+	7908.1.1 = {
+		holder = Bellows_6
+	}
+	7979.1.1 = {
+		holder = Bellows_7
+	}
+	7995.1.1 = {
+		holder = Bellows_9
+	}
+	8002.1.1 = {
+		holder = Bellows_13
+	}
+	8042.1.1 = {
+		holder = Bellows_14
+	}
+	8052.1.1 = {
+		holder = Bellows_17
+	}
+	8106.1.1 = {
+		holder = Bellows_21
+	}
+	8115.1.1 = {
+		holder = Bellows_22
+	}
+	8132.1.1 = {
+		holder = Bellows_27
+	}
+	8184.1.1 = {
+		holder = Bellows_33
+	}
+	8195.1.1 = {
+		holder = Bellows_46
+	}
+	8215.1.1 = {
+		holder = Bellows_50
+	}
+	8227.1.1 = {
+		holder = Bellows_61
+	}
+	8260.1.1 = {
+		holder = Bellows_62
+	}
+	8297.1.1 = {
+		holder = Bellows_69
+	}
+}
+d_the_tor = {
+	6040.1.1 = {
+		holder = Jordayne_118
+	}
+	6091.1.1 = {
+		holder = Jordayne_119
+	}
+	6111.1.1 = {
+		holder = Jordayne_120
+	}
+	6123.1.1 = {
+		holder = Jordayne_121
+	}
+	6157.9.16 = {
+		holder = 0
+	}
+	7300.1.1 = {
+		liege = k_yronwood
+	}
+	7880.1.1 = {
+		holder = Jordayne_3
+	}
+	7881.1.1 = {
+		holder = Jordayne_4
+	}
+	7939.1.1 = {
+		holder = Jordayne_71
+	}
+	7952.1.1 = {
+		holder = Jordayne_80
+	}
+	7980.1.1 = {
+		holder = Jordayne_7
+	}
+	8004.1.1 = {
+		holder = Jordayne_8
+	}
+	8038.1.1 = {
+		holder = Jordayne_9
+	}
+	8058.1.1 = {
+		holder = Jordayne_10
+	}
+	8086.1.1 = {
+		holder = Jordayne_13
+	}
+	8096.1.1 = {
+		holder = Jordayne_14
+	}
+	8119.1.1 = {
+		holder = Jordayne_19
+	}
+	8154.1.1 = {
+		holder = Jordayne_34
+	}
+	8173.1.1 = {
+		holder = Jordayne_53
+	}
+	8196.1.1 = {
+		holder = Jordayne_54
+	}
+	8211.1.1 = {
+		holder = Jordayne_56
+	}
+	8227.1.1 = {
+		holder = Jordayne_57
+	}
+	8262.1.1 = {
+		holder = Jordayne_59
+	}
+	8274.1.1 = {
+		holder = Jordayne_1
+	}
+}
+c_the_tor = {
+	6040.1.1 = {
+		holder = Jordayne_118
+		liege = d_the_tor
+	}
+	6091.1.1 = {
+		holder = Jordayne_119
+	}
+	6111.1.1 = {
+		holder = Jordayne_120
+	}
+	6123.1.1 = {
+		holder = Jordayne_121
+	}
+	7880.1.1 = {
+		holder = Jordayne_3
+	}
+	7881.1.1 = {
+		holder = Jordayne_4
+	}
+	7939.1.1 = {
+		holder = Jordayne_71
+	}
+	7952.1.1 = {
+		holder = Jordayne_80
+	}
+	7980.1.1 = {
+		holder = Jordayne_7
+	}
+	8004.1.1 = {
+		holder = Jordayne_8
+	}
+	8038.1.1 = {
+		holder = Jordayne_9
+	}
+	8058.1.1 = {
+		holder = Jordayne_10
+	}
+	8086.1.1 = {
+		holder = Jordayne_13
+	}
+	8096.1.1 = {
+		holder = Jordayne_14
+	}
+	8119.1.1 = {
+		holder = Jordayne_19
+	}
+	8154.1.1 = {
+		holder = Jordayne_34
+	}
+	8173.1.1 = {
+		holder = Jordayne_53
+	}
+	8196.1.1 = {
+		holder = Jordayne_54
+	}
+	8211.1.1 = {
+		holder = Jordayne_56
+	}
+	8227.1.1 = {
+		holder = Jordayne_57
+	}
+	8262.1.1 = {
+		holder = Jordayne_59
+	}
+	8274.1.1 = {
+		holder = Jordayne_1
+	}
+}
+c_barberry = {
+	7863.1.1 = {
+		liege = d_the_tor
+		holder = Renshar_1
+	}
+	7876.1.1 = {
+		holder = Renshar_2
+	}
+	7903.1.1 = {
+		holder = Renshar_7
+	}
+	7915.1.1 = {
+		holder = Renshar_11
+	}
+	7946.1.1 = {
+		holder = Renshar_12
+	}
+	7994.1.1 = {
+		holder = Renshar_14
+	}
+	7996.1.1 = {
+		holder = Renshar_19
+	}
+	8024.1.1 = {
+		holder = Renshar_21
+	}
+	8028.1.1 = {
+		holder = Renshar_25
+	}
+	8050.1.1 = {
+		holder = Renshar_26
+	}
+	8107.1.1 = {
+		holder = Renshar_27
+	}
+	8130.1.1 = {
+		holder = Renshar_29
+	}
+	8157.1.1 = {
+		holder = Renshar_34
+	}
+	8187.1.1 = {
+		holder = Renshar_35
+	}
+	8215.1.1 = {
+		holder = Renshar_40
+	}
+	8228.1.1 = {
+		holder = Renshar_43
+	}
+	8236.1.1 = {
+		holder = Renshar_44
+	}
+	8293.1.1 = {
+		holder = Renshar_46
+	}
+	8299.1.1 = {
+		holder = Renshar_48
+	}
+}
+c_dream_dunes = {
+	7815.1.1 = {
+		holder = Sanders_1
+	}
+	7854.1.1 = {
+		holder = Sanders_2
+	}
+	7878.1.1 = {
+		holder = Sanders_5
+	}
+	7880.1.1 = {
+		liege = d_the_tor
+	}
+	7900.1.1 = {
+		holder = Sanders_6
+	}
+	7906.1.1 = {
+		holder = Sanders_7
+	}
+	7947.1.1 = {
+		holder = Sanders_9
+	}
+	7968.1.1 = {
+		holder = Sanders_11
+	}
+	7983.1.1 = {
+		holder = Sanders_12
+	}
+	7984.1.1 = {
+		holder = Sanders_13
+	}
+	8029.1.1 = {
+		holder = Sanders_22
+	}
+	8064.1.1 = {
+		holder = Sanders_37
+	}
+	8069.1.1 = {
+		holder = Sanders_49
+	}
+	8090.1.1 = {
+		holder = Sanders_51
+	}
+	8109.1.1 = {
+		holder = Sanders_61
+	}
+	8164.1.1 = {
+		holder = Sanders_66
+	}
+	8193.1.1 = {
+		holder = Sanders_70
+	}
+	8195.1.1 = {
+		holder = Sanders_72
+	}
+	8220.1.1 = {
+		holder = Sanders_74
+	}
+	8251.1.1 = {
+		holder = Sanders_79
+	}
+	8282.1.1 = {
+		holder = Sanders_98
+	}
+	8287.1.1 = {
+		holder = Sanders_99
+	}
+}
+c_murrandy = {
+	7838.1.1 = {
+		holder = Murrandy_1
+	}
+	7855.1.1 = {
+		holder = Murrandy_3
+	}
+	7880.1.1 = {
+		liege = d_the_tor
+	}
+	7906.1.1 = {
+		holder = Murrandy_5
+	}
+	7916.1.1 = {
+		holder = Murrandy_6
+	}
+	7958.1.1 = {
+		holder = Murrandy_9
+	}
+	7976.1.1 = {
+		holder = Murrandy_13
+	}
+	7995.1.1 = {
+		holder = Murrandy_14
+	}
+	8015.1.1 = {
+		holder = Murrandy_15
+	}
+	8030.1.1 = {
+		holder = Murrandy_17
+	}
+	8044.1.1 = {
+		holder = Murrandy_20
+	}
+	8073.1.1 = {
+		holder = Murrandy_21
+	}
+	8090.1.1 = {
+		holder = Murrandy_22
+	}
+	8136.1.1 = {
+		holder = Murrandy_25
+	}
+	8159.1.1 = {
+		holder = Murrandy_28
+	}
+	8174.1.1 = {
+		holder = Murrandy_34
+	}
+	8210.1.1 = {
+		holder = Murrandy_45
+	}
+	8235.1.1 = {
+		holder = Murrandy_51
+	}
+	8247.1.1 = {
+		holder = Murrandy_56
+	}
+	8278.1.1 = {
+		holder = Murrandy_63
+	}
+	8294.1.1 = {
+		holder = Murrandy_72
+	}
+}
+c_stedding = {
+	7852.1.1 = {
+		liege = d_the_tor
+		holder = Ogier_1
+	}
+	7874.1.1 = {
+		holder = Ogier_2
+	}
+	7917.1.1 = {
+		holder = Ogier_3
+	}
+	7945.1.1 = {
+		holder = Ogier_4
+	}
+	7947.1.1 = {
+		holder = Ogier_5
+	}
+	8004.1.1 = {
+		holder = Ogier_6
+	}
+	8042.1.1 = {
+		holder = Ogier_7
+	}
+	8055.1.1 = {
+		holder = Ogier_8
+	}
+	8073.1.1 = {
+		holder = Ogier_9
+	}
+	8109.1.1 = {
+		holder = Ogier_15
+	}
+	8127.1.1 = {
+		holder = Ogier_21
+	}
+	8137.1.1 = {
+		holder = Ogier_29
+	}
+	8160.1.1 = {
+		holder = Ogier_35
+	}
+	8203.1.1 = {
+		holder = Ogier_47
+	}
+	8231.1.1 = {
+		holder = Ogier_51
+	}
+	8277.1.1 = {
+		holder = Ogier_60
+	}
+	8282.1.1 = {
+		holder = Ogier_64
+	}
+}
+c_tallor_islands = {
+	7798.1.1 = {
+		holder = Trackand_1
+	}
+	7823.1.1 = {
+		holder = Trackand_2
+	}
+	7833.1.1 = {
+		holder = Trackand_5
+	}
+	7864.1.1 = {
+		holder = Trackand_7
+	}
+	7870.1.1 = {
+		holder = Trackand_8
+	}
+	7880.1.1 = {
+		liege = d_the_tor
+	}
+	7894.1.1 = {
+		holder = Trackand_11
+	}
+	7934.1.1 = {
+		holder = Trackand_14
+	}
+	7962.1.1 = {
+		holder = Trackand_20
+	}
+	7989.1.1 = {
+		holder = Trackand_22
+	}
+	8017.1.1 = {
+		holder = Trackand_25
+	}
+	8025.1.1 = {
+		holder = Trackand_28
+	}
+	8061.1.1 = {
+		holder = Trackand_29
+	}
+	8083.1.1 = {
+		holder = Trackand_31
+	}
+	8113.1.1 = {
+		holder = Trackand_37
+	}
+	8139.1.1 = {
+		holder = Trackand_45
+	}
+	8159.1.1 = {
+		holder = Trackand_48
+	}
+	8200.1.1 = {
+		holder = Trackand_52
+	}
+	8219.1.1 = {
+		holder = Trackand_55
+	}
+	8271.1.1 = {
+		holder = Trackand_60
+	}
+	8272.1.1 = {
+		holder = Trackand_61
+	}
+	8294.1.1 = {
+		holder = Trackand_67
+	}
+}
+c_the_bramble = {
+	7880.1.1 = {
+		liege = d_the_tor
+	}
+	7887.1.1 = {
+		holder = Briar_25
+	}
+	7901.1.1 = {
+		holder = Briar_22
+	}
+	7909.1.1 = {
+		holder = Briar_36
+	}
+	7952.1.1 = {
+		holder = Briar_39
+	}
+	7967.1.1 = {
+		holder = Briar_42
+	}
+	8024.1.1 = {
+		holder = Briar_47
+	}
+	8036.1.1 = {
+		holder = Briar_49
+	}
+	8067.1.1 = {
+		holder = Briar_50
+	}
+	8089.1.1 = {
+		holder = Briar_51
+	}
+	8117.1.1 = {
+		holder = Briar_56
+	}
+	8136.1.1 = {
+		holder = Briar_57
+	}
+	8141.1.1 = {
+		holder = Briar_60
+	}
+	8166.1.1 = {
+		holder = Briar_66
+	}
+	8186.1.1 = {
+		holder = Briar_67
+	}
+	8205.1.1 = {
+		holder = Briar_68
+	}
+	8232.1.1 = {
+		holder = Briar_1
+	}
+	8283.1.1 = {
+		holder = Briar_4
+	}
+}
+k_the_torrentine = {
+	6151.1.1 = {
+		holder = Dayne_15
+		de_jure_liege = e_dorne
+	}
+	7281.1.1 = {
+		holder = Dayne_17
+	}
+	7305.1.1 = {
+		holder = 0
+	}
+}
+d_torrentine = {
+	6151.1.1 = {
+		holder = Dayne_15
+		effect = {
+			set_variable = agot_historical_march
+		}
+	}
+	7281.1.1 = {
+		holder = Dayne_17
+	}
+	7305.1.1 = {
+		holder = Dayne_94
+		liege = e_dorne
+	}
+	7312.1.1 = {
+		holder = Dayne_18
+	}
+	7355.1.1 = {
+		holder = Dayne_19
+	}
+	7862.1.1 = {
+		holder = Dayne_20
+	}
+	7870.1.1 = {
+		holder = Dayne_21
+	}
+	7910.1.1 = {
+		holder = Dayne_22
+	}
+	7935.1.1 = {
+		holder = Dayne_23
+	}
+	7977.1.1 = {
+		holder = Dayne_31
+	}
+	8004.7.5 = {
+		holder = Dayne_33
+	}
+	8044.1.1 = {
+		holder = Dayne_34
+	}
+	8076.1.1 = {
+		holder = Dayne_35
+	}
+	8098.1.1 = {
+		holder = Dayne_36
+	}
+	8112.1.1 = {
+		holder = Dayne_37
+	}
+	8150.1.1 = {
+		holder = Dayne_59
+	}
+	8157.7.11 = {
+		holder = Dayne_62
+	}
+	8184.1.1 = {
+		holder = Dayne_66
+	}
+	8187.1.1 = {
+		holder = Dayne_67
+	}
+	8204.1.1 = {
+		holder = Dayne_71
+	}
+	8221.1.1 = {
+		holder = Dayne_72
+	}
+	8265.1.1 = {
+		holder = Dayne_73
+	}
+	8272.1.1 = {
+		holder = Dayne_1
+	}
+	8284.1.1 = {
+		holder = Dayne_3
+	}
+	8296.1.1 = {
+		holder = Dayne_7
+	}
+}
+c_starfall = {
+	6151.1.1 = {
+		liege = d_torrentine
+		holder = Dayne_15
+	}
+	7281.1.1 = {
+		holder = Dayne_17
+	}
+	7305.1.1 = {
+		holder = Dayne_94
+	}
+	7312.1.1 = {
+		holder = Dayne_18
+	}
+	7355.1.1 = {
+		holder = Dayne_19
+	}
+	7862.1.1 = {
+		holder = Dayne_20
+	}
+	7870.1.1 = {
+		holder = Dayne_21
+	}
+	7910.1.1 = {
+		holder = Dayne_22
+	}
+	7935.1.1 = {
+		holder = Dayne_23
+	}
+	7977.1.1 = {
+		holder = Dayne_31
+	}
+	8004.7.5 = {
+		holder = Dayne_33
+	}
+	8044.1.1 = {
+		holder = Dayne_34
+	}
+	8076.1.1 = {
+		holder = Dayne_35
+	}
+	8098.1.1 = {
+		holder = Dayne_36
+	}
+	8112.1.1 = {
+		holder = Dayne_37
+	}
+	8150.1.1 = {
+		holder = Dayne_59
+	}
+	8157.7.11 = {
+		holder = Dayne_62
+	}
+	8184.1.1 = {
+		holder = Dayne_66
+	}
+	8187.1.1 = {
+		holder = Dayne_67
+	}
+	8204.1.1 = {
+		holder = Dayne_71
+	}
+	8221.1.1 = {
+		holder = Dayne_72
+	}
+	8265.1.1 = {
+		holder = Dayne_73
+	}
+	8272.1.1 = {
+		holder = Dayne_1
+	}
+	8284.1.1 = {
+		holder = Dayne_3
+	}
+	8296.1.1 = {
+		holder = Dayne_7
+	}
+}
+c_astermine = {
+	6151.1.1 = {
+		liege = d_torrentine
+		holder = Dayne_15
+	}
+	7840.1.1 = {
+		holder = Aster_1
+	}
+	7862.1.1 = {
+		holder = Aster_2
+	}
+	7912.1.1 = {
+		holder = Aster_3
+	}
+	7917.1.1 = {
+		holder = Aster_6
+	}
+	7966.1.1 = {
+		holder = Aster_7
+	}
+	7979.1.1 = {
+		holder = Aster_8
+	}
+	8005.1.1 = {
+		holder = Aster_16
+	}
+	8033.1.1 = {
+		holder = Aster_17
+	}
+	8064.1.1 = {
+		holder = Aster_25
+	}
+	8078.1.1 = {
+		holder = Aster_26
+	}
+	8119.1.1 = {
+		holder = Aster_33
+	}
+	8160.1.1 = {
+		holder = Aster_41
+	}
+	8170.1.1 = {
+		holder = Aster_42
+	}
+	8175.1.1 = {
+		holder = Aster_47
+	}
+	8224.1.1 = {
+		holder = Aster_59
+	}
+	8283.1.1 = {
+		holder = Aster_63
+	}
+	8294.1.1 = {
+		holder = Aster_64
+	}
+}
+c_dawnbrink = {
+	6151.1.1 = {
+		liege = d_torrentine
+		holder = Dayne_15
+	}
+	7851.1.1 = {
+		holder = Thatch_1
+	}
+	7866.1.1 = {
+		holder = Thatch_2
+	}
+	7905.1.1 = {
+		holder = Thatch_5
+	}
+	7926.1.1 = {
+		holder = Thatch_9
+	}
+	7944.1.1 = {
+		holder = Thatch_12
+	}
+	7968.1.1 = {
+		holder = Thatch_13
+	}
+	7989.1.1 = {
+		holder = Thatch_22
+	}
+	8024.1.1 = {
+		holder = Thatch_25
+	}
+	8039.1.1 = {
+		holder = Thatch_34
+	}
+	8078.1.1 = {
+		holder = Thatch_35
+	}
+	8096.1.1 = {
+		holder = Thatch_39
+	}
+	8121.1.1 = {
+		holder = Thatch_44
+	}
+	8146.1.1 = {
+		holder = Thatch_45
+	}
+	8182.1.1 = {
+		holder = Thatch_52
+	}
+	8232.1.1 = {
+		holder = Thatch_55
+	}
+	8253.1.1 = {
+		holder = Thatch_69
+	}
+	8277.1.1 = {
+		holder = Thatch_72
+	}
+}
+c_fields_of_glass = {
+	6151.1.1 = {
+		liege = d_torrentine
+		holder = Dayne_15
+	}
+	7862.1.1 = {
+		holder = Tannicks_1
+	}
+	7868.1.1 = {
+		holder = Tannicks_2
+	}
+	7896.1.1 = {
+		holder = Tannicks_4
+	}
+	7922.1.1 = {
+		holder = Tannicks_9
+	}
+	7962.1.1 = {
+		holder = Tannicks_15
+	}
+	7979.1.1 = {
+		holder = Tannicks_25
+	}
+	8018.1.1 = {
+		holder = Tannicks_30
+	}
+	8041.1.1 = {
+		holder = Tannicks_33
+	}
+	8068.1.1 = {
+		holder = Tannicks_38
+	}
+	8123.1.1 = {
+		holder = Tannicks_40
+	}
+	8140.1.1 = {
+		holder = Tannicks_44
+	}
+	8183.1.1 = {
+		holder = Tannicks_49
+	}
+	8190.1.1 = {
+		holder = Tannicks_53
+	}
+	8218.1.1 = {
+		holder = Tannicks_56
+	}
+	8270.1.1 = {
+		holder = Tannicks_58
+	}
+	8284.1.1 = {
+		holder = Tannicks_65
+	}
+}
+c_high_hermitage = {
+	6151.1.1 = {
+		liege = d_torrentine
+		holder = Dayne_15
+	}
+	7281.1.1 = {
+		holder = Dayne_17
+	}
+	7305.1.1 = {
+		holder = Dayne_82
+	}
+	7833.1.1 = {
+		holder = Dayne_90
+	}
+	7837.1.1 = {
+		holder = Dayne_27
+	}
+	7868.1.1 = {
+		holder = Dayne_84
+	}
+	7893.1.1 = {
+		holder = Dayne_86
+	}
+	7929.1.1 = {
+		holder = Dayne_100
+	}
+	7959.1.1 = {
+		holder = Dayne_110
+	}
+	7999.1.1 = {
+		holder = Dayne_115
+	}
+	8032.1.1 = {
+		holder = Dayne_120
+	}
+	8048.1.1 = {
+		holder = Dayne_123
+	}
+	8069.1.1 = {
+		holder = Dayne_135
+	}
+	8099.1.1 = {
+		holder = Dayne_138
+	}
+	8107.1.1 = {
+		holder = Dayne_145
+	}
+	8124.1.1 = {
+		holder = Dayne_150
+	}
+	8149.1.1 = {
+		holder = Dayne_155
+	}
+	8186.1.1 = {
+		holder = Dayne_169
+	}
+	8217.1.1 = {
+		holder = Dayne_75
+	}
+	8259.1.1 = {
+		holder = Dayne_11
+	}
+	8285.1.1 = {
+		holder = Dayne_2
+	}
+	8292.1.1 = {
+		holder = Dayne_8
+	}
+}
+b_vulture_watch = {
+	8037.1.1 = {
+		holder = Redsteel_13
+	}
+	8059.1.1 = {
+		holder = Redsteel_15
+	}
+	8085.1.1 = {
+		holder = Redsteel_17
+	}
+	8112.1.1 = {
+		holder = Redsteel_21
+	}
+	8145.1.1 = {
+		holder = Redsteel_24
+	}
+	8176.1.1 = {
+		holder = Redsteel_32
+	}
+	8199.1.1 = {
+		holder = Redsteel_46
+	}
+	8200.1.1 = {
+		holder = Redsteel_52
+	}
+	8251.1.1 = {
+		holder = Redsteel_1
+	}
+	8276.1.1 = {
+		holder = Redsteel_2
+	}
+}
+c_radiant_cliffs = {
+	6151.1.1 = {
+		liege = d_torrentine
+		holder = Dayne_15
+	}
+	7849.1.1 = {
+		holder = Dodges_1
+	}
+	7872.1.1 = {
+		holder = Dodges_3
+	}
+	7912.1.1 = {
+		holder = Dodges_10
+	}
+	7937.1.1 = {
+		holder = Dodges_21
+	}
+	7976.1.1 = {
+		holder = Dodges_32
+	}
+	7978.1.1 = {
+		holder = Dodges_33
+	}
+	8013.1.1 = {
+		holder = Dodges_43
+	}
+	8059.1.1 = {
+		holder = Dodges_44
+	}
+	8065.1.1 = {
+		holder = Dodges_47
+	}
+	8092.1.1 = {
+		holder = Dodges_49
+	}
+	8151.1.1 = {
+		holder = Dodges_54
+	}
+	8174.1.1 = {
+		holder = Dodges_57
+	}
+	8186.1.1 = {
+		holder = Dodges_63
+	}
+	8196.6.1 = {
+		holder = Dodges_71
+	}
+	8255.1.1 = {
+		holder = Dodges_75
+	}
+	8277.1.1 = {
+		holder = Dodges_78
+	}
+}
+c_shining_sands = {
+	6151.1.1 = {
+		liege = d_torrentine
+		holder = Dayne_15
+	}
+	7864.1.1 = {
+		holder = Parry_1
+	}
+	7866.1.1 = {
+		holder = Parry_2
+	}
+	7909.1.1 = {
+		holder = Parry_3
+	}
+	7941.1.1 = {
+		holder = Parry_5
+	}
+	7976.1.1 = {
+		holder = Parry_12
+	}
+	7989.1.1 = {
+		holder = Parry_15
+	}
+	8048.1.1 = {
+		holder = Parry_24
+	}
+	8054.1.1 = {
+		holder = Parry_36
+	}
+	8079.1.1 = {
+		holder = Parry_41
+	}
+	8119.1.1 = {
+		holder = Parry_45
+	}
+	8139.1.1 = {
+		holder = Parry_65
+	}
+	8169.1.1 = {
+		holder = Parry_71
+	}
+	8226.1.1 = {
+		holder = Parry_73
+	}
+	8242.1.1 = {
+		holder = Parry_74
+	}
+	8248.1.1 = {
+		holder = Parry_79
+	}
+	8260.1.1 = {
+		holder = Parry_86
+	}
+}
+c_the_elbow = {
+	6151.1.1 = {
+		liege = d_torrentine
+		holder = Dayne_15
+	}
+	7862.1.1 = {
+		holder = Errey_1
+	}
+	7874.1.1 = {
+		holder = Errey_2
+	}
+	7911.1.1 = {
+		holder = Errey_3
+	}
+	7924.1.1 = {
+		holder = Errey_8
+	}
+	7946.1.1 = {
+		holder = Errey_15
+	}
+	7988.1.1 = {
+		holder = Errey_16
+	}
+	8010.1.1 = {
+		holder = Errey_20
+	}
+	8026.1.1 = {
+		holder = Errey_23
+	}
+	8061.1.1 = {
+		holder = Errey_37
+	}
+	8090.1.1 = {
+		holder = Errey_45
+	}
+	8126.1.1 = {
+		holder = Errey_49
+	}
+	8173.1.1 = {
+		holder = Errey_58
+	}
+	8211.1.1 = {
+		holder = Errey_63
+	}
+	8239.1.1 = {
+		holder = Errey_65
+	}
+	8241.1.1 = {
+		holder = Errey_71
+	}
+	8284.1.1 = {
+		holder = Errey_77
+	}
+}
+k_yronwood = {
+	2210.1.1 = {
+		holder = Yronwood_8
+		effect = {
+			set_variable = agot_historical_march
+		}
+	}
+	5700.1.1 = {
+		holder = Yronwood_10
+	}
+	5740.1.1 = {
+		holder = Yronwood_11
+	}
+	5768.1.1 = {
+		holder = Yronwood_12
+	}
+	7241.1.1 = {
+		holder = Yronwood_14
+	}
+	7268.1.1 = {
+		holder = Yronwood_15
+	}
+	7295.1.1 = {
+		holder = Yronwood_16
+	}
+	7311.1.1 = {
+		liege = e_dorne
+		holder = Yronwood_116
+		effect = {
+			agot_turn_westerosi_kingdom_into_lordship_history_effect = { YEAR = 7311 }
+		}
+	}
+	7846.1.1 = {
+		holder = Yronwood_18
+	}
+	7875.1.1 = {
+		holder = Yronwood_19
+	}
+	7903.1.1 = {
+		holder = Yronwood_63
+	}
+	7936.1.1 = {
+		holder = Yronwood_66
+	}
+	7943.1.1 = {
+		holder = Yronwood_67
+	}
+	7966.1.1 = {
+		holder = Yronwood_69
+	}
+	7985.1.1 = {
+		holder = Yronwood_71
+	}
+	8016.1.1 = {
+		holder = Yronwood_73
+	}
+	8040.1.1 = {
+		holder = Yronwood_76
+	}
+	8056.1.1 = {
+		holder = Yronwood_81
+	}
+	8089.1.1 = {
+		holder = Yronwood_28
+	}
+	8109.1.1 = {
+		holder = Yronwood_29
+	}
+	8120.1.1 = {
+		holder = Yronwood_32
+	}
+	8157.9.14 = {
+		holder = Yronwood_45
+	}
+	8187.1.1 = {
+		holder = Yronwood_51
+	}
+	8194.1.1 = {
+		holder = Yronwood_52
+	}
+	8195.3.7 = {
+		liege = 0
+	}
+	8196.1.1 = {
+		liege = e_dorne
+	}
+	8230.1.1 = {
+		holder = Yronwood_56
+	}
+	8274.1.1 = {
+		holder = Yronwood_1
+	}
+	8292.1.1 = {
+		holder = Yronwood_2
+	}
+}
+d_greenbelt = {
+	2210.1.1 = {
+		holder = Yronwood_8
+		liege = k_yronwood
+	}
+	5700.1.1 = {
+		holder = Yronwood_10
+	}
+	5740.1.1 = {
+		holder = Yronwood_11
+	}
+	5768.1.1 = {
+		holder = Yronwood_12
+	}
+	7241.1.1 = {
+		holder = Yronwood_14
+	}
+	7268.1.1 = {
+		holder = Yronwood_15
+	}
+	7295.1.1 = {
+		holder = Yronwood_16
+	}
+	7311.1.1 = {
+		holder = Yronwood_116
+	}
+	7846.1.1 = {
+		holder = Yronwood_18
+	}
+	7875.1.1 = {
+		holder = Yronwood_19
+	}
+	7903.1.1 = {
+		holder = Yronwood_63
+	}
+	7936.1.1 = {
+		holder = Yronwood_66
+	}
+	7943.1.1 = {
+		holder = Yronwood_67
+	}
+	7966.1.1 = {
+		holder = Yronwood_69
+	}
+	7985.1.1 = {
+		holder = Yronwood_71
+	}
+	8016.1.1 = {
+		holder = Yronwood_73
+	}
+	8040.1.1 = {
+		holder = Yronwood_76
+	}
+	8056.1.1 = {
+		holder = Yronwood_81
+	}
+	8089.1.1 = {
+		holder = Yronwood_28
+	}
+	8109.1.1 = {
+		holder = Yronwood_29
+	}
+	8120.1.1 = {
+		holder = Yronwood_32
+	}
+	8157.9.14 = {
+		holder = Yronwood_45
+	}
+	8187.1.1 = {
+		holder = Yronwood_51
+	}
+	8194.1.1 = {
+		holder = Yronwood_52
+	}
+	8230.1.1 = {
+		holder = Yronwood_56
+	}
+	8274.1.1 = {
+		holder = Yronwood_1
+	}
+	8292.1.1 = {
+		holder = Yronwood_2
+	}
+}
+c_yronwood = {
+	2210.1.1 = {
+		holder = Yronwood_8
+		liege = d_greenbelt
+	}
+	5700.1.1 = {
+		holder = Yronwood_10
+	}
+	5740.1.1 = {
+		holder = Yronwood_11
+	}
+	5768.1.1 = {
+		holder = Yronwood_12
+	}
+	7241.1.1 = {
+		holder = Yronwood_14
+	}
+	7268.1.1 = {
+		holder = Yronwood_15
+	}
+	7295.1.1 = {
+		holder = Yronwood_16
+	}
+	7311.1.1 = {
+		holder = Yronwood_116
+	}
+	7846.1.1 = {
+		holder = Yronwood_18
+	}
+	7875.1.1 = {
+		holder = Yronwood_19
+	}
+	7903.1.1 = {
+		holder = Yronwood_63
+	}
+	7936.1.1 = {
+		holder = Yronwood_66
+	}
+	7943.1.1 = {
+		holder = Yronwood_67
+	}
+	7966.1.1 = {
+		holder = Yronwood_69
+	}
+	7985.1.1 = {
+		holder = Yronwood_71
+	}
+	8016.1.1 = {
+		holder = Yronwood_73
+	}
+	8040.1.1 = {
+		holder = Yronwood_76
+	}
+	8056.1.1 = {
+		holder = Yronwood_81
+	}
+	8089.1.1 = {
+		holder = Yronwood_28
+	}
+	8109.1.1 = {
+		holder = Yronwood_29
+	}
+	8120.1.1 = {
+		holder = Yronwood_32
+	}
+	8157.9.14 = {
+		holder = Yronwood_45
+	}
+	8187.1.1 = {
+		holder = Yronwood_51
+	}
+	8194.1.1 = {
+		holder = Yronwood_52
+	}
+	8230.1.1 = {
+		holder = Yronwood_56
+	}
+	8274.1.1 = {
+		holder = Yronwood_1
+	}
+	8292.1.1 = {
+		holder = Yronwood_2
+	}
+}
+b_stoneway_gate = {
+	7922.1.1 = {
+		holder = Wrought_1
+	}
+	7946.1.1 = {
+		holder = Wrought_2
+	}
+	7956.1.1 = {
+		holder = Wrought_5
+	}
+	7981.1.1 = {
+		holder = Wrought_8
+	}
+	8008.1.1 = {
+		holder = Wrought_15
+	}
+	8019.1.1 = {
+		holder = Wrought_23
+	}
+	8036.1.1 = {
+		holder = Wrought_29
+	}
+	8088.1.1 = {
+		holder = Wrought_30
+	}
+	8121.1.1 = {
+		holder = Wrought_35
+	}
+	8137.1.1 = {
+		holder = Wrought_45
+	}
+	8154.1.1 = {
+		holder = Wrought_46
+	}
+	8185.1.1 = {
+		holder = Wrought_48
+	}
+	8221.1.1 = {
+		holder = Wrought_50
+	}
+	8254.1.1 = {
+		holder = Wrought_51
+	}
+	8268.1.1 = {
+		holder = Wrought_52
+	}
+	8282.1.1 = {
+		holder = Wrought_56
+	}
+}
+c_blood_gulch = {
+	210.1.1 = {
+		liege = d_greenbelt
+	}
+	7840.1.1 = {
+		holder = Urlagon_1
+	}
+	7864.1.1 = {
+		holder = Urlagon_2
+	}
+	7891.1.1 = {
+		holder = Urlagon_8
+	}
+	7903.1.1 = {
+		holder = Urlagon_16
+	}
+	7932.1.1 = {
+		holder = Urlagon_25
+	}
+	7959.1.1 = {
+		holder = Urlagon_26
+	}
+	8014.1.1 = {
+		holder = Urlagon_30
+	}
+	8037.1.1 = {
+		holder = Urlagon_31
+	}
+	8039.1.1 = {
+		holder = Urlagon_34
+	}
+	8073.1.1 = {
+		holder = Urlagon_41
+	}
+	8095.1.1 = {
+		holder = Urlagon_45
+	}
+	8109.1.1 = {
+		holder = Urlagon_47
+	}
+	8155.1.1 = {
+		holder = Urlagon_51
+	}
+	8165.1.1 = {
+		holder = Urlagon_53
+	}
+	8205.1.1 = {
+		holder = Urlagon_54
+	}
+	8234.1.1 = {
+		holder = Urlagon_55
+	}
+	8272.1.1 = {
+		holder = Urlagon_56
+	}
+}
+c_flatwater = {
+	7826.1.1 = {
+		liege = d_greenbelt
+		holder = Shore_1
+	}
+	7869.1.1 = {
+		holder = Shore_2
+	}
+	7907.1.1 = {
+		holder = Shore_10
+	}
+	7942.1.1 = {
+		holder = Shore_11
+	}
+	7970.1.1 = {
+		holder = Shore_13
+	}
+	7984.1.1 = {
+		holder = Shore_14
+	}
+	7986.1.1 = {
+		holder = Shore_19
+	}
+	8026.1.1 = {
+		holder = Shore_20
+	}
+	8065.1.1 = {
+		holder = Shore_21
+	}
+	8071.1.1 = {
+		holder = Shore_22
+	}
+	8103.1.1 = {
+		holder = Shore_24
+	}
+	8113.1.1 = {
+		holder = Shore_26
+	}
+	8160.1.1 = {
+		holder = Shore_35
+	}
+	8172.1.1 = {
+		holder = Shore_37
+	}
+	8199.1.1 = {
+		holder = Shore_52
+	}
+	8230.1.1 = {
+		holder = Shore_63
+	}
+	8243.1.1 = {
+		holder = Shore_64
+	}
+	8295.1.1 = {
+		holder = Shore_78
+	}
+}
+c_great_dunes = {
+	210.1.1 = {
+		liege = d_greenbelt
+	}
+	7825.1.1 = {
+		holder = Swelter_1
+	}
+	7858.1.1 = {
+		holder = Swelter_2
+	}
+	7920.1.1 = {
+		holder = Swelter_10
+	}
+	7939.1.1 = {
+		holder = Swelter_52
+	}
+	7959.1.1 = {
+		holder = Swelter_34
+	}
+	7961.1.1 = {
+		holder = Swelter_35
+	}
+	7986.1.1 = {
+		holder = Swelter_16
+	}
+	7990.1.1 = {
+		holder = Swelter_19
+	}
+	7992.1.1 = {
+		holder = Swelter_23
+	}
+	8000.1.1 = {
+		holder = Swelter_36
+	}
+	8022.1.1 = {
+		holder = Swelter_42
+	}
+	8044.1.1 = {
+		holder = Swelter_47
+	}
+	8093.1.1 = {
+		holder = Swelter_56
+	}
+	8131.1.1 = {
+		holder = Swelter_57
+	}
+	8161.1.1 = {
+		holder = Swelter_66
+	}
+	8179.1.1 = {
+		holder = Swelter_70
+	}
+	8192.1.1 = {
+		holder = Swelter_73
+	}
+	8218.1.1 = {
+		holder = Swelter_78
+	}
+	8252.1.1 = {
+		holder = Swelter_94
+	}
+	8275.1.1 = {
+		holder = Swelter_95
+	}
+}
+c_greenbelt = {
+	210.1.1 = {
+		liege = d_greenbelt
+	}
+	7856.1.1 = {
+		holder = Cane_1
+	}
+	7865.1.1 = {
+		holder = Cane_2
+	}
+	7900.1.1 = {
+		holder = Cane_5
+	}
+	7937.1.1 = {
+		holder = Cane_7
+	}
+	7943.1.1 = {
+		holder = Cane_8
+	}
+	7974.1.1 = {
+		holder = Cane_9
+	}
+	7976.1.1 = {
+		holder = Cane_11
+	}
+	8034.1.1 = {
+		holder = Cane_13
+	}
+	8044.1.1 = {
+		holder = Cane_20
+	}
+	8080.1.1 = {
+		holder = Cane_21
+	}
+	8112.1.1 = {
+		holder = Cane_26
+	}
+	8137.1.1 = {
+		holder = Cane_32
+	}
+	8151.1.1 = {
+		holder = Cane_33
+	}
+	8176.1.1 = {
+		holder = Cane_37
+	}
+	8233.1.1 = {
+		holder = Cane_46
+	}
+	8288.1.1 = {
+		holder = Cane_52
+	}
+}
+c_royalmarch = {
+	2210.1.1 = {
+		holder = Yronwood_8
+		liege = d_greenbelt
+	}
+	5700.1.1 = {
+		holder = Yronwood_10
+	}
+	5740.1.1 = {
+		holder = Yronwood_11
+	}
+	5768.1.1 = {
+		holder = Yronwood_12
+	}
+	7848.1.1 = {
+		holder = Pentorn_1
+	}
+	7866.1.1 = {
+		holder = Pentorn_2
+	}
+	7893.1.1 = {
+		holder = Pentorn_3
+	}
+	7935.1.1 = {
+		holder = Pentorn_4
+	}
+	7957.1.1 = {
+		holder = Pentorn_7
+	}
+	7958.1.1 = {
+		holder = Pentorn_8
+	}
+	7981.1.1 = {
+		holder = Pentorn_11
+	}
+	7998.1.1 = {
+		holder = Pentorn_13
+	}
+	8050.1.1 = {
+		holder = Pentorn_14
+	}
+	8083.1.1 = {
+		holder = Pentorn_16
+	}
+	8096.1.1 = {
+		holder = Pentorn_20
+	}
+	8107.1.1 = {
+		holder = Pentorn_24
+	}
+	8144.1.1 = {
+		holder = Pentorn_28
+	}
+	8187.1.1 = {
+		holder = Pentorn_31
+	}
+	8196.1.1 = {
+		holder = Pentorn_39
+	}
+	8196.6.1 = {
+		holder = Pentorn_40
+	}
+	8255.1.1 = {
+		holder = Pentorn_42
+	}
+	8288.1.1 = {
+		holder = Pentorn_47
+	}
+}
+c_the_scourge = {
+	210.1.1 = {
+		liege = d_greenbelt
+	}
+	7849.1.1 = {
+		holder = Drinkwater_6
+	}
+	7860.1.1 = {
+		holder = Drinkwater_7
+	}
+	7902.1.1 = {
+		holder = Drinkwater_14
+	}
+	7939.1.1 = {
+		holder = Drinkwater_15
+	}
+	7944.1.1 = {
+		holder = Drinkwater_16
+	}
+	7986.1.1 = {
+		holder = Drinkwater_45
+	}
+	7989.1.1 = {
+		holder = Drinkwater_48
+	}
+	8008.1.1 = {
+		holder = Drinkwater_50
+	}
+	8022.1.1 = {
+		holder = Drinkwater_52
+	}
+	8072.1.1 = {
+		holder = Drinkwater_53
+	}
+	8105.1.1 = {
+		holder = Drinkwater_17
+	}
+	8125.1.1 = {
+		holder = Drinkwater_23
+	}
+	8158.4.17 = {
+		holder = Drinkwater_25
+	}
+	8160.1.18 = {
+		holder = Drinkwater_26
+	}
+	8190.1.1 = {
+		holder = Drinkwater_29
+	}
+	8197.2.4 = {
+		holder = Drinkwater_30
+	}
+	8237.1.1 = {
+		holder = Drinkwater_31
+	}
+	8240.5.2 = {
+		holder = Drinkwater_33
+	}
+	8285.1.1 = {
+		holder = Drinkwater_1
+	}
+}
+c_wayguard = {
+	210.1.1 = {
+		liege = d_greenbelt
+	}
+	7845.1.1 = {
+		holder = Claviger_1
+	}
+	7861.1.1 = {
+		holder = Claviger_2
+	}
+	7871.1.1 = {
+		holder = Claviger_5
+	}
+	7875.1.1 = {
+		holder = Claviger_12
+	}
+	7884.1.1 = {
+		holder = Claviger_19
+	}
+	7933.1.1 = {
+		holder = Claviger_23
+	}
+	7969.1.1 = {
+		holder = Claviger_26
+	}
+	7996.1.1 = {
+		holder = Claviger_32
+	}
+	8033.1.1 = {
+		holder = Claviger_33
+	}
+	8043.1.1 = {
+		holder = Claviger_34
+	}
+	8059.1.1 = {
+		holder = Claviger_39
+	}
+	8107.1.1 = {
+		holder = Claviger_45
+	}
+	8125.1.1 = {
+		holder = Claviger_50
+	}
+	8148.1.1 = {
+		holder = Claviger_52
+	}
+	8154.1.1 = {
+		holder = Claviger_57
+	}
+	8198.1.1 = {
+		holder = Claviger_59
+	}
+	8214.1.1 = {
+		holder = Claviger_66
+	}
+	8222.1.1 = {
+		holder = Claviger_69
+	}
+	8264.1.1 = {
+		holder = Claviger_82
+	}
+	8285.1.1 = {
+		holder = Claviger_88
+	}
+}
