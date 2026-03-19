@@ -1,0 +1,82 @@
+﻿# GENERIC STORMLANDER LEGACIES WARFARE GLORY HYIRD
+
+stormlander_legacy_1 = { #
+	legacy = stormlander_legacy_track
+
+	can_be_picked = {
+		culture = {
+			OR = {
+			this = culture:stormlander
+			any_parent_culture_or_above = {
+				this = culture:stormlander
+				}
+			}
+		}
+	}
+
+	character_modifier = {
+		fort_level = 1
+		defender_advantage = 10
+		hostile_raid_time = 0.2 #For when Essos pirates come a knocking
+	}
+	ai_chance = {
+		value = 11
+		if = {
+			limit = {
+				can_start_new_legacy_track_trigger = no
+			}
+			multiply = 0
+		}
+	}
+}
+
+stormlander_legacy_2 = {
+	legacy = stormlander_legacy_track
+
+	character_modifier = {
+		heavy_infantry_max_size_add = 2 #
+		heavy_infantry_toughness_mult = 0.2
+		heavy_infantry_screen_add = 5
+	}
+}
+
+stormlander_legacy_3 = { # Fury of the Storm
+	legacy = stormlander_legacy_track
+
+	effect = {
+	}
+
+	character_modifier = {
+		prowess_per_prestige_level = 1
+		prowess_per_stress_level = 4
+	}
+}
+
+stormlander_legacy_4 = { #
+	legacy = stormlander_legacy_track
+
+
+	effect = {
+	}
+
+	character_modifier = {
+		min_combat_roll = 1
+		max_combat_roll = 1
+	}
+}
+
+stormlander_legacy_5 = { # Storm God's Legacy
+	legacy = stormlander_legacy_track
+
+	effect = {
+	}
+
+	character_modifier = {
+		monthly_piety_gain_per_knight_add = 0.1
+		monthly_prestige_gain_per_knight_add = 0.1
+		martial_per_stress_level = 2
+		knight_limit = 2
+		knight_effectiveness_mult = 0.2
+	}
+}
+
