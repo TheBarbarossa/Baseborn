@@ -1,0 +1,723 @@
+﻿k_disputed_lands = {
+	8258.1.1 = {
+		liege = e_blackfyre_rebellion
+		holder = Blackfyre_14 #Maelys the Monstrous
+	}
+	8258.12.22 = {
+		holder = 0
+	}
+}
+
+d_the_shambles = {
+	8258.1.1 = {
+		liege = e_blackfyre_rebellion #Maelys
+		holder = Adarys_1 # Alequo Adarys
+	}
+	8258.12.22 = {
+		holder = 0
+		liege = 0
+	}
+}
+c_qorena = {
+	7899.1.1 = {
+		holder = Local_Rulers_Disputed_Lands
+	}
+	8130.1.1 = {
+		liege = 0
+	}
+	8258.1.1 = {
+		liege = d_the_shambles
+		holder = Adarys_1
+	}
+	8258.12.22 = {
+		liege = 0
+	}
+	8266.1.1 = {
+		holder = Local_Rulers_Disputed_Lands
+	}
+}
+c_vysos_plains = {
+	7899.1.1 = {
+		holder = Local_Rulers_Disputed_Lands
+	}
+	8130.1.1 = {
+		liege = 0
+	}
+	8258.1.1 = {
+		liege = d_the_shambles
+		holder = Adarys_1
+	}
+	8258.12.22 = {
+		liege = 0
+	}
+	8266.1.1 = {
+		holder = Local_Rulers_Disputed_Lands
+	}
+}
+c_pearridge = {
+	7800.1.1 = {
+		liege = k_tyrosh
+	}
+	7796.1.1 = {
+		holder = Jayn_21
+	}
+	7822.1.1 = {
+		holder = Jayn_54
+	}
+	7838.1.1 = {
+		holder = Jayn_57
+	}
+	7856.1.1 = {
+		holder = Jayn_59
+	}
+	7890.1.1 = {
+		holder = Jayn_61
+	}
+	7932.1.1 = {
+		holder = Jayn_62
+	}
+	7957.1.1 = {
+		holder = Jayn_63
+	}
+	7978.1.1 = {
+		holder = Jayn_68
+	}
+	7998.1.1 = {
+		holder = Jayn_73
+	}
+	8042.1.1 = {
+		holder = Jayn_75
+	}
+	8072.1.1 = {
+		holder = Jayn_77
+	}
+	8089.1.1 = {
+		holder = Jayn_83
+	}
+	8128.1.1 = {
+		holder = Jayn_86
+	}
+	8138.1.1 = {
+		holder = Jayn_90
+	}
+	8183.1.1 = {
+		holder = Jayn_4 # Aro
+	}
+	8224.1.1 = {
+		holder = Jayn_3 # Ollo
+	}
+	8253.1.1 = {
+		holder = Jayn_2 # Nisario
+	}
+	8279.1.1 = {
+		holder = Jayn_1 # Mardono
+	}
+}
+c_ysilios = {
+	7899.1.1 = {
+		holder = Local_Rulers_Disputed_Lands
+	}
+	8130.1.1 = {
+		liege = 0
+	}
+	8258.1.1 = {
+		liege = d_the_shambles
+		holder = Adarys_1
+	}
+	8258.12.22 = {
+		liege = 0
+	}
+	8259.1.1 = {
+		holder = Gaembutys_1 # Ravelo
+	}
+}
+c_the_spar = {
+	7899.1.1 = {
+		holder = Local_Rulers_Disputed_Lands
+	}
+	8258.1.1 = {
+		liege = d_the_shambles
+		holder = Adarys_1
+	}
+	8258.12.22 = {
+		liege = 0
+	}
+	8266.1.1 = {
+		holder = Local_Rulers_Disputed_Lands
+	}
+}
+d_battle_hills = {
+	8258.1.1 = {
+		liege = e_blackfyre_rebellion #Maelys
+		holder = Fossoway_58 #Derrick the Bad Apple
+	}
+	8258.12.22 = {
+		holder = 0
+	}
+}
+c_kios = {
+	7899.1.1 = {
+		holder = Local_Rulers_Disputed_Lands
+	}
+	8130.1.1 = {
+		liege = 0
+	}
+	8258.1.1 = {
+		liege = k_disputed_lands
+		holder = Fossoway_58 #Derrick the Bad Apple
+	}
+	8258.12.22 = {
+		holder = starter_plc_5
+		liege = 0
+	}
+}
+c_broken_lance = {
+	7899.1.1 = {
+		holder = Local_Rulers_Disputed_Lands
+	}
+	8130.1.1 = {
+		liege = 0
+	}
+	8258.1.1 = {
+		liege = k_disputed_lands
+		holder = Fossoway_58 #Derrick the Bad Apple
+	}
+	8258.12.22 = {
+		holder = starter_plc_6
+		liege = 0
+	}
+}
+c_staherys = {
+	7899.1.1 = {
+		holder = Local_Rulers_Disputed_Lands
+	}
+	8130.1.1 = {
+		liege = 0
+	}
+	8258.1.1 = {
+		liege = k_disputed_lands
+		holder = Fossoway_58 #Derrick the Bad Apple
+	}
+	8258.12.22 = {
+		holder = starter_plc_7
+		liege = 0
+	}
+}
+c_coin_hoard = {
+	7899.1.1 = {
+		government = administrative_government
+		holder = Local_Rulers_Disputed_Lands
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	8130.1.1 = {
+		liege = 0
+	}
+	8258.1.1 = {
+		liege = k_disputed_lands
+		holder = Fossoway_58 #Derrick the Bad Apple
+	}
+	8258.12.22 = {
+		holder = starter_plc_8
+		liege = 0
+	}
+}
+c_sellswords_perch = {
+	7899.1.1 = {
+		holder = Local_Rulers_Disputed_Lands
+	}
+	8130.1.1 = {
+		liege = 0
+	}
+	8258.1.1 = {
+		liege = k_disputed_lands
+		holder = Fossoway_58 #Derrick the Bad Apple
+	}
+	8258.12.22 = {
+		holder = starter_plc_9
+		liege = 0
+	}
+}
+d_hells_barrens = {
+	8258.1.1 = {
+		liege = k_disputed_lands
+		holder = Blackfyre_14 #Maelys the Monstrous
+	}
+	8258.12.22 = {
+		holder = 0
+	}
+}
+c_goldfuror = {
+	7899.1.1 = {
+		holder = Local_Rulers_Disputed_Lands
+	}
+	8130.1.1 = {
+		liege = 0
+	}
+	# History Fix
+	# 8258.1.1 = {
+	# 	holder = Blackfyre_14
+	# 	#Actually Maelys, but granted on game start to fix bug
+	# }
+	8258.12.21 = {
+		holder = starter_plc_10
+	}
+	8258.12.22 = {
+		holder = starter_plc_10
+	}
+	# End of History Fix
+	8260.10.1 = {
+		holder = Local_Rulers_Disputed_Lands
+	}
+}
+c_dyanosh = {
+	7899.1.1 = {
+		holder = Local_Rulers_Disputed_Lands
+	}
+	8130.1.1 = {
+		liege = 0
+	}
+	8258.1.1 = {
+		holder = Blackfyre_14 #Maelys the Monstrous
+	}
+	8258.12.22 = {
+		holder = starter_plc_11
+	}
+}
+c_lrolaembar = {
+	7899.1.1 = {
+		holder = Local_Rulers_Disputed_Lands
+	}
+	8130.1.1 = {
+		liege = 0
+	}
+	8258.1.1 = {
+		holder = Blackfyre_14 #Maelys the Monstrous
+	}
+	8258.12.22 = {
+		holder = starter_plc_12
+	}
+}
+c_ragged_hill = {
+	7899.1.1 = {
+		holder = Local_Rulers_Disputed_Lands
+	}
+	8130.1.1 = {
+		liege = 0
+	}
+	8258.1.1 = {
+		holder = Blackfyre_14 #Maelys the Monstrous
+	}
+	8258.12.22 = {
+		holder = starter_plc_13
+	}
+}
+c_pendanne = {
+	7827.1.1 = {
+		government = administrative_government
+		liege = d_southcliffs
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7847.1.1 = {
+		holder = Unaris_1
+	}
+	7867.1.1 = {
+		holder = Unaris_2
+	}
+	7898.1.1 = {
+		holder = Unaris_15
+	}
+	7899.1.1 = {
+		holder = Unaris_20
+	}
+	7948.1.1 = {
+		holder = Unaris_21
+	}
+	7961.1.1 = {
+		holder = Unaris_27
+	}
+	8002.1.1 = {
+		holder = Unaris_30
+	}
+	8020.1.1 = {
+		holder = Unaris_32
+	}
+	8034.1.1 = {
+		holder = Unaris_33
+	}
+	8048.1.1 = {
+		holder = Unaris_37
+	}
+	8080.1.1 = {
+		holder = Unaris_47
+	}
+	8114.1.1 = {
+		holder = Unaris_50
+	}
+	8149.1.1 = {
+		holder = Unaris_57
+	}
+	8172.1.1 = {
+		holder = Unaris_71
+	}
+	8189.1.1 = {
+		holder = Unaris_63
+	}
+	8212.1.1 = {
+		holder = Unaris_74
+	}
+	8228.1.1 = {
+		holder = Unaris_75
+	}
+	8243.1.1 = {
+		holder = Unaris_81
+	}
+	8254.1.1 = {
+		holder = Unaris_85
+	}
+	8295.1.1 = {
+		holder = Unaris_86
+	}
+}
+
+d_aesomyr = {
+	8258.1.1 = {
+		holder = Blackfyre_14
+		liege = e_blackfyre_rebellion
+	}
+	8258.12.22 = {
+		holder = 0
+		liege = 0
+	}
+}
+c_qygaeryr = {
+	7899.1.1 = {
+		holder = Local_Rulers_Disputed_Lands
+	}
+	8130.1.1 = {
+		liege = 0
+	}
+	8258.1.1 = {
+		liege = k_disputed_lands
+	}
+	8258.12.22 = {
+		liege = 0
+	}
+}
+c_restianys = {
+	7899.1.1 = {
+		holder = Local_Rulers_Disputed_Lands
+	}
+	8130.1.1 = {
+		liege = 0
+	}
+	8258.1.1 = {
+		liege = k_disputed_lands
+	}
+	8258.12.22 = {
+		liege = 0
+	}
+}
+c_devosh = {
+	7899.1.1 = {
+		holder = Local_Rulers_Disputed_Lands
+	}
+	8130.1.1 = {
+		liege = 0
+	}
+	8258.1.1 = {
+		liege = k_disputed_lands
+	}
+	8258.12.22 = {
+		liege = 0
+	}
+}
+c_erovosh = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = k_lys
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7853.1.1 = {
+		holder = Baraeles_1
+	}
+	7856.1.1 = {
+		holder = Baraeles_2
+	}
+	7873.1.1 = {
+		holder = Baraeles_5
+	}
+	7878.1.1 = {
+		holder = Baraeles_6
+	}
+	7924.1.1 = {
+		holder = Baraeles_9
+	}
+	7942.1.1 = {
+		holder = Baraeles_11
+	}
+	7982.1.1 = {
+		holder = Baraeles_15
+	}
+	8012.1.1 = {
+		holder = Baraeles_18
+	}
+	8034.1.1 = {
+		holder = Baraeles_20
+	}
+	8057.1.1 = {
+		holder = Baraeles_23
+	}
+	8086.1.1 = {
+		holder = Baraeles_24
+	}
+	8088.1.1 = {
+		holder = Baraeles_31
+	}
+	8117.1.1 = {
+		holder = Baraeles_32
+	}
+	8135.1.1 = {
+		holder = Baraeles_35
+	}
+	8174.1.1 = {
+		holder = Baraeles_41
+	}
+	8180.1.1 = {
+		holder = Baraeles_42
+	}
+	8198.1.1 = {
+		holder = Baraeles_53
+	}
+	8229.1.1 = {
+		holder = Baraeles_56
+	}
+	8269.1.1 = {
+		holder = Baraeles_64
+	}
+	8286.1.1 = {
+		holder = Baraeles_68
+	}
+}
+c_drelyia = {
+	7899.1.1 = {
+		holder = Local_Rulers_Disputed_Lands
+	}
+	8130.1.1 = {
+		liege = 0
+	}
+	8258.1.1 = {
+		liege = k_disputed_lands
+	}
+	8258.12.22 = {
+		liege = 0
+	}
+}
+
+d_izuloktia = {
+	8258.1.1 = {
+		holder = Blackfyre_14
+		liege = e_blackfyre_rebellion
+	}
+	8258.12.22 = {
+		holder = 0
+		liege = 0
+	}
+}
+c_silkhead = {
+	7800.1.1 = {
+		government = administrative_government
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7798.1.1 = {
+		holder = Erosenes_20
+	}
+	7801.1.1 = {
+		holder = Erosenes_10
+	}
+	7817.1.1 = {
+		liege = k_lys
+	}
+	7853.1.1 = {
+		holder = Erosenes_11
+	}
+	7883.1.1 = {
+		holder = Erosenes_12
+	}
+	7897.1.1 = {
+		holder = Erosenes_18
+	}
+	7933.1.1 = {
+		holder = Erosenes_19
+	}
+	7954.1.1 = {
+		holder = Erosenes_52
+	}
+	7967.1.1 = {
+		holder = Erosenes_56
+	}
+	8011.1.1 = {
+		holder = Erosenes_58
+	}
+	8037.1.1 = {
+		holder = Erosenes_63
+	}
+	8074.1.1 = {
+		holder = Erosenes_9
+	}
+	8095.1.1 = {
+		holder = Erosenes_8 # Valdane
+	}
+	8102.1.1 = {
+		holder = Lohar_8 # Sharako - C
+	}
+	8131.9.15 = {
+		holder = Bazanne_25 # Bambarro
+	}
+	8132.4.6 = {
+		holder = Rogare_2 # Lysandro - C
+	}
+	8135.4.1 = {
+		holder = Rogare_4 # Lysaro - C
+	}
+	8135.10.1 = {
+		holder = Moraqos_8 # Tigaro
+	}
+	8138.10.1 = {
+		holder = Rogare_9 # Moredo - C
+	}
+	8170.1.1 = {
+		holder = Rogare_20
+	}
+	8196.1.1 = {
+		holder = Rogare_124
+	}
+	8213.1.1 = {
+		holder = Rogare_129
+	}
+	8216.1.1 = {
+		holder = Rogare_132
+	}
+	8251.1.1 = {
+		holder = Rogare_35 # Morgoso
+	}
+}
+c_unmecaeros = {
+	7899.1.1 = {
+		government = administrative_government
+		holder = Local_Rulers_Disputed_Lands
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	8130.1.1 = {
+		liege = 0
+	}
+	8258.1.1 = {
+		liege = k_disputed_lands
+	}
+	8258.12.22 = {
+		liege = 0
+	}
+}
+c_timbercut = {
+	7899.1.1 = {
+		holder = Local_Rulers_Disputed_Lands
+	}
+	8130.1.1 = {
+		liege = 0
+	}
+	8258.1.1 = {
+		liege = k_disputed_lands
+	}
+	8258.12.22 = {
+		liege = 0
+	}
+}
+c_ozaonnos = {
+	7899.1.1 = {
+		government = administrative_government
+		holder = Local_Rulers_Disputed_Lands
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	8130.1.1 = {
+		liege = 0
+	}
+	8258.1.1 = {
+		liege = k_disputed_lands
+	}
+	8258.12.22 = {
+		liege = 0
+	}
+}
+c_triarchs_fall = {
+	7899.1.1 = {
+		holder = Local_Rulers_Disputed_Lands
+	}
+	8130.1.1 = {
+		liege = 0
+	}
+	8258.1.1 = {
+		liege = k_disputed_lands
+	}
+	8258.12.22 = {
+		liege = 0
+	}
+}
