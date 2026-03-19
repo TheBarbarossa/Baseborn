@@ -1,0 +1,58 @@
+﻿l_english:
+ activity_MISSING:0 "#true_white #underline Whereabouts Unknown#!"
+ activity_PROPER:0 "Attending [ACTIVITY.GetName|V] in [PROVINCE.GetName|V]"
+ CHARACTER_IN_LOCATION_MISSING:0 "#underline This Character's Location Can Not Be Determined.#!"
+ CHARACTER_IN_LOCATION_PROPER:0 "#underline Located in [Character.GetCurrentLocation.GetName|V]#!"
+
+ NO_PATRON:0 "No Patron Selected"
+
+ AGOT_RULER_DESIGNER_HEIGHT_3_4:0 "[GeneCategory.GetName]: [Select_float(GreaterThan_float(Divide_float(Add_float(Multiply_float(RulerDesignerWindow.GetMorphGeneValue(GeneCategory.Self), Select_float(RulerDesignerWindow.IsFemale, '(float)0.18313725490196078431372549019608', '(float)0.2')), Select_float(RulerDesignerWindow.IsFemale, '(float)45.0', '(float)47.0')), '(float)12.0'), '(float)4.0'), '(float)4', '(float)3')]ft [Modulo_float(Add_float(Multiply_float(RulerDesignerWindow.GetMorphGeneValue(GeneCategory.Self), Select_float(RulerDesignerWindow.IsFemale, '(float)0.18313725490196078431372549019608', '(float)0.2')), Select_float(RulerDesignerWindow.IsFemale, '(float)45.0', '(float)47.0')), '(float)12.0')]in"
+ AGOT_RULER_DESIGNER_HEIGHT_5_6:0 "[GeneCategory.GetName]: [Select_float(GreaterThanOrEqualTo_float(Divide_float(Add_float(Multiply_float(RulerDesignerWindow.GetMorphGeneValue(GeneCategory.Self), Select_float(RulerDesignerWindow.IsFemale, '(float)0.18313725490196078431372549019608', '(float)0.2')), Select_float(RulerDesignerWindow.IsFemale, '(float)45.0', '(float)47.0')), '(float)12.0'), '(float)6.0'), '(float)6', '(float)5')]ft [Modulo_float(Add_float(Multiply_float(RulerDesignerWindow.GetMorphGeneValue(GeneCategory.Self), Select_float(RulerDesignerWindow.IsFemale, '(float)0.18313725490196078431372549019608', '(float)0.2')), Select_float(RulerDesignerWindow.IsFemale, '(float)45.0', '(float)47.0')), '(float)12.0')]in"
+ AGOT_RULER_DESIGNER_HEIGHT_7_8:0 "[GeneCategory.GetName]: [Select_float(GreaterThanOrEqualTo_float(Divide_float(Add_float(Multiply_float(RulerDesignerWindow.GetMorphGeneValue(GeneCategory.Self), Select_float(RulerDesignerWindow.IsFemale, '(float)0.18313725490196078431372549019608', '(float)0.2')), Select_float(RulerDesignerWindow.IsFemale, '(float)45.0', '(float)47.0')), '(float)12.0'), '(float)8.0'), '(float)8', '(float)7')]ft [Modulo_float(Add_float(Multiply_float(RulerDesignerWindow.GetMorphGeneValue(GeneCategory.Self), Select_float(RulerDesignerWindow.IsFemale, '(float)0.18313725490196078431372549019608', '(float)0.2')), Select_float(RulerDesignerWindow.IsFemale, '(float)45.0', '(float)47.0')), '(float)12.0')]in"
+ AGOT_RULER_DESIGNER_HEIGHT_CM:0 "[GeneCategory.GetName]: [Add_float(Multiply_float(RulerDesignerWindow.GetMorphGeneValue(GeneCategory.Self), Select_float(RulerDesignerWindow.IsFemale, '(float)0.46509803921568627450980392156863', '(float)0.5078431372549019607843137254902')), Select_float(RulerDesignerWindow.IsFemale, '(float)114.3', '(float)119.4'))]cm"
+
+ AGOT_RULER_DESIGNER_GENE_ONLY_MEN:0 "Only visible for men"
+
+ RULER_DESIGNER_TOGGLE_SHOW_CLOTHING_LABEL:0 "Show Clothing"
+ RULER_DESIGNER_TOGGLE_SHOW_CLOTHING_TOOLTIP_SHOW:0 "#T $RULER_DESIGNER_TOGGLE_SHOW_CLOTHING_LABEL$#!\nShows the clothing on the character portrait. They will still be wearing clothes when finalized.\n\n#I Click to hide#!"
+ RULER_DESIGNER_TOGGLE_SHOW_CLOTHING_TOOLTIP_HIDE:0 "#T $RULER_DESIGNER_TOGGLE_SHOW_CLOTHING_LABEL$#!\nHides the clothing on the character portrait. They will still be wearing clothes when finalized.\n\n#I Click to show#!"
+ RULER_DESIGNER_TOGGLE_SHOW_CLOTHING_TOOLTIP:0 "[SelectLocalization( Not(GetGlobalVariable('character_undress').IsSet), 'RULER_DESIGNER_TOGGLE_SHOW_CLOTHING_TOOLTIP_SHOW', 'RULER_DESIGNER_TOGGLE_SHOW_CLOTHING_TOOLTIP_HIDE' )]"
+
+ RULER_DESIGNER_TOGGLE_SIDE_PROFILE_LABEL:0 "Fixed Profile View"
+ RULER_DESIGNER_TOGGLE_SIDE_PROFILE_TOOLTIP_SHOW:0 "#T $RULER_DESIGNER_TOGGLE_SIDE_PROFILE_LABEL$#!\nEnables the fixed profile view, using the fixed front and side view angles of the character portrait.\n\n#I Click to disable fixed profile view#!"
+ RULER_DESIGNER_TOGGLE_SIDE_PROFILE_TOOLTIP_HIDE:0 "#T $RULER_DESIGNER_TOGGLE_SIDE_PROFILE_LABEL$#!\nDisables the fixed profile view, using the standard offset front and side view angles of the character portrait.\n\n#I Click to enable fixed profile view#!"
+ RULER_DESIGNER_TOGGLE_SIDE_PROFILE_TOOLTIP:0 "[SelectLocalization( GetGlobalVariable('true_profile_view').IsSet, 'RULER_DESIGNER_TOGGLE_SIDE_PROFILE_TOOLTIP_SHOW', 'RULER_DESIGNER_TOGGLE_SIDE_PROFILE_TOOLTIP_HIDE' )]"
+
+ DRAGON_DESIGNER_STORE_DNA_TOOLTIP:1 "#T Store Dragon DNA#!\nStore the DNA settings currently in the customizer.\n\n@warning_icon! #X You will lose these values if your character dies#!"
+ DRAGON_DESIGNER_APPLY_DNA_TOOLTIP:1 "#T Apply Stored DNA#!\nApply the stored DNA settings to the customizer."
+ DRAGON_DESIGNER_UNDO_DNA_TOOLTIP:1 "#T Undo Applied DNA#!\nRestore the DNA settings in the customizer to the values they had before applying."
+ DRAGON_DESIGNER_EXPORT_VALUES:0 "#T Copy event contents#!\nWill copy the contents of the event text to your clipboard.\n\nThe event text will contain a scripted effect that is ready for you to put inside an #high import_dragon_dna.txt#! file.\n\n@warning_icon! #X Please use the#! #T Regenerate event contents#! #X button (the refresh button to the left of this one) to regenerate the event text and get the most recent values from the customizer#!"
+ DRAGON_DESIGNER_IMPORT_VALUES:0 "#T Import DNA from a file#!\nBe sure of the following before using this button:\n$BULLET_WITH_TAB$This folder is created: #high %USERPROFILE%/Documents/Paradox Interactive/Crusader Kings III/run#! — create the folder if it doesn't exist.\n$BULLET_WITH_TAB$There is a file named #high import_dragon_dna.txt#! inside the #high run#! folder.\n$BULLET_WITH_TAB$There is an #high import_dragon_dna = {}#! effect inside the #high import_dragon_dna.txt#! file.\n\n@warning_icon! #X Please note this will fire every effect in the file, ensure you only have what you want to run inside of it#!"
+
+ agot_character_performing_councillor_task: "while performing a task"
+ agot_character_traveling: "while traveling"
+
+ cant_be_kingsguard:0 "#X Can't be a member of the Kingsguard"
+ cant_be_nw:0 "#X Can't be a member of the Night's Watch"
+ cant_be_silent_sis:0 "#X Can't be a member of the Silent Sisters"
+
+ COURT_POSITION_NAME_DISPLAY:0 "#high [CourtPosition.GetEmployee.Custom('AGOTCustomGetShortUIName')]#![CourtPosition.GetEmployee.Custom('TitleSuffix')]"
+ ACCLAIMED_KNIGHT_NAME_DISPLAY:0 "[Accolade.GetAcclaimedKnight.Custom('AGOTCustomGetTitledFullNameDynasty')][Accolade.GetAcclaimedKnight.Custom('TitleSuffix')]"
+ BARBERSHOP_CHARACTER_NAME_DISPLAY:0 "#high [Character.Custom('AGOTCustomGetShortUIName')]#![Character.Custom('TitleSuffix')]"
+ MY_REALM_CHARNAME_DISPLAY:0 "#high [MyRealmWindow.GetCharacter.GetPlayerHeir.Custom('AGOTCustomGetShortUIName')]#![MyRealmWindow.GetCharacter.GetPlayerHeir.Custom('TitleSuffix')]"
+ SPY_NETWORK_NAME_DISPLAY:0 "#high [Character.Custom('AGOTCustomGetShortUIName')]#![Character.Custom('TitleSuffix')]"
+ COURT_POSITION_APPOINT_NAME_DISPLAY:0 "#high [Character.Custom('AGOTCustomGetShortUIName')]#![Character.Custom('TitleSuffix')]"
+ COOLTIP_CHARACTER_NAME_DISPLAY:0 "[Character.GetCharacterViewNameNicknamedNoTooltipRegnal][Character.Custom('WordSpace')][Character.Custom('SurnameSwitch')]#medium [Character.Custom('TitleSuffix')]#!#medium , [Character.GetAge]#!"
+ COOLTIP_KNIGHT_NAME_DISPLAY:0 "Ser [Character.GetFirstNameNicknamedNoTooltip][Character.Custom('WordSpace')][Character.GetHouse.GetNameNoTooltip]#medium , [Character.GetAge]#!"
+ COOLTIP_MAESTER_NAME_DISPLAY:0 "[Character.Custom('MaesterCheck')] [Character.GetTitledFirstNameNicknamedNoTooltip]#medium , [Character.GetAge]#!"
+ COOLTIP_SILENTSISTER_NAME_DISPLAY:0 "Silent Sister [Character.GetFirstNameNicknamedNoTooltip]#medium , [Character.GetAge]#!"
+ COOLTIP_BASTARD_NAME_DISPLAY:0 "[Character.GetFirstNameNicknamedNoTooltip] [Character.Custom('SurnameSwitch')]#medium , [Character.GetAge]#!"
+ COOLTIP_KNIGHT_BASTARD_NAME_DISPLAY:0 "Ser [Character.GetFirstNameNicknamedNoTooltip] [Character.Custom('SurnameSwitch')]#medium , [Character.GetAge]#!"
+ COOLTIP_UNLANDED_CHARACTER_NAME_DISPLAY:0 "[Character.GetCharacterViewNameNicknamedNoTooltipRegnal]#medium [Character.Custom('TitleSuffix')]#!#medium , [Character.GetAge]#!"
+ COOLTIP_HIGHSEPTON_NAME_DISPLAY:0 "[Character.GetNickname]#medium , [Character.GetAge]#!"
+ COOLTIP_BIRTHPLACE_BASED_NICKNAME_DISPLAY:0 "[Character.GetFirstNameNicknamedNoTooltip] of [Character.MakeScope.Var('agot_birthplace').GetProvince.GetNameNoTooltip]#medium , [Character.GetAge]#!"
+ COOLTIP_SER_BIRTHPLACE_BASED_NICKNAME_DISPLAY:0 "Ser [Character.GetFirstNameNicknamedNoTooltip] of [Character.MakeScope.Var('agot_birthplace').GetProvince.GetNameNoTooltip]#medium , [Character.GetAge]#!"
+ LIST_CHARACTER_NAME_DISPLAY:0 "#high [Character.Custom('AGOTCustomGetShortUIName')]#![Character.Custom('TitleSuffix')]"
+ AGOT_CANNOT_HIRE_MENATARMS:0 "#T Create New [men_at_arms|E] [regiment|E]#!\n[MilitaryItem.GetMaACanBeCreatedTooltip]\n@warning_icon! #X You cannot hire men-at-arms while subject to the [GetModifier('agot_pentos_braavos_treaty').GetNameWithTooltip] #!"
+ AGOT_HIRE_MERCENARIES_TOOLTIP:0 "#T [MercenaryCompany.GetName] #!\n#I Click to view details#![SelectLocalization(GetScriptedGui('agot_can_hire_mercenaries').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End), '', 'AGOT_HIRE_MERCENARIES_ADD')]"
+ AGOT_HIRE_MERCENARIES_ADD:0 "\n\n@warning_icon! #X You cannot hire mercenaries while subject to the [GetModifier('agot_pentos_braavos_treaty').GetNameWithTooltip] #!"
