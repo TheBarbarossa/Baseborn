@@ -788,44 +788,6 @@ Stark_7 = {
 			}
 		}
 	}
-	8300.1.25 = {
-		effect = {
-			if = {
-				limit = { character:Slynt_1 = { is_alive = yes } }
-				character:Slynt_1 = { # Janos Slynt
-					set_relation_rival = {
-						target = ROOT
-						reason = rival_jsnow_jslynt
-					}
-				}
-			}
-		}
-	}
-	8300.1.29 = {
-		effect = {
-			if = {
-				limit = { character:Baratheon_3 = { is_alive = yes } }
-				add_opinion = {
-					modifier = respect_opinion
-					target = character:Baratheon_3 # Stannis Baratheon
-					opinion = 60
-				}
-				reverse_add_opinion = {
-					modifier = respect_opinion
-					target = character:Baratheon_3 # Stannis Baratheon
-					opinion = 60
-				}
-			}
-			if = {
-				limit = { character:Melisandre_1 = { is_alive = yes } }
-				reverse_add_opinion = {
-					modifier = respect_opinion
-					target = character:Melisandre_1 # Melisandre of Asshai
-					opinion = 40
-				}
-			}
-		}
-	}
 }
 Stark_8 = {
 	name = Sansa # Canon, THE Sansa, married Tyrion Lannister
@@ -1131,12 +1093,9 @@ Stark_Dummy_9 = {
 			}
 		}
 	}
-	8300.2.6 = {
-		religion = fc_pan_faceless
-		culture = braavosi
-		name = Salty
+	8300.1.1 = {
 		effect = {
-			agot_safe_set_location_history_effect = { CASTLE = title:k_braavos }
+			agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_sandor }
 		}
 	}
 }
@@ -1554,7 +1513,7 @@ Stark_hh_5 = {
 	8282.7.9 = { employer = Stark_3 } # Eddard Stark
 	8298.10.28 = {
 		effect = {
-			agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_brotherhood_without_banners }
+			agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_bwob }
 		}
 		religion = rhllor_fots
 	}
@@ -20647,7 +20606,11 @@ Reed_2 = {
 					reason = friend_meera_hodor
 				}
 			}
-			agot_safe_set_location_history_effect = { CASTLE = title:c_denbarrows } # Move him Beyond the Wall
+		}
+	}
+	8300.1.1 = {
+		effect = {
+			agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_bran }
 		}
 	}
 }
@@ -20695,7 +20658,11 @@ Reed_3 = {
 					reason = friend_jojen_hodor
 				}
 			}
-			agot_safe_set_location_history_effect = { CASTLE = title:c_denbarrows } # Move him Beyond the Wall
+		}
+	}
+	8300.1.1 = {
+		effect = {
+			agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_bran }
 		}
 	}
 }
