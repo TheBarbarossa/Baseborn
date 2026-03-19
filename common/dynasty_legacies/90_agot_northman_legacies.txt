@@ -1,0 +1,58 @@
+﻿stark_legacy_track = {
+	is_shown = {
+		OR = {
+			dynasty = dynasty:dynn_Stark
+			dynasty = { has_dynasty_perk = stark_legacy_1 }
+		}
+	}
+}
+
+bolton_legacy_track = {
+	is_shown = {
+		OR = {
+			dynasty = dynasty:dynn_Bolton
+			dynasty = { has_dynasty_perk = bolton_legacy_1 }
+		}
+	}
+}
+
+umber_legacy_track = {
+	is_shown = {
+		OR = {
+			dynasty = dynasty:dynn_Umber
+			dynasty = { has_dynasty_perk = umber_legacy_1 }
+		}
+	}
+}
+
+forrester_legacy_track = {
+	is_shown = {
+		OR = {
+			dynasty = dynasty:dynn_Forrester
+			dynasty = { has_dynasty_perk = forrester_legacy_1 }
+		}
+	}
+}
+
+north_legacy_track = {
+	is_shown = {
+		OR = {
+			dynasty = { has_dynasty_perk = north_legacy_1 }
+			culture = {
+				OR = {
+					this = culture:northman
+					this = culture:barrowman
+					this = culture:crannogman
+					any_parent_culture_or_above = {
+						OR = {
+							this = culture:northman
+							this = culture:barrowman
+							this = culture:crannogman
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
