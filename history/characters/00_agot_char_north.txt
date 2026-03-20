@@ -13282,17 +13282,31 @@ Dustin_3 = {
 	}
 }
 ### Issue of Jon, first cousins once-removed to Willam
-Dustin_4 = {
+Dustin_4 = { # edited 03/20 slambroski
 	name = Barbrey
 	dynasty = dynn_Dustin
 	dna = Dustin_4
 	female = yes
+
+	diplomacy = 6
+	martial = 4
+	stewardship = 9
+	intrigue = 1
+	learning = 8
+	prowess = 5
 
 	religion = old_gods_wnw
 	culture = barrowman
 
 	father = Dustin_2
 	mother = Brownbarrow_71
+
+	trait = education_diplomacy_3
+	trait = calm
+	trait = content
+	trait = just
+
+	disallow_random_traits = yes 
 
 	8278.1.1 = {
 		birth = yes
@@ -13306,16 +13320,30 @@ Dustin_4 = {
 		}
 	}
 }
-Dustin_5 = {
+Dustin_5 = { # edited 03/20 slambroski
 	name = Denys
 	dynasty = dynn_Dustin
 	dna = Dustin_5
+
+	diplomacy = 5
+	martial = 10
+	stewardship = 0
+	intrigue = 9
+	learning = 2
+	prowess = 4
 
 	religion = old_gods_wnw
 	culture = barrowman
 
 	father = Dustin_2
 	mother = Brownbarrow_71
+
+	trait = education_intrigue_4
+	trait = education_martial_prowess_1
+	trait = sadistic
+	trait = gregarious
+
+	disallow_random_traits = yes 
 
 	8281.1.1 = {
 		birth = yes
@@ -13517,10 +13545,17 @@ Ryswell_9 = {
 	8260.1.1 = { death = yes }
 }
 ### Issue of Torrhen
-Ryswell_3 = {
+Ryswell_3 = { # edited 03/20 slambroski
 	name = Rodrik # Canon, a lord
 	dynasty = dynn_Ryswell
 	dna = Ryswell_3
+
+	diplomacy = 8
+	martial = 3
+	stewardship = 4
+	intrigue = 6
+	learning = 6
+	prowess = 6
 
 	religion = old_gods_wnw
 	culture = barrowman
@@ -13565,7 +13600,7 @@ Ryswell_3 = {
 	}
 }
 ### Issue of Rodrik
-Ryswell_4 = {
+Ryswell_4 = { # edited 03/20 slambroski
 	name = Barbrey # Canon, a lord, married Willam Dustin
 	dynasty = dynn_Ryswell
 	female = yes
@@ -13576,6 +13611,7 @@ Ryswell_4 = {
 	intrigue = 8
 	stewardship = 5
 	learning = 5
+	prowess = 7
 
 	religion = old_gods_wnw
 	culture = barrowman
@@ -13585,6 +13621,7 @@ Ryswell_4 = {
 	mother = Silverfield_62
 
 	trait = education_diplomacy_2
+	trait = twin
 	trait = beauty_good_1
 	trait = vengeful
 	trait = arrogant
@@ -13669,18 +13706,28 @@ Ryswell_5 = {
 		death = { death_reason = death_ill }
 	}
 }
-Ryswell_7 = {
+Ryswell_7 = { # edited 03/20 slambroski
 	name = Rickard # Canon, a lord
 	dynasty = dynn_Ryswell
 	dna = Ryswell_7
 
+	diplomacy = 1
+	martial = 3
+	stewardship = 2
+	intrigue = 4
+	learning = 6
+	prowess = 4
+
 	religion = old_gods_wnw
 	culture = barrowman
+	sexuality = heterosexual
 
 	father = Ryswell_3
 	mother = Silverfield_62
 
 	trait = education_diplomacy_1
+	trait = education_martial_prowess_2
+	trait = twin
 	trait = ambitious
 	trait = arrogant
 	trait = bossy
@@ -13691,29 +13738,46 @@ Ryswell_7 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
+		add_character_flag = sexuality_ensure_heterosexual
 	}
 	8274.1.1 = { trait = lustful }
+	8285.1.1 = { add_spouse = Bray_87_A } # Derissa Bray
 }
-Ryswell_6 = {
+Ryswell_6 = { # edited 03/20 slambroski
 	name = Roger # Canon, a lord of Tackfeld
 	dynasty = dynn_Ryswell
 	dna = Ryswell_6
 
+	diplomacy = 10
+	martial = 7
+	stewardship = 5
+	intrigue = 2
+	learning = 7
+	prowess = 8
+
 	religion = old_gods_wnw
 	culture = barrowman
+	sexuality = homosexual
 
 	father = Ryswell_3
 	mother = Silverfield_62
 
+	trait = education_martial_3
+	trait = education_martial_prowess_2
+	trait = reckless
 	trait = ambitious
 	trait = arrogant
 	trait = cynical
+
+	disallow_random_traits = yes 
 
 	8260.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
+		add_character_flag = sexuality_ensure_homosexual
 	}
+	8286.1.1 = { add_spouse = Cantle_76 } # Jonelle Cantle
 }
 Ryswell_8 = {
 	name = Roose # Canon, a lord of Grailmeadow
@@ -13739,6 +13803,194 @@ Ryswell_8 = {
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
+}
+### Issue of Rickard
+Ryswell_7_A = { # created 02/05 slambroski
+	name = Rysella
+	dynasty = dynn_Ryswell
+	female = yes 
+
+	diplomacy = 4
+	martial = 7
+	stewardship = 2
+	intrigue = 5
+	learning = 9
+	prowess = 3
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Ryswell_7
+	mother = Ryswell_m_1
+
+	trait = education_intrigue_2
+	trait = beauty_good_1
+	trait = bastard
+	trait = shy
+	trait = stubborn
+	trait = generous
+
+	disallow_random_traits = yes 
+
+	8277.6.1 = { birth = yes }
+	8281.1.1 = { employer = Silverfield_17 }
+}
+Ryswell_7_B = { # created 02/05 slambroski
+	name = Rickon
+	dynasty = dynn_Ryswell
+
+	diplomacy = 6
+	martial = 8
+	stewardship = 9
+	intrigue = 0
+	learning = 8
+	prowess = 9
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Ryswell_7
+	mother = Ryswell_m_1
+
+	trait = education_intrigue_1
+	trait = education_martial_prowess_4
+	trait = bastard
+	trait = cynical
+	trait = brave
+	trait = authoritative
+
+	disallow_random_traits = yes 
+
+	8280.1.1 = { birth = yes }
+	8281.1.1 = { employer = Silverfield_17 }
+}
+Ryswell_7_C = { # created 02/05 slambroski
+	name = Rodrik
+	dynasty = dynn_Ryswell
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Ryswell_7
+	mother = Bray_87_A
+
+	trait = twin
+	trait = paranoid
+	trait = cynical
+	trait = vengeful
+	trait = charming
+
+	disallow_random_traits = yes 
+
+	8286.6.1 = { birth = yes }
+}
+Ryswell_7_D = { # created 02/05 slambroski
+	name = Rodwell
+	dynasty = dynn_Ryswell
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Ryswell_7
+	mother = Bray_87_A
+
+	trait = twin
+	trait = arrogant
+	trait = wrathful
+	trait = rowdy
+
+	8286.6.1 = { birth = yes }
+	8299.6.1 = { trait = lustful }
+}
+Ryswell_7_E = { # created 02/05 slambroski
+	name = Royce
+	dynasty = dynn_Ryswell
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Ryswell_7
+	mother = Ryswell_m_2
+
+	trait = bastard
+	trait = compassionate
+	trait = pensive
+
+	disallow_random_traits = yes 
+
+	8290.1.1 = { 
+		birth = yes
+		employer = Ryswell_6
+	}
+}
+Ryswell_7_F = { # created 02/05 slambroski
+	name = Rosalei
+	dynasty = dynn_Ryswell
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Ryswell_7
+	mother = Bray_87_A
+
+	trait = rowdy
+
+	disallow_random_traits = yes 
+
+	8294.1.1 = { birth = yes }
+}
+Ryswell_7_G = { # created 02/05 slambroski
+	name = Ryon
+	dynasty = dynn_Ryswell
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Ryswell_7
+	mother = Ryswell_m_3
+
+	trait = bastard
+
+	8298.1.1 = { 
+		birth = yes
+		employer = Ryswell_8
+	}
+}
+### Issue of Roger
+Ryswell_6_A = { # created 02/24 slambroski
+	name = Berena
+	dynasty = dynn_Ryswell
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Ryswell_6
+	mother = Cantle_76
+
+	trait = brave
+	trait = content
+	trait = curious
+
+	disallow_random_traits = yes 
+
+	8289.1.1 = { birth = yes }
+}
+Ryswell_6_B = { # created 02/24 slambroski
+	name = Edric
+	dynasty = dynn_Ryswell
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Ryswell_6
+	mother = Cantle_76
+
+	trait = sickly 
+
+	8295.1.1 = { birth = yes }
+	8295.6.1 = { death = { death_reason = death_sickly } }
 }
 ### Issue of Brandon
 Ryswell_10 = {
@@ -13936,6 +14188,41 @@ Ryswell_90 = {
 	mother = Ryswell_rs_88
 
 	8297.1.1 = { birth = yes }
+}
+### Household
+Ryswell_m_1 = { # Lowborn mistress of Rickard, created 02/05 slambroski
+	name = Hilda
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	trait = beauty_good_1
+
+	8259.1.1 = { birth = yes }
+	8281.1.1 = { employer = Silverfield_17 }
+}
+Ryswell_m_2 = { # Lowborn mistress of Rickard, created 02/05 slambroski
+	name = Sarra
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = northman
+
+	trait = beauty_good_1
+
+	8266.1.1 = { birth = yes }
+	8290.1.1 = { employer = Ryswell_6}
+}
+Ryswell_m_3 = { # Lowborn mistress of Rickard, created 02/05 slambroski
+	name = Bella
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	8279.1.1 = { birth = yes }
+	8298.1.1 = { death = { death_reason = death_childbirth } }
 }
 
 ###### HOUSE SLATE (id = dynn_Slate)
@@ -36180,7 +36467,7 @@ Brewer_68 = {
 	trait = twin
 
 	8262.1.1 = { birth = yes }
-	8290.1.1 = { add_spouse = Cantle_76 } # Jonelle Cantle
+	# 8290.1.1 = { add_spouse = Cantle_76 } # Jonelle Cantle
 }
 Brewer_69 = {
 	name = Fryda # married Alester Halcott
@@ -36198,31 +36485,31 @@ Brewer_69 = {
 	8262.1.1 = { birth = yes }
 }
 ### Issue of Roderick
-Brewer_95 = {
-	name = Cavan
-	dynasty = dynn_Brewer
-
-	religion = old_gods_wnw
-	culture = barrowman
-
-	father = Brewer_68
-	mother = Cantle_76
-
-	8293.1.1 = { birth = yes }
-}
-Brewer_96 = {
-	name = Merise
-	dynasty = dynn_Brewer
-	female = yes
-
-	religion = old_gods_wnw
-	culture = barrowman
-
-	father = Brewer_68
-	mother = Cantle_76
-
-	8297.1.1 = { birth = yes }
-}
+#Brewer_95 = {
+#	name = Cavan
+#	dynasty = dynn_Brewer
+#
+#	religion = old_gods_wnw
+#	culture = barrowman
+#
+#	father = Brewer_68
+#	mother = Cantle_76
+#
+#	8293.1.1 = { birth = yes }
+#}
+#Brewer_96 = {
+#	name = Merise
+#	dynasty = dynn_Brewer
+#	female = yes
+#
+#	religion = old_gods_wnw
+#	culture = barrowman
+#
+#	father = Brewer_68
+#	mother = Cantle_76
+#
+#	8297.1.1 = { birth = yes }
+#}
 ### Issue of Andrin
 Brewer_97 = {
 	name = Ludd
@@ -36580,6 +36867,19 @@ Bray_85 = {
 	8276.1.1 = { birth = yes }
 }
 ### Issue of Harkon
+Bray_87_A = { # created 02/05 slambroski
+	name = Derissa
+	dynasty = dynn_Bray
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Bray_82
+	mother = Bray_rs_82
+
+	8266.1.1 = { birth = yes }
+}
 Bray_87 = {
 	name = Alfyn
 	dynasty = dynn_Bray
