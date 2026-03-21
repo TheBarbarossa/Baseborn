@@ -8980,7 +8980,7 @@ FlintFC_72 = {
 	mother = Leadranack_94
 
 	8281.1.1 = { birth = yes }
-	8297.1.1 = { add_spouse = Slate_3 } # Sansa Slate
+	# 8297.1.1 = { add_spouse = Slate_3 } # Sansa Slate
 }
 FlintFC_73 = {
 	name = Wynton
@@ -9276,35 +9276,35 @@ FlintFC_95 = {
 	8298.1.1 = { birth = yes }
 }
 ### Issue of Lars
-FlintFC_90 = {
-	name = Osric
-	dynasty_house = house_FlintFF
-
-	religion = old_gods_wnw
-	culture = northman
-
-	father = FlintFC_72
-	mother = Slate_3
-
-	trait = twin
-
-	8298.1.1 = { birth = yes }
-}
-FlintFC_91 = {
-	name = Robyn
-	dynasty_house = house_FlintFF
-	female = yes
-
-	religion = old_gods_wnw
-	culture = northman
-
-	father = FlintFC_72
-	mother = Slate_3
-
-	trait = twin
-
-	8298.1.1 = { birth = yes }
-}
+#FlintFC_90 = {
+#	name = Osric
+#	dynasty_house = house_FlintFF
+#
+#	religion = old_gods_wnw
+#	culture = northman
+#
+#	father = FlintFC_72
+#	mother = Slate_3
+#
+#	trait = twin
+#
+#	8298.1.1 = { birth = yes }
+#}
+#FlintFC_91 = {
+#	name = Robyn
+#	dynasty_house = house_FlintFF
+#	female = yes
+#
+#	religion = old_gods_wnw
+#	culture = northman
+#
+#	father = FlintFC_72
+#	mother = Slate_3
+#
+#	trait = twin
+#
+#	8298.1.1 = { birth = yes }
+#}
 ### Issue of Aberdolf
 FlintFC_89 = {
 	name = Alaric
@@ -13786,6 +13786,13 @@ Ryswell_8 = {
 	dynasty = dynn_Ryswell
 	dna = Ryswell_8
 
+	diplomacy = 7
+	martial = 3
+	stewardship = 5
+	intrigue = 8
+	learning = 0
+	prowess = 6
+
 	religion = old_gods_wnw
 	culture = barrowman
 
@@ -13793,6 +13800,7 @@ Ryswell_8 = {
 	mother = Silverfield_62
 
 	trait = education_intrigue_1
+	trait = education_martial_prowess_3
 	trait = ambitious
 	trait = arrogant
 	trait = rude
@@ -14119,15 +14127,30 @@ Ryswell_82 = {
 
 	8239.1.1 = { birth = yes }
 }
-Ryswell_83 = {
+Ryswell_83 = { # edited 03/21 slambroski
 	name = Benton
 	dynasty = dynn_Ryswell
+
+	diplomacy = 3
+	martial = 9
+	stewardship = 1
+	intrigue = 2
+	learning = 5
+	prowess = 7
 
 	religion = old_gods_wnw
 	culture = barrowman
 
 	father = Ryswell_79
 	mother = Glenmore_3
+
+	trait = education_intrigue_3
+	trait = education_martial_prowess_3
+	trait = sadistic
+	trait = diligent
+	trait = authoritative
+
+	disallow_random_traits = yes 
 
 	8242.1.1 = { birth = yes }
 	8264.1.1 = { add_spouse = Ryswell_rs_83 }
@@ -14143,15 +14166,30 @@ Ryswell_rs_83 = {
 	8292.1.1 = { death = yes }
 }
 ### Issue of Benton
-Ryswell_88 = {
+Ryswell_88 = { # edited 03/21 slambroski
 	name = Quent
 	dynasty = dynn_Ryswell
+
+	diplomacy = 3
+	martial = 7
+	stewardship = 7
+	intrigue = 7
+	learning = 8
+	prowess = 7
 
 	religion = old_gods_wnw
 	culture = barrowman
 
 	father = Ryswell_83
 	mother = Ryswell_rs_83
+
+	trait = education_learning_3
+	trait = education_martial_prowess_1
+	trait = forgiving
+	trait = calm
+	trait = greedy
+
+	disallow_random_traits = yes 
 
 	8268.1.1 = { birth = yes }
 	8295.1.1 = { add_spouse = Ryswell_rs_88 }
@@ -14231,16 +14269,32 @@ Ryswell_m_3 = { # Lowborn mistress of Rickard, created 02/05 slambroski
 ############################
 ### To Hone our Blades
 ###
-Slate_1 = {
+Slate_1 = { # edited 03/21 slambroski
 	name = Rorge # Mentioned, a lord
 	dynasty = dynn_Slate
 	dna = Slate_1
+
+	diplomacy = 5
+	martial = 1
+	stewardship = 5
+	intrigue = 9
+	learning = 8
+	prowess = 1
 
 	religion = old_gods_wnw
 	culture = barrowman
 
 	father = Slate_58
 	mother = Orlych_76
+
+	trait = education_martial_1
+	trait = education_martial_prowess_2
+	trait = flexible_leader
+	trait = cynical
+	trait = craven
+	trait = shy
+
+	disallow_random_traits = yes 
 
 	8259.1.1 = {
 		birth = yes
@@ -14262,10 +14316,46 @@ Slate_59 = {
 
 	8262.1.1 = { birth = yes }
 }
-### Issue of Rorge
-Slate_2 = {
-	name = Rorge
+Slate_1_A = { # created 02/05 slambroski
+	name = Porther
 	dynasty = dynn_Slate
+
+	diplomacy = 4
+	martial = 9
+	stewardship = 5
+	intrigue = 8
+	learning = 9
+	prowess = 0
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Slate_58
+	mother = Orlych_76
+
+	trait = education_intrigue_4
+	trait = deceitful
+	trait = humble
+	trait = vengeful
+
+	disallow_random_traits = yes 
+
+	8264.1.1 = { birth = yes }
+	8284.1.1 = { add_spouse = Shale_54_B }
+	8299.8.1 = { death = { death_reason = death_battle } }
+}
+### Issue of Rorge
+Slate_2 = { # edited 03/21 slambroski
+	# name = Rorge
+	name = Arthor
+	dynasty = dynn_Slate
+
+	diplomacy = 8
+	martial = 9
+	stewardship = 5
+	intrigue = 9
+	learning = 3
+	prowess = 6
 
 	religion = old_gods_wnw
 	culture = barrowman
@@ -14273,20 +14363,107 @@ Slate_2 = {
 	father = Slate_1
 	mother = Rouse_80
 
-	8276.1.1 = { birth = yes }
+	trait = education_martial_2
+	trait = reckless
+	trait = sadistic
+	trait = deceitful
+	trait = impatient
+
+	disallow_random_traits = yes 
+
+	# 8276.1.1 = { birth = yes }
+	8278.1.1 = { birth = yes }
+	8299.12.15 = {
+		death = {
+			death_reason = death_bloody_wedding # The Red Wedding
+			killer = Frey_1 # Walder Frey
+		}
+	}
 }
-Slate_3 = {
+Slate_3 = { # edited 03/21 slambroski
 	name = Sansa # married Lars Flint of Flint's Finger
 	dynasty = dynn_Slate
 	female = yes
 
+	diplomacy = 8
+	martial = 2
+	stewardship = 4
+	intrigue = 10
+	learning = 3
+	prowess = 3
+
 	religion = old_gods_wnw
 	culture = barrowman
 
 	father = Slate_1
 	mother = Rouse_80
 
-	8280.1.1 = { birth = yes }
+	trait = education_diplomacy_4
+	trait = diligent
+	trait = vengeful
+	trait = deceitful
+
+	disallow_random_traits = yes
+
+	# 8280.1.1 = { birth = yes }
+	8281.1.1 = { birth = yes }
+}
+Slate_2_B = { # created 02/04 slambroski
+	name = Gared
+	dynasty = dynn_Slate
+
+	diplomacy = 4
+	martial = 8
+	stewardship = 9
+	intrigue = 1
+	learning = 4
+	prowess = 6
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Slate_1
+	mother = Rouse_80
+
+	trait = education_learning_4
+	trait = education_martial_prowess_1
+	trait = temperate
+	trait = authoritative
+	trait = impatient
+
+	disallow_random_traits = yes 
+
+	8282.6.1 = { birth = yes }
+}
+Slate_2_C = { # created 02/04 slambroski
+	name = Erik
+	dynasty = dynn_Slate
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Slate_1
+	mother = Rouse_80
+
+	8286.1.1 = { birth = yes }
+	8288.1.1 = { death = { death_reason = death_sickly } }
+}
+### Issue of Porther
+Slate_3_A = { # created 02/05 slambroski
+	name = Morgan
+	dynasty = dynn_Slate
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Slate_1_A
+	mother = Shale_54_B
+
+	trait = content
+	trait = honest
+	trait = bossy
+
+	8289.1.1 = { birth = yes }
 }
 ### Household
 Slate_hh_1 = {
@@ -38572,6 +38749,19 @@ Shale_54 = {
 	mother = Cairns_54
 
 	8261.1.1 = { birth = yes }
+}
+Shale_54_B = { # created 02/05 slambroski
+	name = Fryda
+	dynasty = dynn_Shale
+	female = yes
+
+	religion = old_gods_wnw
+	culture = barrowman
+
+	father = Shale_49
+	mother = Cairns_54
+
+	8266.1.1 = { birth = yes }
 }
 ### Issue of Arnolf
 Shale_55 = {
