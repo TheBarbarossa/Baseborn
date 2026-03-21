@@ -1,0 +1,906 @@
+﻿d_laamp_merc_golden_company = {
+	8212.3.1 = {
+		liege = 0
+		holder = Targaryen_95 # Aegor Bittersteel
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_mercenaries
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_mercenaries
+				}
+				# 3000 cavalry
+				# 7000 infantry
+				create_maa_regiment = {
+					type = light_footmen
+					check_can_recruit = no
+					size = 20
+				}
+				create_maa_regiment = {
+					type = pikemen_unit
+					check_can_recruit = no
+					size = 20
+				}
+				create_maa_regiment = {
+					type = armored_footmen
+					check_can_recruit = no
+					size = 20
+				}
+				create_maa_regiment = {
+					type = light_horsemen
+					check_can_recruit = no
+					size = 25
+				}
+				create_maa_regiment = {
+					type = armored_horsemen
+					check_can_recruit = no
+					size = 10
+				}
+				create_maa_regiment = {
+					type = crossbowmen
+					check_can_recruit = no
+					size = 5
+				}
+				create_maa_regiment = {
+					type = longbowmen
+					check_can_recruit = no
+					size = 5
+				}
+				create_maa_regiment = {
+					type = trebuchet
+					check_can_recruit = no
+					size = 5
+				}
+				create_maa_regiment = {
+					type = war_elephant
+					check_can_recruit = no
+					size = 2
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+			if = {
+				limit = { NOT = { has_dlc_feature = roads_to_power } }
+				holder ?= { destroy_title = prev }
+			}
+		}
+	}
+	8241.1.1 = {
+		holder = Blackfyre_9 # Maelys Blackfyre
+	}
+	8251.1.1 = {
+		holder = Blackfyre_13 # Daemon Blackfyre
+	}
+	8252.11.11 = {
+		holder = Blackfyre_14 # Maelys the Monstrous
+	}
+	8258.12.21 = {
+		holder = 0 # Temp? So to not break NPK?
+	}
+	8260.10.1 = {
+		holder = Fossoway_58 # Derrick Fossoway
+	}
+	8262.1.1 = {
+		holder = Strickland_18 # Randyll Strickland
+	}
+	8265.1.1 = {
+		holder = Strickland_19 # Hosman Strickland
+	}
+	8268.1.1 = {
+		holder = Peake_75 # Utherydes Peake
+	}
+	8272.1.1 = {
+		holder = Toyne_4 # Myles Toyne
+	}
+	8296.1.1 = {
+		holder = Strickland_1 # Homeless Harry Strickland
+	}
+}
+### Slaver's Bay Arc
+d_laamp_merc_windblown = {
+	8270.1.1 = {
+		liege = 0
+		holder = Togaraz_96 # Tattered Prince
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_mercenaries
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_mercenaries
+				}
+				# 500 cavalry
+				# 1500 infantry
+				create_maa_regiment = {
+					type = light_horsemen
+					check_can_recruit = no
+					size = 5
+				}
+				create_maa_regiment = {
+					type = armored_footmen
+					check_can_recruit = no
+					size = 10
+				}
+				create_maa_regiment = {
+					type = bowmen
+					check_can_recruit = no
+					size = 5
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+			if = {
+				limit = { NOT = { has_dlc_feature = roads_to_power } }
+				holder ?= { destroy_title = prev }
+			}
+		}
+	}
+}
+d_laamp_merc_company_of_the_cat = {
+	8257.1.1 = {
+		holder = Company_of_the_Cat_3 # Malo the Cat
+		liege = 0
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_mercenaries
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_mercenaries
+				}
+				# 3000 infantry
+				create_maa_regiment = {
+					type = pikemen_unit
+					check_can_recruit = no
+					size = 10
+				}
+				create_maa_regiment = {
+					type = armored_footmen
+					check_can_recruit = no
+					size = 10
+				}
+				create_maa_regiment = {
+					type = bowmen
+					check_can_recruit = no
+					size = 5
+				}
+				create_maa_regiment = {
+					type = light_footmen
+					check_can_recruit = no
+					size = 5
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+			if = {
+				limit = { NOT = { has_dlc_feature = roads_to_power } }
+				holder ?= { destroy_title = prev }
+			}
+		}
+	}
+	8263.1.1 = {
+		holder = Company_of_the_Cat_4 # Grim Gothos
+	}
+	8266.1.1 = {
+		holder = Company_of_the_Cat_2 # Rhogarro Thunderbolt
+	}
+	8280.1.1 = {
+		holder = Mallar_111 # Erando Mallar
+	}
+	8284.1.1 = {
+		holder = Rynhar_35 # Rogo Rynhar
+	}
+	8291.1.1 = {
+		holder = Rynhar_81 # Paro Rynhar
+	}
+	8292.1.1 = {
+		holder = Company_of_the_Cat_1 # Bloodbeard
+	}
+}
+d_laamp_merc_long_lances = {
+	8280.1.1 = {
+		liege = 0
+		holder = Baerdoon_23 # Borso Baerdoon
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_mercenaries
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_mercenaries
+				}
+				# 800 cavalry
+				create_maa_regiment = {
+					type = light_horsemen
+					check_can_recruit = no
+					size = 6
+				}
+				create_maa_regiment = {
+					type = armored_horsemen
+					check_can_recruit = no
+					size = 4
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+			if = {
+				limit = { NOT = { has_dlc_feature = roads_to_power } }
+				holder ?= { destroy_title = prev }
+			}
+		}
+	}
+	8282.1.1 = {
+		holder = Trellos_23 # Thrasos Trellos
+	}
+	8288.1.1 = {
+		holder = Zokan_104 # Vaario Zokan
+	}
+	8295.1.1 = {
+		holder = Rhegan_33 # Gylo Rhegan
+	}
+}
+d_laamp_merc_second_sons = {
+	8251.1.1 = {
+		liege = 0
+		holder = Tyraanis_117 # Haego Tyraanis
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_mercenaries
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_mercenaries
+				}
+				# 500 cavalry
+				create_maa_regiment = {
+					type = light_horsemen
+					check_can_recruit = no
+					size = 4
+				}
+				create_maa_regiment = {
+					type = armored_horsemen
+					check_can_recruit = no
+					size = 2
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+			if = {
+				limit = { NOT = { has_dlc_feature = roads_to_power } }
+				holder ?= { destroy_title = prev }
+			}
+		}
+	}
+	8264.1.1 = {
+		holder = Second_Sons_13
+	}
+	8270.1.1 = {
+		holder = Second_Sons_14
+	}
+	8274.1.1 = {
+		holder = Second_Sons_15
+	}
+	8278.1.1 = {
+		holder = Varghan_22 # Gothos Varghan
+	}
+	8287.1.1 = {
+		holder = Second_Sons_12
+	}
+	8295.1.1 = {
+		holder = Second_Sons_1 # Mero, the Titan's Bastard
+	}
+	8299.10.30 = {
+		holder = Plumm_5 # Brown Ben Plumm
+	}
+}
+d_laamp_merc_stormcrows = {
+	8275.1.1 = {
+		liege = 0
+		holder = Novyrdion_18 # Malko Novyrdion
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_mercenaries
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_mercenaries
+				}
+				# 500 cavalry
+				create_maa_regiment = {
+					type = light_horsemen
+					check_can_recruit = no
+					size = 4
+				}
+				create_maa_regiment = {
+					type = armored_horsemen
+					check_can_recruit = no
+					size = 2
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+			if = {
+				limit = { NOT = { has_dlc_feature = roads_to_power } }
+				holder ?= { destroy_title = prev }
+			}
+		}
+	}
+	8285.1.1 = {
+		holder = Stormcrows_3 # Prendahl na Ghezn
+	}
+	8299.10.30 = {
+		holder = Stormcrows_1 # Daario Naharis
+	}
+}
+### Ninepenny Kings Arc
+d_laamp_merc_maidens_men = {
+	8254.1.1 = {
+		liege = 0
+		holder = Butcher_1 # Spotted Tom Butcher
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_mercenaries
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_mercenaries
+				}
+				# 500 cavalry
+				# 1500 infantry
+				create_maa_regiment = {
+					type = light_horsemen
+					check_can_recruit = no
+					size = 5
+				}
+				create_maa_regiment = {
+					type = armored_footmen
+					check_can_recruit = no
+					size = 10
+				}
+				create_maa_regiment = {
+					type = bowmen
+					check_can_recruit = no
+					size = 5
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+			if = {
+				limit = { NOT = { has_dlc_feature = roads_to_power } }
+				holder ?= { destroy_title = prev }
+			}
+		}
+	}
+	8270.1.1 = {
+		holder = Maidens_Men_1 # Little Nelugo
+	}
+	8286.1.1 = {
+		holder = Maidens_Men_2 # Luco the Shepherd
+	}
+	8293.1.1 = {
+		holder = Sorley_87 # Pykewood Sorley
+	}
+}
+d_laamp_merc_jolly_fellows = {
+	8248.1.1 = {
+		liege = 0
+		holder = Nine_Eyes_1 # Nine-Eyes
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_mercenaries
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_mercenaries
+				}
+				# 2000 infantry
+				create_maa_regiment = {
+					type = armored_footmen
+					check_can_recruit = no
+					size = 15
+				}
+				create_maa_regiment = {
+					type = light_footmen
+					check_can_recruit = no
+					size = 5
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+			if = {
+				limit = { NOT = { has_dlc_feature = roads_to_power } }
+				holder ?= { destroy_title = prev }
+			}
+		}
+	}
+	8266.1.1 = {
+		holder = Jolly_Fellows_1 # Erys the Exile
+	}
+	8285.1.1 = {
+		holder = Lohar_90 # Moreo Lohar - The Visitor
+	}
+}
+d_laamp_merc_bright_banners = {
+	8245.1.1 = {
+		liege = 0
+		holder = Lashare_1 # Liomond Lashare
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_mercenaries
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_mercenaries
+				}
+				# 1000 cavalry
+				# 2000 infantry
+				create_maa_regiment = {
+					type = light_horsemen
+					check_can_recruit = no
+					size = 8
+				}
+				create_maa_regiment = {
+					type = armored_horsemen
+					check_can_recruit = no
+					size = 4
+				}
+				create_maa_regiment = {
+					type = armored_footmen
+					check_can_recruit = no
+					size = 15
+				}
+				create_maa_regiment = {
+					type = bowmen
+					check_can_recruit = no
+					size = 5
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+			if = {
+				limit = { NOT = { has_dlc_feature = roads_to_power } }
+				holder ?= { destroy_title = prev }
+			}
+		}
+	}
+	8266.1.1 = {
+		holder = Ragat_1 # Corpse Sarago Ragat
+	}
+	8279.1.1 = {
+		holder = Bright_Banners_1 # Mosaphos the Rhoynar
+	}
+	8285.1.1 = {
+		holder = Sellos_75 # Silvario Sellos
+	}
+	8295.1.1 = {
+		holder = Sellos_76 # Sathasor Sellos
+	}
+}
+d_laamp_merc_summer_swords = {
+	8258.1.1 = {
+		liege = 0
+		holder = Qhoqua_1 # Xhobar Qhoqua
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_mercenaries
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_mercenaries
+				}
+				# 1500 infantry
+				create_maa_regiment = {
+					type = light_footmen
+					check_can_recruit = no
+					size = 10
+				}
+				create_maa_regiment = {
+					type = longbowmen
+					check_can_recruit = no
+					size = 5
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+			if = {
+				limit = { NOT = { has_dlc_feature = roads_to_power } }
+				holder ?= { destroy_title = prev }
+			}
+		}
+	}
+	8260.9.1 = {
+		holder = 0
+	}
+}
+d_laamp_merc_lost_legion = {
+	8251.1.1 = {
+		liege = 0
+		holder = Merreq_1 # Corzo zo Merreq
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_mercenaries
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_mercenaries
+				}
+				# 1000 infantry
+				create_maa_regiment = {
+					type = pikemen_unit
+					check_can_recruit = no
+					size = 10
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+			if = {
+				limit = { NOT = { has_dlc_feature = roads_to_power } }
+				holder ?= { destroy_title = prev }
+			}
+		}
+	}
+	8258.12.21 = {
+		holder = Votar_1 # Alios Votar
+	}
+	8279.1.1 = {
+		holder = Lost_Legion_3 # Roro the Garlic
+	}
+	8292.1.1 = {
+		holder = Lost_Legion_2 # Bahar Breaksword
+	}
+}
+### Recently mentioned
+d_laamp_merc_brave_companions = {
+	8275.1.1 = {
+		liege = 0
+		holder = Hoat_1 # Vargo Hoat
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_mercenaries
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_mercenaries
+				}
+				# 100 cavalry
+				create_maa_regiment = {
+					type = light_horsemen
+					check_can_recruit = no
+					size = 1
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+			if = {
+				limit = { NOT = { has_dlc_feature = roads_to_power } }
+				holder ?= { destroy_title = prev }
+			}
+		}
+	}
+	8299.12.4 = {
+		holder = Brave_Companions_1 # Urswyck the Faithful
+	}
+}
+d_laamp_merc_gallant_men = {
+	8278.1.1 = {
+		liege = 0
+		holder = Staines_70 # Dormen Staines
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_mercenaries
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_mercenaries
+				}
+				# 500 cavalry
+				create_maa_regiment = {
+					type = armored_horsemen
+					check_can_recruit = no
+					size = 2
+				}
+				create_maa_regiment = {
+					type = light_horsemen
+					check_can_recruit = no
+					size = 4
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+			if = {
+				limit = { NOT = { has_dlc_feature = roads_to_power } }
+				holder ?= { destroy_title = prev }
+			}
+		}
+	}
+	8287.1.1 = {
+		holder = Gallant_Men_1 # Doryn Hill
+	}
+	8294.1.1 = {
+		holder = Gallant_Men_2 # Lotharo of Braavos
+	}
+}
+d_laamp_merc_iron_shields = {
+	8279.1.1 = {
+		liege = 0
+		holder = Iron_Shields_1 # Egar Warwolf
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_mercenaries
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_mercenaries
+				}
+				# 200 cavalry
+				# 800 infantry
+				create_maa_regiment = {
+					type = armored_footmen
+					check_can_recruit = no
+					size = 8
+				}
+				create_maa_regiment = {
+					type = armored_horsemen
+					check_can_recruit = no
+					size = 4
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+			if = {
+				limit = { NOT = { has_dlc_feature = roads_to_power } }
+				holder ?= { destroy_title = prev }
+			}
+		}
+	}
+}
+
+
+
+### Old
+d_laamp_merc_ragged_standard = {
+	8240.1.1 = {
+		liege = 0
+		holder = Ragged_Standard_1 # The Old Steelhand
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_mercenaries
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_mercenaries
+				}
+				# 500 cavalry
+				# 1500 infantry
+				create_maa_regiment = {
+					type = bowmen
+					check_can_recruit = no
+					size = 5
+				}
+				create_maa_regiment = {
+					type = light_footmen
+					check_can_recruit = no
+					size = 5
+				}
+				create_maa_regiment = {
+					type = armored_footmen
+					check_can_recruit = no
+					size = 10
+				}
+				create_maa_regiment = {
+					type = light_horsemen
+					check_can_recruit = no
+					size = 5
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+			if = {
+				limit = { NOT = { has_dlc_feature = roads_to_power } }
+				holder ?= { destroy_title = prev }
+			}
+		}
+	}
+	8264.1.1 = {
+		holder = Myrahar_128 # Errano Myrahar
+	}
+	8265.1.1 = {
+		holder = Ragged_Standard_3 # Luro the Horsekiller
+	}
+	8281.1.1 = {
+		holder = Ragged_Standard_4 # Erys the Demon
+	}
+}
+d_laamp_merc_men_of_valor = {
+	8255.1.1 = {
+		liege = 0
+		holder = Men_of_Valor_1 # Loserys the Black Priest
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_mercenaries
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_mercenaries
+				}
+				# 500 cavalry
+				# 1500 infantry
+				create_maa_regiment = {
+					type = bowmen
+					check_can_recruit = no
+					size = 5
+				}
+				create_maa_regiment = {
+					type = light_footmen
+					check_can_recruit = no
+					size = 10
+				}
+				create_maa_regiment = {
+					type = light_horsemen
+					check_can_recruit = no
+					size = 5
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+			if = {
+				limit = { NOT = { has_dlc_feature = roads_to_power } }
+				holder ?= { destroy_title = prev }
+			}
+		}
+	}
+	8267.1.1 = {
+		holder = Men_of_Valor_2 # Malthar the Knight
+	}
+	8280.1.1 = {
+		holder = Men_of_Valor_3 # Doro of Many Honors
+	}
+	8296.1.1 = {
+		holder = Lavelos_96 # Ricasso Lavelos
+	}
+}
+d_laamp_merc_stormbreakers = {
+	8131.6.1 = {
+		liege = 0
+		holder = Tully_46 # Oscar Tully
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_mercenaries
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_mercenaries
+				}
+				# 500 cavalry
+				create_maa_regiment = {
+					type = light_horsemen
+					check_can_recruit = no
+					size = 4
+				}
+				create_maa_regiment = {
+					type = armored_horsemen
+					check_can_recruit = no
+					size = 2
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+			if = {
+				limit = { NOT = { has_dlc_feature = roads_to_power } }
+				holder ?= { destroy_title = prev }
+			}
+		}
+	}
+	8168.1.1 = {
+		holder = 0
+	}
+}
+d_laamp_merc_wolf_pack = {
+	8131.6.1 = {
+		liege = 0
+		holder = Flint_37 # Tomotty Snow
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_mercenaries
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_mercenaries
+				}
+				# 1000 infantry
+				create_maa_regiment = {
+					type = light_footmen
+					check_can_recruit = no
+					size = 5
+				}
+				create_maa_regiment = {
+					type = armored_footmen
+					check_can_recruit = no
+					size = 5
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+			if = {
+				limit = { NOT = { has_dlc_feature = roads_to_power } }
+				holder ?= { destroy_title = prev }
+			}
+		}
+	}
+	8151.1.1 = {
+		holder = 0
+	}
+}
