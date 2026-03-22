@@ -2474,6 +2474,13 @@ Manderly_7 = {
 	dynasty = dynn_Manderly
 	dna = Manderly_7
 
+	diplomacy = 8
+	martial = 4
+	stewardship = 8
+	intrigue = 7
+	learning = 5
+	prowess = 3
+
 	religion = fots_seven
 	culture = harborman
 
@@ -2582,11 +2589,18 @@ Manderly_8 = {
 	}
 }
 ### Issue of Wylis
-Manderly_9 = {
+Manderly_9 = { # edited 03/22 slambroski
 	name = Wynafryd # Canon
 	dynasty = dynn_Manderly
 	female = yes
 	dna = Manderly_9
+
+	diplomacy = 3
+	martial = 6
+	stewardship = 7
+	intrigue = 2
+	learning = 9
+	prowess = 7
 
 	religion = fots_seven
 	culture = harborman
@@ -2606,13 +2620,21 @@ Manderly_9 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
+		employer = Manderly_6
 	}
 }
-Manderly_10 = {
+Manderly_10 = { # edited 03/22 slambroski
 	name = Wylla # Canon
 	dynasty = dynn_Manderly
 	female = yes
 	dna = Manderly_10
+
+	diplomacy = 6
+	martial = 8
+	stewardship = 7
+	intrigue = 8
+	learning = 5
+	prowess = 7
 
 	religion = fots_seven
 	culture = harborman
@@ -2633,6 +2655,13 @@ Manderly_10 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
+	}
+	8297.1.1 = { # green hair and pronouns
+		effect = {
+			add_character_modifier = {
+				modifier = imperial_jade_hair_dye
+			}
+		}
 	}
 }
 ### Issue of Wylis
@@ -4195,7 +4224,10 @@ Karstark_2 = {
 		add_character_flag = sexuality_ensure_heterosexual
 	}
 	8248.1.1 = { add_spouse = Hornwood_30 } # Arsa Hornwood
-	8290.1.1 = { trait = hunchbacked }
+	8290.1.1 = { 
+		trait = hunchbacked
+		trait = nearsighted
+	}
 	8298.1.1 = {
 		effect = { # Castellan of Karhold
 			agot_appoint_as_councillor_for_castle_history_effect = {
@@ -4263,10 +4295,17 @@ Karstark_4 = {
 	}
 }
 ### Issue of Arnolf
-Karstark_5 = {
+Karstark_5 = { # edited 03/22 slambroski
 	name = Cregan # Canon
 	dynasty_house = house_Karstark
 	dna = Karstark_5
+
+	diplomacy = 2
+	martial = 5
+	stewardship = 0
+	intrigue = 2
+	learning = 5
+	prowess = 6
 
 	religion = old_gods_wnw
 	culture = northman
@@ -4276,6 +4315,7 @@ Karstark_5 = {
 	mother = Hornwood_30
 
 	trait = education_intrigue_2
+	trait = education_martial_prowess_2
 	trait = deceitful
 	trait = ambitious
 	trait = rude
@@ -4304,15 +4344,28 @@ Karstark_5 = {
 		}
 	}
 }
-Karstark_9 = {
+Karstark_9 = { # edited 03/22 slambroski
 	name = Arthor # Canon
 	dynasty_house = house_Karstark
+
+	diplomacy = 7
+	martial = 4
+	stewardship = 0
+	intrigue = 3
+	learning = 2
+	prowess = 9
 
 	religion = old_gods_wnw
 	culture = northman
 
 	father = Karstark_2
 	mother = Hornwood_30
+
+	trait = education_stewardship_2
+	trait = education_martial_prowess_3
+	trait = gluttonous
+
+	disallow_random_traits = yes 
 
 	8250.1.1 = {
 		birth = yes
@@ -4324,7 +4377,13 @@ Karstark_9 = {
 		trait = ambitious
 		trait = arrogant
 	}
-	8277.1.1 = { add_spouse = FlintFC_41 } # Barba Flint of Flint's Finger
+	8277.1.1 = { 
+		add_spouse = FlintFC_41 # Barba Flint of Flint's Finger
+		effect = {
+			change_current_weight = 30
+			target_weight_modifier_effect = { VALUE = 30 }
+		}
+	} 
 	8300.8.10 = {
 		effect = {
 			agot_safe_imprison_in_castle_history_effect = {
@@ -4402,11 +4461,25 @@ Karstark_6 = {
 	dynasty_house = house_Karstark
 	dna = Karstark_6
 
+	diplomacy = 1
+	martial = 7
+	stewardship = 9
+	intrigue = 9
+	learning = 3
+	prowess = 5
+
 	religion = old_gods_wnw
 	culture = northman
 
 	father = Karstark_5
 	mother = Ironsmith_20
+
+	trait = education_intrigue_2
+	trait = impatient
+	trait = content
+	trait = lazy 
+
+	disallow_random_traits = yes 
 
 	8272.1.1 = {
 		birth = yes
@@ -4421,11 +4494,27 @@ Karstark_7 = {
 	dynasty_house = house_Karstark
 	dna = Karstark_7
 
+	diplomacy = 6
+	martial = 10
+	stewardship = 4
+	intrigue = 4
+	learning = 10
+	prowess = 6
+
 	religion = old_gods_wnw
 	culture = northman
+	sexuality = heterosexual
 
 	father = Karstark_5
 	mother = Ironsmith_20
+
+	trait = education_intrigue_2
+	trait = education_martial_prowess_1
+	trait = callous
+	trait = inquisitive
+	trait = shy
+
+	disallow_random_traits = yes 
 
 	8276.1.1 = {
 		birth = yes
@@ -4433,6 +4522,7 @@ Karstark_7 = {
 		make_trait_inactive = dark_brown_hair
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_mentioned
+		add_character_flag = sexuality_ensure_heterosexual
 	}
 }
 Karstark_8 = {
@@ -4444,6 +4534,13 @@ Karstark_8 = {
 
 	father = Karstark_5
 	mother = Scrimshaw_111
+
+	trait = impatient
+	trait = stubborn
+	trait = vengeful
+	trait = pensive
+
+	disallow_random_traits = yes 
 
 	8286.1.1 = {
 		birth = yes
@@ -4457,11 +4554,25 @@ Karstark_10 = {
 	name = Jon # Mentioned
 	dynasty_house = house_Karstark
 
+	diplomacy = 3
+	martial = 1
+	stewardship = 8
+	intrigue = 10
+	learning = 6
+	prowess = 4
+
 	religion = old_gods_wnw
 	culture = northman
 
 	father = Karstark_9
 	mother = FlintFC_41
+
+	trait = education_diplomacy_3
+	trait = craven
+	trait = humble
+	trait = callous
+
+	disallow_random_traits = yes 
 
 	8278.1.1 = {
 		birth = yes
@@ -4469,6 +4580,7 @@ Karstark_10 = {
 		make_trait_inactive = dark_brown_hair
 		add_character_flag = canon_status_mentioned
 	}
+	8298.6.1 = { add_spouse = Karstark_rs_10 }
 	8300.8.10 = {
 		effect = {
 			agot_safe_imprison_in_castle_history_effect = {
@@ -4478,6 +4590,15 @@ Karstark_10 = {
 			}
 		}
 	}
+}
+Karstark_rs_10 = { # created 03/22 slambroski
+	name = Robyn
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = northman
+
+	8273.11.17 = { birth = yes }
 }
 Karstark_11 = {
 	name = Rickon # Mentioned
@@ -4489,8 +4610,13 @@ Karstark_11 = {
 	father = Karstark_9
 	mother = FlintFC_41
 
-	trait = dull
+	trait = intellect_bad_1
+	trait = education_stewardship_2
 	trait = brave
+	trait = stubborn
+	trait = cynical
+
+	disallow_random_traits = yes 
 
 	8280.1.1 = {
 		birth = yes
@@ -4513,14 +4639,26 @@ Karstark_12 = {
 	name = Karlon # Mentioned
 	dynasty_house = house_Karstark
 
+	diplomacy = 4
+	martial = 9
+	stewardship = 2
+	intrigue = 1
+	learning = 5
+	prowess = 3
+
 	religion = old_gods_wnw
 	culture = northman
 
 	father = Karstark_9
 	mother = FlintFC_41
 
-	trait = dull
+	trait = intellect_bad_1
+	trait = education_learning_3
 	trait = brave
+	trait = zealous
+	trait = greedy
+
+	disallow_random_traits = yes 
 
 	8281.1.1 = {
 		birth = yes
@@ -4668,6 +4806,13 @@ Karstark_19 = {
 	dynasty_house = house_Karstark
 	female = yes
 	dna = Karstark_19
+
+	diplomacy = 9
+	martial = 2
+	stewardship = 1
+	intrigue = 0
+	learning = 10
+	prowess = 0
 
 	religion = old_gods_wnw
 	culture = northman
@@ -8079,18 +8224,32 @@ Woolfield_77 = {
 	8294.1.1 = { death = yes }
 }
 ### Issue of Coenred
-Woolfield_2 = {
+Woolfield_2 = { # edited 03/22 slambroski
 	name = Leona # Canon, married Wilis Manderly
 	dynasty = dynn_Woolfield
 	female = yes
 
 	dna = Woolfield_2
 
+	diplomacy = 9
+	martial = 9
+	stewardship = 1
+	intrigue = 10
+	learning = 0
+	prowess = 3
+
 	religion = old_gods_wnw
 	culture = northman
 
 	father = Woolfield_1
 	mother = Ashwood_76
+
+	trait = education_diplomacy_3
+	trait = sadistic
+	trait = authoritative
+	trait = generous
+
+	disallow_random_traits = yes 
 
 	8264.1.1 = {
 		birth = yes
@@ -8166,9 +8325,16 @@ Woolfield_7 = {
 	8286.1.1 = { birth = yes }
 }
 ### Issue of Henly
-Woolfield_78 = {
+Woolfield_78 = { # edited 03/22 slambroski
 	name = Larence # married Lyessa Flint of Widow's Watch
 	dynasty = dynn_Woolfield
+
+	diplomacy = 4
+	martial = 0
+	stewardship = 7
+	intrigue = 2
+	learning = 0
+	prowess = 7
 
 	religion = old_gods_wnw
 	culture = northman
@@ -8176,7 +8342,14 @@ Woolfield_78 = {
 	father = Woolfield_75
 	mother = Noll_88
 
+	trait = education_learning_3
+	trait = education_martial_prowess_2
+	trait = cynical
+	trait = calm
+	trait = humble
+
 	8246.1.1 = { birth = yes }
+	8300.1.19 = { give_nickname = nick_agot_historical_the_giantslayer }
 }
 
 ###### HOUSE FLINT (id = dynn_Flint)
@@ -38530,9 +38703,16 @@ Cairns_64 = {
 
 	8262.1.1 = { birth = yes }
 }
-Cairns_65 = {
+Cairns_65 = { # 03/22 slambroski edited
 	name = Donnis
 	dynasty = dynn_Cairns
+
+	diplomacy = 7
+	martial = 9
+	stewardship = 3
+	intrigue = 1
+	learning = 2
+	prowess = 10
 
 	religion = old_gods_wnw
 	culture = barrowman
@@ -38541,6 +38721,13 @@ Cairns_65 = {
 	mother = Shackes_101
 
 	trait = twin
+	trait = education_diplomacy_1
+	trait = education_martial_prowess
+	trait = gregarious
+	trait = arbitrary
+	trait = vengeful
+
+	disallow_random_traits = yes 
 
 	8262.1.1 = { birth = yes }
 	8287.1.1 = { add_spouse = Leadranack_90 } # Elsera Leadranack
