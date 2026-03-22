@@ -5685,8 +5685,71 @@ Templeton_3 = {
 	}
 	8287.1.1 = { add_spouse = Wydman_3 } # Ysilla Wydman
 }
+### Household
+Templeton_3_B = { # created 02/07 slambroski
+	name = Byron
+	dynasty = dynn_Templeton
+
+	religion = fots_seven
+	culture = valeman_main
+
+	father = Templeton_1
+	mother = RoyceGOTM_12
+
+	8272.1.1 = { 
+		birth = yes 
+		death = { death_reason = death_stillborn }
+	}
+}
+Templeton_3_C = { # created 02/19 slambroski
+	name = Sharra
+	dynasty = dynn_Templeton
+	female = yes 
+
+	religion = fots_seven
+	culture = valeman_main
+
+	father = Templeton_1
+	mother = RoyceGOTM_12
+	sexuality = bisexual
+
+	8279.6.1 = { 
+		birth = yes 
+		add_character_flag = sexuality_ensure_bisexual
+	}
+}
+Templeton_3_D = { # created 02/07 slambroski
+	name = Martyn
+	dynasty = dynn_Templeton
+
+	religion = fots_seven
+	culture = valeman_main
+
+	father = Templeton_1
+	mother = RoyceGOTM_12
+
+	8284.1.1 = { 
+		birth = yes 
+		death = { death_reason = death_stillborn }
+	}
+}
+Templeton_3_E = { # created 02/07 slambroski
+	name = Emmond
+	dynasty = dynn_Templeton
+
+	religion = fots_seven
+	culture = valeman_main
+
+	father = Templeton_1
+	mother = RoyceGOTM_12
+
+	trait = sickly
+
+	8286.9.1 = { birth = yes }
+	8288.1.1 = { death = { death_reason = death_sickly } }
+}
 ### Issue of Gerold
-Templeton_4 = {
+Templeton_4 = { # edited 02/25 slambroski
 	name = Harrold
 	dynasty = dynn_Templeton
 
@@ -5696,11 +5759,36 @@ Templeton_4 = {
 	father = Templeton_3
 	mother = Wydman_3
 
-	8288.1.1 = { birth = yes }
+	8288.1.1 = { 
+		birth = yes 
+		employer = Templeton_1
+	}
+	8300.4.25 = {
+		effect = {
+			agot_set_as_ward_and_squire_history_effect = { KNIGHT = character:Stewart_66 } # Ser Morton Stewart
+		}
+	}	
+}
+Templeton_4_B = { # created 02/07 slambroski
+	name = Preston
+	dynasty = dynn_Templeton
+
+	religion = fots_seven
+	culture = valeman_main
+
+	father = Templeton_3
+	mother = Wydman_3
+
+	8294.1.1 = { 
+		birth = yes
+		employer = Templeton_1
+	}
 }
 ### Household
 Templeton_hh_1 = {
 	name = Xander # Easter Egg, Xander the Hungry
+
+	prowess = 3
 
 	religion = fots_seven
 	culture = valeman_main
@@ -16385,6 +16473,12 @@ Stewart_63 = {
 	father = ArrynHP_92
 	mother = Stewart_55
 
+	trait = arbitrary
+	trait = gluttonous
+	trait = stubborn
+
+	disallow_random_traits = yes
+
 	8248.1.1 = { birth = yes }
 	8277.1.1 = { add_matrilineal_spouse = Rankenfell_58 } # Larys Rankenfell
 	8296.1.1 = {
@@ -16489,13 +16583,42 @@ Stewart_66 = {
 	name = Morton # a lord
 	dynasty = dynn_Stewart
 
+	martial = 6
+	stewardship = 9
+	diplomacy = 9
+	intrigue = 6
+	learning = 7
+	prowess = 7	
+
 	religion = fots_seven
 	culture = valeman_upper
 
 	father = Rankenfell_58
 	mother = Stewart_63
+	sexuality = homosexual
 
-	8284.1.1 = { birth = yes }
+	trait = generous 
+	trait = stubborn
+	trait = just
+	trait = education_martial_4
+	trait = education_martial_prowess_2
+	trait = military_engineer
+
+	disallow_random_traits = yes
+
+	8284.1.1 = { 
+		birth = yes 
+		add_character_flag = sexuality_ensure_homosexual
+	}
+	8300.1.20 = {
+		trait = knight
+		effect = {
+			agot_knighted_char_history_effect = { KNIGHT = character:Templeton_1 } # Ser Symond Templeton
+		}
+	}
+	8300.4.25 = {
+		add_spouse = Templeton_3_C
+	}
 }
 Stewart_67 = {
 	name = Triston
