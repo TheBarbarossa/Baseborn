@@ -5208,6 +5208,7 @@ Grafton_3 = {
 
 	religion = fots_seven
 	culture = valeman_main
+	sexuality = heterosexual
 
 	father = Grafton_2
 	mother = Donniger_54
@@ -5225,6 +5226,7 @@ Grafton_3 = {
 	8264.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_canon
+		add_character_flag = sexuality_ensure_heterosexual
 	}
 	8282.1.1 = { add_spouse = Hungerford_7 } # Annara Hungerford
 	8300.1.1 = { trait = drunkard }
@@ -5234,14 +5236,28 @@ Grafton_4 = {
 	name = Lucas # Easter Egg
 	dynasty = dynn_Grafton
 
+	diplomacy = 0
+	martial = 8
+	stewardship = 3
+	intrigue = 2
+	learning = 8
+	prowess = 4
+
 	religion = fots_seven
 	culture = valeman_main
 
 	father = Grafton_3
 	mother = Hungerford_7
 
+	trait = trusting
+	trait = fickle
+	trait = gregarious
+	trait = edcuation_learning_3
+	trait = education_republican_knowledge_2
+
 	8282.1.1 = { birth = yes }
 	8298.1.1 = { trait = knight }
+	8300.1.1 = { add_spouse = Royce_3 }
 }
 Grafton_5 = {
 	name = Rylene # Mentioned
@@ -5263,15 +5279,35 @@ Grafton_6 = {
 	name = Edric # Mentioned
 	dynasty = dynn_Grafton
 
+	diplomacy = 4
+	martial = 0
+	stewardship = 6
+	intrigue = 7
+	learning = 5
+	prowess = 6
+
 	religion = fots_seven
 	culture = valeman_main
+	sexuality = homosexual
 
 	father = Grafton_3
 	mother = Hungerford_7
 
+	trait = honest
+	trait = callous
+	trait = bossy
+
+	disallow_random_traits = yes
+
 	8289.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
+		add_character_flag = sexuality_ensure_homosexual
+	}
+	8300.1.1 = {
+		effect = {
+			agot_set_as_ward_and_squire_history_effect = { KNIGHT = character:Royce_1 } # Bronze Yohn Royce
+		}
 	}
 }
 Grafton_7 = {
