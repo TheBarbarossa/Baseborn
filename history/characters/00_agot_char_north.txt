@@ -8454,11 +8454,18 @@ Flint_70 = {
 	8254.1.1 = { birth = yes }
 	8267.1.1 = { death = { death_reason = death_accident } }
 }
-Flint_5 = {
+Flint_5 = { # 03/22 slambroski edited
 	name = Lyessa # Canon, a lord
 	dynasty_house = house_FlintWW
 	female = yes
 	dna = Flint_5
+
+	diplomacy = 0
+	martial = 7
+	stewardship = 3
+	intrigue = 5
+	learning = 2
+	prowess = 6
 
 	religion = old_gods_wnw
 	culture = northman
@@ -8467,6 +8474,12 @@ Flint_5 = {
 	mother = Hornwood_29
 
 	trait = education_diplomacy_2
+	trait = august
+	trait = paranoid
+	trait = humble
+	trait = calm
+
+	disallow_random_traits = yes 
 
 	8257.1.1 = {
 		birth = yes
@@ -8510,6 +8523,12 @@ Flint_6 = {
 	mother = Flint_5
 
 	trait = education_martial_2
+	trait = cautious_leader
+	trait = wrathful
+	trait = compassionate
+	trait = honest
+
+	disallow_random_traits = yes 
 
 	8274.1.1 = {
 		birth = yes
@@ -8535,6 +8554,11 @@ Flint_7 = {
 	mother = Flint_5
 
 	trait = education_martial_2
+	trait = authoritative
+	trait = gluttonous
+	trait = inquisitive
+
+	disallow_random_traits = yes 
 
 	8277.1.1 = {
 		birth = yes
@@ -20251,13 +20275,18 @@ Wull_70 = {
 }
 
 ### Issue of Ranulf
-Wull_2 = {
+Wull_2 = { # edited 03/22 slambroski
 	name = Hugo # Canon, AKA: Big Bucket, a lord
 	dynasty = dynn_Wull
 	dna = Wull_2
 
+	diplomacy = 7
 	martial = 8
-	prowess = 8
+	stewardship = 8
+	intrigue = 6
+	learning = 8
+	prowess = 6
+	# prowess = 8
 
 	religion = old_gods_wnw
 	culture = northern_clan
@@ -20267,8 +20296,14 @@ Wull_2 = {
 	mother = Wull_rs_1
 
 	trait = education_martial_2
+	trait = education_martial_prowess_2
+	trait = rough_terrain_expert
 	trait = physique_good_2
 	trait = arrogant
+	trait = just
+	trait = forgiving
+
+	disallow_random_traits = yes 
 
 	8251.1.1 = {
 		birth = yes
@@ -20311,15 +20346,30 @@ Wull_4 = {
 	}
 }
 ### Issue of Hugo
-Wull_3 = {
+Wull_3 = { # edited 03/22 slambroski
 	name = Beron
 	dynasty = dynn_Wull
+
+	diplomacy = 1
+	martial = 9
+	stewardship = 3
+	intrigue = 8
+	learning = 7
+	prowess = 0
 
 	religion = old_gods_wnw
 	culture = northern_clan
 
 	father = Wull_2
 	mother = Burley_69
+
+	trait = education_stewardship_3
+	trait = education_martial_prowess_4
+	trait = craven
+	trait = shy
+	trait = calm
+
+	disallow_random_traits = yes 
 
 	8272.1.1 = { birth = yes }
 }
@@ -20330,11 +20380,25 @@ Wull_23 = {
 
 	#dna = Wull_23
 
+	diplomacy = 2
+	martial = 9
+	stewardship = 4
+	intrigue = 6
+	learning = 4
+	prowess = 6
+
 	religion = old_gods_wnw
 	culture = northern_clan
 
 	father = Wull_2
 	mother = Burley_69
+
+	trait = education_diplomacy_1
+	trait = gluttonous
+	trait = zealous
+	trait = sadistic
+
+	disallow_random_traits = yes 
 
 	8278.5.26 = { birth = yes }
 }
@@ -20710,16 +20774,30 @@ Burley_65 = {
 	}
 }
 ### Issue of Benjicot
-Burley_69 = {
+Burley_69 = { # edited 03/22 slambroski
 	name = Branda # married Hugo Wull
 	dynasty = dynn_Burley
 	female = yes
+
+	diplomacy = 1
+	martial = 7
+	stewardship = 2
+	intrigue = 7
+	learning = 8
+	prowess = 2
 
 	religion = old_gods_wnw
 	culture = northern_clan
 
 	father = Burley_65
 	mother = Madden_83
+
+	trait = education_stewardship_3
+	trait = trusting
+	trait = cynical
+	trait = rude
+
+	disallow_random_traits = yes 
 
 	8250.1.1 = { birth = yes }
 }
@@ -34736,7 +34814,7 @@ Nash_83 = {
 	8282.1.1 = { birth = yes }
 }
 ### Issue of Belthasar
-Nash_62 = {
+Nash_62 = { # edited 03/22 slambroski
 	name = Gareth # a lord
 	dynasty = dynn_Nash
 
@@ -34747,17 +34825,18 @@ Nash_62 = {
 	mother = Grayson_51
 
 	8254.1.1 = { birth = yes }
-	8275.1.1 = { add_spouse = Nash_rs_62 }
+	# 8275.1.1 = { add_spouse = Nash_rs_62 }
+	8278.1.1 = { add_spouse = Slate_59 } # Garenna Slate
 }
-Nash_rs_62 = {
-	name = Frenya
-	female = yes
-
-	religion = old_gods_wnw
-	culture = northman
-
-	8258.1.1 = { birth = yes }
-}
+#Nash_rs_62 = {
+#	name = Frenya
+#	female = yes
+#
+#	religion = old_gods_wnw
+#	culture = northman
+#
+#	8258.1.1 = { birth = yes }
+#}
 ### Issue of Gareth
 Nash_76 = {
 	name = Veron
@@ -34767,7 +34846,8 @@ Nash_76 = {
 	culture = northman
 
 	father = Nash_62
-	mother = Nash_rs_62
+	# mother = Nash_rs_62
+	mother = Slate_59
 
 	8279.1.1 = { birth = yes }
 }
@@ -34780,7 +34860,8 @@ Nash_77 = {
 	culture = northman
 
 	father = Nash_62
-	mother = Nash_rs_62
+	# mother = Nash_rs_62
+	mother = Slate_59
 
 	8280.1.1 = { birth = yes }
 }
@@ -34793,7 +34874,8 @@ Nash_78 = {
 	culture = northman
 
 	father = Nash_62
-	mother = Nash_rs_62
+	# mother = Nash_rs_62
+	mother = Slate_59
 
 	8283.1.1 = { birth = yes }
 }
@@ -34805,7 +34887,8 @@ Nash_79 = {
 	culture = northman
 
 	father = Nash_62
-	mother = Nash_rs_62
+	# mother = Nash_rs_62
+	mother = Slate_59
 
 	8287.1.1 = { birth = yes }
 }
