@@ -8598,6 +8598,19 @@ Flint_8 = {
 		add_character_flag = canon_status_mentioned
 	}
 }
+### Issue of Morick
+FlintWW_12_A = { # created 02/06 slambroski
+	name = Hullen
+	dynasty_house = house_FlintWW
+
+	religion = old_gods_wnw
+	culture = northman
+
+	father = FlintWW_12
+	mother = FlintFC_44
+
+	8281.1.1 = { birth = yes }
+}
 
 ### Breakstone Hill Branch
 ############################
@@ -19819,7 +19832,7 @@ Norrey_1 = {
 	}
 	8249.1.1 = { add_spouse = Madden_81 } # Mira Madden
 }
-Norrey_97 = {
+Norrey_97 = { # edited 03/22 slambroski
 	name = Moryne
 	dynasty = dynn_Norrey
 	female = yes
@@ -19831,6 +19844,7 @@ Norrey_97 = {
 	mother = Flint_212
 
 	8234.1.1 = { birth = yes }
+	8265.1.1 = { death = { death_reason = death_childbirth } }
 }
 Norrey_98 = {
 	name = Arnolf
@@ -20215,22 +20229,22 @@ Wull_68 = {
 		death = { death_reason = death_accident }
 	}
 }
-Wull_69 = {
-	name = Moreg
-	dynasty = dynn_Wull
-	female = yes
-
-	religion = old_gods_wnw
-	culture = northern_clan
-
-	father = Wull_66
-	mother = Burley_62
-
-	8230.1.1 = { birth = yes }
-	8285.1.1 = {
-		death = { death_reason = death_mysterious }
-	}
-}
+#Wull_69 = {
+#	name = Moreg
+#	dynasty = dynn_Wull
+#	female = yes
+#
+#	religion = old_gods_wnw
+#	culture = northern_clan
+#
+#	father = Wull_66
+#	mother = Burley_62
+#
+#	8230.1.1 = { birth = yes }
+#	8285.1.1 = {
+#		death = { death_reason = death_mysterious }
+#	}
+#}
 Wull_1 = {
 	name = Ranulf
 	dynasty = dynn_Wull
@@ -20257,23 +20271,23 @@ Wull_rs_1 = {
 	8231.1.1 = { birth = yes }
 	8271.1.1 = { death = yes }
 }
-Wull_70 = {
+Wull_70 = { # edited 02/28 slambroski
 	name = Wayn
 	dynasty = dynn_Wull
 
 	religion = old_gods_wnw
-	culture = northern_clan
+	culture = hill_clansman
 
 	father = Wull_66
 	mother = Burley_62
 
 	8233.1.1 = { birth = yes }
+	8255.1.1 = { add_spouse = Norrey_97 } # Moryne Norrey
 	8294.1.1 = {
-		trait = ill
-		death = { death_reason = death_ill }
+		trait = depressed_1
+		death = { death_reason = death_depressed }
 	}
 }
-
 ### Issue of Ranulf
 Wull_2 = { # edited 03/22 slambroski
 	name = Hugo # Canon, AKA: Big Bucket, a lord
@@ -20345,6 +20359,72 @@ Wull_4 = {
 		}
 	}
 }
+### Issue of Wayn
+Wull_70_A = { # created 02/28 slambroski
+	name = Gerren
+	dynasty = dynn_Wull
+
+	religion = old_gods_wnw
+	culture = hill_clansman
+
+	father = Wull_70
+	mother = Norrey_97
+
+	8258.1.1 = { birth = yes }
+	8278.1.1 = { add_spouse = Cade_52_B } # Jeyne Cade
+}
+Wull_70_B = { # created 02/28 slambroski
+	name = Stevyn
+	dynasty = dynn_Wull
+
+	religion = old_gods_wnw
+	culture = hill_clansman
+
+	father = Wull_70
+	mother = Norrey_97
+
+	8265.1.1 = { birth = yes }
+	8289.1.1 = { death = { death_reason = death_battle } }
+}
+### Issue of Gerren
+Wull_70_C = { # created 02/28 slambroski
+	name = Josera
+	dynasty = dynn_Wull
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = hill_clansman
+
+	father = Wull_70_A
+	mother = Cade_52_B
+
+	8279.6.1 = { birth = yes }
+}
+Wull_70_D = { # created 02/28 slambroski
+	name = Balder
+	dynasty = dynn_Wull
+
+	religion = old_gods_wnw
+	culture = hill_clansman
+
+	father = Wull_70_A
+	mother = Cade_52_B
+
+	8283.1.1 = { birth = yes }
+	8294.1.1 = { death = { death_reason = death_fall } }
+}
+Wull_70_E = { # created 02/28 slambroski
+	name = Harrion
+	dynasty = dynn_Wull
+
+	religion = old_gods_wnw
+	culture = hill_clansman
+
+	father = Wull_70_A
+	mother = Cade_52_B
+
+	8287.6.1 = { birth = yes }
+}
 ### Issue of Hugo
 Wull_3 = { # edited 03/22 slambroski
 	name = Beron
@@ -20364,7 +20444,7 @@ Wull_3 = { # edited 03/22 slambroski
 	mother = Burley_69
 
 	trait = education_stewardship_3
-	trait = education_martial_prowess_4
+	trait = education_martial_prowess_1
 	trait = craven
 	trait = shy
 	trait = calm
@@ -34567,6 +34647,19 @@ Cade_53 = {
 
 	8251.1.1 = { birth = yes }
 	8276.1.1 = { add_spouse = Mazin_26 } # Jorelle Mazin
+}
+Cade_52_B = { # created 02/28 slambroski
+	name = Jeyne
+	dynasty = dynn_Cade
+	female = yes
+
+	religion = old_gods_wnw
+	culture = northman
+
+	father = Cade_51
+	mother = Howle_67
+
+	8256.1.1 = { birth = yes }
 }
 ### Issue of Jarett
 Cade_54 = {
