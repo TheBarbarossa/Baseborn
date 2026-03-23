@@ -3372,7 +3372,7 @@ Umber_3 = {
 		effect = { remove_trait = widowed }
 	}
 }
-Umber_4 = {
+Umber_4 = { # edited 03/23 slambroski
 	name = Hother # Canon, AKA: Whoresbane
 	dynasty = dynn_Umber
 	dna = Umber_4
@@ -3420,6 +3420,14 @@ Umber_4 = {
 	}
 	8297.1.1 = {
 		effect = { remove_trait = widowed }
+	}
+	8300.1.20 = {
+		trait = wounded_3
+		trait = mute
+		death = {
+			death_reason = death_execution # Flayed alive
+			killer = Bolton_5 # Ramsay Snow
+		}
 	}
 }
 ### Issue of Mors
@@ -3500,7 +3508,7 @@ Umber_6 = {
 	}
 }
 ### Issue of Brandon
-Umber_8 = {
+Umber_8 = { # edited 03/23 slambroski
 	name = Jon # Canon, AKA: THE Greatjon, a lord
 	dynasty = dynn_Umber
 
@@ -3521,6 +3529,7 @@ Umber_8 = {
 	mother = Silverfield_60
 
 	trait = education_martial_1
+	trait = education_martial_prowess_2
 	trait = physique_good_3
 	trait = strong
 	trait = brave
@@ -3718,10 +3727,17 @@ Umber_11 = {
 		}
 	}
 }
-Umber_12 = {
+Umber_12 = { # edited 03/23 slambroski
 	name = Eddard # Mentioned
 	dynasty = dynn_Umber
 	dna = Umber_12
+
+	diplomacy = 9
+	martial = 1
+	stewardship = 0
+	intrigue = 5
+	learning = 7
+	prowess = 2
 
 	religion = old_gods_wnw
 	culture = northman
@@ -3730,7 +3746,13 @@ Umber_12 = {
 	mother = Moss_70
 
 	trait = education_martial_2
+	trait = education_martial_prowess_2
 	trait = physique_good_2
+	trait = brave
+	trait = gluttonous
+	trait = arrogant
+
+	disallow_random_traits = yes 
 
 	8281.1.1 = {
 		birth = yes
@@ -3756,12 +3778,19 @@ Umber_12 = {
 		}
 	}
 }
-Umber_13 = {
+Umber_13 = { # edited 03/23 slambroski
 	name = Branda # Mentioned
 	dynasty = dynn_Umber
 	female = yes
 
 	dna = Umber_13
+
+	diplomacy = 9
+	martial = 7
+	stewardship = 1
+	intrigue = 2
+	learning = 8
+	prowess = 8
 
 	religion = old_gods_wnw
 	culture = northman
@@ -3769,7 +3798,13 @@ Umber_13 = {
 	father = Umber_8
 	mother = Moss_70
 
+	trait = education_learning_3
 	trait = physique_good_2
+	trait = craven
+	trait = zealous
+	trait = diligent
+
+	disallow_random_traits = yes 
 
 	8283.1.1 = {
 		birth = yes
@@ -3778,9 +3813,16 @@ Umber_13 = {
 		add_character_flag = canon_status_mentioned
 	}
 }
-Umber_14 = {
+Umber_14 = { # edited 03/23 slambroski
 	name = Brandon # Mentioned
 	dynasty = dynn_Umber
+
+	diplomacy = 4
+	martial = 7
+	stewardship = 1
+	intrigue = 6
+	learning = 7
+	prowess = 6
 
 	religion = old_gods_wnw
 	culture = northman
@@ -3789,6 +3831,12 @@ Umber_14 = {
 	mother = Moss_70
 
 	trait = physique_good_2
+	trait = arbitrary
+	trait = honest
+	trait = gluttonous
+	trait = bossy
+
+	disallow_random_traits = yes 
 
 	8286.1.1 = {
 		birth = yes
@@ -3796,7 +3844,7 @@ Umber_14 = {
 		add_character_flag = canon_status_mentioned
 	}
 }
-Umber_15 = {
+Umber_15 = { # edited 03/23 slambroski
 	name = Argelle # Mentioned
 	dynasty = dynn_Umber
 	female = yes
@@ -3808,6 +3856,9 @@ Umber_15 = {
 	mother = Moss_70
 
 	trait = physique_good_2
+	trait = sadistic
+	trait = calm
+	trait = pensive
 
 	8288.1.1 = {
 		birth = yes
@@ -4801,7 +4852,7 @@ Karstark_18 = {
 		}
 	}
 }
-Karstark_19 = {
+Karstark_19 = { # edited 03/23 slambroski
 	name = Alys # Canon, married Sigorn Thenn
 	dynasty_house = house_Karstark
 	female = yes
@@ -4834,6 +4885,8 @@ Karstark_19 = {
 		make_trait_inactive = dark_brown_hair
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
+		trait = refusing_marriage
+		effect = { add_character_modifier = contraceptives_modifier }
 	}
 	8300.7.1 = {
 		effect = {
@@ -9588,6 +9641,7 @@ Locke_1 = {
 	intrigue = 7
 	stewardship = 5
 	learning = 4
+	prowess = 8
 
 	religion = old_gods_wnw
 	culture = northman
@@ -9745,6 +9799,13 @@ Locke_4 = {
 	name = Brandon # Mentioned
 	dynasty = dynn_Locke
 
+	diplomacy = 6
+	martial = 10
+	stewardship = 7
+	intrigue = 9
+	learning = 10
+	prowess = 5
+
 	religion = old_gods_wnw
 	culture = northman
 
@@ -9752,6 +9813,7 @@ Locke_4 = {
 	mother = FlintFC_39
 
 	trait = education_diplomacy_3
+	trait = education_martial_prowess_3
 	trait = gluttonous
 	trait = honest
 	trait = brave
@@ -9770,6 +9832,13 @@ Locke_5 = {
 	name = Sybelle # Canon, married Robett Glover
 	dynasty = dynn_Locke
 	female = yes
+
+	diplomacy = 7
+	martial = 1
+	stewardship = 9
+	intrigue = 7
+	learning = 7
+	prowess = 1
 
 	religion = old_gods_wnw
 	culture = northman
@@ -9799,27 +9868,59 @@ Locke_5 = {
 		}
 	}
 }
-Locke_6 = {
+Locke_6 = { # edited 03/23 slambroski
 	name = Benjen
 	dynasty = dynn_Locke
 
+	diplomacy = 10
+	martial = 3
+	stewardship = 2
+	intrigue = 8
+	learning = 3
+	prowess = 9
+
 	religion = old_gods_wnw
 	culture = northman
 
 	father = Locke_2
 	mother = FlintFC_39
+
+	trait = education_martial_2
+	trait = education_martial_prowess_2
+	trait = reaver
+	trait = honest
+	trait = greedy
+	trait = impatient
+
+	disallow_random_traits = yes
 
 	8278.1.1 = { birth = yes }
 }
-Locke_7 = {
+Locke_7 = { # edited 03/23 slambroski
 	name = Harrion
 	dynasty = dynn_Locke
+
+	diplomacy = 5
+	martial = 0
+	stewardship = 9
+	intrigue = 7
+	learning = 0
+	prowess = 10
 
 	religion = old_gods_wnw
 	culture = northman
 
 	father = Locke_2
 	mother = FlintFC_39
+
+	trait = education_martial_4
+	trait = education_martial_prowess_1
+	trait = reaver
+	trait = brave
+	trait = authoritative
+	trait = callous
+
+	disallow_random_traits = yes 
 
 	8281.1.1 = { birth = yes }
 }
@@ -16455,15 +16556,31 @@ Glover_7 = {
 	}
 }
 ### Issue of Gregor
-Glover_32 = {
-	name = Gawen # Semi-Canon
+Glover_32 = { # edited 03/22 slambroski
+	# name = Gawen # Semi-Canon
+	name = Devyn
 	dynasty = dynn_Glover
+
+	diplomacy = 3
+	martial = 0
+	stewardship = 8
+	intrigue = 10
+	learning = 2
+	prowess = 3
 
 	religion = old_gods_wnw
 	culture = wolfswood_clansman
 
 	father = Glover_31
 	mother = FlintFC_83
+
+	trait = education_diplomacy_3
+	trait = education_martial_prowess_1
+	trait = lustful
+	trait = honest
+	trait = forgiving
+	
+	disallow_random_traits = yes 
 
 	8268.1.1 = {
 		birth = yes
@@ -16898,7 +17015,7 @@ Forrester_4 = {
 		make_trait_inactive = left_windblown
 	}
 }
-Forrester_5 = {
+Forrester_5 = { # edited 03/23 slambroski
 	name = Mira # Semi-Canon
 	dynasty = dynn_Forrester
 	female = yes
@@ -16909,6 +17026,7 @@ Forrester_5 = {
 	stewardship = 6
 	intrigue = 5
 	learning = 4
+	prowess = 4
 
 	religion = old_gods_wnw
 	culture = wolfswood_clansman
@@ -16933,6 +17051,8 @@ Forrester_5 = {
 		trait = shy
 	}
 	8299.12.15 = {
+		trait = refusing_marriage
+		effect = { add_character_modifier = contraceptives_modifier }
 		employer = Baratheon_5 # Joffrey Baratheon
 		effect = {
 			if = {
@@ -17013,7 +17133,7 @@ Forrester_7 = {
 		trait = just
 	}
 }
-Forrester_8 = {
+Forrester_8 = { # edited 03/23 slambroski
 	name = Ryon # Semi-Canon
 	dynasty = dynn_Forrester
 	dna = Forrester_8
@@ -17026,6 +17146,8 @@ Forrester_8 = {
 
 	trait = intellect_good_1
 	trait = shy
+	trait = compassionate
+	trait = bossy 
 
 	8290.1.1 = {
 		birth = yes
@@ -17206,7 +17328,7 @@ Whitehill_36 = {
 		death = { death_reason = death_accident }
 	}
 }
-Whitehill_1 = {
+Whitehill_1 = { # edited 03/23 slambroski
 	name = Ludd # Semi-Canon, a lord
 	dynasty = dynn_Whitehill
 	dna = Whitehill_1
@@ -17214,14 +17336,20 @@ Whitehill_1 = {
 	diplomacy = 2
 	learning = 3
 	stewardship = 6
+	martial = 8
+	intrigue = 2
+	prowess = 5
 
 	religion = fots_seven
 	culture = wolfswood_clansman
+	sexuality = heterosexual
 
 	father = Whitehill_35
 	mother = Hartleaf_66
 
 	trait = education_intrigue_3
+	trait = education_martial_prowess_3
+	trait = torturer
 	trait = arrogant
 	trait = rude
 	trait = ambitious
@@ -17236,6 +17364,7 @@ Whitehill_1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_semicanon
+		add_character_flag = ensure_sexuality_heterosexual
 	}
 	8265.1.1 = {
 		effect = {
@@ -17247,10 +17376,10 @@ Whitehill_1 = {
 	}
 	8270.1.1 = { add_spouse = Howle_72 } # Gilesa Howle
 	8281.1.1 = { trait = widowed }
-	8289.1.1 = {
-		agot_safe_buy_overseer_perk_history_effect = yes
-		trait = overseer
-	}
+	# 8289.1.1 = {
+	#	agot_safe_buy_overseer_perk_history_effect = yes
+	#	trait = overseer
+	# }
 	8300.1.15 = {
 		effect = {
 			add_pressed_claim = title:c_ironrath
@@ -17294,10 +17423,17 @@ Whitehill_2 = {
 		death = { death_reason = death_greyscale }
 	}
 }
-Whitehill_3 = {
+Whitehill_3 = { # edited 03/23 slambroski
 	name = Ebbert # Semi-Canon
 	dynasty = dynn_Whitehill
 	dna = Whitehill_3
+
+	diplomacy = 7
+	martial = 7
+	stewardship = 9
+	intrigue = 5
+	learning = 0
+	prowess = 4
 
 	religion = fots_seven
 	culture = wolfswood_clansman
@@ -17306,6 +17442,11 @@ Whitehill_3 = {
 	mother = Howle_72
 
 	trait = education_learning_4
+	trait = temperate
+	trait = just
+	trait = rude
+
+	disallow_random_traits = yes 
 
 	8273.1.1 = {
 		birth = yes
@@ -17327,7 +17468,7 @@ Whitehill_3 = {
 		}
 	}
 }
-Whitehill_4 = {
+Whitehill_4 = { # edited 03/23 slambroski
 	name = Torrhen # Semi-Canon
 	dynasty = dynn_Whitehill
 	dna = Whitehill_4
@@ -17338,7 +17479,13 @@ Whitehill_4 = {
 	father = Whitehill_1
 	mother = Howle_72
 
+	trait = education_intrigue_3
+	trait = education_martial_prowess_2
 	trait = arrogant
+	trait = vengeful
+	trait = stubborn
+
+	disallow_random_traits = yes 
 
 	8274.1.1 = {
 		birth = yes
@@ -17347,11 +17494,18 @@ Whitehill_4 = {
 	}
 	8297.1.1 = { employer = Bolton_1 } # Roose Bolton
 }
-Whitehill_5 = {
+Whitehill_5 = { # edited 03/23 slambroski
 	name = Gwyn # Semi-Canon
 	dynasty = dynn_Whitehill
 	female = yes
 	dna = Whitehill_5
+
+	diplomacy = 10
+	martial = 5
+	stewardship = 8
+	intrigue = 4
+	learning = 10
+	prowess = 2
 
 	religion = fots_seven
 	culture = wolfswood_clansman
@@ -17359,17 +17513,30 @@ Whitehill_5 = {
 	father = Whitehill_1
 	mother = Howle_72
 
+	trait = education_diplomacy_2
+	trait = education_martial_prowess_1
+	trait = ambitious
+	trait = calm
+	trait = vengeful
+
+	disallow_random_traits = yes 
+
 	8276.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_semicanon
 	}
 }
-Whitehill_6 = {
+Whitehill_6 = { # edited 03/23 slambroski
 	name = Gryff # Semi-Canon
 	dynasty = dynn_Whitehill
 	dna = Whitehill_6
 
+	diplomacy = 10
+	martial = 2
+	stewardship = 8
+	intrigue = 4
+	learning = 7
 	prowess = 6
 
 	religion = fots_seven
@@ -18323,18 +18490,33 @@ Moss_23 = {
 
 	8255.9.25 = { birth = yes }
 }
-Moss_70 = {
+Moss_70 = { # edited 03/23 slambroski
 	name = Lysanne # Semi-Canon, married Greatjon Umber
 	dynasty = dynn_Moss # House uncertain
 	female = yes
 
 	dna = Moss_70
 
+	diplomacy = 8
+	martial = 7
+	stewardship = 1
+	intrigue = 0
+	learning = 1
+	prowess = 1
+
 	religion = old_gods_wnw
 	culture = wolfswood_clansman
 
 	father = Moss_1
 	mother = Degore_58
+
+	trait = education_martial_4
+	trait = cautious_leader
+	trait = forgiving
+	trait = deceitful
+	trait = sadistic
+
+	disallow_random_traits = yes 
 
 	8257.1.1 = {
 		birth = yes
@@ -21410,7 +21592,7 @@ Reed_1 = {
 	}
 }
 ### Issue of Howland
-Reed_2 = {
+Reed_2 = { # edited 03/23 slambroski
 	name = Meera # Canon
 	dynasty = dynn_Reed
 	female = yes
@@ -21431,6 +21613,8 @@ Reed_2 = {
 	mother = Blackmyre_89
 
 	trait = education_martial_2
+	trait = education_martial_prowess_3
+	trait = agile
 	trait = beauty_good_1
 	trait = diligent
 	trait = compassionate
@@ -21475,7 +21659,7 @@ Reed_2 = {
 	}
 	8300.1.1 = {
 		effect = {
-			agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_bran }
+			agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_bran } # Move him Beyond the Wall
 		}
 	}
 }
@@ -21972,22 +22156,39 @@ Blackmyre_88 = {
 
 	8260.1.1 = { birth = yes }
 }
-Blackmyre_89 = {
+Blackmyre_89 = { # edited 03/23 slambroski
 	name = Jyana # Canon, married Howland Reed
 	dynasty = dynn_Blackmyre # House uncertain
 	female = yes
 
 	dna = Blackmyre_89
 
+	diplomacy = 5
+	martial = 0
+	stewardship = 9
+	intrigue = 8
+	learning = 1
+	prowess = 5
+
 	religion = old_gods_wnw
 	culture = crannogman
+	sexuality = heterosexual
 
 	father = Dampwood_72
 	mother = Blackmyre_83
 
+	trait = education_diplomacy_1
+	trait = glowing
+	trait = trusting
+	trait = wrathful
+	trait = brave
+	
+	disallow_random_traits = yes 
+
 	8262.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
+		add_character_flag = sexuality_ensure_heterosexual
 	}
 }
 Blackmyre_90 = {
