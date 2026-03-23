@@ -5476,11 +5476,12 @@ Redfort_1 = {
 	dynasty = dynn_Redfort
 	dna = Redfort_1
 
-	martial = 7
 	diplomacy = 7
-	intrigue = 6
+	martial = 7
 	stewardship = 7
+	intrigue = 6
 	learning = 5
+	prowess = 5
 
 	religion = fots_seven
 	culture = valeman_upper
@@ -5518,42 +5519,87 @@ Redfort_2 = {
 	dynasty = dynn_Redfort
 	dna = Redfort_2
 
+	diplomacy = 4
+	martial = 2
+	stewardship = 1
+	intrigue = 3
+	learning = 4
+	prowess = 9
+
 	religion = fots_seven
 	culture = valeman_upper
+	sexuality = homosexual	
 
 	father = Redfort_1
 	mother = Royce_104
+
+	trait = gluttonous
+	trait = calm
+	trait = shy
+	trait = education_martial_1
+	trait = education_martial_prowess2
+	trait = organizer
+
+	disallow_random_traits = yes
 
 	8268.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
+		add_character_flag = sexuality_ensure_homosexual
 	}
 	8284.1.1 = { trait = knight }
+	8300.1.12 = { add_spouse = Waynwood_20 }
 }
 Redfort_3 = {
 	name = Creighton # Canon
 	dynasty = dynn_Redfort
 
+	diplomacy = 8
+	martial = 5
+	stewardship = 3
+	intrigue = 4
+	learning = 10
+	prowess = 1
+
 	religion = fots_seven
 	culture = valeman_upper
+	sexuality = heterosexual
 
 	father = Redfort_1
 	mother = Hunter_58
 
+	trait = calm
+	trait = deceitful
+	trait = diligent
+	trait = education_intrigue_3
+	trait = education_martial_prowess_1
+
+	disallow_random_traits = yes
+
 	8273.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_canon
+		add_character_flag = sexuality_ensure_heterosexual
 	}
 	8289.1.1 = { trait = knight }
+	8300.1.26 = { add_spouse = RoyceGOTM_3 }
 }
 Redfort_4 = {
 	name = Jon # Canon
 	dynasty = dynn_Redfort
 	dna = Redfort_4
 
+	diplomacy = 9
+	martial = 9
+	stewardship = 3
+	intrigue = 0
+	learning = 6
+	prowess = 2
+
 	religion = fots_seven
 	culture = valeman_upper
+	sexuality = heterosexual
 
 	father = Redfort_1
 	mother = Hunter_58
@@ -5562,19 +5608,32 @@ Redfort_4 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
+		add_character_flag = sexuality_ensure_heterosexual
 	}
 	8291.1.1 = { trait = knight }
+	8300.2.1 = {
+		effect = {
+			agot_safe_betrothal_history_effect = {
+				TARGET = character:Lynderly_3 # Leona Lynderly
+			}
+		}
+	}	
 }
 Redfort_5 = {
 	name = Mychel # Canon
 	dynasty = dynn_Redfort
 	dna = Redfort_5
 
-	prowess = 8
+	diplomacy = 10
+	martial = 7
+	stewardship = 3
+	intrigue = 0
+	learning = 7
+	prowess = 12
 
 	religion = fots_seven
 	culture = valeman_upper
-	sexuality = heterosexual
+	sexuality = bisexual
 
 	father = Redfort_1
 	mother = Belmore_59
@@ -5589,8 +5648,7 @@ Redfort_5 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
-		add_character_flag = sexuality_ensure_not_homosexual
-		add_character_flag = sexuality_ensure_not_asexual
+		add_character_flag = sexuality_ensure_bisexual
 	}
 	8290.1.1 = {
 		effect = {
