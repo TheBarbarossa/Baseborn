@@ -686,7 +686,12 @@ Lannister_6 = {
 			}
 		}
 	}
-
+	8300.1.1 = {
+		employer = Baratheon_7 # Tommen Baratheon
+		effect = {
+			agot_appoint_as_regent_for_castle_history_effect = { CASTLE = title:h_the_iron_throne }
+		}
+	}	
 	8300.5.17 = {
 		trait = fornicator # Lancel Lannister
 		effect = {
@@ -1672,8 +1677,12 @@ Lannister_24 = {
 	name = Daven # Canon
 	dynasty = dynn_Lannister
 
-	martial = 11 # Much better leader than his father Stafford
-	prowess = 6
+	diplomacy = 9
+    martial = 11
+    stewardship = 10
+    intrigue = 4
+    learning = 4
+    prowess = 6
 
 	religion = fots_seven
 	culture = westerman_main
@@ -1683,6 +1692,11 @@ Lannister_24 = {
 
 	trait = education_martial_2
 	trait = gregarious
+	trait = stubborn
+	trait = brave
+	trait = forder
+	trait = educatioN_martial_prowess_3
+	trait = education_republican_knowledge_1
 
 	8274.1.1 = {
 		birth = yes
@@ -1701,8 +1715,12 @@ Lannister_24 = {
 		}
 	}
 	8299.6.7 = { trait = vengeful } # After his father's death
+	8300.1.1 = {
+		effect = {
+			agot_safe_betrothal_history_effect = { TARGET = character:Frey_33 } # Zia Frey
+		}
+	}
 	8300.2.7 = {
-		employer = Lannister_6 # Cersei Lannister
 		effect = { # Warden of the West
 			agot_appoint_as_court_position_for_castle_history_effect = {
 				CASTLE = title:h_the_iron_throne
