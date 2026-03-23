@@ -7247,12 +7247,16 @@ Banefort_1 = {
 
 	dna = Banefort_1
 
-	martial = 6
-	stewardship = 1
-	prowess = 7
+	diplomacy = 7
+    martial = 6
+    stewardship = 1
+    intrigue = 1
+    learning = 2
+    prowess = 12
 
 	religion = fots_seven
 	culture = westerman_main
+	sexuality = heterosexual
 
 	father = Banefort_3
 	mother = Ruskyn_26
@@ -7263,6 +7267,8 @@ Banefort_1 = {
 	trait = diligent
 	trait = impatient
 	trait = bossy
+	trait = education_martial_prowess_3
+	trait = logistician
 
 	disallow_random_traits = yes
 
@@ -7270,6 +7276,7 @@ Banefort_1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
+		add_character_flag = sexuality_ensure_heterosexual
 	}
 	8280.1.1 = {
 		trait = knight
@@ -7292,16 +7299,86 @@ Banefort_2 = {
 
 	dna = Banefort_2
 
+	diplomacy = 8
+    martial = 3
+    stewardship = 1
+    intrigue = 9
+    learning = 4
+    prowess = 2
+
+	religion = fots_seven
+	culture = westerman_main
+	sexuality = bisexual
+
+	father = Banefort_1
+	mother = Sarsfield_27
+
+	trait = ambitious
+	trait = arrogant
+	trait = sadistic
+	trait = knight
+	trait = education_stewardship_4
+	trait = education_martial_prowess_3
+
+	disallow_random_traits = yes
+
+	8281.1.1 = {
+		birth = yes
+		make_trait_inactive = scripted_appearance
+		add_character_flag = sexuality_ensure_bisexual
+	}
+}
+Banefort_m_1 = { # created 02/08 slambroski
+	name = Karya
+	female = yes 
+
+	religion = fots_seven
+	culture = westerman_main
+
+	trait = beauty_good_1
+
+	8263.1.1 = { birth = yes }
+}
+Banefort_2_B = { # created 02/08 slambroski
+	name = Quincy
+	dynasty = dynn_Banefort
+
+	diplomacy = 4
+    martial = 6
+    stewardship = 9
+    intrigue = 8
+    learning = 8
+    prowess = 4
+
+	religion = fots_seven
+	culture = westerman_main
+
+	father = Banefort_1
+	mother = Banefort_m_1
+
+	trait = beauty_good_1
+	trait = bastard
+	trait = calm
+	trait = patient
+	trait = shy
+	trait = education_stewardship_2
+
+	disallow_random_traits = yes
+
+	8284.3.1 = { birth = yes }
+}
+Banefort_2_C = { # created 02/08 slambroski
+	name = Alyce
+	dynasty = dynn_Banefort
+	female = yes 
+
 	religion = fots_seven
 	culture = westerman_main
 
 	father = Banefort_1
 	mother = Sarsfield_27
 
-	8281.1.1 = {
-		birth = yes
-		make_trait_inactive = scripted_appearance
-	}
+	8291.1.1 = { birth = yes }
 }
 
 ###### HOUSE HAMELL (id = dynn_Hamell)
