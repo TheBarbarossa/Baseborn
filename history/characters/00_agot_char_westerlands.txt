@@ -9163,18 +9163,34 @@ Ruttiger_1 = {
 	8277.1.1 = { trait = knight }
 	8278.1.1 = { add_spouse = Lowell_57 } # Ilenna Lowell
 }
-Ruttiger_25 = {
+Ruttiger_25 = { # edited 02/08 slambroski
 	name = Erwin
 	dynasty = dynn_Ruttiger
 
 	religion = fots_seven
-	culture = westerman_main
+	culture = westerman
 
 	father = Ruttiger_20
 	mother = Yarwyck_65
 
 	8264.1.1 = { birth = yes }
-	8282.1.1 = { trait = knight }
+	8282.1.1 = {
+		trait = knight
+		add_spouse = Ruttiger_s_25
+	}
+}
+Ruttiger_25_B = { # created 02/08 slambroski
+	name = Lysa
+	dynasty = dynn_Ruttiger
+	female = yes 
+
+	religion = fots_seven
+	culture = westerman
+
+	father = Ruttiger_20
+	mother = Yarwyck_65
+
+	8266.1.1 = { birth = yes }
 }
 ### Issue of Raynard
 Ruttiger_2 = {
@@ -9202,6 +9218,29 @@ Ruttiger_3 = {
 
 	8279.1.1 = { birth = yes }
 	8295.1.1 = { trait = knight }
+}
+### Issue of Erwin
+Ruttiger_s_25 = { # created 02/08 slambroski
+	name = Berenda
+	female = yes
+
+	religion = fots_seven
+	culture = westerman
+
+	8263.1.1 = { birth = yes }
+}
+Ruttiger_25_A = { # created 02/08 slambroski
+	name = Robert
+	dynasty = dynn_Ruttiger
+
+	religion = fots_seven
+	culture = westerman
+
+	father = Ruttiger_25
+	mother = Ruttiger_s_25
+
+	8284.1.1 = { birth = yes }
+	8300.1.1 = { trait = knight }
 }
 ### Issue of Robert
 Ruttiger_26 = {
