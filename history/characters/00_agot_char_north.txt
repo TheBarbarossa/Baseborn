@@ -10333,7 +10333,7 @@ Mormont_2 = {
 		}
 	}
 }
-Mormont_4 = {
+Mormont_4 = { # edited 03/25 slambroski
 	name = Maege # Canon, a lord
 	dynasty = dynn_Mormont
 	female = yes
@@ -10354,6 +10354,7 @@ Mormont_4 = {
 	mother = Greenleaf_75
 
 	trait = education_martial_2
+	trait = forest_fighter
 	trait = physique_good_2
 	trait = zealous
 	trait = brave
@@ -10376,6 +10377,7 @@ Mormont_4 = {
 	}
 	8299.12.15 = { # Red Wedding
 		#trait = in_hiding # Gone into the Neck and nobody knows what happened to her # AGOT TODO trait
+		trait = bb_missing
 		effect = { # Dacey killed, hostile toward Boltons and Freys
 			if = {
 				limit = { character:Bolton_1 = { is_alive = yes } }
@@ -10395,7 +10397,7 @@ Mormont_4 = {
 	}
 }
 ### Issue of Jeor
-Mormont_3 = {
+Mormont_3 = { # edited 03/25 slambroski
 	name = Jorah # Canon, THE Jorah Mormont, a lord
 	dynasty = dynn_Mormont
 	dna = Mormont_3
@@ -10477,21 +10479,22 @@ Mormont_3 = {
 	# 8299.1.22 = { # Drogo's death
 	#	employer = Targaryen_9 # Daenerys Targaryen
 	# }
-	8298.1.1 = {
-		agot_safe_buy_wayfarer_perk_history_effect = yes
-		trait = lifestyle_wayfarer
-	}
-	8299.12.1 = {
+	# 8298.1.1 = {
+	#	agot_safe_buy_wayfarer_perk_history_effect = yes
+	#	trait = lifestyle_wayfarer
+	# }
+	# 8299.12.1 = {
 		# employer = 147174371 # Malaquo Maegyr; Reenable once Volantis is added
-	}
-	8300.7.9 = {
-		effect = {
-			agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_merc_second_sons }
-		}
-	}
+	# }
+	8299.12.1 = { death = { death_reason = death_vanished } }
+	# 8300.7.9 = {
+	#	effect = {
+	#		agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_merc_second_sons }
+	#	}
+	# }
 }
 ### Issue of Maege
-Mormont_5 = {
+Mormont_5 = { # edited 03/25 slambroski
 	name = Dacey # Canon
 	dynasty = dynn_Mormont
 	female = yes
@@ -10509,6 +10512,7 @@ Mormont_5 = {
 
 	mother = Mormont_4
 
+	trait = disputed_heritage
 	trait = education_martial_1
 	trait = physique_good_1
 	trait = beauty_good_1
@@ -10547,7 +10551,7 @@ Mormont_5 = {
 		}
 	}
 }
-Mormont_6 = {
+Mormont_6 = { # edited 03/25 slambroski
 	name = Alysane # Canon
 	dynasty = dynn_Mormont
 	female = yes
@@ -10565,8 +10569,11 @@ Mormont_6 = {
 
 	mother = Mormont_4
 
+	trait = disputed_heritage
 	trait = education_martial_2
-	trait = physique_good_1
+	trait = education_marital_prowess_3
+	# trait = physique_good_1
+	trait = physique_good_2
 	trait = beauty_bad_1
 	trait = brave
 	trait = compassionate
@@ -10594,7 +10601,7 @@ Mormont_6 = {
 		}
 	}
 }
-Mormont_7 = {
+Mormont_7 = { # edited 03/25 slambroski
 	name = Lyra # Canon
 	dynasty = dynn_Mormont
 	female = yes
@@ -10607,6 +10614,8 @@ Mormont_7 = {
 
 	mother = Mormont_4
 
+	trait = disputed_heritage
+	trait = education_martial_prowess_2
 	trait = physique_good_1
 
 	# canon_children_bastard_parent_status married_father_unmarried_mother
@@ -10622,8 +10631,9 @@ Mormont_7 = {
 		}
 	}
 	# 8299.12.15 = { trait = in_hiding } # With her mother
+	8299.12.15 = { trait = bb_missing }
 }
-Mormont_8 = {
+Mormont_8 = { # edited 03/25 slambroski
 	name = Jorelle # Canon
 	dynasty = dynn_Mormont
 	female = yes
@@ -10636,6 +10646,8 @@ Mormont_8 = {
 
 	mother = Mormont_4
 
+	trait = disputed_heritage
+	trait = education_martial_prowess_2
 	trait = physique_good_1
 
 	# canon_children_bastard_parent_status married_father_unmarried_mother
@@ -10651,8 +10663,9 @@ Mormont_8 = {
 		}
 	}
 	# 8299.12.15 = { trait = in_hiding } # With her mother
+	8299.12.15 = { trait = bb_missing }
 }
-Mormont_9 = {
+Mormont_9 = { # edited 03/25 slambroski
 	name = Lyanna # Canon
 	dynasty = dynn_Mormont
 	female = yes
@@ -10665,6 +10678,7 @@ Mormont_9 = {
 
 	mother = Mormont_4
 
+	trait = disputed_heritage
 	trait = physique_good_1
 	trait = arrogant
 	trait = stubborn
@@ -10683,8 +10697,9 @@ Mormont_9 = {
 	}
 }
 ### Issue of Alysane
-Mormont_10 = {
-	name = Maege # Mentioned
+Mormont_10 = { # edited 03/25 slambroski
+	# name = Maege # Mentioned
+	name = Owella
 	dynasty = dynn_Mormont
 	dna = Mormont_10
 	female = yes
@@ -10694,14 +10709,19 @@ Mormont_10 = {
 
 	mother = Mormont_6
 
-	8294.1.1 = {
+	trait = disputed_heritage
+	trait = charming
+
+	# 8294.1.1 
+	8291.6.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_mentioned
 	}
 }
-Mormont_11 = {
-	name = Jeor # Mentioned
+Mormont_11 = { # edited 03/25 slambroski
+	# name = Jeor # Mentioned
+	name = Cregan
 	dynasty = dynn_Mormont
 	dna = Mormont_11
 
@@ -10710,7 +10730,10 @@ Mormont_11 = {
 
 	mother = Mormont_6
 
-	8297.1.1 = {
+	trait = disputed_heritage
+
+	# 8297.1.1
+	8298.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_mentioned
