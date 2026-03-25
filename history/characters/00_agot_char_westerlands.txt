@@ -2382,7 +2382,7 @@ LannisterLP_7 = {
 		make_trait_inactive = scripted_appearance
 	}
 }
-LannisterLP_8 = {
+LannisterLP_8 = { # edited 03/25 slambroski
 	name = Rosamund # Canon
 	dynasty_house = house_LannisterLannisport
 	female = yes
@@ -2407,6 +2407,7 @@ LannisterLP_8 = {
 		effect = {
 			agot_set_as_ward_history_effect = { GUARDIAN = character:Martell_4 } # Doran Martell
 		}
+		employer = Martell_4
 	}
 }
 ### Issue of Gerold, first cousins to Tyran
@@ -5939,7 +5940,7 @@ Lydden_2 = {
 		death = { death_reason = death_accident }
 	}
 }
-Lydden_3 = {
+Lydden_3 = { # edited 03/25 ultra
 	name = Lewys # Canon, a lord
 	dynasty = dynn_Lydden
 
@@ -6825,7 +6826,7 @@ Lefford_4 = {
 	8279.1.1 = { add_spouse = Dabell_23_B }
 }
 ### Issue of Leo
-Lefford_5 = {
+Lefford_5 = { # edited 03/25 ultra
 	name = Alysanne # Canon, a lord
 	dynasty = dynn_Lefford
 	female = yes
@@ -7532,10 +7533,17 @@ Westerling_3 = {
 		}
 	}
 }
-Westerling_4 = {
+Westerling_4 = { # edited 03/25 slambroski
 	name = Raynald # Canon
 	dynasty = dynn_Westerling
 	dna = Westerling_4
+
+	diplomacy = 8
+	martial = 3
+	stewardship = 1
+	intrigue = 2
+	learning = 10
+	prowess = 6
 
 	religion = fots_seven
 	culture = westerman_main
@@ -7544,6 +7552,8 @@ Westerling_4 = {
 	mother = Spicer_4
 
 	trait = education_martial_2
+	trait = education_martial_prowess_2
+	trait = open_terrain_expert
 	trait = compassionate
 	trait = gregarious
 	trait = brave
@@ -7561,11 +7571,15 @@ Westerling_4 = {
 		trait = just
 	}
 	8299.12.15 = {
-		death = {
-			death_reason = death_bloody_wedding # The Red Wedding
-			killer = Frey_1 # Walder Frey
-		}
+		trait = wounded_2
+		trait = bb_missing
 	}
+	# 8299.12.15 = {
+	#	death = {
+	#		death_reason = death_bloody_wedding # The Red Wedding
+	#		killer = Frey_1 # Walder Frey
+	#	}
+	#}
 }
 Westerling_5 = {
 	name = Rollam # Canon
@@ -7814,6 +7828,11 @@ Banefort_2_C = { # created 02/08 slambroski
 
 	father = Banefort_1
 	mother = Sarsfield_27
+
+	trait = humble
+	trait = bossy
+
+	disallow_random_traits = yes 
 
 	8291.1.1 = { birth = yes }
 }
@@ -8488,7 +8507,7 @@ Marbrand_5 = {
 		add_character_flag = canon_status_canon
 	}
 }
-Marbrand_6 = {
+Marbrand_6 = { # edited 03/25 ultra
 	name = Lysa # married Tyran Lannister
 	dynasty = dynn_Marbrand
 	female = yes
@@ -8519,7 +8538,7 @@ Marbrand_6 = {
 		make_trait_inactive = scripted_appearance
 	}
 }
-Marbrand_67 = {
+Marbrand_67 = { # edited 03/25 ultra
 	name = Derrick
 	dynasty = dynn_Marbrand
 
@@ -8546,7 +8565,7 @@ Marbrand_67 = {
 	8265.1.1 = { birth = yes }
 	8282.1.1 = { trait = knight }
 }
-Marbrand_68 = {
+Marbrand_68 = { # edited 03/25 ultra
 	name = Jon
 	dynasty = dynn_Marbrand
 
@@ -8574,7 +8593,7 @@ Marbrand_68 = {
 	8288.1.1 = { trait = knight }
 }
 ### Issue of Addam
-Marbrand_7 = {
+Marbrand_7 = { # edited 03/25 slambroski
 	name = Alyn
 	dynasty = dynn_Marbrand
 
@@ -8584,9 +8603,16 @@ Marbrand_7 = {
 	father = Marbrand_4
 	mother = Lychester_6
 
+	trait = wrathful
+	trait = ambitious
+	trait = chaste
+	trait = charming
+
+	disallow_random_traits = yes 
+
 	8287.1.1 = { birth = yes }
 }
-Marbrand_8 = {
+Marbrand_8 = { # edited 03/25 slambroski
 	name = Damon
 	dynasty = dynn_Marbrand
 
@@ -8596,9 +8622,15 @@ Marbrand_8 = {
 	father = Marbrand_4
 	mother = Lychester_6
 
+	trait = arrogant
+	trait = generous
+	trait = bossy
+
+	disallow_random_traits = yes 
+
 	8289.1.1 = { birth = yes }
 }
-Marbrand_9 = {
+Marbrand_9 = { # edited 03/25 slambroski
 	name = Alys
 	dynasty = dynn_Marbrand
 	female = yes
@@ -8608,6 +8640,11 @@ Marbrand_9 = {
 
 	father = Marbrand_4
 	mother = Lychester_6
+
+	trait = wrathful
+	trait = curious
+
+	disallow_random_traits = yes 
 
 	8290.1.1 = { birth = yes }
 }
@@ -8839,22 +8876,36 @@ Sarsfield_26 = {
 		trait = knight
 	}
 }
-Sarsfield_27 = {
+Sarsfield_27 = { # edited 03/25 slambroski
 	name = Margot # married Quenten Banefort
 	dynasty = dynn_Sarsfield
 	female = yes
 
 	dna = Sarsfield_27
 
+	diplomacy = 10
+	martial = 1
+	stewardship = 6
+	intrigue = 2
+	learning = 6
+	prowess = 2
+
 	religion = fots_seven
 	culture = westerman_main
+	sexuality = homosexual
 
 	father = Sarsfield_25
 	mother = Atell_7
 
+	trait = education_stewardship_1
+	trait = callous
+	trait = authoritative
+	trait = gregarious
+
 	8264.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
+		add_character_flag = sexuality_ensure_homosexual
 	}
 }
 ### Children of Melwyn
