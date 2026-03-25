@@ -5283,7 +5283,7 @@ Serrett_2 = {
 		make_trait_inactive = scripted_appearance
 	}
 }
-Serrett_3 = {
+Serrett_3 = { # edited 01/25 slambroski
 	name = Jon
 	dynasty = dynn_Serrett
 
@@ -5295,11 +5295,23 @@ Serrett_3 = {
 	father = Serrett_1
 	mother = Kyndall_76
 
+	trait = education_martial_prowess_1
+
 	8274.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
+		add_character_flag = has_scripted_appearance
 	}
-	8291.1.1 = { trait = knight }
+	8292.1.1 = { trait = knight }
+	8296.1.1 = {
+		trait = fornicator
+		effect = {
+			if = {
+				limit = { character:Taves_43_A = { is_alive = yes } }
+				set_relation_lover = character:Taves_43_A # Olyvia Taves
+			}
+		}
+	}
 }
 Serrett_4 = {
 	name = Lysana # married Steffon Swyft
@@ -5319,6 +5331,46 @@ Serrett_4 = {
 		make_trait_inactive = scripted_appearance
 	}
 	8281.1.1 = { employer = Swyft_1 } # Harys Swyft
+}
+### Issue of Jorian
+Serrett_79_C = { # created 02/19 slambroski
+	name = Rhaegar
+	dynasty = dynn_Serrett
+
+	religion = fots_seven
+	culture = westerman_main
+
+	father = Serrett_79_B
+	mother = Risley_8
+
+	8275.6.1 = { birth = yes }
+	8294.1.1 = { trait = knight }
+}
+Serrett_79_D = { # created 02/19 slambroski
+	name = Falyse
+	dynasty = dynn_Serrett
+	female = yes 
+
+	religion = fots_seven
+	culture = westerman_main
+
+	father = Serrett_79_B
+	mother = Risley_8
+
+	8278.1.1 = { birth = yes }
+}
+Serrett_79_E = { # created 02/19 slambroski
+	name = Presford
+	dynasty = dynn_Serrett
+
+	religion = fots_seven
+	culture = westerman_main
+
+	father = Serrett_79_B
+	mother = Risley_8
+
+	8280.1.1 = { birth = yes }
+	8288.1.1 = { death = { death_reason = death_ill } }
 }
 
 ###### HOUSE TURNBERRY (id = dynn_Turnberry)
