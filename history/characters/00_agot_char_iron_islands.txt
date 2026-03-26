@@ -417,7 +417,7 @@ Greyjoy_8 = {
 		}
 	}
 }
-Greyjoy_9 = {
+Greyjoy_9 = { # edited 03/25 slambroski
 	name = Aeron # Canon, AKA: Damphair
 	dynasty = dynn_Greyjoy
 	dna = Greyjoy_9
@@ -427,6 +427,7 @@ Greyjoy_9 = {
 	intrigue = 4
 	stewardship = 4
 	learning = 9
+	prowess = 7
 
 	religion = drowned_god
 	culture = ironborn
@@ -436,6 +437,7 @@ Greyjoy_9 = {
 	mother = Sunderly_2 # Asha Sunderly
 
 	trait = education_intrigue_2
+	trait = hardy_lung
 	trait = charming
 
 	disallow_random_traits = yes
@@ -631,7 +633,7 @@ Greyjoy_12 = {
 		death = { death_reason = death_battle } # Siege of Pyke
 	}
 }
-Greyjoy_13 = {
+Greyjoy_13 = { # edited 03/25 slambroski
 	name = Asha # Canon, THE Asha
 	dynasty = dynn_Greyjoy
 	female = yes
@@ -640,7 +642,7 @@ Greyjoy_13 = {
 	martial = 6
 	diplomacy = 5
 	intrigue = 7
-	stewardship = 3
+	stewardship = 6
 	learning = 6
 	prowess = 6
 
@@ -677,7 +679,11 @@ Greyjoy_13 = {
 		trait = refusing_marriage
 		effect = { give_nickname = nick_agot_historical_the_krakens_daughter }
 	}
-	8292.1.1 = { trait = arrogant }
+	8292.1.1 = { 
+		trait = arrogant 
+		trait = ambitious
+		trait = lifestyle_blademaster
+	}
 	8294.1.1 = {
 		effect = {
 			if = {
@@ -685,9 +691,10 @@ Greyjoy_13 = {
 				set_relation_lover = character:Greyjoy_hh_9 # Qarl the Maid
 			}
 		}
+		effect = { add_character_modifier = contraceptives_modifier }
 	}
 }
-Greyjoy_14 = {
+Greyjoy_14 = { # edited 03/25 slambroski
 	name = Theon # Canon, THE Theon
 	dynasty = dynn_Greyjoy
 	dna = Greyjoy_14
@@ -732,7 +739,10 @@ Greyjoy_14 = {
 			agot_set_as_ward_history_effect = { GUARDIAN = character:Stark_3 } # Eddard Stark
 		}
 	}
-	8289.8.1 = { trait = cynical }
+	8289.8.1 = { 
+		trait = cynical 
+		trait = memory_bad
+	}
 	8291.1.1 = {
 		effect = {
 			add_trait = ambitious
@@ -796,7 +806,7 @@ Greyjoy_14 = {
 			remove_trait = ambitious
 			remove_trait = lustful
 			remove_trait = lifestyle_hunter
-			add_stress = monumental_stress_gain
+			# add_stress = monumental_stress_gain
 			if = {
 				limit = { character:Stark_6 = { is_alive = yes } }
 				reverse_add_opinion = {
@@ -828,7 +838,10 @@ Greyjoy_14 = {
 		trait = paranoid
 		trait = shy
 	}
-	8299.12.15 = { employer = Bolton_5 } # Ramsay Snow
+	8299.12.15 = { 
+		employer = Bolton_5 # Ramsay Snow
+		release_from_prison = yes
+	} 
 }
 ### Issue of Victarion
 Greyjoy_15 = {
@@ -1075,7 +1088,12 @@ Greyjoy_hh_29 = { # created 02/11 slambroski
 	religion = drowned_god
 	culture = ironborn
 
+	trait = education_diplomacy_4
 	trait = cynical
+	trait = generous
+	trait = brave
+
+	disallow_random_traits = yes 
 
 	8265.1.1 = {
 		birth = yes
@@ -1165,21 +1183,6 @@ Greyjoy_hh_34 = { # created 02/11 slambroski
 		add_character_flag = canon_status_canon
 	}
 	8274.1.1 = { give_nickname = nick_the_dwarf_ironic }
-	8294.1.1 = { 
-		employer = Greyjoy_5 # Balon Greyjoy
-	} 
-	8300.1.1 = { employer = Greyjoy_13 } # Asha Greyjoy
-}
-Greyjoy_hh_35 = { # created 02/12 slambroski
-	name = Rook # Canon, Rook, Asha's crew
-
-	religion = drowned_god
-	culture = ironborn
-
-	8255.1.1 = {
-		birth = yes
-		add_character_flag = canon_status_canon
-	}
 	8294.1.1 = { 
 		employer = Greyjoy_5 # Balon Greyjoy
 	} 
