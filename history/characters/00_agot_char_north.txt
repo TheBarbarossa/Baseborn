@@ -1364,6 +1364,7 @@ Stark_Dummy_11 = { # edited 03/23 slambroski
 		}
 	}
 	8300.1.15 = { employer = Magnar_69 } # Hagen Magnar
+	8300.1.20 = { employer = Magnar_75 } # Dorren Magnar
 }
 ### Household
 Stark_hh_1 = {
@@ -1781,6 +1782,7 @@ Stark_hh_13 = {
 	8299.1.10 = { employer = Stark_6 } # Robb Stark
 	8299.8.15 = { employer = Umber_8 } # Greatjon Umber
 	8300.1.15 = { employer = Magnar_69 } # Hagen Magnar
+	8300.1.20 = { employer = Magnar_75 } # Dorren Magnar
 }
 Stark_hh_14 = {
 	name = Mikken # Canon, blacksmith at Winterfell
@@ -20453,7 +20455,7 @@ Crowl_138 = {
 ############################
 ### Lords of Stone
 ###
-Magnar_69 = {
+Magnar_69 = { # edited 03/25 slambroski
 	name = Greel # Easter Egg, a lord
 	dynasty = dynn_Magnar
 
@@ -20481,6 +20483,10 @@ Magnar_69 = {
 		}
 	}
 	8295.1.1 = { trait = gout_ridden }
+	#C8 S1
+	8300.1.20 = {
+		death = { death_reason = death_gout_ridden }
+	}
 }
 Magnar_70 = {
 	name = Abella # married Hother Crowl
@@ -32619,6 +32625,14 @@ Hatchett_75 = {
 	8257.1.1 = { birth = yes }
 	8273.1.1 = { trait = knight }
 	8283.1.1 = { add_spouse = Tumbler_53 } # Elyn Tumbler
+	#C8 S0
+	8300.1.20 = {
+		trait = wounded_3
+		death = {
+			death_reason = death_execution # Flayed alive
+			killer = Bolton_5 # Ramsay Snow
+		}
+	}
 }
 Hatchett_76 = {
 	name = Melara # married Arys Enright

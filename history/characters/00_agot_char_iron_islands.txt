@@ -6517,7 +6517,7 @@ Kenning_4 = {
 		make_trait_inactive = scripted_appearance
 	}
 }
-Kenning_5 = {
+Kenning_5 = { # edited 03/25 slambroski
 	name = Ralf # Canon, Victarion supporter
 	dynasty = dynn_Kenning
 
@@ -6541,9 +6541,16 @@ Kenning_5 = {
 	8289.1.1 = { employer = Greyjoy_5 } # Balon Greyjoy
 	8299.11.15 = { employer = Greyjoy_6 } # Euron Greyjoy
 	8300.1.1 = { trait = wounded_3 }
-	8300.4.5 = {
-		death = { death_reason = death_wounded_3 } # Moat Cailin occupation
+	#C8 S0
+	8300.1.20 = {
+		death = {
+			death_reason = death_execution # Flayed alive
+			killer = Bolton_5 # Ramsay Snow
+		}
 	}
+	# 8300.4.5 = {
+	#	death = { death_reason = death_wounded_3 } # Moat Cailin occupation
+	# }
 }
 ### Issue of Gormond
 Kenning_6 = {
@@ -6658,6 +6665,53 @@ Kenning_105 = {
 	8225.1.1 = { birth = yes }
 	8265.1.1 = {
 		death = { death_reason = death_accident }
+	}
+}
+### Household
+Kenning_hh_1 = { # created 03/25 slambroski
+	name = Hilmar
+
+	religion = drowned_god
+	culture = ironborn
+
+	8274.1.1 = { birth = yes }
+	8300.1.20 = {
+		trait = wounded_3
+		death = {
+			death_reason = death_execution # Flayed alive
+			killer = Bolton_5 # Ramsay Snow
+		}
+	}
+}
+Kenning_hh_2 = { # created 03/25 slambroski
+	name = Stori
+
+	religion = drowned_god
+	culture = ironborn
+
+	8263.1.1 = { birth = yes }
+	8300.1.20 = {
+		trait = wounded_3
+		death = {
+			death_reason = death_execution # Flayed alive
+			killer = Bolton_5 # Ramsay Snow
+		}
+	}
+}
+Kenning_hh_3 = { # created 03/25 slambroski
+	name = Benya
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = crannogman
+
+	8276.1.1 = { birth = yes }
+	8300.1.20 = {
+		trait = wounded_3
+		death = {
+			death_reason = death_execution # Flayed alive
+			killer = Bolton_5 # Ramsay Snow
+		}
 	}
 }
 
