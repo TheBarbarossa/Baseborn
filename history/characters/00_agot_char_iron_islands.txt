@@ -2302,6 +2302,20 @@ Saltcliffe_3 = {
 		death = { death_reason = death_battle } # Battle of Fair Isle
 	}
 }
+Saltcliffe_3_A = { # created 02/05 slambroski
+	name = Esgred # married Harmund Sharp
+	dynasty = dynn_Saltcliffe
+	female = yes
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Saltcliffe_1
+	mother = Rychard_20
+
+	8256.1.1 = { birth = yes }
+	8278.1.1 = { employer = Sharp_7 } # Sigfryd Sharp
+}
 ### Issue of Rodrik
 Saltcliffe_4 = {
 	name = Donnor # Canon, a lord, Euron supporter
@@ -8419,7 +8433,7 @@ Netley_2_B = { # created 02/12 slambroski
 		birth = yes
 	}
 }
-Netley_3 = {
+Netley_3 = { # edited 03/26 slambroski
 	name = Erika
 	dynasty = dynn_Netley
 	female = yes
@@ -8430,7 +8444,7 @@ Netley_3 = {
 	father = Netley_1
 	mother = Shepherd_26
 
-	8285.1.1 = { birth = yes }
+	8289.1.1 = { birth = yes }
 }
 
 ###### HOUSE SHARP (id = dynn_Sharp)
@@ -8469,7 +8483,7 @@ Sharp_7 = {
 	8291.1.1 = { trait = infirm }
 }
 ### Issue of Sigfryd
-Sharp_1 = {
+Sharp_1 = { # edited 03/26 slambroski
 	name = Harmund # Canon, Asha supporter
 	dynasty = dynn_Sharp
 	dna = Sharp_1
@@ -8489,7 +8503,8 @@ Sharp_1 = {
 		trait = patient
 		trait = content
 	}
-	8274.1.1 = { add_spouse = Beaver_46 } # Aglantine Beaver
+	# 8274.1.1 = { add_spouse = Beaver_46 } # Aglantine Beaver
+	8274.1.1 = { add_spouse = Saltcliffe_3_A } # Esgred Saltcliffe
 }
 Sharp_6 = {
 	name = Alvyn # Canon, Victarion supporter
@@ -8520,22 +8535,22 @@ Sharp_6 = {
 	8282.1.1 = { add_spouse = Humble_25 } # Erika Humble
 }
 ### Issue of Harmund
-Sharp_2 = {
-	name = Harren # Mentioned
+Sharp_2 = { # edited 02/05 slambroski
+	name = Harrald # Mentioned
 	dynasty = dynn_Sharp
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = Sharp_1
-	mother = Beaver_46
+	mother = Saltcliffe_3_A
 
 	8275.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 }
-Sharp_3 = {
+Sharp_3 = { # edited 02/05 slambroski
 	name = Harrag # Canon
 	dynasty = dynn_Sharp
 
@@ -8543,7 +8558,7 @@ Sharp_3 = {
 	culture = ironborn
 
 	father = Sharp_1
-	mother = Beaver_46
+	mother = Saltcliffe_3_A
 
 	8278.1.1 = {
 		birth = yes
@@ -8559,7 +8574,7 @@ Sharp_3 = {
 		death = { death_reason = death_battle } # Sack of Winterfell
 	}
 }
-Sharp_4 = {
+Sharp_4 = { # edited 02/05 slambroski
 	name = Harlon # Mentioned
 	dynasty = dynn_Sharp
 
@@ -8567,27 +8582,81 @@ Sharp_4 = {
 	culture = ironborn
 
 	father = Sharp_1
-	mother = Beaver_46
+	mother = Saltcliffe_3_A
 
 	8282.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 }
-Sharp_5 = {
-	name = Harryn # Mentioned
+Sharp_5 = { # edited 02/05 slambroski
+	name = Harras # Mentioned
 	dynasty = dynn_Sharp
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = Sharp_1
-	mother = Beaver_46
+	mother = Saltcliffe_3_A
 
-	8286.1.1 = {
+	8285.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
+}
+Sharp_5_A = { # created 02/05 slambroski
+	name = Harra
+	dynasty = dynn_Sharp
+	female = yes 
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Sharp_1
+	mother = Saltcliffe_3_A
+
+	8287.1.1 = { birth = yes }
+	8292.1.1 = { death = { death_reason = death_accident } }
+}
+Sharp_5_B = { # created 02/05 slambroski
+	name = Harwyn
+	dynasty = dynn_Sharp
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Sharp_1
+	mother = Saltcliffe_3_A
+
+	trait = twin
+
+	8290.1.1 = { birth = yes }
+}
+Sharp_5_C = { # created 02/05 slambroski
+	name = Harren
+	dynasty = dynn_Sharp
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Sharp_1
+	mother = Saltcliffe_3_A
+
+	trait = twin
+
+	8290.1.1 = { birth = yes }
+}
+Sharp_5_D = { # created 02/05 slambroski
+	name = Hargon
+	dynasty = dynn_Sharp
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Sharp_1
+	mother = Saltcliffe_3_A
+
+	8296.1.1 = { birth = yes }
 }
 ### Issue of Alvyn
 Sharp_8 = {
@@ -8734,7 +8803,7 @@ Salt_10 = {
 	8268.1.1 = { add_spouse = MootonHM_105 } # Freya Mooton of Honeymaiden
 }
 ### Issue of Steffarion
-Salt_13 = {
+Salt_13 = { # edited 03/25 slambroski
 	name = Barbrey # married Qhorin Humble
 	dynasty_house = house_Salt
 	female = yes
@@ -8745,13 +8814,15 @@ Salt_13 = {
 	father = Salt_2
 	mother = Ironmaker_31
 
+	trait = twin
+
 	8262.1.1 = {
 		birth = yes
 		make_trait_inactive = black_eyes
 		make_trait_inactive = black_hair
 	}
 }
-Salt_3 = {
+Salt_3 = { # edited 03/25 slambroski
 	name = Sawane
 	dynasty_house = house_Salt
 
@@ -8760,6 +8831,8 @@ Salt_3 = {
 
 	father = Salt_2
 	mother = Ironmaker_31
+
+	trait = twin
 
 	8262.1.1 = {
 		birth = yes
