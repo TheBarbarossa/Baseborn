@@ -2804,12 +2804,19 @@ Harlaw_1 = {
 	8230.1.1 = { add_spouse = Saltcliffe_10 } # Unella Saltcliffe
 	8259.1.1 = { death = yes }
 }
-Harlaw_2 = {
+Harlaw_2 = { # edited 03/26 slambroski
 	name = Sigfryd # Canon, a lord of Harlaw Hall
 	dynasty = dynn_Harlaw
 	dna = Harlaw_2
 
 	# health = 9
+
+	diplomacy = 0
+	martial = 3
+	stewardship = 4
+	intrigue = 7
+	learning = 4
+	prowess = 6
 
 	religion = drowned_god
 	culture = ironborn
@@ -2818,8 +2825,13 @@ Harlaw_2 = {
 	mother = Greyjoy_68
 
 	trait = education_martial_2
+	trait = education_martial_prowess_2
 	trait = strong
 	trait = arrogant
+	trait = shy
+	trait = paranoid
+
+	disallow_random_traits = yes 
 
 	8215.1.1 = {
 		birth = yes
@@ -2828,6 +2840,9 @@ Harlaw_2 = {
 	}
 	8235.1.1 = { add_spouse = Ironmaker_65 } # Gwynesse Ironmaker
 	8279.1.1 = { give_nickname = nick_agot_historical_silverhair_Harlaw_2 }
+	8300.1.20 = {
+		trait = infirm
+	}
 }
 ### Issue of Sigrin
 Harlaw_3 = {
@@ -2945,13 +2960,18 @@ Harlaw_7 = {
 	8290.1.1 = { employer = Harlaw_9 } # Rodrik Harlaw
 	8295.1.1 = { trait = infirm }
 }
-Harlaw_8 = {
+Harlaw_8 = { # edited 03/26 slambroski
 	name = Alannys # Canon, married Balon Greyjoy
 	dynasty = dynn_Harlaw
 	female = yes
 	dna = Harlaw_8
 
 	prowess = 0 #stop her getting prowess traits
+	diplomacy = 6
+	martial = 3
+	stewardship = 0
+	intrigue = 9
+	learning = 3
 
 	religion = drowned_god
 	culture = ironborn
@@ -2959,17 +2979,27 @@ Harlaw_8 = {
 	father = Harlaw_3
 	mother = Sparr_92
 
+	trait = education_learning_3
+	trait = impatient
+	trait = rude
+	trait = arbitrary
+
+	disallow_random_traits = yes 
+
 	8252.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 	8280.1.1 = { employer = Greyjoy_1 }
-	8289.1.1 = { trait = depressed_1 }
+	8289.1.1 = { 
+		trait = depressed_1 
+		trait = memory_bad
+	}
 	8295.1.1 = { trait = infirm }
 	8299.11.15 = { trait = widowed }
 }
-Harlaw_9 = {
+Harlaw_9 = { # edited 03/26 slambroski
 	name = Rodrik # Canon, AKA: Rodrik the Reader, a lord of Ten Towers, Asha supporter
 	dynasty = dynn_Harlaw
 	dna = Harlaw_9
@@ -2979,6 +3009,7 @@ Harlaw_9 = {
 	intrigue = 6
 	stewardship = 9
 	learning = 12
+	prowess = 7
 
 	religion = drowned_god
 	culture = ironborn
@@ -3048,13 +3079,17 @@ Harlaw_11 = {
 	}
 }
 ### Issue of Harron, first cousins to Rodrik
-Harlaw_12 = {
+Harlaw_12 = { # edited 03/26 slambroski
 	name = Harras # Canon, a lord of Grey Garden, Asha supporter
 	dynasty = dynn_Harlaw
 	dna = Harlaw_12
 
 	martial = 10
 	prowess = 9
+	diplomacy = 10
+	stewardship = 1
+	intrigue = 3
+	learning = 4
 
 	religion = drowned_god
 	culture = ironborn
@@ -3063,6 +3098,7 @@ Harlaw_12 = {
 	mother = Serrett_23
 
 	trait = education_martial_2
+	trait = education_martial_prowess_3
 	trait = temperate
 	trait = strong
 	trait = honest
@@ -3080,10 +3116,15 @@ Harlaw_12 = {
 	8282.1.1 = {
 		give_nickname = nick_agot_historical_the_knight_Harlaw_12
 		trait = knight
+		trait = refusing_marriage
+	}
+	#C8 S1
+	8300.1.20 = {
+		trait = bb_missing
 	}
 }
 ### Issue of Erich, first cousins to Rodrik
-Harlaw_13 = {
+Harlaw_13 = { # edited 03/26 slambroski
 	name = Hotho # Canon, a lord of Tower of Glimmering, Victarion supporter
 	dynasty = dynn_Harlaw
 	dna = Harlaw_13
@@ -3102,6 +3143,7 @@ Harlaw_13 = {
 	mother = MootonHM_100
 
 	trait = education_martial_3
+	trait = education_martial_prowess_3
 	trait = hunchbacked
 	trait = ambitious
 	trait = arrogant
@@ -3119,14 +3161,26 @@ Harlaw_13 = {
 		give_nickname = nick_agot_historical_the_humpback
 		add_spouse = Salt_9 # Rina Salt
 	}
+	#C8 S1
+	8300.1.20 = {
+		death = {
+			death_reason = death_duel
+			killer = Twinrose_77 # Mathis Twinrose
+		}
+	}
 }
 ### Issue of Theomore, first cousins to Rodrik
-Harlaw_14 = {
+Harlaw_14 = { # edited 03/26 slambroski
 	name = Boremund # Canon, a lord of Harridan Hill
 	dynasty = dynn_Harlaw
 	dna = Harlaw_14
 
 	martial = 8
+	diplomacy = 5
+	stewardship = 8
+	intrigue = 0
+	learning = 1
+	prowess = 6
 
 	religion = drowned_god
 	culture = ironborn
@@ -3135,6 +3189,7 @@ Harlaw_14 = {
 	mother = Urgont_63
 
 	trait = education_martial_2
+	trait = education_martial_prowess_2
 	trait = brave
 	trait = arrogant
 	trait = stubborn
@@ -3149,11 +3204,16 @@ Harlaw_14 = {
 	}
 	8279.1.1 = {
 		give_nickname = nick_agot_historical_the_blue_Harlaw_14
-		add_spouse = Temper_42 # Myra Temper
+		# add_spouse = Temper_42 # Myra Temper
+		add_spouse = Netley_7 # Wynafred Netley
+	}
+	#C8 S1
+	8300.1.20 = {
+		trait = bb_missing
 	}
 }
 ### Issue of Hotho
-Harlaw_15 = {
+Harlaw_15 = { # edited 03/26 slambroski
 	name = Helya # Mentioned
 	dynasty = dynn_Harlaw
 	female = yes
@@ -3164,13 +3224,19 @@ Harlaw_15 = {
 	father = Harlaw_13
 	mother = Salt_9
 
+	trait = generous
+	trait = zealous
+	trait = rowdy
+
+	disallow_random_traits = yes 
+
 	8288.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 }
 ### Issue of Boremund
-Harlaw_16 = {
+Harlaw_16 = { # edited 03/26 slambroski
 	name = Steffarion # Mentioned
 	dynasty = dynn_Harlaw
 
@@ -3178,14 +3244,15 @@ Harlaw_16 = {
 	culture = ironborn
 
 	father = Harlaw_14
-	mother = Temper_42
+	# mother = Temper_42
+	mother = Netley_7 
 
 	8282.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 }
-Harlaw_17 = {
+Harlaw_17 = { # edited 03/26 slambroski
 	name = Symond # Mentioned
 	dynasty = dynn_Harlaw
 
@@ -3193,14 +3260,15 @@ Harlaw_17 = {
 	culture = ironborn
 
 	father = Harlaw_14
-	mother = Temper_42
+	# mother = Temper_42
+	mother = Netley_7 
 
 	8284.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 }
-Harlaw_18 = {
+Harlaw_18 = { # edited 03/26 slambroski
 	name = Tristifer # Mentioned
 	dynasty = dynn_Harlaw
 
@@ -3208,7 +3276,8 @@ Harlaw_18 = {
 	culture = ironborn
 
 	father = Harlaw_14
-	mother = Temper_42
+	# mother = Temper_42
+	mother = Netley_7 
 
 	8287.1.1 = {
 		birth = yes
@@ -3266,7 +3335,7 @@ Harlaw_21 = {
 }
 
 ### Issue of Balon
-Harlaw_22 = {
+Harlaw_22 = { # edited 03/26 slambroski
 	name = Harmund # Mentioned
 	dynasty = dynn_Harlaw
 
@@ -3280,8 +3349,9 @@ Harlaw_22 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
+	8275.1.1 = { add_spouse = Netley_91_A } # Dagny Netley
 }
-Harlaw_23 = {
+Harlaw_23 = { # edited 03/26 slambroski
 	name = Earl # Canon
 	dynasty = dynn_Harlaw
 	dna = Harlaw_23
@@ -3297,11 +3367,12 @@ Harlaw_23 = {
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
+	8300.1.10 = { employer = Greyjoy_13 } # Asha Greyjoy
 	8300.4.25 = {
 		death = { death_reason = death_battle } # Retaking Deepwood Motte
 	}
 }
-Harlaw_24 = {
+Harlaw_24 = { # edited 03/26 slambroski
 	name = Gevin # Canon
 	dynasty = dynn_Harlaw
 	dna = Harlaw_24
@@ -3319,11 +3390,99 @@ Harlaw_24 = {
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
+	8286.1.1 = { add_spouse = Tidewood_16 } # Margot Tidewood
 	8299.9.30 = {
 		death = { death_reason = death_battle } # Sack of Winterfell
 	}
 }
+### Issue of Harmund
+Harlaw_22_A = { # created 02/26 slambroski
+	name = Audrik
+	dynasty = dynn_Harlaw
 
+	diplomacy = 5
+	martial = 2
+	stewardship = 4
+	intrigue = 7
+	learning = 6
+	prowess = 1
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Harlaw_22
+	mother = Netley_91_A
+
+	trait = education_intrigue_4
+	trait = education_martial_prowess_1
+	trait = deceitful
+	trait = just
+	trait = greedy
+
+	disallow_random_traits = yes 
+
+	8276.1.1 = { 
+		birth = yes 
+		employer = Harlaw_2 # Sigfryd Harlaw
+	}
+}
+Harlaw_22_B = { # created 02/26 slambroski
+	name = Urrigon
+	dynasty = dynn_Harlaw
+
+	diplomacy = 0
+	martial = 4
+	stewardship = 0
+	intrigue = 4
+	learning = 1
+	prowess = 6
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Harlaw_22
+	mother = Netley_91_A
+
+	trait = education_stewardsip_3
+	trait = education_martial_prowess_3
+	trait = brave
+	trait = just
+	trait = rude
+
+	disallow_random_traits = yes 
+
+	8279.9.1 = { 
+		birth = yes 
+		employer = Harlaw_2 # Sigfryd Harlaw
+	}
+}
+### Issue of Gevin
+Harlaw_24_A = { # created 02/26 slambroski
+	name = Thyra
+	dynasty = dynn_Harlaw
+	female = yes 
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Harlaw_24
+	mother = Tidewood_16
+
+	8288.1.1 = { birth = yes }
+}
+Harlaw_24_B = { # created 02/26 slambroski
+	name = Asha
+	dynasty = dynn_Harlaw
+	female = yes 
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Harlaw_24
+	mother = Tidewood_16
+
+	8294.6.1 = { birth = yes }
+}
 ### Issue of Dagon
 Harlaw_25 = {
 	name = Vickon # Mentioned
