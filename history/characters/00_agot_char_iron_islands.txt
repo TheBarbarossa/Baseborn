@@ -2684,7 +2684,7 @@ Saltcliffe_94 = {
 ############################
 ### Dark, Deep, Hungry
 ###
-Volmark_1 = {
+Volmark_1 = { # edited 03/26 slambroski
 	name = Harryn # a lord
 	dynasty = dynn_Volmark
 
@@ -2702,11 +2702,12 @@ Volmark_1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 	}
-	8273.1.1 = { add_spouse = Haigh_66 } # Alanna Haigh
+	# 8273.1.1 = { add_spouse = Haigh_66 } # Alanna Haigh
+	8274.1.1 = { add_spouse = Orkwood_2_A } # Sallei Orkwood
 	8294.1.1 = { death = yes }
 }
 ### Issue of Harryn
-Volmark_2 = {
+Volmark_2 = { # edited 03/26 slambroski
 	name = Maron # Canon, a lord, Victarion supporter
 	dynasty = dynn_Volmark
 	dna = Volmark_2
@@ -2715,7 +2716,8 @@ Volmark_2 = {
 	culture = ironborn
 
 	father = Volmark_1
-	mother = Haigh_66
+	# mother = Haigh_66
+	mother = Orkwood_2_A
 
 	trait = arrogant
 
@@ -2725,7 +2727,7 @@ Volmark_2 = {
 		add_character_flag = canon_status_canon
 	}
 }
-Volmark_3 = {
+Volmark_3 = { # edited 03/26 slambroski
 	name = Vandya
 	dynasty = dynn_Volmark
 	female = yes
@@ -2736,14 +2738,15 @@ Volmark_3 = {
 	culture = ironborn
 
 	father = Volmark_1
-	mother = Haigh_66
+	# mother = Haigh_66
+	mother = Orkwood_2_A
 
 	8279.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 	}
 }
-Volmark_4 = {
+Volmark_4 = { # edited 03/26 slambroski
 	name = Hylda
 	dynasty = dynn_Volmark
 	female = yes
@@ -2754,12 +2757,26 @@ Volmark_4 = {
 	culture = ironborn
 
 	father = Volmark_1
-	mother = Haigh_66
+	# mother = Haigh_66
+	mother = Orkwood_2_A
 
 	8281.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 	}
+}
+### Issue of Lucimore
+Volmark_26_B = { # created 02/22 slambroski
+	name = Gorold
+	dynasty = dynn_Volmark
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Volmark_26 # Lucimore Volmark
+	mother = Goodbrother_5 # Helya Goodbrother
+
+	8293.1.1 = { birth = yes }
 }
 
 ###### HOUSE HARLAW (id = dynn_Harlaw)
@@ -3461,6 +3478,19 @@ Orkwood_1 = {
 		agot_safe_buy_august_perk_history_effect = yes
 		trait = august
 	}
+}
+Orkwood_2_A = { # created 02/22 slambroski
+	name = Sallei
+	dynasty = dynn_Orkwood
+	female = yes
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Orkwood_28
+	mother = Saltcliffe_15
+
+	8257.6.1 = { birth = yes }
 }
 Orkwood_2 = {
 	name = Wulfe
