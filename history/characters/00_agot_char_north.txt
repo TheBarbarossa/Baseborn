@@ -3483,6 +3483,7 @@ Umber_4 = { # edited 03/23 slambroski
 	8297.1.1 = {
 		effect = { remove_trait = widowed }
 	}
+	#C8 S0
 	8300.1.20 = {
 		trait = wounded_3
 		trait = mute
@@ -3904,6 +3905,12 @@ Umber_14 = { # edited 03/23 slambroski
 		birth = yes
 		make_trait_inactive = tol
 		add_character_flag = canon_status_mentioned
+	}
+	#C8 S1
+	8300.1.20 = {
+		effect = {
+			agot_safe_betrothal_history_effect = { TARGET = character:Ryswell_6_A } # Berena Ryswell
+		}
 	}
 }
 Umber_15 = { # edited 03/23 slambroski
@@ -4791,7 +4798,7 @@ Karstark_12 = {
 	}
 }
 ### Issue of Rickard
-Karstark_16 = {
+Karstark_16 = { # edited 03.25 slambroski
 	name = Harrion # Canon, a lord
 	dynasty_house = house_Karstark
 	dna = Karstark_16
@@ -4842,6 +4849,8 @@ Karstark_16 = {
 			}
 		}
 	}
+	#C8 S1
+	8300.1.20 = { add_spouse = Frey_48 } # Alyx Frey
 }
 Karstark_17 = {
 	name = Eddard # Canon
@@ -5187,6 +5196,21 @@ Bolton_1 = {
 			}
 		}
 	}
+	#C8 S1
+	8299.8.1 = {
+		effect = {
+			if = {
+				limit = { character:Frey_52 = { is_alive = yes } }
+				character:Frey_52 = { # Fat Walda Frey
+					make_pregnant = {
+						father = ROOT
+					}
+					event_pregnancy_effect = yes 
+				}
+			}
+		}
+	}
+	#C8 S1 END
 	8299.12.15 = {
 		trait = murderer
 		effect = {
@@ -8516,7 +8540,8 @@ Woolfield_78 = { # edited 03/22 slambroski
 	trait = humble
 
 	8246.1.1 = { birth = yes }
-	8300.1.19 = { give_nickname = nick_agot_historical_the_giantslayer }
+	#C8 S1
+	8300.1.20 = { give_nickname = nick_agot_historical_the_giantslayer }
 }
 
 ###### HOUSE FLINT (id = dynn_Flint)
@@ -9871,7 +9896,7 @@ Locke_50 = {
 	}
 	8268.1.1 = { death = yes }
 }
-Locke_1 = {
+Locke_1 = { # edited 03/25 slambroski
 	name = Ondrew # Canon, a lord
 	dynasty = dynn_Locke
 	dna = Locke_1
@@ -9891,6 +9916,7 @@ Locke_1 = {
 	mother = Silverfield_81
 
 	trait = education_martial_2
+	trait = education_martial_prowess_3
 	trait = diligent
 	trait = wrathful
 	trait = rude
@@ -9932,6 +9958,8 @@ Locke_1 = {
 			}
 		}
 	}
+	#C8 S1
+	8300.1.20 = { trait = infirm }
 }
 ### Issue of Ondrew
 Locke_2 = {
@@ -10035,7 +10063,7 @@ Locke_51 = {
 	}
 }
 ### Issue of Donnel
-Locke_4 = {
+Locke_4 = { # edited 03/25 slambroski
 	name = Brandon # Mentioned
 	dynasty = dynn_Locke
 
@@ -10067,6 +10095,8 @@ Locke_4 = {
 		add_character_flag = canon_status_mentioned
 	}
 	8291.1.1 = { employer = Manderly_6 } # Wyman Manderly
+	#C8 S1
+	8300.1.14 = { add_spouse = Slate_3 } # Sansa Slate
 }
 Locke_5 = {
 	name = Sybelle # Canon, married Robett Glover
@@ -14013,6 +14043,12 @@ Dustin_5 = { # edited 03/20 slambroski
 			add_unpressed_claim = title:c_barrowton
 		}
 	}
+	#C8 S1
+	8300.1.20 = {
+		effect = {
+			agot_safe_betrothal_history_effect = { TARGET = character:Umber_15 } #Aregelle Umber
+		}
+	}
 }
 ### Issue of Eddard, first cousins once-removed to Willam
 Dustin_6 = {
@@ -14957,6 +14993,12 @@ Slate_1 = { # edited 03/21 slambroski
 		add_character_flag = canon_status_mentioned
 	}
 	8275.1.1 = { add_spouse = Rouse_80 } # Tyalla Rouse
+	#C8 S1
+	8300.1.1 = {
+		effect = {
+			add_stress = medium_stress_gain
+		}
+	}
 }
 Slate_59 = {
 	name = Garenna # married Kerwick Lesper
@@ -15089,6 +15131,12 @@ Slate_2_B = { # created 02/04 slambroski
 	disallow_random_traits = yes 
 
 	8282.6.1 = { birth = yes }
+	#C8 S1
+	8300.1.14 = {
+		effect = {
+			agot_safe_betrothal_history_effect = { TAGRET = character:FisherSS_3_B } # Wylla Fisher
+		}
+	}
 }
 Slate_2_C = { # created 02/04 slambroski
 	name = Erik
@@ -17875,6 +17923,13 @@ Whitehill_4 = { # edited 03/23 slambroski
 	dynasty = dynn_Whitehill
 	dna = Whitehill_4
 
+	diplomacy = 2
+	martial = 6
+	stewardship = 8
+	intrigue = 9
+	learning = 0
+	prowess = 2
+
 	religion = fots_seven
 	culture = wolfswood_clansman
 
@@ -17895,6 +17950,21 @@ Whitehill_4 = { # edited 03/23 slambroski
 		add_character_flag = canon_status_semicanon
 	}
 	8297.1.1 = { employer = Bolton_1 } # Roose Bolton
+	#C8 S1
+	8300.1.20 = {
+		add_spouse = Dustin_4 # Barbrey Dustin
+		effect = {
+			if = {
+				limit = { character:Dustin_4 = { is_alive = yes } }
+				character:Dustin_4 = { # Barbrey Dustin
+					make_pregnant = {
+						father = ROOT
+					}
+					event_pregnancy_effect = yes 
+				}
+			}
+		}
+	}
 }
 Whitehill_5 = { # edited 03/23 slambroski
 	name = Gwyn # Semi-Canon
