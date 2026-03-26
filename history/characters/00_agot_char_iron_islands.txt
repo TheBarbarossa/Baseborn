@@ -8094,7 +8094,7 @@ Weaver_6 = {
 		make_trait_inactive = scripted_appearance
 	}
 }
-Weaver_4 = {
+Weaver_4 = { # edited 03/26 slambroski
 	name = Romny # Canon, Victarion supporter
 	dynasty = dynn_Weaver
 	dna = Weaver_4
@@ -8112,7 +8112,10 @@ Weaver_4 = {
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
-	8284.1.1 = { trait = reaver }
+	8284.1.1 = { 
+		trait = reaver 
+		trait = lifestyle_poet
+	}
 	8290.1.1 = { add_spouse = Goodbrother_11 } # Tanda Goodbrother
 }
 Weaver_5 = {
@@ -8171,6 +8174,32 @@ Weaver_7 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 	}
+}
+### Issue of Romny
+Weaver_4_A = { # created 02/22 slambroski
+	name = Aggar
+	dynasty = dynn_Weaver
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Weaver_4
+	mother = Goodbrother_11
+
+	8296.6.1 = { birth = yes }
+}
+Weaver_4_B = { # created 02/22 slambroski
+	name = Margot
+	dynasty = dynn_Weaver
+	female = yes 
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Weaver_4
+	mother = Goodbrother_11
+
+	8298.1.1 = { birth = yes }
 }
 
 ###### HOUSE NETLEY (id = dynn_Netley)
