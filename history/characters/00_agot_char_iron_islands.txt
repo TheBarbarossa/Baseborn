@@ -1858,9 +1858,16 @@ Botley_1 = {
 	8262.1.1 = { add_spouse = Salt_8 } # Mera Salt
 	8281.1.1 = { death = yes }
 }
-Botley_2 = {
+Botley_2 = { # edited 03/26 slambroski
 	name = Maron # Canon, AKA: Fishwhiskers
 	dynasty = dynn_Botley
+
+	diplomacy = 3
+	martial = 8
+	stewardship = 1
+	intrigue = 1
+	learning = 8
+	prowess = 1
 
 	religion = drowned_god
 	culture = ironborn
@@ -1869,7 +1876,13 @@ Botley_2 = {
 	mother = Netley_73
 
 	trait = education_martial_2
+	trait = education_martial_prowess_2
+	trait = forder
 	trait = greedy
+	trait = authoritative
+	trait = shy
+
+	disallow_random_traits = yes 
 
 	8232.1.1 = {
 		birth = yes
@@ -1877,6 +1890,10 @@ Botley_2 = {
 	}
 	8260.1.1 = { add_spouse = Myre_115 } # Unella Myre
 	8281.1.1 = { give_nickname = nick_agot_historical_the_old_Botley_2 }
+	#C8 S1
+	8300.1.20 = {
+		employer = Greyjoy_6 # Euron Greyjoy
+	}
 }
 ### Issue of Balon
 Botley_3 = {
@@ -1907,58 +1924,125 @@ Botley_3 = {
 		}
 	}
 }
-Botley_4 = {
+Botley_4 = { # edited 03/26 slambroski
 	name = Germund # Canon, a lord, Euron supporter
 	dynasty = dynn_Botley
 	dna = Botley_4
 
+	diplomacy = 3
+	martial = 0
+	stewardship = 0
+	intrigue = 7
+	learning = 0
+	prowess = 10 
+
 	religion = drowned_god
 	culture = ironborn
+	sexuality = heterosexual
 
 	father = Botley_1
 	mother = Farwynd_112
 
+	trait = education_diplomacy_1
+	trait = education_martial_prowess_4
+	trait = diplomat
 	trait = ambitious
+	trait = generous
+	trait = sadistic
+
+	disallow_random_traits = yes 
 
 	8252.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
+		add_character_flag = ensure_sexuality_heterosexual
 	}
 	8275.1.1 = { add_spouse = Butterwell_39 } # Emberlei Butterwell
+	#C8 S1
+	8300.1.20 = {
+		employer = Greyjoy_6 # Euron Greyjoy
+	}
 }
-Botley_5 = {
+Botley_5 = { # edited 03/26 slambroski
 	name = Lucimore # Canon
 	dynasty = dynn_Botley
+
+	diplomacy = 6
+	martial = 0
+	stewardship = 2
+	intrigue = 8
+	learning = 0 
+	prowess = 3
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = Botley_1
 	mother = Salt_8
+
+	trait = education_martial_4
+	trait = education_martial_prowess_2
+	trait = open_terrain_expert
+	trait = deceitful
+	trait = lazy
+	trait = stubborn
+
+	disallow_random_traits = yes 
 
 	8263.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_canon
 	}
+	#C8 S0
+	8300.1.20 = {
+		effect = {
+			title:c_lordsport.holder = { # Symond Botley
+				imprison = {
+					target = ROOT
+					type = house_arrest
+				}
+			}
+		}
+	}
 }
-Botley_6 = {
+Botley_6 = { # edited 03/26 slambroski
 	name = Sargon # Canon
 	dynasty = dynn_Botley
 
+	diplomacy = 0
+	martial = 2
+	stewardship = 10
+	intrigue = 2
+	learning = 9
+	prowess = 10
+
 	religion = drowned_god
 	culture = ironborn
+	sexuality = heterosexual
 
 	father = Botley_1
 	mother = Salt_8
 
+	trait = education_intrigue_1
+	trait = education_martial_prowess_2
+	trait = compassionate
+	trait = wrathful
+	trait = deceitful
+
+	disallow_random_traits = yes 
+
 	8264.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_canon
+		add_character_flag = sexuality_ensure_heterosexual
+	}
+	8300.1.20 = {
+		employer = Greyjoy_6 # Euron Greyjoy
 	}
 }
 ### Issue of Maron
-Botley_7 = {
+Botley_7 = { # edited 03/26 slambroski
 	name = Dagon # Mentioned
 	dynasty = dynn_Botley
 
@@ -1973,6 +2057,9 @@ Botley_7 = {
 	8262.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
+	}
+	8300.1.20 = {
+		employer = Botley_12 # Symond Botley
 	}
 }
 Botley_8 = {
@@ -2038,7 +2125,7 @@ Botley_10 = {
 		death = { death_reason = death_battle } # Moat Cailin occupation
 	}
 }
-Botley_11 = {
+Botley_11 = { # edited 03/26 slambroski
 	name = Tristifer # Canon, THE Tris Botley, Asha supporter
 	dynasty = dynn_Botley
 	dna = Botley_11
@@ -2059,6 +2146,7 @@ Botley_11 = {
 
 	trait = education_stewardship_3
 	trait = beauty_good_1
+	trait = loyal
 	trait = honest
 	trait = trusting
 	trait = brave
@@ -2100,6 +2188,14 @@ Botley_11 = {
 	8299.11.15 = {
 		effect = { add_pressed_claim = title:c_lordsport }
 	}
+	#C8 S1
+	8300.1.10 = {
+		employer = Greyjoy_13 # Asha Greyjoy
+	}
+	8300.1.20 = {
+		trait = disinherited
+	}
+	#C8 S1 END
 	8300.4.25 = { # Retaking Deepwood Motte
 		effect = {
 			agot_safe_imprison_in_castle_history_effect = {
@@ -2110,35 +2206,67 @@ Botley_11 = {
 		}
 	}
 }
-Botley_12 = {
+Botley_12 = { # edited 03/26 slambroski
 	name = Symond # Canon
 	dynasty = dynn_Botley
 	dna = Botley_12
 
+	diplomacy = 5
+	martial = 0
+	stewardship = 0
+	intrigue = 7
+	learning = 7
+	prowess = 8
+
 	religion = drowned_god
 	culture = ironborn
+	sexuality = heterosexual
 
 	father = Botley_3
 	mother = Saltcliffe_2
+
+	trait = education_stewardship_3
+	trait = education_martial_prowess_3
+	trait = zealous
+	trait = trusting
+	trait = ambitious
+
+	disallow_random_traits = yes 
 
 	8277.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
+		add_character_flag = sexuality_ensure_heterosexual
 	}
 	8299.11.15 = {
 		effect = { add_pressed_claim = title:c_lordsport }
 	}
 }
-Botley_13 = {
+Botley_13 = { # edited 03/26 slambroski
 	name = Harlon # Canon
 	dynasty = dynn_Botley
+
+	diplomacy = 3
+	martial = 10
+	stewardship = 3
+	intrigue = 6
+	learning = 2
+	prowess = 7
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = Botley_3
 	mother = Saltcliffe_2
+
+	trait = education_intrigue_2
+	trait = education_martial_prowess_2
+	trait = cynical
+	trait = patient
+	trait = just
+
+	disallow_random_traits = yes 
 
 	8280.1.1 = {
 		birth = yes
@@ -2148,15 +2276,30 @@ Botley_13 = {
 		effect = { add_pressed_claim = title:c_lordsport }
 	}
 }
-Botley_14 = {
+Botley_14 = { # edited 03/26 slambroski
 	name = Vickon # Canon
 	dynasty = dynn_Botley
+
+	diplomacy = 0
+	martial = 7
+	stewardship = 10
+	intrigue = 10
+	learning = 4
+	prowess = 8
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = Botley_3
 	mother = Saltcliffe_2
+
+	trait = education_stewardship_3
+	trait = education_martial_prowess_3
+	trait = vengeful
+	trait = generous
+	trait = brave
+
+	disallow_random_traits = yes 
 
 	8284.1.1 = {
 		birth = yes
@@ -2166,7 +2309,7 @@ Botley_14 = {
 		effect = { add_pressed_claim = title:c_lordsport }
 	}
 }
-Botley_15 = {
+Botley_15 = { # edited 03/26 slambroski
 	name = Bennarion # Canon
 	dynasty = dynn_Botley
 
@@ -2175,6 +2318,12 @@ Botley_15 = {
 
 	father = Botley_3
 	mother = Saltcliffe_2
+
+	trait = patient
+	trait = honest
+	trait = bossy
+
+	disallow_random_traits = yes 
 
 	8289.1.1 = {
 		birth = yes
@@ -2185,24 +2334,49 @@ Botley_15 = {
 	}
 }
 ### Issue of Germund
-Botley_16 = {
+Botley_16 = { # edited 03/26 slambroski
 	name = Balon # Canon
 	dynasty = dynn_Botley
+
+	diplomacy = 10
+	martial = 9
+	stewardship = 7
+	intrigue = 0
+	learning = 6
+	prowess = 6
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = Botley_4
 	mother = Butterwell_39
+
+	trait = education_intrigue_4
+	trait = education_martial_prowess_2
+	trait = just
+	trait = lustful
+	trait = stubborn
+
+	disallow_random_traits = yes 
 
 	8277.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_canon
 	}
+	8300.1.20 = {
+		employer = Greyjoy_6 # Euron Greyjoy
+	}
 }
-Botley_17 = {
+Botley_17 = { # edited 03/26 slambroski
 	name = Quellon # Canon
 	dynasty = dynn_Botley
+
+	diplomacy = 8
+	martial = 1
+	stewardship = 8
+	intrigue = 4
+	learning = 2
+	prowess = 3
 
 	religion = drowned_god
 	culture = ironborn
@@ -2210,10 +2384,69 @@ Botley_17 = {
 	father = Botley_4
 	mother = Butterwell_39
 
+	trait = education_intrigue_4
+	trait = education_martial_prowess_1
+	trait = humble
+	trait = craven
+	trait = temperate
+
+	disallow_random_traits = yes 
+
 	8279.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_canon
 	}
+	8300.1.20 = {
+		employer = Greyjoy_6 # Euron Greyjoy
+	}
+}
+Botley_17_B = { # created 02/26 slambroski
+	name = Gysella
+	dynasty = dynn_Botley
+	female = yes 
+
+	diplomacy = 4
+	martial = 4
+	stewardship = 7
+	intrigue = 2
+	learning = 7
+	prowess = 9
+
+	religion = drowned_god
+	culture = ironborn
+	sexuality = bisexual
+
+	father = Botley_4
+	mother = Butterwell_39
+
+	trait = education_stewardship_1
+	trait = honest
+	trait = temperate
+	trait = trusting
+
+	disallow_random_traits = yes 
+
+	8282.9.1 = { 
+		birth = yes 
+		add_character_flag = sexuality_ensure_bisexual
+	}
+	8300.1.20 = {
+		employer = Botley_12 # Symond Botley
+	}
+}
+Botley_17_C = { # created 02/26 slambroski
+	name = Maeva
+	dynasty = dynn_Botley
+	female = yes 
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Botley_4
+	mother = Butterwell_39
+
+	8286.1.1 = { birth = yes }
+	8289.1.1 = { death = { death_reason = death_siege } }
 }
 ### Issue of Sargon
 Botley_18 = {
