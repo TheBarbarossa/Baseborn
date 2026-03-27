@@ -3,19 +3,23 @@
 ##########
 #Aegonfort
 the_red_keep_01 = {
-
 	construction_time = very_quick_construction_time
-	effect_desc = feast_cost_discount_max_desc
 
-	type_icon = "icon_red_keep.dds"
+	type_icon = "icon_structure_red_keep.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
 	}
 
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
+	}
+
 	cost_gold = expensive_building_tier_1_cost
 
 	next_building = the_red_keep_02
+
+	effect_desc = feast_cost_discount_max_desc
 
 	character_modifier = {
 		legitimacy_gain_mult = 0.01
@@ -45,14 +49,16 @@ the_red_keep_01 = {
 }
 #Maegor's Holdfast
 the_red_keep_02 = {
-
 	construction_time = very_slow_construction_time
-	effect_desc = feast_cost_discount_max_desc
 
-	type_icon = "icon_red_keep.dds"
+	type_icon = "icon_structure_red_keep.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	asset = {
@@ -63,6 +69,8 @@ the_red_keep_02 = {
 	cost_gold = expensive_building_tier_4_cost
 
 	next_building = the_red_keep_03
+
+	effect_desc = feast_cost_discount_max_desc
 
 	character_modifier = {
 		legitimacy_gain_mult = 0.05
@@ -93,14 +101,16 @@ the_red_keep_02 = {
 }
 #Red Keep
 the_red_keep_03 = {
-
 	construction_time = very_slow_construction_time
-	effect_desc = feast_cost_discount_max_desc
 
-	type_icon = "icon_red_keep.dds"
+	type_icon = "icon_structure_red_keep.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	asset = {
@@ -109,6 +119,8 @@ the_red_keep_03 = {
 	}
 
 	cost_gold = expensive_building_tier_8_cost
+
+	effect_desc = feast_cost_discount_max_desc
 
 	character_modifier = {
 		legitimacy_gain_mult = 0.1
@@ -143,15 +155,18 @@ the_red_keep_03 = {
 ##########
 # Seven Gates of King's Landing
 ##########
-
 seven_gates_01 = {
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_walls_of_kings_landing.dds"
+	type_icon = "icon_structure_walls_of_kings_landing.dds"
 
 	can_construct_potential = {
 		barony = title:b_the_red_keep
 		building_requirement_tribal = no
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_6_cost
@@ -162,6 +177,7 @@ seven_gates_01 = {
 		levy_size = 0.15
 		tax_mult = normal_building_tax_mult_tier_2
 	}
+
 	county_modifier = {
 		development_growth_factor = 0.1
 		hostile_raid_time = 0.5
@@ -232,24 +248,17 @@ cobblers_square_01 = {
 ##########
 # Great Sept of Baelor
 ##########
-
 holy_site_great_sept_01 = {
-
 	construction_time = very_slow_construction_time
-	effect_desc = royal_garden_effect_desc
 
-	type_icon = "icon_great_sept_of_baelor.dds"
+	type_icon = "icon_structure_great_sept_of_baelor.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
 	}
 
-	asset = {
-		type = pdxmesh
-		name = "building_special_KL_BaelorsSept_mesh"
-	}
-
 	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 		custom_description = {
 			text = agot_holy_site_fallback_trigger
 			OR = {
@@ -269,7 +278,14 @@ holy_site_great_sept_01 = {
 		}
 	}
 
+	asset = {
+		type = pdxmesh
+		name = "building_special_KL_BaelorsSept_mesh"
+	}
+
 	cost_gold = expensive_building_tier_7_cost
+
+	effect_desc = royal_garden_effect_desc
 
 	county_holder_character_modifier = {
 		monthly_piety = 0.5
@@ -303,8 +319,8 @@ holy_site_great_sept_01 = {
 	type = special
 
 	flag = travel_point_of_interest_religious
+	flag = holy_building
 }
-
 generic_great_sept_01 = {
 
 	construction_time = very_slow_construction_time
@@ -841,10 +857,9 @@ the_eyrie_01 = {
 ##########
 
 casterly_rock_01 = {
-
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_casterly_rock.dds"
+	type_icon = "icon_structure_casterly_rock.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
@@ -853,6 +868,135 @@ casterly_rock_01 = {
 	asset = {
 		type = pdxmesh
 		name = "casterlyrock_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
+	}
+
+	cost_gold = expensive_building_tier_8_cost
+
+	next_building = casterly_rock_02
+
+	province_modifier = {
+		defender_holding_advantage = 20
+		fort_level = 20
+	}
+
+	max_garrison = normal_building_max_garrison_tier_10
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_martial
+	flag = special_building_enabled_in_ruin_county
+	flag = special_mine
+	flag = special_mine_gold
+}
+casterly_rock_02 = {
+	construction_time = very_slow_construction_time
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "casterlyrock_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
+	}
+
+	cost_gold = expensive_building_tier_8_cost
+
+	next_building = casterly_rock_03
+
+	max_garrison = normal_building_max_garrison_tier_10
+
+	province_modifier = {
+		defender_holding_advantage = 20
+		fort_level = 20
+		monthly_income = special_mine_building_tax_tier_3
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_religious
+	flag = special_building_enabled_in_ruin_county
+	flag = special_mine
+	flag = special_mine_gold
+}
+casterly_rock_03 = {
+	construction_time = very_slow_construction_time
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "casterlyrock_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
+	}
+
+	cost_gold = expensive_building_tier_8_cost
+
+	next_building = casterly_rock_04
+
+	character_modifier = {
+		legitimacy_gain_mult = 0.1
+		owned_legend_spread_mult = 0.1
+		dynasty_opinion = 10
+	}
+
+	max_garrison = normal_building_max_garrison_tier_10
+
+	province_modifier = {
+		defender_holding_advantage = 20
+		fort_level = 20
+		monthly_income = special_mine_building_tax_tier_3
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_intrigue
+	flag = special_building_enabled_in_ruin_county
+	flag = special_mine
+	flag = special_mine_gold
+}
+casterly_rock_04 = {
+	construction_time = very_slow_construction_time
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "casterlyrock_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_8_cost
@@ -884,7 +1028,11 @@ casterly_rock_01 = {
 	type = special
 
 	flag = travel_point_of_interest_economic
+	flag = special_building_enabled_in_ruin_county
+	flag = special_mine
+	flag = special_mine_gold
 }
+
 
 ##########
 # Highgarden
@@ -985,7 +1133,7 @@ sunspear_01 = {
 
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_sunspear.dds"
+	type_icon = "icon_structure_sunspear.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
@@ -1030,10 +1178,9 @@ sunspear_01 = {
 ##########
 
 storms_end_01 = {
-
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_storms_end.dds"
+	type_icon = "icon_structure_storms_end.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
@@ -1042,6 +1189,257 @@ storms_end_01 = {
 	asset = {
 		type = pdxmesh
 		name = "building_special_stormsend_castle_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
+	}
+
+	cost_gold = expensive_building_tier_8_cost
+
+	next_building = storms_end_02
+
+	character_modifier = {
+		owned_legend_spread_mult = 0.1
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_religious
+}
+storms_end_02 = {
+	construction_time = very_slow_construction_time
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "building_special_stormsend_castle_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
+	}
+
+	cost_gold = expensive_building_tier_8_cost
+
+	next_building = storms_end_03
+
+	character_modifier = {
+		owned_legend_spread_mult = 0.1
+		knight_effectiveness_mult = 0.1
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_martial
+}
+storms_end_03 = {
+	construction_time = very_slow_construction_time
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "building_special_stormsend_castle_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
+	}
+
+	cost_gold = expensive_building_tier_8_cost
+
+	next_building = storms_end_04
+
+	character_modifier = {
+		owned_legend_spread_mult = 0.1
+		knight_effectiveness_mult = 0.1
+	}
+
+
+	province_modifier = {
+		supply_limit_mult = -0.1
+	}
+
+	county_modifier = {
+		epidemic_resistance = 5
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_martial
+}
+storms_end_04 = {
+	construction_time = very_slow_construction_time
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "building_special_stormsend_castle_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
+	}
+
+	cost_gold = expensive_building_tier_8_cost
+
+	next_building = storms_end_05
+
+	character_modifier = {
+		owned_legend_spread_mult = 0.1
+		knight_effectiveness_mult = 0.1
+	}
+
+	province_modifier = {
+		fort_level = 2
+		defender_holding_advantage = 4
+		supply_limit_mult = -0.1
+	}
+
+	county_modifier = {
+		monthly_county_control_growth_factor = 0.1
+		epidemic_resistance = 5
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_martial
+}
+storms_end_05 = {
+	construction_time = very_slow_construction_time
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "building_special_stormsend_castle_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
+	}
+
+	cost_gold = expensive_building_tier_8_cost
+
+	next_building = storms_end_06
+
+	character_modifier = {
+		owned_legend_spread_mult = 0.1
+		knight_effectiveness_mult = 0.1
+	}
+
+	max_garrison = good_building_max_garrison_tier_10
+
+	province_modifier = {
+		fort_level = 4
+		defender_holding_advantage = 6
+		supply_limit_mult = -0.1
+	}
+
+	county_modifier = {
+		epidemic_resistance = 5
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_martial
+}
+storms_end_06 = {
+	construction_time = very_slow_construction_time
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "building_special_stormsend_castle_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
+	}
+
+	cost_gold = expensive_building_tier_8_cost
+
+	next_building = storms_end_07
+
+	character_modifier = {
+		owned_legend_spread_mult = 0.1
+		knight_effectiveness_mult = 0.1
+	}
+
+	max_garrison = good_building_max_garrison_tier_10
+
+	province_modifier = {
+		fort_level = 6
+		defender_holding_advantage = 8
+		supply_limit_mult = -0.1
+	}
+
+	county_modifier = {
+		epidemic_resistance = 5
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_martial
+}
+storms_end_07 = {
+	construction_time = very_slow_construction_time
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "building_special_stormsend_castle_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_8_cost
@@ -1074,6 +1472,7 @@ storms_end_01 = {
 
 	flag = travel_point_of_interest_martial
 }
+
 
 ##########
 # Riverrun
@@ -1403,7 +1802,7 @@ the_bloody_gate_01 = {
 
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_bloody_gate.dds"
+	type_icon = "icon_structure_bloody_gate.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
@@ -1447,7 +1846,7 @@ dragonstone_01 = {
 
 	construction_time = slow_construction_time
 
-	type_icon = "icon_dragonstone.dds"
+	type_icon = "icon_structure_dragonstone.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
@@ -1493,7 +1892,7 @@ the_hightower_01 = {
 
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_hightower.dds"
+	type_icon = "icon_structure_hightower.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
@@ -1549,7 +1948,7 @@ holy_site_starry_sept_01 = {
 	construction_time = very_slow_construction_time
 	effect_desc = royal_garden_effect_desc
 
-	type_icon = "icon_starry_sept.dds"
+	type_icon = "icon_structure_starry_sept.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
