@@ -249,15 +249,20 @@ Rayder_hh_4 = {
 	trait = brave
 	trait = diligent
 
-	8281.1.1 = {
+	8279.1.1 = {
 		birth = yes
+		add_character_flag = has_scripted_appearance
 		add_character_flag = canon_status_canon
 	}
-	8294.1.1 = {
-		# employer = Crowkiller_1 # Alfyn Crowkiller, AGOT TODO Employer isn't landed
-	}
-	8299.12.2 = {
-		death = { death_reason = death_fell_off_the_wall }
+	8292.1.1 = { trait = education_martial_prowess_3 }
+	8298.1.1 = {
+		effect = {
+			if = {
+				limit = { character:Rayder_hh_4 = { is_alive = yes } }
+				set_relation_lover = character:Rayder_hh_4 # Jarl
+			}
+		}
+		effect = { add_character_modifier = contraceptives_modifier }
 	}
 }
 ### Issue of Mance
