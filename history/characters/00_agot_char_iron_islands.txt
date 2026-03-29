@@ -3521,7 +3521,6 @@ Harlaw_26 = {
 		death = { death_reason = death_battle } # Sack of Winterfell
 	}
 }
-
 ### Issue of Quellon
 Harlaw_27 = {
 	name = Harren # Mentioned
@@ -3607,10 +3606,17 @@ Harlaw_hh_1 = {
 ############################
 ### On Our Backs
 ###
-Orkwood_1 = {
+Orkwood_1 = { # edited 03/29 slambroski
 	name = Alyn # Canon, a lord, Euron supporter
 	dynasty = dynn_Orkwood
 	dna = Orkwood_1
+
+	diplomacy = 1
+	martial = 10
+	stewardship = 1
+	intrigue = 2
+	learning = 1
+	prowess = 10 
 
 	religion = drowned_god
 	culture = ironborn
@@ -3619,6 +3625,7 @@ Orkwood_1 = {
 	mother = Saltcliffe_15
 
 	trait = education_martial_1
+	trait = education_martial_prowess_2
 	trait = gregarious
 	trait = generous
 	trait = cynical
@@ -3670,11 +3677,18 @@ Orkwood_2 = {
 	8278.1.1 = { add_spouse = Penny_11 } # Joanna Penny
 }
 ### Issue of Alyn
-Orkwood_3 = {
+Orkwood_3 = { # edited 03/29 slambroski
 	name = Ralf
 	dynasty = dynn_Orkwood
 
 	dna = Orkwood_3
+
+	diplomacy = 6
+	martial = 7
+	stewardship = 3
+	intrigue = 5
+	learning = 4
+	prowess = 1
 
 	religion = drowned_god
 	culture = ironborn
@@ -3682,20 +3696,66 @@ Orkwood_3 = {
 	father = Orkwood_1
 	mother = Sparr_5
 
+	trait = education_stewardship_4
 	trait = beauty_good_1
+	trait = fickle
+	trait = generous
+	trait = arbitrary
+
+	disallow_random_traits = yes 
 
 	8277.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 	}
 	8294.1.1 = { add_spouse = Goodbrother_12 } # Sona Goodbrother
+	#C8 S1
+	8300.1.20 = {
+		death = {
+			death_reason = death_duel
+			killer = Beesbury_76 # Logan Beesbury
+		}
+	}
 }
-Orkwood_4 = {
+Orkwood_4 = { # edited 03/29 slambroski
 	name = Ferny
 	dynasty = dynn_Orkwood
 	female = yes
 
 	dna = Orkwood_4
+
+	diplomacy = 1
+	martial = 7
+	stewardship = 5
+	intrigue = 7
+	learning = 1
+	prowess = 7
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Orkwood_1
+	mother = Sparr_5
+
+	trait = education_diplomacy_2
+	trait = education_martial_prowess_1
+	trait = beauty_good_1
+	trait = greedy
+	trait = calm
+	trait = deceitful
+
+	disallow_random_traits = yes
+
+	8279.1.1 = {
+		birth = yes
+		make_trait_inactive = scripted_appearance
+	}
+	8300.1.1 = { trait = shieldmaiden }
+}
+Orkwood_4_B = { # created 02/22 slambroski
+	name = Ulfhild
+	dynasty = dynn_Orkwood
+	female = yes
 
 	religion = drowned_god
 	culture = ironborn
@@ -3704,14 +3764,81 @@ Orkwood_4 = {
 	mother = Sparr_5
 
 	trait = beauty_good_1
+	trait = sickly
 
-	8279.1.1 = {
-		birth = yes
-		make_trait_inactive = scripted_appearance
-	}
+	8282.1.1 = { birth = yes }
+	8283.1.1 = { death = { death_reason = death_accident } }
+}
+Orkwood_4_C = { # created 02/22 slambroski
+	name = Herrika
+	dynasty = dynn_Orkwood
+	female = yes
+
+	diplomacy = 7
+	martial = 1
+	stewardship = 2
+	intrigue = 2
+	learning = 7
+	prowess = 8
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Orkwood_1
+	mother = Sparr_5
+
+	trait = trusting
+	trait = chaste
+	trait = charming
+
+	disallow_random_traits = yes
+
+	8288.1.1 = { birth = yes }
+}
+Orkwood_4_D = { # created 02/22 slambroski
+	name = Kenned
+	dynasty = dynn_Orkwood
+
+	diplomacy = 1
+	martial = 6
+	stewardship = 0
+	intrigue = 4
+	learning = 6
+	prowess = 4
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Orkwood_1
+	mother = Sparr_5
+
+	trait = beauty_good_1
+	trait = brave
+	trait = gregarious
+	trait = curious
+
+	disallow_random_traits = yes 
+
+	8290.1.1 = { birth = yes }
+}
+Orkwood_4_E = { # created 02/22 slambroski
+	name = Victaria
+	dynasty = dynn_Orkwood
+	female = yes
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Orkwood_1
+	mother = Sparr_5
+
+	trait = rowdy
+	disallow_random_traits = yes
+
+	8295.1.1 = { birth = yes }
 }
 ### Issue of Wulfe
-Orkwood_5 = {
+Orkwood_5 = { # edited 03/29 slambroski
 	name = Aeron
 	dynasty = dynn_Orkwood
 
@@ -3722,8 +3849,9 @@ Orkwood_5 = {
 	mother = Penny_11
 
 	8292.1.1 = { birth = yes }
+	8298.6.1 = { death = { death_reason = death_accident } }
 }
-Orkwood_6 = {
+Orkwood_6 = { # edited 03/29 slambroski
 	name = Victarion
 	dynasty = dynn_Orkwood
 
@@ -3734,6 +3862,7 @@ Orkwood_6 = {
 	mother = Penny_11
 
 	8294.1.1 = { birth = yes }
+	8298.6.1 = { death = { death_reason = death_accident } }
 }
 Orkwood_7 = {
 	name = Ryella
