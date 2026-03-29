@@ -5860,9 +5860,18 @@ Farwynd_5 = {
 	}
 }
 ### Issue of Adrack
-Farwynd_121 = {
-	name = Gelmarr
+Farwynd_121 = { # edited 03/29 slambroski 
+	# name = Gelmarr
+	name = Gwin # married Beron Blacktyde
 	dynasty = dynn_Farwynd
+	female = yes 
+
+	diplomacy = 5
+	martial = 5
+	stewardship = 10
+	intrigue = 2
+	learning = 4
+	prowess = 8
 
 	religion = drowned_god
 	culture = ironborn
@@ -5870,7 +5879,16 @@ Farwynd_121 = {
 	father = Farwynd_107
 	mother = Mooton_55
 
-	8263.1.1 = { birth = yes }
+	trait = education_martial_2
+	trait = ambitious
+	trait = stubborn
+	trait = chaste
+
+	disallow_random_traits = yes 
+
+	# 8263
+	8262.1.1 = { birth = yes }
+	8289.3.1 = { trait = widowed }
 }
 Farwynd_122 = {
 	name = Thormor
@@ -6057,10 +6075,17 @@ FarwyndLL_69 = {
 		death = { death_reason = death_ill }
 	}
 }
-FarwyndLL_1 = {
+FarwyndLL_1 = { # edited 03/29 slambroski
 	name = Gylbert # Canon, a lord
 	dynasty_house = house_FarwyndLL
 	dna = FarwyndLL_1
+
+	diplomacy = 1
+	martial = 5
+	stewardship = 7
+	intrigue = 0
+	learning = 3
+	prowess = 6
 
 	religion = drowned_god
 	culture = ironborn
@@ -6089,7 +6114,7 @@ FarwyndLL_1 = {
 		trait = august
 	}
 }
-FarwyndLL_70 = {
+FarwyndLL_70 = { # edited 03/29 slambroski
 	name = Rafe
 	dynasty_house = house_FarwyndLL
 
@@ -6100,22 +6125,38 @@ FarwyndLL_70 = {
 	mother = Humble_85
 
 	8242.1.1 = { birth = yes }
+	8277.1.1 = { add_spouse = Shepherd_77_A } # Esgred Pyke
 	8291.1.1 = {
 		trait = gout_ridden
 		death = { death_reason = death_gout_ridden }
 	}
 }
 ### Issue of Gylbert
-FarwyndLL_2 = {
+FarwyndLL_2 = { # edited 03/29 slambroski
 	name = Gyles # Canon
 	dynasty_house = house_FarwyndLL
 	dna = FarwyndLL_2
+
+	diplomacy = 10
+	martial = 4
+	stewardship = 5
+	intrigue = 2
+	learning = 1
+	prowess = 8
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = FarwyndLL_1
 	mother = Brimer_84
+
+	trait = education_learning_3
+	trait = education_martial_prowess_2
+	trait = calm
+	trait = arbitrary
+	trait = content
+
+	disallow_random_traits = yes 
 
 	8267.1.1 = {
 		birth = yes
@@ -6123,16 +6164,30 @@ FarwyndLL_2 = {
 		add_character_flag = canon_status_canon
 	}
 }
-FarwyndLL_3 = {
+FarwyndLL_3 = { # edited 03/29 slambroski
 	name = Ygon # Canon
 	dynasty_house = house_FarwyndLL
 	dna = FarwyndLL_3
+
+	diplomacy = 7
+	martial = 7
+	stewardship = 1
+	intrigue = 10
+	learning = 1
+	prowess = 6
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = FarwyndLL_1
 	mother = Brimer_84
+
+	trait = education_stewardship_4
+	trait = chaste
+	trait = content
+	trait = forgiving
+
+	disallow_random_traits = yes 
 
 	8272.1.1 = {
 		birth = yes
@@ -6140,10 +6195,17 @@ FarwyndLL_3 = {
 		add_character_flag = canon_status_canon
 	}
 }
-FarwyndLL_4 = {
+FarwyndLL_4 = { # edited 03/29 slambroski
 	name = Yohn # Canon
 	dynasty_house = house_FarwyndLL
 	dna = FarwyndLL_4
+
+	diplomacy = 0
+	martial = 7
+	stewardship = 8
+	intrigue = 4
+	learning = 9
+	prowess = 3
 
 	religion = drowned_god
 	culture = ironborn
@@ -6151,11 +6213,33 @@ FarwyndLL_4 = {
 	father = FarwyndLL_1
 	mother = Brimer_84
 
+	trait = education_martial_1
+	trait = education_martial_prowess_3
+	trait = sadistic
+	trait = generous
+	trait = ambitious
+
+	disallow_random_traits = yes 
+
 	8275.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
+}
+### Issue of Rafe
+FarwyndLL_70_A = { # created 02/26 slambroski
+	name = Maeva
+	dynasty_house = house_FarwyndLL
+	female = yes 
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = FarwyndLL_70
+	mother = Shepherd_77_A
+
+	8280.6.1 = { birth = yes }
 }
 
 ### Deadlock Branch
@@ -8785,6 +8869,22 @@ Shepherd_3 = {
 		add_character_flag = canon_status_canon
 	}
 	8278.1.1 = { add_spouse = Farwynd_120 } # Meredyth Farwynd
+}
+### Issue of Ambrode
+Shepherd_77_A = { # created 02/26 slambroski
+	name = Esgred
+	dynasty = dynn_Shepherd
+	female = yes
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Shepherd_77
+
+	trait = bastard
+
+	8257.1.1 = { birth = yes }
+	8290.1.1 = { death = yes }
 }
 ### Issue of Qarl
 Shepherd_4 = {
