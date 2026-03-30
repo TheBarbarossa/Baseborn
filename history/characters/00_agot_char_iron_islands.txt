@@ -6545,7 +6545,7 @@ Blacktyde_73 = {
 	}
 }
 ### Issue of Maron
-Blacktyde_1 = {
+Blacktyde_1 = { # edited 03/29 slambroski
 	name = Beron # Mentioned, a lord
 	dynasty = dynn_Blacktyde
 	dna = Blacktyde_1
@@ -6561,16 +6561,24 @@ Blacktyde_1 = {
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_mentioned
 	}
-	8277.1.1 = { add_spouse = Wayn_2 } # Corrine Wayn
+	# 8277.1.1 = { add_spouse = Wayn_2 } # Corrine Wayn
+	8277.1.1 = { add_spouse = Farwynd_121 } # Gwin Farwynd
 	8289.3.1 = {
 		death = { death_reason = death_battle } # Greyjoy Rebellion
 	}
 }
-Blacktyde_2 = {
+Blacktyde_2 = { # edited 03/29 slambroski
 	name = Burton # a lord
 	dynasty = dynn_Blacktyde
 
 	dna = Blacktyde_2
+
+	diplomacy = 5
+	martial = 8
+	stewardship = 1
+	intrigue = 0
+	learning = 7
+	prowess = 2
 
 	religion = drowned_god
 	culture = ironborn
@@ -6579,6 +6587,7 @@ Blacktyde_2 = {
 	mother = Myre_114
 
 	trait = education_diplomacy_3
+	trait = education_martial_prowess_2
 	trait = callous
 	trait = just
 	trait = greedy
@@ -6594,18 +6603,27 @@ Blacktyde_2 = {
 	8280.1.1 = { add_spouse = Myre_2 } # Ravella Myre
 }
 ### Issue of Beron
-Blacktyde_3 = {
+Blacktyde_3 = { # edited 03/29 slambroski
 	name = Baelor # Canon, a lord, Asha supporter
 	dynasty = dynn_Blacktyde
 	dna = Blacktyde_3
+
+	diplomacy = 5
+	martial = 2
+	stewardship = 2
+	intrigue = 10
+	learning = 4
+	prowess = 6 
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = Blacktyde_1
-	mother = Wayn_2
+	# mother = Wayn_2
+	mother = Farwynd_121
 
 	trait = education_diplomacy_3
+	trait = education_martial_prowess_2
 	trait = beauty_good_1
 	trait = brave
 	trait = just
@@ -6643,50 +6661,94 @@ Blacktyde_3 = {
 	}
 }
 ### Issue of Burton
-Blacktyde_4 = {
+Blacktyde_4 = { # edited 03/29 slambroski
 	name = Boremund
 	dynasty = dynn_Blacktyde
 
 	dna = Blacktyde_4
+
+	diplomacy = 8
+	martial = 4
+	stewardship = 4
+	intrigue = 5
+	learning = 10
+	prowess = 6
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = Blacktyde_2
 	mother = Myre_2
+
+	trait = education_learning_1
+	trait = education_martial_prowess_2
+	trait = craven
+	trait = sadistic
+	trait = rude
+
+	disallow_random_traits = yes 
 
 	8282.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 	}
 }
-Blacktyde_5 = {
+Blacktyde_5 = { # edited 03/29 slambroski
 	name = Andrik
 	dynasty = dynn_Blacktyde
 
 	dna = Blacktyde_5
+
+	diplomacy = 6
+	martial = 3
+	stewardship = 8
+	intrigue = 3
+	learning = 10
+	prowess = 1
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = Blacktyde_2
 	mother = Myre_2
+
+	trait = education_martial_4
+	trait = education_martial_prowess_2
+	trait = brave
+	trait = temperate
+	trait = arbitrary
+
+	disallow_random_traits = yes
 
 	8284.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 	}
 }
-Blacktyde_6 = {
+Blacktyde_6 = { # edited 03/29 slambroski
 	name = Esgred
 	dynasty = dynn_Blacktyde
 	female = yes
+
+	diplomacy = 8
+	martial = 7
+	stewardship = 2
+	intrigue = 1
+	learning = 2
+	prowess = 0
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = Blacktyde_2
 	mother = Myre_2
+
+	trait = paranoid
+	trait = chaste
+	trait = temperate
+	trait = curious
+
+	disallow_random_traits = yes 
 
 	8287.1.1 = { birth = yes }
 }
