@@ -6952,7 +6952,7 @@ Sparr_92 = {
 ############################
 ### Pay the Toll
 ###
-Ironmaker_1 = {
+Ironmaker_1 = { # edited 04/01 slambroski
 	name = Erik # Canon, a lord
 	dynasty = dynn_Ironmaker
 	dna = Ironmaker_1
@@ -7004,6 +7004,11 @@ Ironmaker_1 = {
 		trait = infirm
 		effect = { change_current_weight = 100 }
 	}
+	#C8 S1
+	8300.1.20 = {
+		death = { death_reason = death_old_age }
+	}
+	#C8 S1 END
 	8300.1.30 = {
 		effect = { # Castellan of Pyke; Lord Steward of the Iron Isles
 			agot_appoint_as_councillor_for_castle_history_effect = {
@@ -7070,22 +7075,37 @@ Ironmaker_31 = {
 	8245.1.1 = { birth = yes }
 }
 ### Issue of Bennarion
-Ironmaker_3 = {
+Ironmaker_3 = { # edited 04/02 slambroski
 	name = Urek # Canon
 	dynasty = dynn_Ironmaker
 
+	diplomacy = 8
+	martial = 5
+	stewardship = 9
+	intrigue = 5
+	learning = 7
+	prowess = 5
+
 	religion = drowned_god
 	culture = ironborn
+	sexuality = bisexual
 
 	father = Ironmaker_2
 	mother = Saltcliffe_14
 
 	trait = education_martial_1
+	trait = education_martial_prowess_2
 	trait = physique_good_3
+	trait = fickle
+	trait = greedy
+	trait = ambitious
+
+	disallow_random_traits = yes 
 
 	8250.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_canon
+		add_character_flag = sexuality_ensure_bisexual
 	}
 	8267.1.1 = { add_spouse = Merlyn_100 } # Siglind Merlyn
 }
@@ -7145,19 +7165,36 @@ Ironmaker_15 = {
 	8257.1.1 = { birth = yes }
 }
 ### Issue of Urek
-Ironmaker_6 = {
+Ironmaker_6 = { # edited 04/02 slambroski
 	name = Vickon # Mentioned
 	dynasty = dynn_Ironmaker
 
+	diplomacy = 1
+	martial = 6
+	stewardship = 1
+	intrigue = 8
+	learning = 3
+	prowess = 7
+
 	religion = drowned_god
 	culture = ironborn
+	sexuality = heterosexual
 
 	father = Ironmaker_3
 	mother = Merlyn_100
 
+	trait = education_stewardship_4
+	trait = education_martial_prowess_2
+	trait = stubborn
+	trait = honest
+	trait = cynical
+
+	disallow_random_traits = yes 
+
 	8270.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
+		add_character_flag = sexuality_ensure_heterosexual
 	}
 	8288.1.1 = { add_spouse = Goodbrother_7 } # Yara Goodbrother
 }
@@ -7192,7 +7229,7 @@ Ironmaker_8 = {
 	}
 }
 ### Issue of Thormor
-Ironmaker_9 = {
+Ironmaker_9 = { # edited 04/02 slambroski 
 	name = Harlon # Mentioned
 	dynasty = dynn_Ironmaker
 
@@ -7206,6 +7243,7 @@ Ironmaker_9 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
+	8289.6.1 = { death = { death_reason = death_battle } } # Greyjoy Rebellion
 }
 Ironmaker_10 = {
 	name = Balon # Mentioned
@@ -7268,9 +7306,11 @@ Ironmaker_13 = {
 		add_character_flag = canon_status_mentioned
 	}
 }
-Ironmaker_14 = {
-	name = Harren # Mentioned
+Ironmaker_14 = { # edited 04/02 slambroski 
+	# name = Harren # Mentioned
+	name = Harra
 	dynasty = dynn_Ironmaker
+	female = yes 
 
 	religion = drowned_god
 	culture = ironborn
