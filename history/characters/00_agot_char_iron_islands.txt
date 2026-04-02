@@ -8465,16 +8465,31 @@ Tawney_3 = {
 	8293.1.1 = { death = yes }
 }
 ### Issue of Fralegg
-Tawney_4 = {
+Tawney_4 = { # edited 04/02 slambroski
 	name = Balon # Canon, a lord
 	dynasty = dynn_Tawney
 	dna = Tawney_4
+
+	diplomacy = 9
+	martial = 4
+	stewardship = 4
+	intrigue = 0
+	learning = 7
+	prowess = 8
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = Tawney_3
 	mother = Merlyn_87
+
+	trait = education_martial_1
+	trait = education_martial_prowess_2
+	trait = chaste
+	trait = stubborn
+	trait = gregarious
+
+	disallow_random_traits = yes 
 
 	8270.1.1 = {
 		birth = yes
@@ -8591,16 +8606,31 @@ Codd_1 = {
 	}
 }
 ### Issue of Andrik
-Codd_2 = {
+Codd_2 = { # edited 04/02 slambroski
 	name = Qalen # a lord
 	dynasty = dynn_Codd
 	dna = Codd_2
+
+	diplomacy = 8
+	martial = 4
+	stewardship = 7
+	intrigue = 3
+	learning = 10
+	prowess = 2
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = Codd_44
 	mother = Ironspite_87
+
+	trait = education_learning_2
+	trait = education_martial_prowess_2
+	trait = rude
+	trait = arbitrary
+	trait = brave
+
+	disallow_random_traits = yes 
 
 	8269.1.1 = {
 		birth = yes
@@ -8752,6 +8782,14 @@ Codd_8 = {
 	8279.1.1 = { trait = lustful }
 	8280.1.1 = { give_nickname = nick_agot_historical_lefthand }
 	8299.11.15 = { employer = Greyjoy_6 } # Euron Greyjoy
+	#C8 S1
+	8300.1.20 = {
+		trait = wounded_3
+		death = {
+			death_reason = death_duel
+			killer = Lanny_28 # Chiswyck Lanny
+		}
+	}
 }
 ### Issue of Urrigon
 Codd_9 = {
@@ -8775,6 +8813,19 @@ Codd_9 = {
 		trait = gregarious
 		trait = brave
 	}
+}
+Codd_9_B = { # created 02/01 slambroski
+	name = Belona # married Rodrik Freeborn
+	dynasty = dynn_Codd
+	female = yes
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Codd_7
+	mother = Farwynd_113
+
+	8271.1.1 = { birth = yes }
 }
 
 ###### HOUSE HUMBLE (id = dynn_Humble)
