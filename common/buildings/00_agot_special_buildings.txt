@@ -200,7 +200,6 @@ seven_gates_01 = {
 ##########
 # Cobbler's Square
 ##########
-
 cobblers_square_01 = {
 	construction_time = very_slow_construction_time
 
@@ -212,6 +211,10 @@ cobblers_square_01 = {
 
 	can_construct = {
 		title:b_the_red_keep.title_province = { has_building_or_higher = the_red_keep_02 }
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	asset = {
@@ -243,6 +246,8 @@ cobblers_square_01 = {
 	}
 
 	type = special
+
+	flag = travel_point_of_interest_economic
 }
 
 ##########
@@ -322,11 +327,9 @@ holy_site_great_sept_01 = {
 	flag = holy_building
 }
 generic_great_sept_01 = {
-
 	construction_time = very_slow_construction_time
-	effect_desc = royal_garden_effect_desc
 
-	type_icon = "icon_great_sept_of_baelor.dds"
+	type_icon = "icon_structure_great_sept_of_baelor.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
@@ -339,16 +342,12 @@ generic_great_sept_01 = {
 	can_construct = {
 		scope:holder = { has_trait = zealous }
 		scope:holder = { piety_level >= 5 }
-		scope:holder = { has_primary_title = title:e_the_iron_throne }
+		scope:holder = { has_primary_title = title:h_the_iron_throne }
 		county.faith.religion = { this = religion:the_seven_religion  }
 	}
 
-	asset = {
-		type = pdxmesh
-		name = "building_special_KL_BaelorsSept_mesh"
-	}
-
 	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 		custom_description = {
 			text = agot_holy_site_fallback_trigger
 			OR = {
@@ -368,7 +367,14 @@ generic_great_sept_01 = {
 		}
 	}
 
+	asset = {
+		type = pdxmesh
+		name = "building_special_KL_BaelorsSept_mesh"
+	}
+
 	cost_gold = expensive_building_tier_7_cost
+
+	effect_desc = royal_garden_effect_desc
 
 	county_holder_character_modifier = {
 		monthly_piety = 0.5
@@ -402,23 +408,68 @@ generic_great_sept_01 = {
 	type = special
 
 	flag = travel_point_of_interest_religious
+	flag = holy_building
 }
 
 ##########
 # Dragonpit
 ##########
-
-# dragonpit_01 - historical dragonpit building
-dragonpit_01 = {
-
+#Sept of Rememberance
+agot_sept_of_remembrance_01 = {
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_dragonpit.dds"
+	type_icon = "icon_structure_lanns_sept.dds"
 
-	effect_desc = building_dragonpit_effect
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
+	}
 
+	cost_gold = expensive_building_tier_1_cost
 
-	cost_gold = 250
+	county_holder_character_modifier = {
+		the_seven_religion_opinion = 10
+	}
+
+	character_modifier = {
+		the_seven_religion_opinion = 10
+	}
+
+	character_modifier = {
+		prowess_per_piety_level = 1
+		martial_per_piety_level = 1
+	}
+
+	max_garrison = normal_building_max_garrison_tier_2
+
+	province_modifier = {
+		fort_level = 2
+	}
+
+	ai_value = {
+		base = 100
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_religious
+	flag = holy_building
+}
+
+#Sept of Rememberance
+dragonpit_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_lanns_sept.dds"
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
+	}
+
+	cost_gold = expensive_building_tier_1_cost
 
 	next_building = dragonpit_02
 
@@ -441,7 +492,6 @@ dragonpit_01 = {
 		fort_level = 2
 	}
 
-	#AGOT TODO
 	ai_value = {
 		base = 100
 		modifier = { # Fill all building slots before going for special buildings
@@ -453,22 +503,60 @@ dragonpit_01 = {
 	type = special
 
 	flag = travel_point_of_interest_religious
+	flag = holy_building
 }
-
 dragonpit_02 = {
-
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_dragonpit.dds"
+	type_icon = "icon_structure_hadrians_wall.dds"
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
+	}
+
+	cost_gold = expensive_building_tier_1_cost
+
+	next_building = dragonpit_03
+
+	county_holder_character_modifier = {
+		the_seven_religion_opinion = -10
+	}
+
+	county_modifier = {
+		county_opinion_add = -10
+	}
+
+	ai_value = {
+		base = 100
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_martial
+	flag = special_building_enabled_in_ruin_county
+}
+dragonpit_03 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_building_dragonpit.dds"
 
 	effect_desc = building_dragonpit_effect
 
 	can_construct = {
 		agot_can_build_or_restore_dragonpits = yes
 	}
+
 	asset = {
 		type = pdxmesh
 		name = "building_special_KL_DragonPit_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_8_cost
@@ -507,12 +595,10 @@ dragonpit_02 = {
 
 	flag = travel_point_of_interest_martial
 }
-
 dragonpit_ruins_01 = {
-
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_dragonpit.dds"
+	type_icon = "icon_structure_lanns_sept.dds"
 
 	can_construct = {
 		always = no
@@ -550,13 +636,12 @@ dragonpit_ruins_01 = {
 	type = special
 
 	flag = travel_point_of_interest_religious
+	flag = holy_building
 }
-
 dragonpit_ruins_02 = {
-
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_dragonpit.dds"
+	type_icon = "icon_structure_hadrians_wall.dds"
 
 	can_construct = {
 		always = no
@@ -597,16 +682,17 @@ dragonpit_ruins_02 = {
 	type = special
 
 	flag = travel_point_of_interest_religious
+	flag = special_building_enabled_in_ruin_county
 }
-
 # Fully Restored & Functional Version
 dragonpit_ruins_03 = {
 
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_dragonpit.dds"
+	type_icon = "icon_building_dragonpit.dds"
 
-	can_construct_potential = {
+	can_construct = {
+		agot_can_build_or_restore_dragonpits = yes
 	}
 
 	on_complete = {
@@ -620,6 +706,10 @@ dragonpit_ruins_03 = {
 	asset = {
 		type = pdxmesh
 		name = "building_special_KL_DragonPit_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_8_cost
@@ -668,7 +758,7 @@ winterfell_01 = {
 
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_building_wolf2.dds"
+	type_icon = "icon_house_wolf_2.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
@@ -677,6 +767,10 @@ winterfell_01 = {
 	asset = {
 		type = pdxmesh
 		name = "winterfell_new_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_6_cost
@@ -706,6 +800,7 @@ winterfell_01 = {
 	type = special
 
 	flag = travel_point_of_interest_martial
+	flag = special_building_enabled_in_ruin_county
 }
 
 winterfell_02 = {
@@ -714,7 +809,7 @@ winterfell_02 = {
 
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_winterfell.dds"
+	type_icon = "icon_house_wolf_2.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
@@ -723,6 +818,10 @@ winterfell_02 = {
 	asset = {
 		type = pdxmesh
 		name = "winterfell_new_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_7_cost
@@ -756,6 +855,7 @@ winterfell_02 = {
 	type = special
 
 	flag = travel_point_of_interest_martial
+	flag = special_building_enabled_in_ruin_county
 }
 
 winterfell_03 = {
@@ -764,7 +864,7 @@ winterfell_03 = {
 
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_winterfell.dds"
+	type_icon = "icon_house_wolf_2.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
@@ -773,6 +873,10 @@ winterfell_03 = {
 	asset = {
 		type = pdxmesh
 		name = "winterfell_new_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_8_cost
@@ -804,6 +908,7 @@ winterfell_03 = {
 	type = special
 
 	flag = travel_point_of_interest_martial
+	flag = special_building_enabled_in_ruin_county
 }
 
 ##########
@@ -814,7 +919,7 @@ the_eyrie_01 = {
 
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_the_eyrie.dds"
+	type_icon = "icon_structure_the_eyrie.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
@@ -1037,16 +1142,14 @@ casterly_rock_04 = {
 	flag = special_mine_gold
 }
 
-
 ##########
 # Highgarden
 ##########
 
 highgarden_01 = {
-
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_highgarden.dds"
+	type_icon = "icon_structure_highgarden.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
@@ -1055,6 +1158,177 @@ highgarden_01 = {
 	asset = {
 		type = pdxmesh
 		name = "building_special_highgarden_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
+	}
+
+	cost_gold = expensive_building_tier_6_cost
+
+	next_building = highgarden_02
+
+	character_modifier = {
+		owned_legend_spread_mult = 0.1
+		legitimacy_gain_mult = 0.1
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_diplomatic
+}
+highgarden_02 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_highgarden.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "building_special_highgarden_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
+	}
+
+	cost_gold = expensive_building_tier_6_cost
+
+	next_building = highgarden_03
+
+	character_modifier = {
+		owned_legend_spread_mult = 0.1
+		legitimacy_gain_mult = 0.1
+	}
+
+	province_modifier = {
+		fort_level = 2
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_martial
+}
+highgarden_03 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_highgarden.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "building_special_highgarden_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
+	}
+
+	cost_gold = expensive_building_tier_6_cost
+
+	next_building = highgarden_04
+
+	character_modifier = {
+		owned_legend_spread_mult = 0.1
+		legitimacy_gain_mult = 0.1
+	}
+
+	province_modifier = {
+		fort_level = 2
+	}
+
+	county_modifier = {
+		county_opinion_add = 10
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_religious
+	flag = holy_building
+}
+highgarden_04 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_highgarden.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "building_special_highgarden_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
+	}
+
+	cost_gold = expensive_building_tier_6_cost
+
+	next_building = highgarden_05
+
+	character_modifier = {
+		stress_gain_mult = -0.1
+		owned_legend_spread_mult = 0.1
+		legitimacy_gain_mult = 0.1
+	}
+
+	province_modifier = {
+		fort_level = 2
+		tax_mult = good_building_tax_mult_tier_8
+	}
+
+	county_modifier = {
+		county_opinion_add = 10
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_diplomatic
+}
+highgarden_05 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_highgarden.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	asset = {
+		type = pdxmesh
+		name = "building_special_highgarden_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_6_cost
@@ -1094,10 +1368,14 @@ pyke_01 = {
 
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_pyke.dds"
+	type_icon = "icon_structure_pyke.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_6_cost
@@ -1146,6 +1424,10 @@ sunspear_01 = {
 	asset = {
 		type = pdxmesh
 		name = "building_special_sunspear_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_7_cost
@@ -1477,7 +1759,6 @@ storms_end_07 = {
 	flag = travel_point_of_interest_martial
 }
 
-
 ##########
 # Riverrun
 ##########
@@ -1486,7 +1767,7 @@ riverrun_01 = {
 
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_riverrun.dds"
+	type_icon = "icon_structure_riverrun.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
@@ -1495,6 +1776,10 @@ riverrun_01 = {
 	asset = {
 		type = pdxmesh
 		name = "building_special_riverrun_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_1_cost
@@ -1533,7 +1818,7 @@ moat_cailin_01 = {
 
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_moat_cailin.dds"
+	type_icon = "icon_structure_moat_cailin.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
@@ -1570,13 +1855,14 @@ moat_cailin_01 = {
 	type = special
 
 	flag = travel_point_of_interest_martial
+	flag = special_building_enabled_in_ruin_county
 }
 
 moat_cailin_02 = {
 
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_moat_cailin.dds"
+	type_icon = "icon_structure_moat_cailin.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
@@ -1584,28 +1870,30 @@ moat_cailin_02 = {
 
 	can_construct = {
 		OR = {
-			AND = {
-				exists = title:c_moat_cailin.holder
-				title:c_moat_cailin.holder = { agot_is_independent_ruler = yes }
+			title:c_moat_cailin.holder = {
+				is_human = yes
+				agot_is_independent_ruler = yes
 			}
 			custom_tooltip = {
 				text = moat_cailin_top_liege_desc
-				AND = {
-					exists = title:e_the_north.holder
-					title:e_the_north.holder = title:c_moat_cailin.holder.top_liege
+				title:c_moat_cailin.holder.top_liege ?= {
+					has_title = title:e_the_north
+					agot_is_independent_ruler = yes
 				}
 			}
 			custom_tooltip = {
 				text = moat_cailin_fortification_rights_desc
-				AND = {
-					exists = title:k_the_north.holder
-					title:k_the_north.holder = { vassal_contract_has_flag = fortification_rights_granted }
+				title:e_the_north.holder ?= {
 					OR = {
-						title:k_the_north.holder = title:c_moat_cailin.holder
-						title:c_moat_cailin.holder = {
-							any_liege_or_above = {
-								this = title:k_the_north.holder
-							}
+						vassal_contract_has_flag = fortification_rights_granted
+						has_variable = mw_obl_fortification_rights_granted
+					}
+				}
+				OR = {
+					title:e_the_north.holder = title:c_moat_cailin.holder
+					title:c_moat_cailin.holder = {
+						any_liege_or_above = {
+							this = title:e_the_north.holder
 						}
 					}
 				}
@@ -1653,6 +1941,10 @@ moat_cailin_02 = {
 		remove_variable = constructor
 	}
 
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
+	}
+
 	cost_gold = expensive_building_tier_4_cost
 
 	character_modifier = {
@@ -1689,7 +1981,7 @@ moat_cailin_03 = {
 
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_moat_cailin.dds"
+	type_icon = "icon_structure_moat_cailin.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
@@ -1711,13 +2003,13 @@ moat_cailin_03 = {
 			custom_tooltip = {
 				text = moat_cailin_fortification_rights_desc
 				AND = {
-					exists = title:k_the_north.holder
-					title:k_the_north.holder = { vassal_contract_has_flag = fortification_rights_granted }
+					exists = title:e_the_north.holder
+					title:e_the_north.holder = { vassal_contract_has_flag = fortification_rights_granted }
 					OR = {
-						title:k_the_north.holder = title:c_moat_cailin.holder
+						title:e_the_north.holder = title:c_moat_cailin.holder
 						title:c_moat_cailin.holder = {
 							any_liege_or_above = {
-								this = title:k_the_north.holder
+								this = title:e_the_north.holder
 							}
 						}
 					}
@@ -1762,6 +2054,10 @@ moat_cailin_03 = {
 			trigger_event = agot_ruins.3003
 		}
 		remove_variable = constructor
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_8_cost
@@ -1817,6 +2113,10 @@ the_bloody_gate_01 = {
 		name = "building_special_the_bloody_gate_mesh"
 	}
 
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
+	}
+
 	cost_gold = expensive_building_tier_6_cost
 
 	character_modifier = {
@@ -1827,6 +2127,7 @@ the_bloody_gate_01 = {
 		fort_level = 8
 		levy_size = -0.5
 		hostile_raid_time = 0.1
+		building_slot_add = -5
 	}
 	county_modifier = {
 		monthly_county_control_growth_add = 0.5
@@ -1859,6 +2160,10 @@ dragonstone_01 = {
 	asset = {
 		type = pdxmesh
 		name = "Dragonstone_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_8_cost
@@ -1907,6 +2212,10 @@ the_hightower_01 = {
 		name = "building_special_hightower_mesh"
 	}
 
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
+	}
+
 	cost_gold = expensive_building_tier_8_cost
 
 	asset = {
@@ -1924,7 +2233,7 @@ the_hightower_01 = {
 
 	province_modifier = {
 		fort_level = 6
-		monthly_income = special_mine_building_tax_tier_3
+		monthly_income = special_mine_building_tax_tier_1
 	}
 
 	max_garrison = normal_building_max_garrison_tier_3
@@ -1959,6 +2268,7 @@ holy_site_starry_sept_01 = {
 	}
 
 	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 		custom_description = {
 			text = agot_holy_site_fallback_trigger
 			OR = {
@@ -2008,6 +2318,7 @@ holy_site_starry_sept_01 = {
 	type = special
 
 	flag = travel_point_of_interest_religious
+	flag = holy_building
 }
 
 ##########
@@ -2022,6 +2333,10 @@ the_citadel_01 = {
 
 	can_construct_potential = {
 		building_requirement_tribal = no
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_5_cost
@@ -2055,6 +2370,10 @@ the_citadel_02 = {
 
 	can_construct_potential = {
 		building_requirement_tribal = no
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_6_cost
@@ -2095,7 +2414,7 @@ holy_site_naggas_hill_01 = {
 
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_naggas_hill.dds"
+	type_icon = "icon_structure_naggas_hill.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
@@ -2107,6 +2426,7 @@ holy_site_naggas_hill_01 = {
 	}
 
 	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 		custom_description = {
 			text = holy_site_building_trigger
 			barony = {
@@ -2146,6 +2466,7 @@ holy_site_naggas_hill_01 = {
 	type = special
 
 	flag = travel_point_of_interest_religious
+	flag = holy_building
 }
 
 ##########
@@ -2156,7 +2477,7 @@ the_twins_01 = {
 
 	construction_time = very_slow_construction_time
 
-	type_icon = "icon_the_twins.dds"
+	type_icon = "icon_structure_the_twins.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
@@ -2165,6 +2486,10 @@ the_twins_01 = {
 	asset = {
 		type = pdxmesh
 		name = "building_special_twins_mesh"
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_4_cost
@@ -2214,7 +2539,7 @@ generic_harrenhal_01 = {
 		name = "building_special_harrenhal_restored_mesh"
 	}
 
-	type_icon = "icon_harrenhal.dds"
+	type_icon = "icon_structure_harrenhal.dds"
 
 	can_construct = {
 		scope:holder = {
@@ -2231,6 +2556,10 @@ generic_harrenhal_01 = {
 
 	can_construct_potential = {
 		building_requirement_tribal = no
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_8_cost
@@ -2277,7 +2606,7 @@ harrenhal_01 = {
 		name = "building_special_harrenhal_restored_mesh"
 	}
 
-	type_icon = "icon_harrenhal.dds"
+	type_icon = "icon_structure_harrenhal.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
@@ -2291,6 +2620,10 @@ harrenhal_01 = {
 				holder.dynasty = dynasty:dynn_Hoare
 			}
 		}
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_8_cost
@@ -2337,7 +2670,7 @@ ruins_harrenhal_01 = {
 		name = "building_special_harrenhal_ruined_mesh"
 	}
 
-	type_icon = "icon_harrenhal.dds"
+	type_icon = "icon_structure_harrenhal.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
@@ -2364,7 +2697,6 @@ ruins_harrenhal_01 = {
 		defender_holding_advantage = 5
 		fort_level = 5
 		monthly_income = -2
-		garrison_size = -0.95
 	}
 
 	next_building = ruins_harrenhal_02
@@ -2381,6 +2713,7 @@ ruins_harrenhal_01 = {
 	type = special
 
 	flag = travel_point_of_interest_martial
+	flag = special_building_enabled_in_ruin_county
 }
 
 ruins_harrenhal_02 = {
@@ -2397,10 +2730,14 @@ ruins_harrenhal_02 = {
 		name = "building_special_harrenhal_ruined_1_mesh"
 	}
 
-	type_icon = "icon_harrenhal.dds"
+	type_icon = "icon_structure_harrenhal.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_3_cost
@@ -2422,7 +2759,6 @@ ruins_harrenhal_02 = {
 		defender_holding_advantage = 7
 		fort_level = 7
 		monthly_income = -2.1
-		garrison_size = -0.90 
 	}
 
 	next_building = ruins_harrenhal_03
@@ -2489,10 +2825,14 @@ ruins_harrenhal_03 = {
 		name = "building_special_harrenhal_ruined_2_mesh"
 	}
 
-	type_icon = "icon_harrenhal.dds"
+	type_icon = "icon_structure_harrenhal.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_4_cost
@@ -2514,7 +2854,6 @@ ruins_harrenhal_03 = {
 		defender_holding_advantage = 9
 		fort_level = 9
 		monthly_income = -2.2
-		garrison_size = -0.80
 	}
 
 	next_building = ruins_harrenhal_04
@@ -2582,10 +2921,14 @@ ruins_harrenhal_04 = {
 		name = "building_special_harrenhal_ruined_3_mesh"
 	}
 
-	type_icon = "icon_harrenhal.dds"
+	type_icon = "icon_structure_harrenhal.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_5_cost
@@ -2607,7 +2950,6 @@ ruins_harrenhal_04 = {
 		defender_holding_advantage = 11
 		fort_level = 11
 		monthly_income = -2.4
-		garrison_size = -0.7
 	}
 
 	next_building = ruins_harrenhal_05
@@ -2675,10 +3017,14 @@ ruins_harrenhal_05 = {
 		name = "building_special_harrenhal_ruined_4_mesh"
 	}
 
-	type_icon = "icon_harrenhal.dds"
+	type_icon = "icon_structure_harrenhal.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_6_cost
@@ -2700,7 +3046,6 @@ ruins_harrenhal_05 = {
 		defender_holding_advantage = 13
 		fort_level = 13
 		monthly_income = -2.6
-		garrison_size = -0.60
 	}
 
 	next_building = ruins_harrenhal_06
@@ -2768,10 +3113,14 @@ ruins_harrenhal_06 = {
 		name = "building_special_harrenhal_ruined_5_mesh"
 	}
 
-	type_icon = "icon_harrenhal.dds"
+	type_icon = "icon_structure_harrenhal.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_7_cost
@@ -2793,7 +3142,6 @@ ruins_harrenhal_06 = {
 		defender_holding_advantage = 15
 		fort_level = 15
 		monthly_income = -2.8
-		garrison_size = -0.50
 	}
 
 	next_building = ruins_harrenhal_07
@@ -2858,10 +3206,14 @@ ruins_harrenhal_07 = {
 		name = "building_special_harrenhal_restored_mesh"
 	}
 
-	type_icon = "icon_harrenhal.dds"
+	type_icon = "icon_structure_harrenhal.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
 	}
 
 	cost_gold = expensive_building_tier_8_cost
@@ -2929,1387 +3281,4 @@ ruins_harrenhal_07 = {
 	type = special
 
 	flag = travel_point_of_interest_martial
-}
-
-##########
-# Ironwood
-##########
-
-ironwood_01 = {
-
-	construction_time = very_slow_construction_time
-
-	type_icon = "icon_building_ironwoods.dds"
-
-	can_construct_potential = {
-		building_requirement_tribal = no
-	}
-
-	cost_gold = expensive_building_tier_4_cost
-
-	character_modifier = {
-		men_at_arms_maintenance = -0.1
-		monthly_dynasty_prestige_mult = 0.1
-	}
-	province_modifier = {
-		defender_holding_advantage = 5
-		fort_level = 2
-		monthly_income = good_building_tax_tier_3
-	}
-	county_modifier = {
-		tax_mult = normal_building_tax_mult_tier_1
-		development_growth_factor = 0.2
-	}
-
-	ai_value = {
-		base = 100
-		culture_likely_to_fortify_modifier = yes
-	}
-
-	type = special
-}
-
-depleted_ironwood_01 = {
-
-	construction_time = very_slow_construction_time
-
-	type_icon = "icon_building_depleted_ironwoods.dds"
-
-	can_construct_potential = {
-		building_requirement_tribal = no
-	}
-
-	cost_gold = expensive_building_tier_1_cost
-
-	character_modifier = {
-		men_at_arms_maintenance = -0.02
-		monthly_dynasty_prestige_mult = 0.02
-	}
-	province_modifier = {
-		defender_holding_advantage = 2
-		fort_level = 1
-		monthly_income = poor_building_tax_tier_3
-	}
-	county_modifier = {
-		tax_mult = low_building_tax_mult_tier_1
-		development_growth_factor = 0.1
-	}
-
-	ai_value = {
-		base = 100
-		culture_likely_to_fortify_modifier = yes
-	}
-
-	type = special
-}
-
-##########
-# MINES
-##########
-
-##########
-# Golden Tooth Mines PLACEHOLDER
-##########
-
-mines_of_the_tooth_01 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-		building_requirement_tribal = no
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		culture = {
-			has_innovation = innovation_crop_rotation
-		}
-	}
-
-	cost_gold = expensive_building_tier_3_cost
-
-	province_modifier = {
-		monthly_income = special_mine_building_tax_tier_1
-	}
-	county_modifier = {
-		tax_mult = normal_building_tax_mult_tier_1
-		development_growth_factor = 0.05
-	}
-
-	next_building = mines_of_the_tooth_02
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-mines_of_the_tooth_02 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 02 }
-		culture = {
-			has_innovation = innovation_manorialism
-		}
-	}
-
-	cost_gold = expensive_building_tier_4_cost
-
-	province_modifier = {
-		monthly_income = special_mine_building_tax_tier_2
-	}
-	county_modifier = {
-		tax_mult = normal_building_tax_mult_tier_2
-		development_growth_factor = 0.1
-	}
-
-	next_building = mines_of_the_tooth_03
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-mines_of_the_tooth_03 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 03 }
-		culture = {
-			has_innovation = innovation_windmills
-		}
-	}
-
-	cost_gold = expensive_building_tier_5_cost
-
-	province_modifier = {
-		monthly_income = special_mine_building_tax_tier_3
-	}
-	county_modifier = {
-		tax_mult = normal_building_tax_mult_tier_3
-		development_growth_factor = 0.15
-	}
-
-	next_building = mines_of_the_tooth_04
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-mines_of_the_tooth_04 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 04 }
-		culture = {
-			has_innovation = innovation_cranes
-		}
-	}
-
-	cost_gold = expensive_building_tier_6_cost
-
-	province_modifier = {
-		monthly_income = special_mine_building_tax_tier_4
-	}
-	county_modifier = {
-		tax_mult = normal_building_tax_mult_tier_4
-		development_growth_factor = 0.2
-	}
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-##########
-# Pendric Hills Mines
-##########
-
-pendric_hills_mines_01 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-		building_requirement_tribal = no
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		culture = {
-			has_innovation = innovation_crop_rotation
-		}
-	}
-
-	cost_gold = expensive_building_tier_3_cost
-
-	province_modifier = {
-		monthly_income = special_mine_building_tax_tier_1
-	}
-	county_modifier = {
-		tax_mult = normal_building_tax_mult_tier_1
-		development_growth_factor = 0.05
-	}
-
-	next_building = pendric_hills_mines_02
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-pendric_hills_mines_02 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 02 }
-		culture = {
-			has_innovation = innovation_manorialism
-		}
-	}
-
-	cost_gold = expensive_building_tier_4_cost
-
-	province_modifier = {
-		monthly_income = special_mine_building_tax_tier_2
-	}
-	county_modifier = {
-		tax_mult = normal_building_tax_mult_tier_2
-		development_growth_factor = 0.1
-	}
-
-	next_building = pendric_hills_mines_03
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-pendric_hills_mines_03 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 03 }
-		culture = {
-			has_innovation = innovation_windmills
-		}
-	}
-
-	cost_gold = expensive_building_tier_5_cost
-
-	province_modifier = {
-		monthly_income = special_mine_building_tax_tier_3
-	}
-	county_modifier = {
-		tax_mult = normal_building_tax_mult_tier_3
-		development_growth_factor = 0.15
-	}
-
-	next_building = pendric_hills_mines_04
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-pendric_hills_mines_04 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 04 }
-		culture = {
-			has_innovation = innovation_cranes
-		}
-	}
-
-	cost_gold = expensive_building_tier_6_cost
-
-	province_modifier = {
-		monthly_income = special_mine_building_tax_tier_4
-	}
-	county_modifier = {
-		tax_mult = normal_building_tax_mult_tier_4
-		development_growth_factor = 0.2
-	}
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-##########
-# Nunn's Deep Mines
-##########
-
-nunns_deep_mines_01 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-		building_requirement_tribal = no
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		culture = {
-			has_innovation = innovation_crop_rotation
-		}
-	}
-
-	cost_gold = expensive_building_tier_3_cost
-
-	province_modifier = {
-		monthly_income = special_mine_building_tax_tier_1
-	}
-	county_modifier = {
-		tax_mult = normal_building_tax_mult_tier_1
-		development_growth_factor = 0.05
-	}
-
-	next_building = nunns_deep_mines_02
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-nunns_deep_mines_02 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 02 }
-		culture = {
-			has_innovation = innovation_manorialism
-		}
-	}
-
-	cost_gold = expensive_building_tier_4_cost
-
-	province_modifier = {
-		monthly_income = special_mine_building_tax_tier_2
-	}
-	county_modifier = {
-		tax_mult = normal_building_tax_mult_tier_2
-		development_growth_factor = 0.1
-	}
-
-	next_building = nunns_deep_mines_03
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-nunns_deep_mines_03 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 03 }
-		culture = {
-			has_innovation = innovation_windmills
-		}
-	}
-
-	cost_gold = expensive_building_tier_5_cost
-
-	province_modifier = {
-		monthly_income = special_mine_building_tax_tier_3
-	}
-	county_modifier = {
-		tax_mult = normal_building_tax_mult_tier_3
-		development_growth_factor = 0.15
-	}
-
-	next_building = nunns_deep_mines_04
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-nunns_deep_mines_04 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 04 }
-		culture = {
-			has_innovation = innovation_cranes
-		}
-	}
-
-	cost_gold = expensive_building_tier_6_cost
-
-	province_modifier = {
-		monthly_income = special_mine_building_tax_tier_4
-	}
-	county_modifier = {
-		tax_mult = normal_building_tax_mult_tier_4
-		development_growth_factor = 0.2
-	}
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-##########
-# Silverhill Mines
-##########
-
-silverhill_mines_01 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-		building_requirement_tribal = no
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		culture = {
-			has_innovation = innovation_crop_rotation
-		}
-	}
-
-	cost_gold = expensive_building_tier_3_cost
-
-	province_modifier = {
-		monthly_income = silver_mine_building_tax_tier_1
-	}
-	county_modifier = {
-		tax_mult = low_building_tax_mult_tier_5
-		development_growth_factor = 0.05
-	}
-
-	next_building = silverhill_mines_02
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-silverhill_mines_02 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 02 }
-		culture = {
-			has_innovation = innovation_manorialism
-		}
-	}
-
-	cost_gold = expensive_building_tier_4_cost
-
-	province_modifier = {
-		monthly_income = silver_mine_building_tax_tier_2
-	}
-	county_modifier = {
-		tax_mult = low_building_tax_mult_tier_6
-		development_growth_factor = 0.1
-	}
-
-	next_building = silverhill_mines_03
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-silverhill_mines_03 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 03 }
-		culture = {
-			has_innovation = innovation_windmills
-		}
-	}
-
-	cost_gold = expensive_building_tier_5_cost
-
-	province_modifier = {
-		monthly_income = silver_mine_building_tax_tier_3
-	}
-	county_modifier = {
-		tax_mult = low_building_tax_mult_tier_7
-		development_growth_factor = 0.15
-	}
-
-	next_building = silverhill_mines_04
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-silverhill_mines_04 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 04 }
-		culture = {
-			has_innovation = innovation_cranes
-		}
-	}
-
-	cost_gold = expensive_building_tier_6_cost
-
-	province_modifier = {
-		monthly_income = silver_mine_building_tax_tier_4
-	}
-	county_modifier = {
-		tax_mult = low_building_tax_mult_tier_8
-		development_growth_factor = 0.2
-	}
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-##########
-# Yronwood Mines PLACEHOLDER
-##########
-
-yronwood_mines_01 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-		building_requirement_tribal = no
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		culture = {
-			has_innovation = innovation_crop_rotation
-		}
-	}
-
-	cost_gold = expensive_building_tier_3_cost
-
-	province_modifier = {
-		monthly_income = silver_mine_building_tax_tier_1
-	}
-	county_modifier = {
-		tax_mult = low_building_tax_mult_tier_5
-		development_growth_factor = 0.05
-	}
-
-	next_building = yronwood_mines_02
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-yronwood_mines_02 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 02 }
-		culture = {
-			has_innovation = innovation_manorialism
-		}
-	}
-
-	cost_gold = expensive_building_tier_4_cost
-
-	province_modifier = {
-		monthly_income = silver_mine_building_tax_tier_2
-	}
-	county_modifier = {
-		tax_mult = low_building_tax_mult_tier_6
-		development_growth_factor = 0.1
-	}
-
-	next_building = yronwood_mines_03
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-yronwood_mines_03 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 03 }
-		culture = {
-			has_innovation = innovation_windmills
-		}
-	}
-
-	cost_gold = expensive_building_tier_5_cost
-
-	province_modifier = {
-		monthly_income = silver_mine_building_tax_tier_3
-	}
-	county_modifier = {
-		tax_mult = low_building_tax_mult_tier_7
-		development_growth_factor = 0.15
-	}
-
-	next_building = yronwood_mines_04
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-yronwood_mines_04 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 04 }
-		culture = {
-			has_innovation = innovation_cranes
-		}
-	}
-
-	cost_gold = expensive_building_tier_6_cost
-
-	province_modifier = {
-		monthly_income = silver_mine_building_tax_tier_4
-	}
-	county_modifier = {
-		tax_mult = low_building_tax_mult_tier_8
-		development_growth_factor = 0.2
-	}
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-##########
-# Harlaw Mines PLACEHOLDER
-##########
-
-harlaw_mines_01 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-
-		building_requirement_tribal = no
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		culture = {
-			has_innovation = innovation_crop_rotation
-		}
-	}
-
-	cost_gold = expensive_building_tier_3_cost
-
-	province_modifier = {
-		monthly_income = copper_mine_building_tax_tier_1
-	}
-	county_modifier = {
-		tax_mult = low_building_tax_mult_tier_1
-		levy_size = 0.1
-		development_growth_factor = 0.05
-	}
-
-	next_building = harlaw_mines_02
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-harlaw_mines_02 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 02 }
-		culture = {
-			has_innovation = innovation_manorialism
-		}
-	}
-
-	cost_gold = expensive_building_tier_4_cost
-
-	province_modifier = {
-		monthly_income = copper_mine_building_tax_tier_2
-	}
-	county_modifier = {
-		tax_mult = low_building_tax_mult_tier_2
-		levy_size = 0.2
-		development_growth_factor = 0.1
-	}
-
-	next_building = harlaw_mines_03
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-harlaw_mines_03 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 03 }
-		culture = {
-			has_innovation = innovation_windmills
-		}
-	}
-
-	cost_gold = expensive_building_tier_5_cost
-
-	province_modifier = {
-		monthly_income = copper_mine_building_tax_tier_3
-	}
-	county_modifier = {
-		tax_mult = low_building_tax_mult_tier_3
-		levy_size = 0.3
-		development_growth_factor = 0.15
-	}
-
-	next_building = harlaw_mines_04
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-harlaw_mines_04 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 04 }
-		culture = {
-			has_innovation = innovation_cranes
-		}
-	}
-
-	cost_gold = expensive_building_tier_6_cost
-
-	province_modifier = {
-		monthly_income = copper_mine_building_tax_tier_4
-	}
-	county_modifier = {
-		tax_mult = low_building_tax_mult_tier_4
-		levy_size = 0.4
-		development_growth_factor = 0.2
-	}
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-##########
-# Orkmont Mines
-##########
-
-orkmont_mines_01 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-
-		building_requirement_tribal = no
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		culture = {
-			has_innovation = innovation_crop_rotation
-		}
-	}
-
-	cost_gold = expensive_building_tier_3_cost
-
-	province_modifier = {
-		monthly_income = copper_mine_building_tax_tier_1
-	}
-	county_modifier = {
-		tax_mult = low_building_tax_mult_tier_1
-		development_growth_factor = 0.05
-	}
-
-	next_building = orkmont_mines_02
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-orkmont_mines_02 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 02 }
-		culture = {
-			has_innovation = innovation_manorialism
-		}
-	}
-
-	cost_gold = expensive_building_tier_4_cost
-
-	province_modifier = {
-		monthly_income = copper_mine_building_tax_tier_2
-	}
-	county_modifier = {
-		tax_mult = low_building_tax_mult_tier_2
-		development_growth_factor = 0.1
-	}
-
-	next_building = orkmont_mines_03
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-orkmont_mines_03 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 03 }
-		culture = {
-			has_innovation = innovation_windmills
-		}
-	}
-
-	cost_gold = expensive_building_tier_5_cost
-
-	province_modifier = {
-		monthly_income = copper_mine_building_tax_tier_3
-	}
-	county_modifier = {
-		tax_mult = low_building_tax_mult_tier_3
-		development_growth_factor = 0.15
-	}
-
-	next_building = orkmont_mines_04
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-orkmont_mines_04 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 04 }
-		culture = {
-			has_innovation = innovation_cranes
-		}
-	}
-
-	cost_gold = expensive_building_tier_6_cost
-
-	province_modifier = {
-		monthly_income = copper_mine_building_tax_tier_4
-	}
-	county_modifier = {
-		tax_mult = low_building_tax_mult_tier_4
-		development_growth_factor = 0.2
-	}
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-##########
-# Hardstone Hills Mines PLACEHOLDER
-##########
-
-hardstone_hills_mines_01 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-
-		building_requirement_tribal = no
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		culture = {
-			has_innovation = innovation_crop_rotation
-		}
-	}
-
-	cost_gold = expensive_building_tier_3_cost
-
-	province_modifier = {
-		monthly_income = copper_mine_building_tax_tier_1
-	}
-	county_modifier = {
-		tax_mult = low_building_tax_mult_tier_1
-		development_growth_factor = 0.05
-	}
-
-	next_building = hardstone_hills_mines_02
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-hardstone_hills_mines_02 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 02 }
-		culture = {
-			has_innovation = innovation_manorialism
-		}
-	}
-
-	cost_gold = expensive_building_tier_4_cost
-
-	province_modifier = {
-		monthly_income = copper_mine_building_tax_tier_2
-	}
-	county_modifier = {
-		tax_mult = low_building_tax_mult_tier_2
-		development_growth_factor = 0.1
-	}
-
-	next_building = hardstone_hills_mines_03
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-hardstone_hills_mines_03 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 03 }
-		culture = {
-			has_innovation = innovation_windmills
-		}
-	}
-
-	cost_gold = expensive_building_tier_5_cost
-
-	province_modifier = {
-		monthly_income = copper_mine_building_tax_tier_3
-	}
-	county_modifier = {
-		tax_mult = low_building_tax_mult_tier_3
-		development_growth_factor = 0.15
-	}
-
-	next_building = hardstone_hills_mines_04
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-hardstone_hills_mines_04 = {
-
-	construction_time = slow_construction_time
-
-	type_icon = "icon_structure_mines.dds"
-
-	asset = {
-		type = pdxmesh
-		name = "building_special_mines_mesh"
-	}
-
-	can_construct_potential = {
-
-		building_requirement_tribal = no
-	}
-	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 04 }
-		culture = {
-			has_innovation = innovation_cranes
-		}
-	}
-
-	cost_gold = expensive_building_tier_6_cost
-
-	province_modifier = {
-		monthly_income = copper_mine_building_tax_tier_4
-	}
-	county_modifier = {
-		tax_mult = low_building_tax_mult_tier_4
-		development_growth_factor = 0.2
-	}
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
 }
