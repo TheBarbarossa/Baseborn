@@ -40,6 +40,7 @@
 		scope:recipient = {
 			OR = {
 				is_allied_to = scope:actor
+				is_vassal_of = scope:actor
 				AND = {
 					this ?= scope:actor.diarch
 					scope:actor = {
@@ -917,7 +918,7 @@
 			trigger_else = {
 				has_relation_friend = scope:target.casus_belli.primary_defender
 			}
-			desc = WONT_FIGHT_FRIEND
+			desc = WONT_FIGHT_FRIEND_REASON
 		}
 
 		modifier = { # Reluctant to join against Best Friends
@@ -931,7 +932,7 @@
 			trigger_else = {
 				has_relation_best_friend = scope:target.casus_belli.primary_defender
 			}
-			desc = WONT_FIGHT_BEST_FRIEND
+			desc = WONT_FIGHT_BEST_FRIEND_REASON
 		}
 		modifier = { # Reluctant to join against Lovers
 			add = -100
@@ -944,7 +945,7 @@
 			trigger_else = {
 				has_relation_lover = scope:target.casus_belli.primary_defender
 			}
-			desc = WONT_FIGHT_LOVER
+			desc = WONT_FIGHT_LOVER_REASON
 		}
 		modifier = { # Reluctant to join against Soulmate
 			add = -200
@@ -957,7 +958,7 @@
 			trigger_else = {
 				has_relation_soulmate = scope:target.casus_belli.primary_defender
 			}
-			desc = WONT_FIGHT_SOULMATE
+			desc = WONT_FIGHT_SOULMATE_REASON
 		}
 		modifier = { # Reluctant to join tributaries
 			add = -200
@@ -1148,31 +1149,36 @@ negotiate_alliance_interaction = {
 		}
 		scope:actor = {
 			is_ruler = yes
-			is_ai = no
+			OR = {
+				is_ai = no
+				highest_held_title_tier >= 2
+			}
+			#childhood friendship with hostage event, where they swear to be friends forever
+			OR = {
+				is_any_family_relation_or_spouse_trigger = { CHARACTER = scope:recipient }
+				hostage_oath_of_friendship_trigger = yes
+				#Parents/spouse were blood brothers
+				has_opinion_modifier = {
+					modifier = blood_brother_close_family_opinion
+					target = scope:recipient
+				}
+				house ?= {
+					house_head = scope:actor
+					any_house_relation = {
+						any_relation_house = {
+							exists = house_head
+							scope:recipient = house_head
+						}
+						has_house_relation_parameter = unlocks_house_head_negotiate_alliance
+					}
+				}
+			}
 		}
 
 		#AGOT Added, not available for or against NW
 		NOT = {
 			scope:actor = { government_has_flag = government_is_nw }
 			scope:recipient = { government_has_flag = government_is_nw }
-		}
-		NOR = {
-			AND = {
-				scope:actor = {
-					has_character_modifier = bittersteel_modifier
-				}
-				scope:recipient = {
-					house = dynasty:dynn_Targaryen.dynasty_founder.house
-				}
-			}
-			AND = {
-				scope:recipient = {
-					has_character_modifier = bittersteel_modifier
-				}
-				scope:actor = {
-					house = dynasty:dynn_Targaryen.dynasty_founder.house
-				}
-			}
 		}
 
 		#AGOT Added, no ruin interactions
@@ -1205,14 +1211,156 @@ negotiate_alliance_interaction = {
 			}
 		}
 		
-		# scope:actor = { highest_held_title_tier < tier_hegemony }
-		# scope:recipient = { highest_held_title_tier < tier_hegemony }
+		#AGOT Disabled
+		#scope:actor = { highest_held_title_tier < tier_hegemony }
+		#scope:recipient = { highest_held_title_tier < tier_hegemony }
+		OR = {
+			#Ruler has the defensive negotiations perk
+			scope:actor = { has_perk = defensive_negotiations_perk }
+			#Ruler is married to other ruler.
+			scope:actor = { is_spouse_of = scope:recipient }
+			#Ruler is relative of other ruler
+			scope:actor = { is_parent_of = scope:recipient }
+			scope:actor = { is_grandparent_of = scope:recipient }
+			scope:actor = { is_great_grandparent_of = scope:recipient }
+			scope:actor = { is_child_of = scope:recipient }
+			scope:actor = { is_grandchild_of = scope:recipient }
+			scope:actor = { is_great_grandchild_of = scope:recipient }
+			scope:actor = { is_uncle_or_aunt_of = scope:recipient }
+			scope:actor = { is_nibling_of = scope:recipient }
+			scope:actor = { is_sibling_of = scope:recipient }
+			#Parents/spouse were blood brothers
+			scope:actor = {
+				has_opinion_modifier = {
+					modifier = blood_brother_close_family_opinion
+					target = scope:recipient
+				}
+			}
+
+			custom_description = {
+				text = rulers_family_is_married_to_other_ruler_trigger
+				subject = scope:recipient
+				object = scope:actor
+				#Ruler's child/parent/sibling/grandchild/grandparent/uncle/aunt/niece/nephew is married to other ruler.
+				scope:recipient = {
+					any_spouse = {
+						OR = {
+							is_close_family_of = scope:actor
+							is_nibling_of = scope:actor
+							is_uncle_or_aunt_of = scope:actor
+						}
+					}
+				}
+			}
+
+			custom_description = {
+				text = rulers_family_is_married_to_other_ruler_trigger
+				subject = scope:actor
+				object = scope:recipient
+				#Other ruler's child/parent/sibling/grandchild/grandparent/uncle/aunt/niece/nephew is married to first ruler.
+				scope:actor = {
+					any_spouse = {
+						OR = {
+							is_close_family_of = scope:recipient
+							is_nibling_of = scope:recipient
+							is_uncle_or_aunt_of = scope:recipient
+						}
+					}
+				}
+			}
+
+			custom_description = {
+				text = rulers_child_parent_sibling_is_married_to_other_rulers_trigger
+				subject = scope:recipient
+				object = scope:actor
+				# Ruler's child/parent/sibling is married to other ruler's child/parent/sibling.
+				scope:actor = {
+					any_close_family_member = {
+						OR = {
+							is_parent_of = scope:actor
+							is_child_of = scope:actor
+							is_sibling_of = scope:actor
+						}
+						any_spouse = {
+							OR = {
+								is_parent_of = scope:recipient
+								is_child_of = scope:recipient
+								is_sibling_of = scope:recipient
+							}
+						}
+					}
+				}
+			}
+
+			custom_description = {
+				text = hostage_oath_of_friendship_trigger
+				subject = scope:recipient
+				object = scope:actor
+				#childhood friendship with hostage event, where they swear to be friends forever
+				scope:actor = {
+					hostage_oath_of_friendship_trigger = yes
+				}
+			}
+			
+			custom_tooltip = {
+				text = house_relation_alliance_trigger			
+				scope:actor.house ?= {
+					house_head ?= scope:actor
+					any_house_relation = {
+						any_relation_house = {
+							exists = house_head
+							scope:recipient = house_head
+						}
+						has_house_relation_parameter = unlocks_house_head_negotiate_alliance
+					}
+				}
+			}
+		}
 	}
 
 	on_auto_accept = {
 		scope:recipient = {
 			trigger_event = char_interaction.0234
 		}
+	}
+
+	#Use hook
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				has_usable_hook = scope:recipient
+			}
+		}
+		flag = hook
+		localization = GENERIC_SPEND_A_HOOK
+	}
+	should_use_extra_icon = {
+		scope:actor = { has_usable_hook = scope:recipient }
+	}
+	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
+
+	# Admin Gov can spend Influence to increase AI acceptance towards other same-realm admin characters
+	send_option = {
+		is_shown = {
+			scope:actor = {
+				government_allows = administrative
+			}
+			scope:recipient = {
+				top_liege = scope:actor.top_liege
+				government_allows = administrative
+			}
+		}
+		is_valid = {
+			scope:actor = {
+				influence >= major_influence_value
+			}
+			custom_tooltip = {
+				text = ALREADY_USING_HOOK
+				NOT = { scope:hook = yes }
+			}
+		}
+		flag = influence
+		localization = SPEND_INFLUENCE
 	}
 
 	send_options_exclusive = no
@@ -1228,7 +1376,7 @@ negotiate_alliance_interaction = {
 			if = {
 				limit = {
 					scope:hook = yes
-					has_hook = scope:recipient
+					has_usable_hook = scope:recipient
 				}
 				use_hook = scope:recipient
 			}
@@ -3430,6 +3578,28 @@ join_war_interaction = {
 				trigger_else = { always = yes }
 			}
 
+			#allow targets of a Grand Campaign to bypass the requirements
+			#AGOT Disabled
+			# trigger_else_if = {
+			# 	limit = {
+			# 		var:grand_campaign_project ?= {
+			# 			save_temporary_scope_as = great_project
+	        # 			any_in_list = {
+	        #     			variable = grand_campaign_titles
+	        #     			any_in_de_jure_hierarchy = {
+	        #     				exists = holder
+			# 					holder.top_overlord = {
+			# 						OR = {
+			# 							this = scope:recipient
+			# 							this = scope:actor
+	        #     					}
+	        #     				}
+	        #     			}
+			# 			}
+			# 		}
+			# 	}
+			# }
+
 			#allow laamp_join_war_contract to bypass the requirements
 			trigger_else_if = {
 				limit = {
@@ -3831,15 +4001,24 @@ join_vassal_war_interaction = {
 						any_target_title = {
 							OR = {
 								target_is_de_facto_liege_or_above = scope:actor.primary_title
-								target_is_de_jure_liege_or_above = scope:actor.primary_title
+								is_de_facto_liege_or_above_target = scope:actor.primary_title
 							}
 						}
 					}
 				}
 			}
 			#Unless you're a guaranteed tributary
+			trigger_else_if = {
+				limit = {
+					scope:recipient = { is_tributary_of_suzerain_or_above = scope:actor }
+				}
+				custom_tooltip = {
+					text = suzerain_war_participation_guarantee_tt
+					scope:recipient = { subject_contract_has_flag = tributary_contract_suzerain_guarantee_override }
+				}
+			}
 			trigger_else = {
-				scope:recipient = { subject_contract_has_flag = tributary_contract_suzerain_guarantee_override }
+				always = yes
 			}
 			custom_tooltip = {
 				text = war_aid_liege_cooldown_tt

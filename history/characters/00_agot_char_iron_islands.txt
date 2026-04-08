@@ -3521,7 +3521,6 @@ Harlaw_26 = {
 		death = { death_reason = death_battle } # Sack of Winterfell
 	}
 }
-
 ### Issue of Quellon
 Harlaw_27 = {
 	name = Harren # Mentioned
@@ -3607,10 +3606,17 @@ Harlaw_hh_1 = {
 ############################
 ### On Our Backs
 ###
-Orkwood_1 = {
+Orkwood_1 = { # edited 03/29 slambroski
 	name = Alyn # Canon, a lord, Euron supporter
 	dynasty = dynn_Orkwood
 	dna = Orkwood_1
+
+	diplomacy = 1
+	martial = 10
+	stewardship = 1
+	intrigue = 2
+	learning = 1
+	prowess = 10 
 
 	religion = drowned_god
 	culture = ironborn
@@ -3619,6 +3625,7 @@ Orkwood_1 = {
 	mother = Saltcliffe_15
 
 	trait = education_martial_1
+	trait = education_martial_prowess_2
 	trait = gregarious
 	trait = generous
 	trait = cynical
@@ -3670,11 +3677,18 @@ Orkwood_2 = {
 	8278.1.1 = { add_spouse = Penny_11 } # Joanna Penny
 }
 ### Issue of Alyn
-Orkwood_3 = {
+Orkwood_3 = { # edited 03/29 slambroski
 	name = Ralf
 	dynasty = dynn_Orkwood
 
 	dna = Orkwood_3
+
+	diplomacy = 6
+	martial = 7
+	stewardship = 3
+	intrigue = 5
+	learning = 4
+	prowess = 1
 
 	religion = drowned_god
 	culture = ironborn
@@ -3682,20 +3696,66 @@ Orkwood_3 = {
 	father = Orkwood_1
 	mother = Sparr_5
 
+	trait = education_stewardship_4
 	trait = beauty_good_1
+	trait = fickle
+	trait = generous
+	trait = arbitrary
+
+	disallow_random_traits = yes 
 
 	8277.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 	}
 	8294.1.1 = { add_spouse = Goodbrother_12 } # Sona Goodbrother
+	#C8 S1
+	8300.5.1 = {
+		death = {
+			death_reason = death_duel
+			killer = Beesbury_76 # Logan Beesbury
+		}
+	}
 }
-Orkwood_4 = {
+Orkwood_4 = { # edited 03/29 slambroski
 	name = Ferny
 	dynasty = dynn_Orkwood
 	female = yes
 
 	dna = Orkwood_4
+
+	diplomacy = 1
+	martial = 7
+	stewardship = 5
+	intrigue = 7
+	learning = 1
+	prowess = 7
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Orkwood_1
+	mother = Sparr_5
+
+	trait = education_diplomacy_2
+	trait = education_martial_prowess_1
+	trait = beauty_good_1
+	trait = greedy
+	trait = calm
+	trait = deceitful
+
+	disallow_random_traits = yes
+
+	8279.1.1 = {
+		birth = yes
+		make_trait_inactive = scripted_appearance
+	}
+	8300.1.1 = { trait = shieldmaiden }
+}
+Orkwood_4_B = { # created 02/22 slambroski
+	name = Ulfhild
+	dynasty = dynn_Orkwood
+	female = yes
 
 	religion = drowned_god
 	culture = ironborn
@@ -3704,14 +3764,81 @@ Orkwood_4 = {
 	mother = Sparr_5
 
 	trait = beauty_good_1
+	trait = sickly
 
-	8279.1.1 = {
-		birth = yes
-		make_trait_inactive = scripted_appearance
-	}
+	8282.1.1 = { birth = yes }
+	8283.1.1 = { death = { death_reason = death_accident } }
+}
+Orkwood_4_C = { # created 02/22 slambroski
+	name = Herrika
+	dynasty = dynn_Orkwood
+	female = yes
+
+	diplomacy = 7
+	martial = 1
+	stewardship = 2
+	intrigue = 2
+	learning = 7
+	prowess = 8
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Orkwood_1
+	mother = Sparr_5
+
+	trait = trusting
+	trait = chaste
+	trait = charming
+
+	disallow_random_traits = yes
+
+	8288.1.1 = { birth = yes }
+}
+Orkwood_4_D = { # created 02/22 slambroski
+	name = Kenned
+	dynasty = dynn_Orkwood
+
+	diplomacy = 1
+	martial = 6
+	stewardship = 0
+	intrigue = 4
+	learning = 6
+	prowess = 4
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Orkwood_1
+	mother = Sparr_5
+
+	trait = beauty_good_1
+	trait = brave
+	trait = gregarious
+	trait = curious
+
+	disallow_random_traits = yes 
+
+	8290.1.1 = { birth = yes }
+}
+Orkwood_4_E = { # created 02/22 slambroski
+	name = Victaria
+	dynasty = dynn_Orkwood
+	female = yes
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Orkwood_1
+	mother = Sparr_5
+
+	trait = rowdy
+	disallow_random_traits = yes
+
+	8295.1.1 = { birth = yes }
 }
 ### Issue of Wulfe
-Orkwood_5 = {
+Orkwood_5 = { # edited 03/29 slambroski
 	name = Aeron
 	dynasty = dynn_Orkwood
 
@@ -3722,8 +3849,9 @@ Orkwood_5 = {
 	mother = Penny_11
 
 	8292.1.1 = { birth = yes }
+	8298.6.1 = { death = { death_reason = death_accident } }
 }
-Orkwood_6 = {
+Orkwood_6 = { # edited 03/29 slambroski
 	name = Victarion
 	dynasty = dynn_Orkwood
 
@@ -3734,6 +3862,7 @@ Orkwood_6 = {
 	mother = Penny_11
 
 	8294.1.1 = { birth = yes }
+	8298.6.1 = { death = { death_reason = death_accident } }
 }
 Orkwood_7 = {
 	name = Ryella
@@ -3810,7 +3939,7 @@ Stonetree_3 = {
 	8258.1.1 = { add_spouse = Fross_82 } # Arwyn Fross
 }
 ### Issue of Quenton
-Stonetree_4 = {
+Stonetree_4 = { # edited 03/29 slambroski
 	name = Sigfry # Canon
 	dynasty = dynn_Stonetree
 	dna = Stonetree_4
@@ -3829,8 +3958,9 @@ Stonetree_4 = {
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
+	8284.1.1 = { add_spouse = Myre_3 } # Selyse Myre
 }
-Stonetree_5 = {
+Stonetree_5 = { # edited 03/29 slambroski
 	name = Beron
 	dynasty = dynn_Stonetree
 
@@ -3846,6 +3976,59 @@ Stonetree_5 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 	}
+	8295.1.1 = { add_spouse = Netley_7_C } # Rhonda Netley
+}
+### Issue of Sigfry
+Stonetree_4_A = { # created 02/01 slambroski
+	name = Ryella
+	dynasty = dynn_Stonetree
+	female = yes 
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Stonetree_4 
+
+	trait = bastard
+
+	8281.1.1 = { birth = yes }
+}
+Stonetree_4_B = { # created 02/01 slambroski
+	name = Wex
+	dynasty = dynn_Stonetree
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Stonetree_4 
+	mother = Myre_3
+
+	8286.1.1 = { birth = yes }
+}
+Stonetree_4_C = { # created 02/01 slambroski
+	name = Maron
+	dynasty = dynn_Stonetree
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Stonetree_4 
+	mother = Myre_3
+
+	8291.1.1 = { birth = yes }
+}
+### Issue of Beron
+Stonetree_5_A = { # created 02/22 slambroski
+	name = Ragnor
+	dynasty = dynn_Stonetree
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Stonetree_5
+	mother = Netley_7_C
+
+	8298.1.1 = { birth = yes }
 }
 
 ###### HOUSE DRUMM (id = dynn_Drumm)
@@ -3995,6 +4178,96 @@ Drumm_3 = {
 	}
 	8285.1.1 = { trait = brave }
 }
+### Issue of Denys
+Drumm_2_A = { # created 02/01 slambroski
+	name = Qalen
+	dynasty = dynn_Drumm
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Drumm_2
+
+	trait = bastard
+
+	8280.1.1 = { birth = yes }
+}
+Drumm_2_B = { # created 02/01 slambroski
+	name = Aladale
+	dynasty = dynn_Drumm
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Drumm_2
+
+	trait = bastard
+
+	8282.1.1 = { birth = yes }
+}
+Drumm_2_C = { # created 02/01 slambroski
+	name = Drifa
+	dynasty = dynn_Drumm
+	female = yes
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Drumm_2
+	mother = Goodbrother_4
+
+	8285.1.1 = { birth = yes }
+}
+Drumm_2_D = { # created 02/01 slambroski
+	name = Herrock
+	dynasty = dynn_Drumm
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Drumm_2
+
+	trait = bastard
+
+	8286.6.1 = { birth = yes }
+}
+Drumm_2_E = { # created 02/01 slambroski
+	name = Daegon
+	dynasty = dynn_Drumm
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Drumm_2
+	mother = Goodbrother_4
+
+	8289.1.1 = { birth = yes }
+}
+Drumm_2_F = { # created 02/01 slambroski
+	name = Drennan
+	dynasty = dynn_Drumm
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Drumm_2
+	mother = Goodbrother_4
+
+	8293.1.1 = { birth = yes }
+}
+Drumm_2_G = { # created 02/01 slambroski
+	name = Dagny
+	dynasty = dynn_Drumm
+	female = yes 
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Drumm_2
+	mother = Goodbrother_4
+
+	8298.1.1 = { birth = yes }
+}
 ### Household
 Drumm_hh_1 = {
 	name = Andrik # Canon, AKA: Andrik the Unsmiling
@@ -4092,7 +4365,7 @@ Merlyn_89 = {
 	}
 }
 ### Issue of Harlon
-Merlyn_1 = {
+Merlyn_1 = { # edited 03/29 slambroski
 	name = Meldred # Canon, a lord, Asha supporter
 	dynasty = dynn_Merlyn
 	dna = Merlyn_1
@@ -4124,6 +4397,12 @@ Merlyn_1 = {
 		add_character_flag = canon_status_canon
 	}
 	8278.1.1 = { add_spouse = Stormdrunk_68 } # Talla Stormdrunk
+	8292.1.1 = {
+		effect = {
+			change_current_weight = 35
+			target_weight_modifier_effect = { VALUE = 35 }
+		}
+	}
 }
 Merlyn_2 = {
 	name = Manfryd # Canon
@@ -4185,7 +4464,7 @@ Merlyn_3 = {
 
 	8279.1.1 = { birth = yes }
 }
-Merlyn_4 = {
+Merlyn_4 = { # edited 03/29 slambroski
 	name = Maron
 	dynasty = dynn_Merlyn
 
@@ -4195,7 +4474,8 @@ Merlyn_4 = {
 	father = Merlyn_1
 	mother = Stormdrunk_68
 
-	8280.1.1 = { birth = yes }
+	# 8280.1.1 = { birth = yes }
+	8283.1.1 = { birth = yes }
 }
 ### Issue of Qarl
 Merlyn_100 = {
@@ -4514,7 +4794,7 @@ Goodbrother_1 = {
 	}
 }
 ### Issue of Gorold
-Goodbrother_2 = {
+Goodbrother_2 = { # edited 03/29 slambroski
 	name = Gysella # Canon
 	dynasty = dynn_Goodbrother
 	female = yes
@@ -4528,13 +4808,14 @@ Goodbrother_2 = {
 
 	trait = twin
 
-	8268.1.1 = {
+	# 8268.1.1
+	8267.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 }
-Goodbrother_3 = {
+Goodbrother_3 = { # edited 03/29 slambroski
 	name = Gwin # Canon
 	dynasty = dynn_Goodbrother
 	female = yes
@@ -4546,13 +4827,16 @@ Goodbrother_3 = {
 	father = Goodbrother_1
 	mother = Farwynd_114
 
-	8266.1.1 = {
+	trait = twin
+
+	# 8266.1.1
+	8267.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
 }
-Goodbrother_4 = {
+Goodbrother_4 = { # edited 03/29 slambroski
 	name = Esgred # Mentioned, married Denys Drumm
 	dynasty = dynn_Goodbrother
 	female = yes
@@ -4565,13 +4849,14 @@ Goodbrother_4 = {
 	father = Goodbrother_1
 	mother = Farwynd_114
 
-	8267.1.1 = {
+	# 8267
+	8268.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_mentioned
 	}
 }
-Goodbrother_5 = {
+Goodbrother_5 = { # edited 03/29 slambroski
 	name = Helya # Mentioned, married Lucimore Volmark
 	dynasty = dynn_Goodbrother
 	female = yes
@@ -4582,14 +4867,15 @@ Goodbrother_5 = {
 	father = Goodbrother_1
 	mother = Farwynd_114
 
-	trait = twin
+	# trait = twin
 
-	8268.1.1 = {
+	# 8268
+	8269.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 }
-Goodbrother_6 = {
+Goodbrother_6 = { # edited 03/29 slambroski
 	name = Perra # Mentioned, married Balon Tawney
 	dynasty = dynn_Goodbrother
 	female = yes
@@ -4600,12 +4886,13 @@ Goodbrother_6 = {
 	father = Goodbrother_1
 	mother = Farwynd_114
 
-	8269.1.1 = {
+	# 8269
+	8271.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 }
-Goodbrother_7 = {
+Goodbrother_7 = { # edited 03/29 slambroski
 	name = Yara # Mentioned, married Vickon Ironmaker
 	dynasty = dynn_Goodbrother
 	female = yes
@@ -4616,12 +4903,13 @@ Goodbrother_7 = {
 	father = Goodbrother_1
 	mother = Farwynd_114
 
-	8270.1.1 = {
+	# 8270
+	8272.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 }
-Goodbrother_8 = {
+Goodbrother_8 = { # edited 03/29 slambroski
 	name = Wylla # Mentioned, married Harlon Harlaw
 	dynasty = dynn_Goodbrother
 	female = yes
@@ -4632,12 +4920,13 @@ Goodbrother_8 = {
 	father = Goodbrother_1
 	mother = Farwynd_114
 
-	8271.1.1 = {
+	# 8271
+	8273.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 }
-Goodbrother_9 = {
+Goodbrother_9 = { # edited 03/29 slambroski
 	name = Gudrun # Mentioned, married Norjen Farwynd of Deadlock
 	dynasty = dynn_Goodbrother
 	female = yes
@@ -4648,12 +4937,13 @@ Goodbrother_9 = {
 	father = Goodbrother_1
 	mother = Farwynd_114
 
-	8272.1.1 = {
+	# 8272
+	8275.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 }
-Goodbrother_10 = {
+Goodbrother_10 = { # edited 03/29 slambroski
 	name = Alla # Mentioned, married Ygon Farwynd
 	dynasty = dynn_Goodbrother
 	female = yes
@@ -4664,12 +4954,13 @@ Goodbrother_10 = {
 	father = Goodbrother_1
 	mother = Farwynd_114
 
-	8273.1.1 = {
+	# 8273
+	8277.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 }
-Goodbrother_11 = {
+Goodbrother_11 = { # edited 03/29 slambroski
 	name = Tanda # Mentioned, married Romny Weaver
 	dynasty = dynn_Goodbrother
 	female = yes
@@ -4680,12 +4971,13 @@ Goodbrother_11 = {
 	father = Goodbrother_1
 	mother = Farwynd_114
 
-	8274.1.1 = {
+	# 8274
+	8278.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 }
-Goodbrother_12 = {
+Goodbrother_12 = { # edited 03/29 slambroski
 	name = Sona # Mentioned, married Ralf Orkwood
 	dynasty = dynn_Goodbrother
 	female = yes
@@ -4696,69 +4988,133 @@ Goodbrother_12 = {
 	father = Goodbrother_1
 	mother = Farwynd_114
 
-	8275.1.1 = {
+	# 8275
+	8280.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 }
-Goodbrother_13 = {
+Goodbrother_13 = { # edited 03/29 slambroski
 	name = Katla # Mentioned
 	dynasty = dynn_Goodbrother
 	female = yes
 
+	diplomacy = 1
+	martial = 3
+	stewardship = 2
+	intrigue = 10
+	learning = 2
+	prowesss = 3
+
 	religion = drowned_god
 	culture = ironborn
 
 	father = Goodbrother_1
 	mother = Farwynd_114
 
-	8276.1.1 = {
+	trait = education_intrigue_4
+	trait = zealous
+	trait = shy
+	trait = content
+
+	disallow_random_traits = yes
+
+	# 8276
+	8282.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 }
-Goodbrother_14 = {
+Goodbrother_14 = { # edited 03/29 slambroski
 	name = Greydon # Canon
 	dynasty = dynn_Goodbrother
 	dna = Goodbrother_14
 
+	diplomacy = 9
+	martial = 8
+	stewardship = 1
+	intrigue = 2
+	learning = 4
+	prowess = 4
+
 	religion = drowned_god
 	culture = ironborn
 
 	father = Goodbrother_1
 	mother = Farwynd_114
 
+	trait = education_diplomacy_3
+	trait = education_martial_prowess_4
 	trait = twin
+	trait = greedy
+	trait = stubborn
+	trait = trusting
+
+	disallow_random_traits = yes 
 
 	8277.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
+	#C8 S0
+	8300.1.20 = {
+		trait = wounded_2
+		# come back to this to put him in prison depending on rp
+	}
 }
-Goodbrother_15 = {
+Goodbrother_15 = { # edited 03/29 slambroski
 	name = Gormond # Canon
 	dynasty = dynn_Goodbrother
 	dna = Goodbrother_15
 
+	diplomacy = 8
+	martial = 7
+	stewardship = 3
+	intrigue = 2
+	learning = 4
+	prowess = 6
+
 	religion = drowned_god
 	culture = ironborn
 
 	father = Goodbrother_1
 	mother = Farwynd_114
 
+	trait = education_martial_4
+	trait = education_martial_prowess_3
 	trait = twin
+	trait = sadistic
+	trait = diligent
+	trait = paranoid
+
+	disallow_random_traits = yes 
 
 	8277.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
+	#C8 S1
+	8300.1.20 = {
+		trait = wounded_3
+		death = {
+			death_reason = death_duel
+			killer = Sunglass_3 # Valtris Sunglass
+		}
+	}
 }
-Goodbrother_16 = {
+Goodbrother_16 = { # edited 03/29 slambroski
 	name = Gran # Canon
 	dynasty = dynn_Goodbrother
 	dna = Goodbrother_16
+
+	diplomacy = 4
+	martial = 3
+	stewardship = 6
+	intrigue = 9
+	learning = 4
+	prowess = 2
 
 	religion = drowned_god
 	culture = ironborn
@@ -4766,7 +5122,14 @@ Goodbrother_16 = {
 	father = Goodbrother_1
 	mother = Farwynd_114
 
+	trait = education_intrigue_2
+	trait = education_martial_prowess_1
 	trait = twin
+	trait = zealous
+	trait = wrathful
+	trait = stubborn
+
+	disallow_random_traits = yes
 
 	8277.1.1 = {
 		birth = yes
@@ -5251,6 +5614,60 @@ Goodbrother_31 = {
 		make_trait_inactive = scripted_appearance
 	}
 }
+Goodbrother_31_B = { # created 02/01 slambroski
+	name = Falia
+	dynasty_house = house_GoodbrotherCPK
+	female = yes 
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Goodbrother_30
+	mother = Merlyn_96
+
+	8281.1.1 = { birth = yes }
+}
+Goodbrother_31_C = { # created 02/01 slambroski
+	name = Meredyth
+	dynasty_house = house_GoodbrotherCPK
+	female = yes 
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Goodbrother_30
+	mother = Merlyn_96
+
+	8283.6.1 = { birth = yes }
+}
+Goodbrother_31_D = { # created 02/01 slambroski
+	name = Sigfry
+	dynasty_house = house_GoodbrotherCPK
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Goodbrother_30
+	mother = Merlyn_96
+
+	8288.1.1 = { birth = yes }
+	8294.1.1 = { 
+		trait = ill
+		death = { death_reason = death_ill } 
+	}
+}
+Goodbrother_31_E = { # created 02/01 slambroski
+	name = Cragorn
+	dynasty_house = house_GoodbrotherCPK
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Goodbrother_30
+	mother = Merlyn_96
+
+	8292.1.1 = { birth = yes }
+}
 
 ###### HOUSE FARWYND (id = dynn_Farwynd)
 ############################
@@ -5369,8 +5786,9 @@ Farwynd_120 = {
 	8260.1.1 = { birth = yes }
 }
 ### Issue of Triston
-Farwynd_2 = {
-	name = Gyles
+Farwynd_2 = { # edited 03/29 slambroski
+	# name = Gyles
+	name = Todric
 	dynasty = dynn_Farwynd
 
 	dna = Farwynd_2
@@ -5386,8 +5804,9 @@ Farwynd_2 = {
 		make_trait_inactive = scripted_appearance
 	}
 }
-Farwynd_3 = {
-	name = Ygon
+Farwynd_3 = { # edited 03/29 slambroski
+	# name = Ygon
+	name = Ravos
 	dynasty = dynn_Farwynd
 
 	dna = Farwynd_3
@@ -5404,8 +5823,9 @@ Farwynd_3 = {
 	}
 	8290.1.1 = { add_spouse = Goodbrother_10 } # Alla Goodbrother
 }
-Farwynd_4 = {
-	name = Yohn
+Farwynd_4 = { # edited 03/29 slambroski
+	# name = Yohn
+	name = Jorl
 	dynasty = dynn_Farwynd
 
 	dna = Farwynd_4
@@ -5440,9 +5860,18 @@ Farwynd_5 = {
 	}
 }
 ### Issue of Adrack
-Farwynd_121 = {
-	name = Gelmarr
+Farwynd_121 = { # edited 03/29 slambroski 
+	# name = Gelmarr
+	name = Gwin # married Beron Blacktyde
 	dynasty = dynn_Farwynd
+	female = yes 
+
+	diplomacy = 5
+	martial = 5
+	stewardship = 10
+	intrigue = 2
+	learning = 4
+	prowess = 8
 
 	religion = drowned_god
 	culture = ironborn
@@ -5450,7 +5879,16 @@ Farwynd_121 = {
 	father = Farwynd_107
 	mother = Mooton_55
 
-	8263.1.1 = { birth = yes }
+	trait = education_martial_2
+	trait = ambitious
+	trait = stubborn
+	trait = chaste
+
+	disallow_random_traits = yes 
+
+	# 8263
+	8262.1.1 = { birth = yes }
+	8289.3.1 = { trait = widowed }
 }
 Farwynd_122 = {
 	name = Thormor
@@ -5637,10 +6075,17 @@ FarwyndLL_69 = {
 		death = { death_reason = death_ill }
 	}
 }
-FarwyndLL_1 = {
+FarwyndLL_1 = { # edited 03/29 slambroski
 	name = Gylbert # Canon, a lord
 	dynasty_house = house_FarwyndLL
 	dna = FarwyndLL_1
+
+	diplomacy = 1
+	martial = 5
+	stewardship = 7
+	intrigue = 0
+	learning = 3
+	prowess = 6
 
 	religion = drowned_god
 	culture = ironborn
@@ -5669,7 +6114,7 @@ FarwyndLL_1 = {
 		trait = august
 	}
 }
-FarwyndLL_70 = {
+FarwyndLL_70 = { # edited 03/29 slambroski
 	name = Rafe
 	dynasty_house = house_FarwyndLL
 
@@ -5680,22 +6125,38 @@ FarwyndLL_70 = {
 	mother = Humble_85
 
 	8242.1.1 = { birth = yes }
+	8277.1.1 = { add_spouse = Shepherd_77_A } # Esgred Pyke
 	8291.1.1 = {
 		trait = gout_ridden
 		death = { death_reason = death_gout_ridden }
 	}
 }
 ### Issue of Gylbert
-FarwyndLL_2 = {
+FarwyndLL_2 = { # edited 03/29 slambroski
 	name = Gyles # Canon
 	dynasty_house = house_FarwyndLL
 	dna = FarwyndLL_2
+
+	diplomacy = 10
+	martial = 4
+	stewardship = 5
+	intrigue = 2
+	learning = 1
+	prowess = 8
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = FarwyndLL_1
 	mother = Brimer_84
+
+	trait = education_learning_3
+	trait = education_martial_prowess_2
+	trait = calm
+	trait = arbitrary
+	trait = content
+
+	disallow_random_traits = yes 
 
 	8267.1.1 = {
 		birth = yes
@@ -5703,16 +6164,30 @@ FarwyndLL_2 = {
 		add_character_flag = canon_status_canon
 	}
 }
-FarwyndLL_3 = {
+FarwyndLL_3 = { # edited 03/29 slambroski
 	name = Ygon # Canon
 	dynasty_house = house_FarwyndLL
 	dna = FarwyndLL_3
+
+	diplomacy = 7
+	martial = 7
+	stewardship = 1
+	intrigue = 10
+	learning = 1
+	prowess = 6
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = FarwyndLL_1
 	mother = Brimer_84
+
+	trait = education_stewardship_4
+	trait = chaste
+	trait = content
+	trait = forgiving
+
+	disallow_random_traits = yes 
 
 	8272.1.1 = {
 		birth = yes
@@ -5720,10 +6195,17 @@ FarwyndLL_3 = {
 		add_character_flag = canon_status_canon
 	}
 }
-FarwyndLL_4 = {
+FarwyndLL_4 = { # edited 03/29 slambroski
 	name = Yohn # Canon
 	dynasty_house = house_FarwyndLL
 	dna = FarwyndLL_4
+
+	diplomacy = 0
+	martial = 7
+	stewardship = 8
+	intrigue = 4
+	learning = 9
+	prowess = 3
 
 	religion = drowned_god
 	culture = ironborn
@@ -5731,11 +6213,33 @@ FarwyndLL_4 = {
 	father = FarwyndLL_1
 	mother = Brimer_84
 
+	trait = education_martial_1
+	trait = education_martial_prowess_3
+	trait = sadistic
+	trait = generous
+	trait = ambitious
+
+	disallow_random_traits = yes 
+
 	8275.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
+}
+### Issue of Rafe
+FarwyndLL_70_A = { # created 02/26 slambroski
+	name = Maeva
+	dynasty_house = house_FarwyndLL
+	female = yes 
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = FarwyndLL_70
+	mother = Shepherd_77_A
+
+	8280.6.1 = { birth = yes }
 }
 
 ### Deadlock Branch
@@ -5988,13 +6492,18 @@ Blacktyde_72 = {
 	8240.1.1 = { birth = yes }
 	8273.1.1 = { death = yes }
 }
-Blacktyde_7 = {
+Blacktyde_7 = { # edited 03/29 slambroski
 	name = Beron # Canon, AKA: Blind Beron Blacktyde
 	dynasty = dynn_Blacktyde
 
 	dna = Blacktyde_7
 
 	learning = 8
+	diplomacy = 4
+	martial = 9
+	stewardship = 9
+	intrigue = 0
+	prowess = 10
 
 	religion = drowned_god
 	culture = ironborn
@@ -6003,6 +6512,11 @@ Blacktyde_7 = {
 	mother = Tawney_77
 
 	trait = education_learning_3
+	trait = arrogant
+	trait = diligent
+	trait = trusting
+
+	disallow_random_traits = yes 
 
 	8242.1.1 = {
 		birth = yes
@@ -6041,7 +6555,7 @@ Blacktyde_73 = {
 	}
 }
 ### Issue of Maron
-Blacktyde_1 = {
+Blacktyde_1 = { # edited 03/29 slambroski
 	name = Beron # Mentioned, a lord
 	dynasty = dynn_Blacktyde
 	dna = Blacktyde_1
@@ -6057,16 +6571,24 @@ Blacktyde_1 = {
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_mentioned
 	}
-	8277.1.1 = { add_spouse = Wayn_2 } # Corrine Wayn
+	# 8277.1.1 = { add_spouse = Wayn_2 } # Corrine Wayn
+	8277.1.1 = { add_spouse = Farwynd_121 } # Gwin Farwynd
 	8289.3.1 = {
 		death = { death_reason = death_battle } # Greyjoy Rebellion
 	}
 }
-Blacktyde_2 = {
+Blacktyde_2 = { # edited 03/29 slambroski
 	name = Burton # a lord
 	dynasty = dynn_Blacktyde
 
 	dna = Blacktyde_2
+
+	diplomacy = 5
+	martial = 8
+	stewardship = 1
+	intrigue = 0
+	learning = 7
+	prowess = 2
 
 	religion = drowned_god
 	culture = ironborn
@@ -6075,6 +6597,7 @@ Blacktyde_2 = {
 	mother = Myre_114
 
 	trait = education_diplomacy_3
+	trait = education_martial_prowess_2
 	trait = callous
 	trait = just
 	trait = greedy
@@ -6090,18 +6613,27 @@ Blacktyde_2 = {
 	8280.1.1 = { add_spouse = Myre_2 } # Ravella Myre
 }
 ### Issue of Beron
-Blacktyde_3 = {
+Blacktyde_3 = { # edited 03/29 slambroski
 	name = Baelor # Canon, a lord, Asha supporter
 	dynasty = dynn_Blacktyde
 	dna = Blacktyde_3
+
+	diplomacy = 5
+	martial = 2
+	stewardship = 2
+	intrigue = 10
+	learning = 4
+	prowess = 6 
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = Blacktyde_1
-	mother = Wayn_2
+	# mother = Wayn_2
+	mother = Farwynd_121
 
 	trait = education_diplomacy_3
+	trait = education_martial_prowess_2
 	trait = beauty_good_1
 	trait = brave
 	trait = just
@@ -6139,50 +6671,94 @@ Blacktyde_3 = {
 	}
 }
 ### Issue of Burton
-Blacktyde_4 = {
+Blacktyde_4 = { # edited 03/29 slambroski
 	name = Boremund
 	dynasty = dynn_Blacktyde
 
 	dna = Blacktyde_4
+
+	diplomacy = 8
+	martial = 4
+	stewardship = 4
+	intrigue = 5
+	learning = 10
+	prowess = 6
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = Blacktyde_2
 	mother = Myre_2
+
+	trait = education_learning_1
+	trait = education_martial_prowess_2
+	trait = craven
+	trait = sadistic
+	trait = rude
+
+	disallow_random_traits = yes 
 
 	8282.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 	}
 }
-Blacktyde_5 = {
+Blacktyde_5 = { # edited 03/29 slambroski
 	name = Andrik
 	dynasty = dynn_Blacktyde
 
 	dna = Blacktyde_5
+
+	diplomacy = 6
+	martial = 3
+	stewardship = 8
+	intrigue = 3
+	learning = 10
+	prowess = 1
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = Blacktyde_2
 	mother = Myre_2
+
+	trait = education_martial_4
+	trait = education_martial_prowess_2
+	trait = brave
+	trait = temperate
+	trait = arbitrary
+
+	disallow_random_traits = yes
 
 	8284.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 	}
 }
-Blacktyde_6 = {
+Blacktyde_6 = { # edited 03/29 slambroski
 	name = Esgred
 	dynasty = dynn_Blacktyde
 	female = yes
+
+	diplomacy = 8
+	martial = 7
+	stewardship = 2
+	intrigue = 1
+	learning = 2
+	prowess = 0
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = Blacktyde_2
 	mother = Myre_2
+
+	trait = paranoid
+	trait = chaste
+	trait = temperate
+	trait = curious
+
+	disallow_random_traits = yes 
 
 	8287.1.1 = { birth = yes }
 }
@@ -6217,7 +6793,7 @@ Blacktyde_hh_1 = {
 ############################
 ### Unshakeable
 ###
-Sparr_1 = {
+Sparr_1 = { # edited 04/01 slambroski
 	name = Cromm # Mentioned, a lord, AKA: The Sparr
 	dynasty = dynn_Sparr
 	dna = Sparr_1
@@ -6234,6 +6810,13 @@ Sparr_1 = {
 		add_character_flag = canon_status_mentioned
 	}
 	8243.1.1 = { add_spouse = FarwyndDL_80 } # Snela Farwynd of Deadlock
+	#C8 S1
+	8300.1.20 = {
+		trait = wounded_3
+	}
+	8300.5.1 = {
+		death = { death_reason = death_old_age }
+	}
 }
 Sparr_93 = {
 	name = Stavryn
@@ -6371,7 +6954,7 @@ Sparr_92 = {
 ############################
 ### Pay the Toll
 ###
-Ironmaker_1 = {
+Ironmaker_1 = { # edited 04/01 slambroski
 	name = Erik # Canon, a lord
 	dynasty = dynn_Ironmaker
 	dna = Ironmaker_1
@@ -6423,6 +7006,11 @@ Ironmaker_1 = {
 		trait = infirm
 		effect = { change_current_weight = 100 }
 	}
+	#C8 S1
+	8300.4.1 = {
+		death = { death_reason = death_old_age }
+	}
+	#C8 S1 END
 	8300.1.30 = {
 		effect = { # Castellan of Pyke; Lord Steward of the Iron Isles
 			agot_appoint_as_councillor_for_castle_history_effect = {
@@ -6489,22 +7077,37 @@ Ironmaker_31 = {
 	8245.1.1 = { birth = yes }
 }
 ### Issue of Bennarion
-Ironmaker_3 = {
+Ironmaker_3 = { # edited 04/02 slambroski
 	name = Urek # Canon
 	dynasty = dynn_Ironmaker
 
+	diplomacy = 8
+	martial = 5
+	stewardship = 9
+	intrigue = 5
+	learning = 7
+	prowess = 5
+
 	religion = drowned_god
 	culture = ironborn
+	sexuality = bisexual
 
 	father = Ironmaker_2
 	mother = Saltcliffe_14
 
 	trait = education_martial_1
+	trait = education_martial_prowess_2
 	trait = physique_good_3
+	trait = fickle
+	trait = greedy
+	trait = ambitious
+
+	disallow_random_traits = yes 
 
 	8250.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_canon
+		add_character_flag = sexuality_ensure_bisexual
 	}
 	8267.1.1 = { add_spouse = Merlyn_100 } # Siglind Merlyn
 }
@@ -6564,19 +7167,36 @@ Ironmaker_15 = {
 	8257.1.1 = { birth = yes }
 }
 ### Issue of Urek
-Ironmaker_6 = {
+Ironmaker_6 = { # edited 04/02 slambroski
 	name = Vickon # Mentioned
 	dynasty = dynn_Ironmaker
 
+	diplomacy = 1
+	martial = 6
+	stewardship = 1
+	intrigue = 8
+	learning = 3
+	prowess = 7
+
 	religion = drowned_god
 	culture = ironborn
+	sexuality = heterosexual
 
 	father = Ironmaker_3
 	mother = Merlyn_100
 
+	trait = education_stewardship_4
+	trait = education_martial_prowess_2
+	trait = stubborn
+	trait = honest
+	trait = cynical
+
+	disallow_random_traits = yes 
+
 	8270.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
+		add_character_flag = sexuality_ensure_heterosexual
 	}
 	8288.1.1 = { add_spouse = Goodbrother_7 } # Yara Goodbrother
 }
@@ -6611,7 +7231,7 @@ Ironmaker_8 = {
 	}
 }
 ### Issue of Thormor
-Ironmaker_9 = {
+Ironmaker_9 = { # edited 04/02 slambroski 
 	name = Harlon # Mentioned
 	dynasty = dynn_Ironmaker
 
@@ -6625,6 +7245,7 @@ Ironmaker_9 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
+	8289.6.1 = { death = { death_reason = death_battle } } # Greyjoy Rebellion
 }
 Ironmaker_10 = {
 	name = Balon # Mentioned
@@ -6687,9 +7308,11 @@ Ironmaker_13 = {
 		add_character_flag = canon_status_mentioned
 	}
 }
-Ironmaker_14 = {
-	name = Harren # Mentioned
+Ironmaker_14 = { # edited 04/02 slambroski 
+	# name = Harren # Mentioned
+	name = Harra
 	dynasty = dynn_Ironmaker
+	female = yes 
 
 	religion = drowned_god
 	culture = ironborn
@@ -6952,7 +7575,7 @@ Sunderly_4 = {
 	}
 	8288.1.1 = { add_spouse = Salt_12 } # Siglynd Salt
 }
-Sunderly_6 = {
+Sunderly_6 = { # edited 04/02 slambroski
 	name = Norne
 	dynasty = dynn_Sunderly
 
@@ -6963,6 +7586,7 @@ Sunderly_6 = {
 	mother = FarwyndDL_2
 
 	8267.1.1 = { birth = yes }
+	8289.1.1 = { add_spouse = Netley_7_B } # Arwyn Netley
 }
 Sunderly_7 = {
 	name = Jonella # married Kelse Madduc
@@ -6989,6 +7613,32 @@ Sunderly_5 = {
 	mother = Salt_12
 
 	8290.1.1 = { birth = yes }
+}
+### Issue of Norne
+Sunderly_6_A = { # created 02/22 slambroski
+	name = Carys
+	dynasty = dynn_Sunderly
+	female = yes 
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Sunderly_6
+	mother = Netley_7_B
+
+	8292.1.1 = { birth = yes }
+}
+Sunderly_6_B = { # created 02/22 slambroski
+	name = Will
+	dynasty = dynn_Sunderly
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Sunderly_6
+	mother = Netley_7_B
+
+	8296.1.1 = { birth = yes }
 }
 
 ###### HOUSE KENNING (id = dynn_Kenning)
@@ -7443,6 +8093,34 @@ Myre_4 = {
 	8285.1.1 = { give_nickname = nick_agot_historical_pinchface }
 	8299.11.15 = { employer = Greyjoy_6 } # Euron Greyjoy
 }
+### Issue of Jon
+Myre_4_A = { # Created 02/22 slambroski
+	name = Tom
+	dynasty = dynn_Myre
+	
+	religion = drowned_god
+	culture = ironborn
+
+	father = Myre_4
+
+	trait = bastard
+
+	8290.1.1 = { birth = yes }
+}
+Myre_4_B = { # Created 02/26 slambroski
+	name = Addila
+	dynasty = dynn_Myre
+	female = yes
+	
+	religion = drowned_god
+	culture = ironborn
+
+	father = Myre_4
+
+	trait = bastard
+
+	8293.9.1 = { birth = yes }
+}
 ### Issue of Triston
 Myre_22 = {
 	name = Manfryd
@@ -7467,6 +8145,19 @@ Myre_23 = {
 	mother = Ironspite_89
 
 	8270.1.1 = { birth = yes }
+}
+Myre_23_B = { # created 02/22 slambroski
+	name = Wylla
+	dynasty = dynn_Myre
+	female = yes
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Myre_5
+	mother = Ironspite_89
+
+	8279.3.1 = { birth = yes }
 }
 
 ###### HOUSE STONEHOUSE (id = dynn_Stonehouse)
@@ -7583,7 +8274,7 @@ Stonehouse_4 = {
 
 	8269.1.1 = { birth = yes }
 }
-Stonehouse_5 = {
+Stonehouse_5 = { # edited 04/05 slambroski
 	name = Ralf # Canon, AKA: Red Ralf Stonehouse, Victarion supporter
 	dynasty = dynn_Stonehouse
 	dna = Stonehouse_5
@@ -7609,6 +8300,40 @@ Stonehouse_5 = {
 		give_nickname = nick_agot_historical_red_Stonehouse_5
 	}
 	8299.11.15 = { employer = Greyjoy_6 } # Euron Greyjoy
+	#C8 S0
+	8300.1.20 = {
+		trait = wounded_1
+		death = {
+			death_reason = death_duel
+			killer = Lantell_1 # Joffrey Lantell
+		}
+	}
+}
+Stonehouse_5_B = { # created 02/01 slambroski
+	name = Talla
+	dynasty = dynn_Stonehouse
+	female = yes
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Stonehouse_3
+
+	trait = bastard
+
+	8275.1.1 = { birth = yes }
+}
+Stonehouse_5_C = { # created 02/01 slambroski
+	name = Dale
+	dynasty = dynn_Stonehouse
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Stonehouse_3
+	mother = Merlyn_90
+
+	8278.1.1 = { birth = yes }
 }
 
 ###### HOUSE TAWNEY (id = dynn_Tawney)
@@ -7743,16 +8468,31 @@ Tawney_3 = {
 	8293.1.1 = { death = yes }
 }
 ### Issue of Fralegg
-Tawney_4 = {
+Tawney_4 = { # edited 04/02 slambroski
 	name = Balon # Canon, a lord
 	dynasty = dynn_Tawney
 	dna = Tawney_4
+
+	diplomacy = 9
+	martial = 4
+	stewardship = 4
+	intrigue = 0
+	learning = 7
+	prowess = 8
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = Tawney_3
 	mother = Merlyn_87
+
+	trait = education_martial_1
+	trait = education_martial_prowess_2
+	trait = chaste
+	trait = stubborn
+	trait = gregarious
+
+	disallow_random_traits = yes 
 
 	8270.1.1 = {
 		birth = yes
@@ -7762,7 +8502,7 @@ Tawney_4 = {
 	8286.1.1 = { add_spouse = Goodbrother_6 } # Perra Goodbrother
 
 }
-Tawney_5 = {
+Tawney_5 = { # edited 04/02 slambroski
 	name = Lenwood # Canon, AKA: Little Lenwood Tawney, Victarion supporter
 	dynasty = dynn_Tawney
 
@@ -7785,7 +8525,35 @@ Tawney_5 = {
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
+	8290.1.1 = { trait = lifestyle_poet }
 }
+### Issue of Balon
+Tawney_4_A = { # created 02/01 slambroski
+	name = Bennarion
+	dynasty = dynn_Tawney
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Tawney_4
+	mother = Goodbrother_6
+
+	8294.1.1 = { birth = yes }
+}
+Tawney_4_B = { # created 02/01 slambroski
+	name = Norfryd
+	dynasty = dynn_Tawney
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Tawney_4
+	mother = Goodbrother_6
+
+	8298.1.1 = { birth = yes }
+	8299.1.1 = { death = { death_reason = death_sickly } }
+}
+
 
 ###### HOUSE CODD (id = dynn_Codd)
 ############################
@@ -7841,16 +8609,31 @@ Codd_1 = {
 	}
 }
 ### Issue of Andrik
-Codd_2 = {
+Codd_2 = { # edited 04/02 slambroski
 	name = Qalen # a lord
 	dynasty = dynn_Codd
 	dna = Codd_2
+
+	diplomacy = 8
+	martial = 4
+	stewardship = 7
+	intrigue = 3
+	learning = 10
+	prowess = 2
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = Codd_44
 	mother = Ironspite_87
+
+	trait = education_learning_2
+	trait = education_martial_prowess_2
+	trait = rude
+	trait = arbitrary
+	trait = brave
+
+	disallow_random_traits = yes 
 
 	8269.1.1 = {
 		birth = yes
@@ -8002,6 +8785,14 @@ Codd_8 = {
 	8279.1.1 = { trait = lustful }
 	8280.1.1 = { give_nickname = nick_agot_historical_lefthand }
 	8299.11.15 = { employer = Greyjoy_6 } # Euron Greyjoy
+	#C8 S1
+	8300.1.20 = {
+		trait = wounded_3
+		death = {
+			death_reason = death_duel
+			killer = Lanny_28 # Chiswyck Lanny
+		}
+	}
 }
 ### Issue of Urrigon
 Codd_9 = {
@@ -8025,6 +8816,19 @@ Codd_9 = {
 		trait = gregarious
 		trait = brave
 	}
+}
+Codd_9_B = { # created 02/01 slambroski
+	name = Belona # married Rodrik Freeborn
+	dynasty = dynn_Codd
+	female = yes
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Codd_7
+	mother = Farwynd_113
+
+	8271.1.1 = { birth = yes }
 }
 
 ###### HOUSE HUMBLE (id = dynn_Humble)
@@ -8062,6 +8866,33 @@ Humble_4 = {
 		birth = yes
 		add_character_flag = canon_status_canon
 	}
+}
+### Issue of Dagon
+Humble_26_A = { # created 02/01 slambroski
+	name = Ingrid
+	dynasty = dynn_Humble
+	female = yes 
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Humble_26
+	mother = Stonehouse_4
+
+	8290.1.1 = { birth = yes }
+}
+Humble_26_B = { # created 02/01 slambroski
+	name = Marlon
+	dynasty = dynn_Humble
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Humble_26
+	mother = Stonehouse_4
+
+	8294.1.1 = { birth = yes }
+	8299.1.1 = { death = { death_reason = death_drowned } }
 }
 ### Issue of Gormond, cousins to Quellon
 Humble_1 = {
@@ -8365,6 +9196,22 @@ Shepherd_3 = {
 		add_character_flag = canon_status_canon
 	}
 	8278.1.1 = { add_spouse = Farwynd_120 } # Meredyth Farwynd
+}
+### Issue of Ambrode
+Shepherd_77_A = { # created 02/26 slambroski
+	name = Esgred
+	dynasty = dynn_Shepherd
+	female = yes
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Shepherd_77
+
+	trait = bastard
+
+	8257.1.1 = { birth = yes }
+	8290.1.1 = { death = yes }
 }
 ### Issue of Qarl
 Shepherd_4 = {
@@ -8811,7 +9658,7 @@ Netley_7_B = { # created 02/22 slambroski
 	8269.1.1 = { birth = yes }
 }
 Netley_7_C = { # created 02/22 slambroski
-	name = Rhonda
+	name = Rhonda # married Beron Stonetree
 	dynasty = dynn_Netley
 	female = yes
 
@@ -9314,9 +10161,16 @@ Salt_5 = {
 	}
 	8289.6.1 = { death = { death_reason = death_battle } } # Greyjoy Rebellion
 }
-Salt_6 = {
+Salt_6 = { # edited 03/29 slambroski
 	name = Sigfry # a lord
 	dynasty_house = house_Salt
+
+	diplomacy = 4
+	martial = 7
+	stewardship = 10
+	intrigue = 10
+	learning = 10
+	prowess = 12
 
 	religion = drowned_god
 	culture = ironborn
@@ -9324,10 +10178,36 @@ Salt_6 = {
 	father = Salt_2
 	mother = Ironmaker_31
 
+	trait = education_learning_3
+	trait = education_marital_3
+	trait = shy
+	trait = tempterate
+	trait = diligent
+
+	disallow_random_traits = yes 
+
 	8272.1.1 = {
 		birth = yes
 		make_trait_inactive = black_eyes
 		make_trait_inactive = black_hair
+	}
+	#C8 S1
+	8300.1.1 = {
+		add_spouse = Goodbrother_3
+		effect = {
+			if = {
+				limit = { character:Goodbrother_3 = { is_alive = yes } }
+				character:Goodbrother_3 = { # Gwin Goodbrother
+					make_pregnant = {
+						father = ROOT
+					}
+					event_pregnancy_effect = yes 
+				}
+			}
+		}
+	}
+	8300.1.20 = {
+		trait = lifestyle_blademaster
 	}
 }
 ### Issue of Urzen
@@ -9478,7 +10358,7 @@ Freeborn_11 = {
 	8282.1.1 = { death = yes }
 }
 ### Issue of Horgan
-Freeborn_2 = {
+Freeborn_2 = { # edited 04/05 slambroski
 	name = Fralegg # a lord
 	dynasty = dynn_Freeborn
 	dna = Freeborn_2
@@ -9494,6 +10374,13 @@ Freeborn_2 = {
 		make_trait_inactive = scripted_appearance
 	}
 	8265.1.1 = { add_spouse = Stormdrunk_58 } # Carys Stormdrunk
+	#C8 S1
+	8300.1.20 = {
+		death = {
+			death_reason = death_duel
+			killer = Sharp_6 # Alvyn Sharp
+		}
+	}
 }
 Freeborn_4 = {
 	name = Roryn
@@ -9513,7 +10400,7 @@ Freeborn_4 = {
 	8275.1.1 = { add_spouse = Growne_94 } # Riona Growne
 }
 ### Issue of Fralegg
-Freeborn_1 = {
+Freeborn_1 = { # edited 04/04 slambroski
 	name = Rodrik # Canon, Euron supporter
 	dynasty = dynn_Freeborn
 	dna = Freeborn_1
@@ -9529,6 +10416,7 @@ Freeborn_1 = {
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
+	8289.1.1 = { add_spouse = Codd_9_B } # Belona Codd
 	8299.11.15 = { employer = Greyjoy_6 } # Euron Greyjoy
 }
 Freeborn_8 = {
@@ -9599,6 +10487,49 @@ Freeborn_7 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 	}
+}
+### Issue of Rodrik
+Freeborn_1_A = { # created 04/04 slambroski
+	name = Horgan
+	dynasty = dynn_Freeborn
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Freeborn_1
+
+	trait = bastard
+
+	8285.1.1 = { birth = yes }
+}
+Freeborn_1_B = { # created 04/04 slambroski
+	name = Yara
+	dynasty = dynn_Freeborn
+	female = yes
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Freeborn_1
+	mother = Codd_9_B
+
+	trait = twin
+
+	8290.1.1 = { birth = yes }
+}
+Freeborn_1_C = { # created 04/04 slambroski
+	name = Torwyn
+	dynasty = dynn_Freeborn
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Freeborn_1
+	mother = Codd_9_B
+
+	trait = twin
+
+	8290.1.1 = { birth = yes }
 }
 ### Issue of Regnar
 Freeborn_12 = {
@@ -9765,6 +10696,10 @@ Tidewood_2 = {
 		make_trait_inactive = scripted_appearance
 	}
 	8274.1.1 = { add_spouse = Hickory_74 } # Lyalla Hickory
+	#C8 S1
+	8300.1.10 = {
+		add_spouse = Goodbrother_2 # Gysella Goodbrother
+	}
 }
 Tidewood_8 = {
 	name = Kenned

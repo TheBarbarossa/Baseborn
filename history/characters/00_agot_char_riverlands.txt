@@ -1136,13 +1136,18 @@ Mallister_5 = {
 	}
 }
 ### Issue of Jason
-Mallister_7 = {
+Mallister_7 = { # edited 04/05 slambroski
 	name = Patrek # Canon
 	dynasty = dynn_Mallister
 
 	dna = Mallister_7
 
 	prowess = 6
+	diplomacy = 7
+	martial = 2
+	stewardship = 3
+	intrigue = 4
+	learning = 2
 
 	religion = fots_seven
 	culture = riverman_main
@@ -1197,16 +1202,30 @@ Mallister_7 = {
 		}
 	}
 }
-Mallister_8 = {
+Mallister_8 = { # edited 04/05 slambroski
 	name = Sarya
 	dynasty = dynn_Mallister
 	female = yes
+
+	diplomacy = 1
+	martial = 1
+	stewardship = 10
+	intrigue = 9
+	learning = 8
+	prowess = 0
 
 	religion = fots_seven
 	culture = riverman_main
 
 	father = Mallister_4
 	mother = Farman_73
+
+	trait = education_learning_3
+	trait = cynical
+	trait = vengeful
+	trait = diligent
+
+	disallow_random_traits = yes 
 
 	8278.1.1 = { birth = yes }
 }
@@ -1223,6 +1242,32 @@ Mallister_9 = {
 	mother = Farman_73
 
 	8285.1.1 = { birth = yes }
+}
+### Issue of Patrek
+Mallister_m_7 = { # created 02/22 slambroski
+	name = Posey
+	female = yes
+
+	religion = fots_seven
+	culture = riverlander
+
+	8278.1.1 = { birth = yes }
+	8297.1.1 = { trait = fornicator }
+}
+Mallister_7_A = { # created 02/22 slambroski
+	name = Edrise
+	dynasty = dynn_Mallister
+	female = yes
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Mallister_7
+	mother = Mallister_m_7
+
+	trait = bastard
+
+	8297.1.1 = { birth = yes }
 }
 
 ###### HOUSE GRELL (id = dynn_Grell)
@@ -1453,6 +1498,7 @@ Terrick_2 = {
 
 	8258.1.1 = { birth = yes }
 	8274.1.1 = { trait = knight }
+	8280.1.1 = { add_spouse = Alderdice_74_B } # Desmona Alderdice
 }
 Terrick_23 = {
 	name = Granna # married Denly Thorne
@@ -1497,6 +1543,33 @@ Terrick_25 = {
 	mother = Alderdice_81
 
 	8267.1.1 = { birth = yes }
+}
+### Issue of Bywin
+Terrick_2_A = { # edited 02/22 slambroski
+	name = Medgar
+	dynasty = dynn_Terrick
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Terrick_2
+	mother = Alderdice_74_B
+
+	8281.1.1 = { birth = yes }
+	8297.1.1 = { trait = knight }
+}
+Terrick_2_B = { # edited 02/22 slambroski
+	name = Lyonel
+	dynasty = dynn_Terrick
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Terrick_2
+	mother = Alderdice_74_B
+
+	8284.1.1 = { birth = yes }
+	8299.8.9 = { death = { death_reason = death_battle } }
 }
 ### Issue of Jon
 Terrick_26 = {
@@ -1770,7 +1843,7 @@ Wayn_109 = {
 }
 ### Issue of Utherydes
 Wayn_2 = {
-	name = Corrine # married Beron Blacktyde
+	name = Corrine # married Brynden Bigglestone
 	dynasty = dynn_Wayn
 	female = yes
 
@@ -1782,7 +1855,7 @@ Wayn_2 = {
 
 	8260.1.1 = { birth = yes }
 }
-Wayn_27 = {
+Wayn_27 = { # edited 04/05 slambroski
 	name = Willifer
 	dynasty = dynn_Wayn
 
@@ -1793,8 +1866,12 @@ Wayn_27 = {
 	mother = Darkwood_48
 
 	8265.1.1 = { birth = yes }
+	8282.1.1 = {
+		trait = knight
+		add_spouse = Nutt_36 # Jeyne Nutt
+	}
 }
-Wayn_3 = {
+Wayn_3 = { # edited 04/05 slambroski
 	name = Hoster
 	dynasty = dynn_Wayn
 
@@ -1805,6 +1882,39 @@ Wayn_3 = {
 	mother = Darkwood_48
 
 	8267.1.1 = { birth = yes }
+	8283.1.1 = { trait = knight }
+	8299.12.15 = {
+		death = {
+			death_reason = death_bloody_wedding # The Red Wedding
+			killer = Frey_1 #Walder Frey
+		}
+	}
+}
+### Issue of Wilifer
+Wayn_27_A = { # created 02/26 slambroski
+	name = Olyvar
+	dynasty = dynn_Wayn
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Wayn_27
+	mother = Nutt_36
+
+	8285.1.1 = { birth = yes }
+}
+Wayn_27_B = { # created 02/26 slambroski
+	name = Catelyn
+	dynasty = dynn_Wayn
+	female = yes 
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Wayn_27
+	mother = Nutt_36
+
+	8289.1.1 = { birth = yes }
 }
 ### Issue of Cetheres
 Wayn_28 = {
@@ -1835,7 +1945,7 @@ Wayn_29 = {
 
 	8264.1.1 = { birth = yes }
 }
-Wayn_30 = {
+Wayn_30 = { # edited 02/26 slambroski
 	name = Willem
 	dynasty = dynn_Wayn
 
@@ -1849,6 +1959,12 @@ Wayn_30 = {
 
 	8264.1.1 = { birth = yes }
 	8280.1.1 = { trait = knight }
+	8299.12.15 = {
+		death = {
+			death_reason = death_bloody_wedding # The Red Wedding
+			killer = Frey_1 #Walder Frey
+		}
+	}
 }
 ### Issue of Prentys
 Wayn_31 = {
@@ -1887,6 +2003,19 @@ Roote_1 = {
 	8255.1.1 = { birth = yes }
 	8271.1.1 = { trait = knight }
 	8279.1.1 = { add_spouse = Whistler_3 } # Marissa Whistler
+}
+Roote_1_B = { # created 03/01 slambroski
+	name = Egil
+	dynasty = dynn_Roote
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Roote_25
+	mother = Whitfield_32
+
+	8259.1.1 = { birth = yes }
+	8276.1.1 = { trait = knight }
 }
 ### Issue of Varion
 Roote_2 = {
@@ -1942,6 +2071,19 @@ Roote_4 = {
 		trait = squire
 		death = { death_reason = death_battle } # Killed by Lannister forces
 	}
+}
+Roote_3_B = { # created 03/01 slambroski
+	name = Miriam
+	dynasty = dynn_Roote
+	female = yes
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Roote_1
+	mother = Whistler_3
+
+	8291.1.1 = { birth = yes }
 }
 
 ###### HOUSE HAWICK (id = dynn_Hawick)
@@ -3997,7 +4139,7 @@ Vance_Wayfarers_Rest_88 = {
 		death = { death_reason = death_childbirth }
 	}
 }
-Vance_Wayfarers_Rest_2 = {
+Vance_Wayfarers_Rest_2 = { # edited 04/04 slambroski
 	name = Dafyn # Canon
 	dynasty = dynn_Vance
 
@@ -4023,6 +4165,13 @@ Vance_Wayfarers_Rest_2 = {
 	8276.1.1 = {
 		employer = Frey_1 # Walder Frey
 		add_spouse = Frey_5 # Maegelle Frey
+	}
+	#C8 S1
+	8300.5.1 = {
+		death = {
+			death_reason = death_battle
+			killer = Salt_6 # Sigfry Salt
+		}
 	}
 }
 ### Issue of Lucas
@@ -17629,6 +17778,19 @@ Alderdice_74 = {
 	8258.1.1 = { birth = yes }
 	8275.1.1 = { trait = knight }
 	8276.1.1 = { death = yes }
+}
+Alderdice_74_B = { # cread 02/22 slambroski
+	name = Desmona
+	dynasty = dynn_Alderdice
+	female = yes 
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Alderdice_70
+	mother = Haigh_62
+
+	8260.1.1 = { birth = yes }
 }
 ### Issue of Bonifer
 Alderdice_84 = {

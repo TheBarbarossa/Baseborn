@@ -11199,6 +11199,19 @@ Elesham_1 = {
 		add_character_flag = canon_status_mentioned
 	}
 	8281.1.1 = { add_spouse = Waynwood_13 } # Carolei Waynwood
+	8290.1.1 = {
+		trait = adulterer # Eddyne Hersy
+		effect = {
+			if = {
+				limit = { character:Hersy_69_B = { is_alive = yes } }
+				set_relation_lover = character:Hersy_69_B # Eddyne Hersy
+			}
+		}
+	}
+	#C8 S1
+	8300.1.20 = {
+		add_spouse = Hersy_69_B
+	}
 }
 Elesham_2 = {
 	name = Osfryd
@@ -11218,6 +11231,7 @@ Elesham_2 = {
 	}
 	8280.1.1 = { add_spouse = Donniger_4 } # Lyra Donniger
 }
+### Issue of Alyn
 Elesham_1_A = { # created 02/07 slambroski
 	name = Artys
 	dynasty = dynn_Elesham
