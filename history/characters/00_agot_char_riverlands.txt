@@ -4745,7 +4745,7 @@ Vance_Atranta_77 = {
 	}
 }
 ### Issue of Norbert
-Vance_Atranta_2 = {
+Vance_Atranta_2 = { # edited 04/09 slambroski
 	name = Ronald # Canon
 	dynasty_house = house_VanceA
 
@@ -4753,6 +4753,10 @@ Vance_Atranta_2 = {
 
 	martial = 8
 	prowess = 6
+	stewardship = 2
+	intrigue = 0 
+	learning = 7
+	diplomacy = 5
 
 	religion = fots_seven
 	culture = riverman_main
@@ -4775,6 +4779,10 @@ Vance_Atranta_2 = {
 	}
 	8282.1.1 = { give_nickname = nick_agot_historical_the_bad_Vance_Atranta_2 }
 	8284.1.1 = { trait = knight }
+	#C8 S1
+	8300.4.1 = {
+		add_spouse = Crossing_2 # Walda Rivers I
+	}
 }
 Vance_Atranta_3 = {
 	name = Hugo # Canon
@@ -4838,6 +4846,23 @@ Vance_Atranta_5 = {
 		add_character_flag = canon_status_canon
 	}
 	8291.1.1 = { trait = knight }
+	#C8 S1
+	8300.2.1 = {
+		add_spouse = Bracken_11 # Bess Bracken
+	}
+	8300.3.1 = {
+		effect = {
+			if = {
+				limit = { character:Bracken_11 = { is_alive = yes } }
+				character:Bracken_11 = { # Bess Bracken
+					make_pregnant = {
+						father = ROOT
+					}
+					event_pregnancy_effect = yes 
+				}
+			}
+		}
+	}
 }
 Vance_Atranta_6 = {
 	name = Jon # Canon
