@@ -4476,15 +4476,21 @@ Karstark_5 = { # edited 03/22 slambroski
 	}
 	8270.1.1 = { add_spouse = Ironsmith_20 } # Bethany Ironsmith
 	8280.1.1 = { add_spouse = Scrimshaw_111 } # Joranna Scrimshaw
-	8300.7.2 = {
-		effect = {
-			agot_safe_imprison_in_castle_history_effect = {
-				CASTLE = title:c_castle_black
-				RELEASE_DATE = 9999.1.1
-				TYPE = dungeon
-			}
+	8300.1.1 = {
+		death = {
+			death_reason = death_murder_known
+			killer = Karstark_6 # Benjen Karstark
 		}
-	}
+	}	
+	# 8300.7.2 = {
+	# 	effect = {
+	# 		agot_safe_imprison_in_castle_history_effect = {
+	# 			CASTLE = title:c_castle_black
+	# 			RELEASE_DATE = 9999.1.1
+	# 			TYPE = dungeon
+	# 		}
+	# 	}
+	# }
 }
 Karstark_9 = { # edited 03/22 slambroski
 	name = Arthor # Canon
@@ -4630,6 +4636,16 @@ Karstark_6 = {
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_mentioned
 	}
+	8300.1.1 = {
+		trait = nightswatch_historical
+		effect = {
+			agot_join_nightswatch_history_effect = {
+				ORDER = ranger
+				CASTLE = title:c_castle_black
+				NW_JOIN_AGE = 28
+			}
+		}
+	}	
 }
 Karstark_7 = {
 	name = Brandon # Mentioned
