@@ -2262,11 +2262,18 @@ Paege_32 = {
 	}
 }
 ### Issue of Kavan
-Paege_31 = {
+Paege_31 = { # edited 04/09 slambroski
 	name = Halmon # Canon, a lord
 	dynasty = dynn_Paege
 
 	dna = Paege_31
+
+	diplomacy = 8
+	martial = 5
+	stewardship = 6
+	intrigue = 0
+	learning = 9
+	prowess = 6
 
 	religion = fots_seven
 	culture = riverman_main
@@ -2274,13 +2281,23 @@ Paege_31 = {
 	father = Paege_1
 	mother = Bracken_97
 
+	trait = education_learning_3
+	trait = education_prowess_3
+	trait = patient
+	trait = gregarious
+	trait = lustfull
+
+	disallow_random_traits = yes 
+
 	8267.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
-	8283.1.1 = { trait = knight }
-	8283.1.1 = { add_spouse = Ward_60 } # Alys Ward
+	8283.1.1 = { 
+		trait = knight 
+		add_spouse = Ward_60 # Alys Ward
+	}
 }
 Paege_2 = {
 	name = Sylwa # married Whalen Frey
@@ -2318,7 +2335,7 @@ Paege_3 = {
 		make_trait_inactive = scripted_appearance
 	}
 }
-Paege_4 = {
+Paege_4 = { # edited 04/09 slambroski
 	name = Robert # Canon, friend of Edmure
 	dynasty = dynn_Paege
 
@@ -2328,7 +2345,13 @@ Paege_4 = {
 	father = Paege_1
 	mother = Bracken_97
 
+	trait = education_martial_prowess_2
 	trait = education_martial_2
+	trait = humble
+	trait = greedy
+	trait = stubborn
+
+	disallow_random_traits = yes 
 
 	8277.1.1 = {
 		birth = yes
@@ -2336,7 +2359,7 @@ Paege_4 = {
 	}
 	8293.1.1 = { trait = knight }
 }
-Paege_5 = {
+Paege_5 = { # edited 04/09 slambroski
 	name = Damon # Canon
 	dynasty = dynn_Paege
 
@@ -2353,6 +2376,10 @@ Paege_5 = {
 		add_character_flag = canon_status_canon
 	}
 	8295.1.1 = { trait = knight }
+	#C8 S1
+	8300.3.29 = {
+		death = { death_reason = death_battle }
+	}
 }
 Paege_69 = {
 	name = Petyr # Mentioned, first cousin of Lord Jonos Bracken
@@ -2377,9 +2404,16 @@ Paege_69 = {
 	}
 }
 ### Issue of Halmon
-Paege_6 = {
+Paege_6 = { # edited 04/09 slambroski
 	name = Garrett # Canon
 	dynasty = dynn_Paege
+
+	diplomacy = 1
+	martial = 4
+	stewardship = 4
+	intrigue = 2
+	learning = 4
+	prowess = 4
 
 	religion = fots_seven
 	culture = riverman_main
@@ -2388,6 +2422,12 @@ Paege_6 = {
 	mother = Ward_60
 
 	trait = education_martial_2
+	trait = honest
+	trait = authoritative
+	trait = impatient
+	trait = lazy
+
+	disallow_random_traits = yes 
 
 	8287.1.1 = {
 		birth = yes
