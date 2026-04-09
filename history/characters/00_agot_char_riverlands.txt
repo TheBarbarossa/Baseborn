@@ -3358,7 +3358,7 @@ Bracken_3 = {
 		trait = august
 	}
 }
-Bracken_4 = {
+Bracken_4 = { # edited 04/09 slambroski
 	name = Humfrey
 	dynasty = dynn_Bracken
 
@@ -3369,6 +3369,14 @@ Bracken_4 = {
 
 	father = Bracken_1
 	mother = Broome_29
+
+	trait = education_learning_4
+	trait = education_martial_prowess_2
+	trait = paranoid
+	trait = zealous
+	trait = ambitious
+
+	disallow_random_traits = yes 
 
 	8259.1.1 = {
 		birth = yes
@@ -3412,17 +3420,27 @@ Bracken_5 = {
 		add_character_flag = canon_status_mentioned
 	}
 }
-Bracken_6 = {
+Bracken_6 = { # edited 04/09 slambroski
 	name = Willis # Semi-Canon, Wyllis Bracken
 	dynasty = dynn_Bracken
 
 	dna = Bracken_6
+
+	prowess = 3
 
 	religion = fots_seven
 	culture = riverman_main
 
 	father = Bracken_1
 	mother = Broome_29
+
+	trait = intellect_bad_2
+	trait = education_stewardship_1
+	trait = brave
+	trait = authoritative
+	trait = compassionate
+
+	disallow_random_traits = yes 
 
 	8265.1.1 = {
 		birth = yes
@@ -3432,18 +3450,33 @@ Bracken_6 = {
 	8281.1.1 = { trait = knight }
 }
 ### Issue of Jonos
-Bracken_7 = {
+Bracken_7 = { # edited 04/09 slambroski
 	name = Barbara # Canon
 	dynasty = dynn_Bracken
 	female = yes
 
 	dna = Bracken_7
 
+	diplomacy = 5
+	martial = 8
+	stewardship = 10
+	intrigue = 9
+	learning = 2
+	prowess = 5
+
 	religion = fots_seven
 	culture = riverman_main
 
 	father = Bracken_3
 	mother = Vance_Wayfarers_Rest_88
+
+	trait = education_martial_1
+	trait = open_terrain_expert
+	trait = paranoid
+	trait = just
+	trait = compassionate
+
+	disallow_random_traits = yes 
 
 	8277.1.1 = {
 		birth = yes
@@ -3451,18 +3484,32 @@ Bracken_7 = {
 		add_character_flag = canon_status_canon
 	}
 }
-Bracken_8 = {
+Bracken_8 = { # edited 04/09 slambroski
 	name = Jayne # Canon
 	dynasty = dynn_Bracken
 	female = yes
 
 	dna = Bracken_8
 
+	diplomacy = 7
+	martial = 0
+	stewardship = 6
+	intrigue = 2
+	learning = 5
+	prowess = 6
+
 	religion = fots_seven
 	culture = riverman_main
 
 	father = Bracken_3
 	mother = Vance_Wayfarers_Rest_88
+
+	trait = education_martial_1
+	trait = compassionate
+	trait = just
+	trait = impatient
+
+	disallow_random_traits = yes 
 
 	8278.1.1 = {
 		birth = yes
@@ -3502,18 +3549,33 @@ Bracken_9 = {
 		death = { death_reason = death_battle } # Retaking of Stone Hedge
 	}
 }
-Bracken_10 = {
+Bracken_10 = { # edited 04/09 slambroski
 	name = Catelyn # Canon
 	dynasty = dynn_Bracken
 	female = yes
 
 	dna = Bracken_10
 
+	diplomacy = 2
+	martial = 8
+	stewardship = 7
+	intrigue = 6
+	learning = 0
+	prowess = 6
+
 	religion = fots_seven
 	culture = riverman_main
 
 	father = Bracken_3
 	mother = Smallwood_86
+
+	trait = education_martial_4
+	trait = aggressive_attacker
+	trait = content
+	trait = just
+	trait = brave
+
+	disallow_random_traits = yes 
 
 	8281.1.1 = {
 		birth = yes
@@ -3628,6 +3690,22 @@ Bracken_15 = {
 	8283.8.4 = {
 		death = { death_reason = death_battle_trident }
 	}
+}
+### Issue of Jonos, second cousin to Barbara + Harry
+Bracken_14_B = { # created 01/23 slambroski
+	name = Rosamund
+	dynasty = dynn_Bracken
+	female = yes
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Bracken_14
+
+	trait = bastard
+
+	8277.1.1 = { birth = yes }
+	8330.1.1 = { death = yes }
 }
 ### Issue of Petyr, first cousins to Jonos
 Bracken_17 = {
@@ -3810,7 +3888,7 @@ Bracken_23 = {
 		}
 	}
 }
-Bracken_24 = {
+Bracken_24 = { # edited 04/09 slambroski
 	name = Otho
 	dynasty = dynn_Bracken
 
@@ -3827,6 +3905,21 @@ Bracken_24 = {
 		make_trait_inactive = scripted_appearance
 	}
 	8278.1.1 = { trait = knight }
+	#C8 S1
+	8300.3.1 = {
+		add_spouse = Bracken_8
+		effect = {
+			if = {
+				limit = { character:Bracken_8 = { is_alive = yes } }
+				character:Goodbrother_3 = { # Jayne Bracken
+					make_pregnant = {
+						father = ROOT
+					}
+					event_pregnancy_effect = yes 
+				}
+			}
+		}
+	}
 }
 ### Issue of Olyver, Jonos' second cousins
 Bracken_25 = {
