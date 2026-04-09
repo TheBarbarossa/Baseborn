@@ -5000,7 +5000,10 @@ Royce_hh_3 = {
 		}
 	}
 	8300.1.1 = {
-		add_trait = wounded_3
+		trait = wounded_3
+		effect = {
+			agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_sandor }
+		}
 	}
 }
 
@@ -5514,6 +5517,11 @@ Grafton_6 = {
 			agot_set_as_ward_and_squire_history_effect = { KNIGHT = character:Royce_1 } # Bronze Yohn Royce
 		}
 	}
+	8300.2.1 = {
+		effect = {
+			agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_sandor }
+		}
+	}	
 }
 Grafton_7 = {
 	name = Zhoe # Mentioned
@@ -8805,9 +8813,20 @@ Belmore_7_B = { # created 02/05 slambroski
 	father = Belmore_5
 	mother = True_26
 
+	trait = brave
+	trait = callous
+	trait = calm
+	trait = curious
 	trait = twin
+	
+	disallow_random_traits = yes
 
 	8285.1.1 = { birth = yes }
+	8300.1.1 = {
+		effect = {
+			agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_sandor }
+		}
+	}	
 }
 Belmore_7_C = { # created 02/05 slambroski
 	name = Benfrey
@@ -13161,6 +13180,11 @@ Sunderland_3 = {
 		trait = knight
 		trait = lifestyle_blademaster
 	}
+	8300.1.1 = {
+		effect = {
+			agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_sandor }
+		}
+	}	
 }
 Sunderland_4 = {
 	name = Daemon # Easter Egg
