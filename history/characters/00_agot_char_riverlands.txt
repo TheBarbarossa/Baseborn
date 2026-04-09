@@ -2262,11 +2262,18 @@ Paege_32 = {
 	}
 }
 ### Issue of Kavan
-Paege_31 = {
+Paege_31 = { # edited 04/09 slambroski
 	name = Halmon # Canon, a lord
 	dynasty = dynn_Paege
 
 	dna = Paege_31
+
+	diplomacy = 8
+	martial = 5
+	stewardship = 6
+	intrigue = 0
+	learning = 9
+	prowess = 6
 
 	religion = fots_seven
 	culture = riverman_main
@@ -2274,13 +2281,23 @@ Paege_31 = {
 	father = Paege_1
 	mother = Bracken_97
 
+	trait = education_learning_3
+	trait = education_prowess_3
+	trait = patient
+	trait = gregarious
+	trait = lustfull
+
+	disallow_random_traits = yes 
+
 	8267.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
-	8283.1.1 = { trait = knight }
-	8283.1.1 = { add_spouse = Ward_60 } # Alys Ward
+	8283.1.1 = { 
+		trait = knight 
+		add_spouse = Ward_60 # Alys Ward
+	}
 }
 Paege_2 = {
 	name = Sylwa # married Whalen Frey
@@ -2318,7 +2335,7 @@ Paege_3 = {
 		make_trait_inactive = scripted_appearance
 	}
 }
-Paege_4 = {
+Paege_4 = { # edited 04/09 slambroski
 	name = Robert # Canon, friend of Edmure
 	dynasty = dynn_Paege
 
@@ -2328,7 +2345,13 @@ Paege_4 = {
 	father = Paege_1
 	mother = Bracken_97
 
+	trait = education_martial_prowess_2
 	trait = education_martial_2
+	trait = humble
+	trait = greedy
+	trait = stubborn
+
+	disallow_random_traits = yes 
 
 	8277.1.1 = {
 		birth = yes
@@ -2336,7 +2359,7 @@ Paege_4 = {
 	}
 	8293.1.1 = { trait = knight }
 }
-Paege_5 = {
+Paege_5 = { # edited 04/09 slambroski
 	name = Damon # Canon
 	dynasty = dynn_Paege
 
@@ -2353,6 +2376,10 @@ Paege_5 = {
 		add_character_flag = canon_status_canon
 	}
 	8295.1.1 = { trait = knight }
+	#C8 S1
+	8300.3.29 = {
+		death = { death_reason = death_battle }
+	}
 }
 Paege_69 = {
 	name = Petyr # Mentioned, first cousin of Lord Jonos Bracken
@@ -2377,9 +2404,16 @@ Paege_69 = {
 	}
 }
 ### Issue of Halmon
-Paege_6 = {
+Paege_6 = { # edited 04/09 slambroski
 	name = Garrett # Canon
 	dynasty = dynn_Paege
+
+	diplomacy = 1
+	martial = 4
+	stewardship = 4
+	intrigue = 2
+	learning = 4
+	prowess = 4
 
 	religion = fots_seven
 	culture = riverman_main
@@ -2388,6 +2422,12 @@ Paege_6 = {
 	mother = Ward_60
 
 	trait = education_martial_2
+	trait = honest
+	trait = authoritative
+	trait = impatient
+	trait = lazy
+
+	disallow_random_traits = yes 
 
 	8287.1.1 = {
 		birth = yes
@@ -2448,6 +2488,57 @@ Shawney_3 = {
 	mother = Blackwood_2
 
 	8259.1.1 = { birth = yes }
+}
+### Issue of Roger
+Shawney_2_A = { # created 02/21 slambroski
+	name = Brenett
+	dynasty = dynn_Shawney
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Shawney_2
+	mother = Deddings_24_B
+
+	8282.1.1 = { birth = yes }
+	8299.8.4 = { death = { death_reason = death_battle } }
+}
+Shawney_2_B = { # created 02/21 slambroski
+	name = Joanna
+	dynasty = dynn_Shawney
+	female = yes 
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Shawney_2
+	mother = Deddings_24_B
+
+	8284.1.1 = { birth = yes }
+}
+Shawney_2_C = { # created 02/21 slambroski
+	name = Lothar
+	dynasty = dynn_Shawney
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Shawney_2
+	mother = Deddings_24_B
+
+	8291.1.1 = { birth = yes }
+}
+Shawney_2_D = { # created 02/21 slambroski
+	name = Oscar
+	dynasty = dynn_Shawney
+
+	religion = fots_seven
+	culture = riverlander
+
+	father = Shawney_2
+	mother = Deddings_24_B
+
+	8295.1.1 = { birth = yes }
 }
 
 ###### HOUSE BLACKWOOD (id = dynn_Blackwood)
@@ -2562,7 +2653,7 @@ Blackwood_5 = {
 	8270.6.1 = { death = yes }
 }
 ### Issue of Brynden
-Blackwood_6 = {
+Blackwood_6 = { # edited 04/09 slambroski
 	name = Tytos # Canon, a lord
 	dynasty = dynn_Blackwood
 
@@ -2583,6 +2674,7 @@ Blackwood_6 = {
 	mother = Jast_69
 
 	trait = education_martial_2
+	trait = education_martial_prowess_2
 	trait = charming
 
 	disallow_random_traits = yes
@@ -2596,7 +2688,11 @@ Blackwood_6 = {
 	}
 	8268.8.1 = { trait = just }
 	8270.8.1 = { trait = honest }
-	8276.1.1 = { trait = brave }
+	8276.1.1 = { 
+		trait = brave 
+		trait = stubborn
+		trait = fashionable
+	}
 	8278.1.1 = { add_spouse = Massey_2 } # Jocelyn Massey
 }
 Blackwood_7 = {
@@ -2663,25 +2759,40 @@ Blackwood_9 = {
 	8298.10.28 = { employer = Blackwood_6 } # Tytos Blackwood
 }
 ### Issue of Tytos
-Blackwood_10 = {
+Blackwood_10 = { # edited 04/09 slambroski
 	name = Brynden # Canon
 	dynasty = dynn_Blackwood
 
 	dna = Blackwood_10
+
+	diplomacy = 9
+	martial = 5
+	stewardship = 9
+	intrigue = 2
+	learning = 0
+	prowess = 6
 
 	religion = old_gods_wnw
 	culture = riverman_main
 
 	father = Blackwood_6
 	mother = Massey_2
+	sexuality = heterosexual
 
 	trait = education_martial_2
+	trait = education_martal_prowess_1
+	trait = arrogant
+	trait = just
+	trait = trusting
+
+	disallow_random_traits = yes 
 
 	8280.1.1 = {
 		birth = yes
 		make_trait_inactive = black_hair
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
+		add_character_flag = sexuality_ensure_heterosexual
 	}
 }
 Blackwood_11 = {
@@ -2731,6 +2842,7 @@ Blackwood_12 = {
 
 	religion = old_gods_wnw
 	culture = riverman_main
+	sexuality = bisexual
 
 	father = Blackwood_6
 	mother = Massey_2
@@ -2750,6 +2862,7 @@ Blackwood_12 = {
 		make_trait_inactive = black_hair
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
+		add_character_flag = sexuality_ensure_bisexual
 	}
 	8300.5.23 = { # Hostage after War of the Five Kings
 		effect = {
@@ -2842,7 +2955,7 @@ Blackwood_16 = {
 	}
 }
 ### Issue of Quentyn, cousins to Tytos
-Blackwood_17 = {
+Blackwood_17 = { # edited 04/09 slambroski
 	name = Dickon # Mentioned
 	dynasty = dynn_Blackwood
 
@@ -2859,6 +2972,10 @@ Blackwood_17 = {
 		make_trait_inactive = black_hair
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_mentioned
+	}
+	#C8 S1
+	8300.5.1 = {
+		death = { death_reason = death_battle }
 	}
 }
 Blackwood_97 = {
