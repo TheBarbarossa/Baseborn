@@ -5980,11 +5980,18 @@ Whent_hh_5 = {
 ############################
 ### Brave and Beautiful
 ###
-Piper_1 = {
+Piper_1 = { # edited 04/09 slambroski
 	name = Clement # Canon, a lord
 	dynasty = dynn_Piper
 
 	dna = Piper_1
+
+	diplomacy = 8
+	martial = 10
+	stewardship = 10
+	intrigue = 9
+	learning = 5
+	prowess = 3
 
 	religion = fots_seven
 	culture = riverman_main
@@ -6010,6 +6017,12 @@ Piper_1 = {
 	}
 	8270.1.1 = { trait = knight }
 	8276.1.1 = { add_spouse = Bigglestone_25 } # Morya Bigglestone
+	8290.1.1 = {
+		effect = {
+			change_current_weight = 40
+			target_weight_modifier_effect = { VALUE = 40 }
+		}
+	}
 	8297.1.1 = {
 		agot_safe_buy_august_perk_history_effect = yes
 		trait = august
@@ -6173,7 +6186,7 @@ Piper_5 = {
 	}
 }
 ### Issue of Clement
-Piper_6 = {
+Piper_6 = { # edited 04/09 slambroski
 	name = Marq # Canon
 	dynasty = dynn_Piper
 
@@ -6181,9 +6194,14 @@ Piper_6 = {
 
 	martial = 7
 	prowess = 6
+	diplomacy = 0
+	stewardship = 9
+	intrigue = 7
+	learning = 3
 
 	religion = fots_seven
 	culture = riverman_main
+	sexuality = heterosexual
 
 	father = Piper_1
 	mother = Bigglestone_25
@@ -6197,6 +6215,7 @@ Piper_6 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
+		add_character_flag = sexuality_ensure_heterosexual
 	}
 	8287.1.1 = {
 		trait = stubborn
@@ -6227,7 +6246,7 @@ Piper_6 = {
 		}
 	}
 }
-Piper_7 = {
+Piper_7 = { # edited 04/09 slambroski
 	name = Lewys # Canon, AKA: Little Lew Piper
 	dynasty = dynn_Piper
 
@@ -6238,12 +6257,22 @@ Piper_7 = {
 	mother = Bigglestone_25
 
 	trait = wrathful
+	trait = stubborn
+	trait = brave
+	trait = gregarious
+	trait = bossy
 
 	8285.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_canon
 	}
-	8297.1.1 = { give_nickname = nick_agot_historical_little_Piper_7 }
+	8297.1.1 = { 
+		give_nickname = nick_agot_historical_little_Piper_7 
+		effect = {
+			change_current_weight = 30
+			target_weight_modifier_effect = { VALUE = 30 }
+		}
+	}
 	8300.1.1 = {
 		employer = Baratheon_7 # Tommen Baratheon
 		effect = {
