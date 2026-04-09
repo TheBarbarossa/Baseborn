@@ -1095,10 +1095,9 @@ Lannister_8 = {
 			}
 		}
 	}
-	8300.2.7 = {
+	8300.1.1 = {
 		trait = murderer # Tywin Lannister
 		trait = kinslayer_3 # Tywin Lannister
-		employer = Mopatis_1 # Illyrio Mopatis
 		effect = {
 			character:Lannister_1 = { # Tywin Lannister
 				every_close_or_extended_family_member = {
@@ -1116,11 +1115,14 @@ Lannister_8 = {
 			track = wit
 			value = 65
 		}
-	}
-	8300.7.9 = {
+		trait = nightswatch_historical
 		effect = {
-			agot_safe_set_location_history_effect = { CASTLE = title:d_laamp_merc_second_sons }
-		}
+			agot_join_nightswatch_history_effect = {
+				ORDER = ranger
+				CASTLE = title:c_castle_black
+				NW_JOIN_AGE = 27
+			}
+		}		
 	}
 }
 Lannister_rs_8 = {
