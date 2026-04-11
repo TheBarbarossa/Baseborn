@@ -4814,6 +4814,17 @@ Goodbrother_2 = { # edited 03/29 slambroski
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
+	8300.3.1 = {
+		trait = burned
+		add_trait_xp = {
+			trait = burned
+			value = trait_third_level
+		}	
+	}
+	8300.4.1 = { trait = wounded_3 }
+	8300.5.1 = {
+		death = { death_reason = death_battle }
+	}
 }
 Goodbrother_3 = { # edited 03/29 slambroski
 	name = Gwin # Canon
@@ -4854,6 +4865,17 @@ Goodbrother_4 = { # edited 03/29 slambroski
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_mentioned
+	}
+	8300.5.1 = {
+		trait = wounded_3
+		trait = maimed
+		effect = {
+			agot_safe_imprison_in_castle_history_effect = {
+				CASTLE = title:d_southstone
+				RELEASE_DATE = 9999.1.1
+				TYPE = dungeon
+			}
+		}		
 	}
 }
 Goodbrother_5 = { # edited 03/29 slambroski
@@ -4976,6 +4998,14 @@ Goodbrother_11 = { # edited 03/29 slambroski
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
+	8300.3.1 = {
+		trait = burned
+		add_trait_xp = {
+			trait = burned
+			value = trait_third_level
+		}	
+	}
+	8300.4.1 = { trait = wounded_3 }	
 }
 Goodbrother_12 = { # edited 03/29 slambroski
 	name = Sona # Mentioned, married Ralf Orkwood
@@ -7130,6 +7160,17 @@ Ironmaker_4 = {
 		add_character_flag = canon_status_canon
 	}
 	8268.1.1 = { add_spouse = Strand_64 } # Megga Strand
+	8300.5.1 = {
+		trait = wounded_3
+		trait = maimed
+		effect = {
+			agot_safe_imprison_in_castle_history_effect = {
+				CASTLE = title:d_wayfarers_rest	
+				RELEASE_DATE = 9999.1.1
+				TYPE = dungeon
+			}
+		}		
+	}
 }
 Ironmaker_5 = {
 	name = Dagon # Canon
@@ -7290,6 +7331,9 @@ Ironmaker_12 = {
 	8273.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
+	}
+	8300.5.1 = {
+		trait = wounded_1
 	}
 }
 Ironmaker_13 = {
