@@ -693,6 +693,17 @@ Greyjoy_13 = { # edited 03/25 slambroski
 		}
 		effect = { add_character_modifier = contraceptives_modifier }
 	}
+	8300.5.1 = {
+		effect = {
+			if = {
+				limit = { character:Orkwood_1 = { is_alive = yes } }
+				add_hook = {
+					target = character:Orkwood_1
+					type = favor_hook
+				}
+			}
+		}
+	}
 }
 Greyjoy_14 = { # edited 03/25 slambroski
 	name = Theon # Canon, THE Theon
@@ -3820,6 +3831,12 @@ Orkwood_4_D = { # created 02/22 slambroski
 	disallow_random_traits = yes 
 
 	8290.1.1 = { birth = yes }
+	8300.1.1 = {
+		employer = Greyjoy_13
+		effect = {
+			agot_set_as_ward_history_effect = { GUARDIAN = character:Greyjoy_13 }
+		}
+	}
 }
 Orkwood_4_E = { # created 02/22 slambroski
 	name = Victaria
