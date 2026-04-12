@@ -1,0 +1,893 @@
+﻿start_contraceptives_decision = {
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_herbs.dds"
+	}
+
+	desc = start_contraceptives_decision_desc
+
+	selection_tooltip = start_contraceptives_decision_tooltip
+
+	is_shown = {
+		is_adult = yes #this may need to be made according to age, since we know that pre-adult characters have had children before
+		NOR = {
+			has_character_modifier = contraceptives_modifier
+		}
+		is_female = yes
+	}
+
+	effect = {
+		add_character_modifier = contraceptives_modifier
+	}
+
+	ai_potential = {
+		always = no #we don't want the AI screwing around with dynastic stability by using this mechanic
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+stop_contraceptives_decision = {
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_herbs.dds"
+	}
+
+	desc = stop_contraceptives_decision_desc
+
+	selection_tooltip = stop_contraceptives_decision_tooltip
+
+	is_shown = {
+		has_character_modifier = contraceptives_modifier
+	}
+
+	effect = {
+		remove_character_modifier = contraceptives_modifier
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+# This decision is currently broken
+# defy_winter_lords_decision = {
+# 	ai_check_interval = 24
+# 	picture = "gfx/interface/illustrations/decisions/defy_winter_lords_decision.dds" #AGOT TODO: Does this exist?
+
+# 	desc = defy_winter_lords_decision_desc
+
+# 	selection_tooltip = defy_winter_lords_decision_tooltip
+
+# 	decision_group_type = major
+
+# 	ai_goal = no
+
+# 	confirm_text = defy_winter_lords_decision_confirm_text_desc
+
+# 	is_shown = {
+# 		is_available_adult = yes
+# 		has_culture = culture:skagosi
+# 		NOT = {
+# 			has_trait = just
+# 		}
+# 		NOR = {
+# 			has_title = title:d_skagos
+# 		}
+# 		is_vanilla_independent_ruler = no
+# 	}
+
+# 	cost = { #AGOT TODO: 500 gold seems pretty steep, but that might be intentional.
+# 		gold = 500
+# 		prestige = 50
+# 	}
+
+# 	effect = {
+# 		trigger_event = agot_minor_decisions_events.0001
+# 	}
+
+# 	ai_potential = {
+# 		always = yes
+# 	}
+
+# 	ai_will_do = {
+# 		base = 5
+# 		modifier = {
+# 			factor = 10
+# 			root.liege = {
+# 				is_at_war = yes
+# 			}
+# 		}
+# 	}
+# }
+
+# end_the_ironborn_decision = { AGOT TODO : Great Wars needs to be recreated in mod for this to work
+# 	ai_check_interval = 36
+# 	picture = "gfx/interface/illustrations/decisions/end_the_ironborn_decision.dds"
+
+# 	desc = end_the_ironborn_decision_desc
+
+# 	selection_tooltip = end_the_ironborn_decision_tooltip
+
+# 	decision_group_type = major
+
+# 	ai_goal = no
+
+# 	confirm_text = end_the_ironborn_decision_confirm_text_desc
+
+# 	is_shown = {
+# 		is_available_adult = yes
+# 		root.primary_title = {
+# 			tier >= tier_kingdom
+# 		}
+# 		has_trait = ambitious
+# 		OR = {
+# 			location = {
+# 				geographical_region = world_westeros_the_westerlands
+# 			}
+# 			location = {
+# 				geographical_region = world_westeros_the_reach
+# 			}
+# 			location = {
+# 				geographical_region = world_westeros_the_north
+# 			}
+# 			location = {
+# 				geographical_region = world_westeros_the_riverlands
+# 			}
+# 		}
+# 		agot_is_independent_ruler = yes
+# 	}
+
+# 	cost = {
+# 		gold = 250
+# 		prestige = 150
+# 	}
+
+# 	effect = {
+# 		root.faith = {
+# 			start_great_holy_war = {
+# 				target_character = title:e_the_iron_islands.holder
+# 				target_title = title:e_the_iron_islands
+# 			}
+# 		}
+# 	}
+
+# 	ai_potential = {
+# 		always = yes
+# 	}
+
+# 	ai_will_do = {
+# 		base = 5
+# 	}
+# }
+
+ironborn_rebellion_decision = {
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 36
+		empire = 36
+		hegemony = 36
+	}
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_reaving.dds"
+	}
+
+	desc = ironborn_rebellion_decision_desc
+
+	selection_tooltip = ironborn_rebellion_decision_tooltip
+
+	decision_group_type = major
+
+	ai_goal = no
+
+	confirm_text = ironborn_rebellion_decision_confirm_text_desc
+
+	is_shown = {
+		is_available_adult = yes
+		has_title = title:e_the_iron_islands
+		has_trait = ambitious
+		OR = {
+			AND = {
+				culture = { has_cultural_pillar = heritage_ironman }
+				liege = {
+					NOT = { culture = { has_cultural_pillar = heritage_ironman } }
+				}
+			}
+			AND = {
+				faith = faith:drowned_god
+				liege = {
+					NOT = { faith = faith:drowned_god }
+				}
+			}
+		}
+		exists = liege
+		NOT = {
+			has_character_flag = ironborn_rebellion
+		}
+	}
+
+	cost = {
+		gold = 500
+		prestige = 2000
+	}
+
+	effect = {
+		start_war = {
+			casus_belli = agot_independence_war
+			target = liege
+		}
+		add_character_flag = ironborn_rebellion
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 25
+	}
+}
+
+can_be_knight_and_commander_decision = {
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+
+	desc = can_be_knight_and_commander_decision_desc
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+	}
+
+	is_shown = {
+		has_character_flag = cannot_be_knight_and_commander
+		is_ai = no
+		is_independent_ruler = no
+		NOT = { has_character_flag = nw_ranger_title }
+	}
+
+	effect = {
+		remove_character_flag = cannot_be_knight_and_commander
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+cannot_be_knight_and_commander_decision = {
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+
+	desc = cannot_be_knight_and_commander_decision_desc
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+	}
+
+	is_shown = {
+		NOT = { has_character_flag = cannot_be_knight_and_commander }
+		is_ai = no
+		is_independent_ruler = no
+		NOT = { has_character_flag = nw_ranger_title }
+	}
+
+	effect = {
+		add_character_flag = cannot_be_knight_and_commander
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+stress_loss_summerhall_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	desc = stress_loss_summerhall_decision_desc
+	selection_tooltip = stress_loss_summerhall_decision_tooltip
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 36
+		duchy = 36
+		kingdom = 36
+		empire = 36
+		hegemony = 36
+	}
+
+	cooldown = { days = 1095 }
+
+	is_shown = {
+		dynasty = dynasty:dynn_Targaryen
+		OR = {
+			has_trait = reclusive
+			has_trait = shy
+			has_trait = lifestyle_poet
+		}
+		title:b_summerhall = {
+			OR = {
+				holder = root
+				holder.dynasty ?= dynasty:dynn_Targaryen
+				holder = {
+					any_liege_or_above = { dynasty ?= dynasty:dynn_Targaryen }
+				}
+			}
+			title_province = { has_building = agot_summerhall_ruins_01 }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available = yes
+	}
+
+	effect = {
+		custom_tooltip = stress_loss_drunkard_decision_effect_tooltip
+
+		show_as_tooltip = { #The effect is actually applied in the event itself
+			add_prestige = medium_prestige_loss
+		}
+
+		trigger_event = {
+			on_action = stress_loss_summerhall
+		}
+	}
+
+	ai_potential = {
+		dynasty = dynasty:dynn_Targaryen
+		OR = {
+			has_trait = reclusive
+			has_trait = shy
+			has_trait = lifestyle_poet
+		}
+	}
+
+	ai_will_do = {
+		base = 0
+
+		modifier = {
+			add = 100
+			stress >= 50
+		}
+	}
+}
+
+stress_loss_uncouth_decision = { #Gives you Aerys Hair and Beard
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	desc = stress_loss_uncouth_decision_desc
+	selection_tooltip = stress_loss_uncouth_decision_tooltip
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 36
+		duchy = 36
+		kingdom = 36
+		empire = 36
+		hegemony = 36
+	}
+
+	cooldown = { days = 1095 }
+
+	is_shown = {
+		has_trait = uncouth
+	}
+
+	is_valid_showing_failures_only = {
+		is_available = yes
+	}
+
+	effect = {
+
+		custom_tooltip = stress_loss_drunkard_decision_effect_tooltip
+
+		show_as_tooltip = { #The effect is actually applied in the event itself
+			add_prestige = medium_prestige_loss
+		}
+
+		trigger_event = {
+			on_action = stress_loss_uncouth
+		}
+	}
+
+	ai_potential = {
+		has_trait = uncouth
+	}
+
+	ai_will_do = {
+		base = 0
+
+		modifier = {
+			add = 100
+			stress >= 50
+		}
+	}
+}
+
+mend_dynasty_relations_decision = {
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+
+	desc = mend_dynasty_relations_decision_desc
+
+	selection_tooltip = mend_dynasty_relations_decision_tooltip
+
+	is_shown = {
+		dynasty:dynn_Targaryen.dynasty_founder.house = {
+			any_house_member = {
+				is_alive = yes
+			}
+		}
+		house:house_Blackfyre = {
+			has_house_modifier = divided_dynasty_house_modifier
+			any_house_member = {
+				is_alive = yes
+			}
+		}
+		OR = {
+			AND = {
+				house = dynasty:dynn_Targaryen.dynasty_founder.house
+				OR = {
+					is_dynast = yes
+					has_title = title:h_the_iron_throne
+				}
+			}
+			AND = {
+				house = house:house_Blackfyre
+				OR = {
+					AND = {
+						is_dynast = yes
+						NOT = {
+							title:h_the_iron_throne.holder = { house = dynasty:dynn_Targaryen.dynasty_founder.house }
+						}
+					}
+					has_title = title:h_the_iron_throne
+				}
+			}
+		}
+	}
+
+	is_valid = {
+		trigger_if = {
+			limit = { house = dynasty:dynn_Targaryen.dynasty_founder.house }
+			OR = {
+				has_relation_friend = house:house_Blackfyre.house_head
+				has_relation_lover = house:house_Blackfyre.house_head
+			}
+		}
+		trigger_if = {
+			limit = { house = house:house_Blackfyre }
+			OR = {
+				has_relation_friend = dynasty:dynn_Targaryen.dynasty_founder.house.house_head
+				has_relation_lover = dynasty:dynn_Targaryen.dynasty_founder.house.house_head
+			}
+		}
+	}
+
+	effect = {
+		house:house_Blackfyre = {
+			remove_house_modifier = divided_dynasty_house_modifier
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+manage_realm_affairs_decision = {
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+
+	desc = manage_realm_affairs_decision_desc
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+	}
+
+	sort_order = 999
+
+	is_shown = {
+		is_ai = no
+	}
+
+	widget = { # Don't use is_shown here, as it messes with the potential scopes of the options menu
+		gui = "decision_view_widget_generic_multichoice_with_effects"
+		controller = decision_option_list_controller
+		decision_to_second_step_button = "CHOOSE_REALM_AFFAIRS_DECISION_NEXT_STEP_BUTTON"
+
+		item = { # Petitioners
+			value = choose_petitioners_and_homage
+			is_valid = { # Requires Royal Court
+				custom_tooltip = {
+					text = agot_requires_rc
+					has_dlc_feature = royal_court
+				}
+				custom_tooltip = {
+					text = agot_requires_court
+					has_royal_court = yes
+				}
+			}
+			localization = choose_petitioners_and_homage_name
+			icon = "gfx/interface/icons/message_feed/steward_job.dds"
+		}
+		item = { # Show Valyrian Steel
+			value = choose_show_valyrian_steel
+			localization = choose_show_valyrian_steel_name
+			icon = "gfx/interface/icons/message_feed/war.dds"
+		}
+		item = { # Dragons & Eggs
+			value = choose_dragons
+			localization = choose_dragons_name
+			icon = "gfx/interface/icons/icon_draconic_temperament.dds"
+		}
+		item = { # Dragon Trees
+			value = choose_dragon_trees
+			localization = choose_dragon_trees
+			icon = "gfx/interface/icons/icon_draconic_dread.dds"
+		}
+		item = { # House Feuds
+			value = choose_house_feuds
+			is_valid = { # Requires Friends and Foes
+				custom_tooltip = {
+					text = agot_requires_fnf
+					has_dlc_feature = friends_and_foes
+				}
+			}
+			localization = choose_house_feuds
+			icon = "gfx/interface/icons/message_feed/dynasty.dds"
+		}
+		item = { # Banks
+			value = choose_banks
+			localization = choose_banks
+			icon = "gfx/interface/icons/message_feed/tax_collector.dds"
+		}
+	}
+
+	effect = {
+		custom_tooltip = manage_realm_affairs_decision_effect
+		if = {
+			limit = { scope:choose_petitioners_and_homage = yes }
+			trigger_event = global_events_settings.0002
+		}
+		else_if = {
+			limit = { scope:choose_show_valyrian_steel = yes }
+			trigger_event = agot_valyrian_steel.9999
+		}
+		else_if = {
+			limit = { scope:choose_dragons = yes }
+			trigger_event = global_events_settings.1000
+		}
+		else_if = {
+			limit = { scope:choose_house_feuds = yes }
+			trigger_event = agot_house_maintenance.1000
+		}
+		else_if = {
+			limit = { scope:choose_dragon_trees = yes }
+			trigger_event = agot_dragon_tree.0001
+		}
+		else_if = {
+			limit = { scope:choose_banks = yes }
+			trigger_event = agot_banking.0605
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+manage_bank_decision = {
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+
+	decision_group_type = banking
+
+	desc = manage_bank_decision_desc
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+
+	is_shown = {
+		is_ai = no
+		OR = {
+			AND = {
+				has_variable = bank1_Shares
+				var:bank1_Shares > 0
+				has_character_flag = bank1_Director
+			}
+			AND = {
+				has_variable = bank2_Shares
+				var:bank2_Shares > 0
+				has_character_flag = bank2_Director
+			}
+			AND = {
+				has_variable = bank3_Shares
+				var:bank3_Shares > 0
+				has_character_flag = bank3_Director
+			}
+			AND = {
+				has_variable = IB_Shares
+				var:IB_Shares > 0
+				has_character_flag = IB_Director
+			}
+		}
+		is_incapable = no
+		is_adult = yes
+	}
+
+	widget = {
+		gui = "decision_view_widget_generic_multichoice_with_effects"
+		controller = decision_option_list_controller
+		decision_to_second_step_button = "CHOOSE_BANK_DECISION_NEXT_STEP_BUTTON"
+
+		item = { # Set risk level
+			value = set_risk_level
+			localization = set_risk_level_name
+			icon = "gfx/interface/icons/character_interactions/icon_contract_modification_single.dds"
+		}
+		item = { # Set dividend level
+			value = set_dividend_level
+			localization = set_dividend_level_name
+			icon = "gfx/interface/icons/message_feed/steward_job.dds"
+		}
+		item = { # Set interest level
+			value = set_interest_level
+			localization = set_interest_level_name
+			icon = "gfx/interface/icons/scheme_types/icon_teach_governor.dds"
+		}
+		item = { # Delegate defaulter handling
+			value = delegate_defaulter_handling
+			is_shown = {
+				NOT = { has_character_flag = no_default_handling }
+			}
+			localization = delegate_defaulter_handling_name
+			icon = "gfx/interface/icons/scheme_types/icon_scheme_challenge_status.dds"
+		}
+		item = { # Handle defaulters again
+			value = handle_defaulters_again
+			is_shown = {
+				has_character_flag = no_default_handling
+			}
+			localization = handle_defaulters_again_name
+			icon = "gfx/interface/icons/character_interactions/icon_dismiss_entrenched_regency.dds"
+		}
+		item = { # Investments forbidden
+			value = investments_forbidden
+			is_shown = {
+				NOT = { has_character_flag = investments_forbidden }
+			}
+			localization = investments_forbidden_name
+			icon = "gfx/interface/icons/traits/refusing_marriage.dds"
+		}
+		item = { # Investments allowed
+			value = investments_allowed
+			is_shown = {
+				has_character_flag = investments_forbidden
+			}
+			localization = investments_allowed_name
+			icon = "gfx/interface/icons/message_feed/tax_collector.dds"
+		}
+	}
+
+	effect = {
+		custom_tooltip = manage_bank_decision_tooltip
+		if = {
+			limit = { scope:set_risk_level = yes }
+			trigger_event = agot_banking.0206
+		}
+		else_if = {
+			limit = { scope:set_dividend_level = yes }
+			trigger_event = agot_banking.0207
+		}
+		else_if = {
+			limit = { scope:set_interest_level = yes }
+			trigger_event = agot_banking.0208
+		}
+		else_if = {
+			limit = { scope:delegate_defaulter_handling = yes }
+			add_character_flag = no_default_handling
+		}
+		else_if = {
+			limit = { scope:handle_defaulters_again = yes }
+			remove_character_flag = no_default_handling
+		}
+		else_if = {
+			limit = { scope:investments_forbidden = yes }
+			add_character_flag = investments_forbidden
+		}
+		else_if = {
+			limit = { scope:investments_allowed = yes }
+			remove_character_flag = investments_forbidden
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+# AI can't use petition liege, so they'll have this
+agot_request_paramountcy_ai = {
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 12
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+	desc = agot_request_paramountcy_ai_desc
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	cooldown = { years = 5 }
+	decision_group_type = major
+	is_shown = {
+		petition_liege_paramount_trigger = yes
+		is_ai = yes
+		is_available_adult = yes
+		save_temporary_scope_as = vassal
+		NOR = {
+			liege = {
+				has_character_flag = agot_dealing_with_paramountcy_ai_request
+			}
+			liege = {
+				any_in_list = {
+					variable = hoarding_paramountcies_list
+					this = scope:vassal.primary_title.empire
+				}
+			}
+			liege = {
+				any_in_list = {
+					variable = temp_paramountcy_cd_list
+					this = scope:vassal.primary_title.empire
+				}
+			}
+		}
+	}
+	effect = {
+		save_scope_as = petition_vassal
+		primary_title.empire = {
+			save_scope_as = petition_paramount
+		}
+		liege = {
+			add_character_flag = agot_dealing_with_paramountcy_ai_request
+			trigger_event = agot_decisions_events.1100
+		}
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 85
+		modifier = {
+			add = 15
+			OR = {
+				is_powerful_vassal = yes
+				has_trait = ambitious
+			}
+		}
+		modifier = {
+			add = -75
+			has_trait = content
+		}
+	}
+}
+
+agot_dump_landless_pirate_raid_loot = {
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+	desc = agot_dump_landless_pirate_raid_loot_desc
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = major
+	is_shown = {
+		is_ai = no
+		is_landed = no
+		government_has_flag = government_is_pirate
+		has_variable = raid_loot
+	}
+	is_valid_showing_failures_only = {
+		has_raised_armies = no
+	}
+	effect = {
+		send_interface_toast = {
+			type = event_raid_good
+			title = raiding.0011.t
+			right_icon = root
+			add_prestige = {
+				value = var:raid_loot
+				divide = 2
+			}
+			add_gold = var:raid_loot
+		}
+		remove_variable = raid_loot
+	}
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
