@@ -2301,6 +2301,10 @@ Hardhunter_3 = { # edited 04/13 slambroski
 
 	8245.1.1 = { birth = yes }
 	8277.1.1 = { add_spouse = Boarhell_7 }
+	#C8 S1
+	8300.4.12 = {
+		trait = berserker
+	}
 }
 ### Issue of Jeor
 Hardhunter_4 = {
@@ -3417,6 +3421,25 @@ White_Mask_1 = {
 	8279.1.1 = { give_nickname = nick_agot_historical_white_mask }
 	8280.1.1 = { trait = lifestyle_mystic }
 }
+White_Mask_s_1 = {
+	name = Drald
+
+	religion = old_gods_btw_fnf
+	culture = forestman
+
+	8255.1.1 = { birth = yes }
+	8288.1.1 = { add_matrilineal_spouse = White_Mask_1 }
+	8296.1.1 = { death = { death_reason = death_battle }}
+}
+White_Mask_s_2 = {
+	name = Thorik
+
+	religion = old_gods_btw_fnf
+	culture = forestman
+
+	8260.1.1 = { birth = yes }
+	8291.1.1 = { add_matrilineal_spouse = White_Mask_1 }
+}
 White_Mask_2 = {
 	name = Soren # Mentioned
 	dynasty = dynn_Whitemask
@@ -3438,6 +3461,70 @@ White_Mask_2 = {
 				WARDEN = title:k_the_wall.holder
 			}
 		}
+	}
+}
+### Issue of Morna
+White_Mask_3 = { # created 02/01 slambroski
+	name = Corah
+	dynasty = dynn_Whitemask
+	female = yes 
+
+	religion = old_gods_btw_fnf
+	culture = forestman
+
+	mother = White_Mask_1
+	father = White_Mask_s_2 # Thorik
+
+	trait = twin
+
+	8292.1.1 = {
+		birth = yes
+	}
+}
+White_Mask_4 = { # created 02/01 slambroski
+	name = Kormak
+	dynasty = dynn_Whitemask
+
+	religion = old_gods_btw_fnf
+	culture = forestman
+
+	mother = White_Mask_1
+	father = White_Mask_s_2 # Thorik
+
+	trait = twin
+
+	8292.1.1 = {
+		birth = yes
+	}
+}
+White_Mask_5 = { # created 02/01 slambroski
+	name = Vikunna
+	dynasty = dynn_Whitemask
+	female = yes 
+
+	religion = old_gods_btw_fnf
+	culture = forestman
+
+	mother = White_Mask_1
+	father = White_Mask_s_1 # Drald
+
+	8295.1.1 = {
+		birth = yes
+	}
+}
+White_Mask_6 = { # created 02/01 slambroski
+	name = Toraka
+	dynasty = dynn_Whitemask
+	female = yes 
+
+	religion = old_gods_btw_fnf
+	culture = forestman
+
+	mother = White_Mask_1
+	father = White_Mask_s_2 # Thorik
+
+	8296.6.1 = {
+		birth = yes
 	}
 }
 ### Alfyn Crowkiller
@@ -3589,6 +3676,7 @@ Wooden_Ear_1 = {
 	8288.1.1 = { add_spouse = Stonemorn_6 } # Dalla Stonemorn
 	8300.8.17 = { employer = Giantsbane_1 } # Tormund Giantsbane
 }
+### Issue of Kyleg
 Wooden_Ear_2 = {
 	name = Lorn # Mentioned
 	dynasty = dynn_Wooden_Ear
@@ -3615,6 +3703,35 @@ Wooden_Ear_2 = {
 		}
 	}
 }
+Wooden_Ear_3 = { # created 01/25 slambroski
+	name = Ygon
+	dynasty = dynn_Wooden_Ear
+
+	religion = old_gods_btw_sas
+	culture = forestman
+
+	father = Wooden_Ear_1
+	mother = Stonemorn_6
+
+	8291.1.1 = { birth = yes }
+	8295.1.1 = {
+		trait = pneumonic
+		death = { death_reason = death_pneumonic }
+	}
+}
+Wooden_Ear_4 = { # created 01/25 slambroski
+	name = Roka
+	dynasty = dynn_Wooden_Ear
+	female = yes
+
+	religion = old_gods_btw_sas
+	culture = forestman
+
+	father = Wooden_Ear_1
+	mother = Stonemorn_6
+
+	8298.6.1 = { birth = yes }
+}
 ### Soren Shieldbreaker
 Shieldbreaker_1 = {
 	name = Soren # Canon, AKA: Soren Shieldbreaker, a lord
@@ -3633,8 +3750,30 @@ Shieldbreaker_1 = {
 		birth = yes
 		add_character_flag = canon_status_canon
 	}
+	8284.1.1 = { add_spouse = Shieldbreaker_s_1_1 }
 	8289.1.1 = { give_nickname = nick_agot_historical_shieldbreaker }
+	8291.1.1 = { add_spouse = Shieldbreaker_s_1_2 }
 }
+Shieldbreaker_s_1_1 = { # created 01/25 slambroski
+	name = Errya
+	female = yes
+
+	religion = old_gods_btw_sni
+	culture = lakefolk
+
+	8265.1.1 = { birth = yes }
+	8285.1.1 = { death = { death_reason = death_childbirth } }
+}
+Shieldbreaker_s_1_2 = { # created 01/25 slambroski
+	name = Dyah
+	female = yes
+
+	religion = old_gods_btw_sni
+	culture = forestman
+
+	8273.1.1 = { birth = yes }
+}
+### Issue of Soren
 Shieldbreaker_2 = {
 	name = Stiv # Mentioned
 	dynasty = dynn_Shivers
@@ -3658,6 +3797,44 @@ Shieldbreaker_2 = {
 			}
 		}
 	}
+}
+Shieldbreaker_3 = { # created 01/25 slambroski
+	name = Syansa
+	dynasty = dynn_Shivers
+	female = yes
+
+	religion = old_gods_btw_sni
+	culture = lakefolk
+
+	father = Shieldbreaker_1
+	mother = Shieldbreaker_s_1_2
+
+	8292.1.1 = { birth = yes }
+}
+Shieldbreaker_4 = { # created 01/25 slambroski
+	name = Syri
+	dynasty = dynn_Shivers
+	female = yes
+
+	religion = old_gods_btw_sni
+	culture = lakefolk
+
+	father = Shieldbreaker_1
+	mother = Shieldbreaker_s_1_2
+
+	8294.1.1 = { birth = yes }
+}
+Shieldbreaker_5 = { # created 01/25 slambroski
+	name = Skaval
+	dynasty = dynn_Shivers
+
+	religion = old_gods_btw_sni
+	culture = lakefolk
+
+	father = Shieldbreaker_1
+	mother = Shieldbreaker_s_1_2
+
+	8299.1.1 = { birth = yes }
 }
 ### Great Walrus
 Great_Walrus_1 = {
@@ -3814,12 +3991,37 @@ Mother_Mole_1 = {
 	}
 }
 ### Brogg
-Brogg_1 = {
+Brogg_F1 = { # created 01/26 slambroski, father of Brogg
+	name = Gendel
+	dynasty = dynn_Axebar
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	8240.1.1 = { birth = yes }
+	8262.1.1 = { add_spouse = Brogg_M1 }
+	8282.1.1 = { death = yes }
+}
+Brogg_M1 = { # created 01/26 slambroski, mother of Brogg
+	name = Yrgritte
+	female = yes
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	8242.1.1 = { birth = yes }
+	8270.1.1 = { death = { death_reason = death_childbirth } }
+}
+# Issue of Gendel
+Brogg_1 = { # edited 04/13 slambroski
 	name = Brogg # Canon, a lord
 	dynasty = dynn_Axebar
 
 	religion = old_gods_btw_fnf
 	culture = fangman
+
+	father = Brogg_F1
+	mother = Brogg_M1
 
 	trait = education_martial_2
 	trait = honest
@@ -3835,13 +4037,29 @@ Brogg_1 = {
 	}
 	8300.8.17 = { employer = Stark_7 } # Jon Snow
 }
-Brogg_2 = {
+Brogg_3 = { # edited 01/25 slambroski
+	name = Joramun
+	dynasty = dynn_Axebar
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Brogg_F1
+	mother = Brogg_M1
+
+	8270.1.1 = { birth = yes }
+	8285.1.1 = { add_spouse = Greensky_4 }
+	8292.1.1 = { add_spouse = Vardok_62 }
+}
+### Issue of Brogg
+Brogg_2 = { # edited 04/13 slambroski
 	name = Borroq # Mentioned
 
 	religion = old_gods_btw_fnf
 	culture = fangman
 
 	father = Brogg_1
+	mother = Greensky_4 
 
 	8288.1.1 = {
 		birth = yes
@@ -3855,6 +4073,20 @@ Brogg_2 = {
 			}
 		}
 	}
+}
+### Issue of Joramun
+Brogg_4 = { # edited 01/25 slambroski
+	name = Varka
+	dynasty = dynn_Axebar
+	female = yes
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Brogg_3
+	mother = Vardok_62
+
+	8293.1.1 = { birth = yes }
 }
 ### Howd Wanderer
 Wanderer_1 = {
@@ -3902,7 +4134,7 @@ Wanderer_2 = {
 	}
 }
 ### Blind Doss
-Blind_Doss_1 = {
+Blind_Doss_1 = { # edited 04/13 slambroski
 	name = Doss # Canon, AKA: Blind Doss, a lord
 	dynasty = dynn_Skullsmorn
 
@@ -3910,6 +4142,7 @@ Blind_Doss_1 = {
 	culture = fangman
 
 	trait = education_martial_2
+	trait = blind
 
 	8251.1.1 = {
 		birth = yes
@@ -3917,6 +4150,93 @@ Blind_Doss_1 = {
 	}
 	8267.1.1 = { give_nickname = nick_agot_historical_blind_Blind_Doss_1 }
 	8300.8.17 = { employer = Stark_7 } # Jon Snow
+}
+Blind_Doss_s_1 = { # created 02/01 slambroski
+	name = Briar
+	female = yes
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	8250.1.1 = { birth = yes }
+	8270.1.1 = { add_spouse = Blind_Doss_1 }
+	8277.1.1 = { death = { death_reason = death_childbirth } }
+}
+Blind_Doss_s_2 = { # created 02/01 slambroski
+	name = Ayra
+	female = yes
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	8261.1.1 = { birth = yes }
+	8280.1.1 = { add_spouse = Blind_Doss_1 }
+}
+### Issue of Doss
+Blind_Doss_2 = { # created 02/01 slambroski
+	name = Ghaela
+	dynasty = dynn_Skullsmorn
+	female = yes 
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Blind_Doss_1
+	mother = Blind_Doss_s_1
+
+	trait = education_martial_prowess_2
+
+	8272.1.1 = { birth = yes }
+}
+Blind_Doss_s_3 = { # created 02/01 slambroski
+	name = Orell
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	8270.1.1 = { birth = yes }
+	8291.1.1 = { add_matrilineal_spouse = Blind_Doss_2 }
+}
+Blind_Doss_3 = { # created 02/01 slambroski
+	name = Orm
+	dynasty = dynn_Skullsmorn
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Blind_Doss_1
+	mother = Blind_Doss_s_1
+
+	8277.1.1 = { birth = yes }
+	8289.1.1 = { death = yes }
+}
+Blind_Doss_4 = { # created 02/01 slambroski
+	name = Ransa
+	dynasty = dynn_Skullsmorn
+	female = yes 
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Blind_Doss_1
+	mother = Blind_Doss_s_2
+
+	trait = education_martial_prowess_2
+
+	8281.1.1 = { birth = yes }
+}
+### Issue of Ghaela
+Blind_Doss_5 = { # created 02/01 slambroski
+	name = Eirik
+	dynasty = dynn_Skullsmorn
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Blind_Doss_2
+	mother = Blind_Doss_s_3
+
+	8296.1.1 = { birth = yes }
 }
 ### Gavin the Trader
 Gavin_The_Trader_1 = {
@@ -3932,7 +4252,49 @@ Gavin_The_Trader_1 = {
 		add_character_flag = canon_status_canon
 	}
 	8281.1.1 = { give_nickname = nick_agot_historical_the_trader }
-	8300.8.17 = { employer = Stark_7 } # Jon Snow
+	#C8 S1
+	8300.4.12 = {
+		death = {
+			death_reason = death_battle
+			killer = Sweet_5 # Symon Sweet
+		}
+	}
+	# 8300.8.17 = { employer = Stark_7 } # Jon Snow
+}
+Gavin_the_Trader_s_1 = { # created 02/01 slambroski
+	name = Abni
+	female = yes
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	8274.1.1 = { birth = yes }
+	8296.1.1 = { add_spouse = Gavin_The_Trader_1 }
+}
+### Issue of Gavin
+Gavin_The_Trader_2 = { # created 02/01 slambroski
+	name = Liya
+	female = yes
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Gavin_The_Trader_1
+	mother = Gavin_The_Trader_s_1
+
+	8296.1.1 = { birth = yes }
+}
+Gavin_The_Trader_3 = { # created 02/01 slambroski
+	name = Narya
+	female = yes
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Gavin_The_Trader_1
+	mother = Gavin_The_Trader_s_1
+
+	8299.1.1 = { birth = yes }
 }
 ### Dim Dalba
 Dalba_1 = {
