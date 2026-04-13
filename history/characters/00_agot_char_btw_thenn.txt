@@ -187,7 +187,7 @@ Varrag_95 = {
 		death = { death_reason = death_ill }
 	}
 }
-Varrag_96 = {
+Varrag_96 = { # edited 04/13 slambroski
 	name = Syri # married Gaut Sril
 	dynasty = dynn_Varrag
 	female = yes
@@ -199,6 +199,7 @@ Varrag_96 = {
 	mother = Crettag_153
 
 	8248.1.1 = { birth = yes }
+	8275.1.1 = { death = { death_reason = death_childbirth } }
 }
 Varrag_97 = {
 	name = Svenar
@@ -323,7 +324,7 @@ Varrag_113 = {
 #
 #	8283.1.1 = { birth = yes }
 #}
-Varrag_103 = {
+Varrag_103 = { # edited 04/13 slambroski
 	name = Syri
 	dynasty = dynn_Varrag
 	female = yes
@@ -334,7 +335,10 @@ Varrag_103 = {
 	father = Varrag_97
 	mother = Crettag_168
 
-	8285.1.1 = { birth = yes }
+	8285.1.1 = { 
+		birth = yes 
+		death = { death_reason = death_stillborn }
+	}
 }
 Varrag_104 = {
 	name = Rakya
@@ -487,7 +491,7 @@ Sril_129 = {
 	8245.1.1 = { birth = yes }
 	8287.1.1 = { death = yes }
 }
-Sril_130 = {
+Sril_130 = { # edited 04/13 slambroski
 	name = Bormir # a lord
 	dynasty = dynn_Sril
 
@@ -498,7 +502,8 @@ Sril_130 = {
 	mother = Hrovvar_98
 
 	8246.1.1 = { birth = yes }
-	8271.1.1 = { add_spouse = Hrovvar_123 } # Errya Hrovvar
+	8270.1.1 = { add_spouse = Thenn_51 } # Gerrika Thenn
+	# 8271.1.1 = { add_spouse = Hrovvar_123 } # Errya Hrovvar
 }
 Sril_131 = {
 	name = Gest
@@ -517,7 +522,7 @@ Sril_131 = {
 	}
 }
 ### Issue of Thorald
-Sril_134 = {
+Sril_134 = { # edited 04/13 slambroski
 	name = Svenar
 	dynasty = dynn_Sril
 
@@ -529,6 +534,7 @@ Sril_134 = {
 
 	8257.1.1 = { birth = yes }
 	8278.1.1 = { add_spouse = Sruthor_216 } # Chella Sruthor
+	8284.1.1 = { death = { death_reason = death_murdered } }
 }
 Sril_135 = {
 	name = Larransa # married Bormir Hrovvar
@@ -619,7 +625,7 @@ Sril_162 = {
 	}
 }
 ### Issue of Gaut
-Sril_150 = {
+Sril_150 = { # edited 04/13 slambroski
 	name = Gremma
 	dynasty = dynn_Sril
 	female = yes
@@ -631,6 +637,7 @@ Sril_150 = {
 	mother = Varrag_96
 
 	8274.1.1 = { birth = yes }
+	8275.1.1 = { death = { death_reason = death_sickly } }
 }
 Sril_151 = {
 	name = Bhurta # married Skarnir Sruthor
@@ -879,7 +886,7 @@ Sril_140 = {
 #	8297.1.1 = { birth = yes }
 #}
 ### Issue of Svenar
-Sril_143 = {
+Sril_143 = { # edited 04/13 slambroski
 	name = Tarya # married Karlon Sruthor
 	dynasty = dynn_Sril
 	female = yes
@@ -890,10 +897,11 @@ Sril_143 = {
 	father = Sril_132
 	mother = Thenn_51
 
-	8273.1.1 = { birth = yes }
+	# 8273.1.1 = { birth = yes }
+	8274.1.1 = { birth = yes }
 }
-Sril_144 = {
-	name = An
+Sril_144 = { # edited 04/13 slambroski
+	name = Aeskil # An
 	dynasty = dynn_Sril
 
 	religion = old_gods_btw_pnv
@@ -902,11 +910,12 @@ Sril_144 = {
 	father = Sril_132
 	mother = Thenn_51
 
-	8274.1.1 = { birth = yes }
+	# 8274.1.1 = { birth = yes }
+	8273.1.1 = { birth = yes }
 	8297.1.1 = { add_spouse = Crettag_179 } # Syri Crettag
 }
-### Issue of An
-Sril_163 = {
+### Issue of Aeskil
+Sril_163 = { # edited 04/13 slambroski
 	name = Manni
 	dynasty = dynn_Sril
 
@@ -917,6 +926,7 @@ Sril_163 = {
 	mother = Crettag_179
 
 	8298.1.1 = { birth = yes }
+	8298.6.1 = { death = { death_reason = death_sickly } }
 }
 Sril_164 = {
 	name = Thrain
@@ -1227,7 +1237,7 @@ Hrovvar_127 = {
 # 	8281.1.1 = { birth = yes }
 # }
 ### Issue of Bormir
-Hrovvar_112 = {
+Hrovvar_112 = { # edited 04/13 slambroski
 	name = Manni
 	dynasty = dynn_Hrovvar
 
@@ -1238,6 +1248,7 @@ Hrovvar_112 = {
 	mother = Sril_135
 
 	8279.1.1 = { birth = yes }
+	8285.1.1 = { death = { death_reason = death_accident } }
 }
 #Hrovvar_113 = {
 #	name = Hafrim
@@ -1329,9 +1340,10 @@ Hrovvar_137 = {
 #
 #	8279.1.1 = { birth = yes }
 #}
-Hrovvar_117 = {
-	name = Torenir
+Hrovvar_117 = { # edited 04/13 slambroski
+	name = Tekkeda # Torenir
 	dynasty = dynn_Hrovvar
+	female = yes 
 
 	religion = old_gods_btw_pnv
 	culture = thenn
@@ -1861,7 +1873,7 @@ Crettag_167 = {
 	8261.1.1 = { birth = yes }
 }
 ### Issue of Heming
-Crettag_176 = {
+Crettag_176 = { # edited 04/13 slambroski
 	name = Gella # married Eirik Sruthor
 	dynasty = dynn_Crettag
 	female = yes
@@ -1873,6 +1885,10 @@ Crettag_176 = {
 	mother = Hrovvar_104
 
 	8252.1.1 = { birth = yes }
+	8281.1.1 = {
+		trait = ill
+		death = { death_reason = death_ill }
+	}
 }
 Crettag_177 = {
 	name = Skaval
@@ -2727,7 +2743,7 @@ Sruthor_253 = {
 
 	8291.1.1 = { birth = yes }
 }
-Sruthor_254 = {
+Sruthor_254 = { # edited 04/13 slambroski
 	name = Arn
 	dynasty = dynn_Sruthor
 
@@ -2738,4 +2754,5 @@ Sruthor_254 = {
 	mother = Varrag_128
 
 	8292.1.1 = { birth = yes }
+	8292.6.1 = { death = { death_reason = death_sickly } }
 }
