@@ -6170,54 +6170,54 @@ agot_create_artifact_vs_valyrian_longsword_silver_historical_effect = {
 # 	}
 # }
 
-# create_artifact_vs_oathkeeper_effect = {
-# 	$OWNER$ = {
-# 		save_scope_as = owner
-# 	}
-# 	set_artifact_rarity_illustrious = yes
-# 	create_artifact = {
-# 		name = vs_oathkeeper_name
-# 		visuals = vs_oathkeeper_visuals
-# 		description = vs_oathkeeper_description
-# 		type = sword
-# 		wealth = scope:wealth
-# 		quality = scope:quality
-# 		template = vs_oathkeeper_template
-# 		history = {
-# 			type = created
-# 			date = 8299.8.1
-# 			recipient = character:Lannister_1
-# 		}
-# 		modifier = vs_oathkeeper_modifier
-# 		save_scope_as = newly_created_artifact
-# 		decaying = no
-# 	}
-# 	scope:newly_created_artifact ?= {
-# 		equip_artifact_to_owner_replace = yes
-# 		set_variable = {
-# 			name = valyrian_steel
-# 			value = yes
-# 		}
-# 		set_variable = {
-# 			name = oathkeeper_artifact
-# 			value = yes
-# 		}
-# 		set_variable = {
-# 			name = historical_unique_artifact
-# 			value = yes
-# 		}
-# 		add_artifact_history = {
-# 			type = inherited
-# 			date = 8299.10.1
-# 			recipient = character:Lannister_7
-# 		}
-# 		add_artifact_history = {
-# 			type = inherited
-# 			date = 8299.11.5
-# 			recipient = character:Tarth_6
-# 		}
-# 	}
-# }
+create_artifact_vs_oathkeeper_effect = {
+ 	$OWNER$ = {
+ 		save_scope_as = owner
+ 	}
+ 	set_artifact_rarity_illustrious = yes
+ 	create_artifact = {
+ 		name = vs_oathkeeper_name
+ 		visuals = vs_oathkeeper_visuals
+ 		description = vs_oathkeeper_description
+ 		type = sword
+ 		wealth = scope:wealth
+ 		quality = scope:quality
+ 		template = vs_oathkeeper_template
+ 		history = {
+ 			type = created
+ 			date = 8299.8.1
+ 			recipient = character:Lannister_1
+ 		}
+ 		modifier = vs_oathkeeper_modifier
+ 		save_scope_as = newly_created_artifact
+ 		decaying = no
+ 	}
+ 	scope:newly_created_artifact ?= {
+ 		equip_artifact_to_owner_replace = yes
+ 		set_variable = {
+ 			name = valyrian_steel
+ 			value = yes
+ 		}
+ 		set_variable = {
+ 			name = oathkeeper_artifact
+ 			value = yes
+ 		}
+ 		set_variable = {
+ 			name = historical_unique_artifact
+ 			value = yes
+ 		}
+ 		add_artifact_history = {
+ 			type = inherited
+ 			date = 8299.10.1
+ 			recipient = character:Lannister_7
+ 		}
+ 		add_artifact_history = {
+ 			type = inherited
+ 			date = 8299.11.5
+ 			recipient = character:Tarth_6
+ 		}
+ 	}
+}
 
 # create_artifact_vs_soaring_glory_effect = {
 # 	$OWNER$ = {
