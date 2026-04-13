@@ -1,0 +1,4697 @@
+﻿### SETUP EFFECTS ###
+
+agot_historical_artifacts_setup = {
+	##### Historical artifacts
+	#character:Tarth_6 = { create_artifact_vs_oathkeeper_effect = { OWNER = this } }
+	#character:Baratheon_2 = { create_artifact_vs_the_dagger_effect = { OWNER = this } }
+	#character:Wensington_6 = { create_artifact_vs_eleneis_bulwark_effect = { OWNER = this } }
+	#character:Long_1 = { create_artifact_vs_justicar_effect = { OWNER = this } }
+	#character:Mallister_4 = { create_artifact_vs_soaring_glory_effect = { OWNER = this } }
+	#character:Yronwood_2 = { create_artifact_vs_yron_key_effect = { OWNER = this } }
+	#AGOT TODO: All commented out are not yet modeled.
+
+	#COURT ARTIFACTS
+
+	#THRONES
+	if = {
+		limit = {
+			game_start_date > 7996.1.1
+		}
+		title:b_dragonstone.holder = {
+			agot_create_artifact_painted_table_effect = { OWNER = this }
+		}
+	}
+
+	if = {
+		limit = {
+			game_start_date > 8000.1.1
+		}
+		title:b_the_red_keep.holder = {
+			agot_create_artifact_iron_throne_effect = { OWNER = this }
+		}
+	}
+
+	title:b_pyke.holder = {
+		agot_create_artifact_seastone_chair_effect = { OWNER = this }
+	}
+
+	title:b_casterly_rock.holder = {
+		agot_create_artifact_gilded_throne_effect = { OWNER = this }
+	}
+
+	title:b_highgarden.holder = {
+		agot_create_artifact_ruined_oakenseat_effect = { OWNER = this }
+	}
+
+	title:b_winterfell.holder = {
+		agot_create_artifact_high_seat_of_winter_effect = { OWNER = this }
+	}
+
+	title:b_the_eyrie.holder = {
+		agot_create_artifact_weirwood_throne_effect = { OWNER = this }
+	}
+
+	#STATUES
+	if = {
+		limit = {
+			exists = dynasty:dynn_Velaryon
+			exists = dynasty:dynn_Velaryon.dynast
+			NOT = {
+				dynasty:dynn_Velaryon.dynast = { has_character_flag = house_customizer_placeholder }
+			}
+		}
+		dynasty:dynn_Velaryon.dynast = { agot_create_artifact_seahorse_statue_effect = { OWNER = this } }
+	}
+
+	#SKULLS
+	if = {
+		limit = {
+			exists = title:d_laamp_merc_golden_company.holder
+		}
+		if = {
+			limit = { game_start_date >= 8241.1.1 }
+			title:d_laamp_merc_golden_company.holder = {
+				agot_create_artifact_bittersteel_skull_effect = { OWNER = title:d_laamp_merc_golden_company.holder }
+			}
+		}
+		if = {
+			limit = { game_start_date >= 8252.11.11 }
+			title:d_laamp_merc_golden_company.holder = {
+				agot_create_artifact_daemon_blackfyre_skull_effect = { OWNER = title:d_laamp_merc_golden_company.holder }
+			}
+		}
+		if = {
+			limit = { game_start_date >= 8260.10.1 }
+			title:d_laamp_merc_golden_company.holder = {
+				agot_create_artifact_maelys_skull_effect = { OWNER = title:d_laamp_merc_golden_company.holder }
+			}
+		}
+	}
+
+	#DRAGON SKULLS
+	if = {
+		limit = { game_start_date >= 8283.9.1 }
+		set_global_variable = targ_artifacts_in_storage
+	}
+	else_if = {
+		limit = { game_start_date >= 7999.4.1 }
+		agot_spawn_historical_dragon_skulls_effect = { OWNER = title:c_kings_landing.holder }
+	}
+	else = {
+		agot_spawn_historical_dragon_skulls_effect = { OWNER = title:c_dragonstone.holder }
+	}
+
+	#MISC
+	if = {
+		limit = {
+			exists = dynasty:dynn_Martell
+			exists = dynasty:dynn_Martell.dynast
+			NOT = {
+				dynasty:dynn_Wyl.dynast = { has_character_flag = house_customizer_placeholder }
+			}
+		}
+		dynasty:dynn_Martell.dynast = { agot_create_artifact_martell_wall_shield_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = character:Targaryen_52
+			character:Targaryen_52 = { is_alive = yes }
+			game_start_date >= 8082.1.1
+		}
+		character:Targaryen_52 = { agot_create_artifact_viserra_mirror_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = character:Targaryen_55
+			character:Targaryen_55 = { is_alive = yes }
+			game_start_date >= 8082.1.1
+		}
+		character:Targaryen_55 = {
+			agot_create_artifact_dragon_doll_03_effect = { OWNER = this CREATOR = character:Targaryen_36 }
+		}
+	}
+
+	if = {
+		limit = {
+			exists = character:Targaryen_35
+			character:Targaryen_35 = { is_alive = yes }
+			game_start_date >= 8082.1.1
+		}
+		character:Targaryen_35 = { agot_create_artifact_dragon_doll_04_effect = { OWNER = this CREATOR = character:Targaryen_36 } }
+	}
+
+	if = {
+		limit = {
+			exists = character:Targaryen_74
+			character:Targaryen_74 = { is_alive = yes }
+		}
+		character:Targaryen_55 = {
+			agot_create_artifact_dragon_doll_06_effect = { OWNER = this CREATOR = character:Strong_34 }
+		}
+	}
+
+	if = {
+		limit = {
+			exists = dynasty:dynn_Uller
+			exists = dynasty:dynn_Uller.dynast
+			game_start_date >= 8010.10.25
+		}
+		dynasty:dynn_Uller.dynast = { agot_create_artifact_uller_skull_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = dynasty:dynn_Rowan
+			exists = dynasty:dynn_Rowan.dynast
+		}
+		dynasty:dynn_Rowan.dynast = { agot_create_artifact_gold_leaves_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = dynasty:dynn_Bulwer
+			exists = dynasty:dynn_Bulwer.dynast
+		}
+		dynasty:dynn_Bulwer.dynast = { agot_create_artifact_bors_skull_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = dynasty:dynn_Hightower
+			exists = dynasty:dynn_Hightower.dynast
+		}
+		dynasty:dynn_Hightower.dynast = { agot_create_artifact_stone_skin_club_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = dynasty:dynn_Tarly
+			exists = dynasty:dynn_Tarly.dynast
+		}
+		dynasty:dynn_Tarly.dynast = { agot_create_artifact_herndons_horn_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = dynasty:dynn_Florent
+			exists = dynasty:dynn_Florent.dynast
+		}
+		dynasty:dynn_Florent.dynast = { agot_create_artifact_florys_cloak_01_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = dynasty:dynn_Peake
+			exists = dynasty:dynn_Peake.dynast
+		}
+		dynasty:dynn_Peake.dynast = { agot_create_artifact_florys_cloak_02_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = dynasty:dynn_Ball
+			exists = dynasty:dynn_Ball.dynast
+		}
+		dynasty:dynn_Ball.dynast = { agot_create_artifact_florys_cloak_03_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = dynasty:dynn_Fossoway
+			exists = dynasty:dynn_Fossoway.dynast
+		}
+		dynasty:dynn_Fossoway.dynast = { agot_create_artifact_foss_bow_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = dynasty:dynn_Durrandon
+			exists = dynasty:dynn_Durrandon.dynast
+			game_start_date < 7999.9.15
+		}
+		dynasty:dynn_Durrandon.dynast = { agot_create_artifact_elenei_cloak_old_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = title:c_storms_end.holder
+			game_start_date >= 7999.9.15
+		}
+		title:c_storms_end.holder = { agot_create_artifact_elenei_cloak_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = dynasty:dynn_Dondarrion
+			exists = dynasty:dynn_Dondarrion.dynast
+		}
+		dynasty:dynn_Dondarrion.dynast = { agot_create_artifact_dondarrion_message_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = dynasty:dynn_Bolton
+			exists = dynasty:dynn_Bolton.dynast
+		}
+		dynasty:dynn_Bolton.dynast = { agot_create_artifact_flaying_knife_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = dynasty:dynn_Arryn
+			exists = dynasty:dynn_Arryn.dynast
+		}
+		dynasty:dynn_Arryn.dynast = { agot_create_artifact_falcon_knight_helm_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = dynasty:dynn_Reed
+			exists = dynasty:dynn_Reed.dynast
+		}
+		dynasty:dynn_Reed.dynast = { agot_create_artifact_marsh_king_mount_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = dynasty:dynn_Hornwood
+			exists = dynasty:dynn_Hornwood.dynast
+		}
+		dynasty:dynn_Hornwood.dynast = { agot_create_artifact_horns_of_the_wood_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = dynasty:dynn_Manderly
+			exists = dynasty:dynn_Manderly.dynast
+		}
+		dynasty:dynn_Manderly.dynast = { agot_create_artifact_green_hand_tabard_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = dynasty:dynn_Royce
+			exists = dynasty:dynn_Royce.dynast
+		}
+		dynasty:dynn_Royce.dynast = { agot_create_artifact_royce_runic_armor_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = dynasty:dynn_Blackwood
+			exists = dynasty:dynn_Blackwood.dynast
+		}
+		dynasty:dynn_Blackwood.dynast = { agot_create_artifact_raven_feather_cloak_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = dynasty:dynn_Wyl
+			exists = dynasty:dynn_Wyl.dynast
+			game_start_date >= 8007.1.1
+		}
+		dynasty:dynn_Wyl.dynast = { agot_create_hands_hand_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = dynasty:dynn_Hightower
+			exists = dynasty:dynn_Hightower.dynast
+			NOT = {
+				dynasty:dynn_Hightower.dynast = { has_character_flag = house_customizer_placeholder }
+			}
+			game_start_date > 8048.6.1 #Moon's Death
+		}
+		dynasty:dynn_Hightower.dynast = { agot_create_artifact_moons_rod_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = house:house_KenningK.house_head
+			game_start_date < 8300.1.1
+		}
+		house:house_KenningK.house_head = {
+			agot_create_artifact_horn_of_herrock_effect = { OWNER = this }
+			scope:newly_created_artifact = {
+				equip_artifact_to_owner = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			character:KenningK_hh_1 ?= { is_alive = yes }
+		}
+		character:KenningK_hh_1 = {
+			agot_create_artifact_horn_of_herrock_effect = { OWNER = this }
+			scope:newly_created_artifact = {
+				agot_add_artifact_history = {
+					ARTIFACT = this
+					TYPE = given
+					DATE = 8300.1.1
+					RECIPIENT = character:KenningK_hh_1
+				}
+				equip_artifact_to_owner = yes
+			}
+			house:house_KenningK = { add_house_artifact_claim = scope:newly_created_artifact  }
+		}
+	}
+
+	if = {
+		limit = {
+			exists = dynasty:dynn_Celtigar
+			exists = dynasty:dynn_Celtigar.dynast
+			NOT = {
+				dynasty:dynn_Celtigar.dynast = { has_character_flag = house_customizer_placeholder }
+			}
+		}
+		dynasty:dynn_Celtigar.dynast = {
+			agot_create_artifact_krakenhorn_effect = { OWNER = this }
+			scope:newly_created_artifact = {
+				equip_artifact_to_owner = yes
+			}
+		}
+	}
+
+	if = {
+		limit = {
+			exists = character:Targaryen_96
+			character:Targaryen_96 = { is_alive = yes }
+			game_start_date >= 8184.1.1
+		}
+		character:Targaryen_96 = { agot_create_artifact_bloodraven_longbow_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = character:Tall_1
+			character:Tall_1 = { is_alive = yes }
+			game_start_date > 8211.3.1
+		}
+		character:Webber_13 ?= {
+			save_scope_as = rohanne
+		}
+		character:Tall_1 = {
+			save_scope_as = dunk
+		}
+		character:Tall_1 = { agot_ats_create_rohanne_hair_effect = { OWNER = this } }
+	}
+
+	#SWORDOS
+	agot_assign_starting_family_weapons_effect = yes
+
+	if = {
+		limit = {
+			exists = character:Targaryen_107
+			character:Targaryen_107 = {
+				is_alive = yes
+				is_adult = yes
+			}
+		}
+		character:Targaryen_107 = { agot_create_artifact_decorated_dragon_plate_armor_effect = { OWNER = this } }
+	}
+	else_if = {
+		limit = {
+			exists = character:Targaryen_110
+			character:Targaryen_110 = {
+				is_alive = yes
+				is_adult = yes
+			}
+		}
+		character:Targaryen_110 = { agot_create_artifact_decorated_dragon_plate_armor_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = character:Targaryen_110
+			character:Targaryen_110 = { is_alive = yes }
+			game_start_date > 8190.1.1
+			game_start_date < 8233.6.1
+		}
+
+		character:Targaryen_110 = { agot_create_artifact_maekar_mace_effect = { OWNER = this CREATOR = this } }
+	}
+
+	if = {
+		limit = {
+			exists = character:Targaryen_3
+			character:Targaryen_3 = { is_alive = yes }
+			game_start_date >= 8275.6.1
+		}
+
+		character:Targaryen_3 = { agot_create_artifact_rhaegars_armor_effect = { OWNER = this } }
+		character:Targaryen_3 = { agot_create_artifact_emoBoy_sword_effect = { OWNER = this } }
+	}
+
+	if = {
+		limit = {
+			exists = character:Baratheon_2
+			character:Baratheon_2 = { is_alive = yes }
+			game_start_date >= 8278.1.1
+			game_start_date < 8283.8.4
+		}
+
+		character:Baratheon_2 = { agot_create_artifact_roberts_armor_effect = { OWNER = this } }
+		character:Baratheon_2 = {
+			agot_create_artifact_bobby_hammer_effect = {
+				OWNER = this
+				CREATOR = character:Noye_1
+			}
+		}
+	}
+
+	if = {
+		limit = {
+			exists = character:Baratheon_2
+			character:Baratheon_2 = { is_alive = yes }
+			game_start_date >= 8283.8.4
+		}
+
+		character:Baratheon_2 = { agot_create_artifact_roberts_armor_effect = { OWNER = this } }
+		character:Baratheon_2 = {
+			agot_create_artifact_bobby_hammer_cooler_effect = {
+				OWNER = this
+				CREATOR = character:Noye_1
+			}
+		}
+	}
+
+	if = {
+		limit = {
+			exists = character:Stark_5
+			character:Stark_5 = { is_alive = yes }
+			game_start_date >= 8281.6.1
+		}
+
+		character:Stark_5 = {
+			set_variable = {
+				name = tourney_location
+				value = province:1934
+			}
+			character:Targaryen_3 = { save_scope_as = contest_winner }
+			agot_create_artifact_crown_of_qolab_winter_roses_lyanna_effect = { OWNER = this }
+			remove_variable = tourney_location
+		}
+	}
+
+	if = {
+		limit = {
+			exists = character:Seaworth_1
+			character:Seaworth_1 = { is_alive = yes }
+			game_start_date >= 8284.1.1
+		}
+
+		character:Seaworth_1 = {
+			agot_create_smugglers_fingers_effect = { OWNER = this }
+		}
+	}
+	if = {
+		limit = {
+			exists = title:d_kingsguard.holder
+		}
+		title:d_kingsguard.holder = {
+			agot_create_artifact_the_white_book_effect = {
+				OWNER = this
+				CREATOR = character:Targaryen_28 #Visenya Targaryen
+			}
+		}
+	}
+
+	title:b_the_citadel.holder ?= {
+		agot_create_artifact_glass_candle_effect = {
+			OWNER = this
+			COLOR = green
+		}
+		agot_create_artifact_glass_candle_effect = {
+			OWNER = this
+			COLOR = black
+		}
+		agot_create_artifact_glass_candle_effect = {
+			OWNER = this
+			COLOR = black
+		}
+		agot_create_artifact_glass_candle_effect = {
+			OWNER = this
+			COLOR = black
+		}
+	}
+
+	random_living_maester = {
+		limit = {
+			has_inactive_trait = archmaester_vs
+		}
+		save_temporary_scope_as = vs_archmaester
+		title:b_the_citadel.holder = {
+			random_character_artifact = {
+				limit = {
+					artifact_type = glass_candle
+					has_artifact_feature = glass_candle_black
+				}
+				set_variable = {
+					name = vs_candle
+					value = yes
+				}
+				set_owner = {
+					target = scope:vs_archmaester
+					generate_history = no
+				}
+			}
+		}
+	}
+
+	#Scenarios
+	if = {
+		limit = {
+			exists = character:Blackfyre_14
+			character:Blackfyre_14 = { is_alive = yes }
+			game_start_date = 8258.12.21
+		}
+		character:Blackfyre_14 = {
+			agot_create_artifact_bittersteel_skull_effect = { OWNER = character:Blackfyre_14 }
+			agot_create_artifact_daemon_blackfyre_skull_effect = { OWNER = character:Blackfyre_14 }
+			agot_create_artifact_maelys_armor_effect = { OWNER = character:Blackfyre_14 }
+		}
+	}
+	agot_assign_starting_dragon_eggs_effect = yes
+}
+
+agot_assign_starting_dragon_eggs_effect = {
+	if = { # Clutch of Nessarion
+		limit = { game_start_date > 7924.1.1 }
+		character:dragon_nessarion = { save_scope_as = dragon_parent }
+		title:c_dragonstone.holder = {
+			if = { # Meraxes
+				limit = { NOT = { exists = character:dragon_meraxes } }
+				create_artifact_dragon_egg_grey_2_effect = { OWNER = title:c_dragonstone.holder }
+			}
+			if = { # Vhagar
+				limit = { NOT = { exists = character:dragon_vhagar } }
+				create_artifact_dragon_egg_green_2_effect = { OWNER = title:c_dragonstone.holder }
+			}
+		}
+	}
+	if = { # Clutch of Meraxes
+		limit = { game_start_date > 8005.1.1 }
+		character:dragon_meraxes = { save_scope_as = dragon_parent }
+		title:c_kings_landing.holder = {
+			if = { # Quicksilver
+				limit = { NOT = { exists = character:dragon_quicksilver } }
+				create_artifact_dragon_egg_silver_effect = { OWNER = title:c_kings_landing.holder }
+			}
+			if = { # Non-Canon dragon to fulfill twelve hatchlings of Maegor
+				limit = { NOT = { exists = character:dragon_serporoth } }
+				create_artifact_dragon_egg_tan_effect = { OWNER = title:c_kings_landing.holder }
+			}
+			if = { # Cannibal
+				limit = { NOT = { exists = character:dragon_cannibal } }
+				create_artifact_dragon_egg_black_effect = { OWNER = title:c_dragonstone.holder }
+			}
+		}
+	}
+	if = { # Clutch of Serporoth
+		limit = { game_start_date > 8020.1.1 }
+		character:dragon_serporoth = { save_scope_as = dragon_parent }
+		title:c_dragonstone.holder = {
+			if = { # Hatchling offered to Maegor
+				limit = { NOT = { exists = character:dragon_maegor_2 } }
+				create_artifact_dragon_egg_purple_effect = { OWNER = title:c_dragonstone.holder }
+			}
+			if = { # Hatchling offered to Maegor
+				limit = { NOT = { exists = character:dragon_maegor_3 } }
+				create_artifact_dragon_egg_brown_effect = { OWNER = title:c_dragonstone.holder }
+			}
+			if = { # Hatchling offered to Maegor
+				limit = { NOT = { exists = character:dragon_maegor_4 } }
+				create_artifact_dragon_egg_blue_effect = { OWNER = title:c_dragonstone.holder }
+			}
+		}
+	}
+	if = { # First clutch of Vhagar
+		limit = { game_start_date > 8027.1.1 }
+		character:dragon_vhagar = { save_scope_as = dragon_parent }
+		title:c_kings_landing.holder = {
+			if = { # Dreamfyre
+				limit = { NOT = { exists = character:dragon_dreamfyre } }
+				create_artifact_dragon_egg_frost_effect = { OWNER = title:c_kings_landing.holder }
+			}
+			if = { # Vermithor
+				limit = { NOT = { exists = character:dragon_vermithor } }
+				create_artifact_dragon_egg_bronze_effect = { OWNER = title:c_kings_landing.holder }
+			}
+			if = { # Silverwing
+				limit = { NOT = { exists = character:dragon_silverwing } }
+				create_artifact_dragon_egg_silver_effect = { OWNER = title:c_kings_landing.holder }
+			}
+		}
+	}
+	if = { # Clutch of Quicksilver
+		limit = { game_start_date > 8022.1.1 }
+		character:dragon_quicksilver = { save_scope_as = dragon_parent }
+		title:c_dragonstone.holder = {
+			if = { # Hatchling offered to Maegor
+				limit = { NOT = { exists = character:dragon_maegor_6 } }
+				create_artifact_dragon_egg_darkpurple_effect = { OWNER = title:c_dragonstone.holder }
+			}
+			if = { # Hatchling offered to Maegor
+				limit = { NOT = { exists = character:dragon_maegor_5 } }
+				create_artifact_dragon_egg_yellow_effect = { OWNER = title:c_dragonstone.holder }
+			}
+			if = { # Hatchling offered to Maegor
+				limit = { NOT = { exists = character:dragon_maegor_7 } }
+				create_artifact_dragon_egg_white_effect = { OWNER = title:c_dragonstone.holder }
+			}
+			if = { # Hatchling offered to Maegor
+				limit = { NOT = { exists = character:dragon_maegor_8 } }
+				create_artifact_dragon_egg_orange_effect = { OWNER = title:c_dragonstone.holder }
+			}
+			if = { # Meleys
+				limit = { NOT = { exists = character:dragon_meleys } }
+				create_artifact_dragon_egg_red_effect = { OWNER = title:c_dragonstone.holder }
+			}
+		}
+	}
+	if = { # Clutch of Orion
+		limit = { game_start_date > 8032.1.1 }
+		character:dragon_maegor_3 = { save_scope_as = dragon_parent }
+		title:c_dragonstone.holder = {
+			if = { # Hatchling offered to Maegor
+				limit = { NOT = { exists = character:dragon_maegor_9 } }
+				create_artifact_dragon_egg_green_1_effect = { OWNER = title:c_dragonstone.holder }
+			}
+			if = { # Hatchling offered to Maegor
+				limit = { NOT = { exists = character:dragon_maegor_10 } }
+				create_artifact_dragon_egg_brown_effect = { OWNER = title:c_dragonstone.holder }
+			}
+			if = { # Hatchling offered to Maegor
+				limit = { NOT = { exists = character:dragon_maegor_11 } }
+				create_artifact_dragon_egg_palepink_effect = { OWNER = title:c_dragonstone.holder }
+			}
+		}
+	}
+	if = { # Clutch of Morghon
+		limit = { game_start_date > 8036.1.1 }
+		character:dragon_maegor_6 = { save_scope_as = dragon_parent }
+		title:c_dragonstone.holder = {
+			if = { # Hatchling hatched in late 38 AC
+				limit = { NOT = { exists = character:dragon_aenys_1 } }
+				create_artifact_dragon_egg_tan_effect = { OWNER = title:c_dragonstone.holder }
+			}
+			if = { # Hatchling hatched in late 38 AC
+				limit = { NOT = { exists = character:dragon_aenys_2 } }
+				create_artifact_dragon_egg_palered_effect = { OWNER = title:c_dragonstone.holder }
+			}
+		}
+	}
+	if = { # First clutch of Dreamfyre
+		limit = { game_start_date > 8044.1.1 }
+		character:dragon_dreamfyre = { save_scope_as = dragon_parent }
+		title:c_dragonstone.holder = {
+			if = { # Hatchling offered to Aerea
+				limit = { NOT = { exists = character:dragon_aerea_1 } }
+				create_artifact_dragon_egg_green_1_effect = { OWNER = title:c_dragonstone.holder }
+			}
+			if = { # Hatchling offered to Aerea
+				limit = { NOT = { exists = character:dragon_aerea_2 } }
+				create_artifact_dragon_egg_blue_effect = { OWNER = title:c_dragonstone.holder }
+			}
+			if = { # Hatchling offered to Aerea
+				limit = { NOT = { exists = character:dragon_aerea_3 } }
+				create_artifact_dragon_egg_red_effect = { OWNER = title:c_dragonstone.holder }
+			}
+		}
+	}
+	if = { # Second clutch of Dreamfyre
+		limit = { game_start_date > 8053.1.1 }
+		character:dragon_dreamfyre = { save_scope_as = dragon_parent }
+		title:c_dragonstone.holder = {
+			if = { # Sheepstealer
+				limit = { NOT = { exists = character:dragon_sheepstealer } }
+				create_artifact_dragon_egg_brown_effect = { OWNER = title:c_dragonstone.holder }
+			}
+			if = { # Hatchling offered to Daenerys
+				limit = { NOT = { exists = character:dragon_daenerys_1 } }
+				create_artifact_dragon_egg_darkblue_effect = { OWNER = title:c_dragonstone.holder }
+			}
+		}
+		#
+		if = { # Future Drogon, Viserion and Rhaegal
+			limit = { game_start_date < 8054.1.1 }
+			title:c_dragonstone.holder = {
+				create_artifact_dragon_egg_blackdarkred_effect = { OWNER = title:c_dragonstone.holder }
+				create_artifact_dragon_egg_tan_effect = { OWNER = title:c_dragonstone.holder }
+				create_artifact_dragon_egg_green_2_effect = { OWNER = title:c_dragonstone.holder }
+			}
+		}
+		else_if = { # Stolen by Elissa Farman
+			limit = { game_start_date < 8169.1.1 }
+			if = {
+				limit = { agot_realm_braavos_enabled = yes }
+				title:c_braavos.holder = {
+					create_artifact_dragon_egg_blackdarkred_effect = { OWNER = title:c_braavos.holder }
+					create_artifact_dragon_egg_tan_effect = { OWNER = title:c_braavos.holder }
+					create_artifact_dragon_egg_green_2_effect = { OWNER = title:c_braavos.holder }
+				}
+			}
+		}
+		else_if = { # Taken by Donalo Prestayn into exile
+			limit = { game_start_date < 8182.1.1 }
+			if = {
+				limit = { character:Prestayn_74 ?= { is_alive = yes } }
+				character:Prestayn_74 = {
+					create_artifact_dragon_egg_blackdarkred_effect = { OWNER = character:Prestayn_74 }
+					create_artifact_dragon_egg_tan_effect = { OWNER = character:Prestayn_74 }
+					create_artifact_dragon_egg_green_2_effect = { OWNER = character:Prestayn_74 }
+				}
+			}
+		}
+		else_if = { # Bought by Takapis Family
+			limit = { game_start_date < 8284.1.1 }
+			if = {
+				limit = { title:d_nf_takapis.holder ?= { is_alive = yes } }
+				title:d_nf_takapis.holder = {
+					create_artifact_dragon_egg_blackdarkred_effect = { OWNER = title:d_nf_takapis.holder }
+					create_artifact_dragon_egg_tan_effect = { OWNER = title:d_nf_takapis.holder }
+					create_artifact_dragon_egg_green_2_effect = { OWNER = title:d_nf_takapis.holder }
+				}
+			}
+		}
+		else_if = { # Bought by Illyrio Mopatis
+			limit = { game_start_date < 8297.12.21 }
+			if = {
+				limit = { character:Mopatis_1 ?= { is_alive = yes } }
+				character:Mopatis_1 = {
+					create_artifact_dragon_egg_blackdarkred_effect = { OWNER = character:Mopatis_1 }
+					create_artifact_dragon_egg_tan_effect = { OWNER = character:Mopatis_1 }
+					create_artifact_dragon_egg_green_2_effect = { OWNER = character:Mopatis_1 }
+				}
+			}
+		}
+		else_if = { # Given to Daenerys
+			limit = { NOT = { exists = character:dragon_drogon } }
+			if = {
+				limit = { character:Targaryen_9 ?= { is_alive = yes } }
+				character:Targaryen_9 = {
+					create_artifact_dragon_egg_blackdarkred_effect = { OWNER = character:Targaryen_9 }
+					create_artifact_dragon_egg_tan_effect = { OWNER = character:Targaryen_9 }
+					create_artifact_dragon_egg_green_2_effect = { OWNER = character:Targaryen_9 }
+				}
+			}
+		}
+	}
+	if = { # First clutch of Meleys
+		limit = { game_start_date > 8085.1.1 }
+		character:dragon_meleys = { save_scope_as = dragon_parent }
+		title:c_kings_landing.holder = {
+			if = {
+				limit = { NOT = { exists = character:dragon_syrax } }
+				create_artifact_dragon_egg_yellow_effect = { OWNER = title:c_kings_landing.holder }
+			}
+		}
+	}
+	if = { # Second clutch of Meleys
+		limit = { game_start_date > 8093.1.1 }
+		character:dragon_meleys = { save_scope_as = dragon_parent }
+		character:Targaryen_59 = { # Rhaenys Targaryen
+			if = { # Seasmoke
+				limit = { NOT = { exists = character:dragon_seasmoke } }
+				create_artifact_dragon_egg_silver_effect = { OWNER = character:Targaryen_59 }
+			}
+			if = { # Moondancer
+				limit = { NOT = { exists = character:dragon_moondancer } }
+				create_artifact_dragon_egg_greengrey_effect = { OWNER = character:Targaryen_59 }
+			}
+			if = { # Broken thing that died within hours
+				limit = { NOT = { exists = character:dragon_rhaena_1 } }
+				create_artifact_dragon_egg_palebluepink_effect = { OWNER = character:Targaryen_59 }
+			}
+		}
+	}
+	if = { # Third clutch of Dreamfyre
+		limit = { game_start_date > 8104.1.1 }
+		character:dragon_dreamfyre = { save_scope_as = dragon_parent }
+		title:c_kings_landing.holder = {
+			if = { # Shrykos
+				limit = { NOT = { exists = character:dragon_shrykos } }
+				create_artifact_dragon_egg_sunburst_effect = { OWNER = title:c_kings_landing.holder }
+			}
+			if = { # Morghul
+				limit = { NOT = { exists = character:dragon_morghul } }
+				create_artifact_dragon_egg_rainbowgold_effect = { OWNER = title:c_kings_landing.holder }
+			}
+		}
+		#
+		if = { # Maelor's Cradle-Egg
+			limit = { NOT = { exists = character:Targaryen_73 } }
+			title:c_kings_landing.holder = {
+				create_artifact_dragon_egg_greengrey_effect = { OWNER = title:c_kings_landing.holder }
+			}
+		}
+		else_if = {
+			limit = { character:Targaryen_73 ?= { is_alive = yes } }
+			character:Targaryen_73 = {
+				create_artifact_dragon_egg_greengrey_effect = { OWNER = character:Targaryen_73 }
+			}
+		}
+		else_if = { # Surrendered by Lady Caswell
+			limit = { character:Targaryen_68 ?= { is_alive = yes } }
+			character:Targaryen_68 = {
+				create_artifact_dragon_egg_greengrey_effect = { OWNER = character:Targaryen_68 }
+			}
+		}
+	}
+	if = { # First clutch of Syrax
+		limit = { game_start_date > 8106.1.1 }
+		character:dragon_syrax = { save_scope_as = dragon_parent }
+		title:c_dragonstone.holder = {
+			if = { # Vermax
+				limit = { NOT = { exists = character:dragon_vermax } }
+				create_artifact_dragon_egg_greenorange_effect = { OWNER = title:c_dragonstone.holder }
+			}
+			if = { # Arrax
+				limit = { NOT = { exists = character:dragon_arrax } }
+				create_artifact_dragon_egg_brownspots_effect = { OWNER = title:c_dragonstone.holder }
+			}
+			if = { # Tyraxes
+				limit = { NOT = { exists = character:dragon_tyraxes } }
+				create_artifact_dragon_egg_greygreenyellow_effect = { OWNER = title:c_dragonstone.holder }
+			}
+			if = { # Stormcloud
+				limit = { NOT = { exists = character:dragon_stormcloud } }
+				create_artifact_dragon_egg_grey_2_effect = { OWNER = title:c_dragonstone.holder }
+			}
+		}
+	}
+	if = { # Second Clutch of Syrax
+		limit = { game_start_date > 8120.1.1 }
+		character:dragon_syrax = { save_scope_as = dragon_parent }
+		if = { # Seven Eggs of Aegon II
+			limit = { game_start_date < 8157.1.13 }
+			title:c_dragonstone.holder = {
+				create_artifact_dragon_egg_black_effect = { OWNER = title:c_dragonstone.holder }
+			}
+		}
+		else_if = { # Given to Daena on Daeron's ascension
+			limit = { character:Targaryen_83 ?= { is_alive = yes } }
+			character:Targaryen_83 = {
+				create_artifact_dragon_egg_black_effect = { OWNER = character:Targaryen_83 }
+			}
+		}
+		else_if = { # Inherited By Daemon Blackfyre
+			limit = { character:Targaryen_94 ?= { is_alive = yes } }
+			character:Targaryen_94 = {
+				create_artifact_dragon_egg_black_effect = { OWNER = character:Targaryen_94 }
+			}
+		}
+		else_if = { # Taken by Bittersteel
+			limit = { character:Targaryen_95 ?= { is_alive = yes } }
+			character:Targaryen_95 = {
+				create_artifact_dragon_egg_black_effect = { OWNER = character:Targaryen_95 }
+				dynasty:dynn_Targaryen.dynasty_founder.house = { add_house_artifact_claim = scope:newly_created_artifact }
+			}
+		}
+		else_if = {
+			limit = { exists = title:e_blackfyre_rebellion.holder }
+			title:e_blackfyre_rebellion.holder = {
+				create_artifact_dragon_egg_black_effect = { OWNER = title:e_blackfyre_rebellion.holder }
+				dynasty:dynn_Targaryen.dynasty_founder.house = { add_house_artifact_claim = scope:newly_created_artifact }
+			}
+		}
+		else_if = {
+			limit = { exists = house:house_Blackfyre.house_head }
+			house:house_Blackfyre.house_head = {
+				create_artifact_dragon_egg_black_effect = { OWNER = house:house_Blackfyre.house_head }
+				dynasty:dynn_Targaryen.dynasty_founder.house = { add_house_artifact_claim = scope:newly_created_artifact }
+			}
+		}
+		#
+		if = { # Seven Eggs of Aegon II
+			limit = { game_start_date < 8182.12.11 }
+			title:c_dragonstone.holder = {
+				create_artifact_dragon_egg_darkred_effect = { OWNER = title:c_dragonstone.holder }
+			}
+		}
+		else_if = { # Given to Daemon on Knighting by Aegon
+			limit = { character:Targaryen_95 ?= { is_alive = yes } }
+			character:Targaryen_95 = {
+				create_artifact_dragon_egg_darkred_effect = { OWNER = character:Targaryen_95 }
+			}
+		}
+		else_if = { # Taken by Bittersteel
+			limit = { exists = title:e_blackfyre_rebellion.holder }
+			title:e_blackfyre_rebellion.holder = {
+				create_artifact_dragon_egg_darkred_effect = { OWNER = title:e_blackfyre_rebellion.holder }
+				dynasty:dynn_Targaryen.dynasty_founder.house = { add_house_artifact_claim = scope:newly_created_artifact }
+			}
+		}
+		else_if = {
+			limit = { exists = house:house_Blackfyre.house_head }
+			house:house_Blackfyre.house_head = {
+				create_artifact_dragon_egg_darkred_effect = { OWNER = house:house_Blackfyre.house_head }
+				dynasty:dynn_Targaryen.dynasty_founder.house = { add_house_artifact_claim = scope:newly_created_artifact }
+			}
+		}
+		#
+		if = { # Seven Eggs of Aegon II
+			limit = { NOT = { exists = character:Targaryen_89 } }
+			title:c_dragonstone.holder = {
+				create_artifact_dragon_egg_purplegold_effect = { OWNER = title:c_dragonstone.holder }
+			}
+		}
+		else_if = { # Cradle-Egg of Aemon Dragonknight
+			limit = { character:Targaryen_89 ?= { is_alive = yes } }
+			character:Targaryen_89 = {
+				create_artifact_dragon_egg_purplegold_effect = { OWNER = character:Targaryen_89 }
+			}
+		}
+		else_if = { # Seven Eggs of Summerhall
+			limit = {
+				OR = {
+					NOT = { exists = character:Targaryen_122 } # Aegon V Targaryen
+					character:Targaryen_122 ?= { is_alive = yes }
+				}
+			}
+			title:c_kings_landing.holder = {
+				create_artifact_dragon_egg_purplegold_effect = { OWNER = title:c_kings_landing.holder }
+			}
+		}
+		#
+		if = { # Seven Eggs of Aegon II
+			limit = { NOT = { exists = character:Targaryen_88 } }
+			title:c_dragonstone.holder = {
+				create_artifact_dragon_egg_redblackgold_effect = { OWNER = title:c_dragonstone.holder }
+			}
+		}
+		else_if = { # Cradle-Egg of Aegon IV Targaryen
+			limit = { game_start_date < 8177.1.1 }
+			character:Targaryen_88 = {
+				create_artifact_dragon_egg_redblackgold_effect = { OWNER = character:Targaryen_88 }
+			}
+		}
+		else_if = { # Given to house Butterwell
+			limit = { game_start_date < 8212.1.1 }
+			title:c_milkstone.holder = {
+				create_artifact_dragon_egg_redblackgold_effect = { OWNER = title:c_milkstone.holder }
+			}
+		}
+		else_if = { # Seven Eggs of Summerhall
+			limit = { character:Targaryen_122 ?= { is_alive = yes } }
+			title:c_kings_landing.holder = {
+				create_artifact_dragon_egg_redblackgold_effect = { OWNER = title:c_kings_landing.holder }
+			}
+		}
+	}
+	if = { # Third Clutch of Syrax
+		limit = { game_start_date > 8127.1.1 }
+		character:dragon_syrax = { save_scope_as = dragon_parent }
+		if = { # Morning
+			limit = { NOT = { exists = character:dragon_morning } }
+			character:Targaryen_70 = {
+				create_artifact_dragon_egg_pink_effect = { OWNER = character:Targaryen_70 }
+			}
+		}
+		#
+		if = { # Laena Velaryon's broken wyrm
+			limit = { game_start_date < 8129.4.1 }
+			title:c_dragonstone.holder = {
+				create_artifact_dragon_egg_white_effect = { OWNER = title:c_dragonstone.holder }
+			}
+		}
+		else_if = { # Rhaena took it to the Vale, Cradle-Egg of Laena Velaryon
+			limit = { NOT = { exists = character:Velaryon_51 } }
+			character:Targaryen_70 = {
+				create_artifact_dragon_egg_white_effect = { OWNER = character:Targaryen_70 }
+			}
+		}
+		else_if = {
+			limit = {
+				exists = character:Velaryon_51 # Laena Velaryon
+				game_start_date < 8135.1.1
+			}
+			character:Velaryon_51 = {
+				create_artifact_dragon_egg_white_effect = { OWNER = character:Velaryon_51 }
+			}
+		}
+		#
+		if = {
+			limit = { game_start_date < 8129.4.1 }
+			title:c_dragonstone.holder = {
+				create_artifact_dragon_egg_whitegold_effect = { OWNER = title:c_dragonstone.holder }
+			}
+		}
+		else_if = { # Rhaena took it to the Vale
+			limit = { NOT = { exists = character:dragon_laena_1 } }
+			character:Targaryen_70 = {
+				create_artifact_dragon_egg_whitegold_effect = { OWNER = character:Targaryen_70 }
+			}
+		}
+		else_if = { # Eggs Ordered to Dragonstone after Laena's bloodythirsty wyrm attacked her
+			limit = { game_start_date < 8157.1.13 }
+			title:c_dragonstone.holder = {
+				create_artifact_dragon_egg_whitegold_effect = { OWNER = title:c_dragonstone.holder }
+			}
+		}
+		else_if = { # Given to Elaena on Daeron's ascension
+			limit = { character:Targaryen_85 ?= { is_alive = yes } }
+			character:Targaryen_85 = {
+				create_artifact_dragon_egg_whitegold_effect = { OWNER = character:Targaryen_85 }
+			}
+		}
+		else_if = { # Seven Eggs of Summerhall
+			limit = { character:Targaryen_122 ?= { is_alive = yes } }
+			title:c_kings_landing.holder = {
+				create_artifact_dragon_egg_whitegold_effect = { OWNER = title:c_kings_landing.holder }
+			}
+		}
+	}
+	if = { # Clutch of Morning
+		limit = { game_start_date > 8141.1.1 }
+		character:dragon_morning = { save_scope_as = dragon_parent }
+		if = { # Zalagon, AKA: The Last Dragon
+			limit = { NOT = { exists = character:dragon_the_last } }
+			title:c_kings_landing.holder = {
+				create_artifact_dragon_egg_green_1_effect = { OWNER = title:c_kings_landing.holder }
+			}
+		}
+		#
+		if = {
+			limit = { NOT = { exists = character:Targaryen_120 } }
+			title:c_kings_landing.holder = {
+				create_artifact_dragon_egg_pinkspot_effect = { OWNER = title:c_kings_landing.holder }
+			}
+		}
+		else_if = { # Maester Aemon's Cradle-Egg
+			limit = { game_start_date < 8233.6.1 }
+			character:Targaryen_120 = {
+				create_artifact_dragon_egg_pinkspot_effect = { OWNER = character:Targaryen_120 }
+			}
+		}
+		else_if = { # Seven Eggs of Summerhall
+			limit = { character:Targaryen_122 ?= { is_alive = yes } }
+			title:c_kings_landing.holder = {
+				create_artifact_dragon_egg_pinkspot_effect = { OWNER = title:c_kings_landing.holder }
+			}
+		}
+		#
+		if = {
+			limit = { NOT = { exists = character:Targaryen_118 } }
+			title:c_kings_landing.holder = {
+				create_artifact_dragon_egg_magma_effect = { OWNER = title:c_kings_landing.holder }
+			}
+		}
+		else_if = { # Daeron's Cradle-Egg
+			limit = { character:Targaryen_118 ?= { is_alive = yes } }
+			character:Targaryen_118 = {
+				create_artifact_dragon_egg_magma_effect = { OWNER = character:Targaryen_118 }
+			}
+		}
+		else_if = { # Seven Eggs of Summerhall
+			limit = { character:Targaryen_122 ?= { is_alive = yes } }
+			title:c_kings_landing.holder = {
+				create_artifact_dragon_egg_magma_effect = { OWNER = title:c_kings_landing.holder }
+			}
+		}
+		#
+		if = {
+			limit = { NOT = { exists = character:Targaryen_122 } } # Aegon V Targaryen
+			title:c_kings_landing.holder = {
+				create_artifact_dragon_egg_greengrey_effect = { OWNER = title:c_kings_landing.holder }
+			}
+		}
+		else_if = { # Aegon V's Cradle-Egg, Seven Eggs of Summerhall
+			limit = { character:Targaryen_122 ?= { is_alive = yes } }
+			character:Targaryen_122 = {
+				create_artifact_dragon_egg_greengrey_effect = { OWNER = character:Targaryen_122 }
+			}
+		}
+		#
+		if = {
+			limit = { NOT = { exists = character:Targaryen_119 } } # Aerion Brightflame
+			title:c_kings_landing.holder = {
+				create_artifact_dragon_egg_flame_effect = { OWNER = title:c_kings_landing.holder }
+			}
+		}
+		else_if = { # Aerion Brightflame's Cradle-Egg
+			limit = { character:Targaryen_119 ?= { is_alive = yes } }
+			character:Targaryen_119 = {
+				create_artifact_dragon_egg_flame_effect = { OWNER = character:Targaryen_119 }
+			}
+		}
+		else_if = { # Seven Eggs of Summerhall
+			limit = { character:Targaryen_122 ?= { is_alive = yes } }
+			title:c_kings_landing.holder = {
+				create_artifact_dragon_egg_flame_effect = { OWNER = title:c_kings_landing.holder }
+			}
+		}
+	}
+	if = { # Last Clutch of Vhagar
+		limit = { game_start_date > 8130.4.1 }
+		character:dragon_vhagar = { save_scope_as = dragon_parent }
+		if = { # Nightfyre
+			limit = { NOT = { exists = character:dragon_nightfyre } }
+			title:c_harrenhal.holder = {
+				create_artifact_dragon_egg_blackgreen_effect = { OWNER = title:c_harrenhal.holder }
+			}
+		}
+	}
+	if = { # Clutch of the Last Dragon
+		limit = { game_start_date > 8152.1.1 }
+		character:dragon_the_last = { save_scope_as = dragon_parent }
+		if = { # Five Dragon Eggs of the Last Dragon
+			limit = { game_start_date < 8220.1.1 }
+			title:c_kings_landing.holder = { # Disabled, as they are too small to be considered artifacts
+				# create_artifact_dragon_egg_green_1_effect = { OWNER = title:c_kings_landing.holder }
+				# create_artifact_dragon_egg_orange_effect = { OWNER = title:c_kings_landing.holder }
+				# create_artifact_dragon_egg_brown_effect = { OWNER = title:c_kings_landing.holder }
+				# create_artifact_dragon_egg_tan_effect = { OWNER = title:c_kings_landing.holder }
+				# create_artifact_dragon_egg_grey_2_effect = { OWNER = title:c_kings_landing.holder }
+			}
+		}
+	}
+
+	#Clutches with Two Dragon Parents
+	if = { # First clutch of Silverwing
+		limit = { game_start_date > 8049.1.1 }
+		character:dragon_silverwing = { save_scope_as = dragon_parent }
+		character:dragon_vermithor = { save_scope_as = dragon_parent_other }
+		title:c_kings_landing.holder = {
+			if = { # Caraxes
+				limit = { NOT = { exists = character:dragon_caraxes } }
+				create_artifact_dragon_egg_darkred_effect = { OWNER = title:c_kings_landing.holder }
+			}
+		}
+	}
+	if = { # Second clutch of Silverwing
+		limit = { game_start_date > 8084.1.1 }
+		character:dragon_silverwing = { save_scope_as = dragon_parent }
+		character:dragon_vermithor = { save_scope_as = dragon_parent_other }
+		title:c_dragonstone.holder = {
+			if = { # Sunfyre
+				limit = { NOT = { exists = character:dragon_sunfyre } }
+				create_artifact_dragon_egg_gold_effect = { OWNER = title:c_dragonstone.holder }
+			}
+			if = { # Grey Ghost
+				limit = { NOT = { exists = character:dragon_grey_ghost } }
+				create_artifact_dragon_egg_grey_1_effect = { OWNER = title:c_dragonstone.holder }
+			}
+			if = { # Tessarion
+				limit = { NOT = { exists = character:dragon_tessarion } }
+				create_artifact_dragon_egg_bluebronze_effect = { OWNER = title:c_dragonstone.holder }
+			}
+		}
+	}
+	if = { # Third Clutch of Silverwing
+		limit = { game_start_date > 8110.1.1 }
+		character:dragon_silverwing = { save_scope_as = dragon_parent }
+		character:dragon_vermithor = { save_scope_as = dragon_parent_other }
+		title:c_dragonstone.holder = {
+			if = { # Hatchling offered to Aemond
+				limit = { NOT = { exists = character:dragon_aemond_1 } }
+				create_artifact_dragon_egg_purple_effect = { OWNER = title:c_dragonstone.holder }
+			}
+			if = { # Hatchling offered to Aemond
+				limit = { NOT = { exists = character:dragon_aemond_2 } }
+				create_artifact_dragon_egg_yellowgreen_effect = { OWNER = title:c_dragonstone.holder }
+			}
+			if = { # Hatchling offered to Aemond
+				limit = { NOT = { exists = character:dragon_aemond_3 } }
+				create_artifact_dragon_egg_blue_effect = { OWNER = title:c_dragonstone.holder }
+			}
+		}
+	}
+	if = { # Fourth Clutch of Silverwing
+		limit = { game_start_date > 8117.1.1 }
+		character:dragon_silverwing = { save_scope_as = dragon_parent }
+		character:dragon_vermithor = { save_scope_as = dragon_parent_other }
+		title:c_dragonstone.holder = {
+			if = { # Seven Eggs of Aegon II, Dragonstone Missing Egg
+				limit = { game_start_date < 8220.1.1 }
+				create_artifact_dragon_egg_blackyellow_effect = { OWNER = title:c_dragonstone.holder }
+			}
+			if = { # Seven Eggs of Aegon II, Dragonstone Missing Egg
+				limit = { game_start_date < 8220.1.1 }
+				create_artifact_dragon_egg_rainbow_effect = { OWNER = title:c_dragonstone.holder }
+			}
+		}
+
+		if = { # Seven Eggs of Aegon II, Dragonstone Missing Egg
+			limit = { game_start_date < 8157.1.13 }
+			title:c_dragonstone.holder = {
+				create_artifact_dragon_egg_goldpink_effect = { OWNER = title:c_dragonstone.holder }
+			}
+		}
+		else_if = { # Given to Rhaena on Daeron's ascension
+			limit = { character:Targaryen_84 ?= { is_alive = yes } }
+			character:Targaryen_84 = {
+				create_artifact_dragon_egg_goldpink_effect = { OWNER = character:Targaryen_84 }
+			}
+		}
+		else_if = {
+			limit = { game_start_date < 8220.1.1 }
+			title:c_dragonstone.holder = {
+				create_artifact_dragon_egg_goldpink_effect = { OWNER = title:c_dragonstone.holder }
+			}
+		}
+	}
+}
+
+agot_assign_starting_family_weapons_effect = {
+	if = { # Wyrmfang - Valyrian Steel sword of house Dustin
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8283.10.20 }
+			character:Dustin_9 ?= { agot_create_artifact_vs_wyrmfang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8281.1.1 }
+			character:Dustin_1 ?= { agot_create_artifact_vs_wyrmfang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8273.1.1 }
+			character:Dustin_46 ?= { agot_create_artifact_vs_wyrmfang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8229.1.1 }
+			character:Dustin_44 ?= { agot_create_artifact_vs_wyrmfang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8201.1.1 }
+			character:Dustin_43 ?= { agot_create_artifact_vs_wyrmfang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8179.1.1 }
+			character:Dustin_42 ?= { agot_create_artifact_vs_wyrmfang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8172.1.1 }
+			character:Dustin_37 ?= { agot_create_artifact_vs_wyrmfang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8130.4.28 }
+			character:Dustin_32 ?= { agot_create_artifact_vs_wyrmfang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8121.1.1 }
+			character:Dustin_28 ?= { agot_create_artifact_vs_wyrmfang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8077.1.1 }
+			character:Dustin_27 ?= { agot_create_artifact_vs_wyrmfang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8053.1.1 }
+			character:Dustin_26 ?= { agot_create_artifact_vs_wyrmfang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8034.1.1 }
+			character:Dustin_24 ?= { agot_create_artifact_vs_wyrmfang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8029.1.1 }
+			character:Dustin_23 ?= { agot_create_artifact_vs_wyrmfang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7994.1.1 }
+			character:Dustin_22 ?= { agot_create_artifact_vs_wyrmfang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7979.1.1 }
+			character:Dustin_21 ?= { agot_create_artifact_vs_wyrmfang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7952.1.1 }
+			character:Dustin_19 ?= { agot_create_artifact_vs_wyrmfang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7949.1.1 }
+			character:Dustin_52 ?= { agot_create_artifact_vs_wyrmfang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7931.1.1 }
+			character:Dustin_50 ?= { agot_create_artifact_vs_wyrmfang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7880.1.1 }
+			character:Dustin_15 ?= { agot_create_artifact_vs_wyrmfang_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Widow's Wail - Valyrian Steel sword of house Baratheon
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8300.1.2 }
+			character:Baratheon_7 ?= { agot_create_artifact_vs_widows_wail_historical_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8300.1.1 }
+			character:Baratheon_5 ?= { agot_create_artifact_vs_widows_wail_historical_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8299.11.15 }
+			character:Lannister_1 ?= { agot_create_artifact_vs_widows_wail_historical_effect = { OWNER = THIS } }
+		}
+		if = { # Claims
+			limit = { game_start_date >= 8299.11.15 }
+			dynasty:dynn_Stark.dynasty_founder.house ?= { add_house_artifact_claim = scope:newly_created_artifact }
+		}
+	}
+	if = { # Widestripe - Valyrian Steel sword of house Lydden
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8281.1.1 }
+			character:Lydden_3 ?= { agot_create_artifact_vs_widestripe_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8267.1.1 }
+			character:Lydden_1 ?= { agot_create_artifact_vs_widestripe_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8245.1.1 }
+			character:Lydden_45 ?= { agot_create_artifact_vs_widestripe_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8196.5.5 }
+			character:Lydden_44 ?= { agot_create_artifact_vs_widestripe_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8184.1.1 }
+			character:Lydden_43 ?= { agot_create_artifact_vs_widestripe_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8179.1.1 }
+			character:Lydden_40 ?= { agot_create_artifact_vs_widestripe_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8147.1.1 }
+			character:Lydden_32 ?= { agot_create_artifact_vs_widestripe_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8120.1.1 }
+			character:Lydden_25 ?= { agot_create_artifact_vs_widestripe_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8109.1.1 }
+			character:Lydden_24 ?= { agot_create_artifact_vs_widestripe_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8079.1.1 }
+			character:Lydden_22 ?= { agot_create_artifact_vs_widestripe_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8051.1.1 }
+			character:Lydden_86 ?= { agot_create_artifact_vs_widestripe_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8012.1.1 }
+			character:Lydden_84 ?= { agot_create_artifact_vs_widestripe_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7992.1.1 }
+			character:Lydden_78 ?= { agot_create_artifact_vs_widestripe_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7972.1.1 }
+			character:Lydden_72 ?= { agot_create_artifact_vs_widestripe_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7949.1.1 }
+			character:Lydden_71 ?= { agot_create_artifact_vs_widestripe_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7928.1.1 }
+			character:Lydden_21 ?= { agot_create_artifact_vs_widestripe_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7889.1.1 }
+			character:Lydden_15 ?= { agot_create_artifact_vs_widestripe_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7861.1.1 }
+			character:Lydden_11 ?= { agot_create_artifact_vs_widestripe_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7804.1.1 }
+			character:Lydden_10 ?= { agot_create_artifact_vs_widestripe_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Vigilance - Valyrian Steel sword of house Hightower
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8270.1.1 }
+			character:Hightower_5 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8255.1.1 }
+			character:Hightower_137 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8228.5.5 }
+			character:Hightower_136 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8226.1.1 }
+			character:Hightower_2 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8215.1.1 }
+			character:Hightower_124 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8178.1.1 }
+			character:Hightower_121 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8172.1.1 }
+			character:Hightower_106 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8130.10.16 }
+			character:Hightower_102 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8130.4.28 }
+			character:Hightower_91 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8120.1.1 }
+			character:Hightower_92 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8105.1.1 }
+			character:Hightower_89 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8080.1.1 }
+			character:Hightower_83 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8059.2.1 }
+			character:Hightower_78 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8049.1.1 }
+			character:Hightower_64 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8044.1.1 }
+			character:Hightower_63 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8020.1.1 }
+			character:Hightower_65 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8009.1.1 }
+			character:Hightower_51 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7961.1.1 }
+			character:Hightower_50 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7925.1.1 }
+			character:Hightower_142 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7901.1.1 }
+			character:Hightower_45 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7873.1.1 }
+			character:Hightower_17 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7865.1.1 }
+			character:Hightower_44 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7730.1.1 }
+			character:Hightower_42 ?= { agot_create_artifact_vs_vigilance_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Truth - Valyrian Steel sword of house Rogare
+		limit = {
+			NOT = { has_game_rule = agot_essos_disabled }
+		}
+		if = {
+			limit = { game_start_date >= 8251.1.1 }
+			character:Rogare_35 ?= { agot_create_artifact_vs_truth_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8216.1.1 }
+			character:Rogare_132 ?= { agot_create_artifact_vs_truth_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8213.1.1 }
+			character:Rogare_129 ?= { agot_create_artifact_vs_truth_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8196.1.1 }
+			character:Rogare_124 ?= { agot_create_artifact_vs_truth_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8170.1.1 }
+			character:Rogare_20 ?= { agot_create_artifact_vs_truth_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8129.1.1 }
+			character:Rogare_9 ?= { agot_create_artifact_vs_truth_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8109.1.1 }
+			character:Rogare_2 ?= { agot_create_artifact_vs_truth_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8082.1.1 }
+			character:Rogare_1 ?= { agot_create_artifact_vs_truth_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8077.1.1 }
+			character:Rogare_98 ?= { agot_create_artifact_vs_truth_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8040.1.1 }
+			character:Rogare_86 ?= { agot_create_artifact_vs_truth_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7996.1.1 }
+			character:Rogare_83 ?= { agot_create_artifact_vs_truth_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7972.1.1 }
+			character:Rogare_80 ?= { agot_create_artifact_vs_truth_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7950.1.1 }
+			character:Rogare_77 ?= { agot_create_artifact_vs_truth_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7897.1.1 }
+			character:Rogare_75 ?= { agot_create_artifact_vs_truth_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7880.1.1 }
+			character:Rogare_72 ?= { agot_create_artifact_vs_truth_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7848.1.1 }
+			character:Rogare_67 ?= { agot_create_artifact_vs_truth_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7844.1.1 }
+			character:Rogare_65 ?= { agot_create_artifact_vs_truth_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7823.1.1 }
+			character:Rogare_22 ?= { agot_create_artifact_vs_truth_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7818.1.1 }
+			character:Rogare_32 ?= { agot_create_artifact_vs_truth_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Tranquility - Valyrian Steel sword of house Brax
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8299.1.15 }
+			character:Brax_4 ?= { agot_create_artifact_vs_tranquility_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8268.1.1 }
+			character:Brax_1 ?= { agot_create_artifact_vs_tranquility_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8259.3.6 }
+			character:Brax_36 ?= { agot_create_artifact_vs_tranquility_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8254.1.1 }
+			character:Brax_34 ?= { agot_create_artifact_vs_tranquility_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8226.1.1 }
+			character:Brax_33 ?= { agot_create_artifact_vs_tranquility_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8196.11.22 }
+			character:Brax_32 ?= { agot_create_artifact_vs_tranquility_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8162.1.1 }
+			character:Brax_30 ?= { agot_create_artifact_vs_tranquility_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8156.1.1 }
+			character:Brax_29 ?= { agot_create_artifact_vs_tranquility_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8130.2.21 }
+			character:Brax_28 ?= { agot_create_artifact_vs_tranquility_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8126.1.1 }
+			character:Brax_26 ?= { agot_create_artifact_vs_tranquility_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8105.1.1 }
+			character:Brax_25 ?= { agot_create_artifact_vs_tranquility_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8084.1.1 }
+			character:Brax_24 ?= { agot_create_artifact_vs_tranquility_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8048.1.1 }
+			character:Brax_22 ?= { agot_create_artifact_vs_tranquility_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8022.1.1 }
+			character:Brax_21 ?= { agot_create_artifact_vs_tranquility_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7999.3.8 }
+			character:Brax_20 ?= { agot_create_artifact_vs_tranquility_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7992.1.1 }
+			character:Brax_19 ?= { agot_create_artifact_vs_tranquility_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7982.1.1 }
+			character:Brax_16 ?= { agot_create_artifact_vs_tranquility_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7976.1.1 }
+			character:Brax_15 ?= { agot_create_artifact_vs_tranquility_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7924.1.1 }
+			character:Brax_14 ?= { agot_create_artifact_vs_tranquility_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7902.1.1 }
+			character:Brax_12 ?= { agot_create_artifact_vs_tranquility_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7900.8.1 }
+			character:Brax_11 ?= { agot_create_artifact_vs_tranquility_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7874.1.1 }
+			character:Brax_10 ?= { agot_create_artifact_vs_tranquility_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Swansong - Valyrian Steel sword of house Swann
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8263.1.1 }
+			character:Swann_1 ?= { agot_create_artifact_vs_swansong_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8240.1.1 }
+			character:Swann_36 ?= { agot_create_artifact_vs_swansong_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8231.1.1 }
+			character:Swann_35 ?= { agot_create_artifact_vs_swansong_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8212.1.1 }
+			character:Swann_33 ?= { agot_create_artifact_vs_swansong_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8175.1.1 }
+			character:Swann_32 ?= { agot_create_artifact_vs_swansong_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8143.1.1 }
+			character:Swann_27 ?= { agot_create_artifact_vs_swansong_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8135.1.1 }
+			character:Swann_25 ?= { agot_create_artifact_vs_swansong_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8116.1.1 }
+			character:Swann_22 ?= { agot_create_artifact_vs_swansong_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8094.1.1 }
+			character:Swann_21 ?= { agot_create_artifact_vs_swansong_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8068.1.1 }
+			character:Swann_20 ?= { agot_create_artifact_vs_swansong_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8042.1.1 }
+			character:Swann_18 ?= { agot_create_artifact_vs_swansong_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7993.1.1 }
+			character:Swann_16 ?= { agot_create_artifact_vs_swansong_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7956.1.1 }
+			character:Swann_49 ?= { agot_create_artifact_vs_swansong_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7942.1.1 }
+			character:Swann_14 ?= { agot_create_artifact_vs_swansong_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7896.1.1 }
+			character:Swann_12 ?= { agot_create_artifact_vs_swansong_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7883.1.1 }
+			character:Swann_10 ?= { agot_create_artifact_vs_swansong_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7862.1.1 }
+			character:Swann_9 ?= { agot_create_artifact_vs_swansong_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Swordfish - Valyrian Steel sword of house Bar Emmon
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8296.1.1 }
+			character:Bar_Emmon_3 ?= { agot_create_artifact_vs_swordfish_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8277.1.1 }
+			character:Bar_Emmon_2 ?= { agot_create_artifact_vs_swordfish_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8269.1.1 }
+			character:Bar_Emmon_1 ?= { agot_create_artifact_vs_swordfish_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8235.1.1 }
+			character:Bar_Emmon_45 ?= { agot_create_artifact_vs_swordfish_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8200.1.1 }
+			character:Bar_Emmon_44 ?= { agot_create_artifact_vs_swordfish_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8188.1.1 }
+			character:Bar_Emmon_41 ?= { agot_create_artifact_vs_swordfish_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8145.1.1 }
+			character:Bar_Emmon_34 ?= { agot_create_artifact_vs_swordfish_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8119.1.1 }
+			character:Bar_Emmon_22 ?= { agot_create_artifact_vs_swordfish_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8102.1.1 }
+			character:Bar_Emmon_20 ?= { agot_create_artifact_vs_swordfish_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8059.2.1 }
+			character:Bar_Emmon_87 ?= { agot_create_artifact_vs_swordfish_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8049.1.1 }
+			character:Bar_Emmon_17 ?= { agot_create_artifact_vs_swordfish_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8031.1.1 }
+			character:Bar_Emmon_16 ?= { agot_create_artifact_vs_swordfish_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8002.1.1 }
+			character:Bar_Emmon_14 ?= { agot_create_artifact_vs_swordfish_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7982.1.1 }
+			character:Bar_Emmon_62 ?= { agot_create_artifact_vs_swordfish_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7973.1.1 }
+			character:Bar_Emmon_59 ?= { agot_create_artifact_vs_swordfish_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7946.1.1 }
+			character:Bar_Emmon_55 ?= { agot_create_artifact_vs_swordfish_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7925.1.1 }
+			character:Bar_Emmon_10 ?= { agot_create_artifact_vs_swordfish_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7897.1.1 }
+			character:Bar_Emmon_9 ?= { agot_create_artifact_vs_swordfish_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7869.1.1 }
+			character:Bar_Emmon_8 ?= { agot_create_artifact_vs_swordfish_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7850.1.1 }
+			character:Bar_Emmon_7 ?= { agot_create_artifact_vs_swordfish_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Supremacy - Valyrian Steel sword of house Serrett
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8266.1.1 }
+			character:Serrett_1 ?= { agot_create_artifact_vs_supremacy_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8245.1.1 }
+			character:Serrett_22 ?= { agot_create_artifact_vs_supremacy_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8242.1.1 }
+			character:Serrett_77 ?= { agot_create_artifact_vs_supremacy_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8194.1.1 }
+			character:Serrett_73 ?= { agot_create_artifact_vs_supremacy_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8170.1.1 }
+			character:Serrett_70 ?= { agot_create_artifact_vs_supremacy_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8161.1.1 }
+			character:Serrett_63 ?= { agot_create_artifact_vs_supremacy_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8128.1.1 }
+			character:Serrett_62 ?= { agot_create_artifact_vs_supremacy_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8078.1.1 }
+			character:Serrett_51 ?= { agot_create_artifact_vs_supremacy_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8071.1.1 }
+			character:Serrett_50 ?= { agot_create_artifact_vs_supremacy_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8031.1.1 }
+			character:Serrett_45 ?= { agot_create_artifact_vs_supremacy_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7979.1.1 }
+			character:Serrett_40 ?= { agot_create_artifact_vs_supremacy_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7968.1.1 }
+			character:Serrett_39 ?= { agot_create_artifact_vs_supremacy_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7926.1.1 }
+			character:Serrett_35 ?= { agot_create_artifact_vs_supremacy_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7924.1.1 }
+			character:Serrett_26 ?= { agot_create_artifact_vs_supremacy_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7893.1.1 }
+			character:Serrett_14 ?= { agot_create_artifact_vs_supremacy_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7878.1.1 }
+			character:Serrett_6 ?= { agot_create_artifact_vs_supremacy_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7855.1.1 }
+			character:Serrett_5 ?= { agot_create_artifact_vs_supremacy_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Stalwart - Valyrian Steel sword of house Darklyn and house Darke
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8286.1.1 }
+			character:Darke_2 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8277.10.2 }
+			character:Darke_1 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8277.10.1 }
+			character:Selmy_3 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8272.1.1 }
+			character:Darklyn_47 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8260.9.1 }
+			character:Darklyn_44 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8222.1.1 }
+			character:Darklyn_41 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8189.1.1 }
+			character:Darklyn_38 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8174.1.1 }
+			character:Darklyn_34 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8130.10.18 }
+			character:Darklyn_29 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8129.12.6 }
+			character:Darke_8 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8091.1.1 }
+			character:Darklyn_18 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8078.1.1 }
+			character:Darklyn_39 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8057.1.1 }
+			character:Darklyn_16 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8050.1.1 }
+			character:Darklyn_15 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8044.1.1 }
+			character:Darklyn_12 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8018.1.1 }
+			character:Darklyn_10 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8011.1.1 }
+			character:Darklyn_7 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7994.1.1 }
+			character:Darklyn_9 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7966.1.1 }
+			character:Darklyn_5 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7947.1.1 }
+			character:Darklyn_66 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7898.1.1 }
+			character:Darklyn_63 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7881.1.1 }
+			character:Darklyn_2 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7862.1.1 }
+			character:Darklyn_1 ?= { agot_create_artifact_vs_stalwart_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Skullcleaver - Valyrian steel sword of house Banefort
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8276.1.1 }
+			character:Banefort_1 ?= { agot_create_artifact_vs_skullcleaver_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8260.1.1 }
+			character:Banefort_3 ?= { agot_create_artifact_vs_skullcleaver_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8221.1.1 }
+			character:Banefort_34 ?= { agot_create_artifact_vs_skullcleaver_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8203.1.1 }
+			character:Banefort_33 ?= { agot_create_artifact_vs_skullcleaver_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8196.1.1 }
+			character:Banefort_31 ?= { agot_create_artifact_vs_skullcleaver_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8140.1.1 }
+			character:Banefort_28 ?= { agot_create_artifact_vs_skullcleaver_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8130.3.5 }
+			character:Banefort_25 ?= { agot_create_artifact_vs_skullcleaver_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8125.1.1 }
+			character:Banefort_24 ?= { agot_create_artifact_vs_skullcleaver_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8104.1.1 }
+			character:Banefort_79 ?= { agot_create_artifact_vs_skullcleaver_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8082.1.1 }
+			character:Banefort_78 ?= { agot_create_artifact_vs_skullcleaver_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8055.1.1 }
+			character:Banefort_72 ?= { agot_create_artifact_vs_skullcleaver_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8044.1.1 }
+			character:Banefort_64 ?= { agot_create_artifact_vs_skullcleaver_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8012.1.1 }
+			character:Banefort_59 ?= { agot_create_artifact_vs_skullcleaver_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7966.1.1 }
+			character:Banefort_51 ?= { agot_create_artifact_vs_skullcleaver_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7957.1.1 }
+			character:Banefort_50 ?= { agot_create_artifact_vs_skullcleaver_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7933.1.1 }
+			character:Banefort_49 ?= { agot_create_artifact_vs_skullcleaver_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7911.1.1 }
+			character:Banefort_40 ?= { agot_create_artifact_vs_skullcleaver_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7883.1.1 }
+			character:Banefort_20 ?= { agot_create_artifact_vs_skullcleaver_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7850.1.1 }
+			character:Banefort_10 ?= { agot_create_artifact_vs_skullcleaver_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7810.1.1 }
+			character:Banefort_9 ?= { agot_create_artifact_vs_skullcleaver_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Seafoam - Valyrian Steel sword of house Velaryon
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8299.9.8 }
+			character:Velaryon_3 ?= { agot_create_artifact_vs_seafoam_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8284.5.17 }
+			character:Velaryon_2 ?= { agot_create_artifact_vs_seafoam_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8271.1.1 }
+			character:Velaryon_1 ?= { agot_create_artifact_vs_seafoam_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8258.1.1 }
+			character:Velaryon_57 ?= { agot_create_artifact_vs_seafoam_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8235.1.1 }
+			character:Velaryon_56 ?= { agot_create_artifact_vs_seafoam_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8196.11.22 }
+			character:Velaryon_54 ?= { agot_create_artifact_vs_seafoam_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8175.1.1 }
+			character:Velaryon_52 ?= { agot_create_artifact_vs_seafoam_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8132.1.8 }
+			character:Velaryon_44 ?= { agot_create_artifact_vs_seafoam_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8086.1.1 }
+			character:Velaryon_31 ?= { agot_create_artifact_vs_seafoam_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8035.1.1 }
+			character:Velaryon_20 ?= { agot_create_artifact_vs_seafoam_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8030.1.1 }
+			character:Velaryon_13 ?= { agot_create_artifact_vs_seafoam_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7998.1.1 }
+			character:Velaryon_15 ?= { agot_create_artifact_vs_seafoam_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7999.7.10 }
+			character:Velaryon_13 ?= { agot_create_artifact_vs_seafoam_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7990.1.1 }
+			character:Velaryon_11 ?= { agot_create_artifact_vs_seafoam_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7968.1.1 }
+			character:Velaryon_10 ?= { agot_create_artifact_vs_seafoam_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7941.1.1 }
+			character:Velaryon_9 ?= { agot_create_artifact_vs_seafoam_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7912.1.1 }
+			character:Velaryon_8 ?= { agot_create_artifact_vs_seafoam_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7891.1.1 }
+			character:Velaryon_7 ?= { agot_create_artifact_vs_seafoam_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7854.1.1 }
+			character:Velaryon_6 ?= { agot_create_artifact_vs_seafoam_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Remige - Valyrian Steel sword of house Cargyll
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8283.1.1 }
+			character:Cargyll_27 ?= { agot_create_artifact_vs_remige_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8259.6.1 }
+			character:Cargyll_26 ?= { agot_create_artifact_vs_remige_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8217.1.1 }
+			character:Cargyll_25 ?= { agot_create_artifact_vs_remige_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8187.1.1 }
+			character:Cargyll_23 ?= { agot_create_artifact_vs_remige_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8175.10.1 }
+			character:Cargyll_20 ?= { agot_create_artifact_vs_remige_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8130.2.28 }
+			character:Cargyll_15 ?= { agot_create_artifact_vs_remige_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8119.1.1 }
+			character:Cargyll_13 ?= { agot_create_artifact_vs_remige_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8099.1.1 }
+			character:Cargyll_10 ?= { agot_create_artifact_vs_remige_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8073.1.1 }
+			character:Cargyll_9 ?= { agot_create_artifact_vs_remige_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8030.1.1 }
+			character:Cargyll_8 ?= { agot_create_artifact_vs_remige_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8012.1.1 }
+			character:Cargyll_7 ?= { agot_create_artifact_vs_remige_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7980.1.1 }
+			character:Cargyll_6 ?= { agot_create_artifact_vs_remige_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7955.1.1 }
+			character:Cargyll_5 ?= { agot_create_artifact_vs_remige_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7930.1.1 }
+			character:Cargyll_4 ?= { agot_create_artifact_vs_remige_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7905.1.1 }
+			character:Cargyll_3 ?= { agot_create_artifact_vs_remige_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7880.1.1 }
+			character:Cargyll_2 ?= { agot_create_artifact_vs_remige_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7830.1.1 }
+			character:Cargyll_1 ?= { agot_create_artifact_vs_remige_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Red Rain - Valyrian Steel sword of house Reyne and house Drumm
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8265.1.1 }
+			character:Drumm_1 ?= { agot_create_artifact_vs_red_rain_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8255.1.1 }
+			character:Drumm_51 ?= { agot_create_artifact_vs_red_rain_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8205.1.1 }
+			character:Drumm_47 ?= { agot_create_artifact_vs_red_rain_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8170.1.1 }
+			character:Drumm_43 ?= { agot_create_artifact_vs_red_rain_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8147.1.1 }
+			character:Drumm_41 ?= { agot_create_artifact_vs_red_rain_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8134.5.1 }
+			character:Drumm_40 ?= { agot_create_artifact_vs_red_rain_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8075.1.1 }
+			character:Drumm_39 ?= { agot_create_artifact_vs_red_rain_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8055.1.1 }
+			character:Drumm_37 ?= { agot_create_artifact_vs_red_rain_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8018.1.1 }
+			character:Drumm_36 ?= { agot_create_artifact_vs_red_rain_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7990.1.1 }
+			character:Drumm_17 ?= { agot_create_artifact_vs_red_rain_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7990.1.1 }
+			character:Reyne_14 ?= { agot_create_artifact_vs_red_rain_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7981.1.1 }
+			character:Reyne_13 ?= { agot_create_artifact_vs_red_rain_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7956.1.1 }
+			character:Reyne_12 ?= { agot_create_artifact_vs_red_rain_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7907.1.1 }
+			character:Reyne_10 ?= { agot_create_artifact_vs_red_rain_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7903.1.1 }
+			character:Reyne_9 ?= { agot_create_artifact_vs_red_rain_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7852.1.1 }
+			character:Reyne_5 ?= { agot_create_artifact_vs_red_rain_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7810.1.1 }
+			character:Reyne_4 ?= { agot_create_artifact_vs_red_rain_effect = { OWNER = THIS } }
+		}
+		if = { # Claims
+			limit = { game_start_date >= 7990.1.1 }
+			dynasty:dynn_Reyne.dynasty_founder.house ?= { add_house_artifact_claim = scope:newly_created_artifact }
+		}
+	}
+	if = { # Pride - Valyrian Steel sword of house Jast
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8295.1.1 }
+			character:Jast_2 ?= { agot_create_artifact_vs_pride_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8281.1.1 }
+			character:Jast_1 ?= { agot_create_artifact_vs_pride_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8252.1.1 }
+			character:Jast_66 ?= { agot_create_artifact_vs_pride_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8225.1.1 }
+			character:Jast_65 ?= { agot_create_artifact_vs_pride_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8219.1.1 }
+			character:Jast_62 ?= { agot_create_artifact_vs_pride_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8198.1.1 }
+			character:Jast_59 ?= { agot_create_artifact_vs_pride_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8166.1.1 }
+			character:Jast_58 ?= { agot_create_artifact_vs_pride_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8142.1.1 }
+			character:Jast_52 ?= { agot_create_artifact_vs_pride_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8122.1.1 }
+			character:Jast_49 ?= { agot_create_artifact_vs_pride_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8097.1.1 }
+			character:Jast_38 ?= { agot_create_artifact_vs_pride_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8069.1.1 }
+			character:Jast_34 ?= { agot_create_artifact_vs_pride_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8033.1.1 }
+			character:Jast_33 ?= { agot_create_artifact_vs_pride_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8017.1.1 }
+			character:Jast_30 ?= { agot_create_artifact_vs_pride_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7980.1.1 }
+			character:Jast_28 ?= { agot_create_artifact_vs_pride_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7962.1.1 }
+			character:Jast_13 ?= { agot_create_artifact_vs_pride_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7940.1.1 }
+			character:Jast_11 ?= { agot_create_artifact_vs_pride_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7917.1.1 }
+			character:Jast_10 ?= { agot_create_artifact_vs_pride_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7878.1.1 }
+			character:Jast_9 ?= { agot_create_artifact_vs_pride_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7860.1.1 }
+			character:Jast_7 ?= { agot_create_artifact_vs_pride_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7859.1.1 }
+			character:Jast_6 ?= { agot_create_artifact_vs_pride_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Pincer - Valyrian Steel axe of house Celtigar
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8280.1.1 }
+			character:Celtigar_2 ?= { agot_create_artifact_vs_pincer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8248.1.1 }
+			character:Celtigar_50 ?= { agot_create_artifact_vs_pincer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8188.1.1 }
+			character:Celtigar_48 ?= { agot_create_artifact_vs_pincer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8187.1.1 }
+			character:Celtigar_45 ?= { agot_create_artifact_vs_pincer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8167.1.1 }
+			character:Celtigar_43 ?= { agot_create_artifact_vs_pincer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8130.10.8 }
+			character:Celtigar_26 ?= { agot_create_artifact_vs_pincer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8114.1.1 }
+			character:Celtigar_24 ?= { agot_create_artifact_vs_pincer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8087.1.1 }
+			character:Celtigar_23 ?= { agot_create_artifact_vs_pincer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8059.2.4 }
+			character:Celtigar_22 ?= { agot_create_artifact_vs_pincer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8059.2.1 }
+			character:Celtigar_19 ?= { agot_create_artifact_vs_pincer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8017.1.1 }
+			character:Celtigar_18 ?= { agot_create_artifact_vs_pincer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8006.1.1 }
+			character:Celtigar_16 ?= { agot_create_artifact_vs_pincer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7980.1.1 }
+			character:Celtigar_15 ?= { agot_create_artifact_vs_pincer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7968.1.1 }
+			character:Celtigar_13 ?= { agot_create_artifact_vs_pincer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7957.1.1 }
+			character:Celtigar_11 ?= { agot_create_artifact_vs_pincer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7900.1.1 }
+			character:Celtigar_10 ?= { agot_create_artifact_vs_pincer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7883.1.1 }
+			character:Celtigar_9 ?= { agot_create_artifact_vs_pincer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7868.1.1 }
+			character:Celtigar_8 ?= { agot_create_artifact_vs_pincer_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Orphan Maker - Valyrian Steel sword of house Roxton and house Peake
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8283.1.1 }
+			character:Roxton_72 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8274.1.1 }
+			character:Roxton_1 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8258.1.1 }
+			character:Roxton_67 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8209.9.1 }
+			character:Roxton_65 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8205.1.1 }
+			character:Roxton_61 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8199.1.1 }
+			character:Roxton_60 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8196.11.22 }
+			character:Roxton_48 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8194.1.1 }
+			character:Peake_59 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8170.1.1 }
+			character:Peake_58 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8146.1.1 }
+			character:Peake_57 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8130.10.15 }
+			character:Peake_45 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8117.1.1 }
+			character:Roxton_45 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8093.1.1 }
+			character:Roxton_44 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8078.1.1 }
+			character:Roxton_43 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8062.1.1 }
+			character:Roxton_41 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8005.1.1 }
+			character:Roxton_40 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8000.5.1 }
+			character:Roxton_36 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7989.1.1 }
+			character:Roxton_34 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7970.1.1 }
+			character:Roxton_33 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7930.1.1 }
+			character:Roxton_32 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7910.1.1 }
+			character:Roxton_31 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7893.1.1 }
+			character:Roxton_23 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7890.1.1 }
+			character:Roxton_22 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7885.1.1 }
+			character:Roxton_13 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7880.1.1 }
+			character:Roxton_16 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7860.1.1 }
+			character:Roxton_11 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7825.1.1 }
+			character:Roxton_10 ?= { agot_create_artifact_vs_orphan_maker_effect = { OWNER = THIS } }
+		}
+		if = { # Claims
+			limit = { game_start_date >= 8233.6.1 }
+			dynasty:dynn_Peake.dynasty_founder.house ?= { add_house_artifact_claim = scope:newly_created_artifact }
+		}
+		else_if = {
+			limit = { game_start_date >= 8130.10.15 }
+			dynasty:dynn_Roxton.dynasty_founder.house ?= { add_house_artifact_claim = scope:newly_created_artifact }
+		}
+	}
+	if = { # Nighfall - Valyrian Steel sword of house Greyjoy and house Harlaw
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8289.6.1 }
+			character:Harlaw_12 ?= { agot_create_artifact_vs_nightfall_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8259.1.1 }
+			character:Harlaw_4 ?= { agot_create_artifact_vs_nightfall_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8234.1.1 }
+			character:Harlaw_1 ?= { agot_create_artifact_vs_nightfall_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8201.1.1 }
+			character:Harlaw_49 ?= { agot_create_artifact_vs_nightfall_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8163.1.1 }
+			character:Harlaw_44 ?= { agot_create_artifact_vs_nightfall_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8134.5.1 }
+			character:Harlaw_43 ?= { agot_create_artifact_vs_nightfall_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8133.12.1 }
+			character:Greyjoy_64 ?= { agot_create_artifact_vs_nightfall_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8127.1.1 }
+			character:Greyjoy_59 ?= { agot_create_artifact_vs_nightfall_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Longclaw - Valyrian Steel sword of house Mormont
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8299.1.1 }
+			character:Stark_7 ?= { agot_create_artifact_vs_longclaw_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8293.6.1 }
+			character:Mormont_2 ?= { agot_create_artifact_vs_longclaw_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8281.1.1 }
+			character:Mormont_3 ?= { agot_create_artifact_vs_longclaw_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8272.1.1 }
+			character:Mormont_2 ?= { agot_create_artifact_vs_longclaw_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8247.1.1 }
+			character:Mormont_1 ?= { agot_create_artifact_vs_longclaw_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8221.1.1 }
+			character:Mormont_32 ?= { agot_create_artifact_vs_longclaw_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8176.1.1 }
+			character:Mormont_31 ?= { agot_create_artifact_vs_longclaw_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8160.1.1 }
+			character:Mormont_30 ?= { agot_create_artifact_vs_longclaw_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8128.1.1 }
+			character:Mormont_26 ?= { agot_create_artifact_vs_longclaw_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8118.1.1 }
+			character:Mormont_25 ?= { agot_create_artifact_vs_longclaw_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8088.1.1 }
+			character:Mormont_24 ?= { agot_create_artifact_vs_longclaw_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8063.1.1 }
+			character:Mormont_23 ?= { agot_create_artifact_vs_longclaw_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8057.1.1 }
+			character:Mormont_21 ?= { agot_create_artifact_vs_longclaw_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8026.1.1 }
+			character:Mormont_47 ?= { agot_create_artifact_vs_longclaw_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7997.1.1 }
+			character:Mormont_46 ?= { agot_create_artifact_vs_longclaw_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7949.1.1 }
+			character:Mormont_38 ?= { agot_create_artifact_vs_longclaw_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7944.1.1 }
+			character:Mormont_35 ?= { agot_create_artifact_vs_longclaw_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7924.1.1 }
+			character:Mormont_16 ?= { agot_create_artifact_vs_longclaw_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7890.1.1 }
+			character:Mormont_14 ?= { agot_create_artifact_vs_longclaw_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7860.1.1 }
+			character:Mormont_12 ?= { agot_create_artifact_vs_longclaw_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Lamentation - Valyrian Steel sword of house Royce
+		limit = { game_start_date < 8130.10.9 }
+		if = {
+			limit = { game_start_date >= 8129.1.1 }
+			character:Royce_82 ?= { agot_create_artifact_vs_lamentation_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8115.2.16 }
+			character:Royce_39 ?= { agot_create_artifact_vs_lamentation_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8102.1.1 }
+			character:Royce_37 ?= { agot_create_artifact_vs_lamentation_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8083.1.1 }
+			character:Royce_34 ?= { agot_create_artifact_vs_lamentation_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8050.1.1 }
+			character:Royce_32 ?= { agot_create_artifact_vs_lamentation_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8030.1.1 }
+			character:Royce_29 ?= { agot_create_artifact_vs_lamentation_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7994.1.1 }
+			character:Royce_28 ?= { agot_create_artifact_vs_lamentation_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7980.1.1 }
+			character:Royce_27 ?= { agot_create_artifact_vs_lamentation_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7954.1.1 }
+			character:Royce_26 ?= { agot_create_artifact_vs_lamentation_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7940.1.1 }
+			character:Royce_24 ?= { agot_create_artifact_vs_lamentation_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7890.1.1 }
+			character:Royce_23 ?= { agot_create_artifact_vs_lamentation_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7878.1.1 }
+			character:Royce_22 ?= { agot_create_artifact_vs_lamentation_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7830.1.1 }
+			character:Royce_21 ?= { agot_create_artifact_vs_lamentation_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Lady Forlorn - Valyrian Steel sword of house Corbray
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8283.8.4 }
+			character:Corbray_3 ?= { agot_create_artifact_vs_lady_forlorn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8252.1.1 }
+			character:Corbray_1 ?= { agot_create_artifact_vs_lady_forlorn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8227.1.1 }
+			character:Corbray_48 ?= { agot_create_artifact_vs_lady_forlorn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8205.1.1 }
+			character:Corbray_46 ?= { agot_create_artifact_vs_lady_forlorn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8187.1.1 }
+			character:Corbray_47 ?= { agot_create_artifact_vs_lady_forlorn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8135.6.1 }
+			character:Corbray_38 ?= { agot_create_artifact_vs_lady_forlorn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8125.1.1 }
+			character:Corbray_27 ?= { agot_create_artifact_vs_lady_forlorn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8092.1.1 }
+			character:Corbray_25 ?= { agot_create_artifact_vs_lady_forlorn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8063.1.1 }
+			character:Corbray_21 ?= { agot_create_artifact_vs_lady_forlorn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8059.2.1 }
+			character:Corbray_20 ?= { agot_create_artifact_vs_lady_forlorn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8018.1.1 }
+			character:Corbray_18 ?= { agot_create_artifact_vs_lady_forlorn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7996.1.1 }
+			character:Corbray_16 ?= { agot_create_artifact_vs_lady_forlorn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7934.1.1 }
+			character:Corbray_14 ?= { agot_create_artifact_vs_lady_forlorn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7934.1.1 }
+			character:Corbray_14 ?= { agot_create_artifact_vs_lady_forlorn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7919.1.1 }
+			character:Corbray_63 ?= { agot_create_artifact_vs_lady_forlorn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7884.1.1 }
+			character:Corbray_57 ?= { agot_create_artifact_vs_lady_forlorn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7870.1.1 }
+			character:Corbray_11 ?= { agot_create_artifact_vs_lady_forlorn_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Ice - Valyrian Steel sword of house Stark
+		limit = { game_start_date < 8299.11.15 }
+		if = {
+			limit = { game_start_date >= 8299.9.8 }
+			character:Lannister_1 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8298.10.24 }
+			character:Payne_6 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8282.7.9 }
+			character:Stark_3 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8262.1.1 }
+			character:Stark_1 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8226.9.9 }
+			character:Stark_122 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8213.1.1 }
+			character:Stark_115 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8212.9.1 }
+			character:Stark_114 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8203.1.1 }
+			character:Stark_112 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8198.1.1 }
+			character:Stark_111 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8185.6.1 }
+			character:Stark_103 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8182.1.1 }
+			character:Stark_102 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8180.1.1 }
+			character:Stark_99 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8121.1.1 }
+			character:Stark_86 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8115.1.1 }
+			character:Stark_84 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8106.1.1 }
+			character:Stark_82 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8097.1.1 }
+			character:Stark_81 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8072.1.1 }
+			character:Stark_80 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8050.1.1 }
+			character:Stark_76 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8049.10.1 }
+			character:Stark_75 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8025.1.1 }
+			character:Stark_70 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8019.1.1 }
+			character:Stark_69 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8014.1.1 }
+			character:Stark_68 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7988.1.1 }
+			character:Stark_66 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7951.1.1 }
+			character:Stark_64 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7919.1.1 }
+			character:Stark_60 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7899.1.1 }
+			character:Stark_51 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7865.1.1 }
+			character:Stark_46 ?= { agot_create_artifact_vs_ice_effect = { OWNER = THIS } }
+		}
+		if = { # Claims
+			limit = { game_start_date >= 8298.10.24 }
+			dynasty:dynn_Stark.dynasty_founder.house ?= { add_house_artifact_claim = scope:newly_created_artifact }
+		}
+	}
+	if = { # Heartsbane - Valyrian Steel sword of house Tarly
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8278.1.1 }
+			character:Tarly_1 ?= { agot_create_artifact_vs_heartsbane_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8260.1.1 }
+			character:Tarly_39 ?= { agot_create_artifact_vs_heartsbane_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8233.1.1 }
+			character:Tarly_38 ?= { agot_create_artifact_vs_heartsbane_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8221.1.1 }
+			character:Tarly_37 ?= { agot_create_artifact_vs_heartsbane_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8197.1.1 }
+			character:Tarly_35 ?= { agot_create_artifact_vs_heartsbane_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8159.10.10 }
+			character:Tarly_31 ?= { agot_create_artifact_vs_heartsbane_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8128.1.1 }
+			character:Tarly_27 ?= { agot_create_artifact_vs_heartsbane_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8110.1.1 }
+			character:Tarly_26 ?= { agot_create_artifact_vs_heartsbane_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8100.1.1 }
+			character:Tarly_25 ?= { agot_create_artifact_vs_heartsbane_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8095.1.1 }
+			character:Tarly_24 ?= { agot_create_artifact_vs_heartsbane_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8064.1.1 }
+			character:Tarly_23 ?= { agot_create_artifact_vs_heartsbane_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8000.5.1 }
+			character:Tarly_22 ?= { agot_create_artifact_vs_heartsbane_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7975.1.1 }
+			character:Tarly_17 ?= { agot_create_artifact_vs_heartsbane_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7935.1.1 }
+			character:Tarly_46 ?= { agot_create_artifact_vs_heartsbane_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7919.1.1 }
+			character:Tarly_44 ?= { agot_create_artifact_vs_heartsbane_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7868.1.1 }
+			character:Tarly_16 ?= { agot_create_artifact_vs_heartsbane_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7830.1.1 }
+			character:Tarly_11 ?= { agot_create_artifact_vs_heartsbane_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Iron Will - Valyrian Steel sword of house Forrester
+		limit = { game_start_date >= 7876.1.1 }
+		if = {
+			limit = { game_start_date >= 8300.1.15 }
+			character:Forrester_3 ?= { agot_create_artifact_vs_iron_will_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8300.1.14 }
+			character:Forrester_6 ?= { agot_create_artifact_vs_iron_will_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8299.12.15 }
+			character:Tuttle_5 ?= { agot_create_artifact_vs_iron_will_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8283.8.4 }
+			character:Forrester_2 ?= { agot_create_artifact_vs_iron_will_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8247.1.1 }
+			character:Forrester_1 ?= { agot_create_artifact_vs_iron_will_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8239.1.1 }
+			character:Forrester_29 ?= { agot_create_artifact_vs_iron_will_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8184.1.1 }
+			character:Forrester_75 ?= { agot_create_artifact_vs_iron_will_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8162.1.1 }
+			character:Forrester_65 ?= { agot_create_artifact_vs_iron_will_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8155.1.1 }
+			character:Forrester_64 ?= { agot_create_artifact_vs_iron_will_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8117.1.1 }
+			character:Forrester_61 ?= { agot_create_artifact_vs_iron_will_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8066.1.1 }
+			character:Forrester_58 ?= { agot_create_artifact_vs_iron_will_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8055.1.1 }
+			character:Forrester_46 ?= { agot_create_artifact_vs_iron_will_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8028.1.1 }
+			character:Forrester_44 ?= { agot_create_artifact_vs_iron_will_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8014.1.1 }
+			character:Forrester_40 ?= { agot_create_artifact_vs_iron_will_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7986.1.1 }
+			character:Forrester_37 ?= { agot_create_artifact_vs_iron_will_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7923.1.1 }
+			character:Forrester_27 ?= { agot_create_artifact_vs_iron_will_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7899.1.1 }
+			character:Forrester_20 ?= { agot_create_artifact_vs_iron_will_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7885.1.1 }
+			character:Forrester_17 ?= { agot_create_artifact_vs_iron_will_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7880.1.1 }
+			character:Forrester_16 ?= { agot_create_artifact_vs_iron_will_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Evergold - Valyrian Steel sword of house Rowan
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8280.1.1 }
+			character:Rowan_1 ?= { agot_create_artifact_vs_evergold_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8264.1.1 }
+			character:Rowan_53 ?= { agot_create_artifact_vs_evergold_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8224.1.1 }
+			character:Rowan_50 ?= { agot_create_artifact_vs_evergold_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8196.1.1 }
+			character:Rowan_48 ?= { agot_create_artifact_vs_evergold_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8160.1.4 }
+			character:Rowan_46 ?= { agot_create_artifact_vs_evergold_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8149.1.1 }
+			character:Rowan_45 ?= { agot_create_artifact_vs_evergold_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8135.10.1 }
+			character:Rowan_36 ?= { agot_create_artifact_vs_evergold_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8127.1.1 }
+			character:Rowan_35 ?= { agot_create_artifact_vs_evergold_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8114.1.1 }
+			character:Rowan_29 ?= { agot_create_artifact_vs_evergold_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8097.1.1 }
+			character:Rowan_23 ?= { agot_create_artifact_vs_evergold_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8075.1.1 }
+			character:Rowan_21 ?= { agot_create_artifact_vs_evergold_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8040.1.1 }
+			character:Rowan_20 ?= { agot_create_artifact_vs_evergold_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7990.1.1 }
+			character:Rowan_17 ?= { agot_create_artifact_vs_evergold_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7926.1.1 }
+			character:Rowan_14 ?= { agot_create_artifact_vs_evergold_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7924.1.1 }
+			character:Rowan_65 ?= { agot_create_artifact_vs_evergold_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7900.1.1 }
+			character:Rowan_63 ?= { agot_create_artifact_vs_evergold_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7884.1.1 }
+			character:Rowan_62 ?= { agot_create_artifact_vs_evergold_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7855.1.1 }
+			character:Rowan_9 ?= { agot_create_artifact_vs_evergold_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7800.1.1 }
+			character:Rowan_8 ?= { agot_create_artifact_vs_evergold_effect = { OWNER = THIS } }
+		}
+	}
+	# if = { # Dusk - Valyrian Steel sword of house Caron
+		# limit = { always = yes }
+		# if = {
+			# limit = { game_start_date >= 8299.9.8 }
+			# character:Caron_6 ?= { agot_create_artifact_vs_dusk_effect = { OWNER = THIS } }
+		# }
+		# else_if = {
+			# limit = { game_start_date >= 8289.1.1 }
+			# character:Caron_5 ?= { agot_create_artifact_vs_dusk_effect = { OWNER = THIS } }
+		# }
+		# else_if = {
+			# limit = { game_start_date >= 8276.1.1 }
+			# character:Caron_2 ?= { agot_create_artifact_vs_dusk_effect = { OWNER = THIS } }
+		# }
+		# else_if = {
+			# limit = { game_start_date >= 8262.1.1 }
+			# character:Caron_1 ?= { agot_create_artifact_vs_dusk_effect = { OWNER = THIS } }
+		# }
+		# else_if = {
+			# limit = { game_start_date >= 8246.1.1 }
+			# character:Caron_47 ?= { agot_create_artifact_vs_dusk_effect = { OWNER = THIS } }
+		# }
+		# else_if = {
+			# limit = { game_start_date >= 8226.1.1 }
+			# character:Caron_46 ?= { agot_create_artifact_vs_dusk_effect = { OWNER = THIS } }
+		# }
+		# else_if = {
+			# limit = { game_start_date >= 8187.1.1 }
+			# character:Caron_45 ?= { agot_create_artifact_vs_dusk_effect = { OWNER = THIS } }
+		# }
+		# else_if = {
+			# limit = { game_start_date >= 8172.1.1 }
+			# character:Caron_40 ?= { agot_create_artifact_vs_dusk_effect = { OWNER = THIS } }
+		# }
+		# else_if = {
+			# limit = { game_start_date >= 8161.6.9 }
+			# character:Caron_25 ?= { agot_create_artifact_vs_dusk_effect = { OWNER = THIS } }
+		# }
+		# else_if = {
+			# limit = { game_start_date >= 8140.1.1 }
+			# character:Caron_33 ?= { agot_create_artifact_vs_dusk_effect = { OWNER = THIS } }
+		# }
+		# else_if = {
+			# limit = { game_start_date >= 8084.1.1 }
+			# character:Caron_23 ?= { agot_create_artifact_vs_dusk_effect = { OWNER = THIS } }
+		# }
+		# else_if = {
+			# limit = { game_start_date >= 8053.1.1 }
+			# character:Caron_22 ?= { agot_create_artifact_vs_dusk_effect = { OWNER = THIS } }
+		# }
+		# else_if = {
+			# limit = { game_start_date >= 8041.1.1 }
+			# character:Caron_21 ?= { agot_create_artifact_vs_dusk_effect = { OWNER = THIS } }
+		# }
+		# else_if = {
+			# limit = { game_start_date >= 8024.1.1 }
+			# character:Caron_19 ?= { agot_create_artifact_vs_dusk_effect = { OWNER = THIS } }
+		# }
+		# else_if = {
+			# limit = { game_start_date >= 8003.1.1 }
+			# character:Caron_16 ?= { agot_create_artifact_vs_dusk_effect = { OWNER = THIS } }
+		# }
+		# else_if = {
+			# limit = { game_start_date >= 7976.1.1 }
+			# character:Caron_15 ?= { agot_create_artifact_vs_dusk_effect = { OWNER = THIS } }
+		# }
+		# else_if = {
+			# limit = { game_start_date >= 7952.1.1 }
+			# character:Caron_14 ?= { agot_create_artifact_vs_dusk_effect = { OWNER = THIS } }
+		# }
+		# else_if = {
+			# limit = { game_start_date >= 7934.1.1 }
+			# character:Caron_61 ?= { agot_create_artifact_vs_dusk_effect = { OWNER = THIS } }
+		# }
+		# else_if = {
+			# limit = { game_start_date >= 7876.1.1 }
+			# character:Caron_58 ?= { agot_create_artifact_vs_dusk_effect = { OWNER = THIS } }
+		# }
+		# else_if = {
+			# limit = { game_start_date >= 7862.1.1 }
+			# character:Caron_11 ?= { agot_create_artifact_vs_dusk_effect = { OWNER = THIS } }
+		# }
+		# else_if = {
+			# limit = { game_start_date >= 7855.1.1 }
+			# character:Caron_10 ?= { agot_create_artifact_vs_dusk_effect = { OWNER = THIS } }
+		# }
+	# }
+	if = { # Defiance - Valyrian Steel sword of house Ironsmith
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8255.1.1 }
+			character:Ironsmith_19 ?= { agot_create_artifact_vs_defiance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8236.1.1 }
+			character:Ironsmith_59 ?= { agot_create_artifact_vs_defiance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8228.1.1 }
+			character:Ironsmith_56 ?= { agot_create_artifact_vs_defiance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8196.1.1 }
+			character:Ironsmith_55 ?= { agot_create_artifact_vs_defiance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8171.1.1 }
+			character:Ironsmith_54 ?= { agot_create_artifact_vs_defiance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8145.1.1 }
+			character:Ironsmith_53 ?= { agot_create_artifact_vs_defiance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8083.1.1 }
+			character:Ironsmith_50 ?= { agot_create_artifact_vs_defiance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8071.1.1 }
+			character:Ironsmith_48 ?= { agot_create_artifact_vs_defiance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8024.1.1 }
+			character:Ironsmith_45 ?= { agot_create_artifact_vs_defiance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8004.1.1 }
+			character:Ironsmith_39 ?= { agot_create_artifact_vs_defiance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7985.1.1 }
+			character:Ironsmith_35 ?= { agot_create_artifact_vs_defiance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7948.1.1 }
+			character:Ironsmith_28 ?= { agot_create_artifact_vs_defiance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7933.1.1 }
+			character:Ironsmith_16 ?= { agot_create_artifact_vs_defiance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7899.1.1 }
+			character:Ironsmith_11 ?= { agot_create_artifact_vs_defiance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7873.1.1 }
+			character:Ironsmith_2 ?= { agot_create_artifact_vs_defiance_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7870.1.1 }
+			character:Ironsmith_1 ?= { agot_create_artifact_vs_defiance_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Disputant - Valyrian Steel sword of house Lothston and house Whent
+		limit = {
+			game_start_date >= 8025.1.1
+			game_start_date <= 8300.1.7
+		}
+		if = {
+			limit = { game_start_date >= 8296.1.1 }
+			character:Whent_3 ?= { agot_create_artifact_vs_disputant_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8265.1.1 }
+			character:Whent_4 ?= { agot_create_artifact_vs_disputant_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8233.1.1 }
+			character:Whent_1 ?= { agot_create_artifact_vs_disputant_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8229.1.1 }
+			character:Whent_15 ?= { agot_create_artifact_vs_disputant_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8200.1.1 }
+			character:Lothston_17 ?= { agot_create_artifact_vs_disputant_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8183.1.1 }
+			character:Lothston_16 ?= { agot_create_artifact_vs_disputant_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8129.1.1 }
+			character:Lothston_5 ?= { agot_create_artifact_vs_disputant_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8097.1.1 }
+			character:Lothston_4 ?= { agot_create_artifact_vs_disputant_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8087.1.1 }
+			character:Lothston_3 ?= { agot_create_artifact_vs_disputant_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8042.3.2 }
+			character:Lothston_2 ?= { agot_create_artifact_vs_disputant_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8025.1.1 }
+			character:Lothston_1 ?= { agot_create_artifact_vs_disputant_effect = { OWNER = THIS } }
+		}
+		if = { # Claims
+			limit = { game_start_date >= 8229.1.1 }
+			dynasty:dynn_Lothston.dynasty_founder.house ?= { add_house_artifact_claim = scope:newly_created_artifact }
+		}
+	}
+	if = { # Dawn - Meteoric sword of house Dayne
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8296.1.1 }
+			character:Dayne_7 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8283.11.1 }
+			character:Dayne_3 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8283.10.20 }
+			character:Dayne_4 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8276.1.1 }
+			character:Dayne_5 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8272.1.1 }
+			character:Dayne_1 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8265.1.1 }
+			character:Dayne_73 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8221.1.1 }
+			character:Dayne_72 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8204.1.1 }
+			character:Dayne_71 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8187.1.1 }
+			character:Dayne_67 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8184.1.1 }
+			character:Dayne_66 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8160.12.8 }
+			character:Dayne_62 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8157.7.11 }
+			character:Chester_16 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8150.1.1 }
+			character:Dayne_59 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8112.1.1 }
+			character:Dayne_37 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8086.1.1 }
+			character:Dayne_36 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8076.1.1 }
+			character:Dayne_35 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8058.4.6 }
+			character:Dayne_34 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8013.4.9 }
+			character:Dayne_32 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8004.7.5 }
+			character:Dayne_33 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7977.1.1 }
+			character:Dayne_31 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7956.1.1 }
+			character:Dayne_24 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7935.1.1 }
+			character:Dayne_23 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7910.1.1 }
+			character:Dayne_22 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7870.1.1 }
+			character:Dayne_21 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7855.1.1 }
+			character:Dayne_20 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7355.1.1 }
+			character:Dayne_19 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7309.1.1 }
+			character:Dayne_18 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7305.1.1 }
+			character:Dayne_94 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7281.1.1 }
+			character:Dayne_17 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 4751.1.1 }
+			character:Dayne_15 ?= { agot_create_artifact_vs_dawn_effect = { OWNER = THIS } }
+		}
+		if = { # Claims
+			limit = {
+				game_start_date < 8160.12.8
+				game_start_date >= 8157.7.11
+			}
+			dynasty:dynn_Dayne.dynasty_founder.house ?= { add_house_artifact_claim = scope:newly_created_artifact }
+		}
+	}
+	if = { # Darktalon - Valyrian Steel sword of house Vyrwel
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8289.6.1 }
+			character:Vyrwel_7 ?= { agot_create_artifact_vs_darktalon_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8280.1.1 }
+			character:Vyrwel_3 ?= { agot_create_artifact_vs_darktalon_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8260.1.1 }
+			character:Vyrwel_1 ?= { agot_create_artifact_vs_darktalon_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8212.6.1 }
+			character:Vyrwel_27 ?= { agot_create_artifact_vs_darktalon_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8176.1.1 }
+			character:Vyrwel_26 ?= { agot_create_artifact_vs_darktalon_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8161.1.1 }
+			character:Vyrwel_25 ?= { agot_create_artifact_vs_darktalon_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8142.1.1 }
+			character:Vyrwel_60 ?= { agot_create_artifact_vs_darktalon_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8119.1.1 }
+			character:Vyrwel_58 ?= { agot_create_artifact_vs_darktalon_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8106.1.1 }
+			character:Vyrwel_49 ?= { agot_create_artifact_vs_darktalon_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8057.1.1 }
+			character:Vyrwel_47 ?= { agot_create_artifact_vs_darktalon_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8055.1.1 }
+			character:Vyrwel_45 ?= { agot_create_artifact_vs_darktalon_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8030.1.1 }
+			character:Vyrwel_40 ?= { agot_create_artifact_vs_darktalon_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8005.1.1 }
+			character:Vyrwel_38 ?= { agot_create_artifact_vs_darktalon_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7960.1.1 }
+			character:Vyrwel_21 ?= { agot_create_artifact_vs_darktalon_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7939.1.1 }
+			character:Vyrwel_15 ?= { agot_create_artifact_vs_darktalon_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7900.1.1 }
+			character:Vyrwel_12 ?= { agot_create_artifact_vs_darktalon_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7880.1.1 }
+			character:Vyrwel_11 ?= { agot_create_artifact_vs_darktalon_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7866.1.1 }
+			character:Vyrwel_10 ?= { agot_create_artifact_vs_darktalon_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Dark Sister - Valyrian Steel sword of house Targaryen
+		limit = { game_start_date < 8252.6.1 }
+		if = {
+			limit = { game_start_date >= 8178.6.1 }
+			character:Targaryen_96 ?= { agot_create_artifact_vs_dark_sister_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8157.1.13 }
+			character:Targaryen_89 ?= { agot_create_artifact_vs_dark_sister_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8140.1.1 }
+			character:Targaryen_78 ?= { agot_create_artifact_vs_dark_sister_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8130.5.22 }
+			# Pass, sword is on the bottom of God's Eye
+		}
+		else_if = {
+			limit = { game_start_date >= 8101.2.3 }
+			character:Targaryen_61 ?= { agot_create_artifact_vs_dark_sister_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8092.1.1 }
+			character:Targaryen_46 ?= { agot_create_artifact_vs_dark_sister_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8048.3.1 }
+			character:Targaryen_35 ?= { agot_create_artifact_vs_dark_sister_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8044.7.1 }
+			character:Velaryon_24 ?= { agot_create_artifact_vs_dark_sister_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8025.1.1 }
+			character:Targaryen_31 ?= { agot_create_artifact_vs_dark_sister_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7990.1.1 }
+			character:Targaryen_28 ?= { agot_create_artifact_vs_dark_sister_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7971.1.1 }
+			character:Targaryen_26 ?= { agot_create_artifact_vs_dark_sister_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7957.1.1 }
+			character:Targaryen_24 ?= { agot_create_artifact_vs_dark_sister_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7950.1.1 }
+			character:Targaryen_23 ?= { agot_create_artifact_vs_dark_sister_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7930.1.1 }
+			character:Targaryen_17 ?= { agot_create_artifact_vs_dark_sister_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7907.1.1 }
+			character:Targaryen_15 ?= { agot_create_artifact_vs_dark_sister_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7889.1.1 }
+			character:Targaryen_13_D ?= { agot_create_artifact_vs_dark_sister_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7880.1.1 }
+			character:Targaryen_13_B ?= { agot_create_artifact_vs_dark_sister_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Dancer - Valyrian Steel sword of house Massey
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8258.1.1 }
+			character:Massey_1 ?= { agot_create_artifact_vs_dancer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8243.1.1 }
+			character:Massey_67 ?= { agot_create_artifact_vs_dancer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8215.1.1 }
+			character:Massey_66 ?= { agot_create_artifact_vs_dancer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8190.1.1 }
+			character:Massey_65 ?= { agot_create_artifact_vs_dancer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8174.1.1 }
+			character:Massey_61 ?= { agot_create_artifact_vs_dancer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8165.2.19 }
+			character:Massey_55 ?= { agot_create_artifact_vs_dancer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8129.4.1 }
+			character:Massey_40 ?= { agot_create_artifact_vs_dancer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8128.1.1 }
+			character:Massey_38 ?= { agot_create_artifact_vs_dancer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8059.2.1 }
+			character:Massey_34 ?= { agot_create_artifact_vs_dancer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8047.1.1 }
+			character:Massey_33 ?= { agot_create_artifact_vs_dancer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8042.6.1 }
+			character:Massey_29 ?= { agot_create_artifact_vs_dancer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8023.1.1 }
+			character:Massey_27 ?= { agot_create_artifact_vs_dancer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7992.1.1 }
+			character:Massey_25 ?= { agot_create_artifact_vs_dancer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7976.1.1 }
+			character:Massey_93 ?= { agot_create_artifact_vs_dancer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7925.1.1 }
+			character:Massey_88 ?= { agot_create_artifact_vs_dancer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7909.1.1 }
+			character:Massey_22 ?= { agot_create_artifact_vs_dancer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7900.1.1 }
+			character:Massey_21 ?= { agot_create_artifact_vs_dancer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7875.1.1 }
+			character:Massey_20 ?= { agot_create_artifact_vs_dancer_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7870.1.1 }
+			character:Massey_19 ?= { agot_create_artifact_vs_dancer_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Cloudbreak - Valyrian Steel sword of house Adarys
+		limit = {
+			NOT = { has_game_rule = agot_essos_disabled }
+		}
+		if = {
+			limit = { game_start_date >= 8299.1.1 }
+			character:Adarys_24 ?= { agot_create_artifact_vs_cloudbreak_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8266.1.1 }
+			character:Adarys_23 ?= { agot_create_artifact_vs_cloudbreak_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8252.1.1 }
+			character:Adarys_1 ?= { agot_create_artifact_vs_cloudbreak_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8248.1.1 }
+			character:Adarys_2 ?= { agot_create_artifact_vs_cloudbreak_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8208.1.1 }
+			character:Adarys_4 ?= { agot_create_artifact_vs_cloudbreak_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8192.1.1 }
+			character:Adarys_59 ?= { agot_create_artifact_vs_cloudbreak_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8182.1.1 }
+			character:Adarys_54 ?= { agot_create_artifact_vs_cloudbreak_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8138.1.1 }
+			character:Adarys_53 ?= { agot_create_artifact_vs_cloudbreak_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8119.1.1 }
+			character:Adarys_52 ?= { agot_create_artifact_vs_cloudbreak_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8073.1.1 }
+			character:Adarys_50 ?= { agot_create_artifact_vs_cloudbreak_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8033.1.1 }
+			character:Adarys_46 ?= { agot_create_artifact_vs_cloudbreak_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8025.1.1 }
+			character:Adarys_45 ?= { agot_create_artifact_vs_cloudbreak_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7986.1.1 }
+			character:Adarys_44 ?= { agot_create_artifact_vs_cloudbreak_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7947.1.1 }
+			character:Adarys_42 ?= { agot_create_artifact_vs_cloudbreak_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7935.1.1 }
+			character:Adarys_41 ?= { agot_create_artifact_vs_cloudbreak_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7904.1.1 }
+			character:Adarys_32 ?= { agot_create_artifact_vs_cloudbreak_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7884.1.1 }
+			character:Adarys_31 ?= { agot_create_artifact_vs_cloudbreak_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7836.1.1 }
+			character:Adarys_30 ?= { agot_create_artifact_vs_cloudbreak_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7833.1.1 }
+			character:Adarys_28 ?= { agot_create_artifact_vs_cloudbreak_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7824.1.1 }
+			character:Adarys_22 ?= { agot_create_artifact_vs_cloudbreak_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Brightroar - Valyrian Steel sword of house Lannister
+		limit = { game_start_date < 7901.1.1 }
+		if = {
+			limit = { game_start_date >= 7880.1.1 }
+			character:Lannister_62 ?= { agot_create_artifact_vs_brightroar_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7841.1.1 }
+			character:Lannister_61 ?= { agot_create_artifact_vs_brightroar_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Blackfyre - Valyrian Steel sword of house Targaryen
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8281.1.1 } #Illyrio wedding to Serra
+			character:Mopatis_1 ?= {
+				add_secret = { type = secret_agot_hidden_artifact }
+			}
+			set_global_variable = blackfyre_hidden
+		}
+		else_if = {
+			limit = { game_start_date >= 8241.1.1 }
+			#Found via adventures
+		}
+		else_if = {
+			limit = { game_start_date >= 8236.3.2 }
+			if = {
+				limit = { character:Targaryen_95 ?= { is_alive = yes } }
+				character:Targaryen_95 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+			}
+		}
+		else_if = {
+			limit = { game_start_date >= 8236.1.1 }
+			if = {
+				limit = { character:Blackfyre_11 ?= { is_alive = yes } }
+				character:Blackfyre_11 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+			}
+		}
+		else_if = {
+			limit = { game_start_date >= 8220.1.1 }
+			if = {
+				limit = { character:Targaryen_95 ?= { is_alive = yes } }
+				character:Targaryen_95 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+			}
+		}
+		else_if = {
+			limit = { game_start_date >= 8218.6.1 }
+			if = {
+				limit = { character:Blackfyre_6 ?= { is_alive = yes } }
+				character:Blackfyre_6 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+			}
+		}
+		else_if = {
+			limit = { game_start_date >= 8196.6.2 }
+			if = {
+				limit = { character:Targaryen_95 ?= { is_alive = yes } }
+				character:Targaryen_95 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+			}
+		}
+		else_if = {
+			limit = { game_start_date >= 8196.11.22 }
+			if = {
+				limit = { character:Blackfyre_2 ?= { is_alive = yes } }
+				character:Blackfyre_2 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+			}
+		}
+		else_if = {
+			limit = { game_start_date >= 8182.12.11 }
+			character:Targaryen_94 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8172.3.28 }
+			character:Targaryen_88 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8171.1.20 }
+			character:Targaryen_79 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8162.2.1 }
+			character:Targaryen_82 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8161.6.9 }
+			character:Martell_74 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8157.1.13 }
+			character:Targaryen_81 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8131.1.14 }
+			character:Targaryen_78 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8130.10.22 }
+			character:Broome_18 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8129.3.3 }
+			character:Targaryen_65 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8103.10.3 }
+			character:Targaryen_60 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8048.3.2 }
+			character:Targaryen_35 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8048.3.1 }
+			character:Targaryen_32 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8037.9.10 }
+			character:Targaryen_31 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8037.9.9 }
+			character:Targaryen_30 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7996.1.1 }
+			character:Targaryen_27 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7971.1.1 }
+			character:Targaryen_26 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7957.1.1 }
+			character:Targaryen_24 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7955.6.1 }
+			character:Targaryen_23 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7955.1.1 }
+			character:Targaryen_22 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7950.1.1 }
+			character:Targaryen_20 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7935.1.1 }
+			character:Targaryen_19 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7930.1.1 }
+			character:Targaryen_16 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7900.1.1 }
+			character:Targaryen_14 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7873.1.1 }
+			character:Targaryen_13 ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7850.1.1 }
+			character:Targaryen_13_A ?= { agot_create_artifact_vs_blackfyre_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Adder's Fang - Valyrian Steel sword of house Wyl
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8248.1.1 }
+			character:Wyl_1 ?= { agot_create_artifact_vs_adders_fang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8209.1.1 }
+			character:Wyl_48 ?= { agot_create_artifact_vs_adders_fang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8203.1.1 }
+			character:Wyl_45 ?= { agot_create_artifact_vs_adders_fang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8199.1.1 }
+			character:Wyl_40 ?= { agot_create_artifact_vs_adders_fang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8148.1.1 }
+			character:Wyl_33 ?= { agot_create_artifact_vs_adders_fang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8107.1.1 }
+			character:Wyl_29 ?= { agot_create_artifact_vs_adders_fang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8075.1.1 }
+			character:Wyl_24 ?= { agot_create_artifact_vs_adders_fang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8053.1.1 }
+			character:Wyl_23 ?= { agot_create_artifact_vs_adders_fang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8027.1.1 }
+			character:Wyl_22 ?= { agot_create_artifact_vs_adders_fang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7988.1.1 }
+			character:Wyl_21 ?= { agot_create_artifact_vs_adders_fang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7970.1.1 }
+			character:Wyl_76 ?= { agot_create_artifact_vs_adders_fang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7929.1.1 }
+			character:Wyl_73 ?= { agot_create_artifact_vs_adders_fang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7906.1.1 }
+			character:Wyl_72 ?= { agot_create_artifact_vs_adders_fang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7881.1.1 }
+			character:Wyl_17 ?= { agot_create_artifact_vs_adders_fang_effect = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7855.1.1 }
+			character:Wyl_16 ?= { agot_create_artifact_vs_adders_fang_effect = { OWNER = THIS } }
+		}
+	}
+	if = { # Barb - Family Sword of House Beesbury
+		limit = { always = yes }
+		if = {
+			limit = { game_start_date >= 8296.1.1 }
+			character:Beesbury_2 ?= { agot_create_artifact_bumblin_sword_effect  = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8258.1.1 }
+			character:Beesbury_1 ?= { agot_create_artifact_bumblin_sword_effect  = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8218.1.1 }
+			character:Beesbury_47 ?= { agot_create_artifact_bumblin_sword_effect  = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8180.1.1 }
+			character:Beesbury_39 ?= { agot_create_artifact_bumblin_sword_effect  = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8130.2.1 }
+			character:Beesbury_35 ?= { agot_create_artifact_bumblin_sword_effect  = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8129.3.4 }
+			character:Beesbury_27 ?= { agot_create_artifact_bumblin_sword_effect  = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8076.1.1 }
+			character:Beesbury_21 ?= { agot_create_artifact_bumblin_sword_effect  = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8060.1.1 }
+			character:Beesbury_19 ?= { agot_create_artifact_bumblin_sword_effect  = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 8024.1.1 }
+			character:Beesbury_67 ?= { agot_create_artifact_bumblin_sword_effect  = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7985.1.1 }
+			character:Beesbury_66 ?= { agot_create_artifact_bumblin_sword_effect  = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7976.1.1 }
+			character:Beesbury_65 ?= { agot_create_artifact_bumblin_sword_effect  = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7953.1.1 }
+			character:Beesbury_58 ?= { agot_create_artifact_bumblin_sword_effect  = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7938.1.1 }
+			character:Beesbury_17 ?= { agot_create_artifact_bumblin_sword_effect  = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7906.1.1 }
+			character:Beesbury_12 ?= { agot_create_artifact_bumblin_sword_effect  = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7878.1.1 }
+			character:Beesbury_11 ?= { agot_create_artifact_bumblin_sword_effect  = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 7847.1.1 }
+			character:Beesbury_10 ?= { agot_create_artifact_bumblin_sword_effect  = { OWNER = THIS } }
+		}
+		else_if = {
+			limit = { game_start_date >= 65.1.1 }
+			character:Beesbury_8 ?= { agot_create_artifact_bumblin_sword_effect  = { OWNER = THIS } }
+		}
+	}
+	if = { #Axe of Raymun Redbeard
+		limit = { game_start_date >= 8220.1.1 }
+		if = {
+			limit = { character:Forester_15 ?= { is_alive = yes } }
+			character:Forester_15 ?= { agot_create_artifact_redbeard_axe_effect = { OWNER = this } }
+		}
+		else_if = {
+			limit = { character:Kingsblood_1 ?= { is_alive = yes } }
+			character:Kingsblood_1 ?= { agot_create_artifact_redbeard_axe_effect = { OWNER = this } }
+		}
+		else_if = {
+			limit = { character:Kingsblood_2 ?= { is_alive = yes } }
+			character:Kingsblood_2 ?= { agot_create_artifact_redbeard_axe_effect = { OWNER = this } }
+		}
+		else_if = {
+			limit = { character:Kingsblood_3 ?= { is_alive = yes } }
+			character:Kingsblood_3 ?= { agot_create_artifact_redbeard_axe_effect = { OWNER = this } }
+		}
+		else_if = {
+			limit = { character:Kingsblood_4 ?= { is_alive = yes } }
+			character:Kingsblood_4 ?= { agot_create_artifact_redbeard_axe_effect = { OWNER = this } }
+		}
+	}
+}
+
+agot_assign_starting_crowns_effect = {
+	### Crowns of house Targaryen
+	if = { # Crown of Aegon I
+		limit = {
+			game_start_date >= 7999.4.1
+			game_start_date < 8161.6.9 # Fate after Daeron's assassination is unknown
+		}
+		dynasty:dynn_Targaryen.dynast ?= { agot_create_artifact_aegon_i_crown_historical_effect = { OWNER = this } }
+	}
+	if = { # Circlet of Visenya
+		limit = {
+			game_start_date >= 7999.4.1
+			character:Targaryen_28 ?= { is_alive = yes }
+		}
+		character:Targaryen_28 ?= { agot_create_artifact_visenya_circlet_historical_effect = { OWNER = this } }
+	}
+	if = { # Circlet of Rhaenys
+		limit = { game_start_date >= 7999.4.1 }
+		if = {
+			limit = { character:Targaryen_29 ?= { is_alive = yes } }
+			character:Targaryen_29 ?= { agot_create_artifact_rhaenys_circlet_historical_effect = { OWNER = this } }
+		}
+		else = {
+			dynasty:dynn_Uller.dynast ?= {
+				add_secret = { type = secret_agot_hidden_artifact }
+			}
+			set_global_variable = rhaenys_circlet_hidden
+		}
+	}
+	if = { # Crown of Aenys
+		limit = {
+			game_start_date >= 8037.9.9
+			game_start_date < 8284.6.1 # Fate after Rebellion is unknown
+		}
+		title:h_the_iron_throne.holder ?= { agot_create_artifact_aenys_crown_historical_effect = { OWNER = this } }
+	}
+	if = { # Crown of Jaehaerys
+		limit = {
+			game_start_date >= 8054.9.20
+			game_start_date < 8130.10.18 # Rhaenyra sold the crown
+		}
+		if = {
+			limit = { game_start_date < 8129.3.22 }
+			title:h_the_iron_throne.holder ?= { agot_create_artifact_jaehaerys_crown_historical_effect = { OWNER = this } }
+		}
+		else = {
+			title:d_dragonstone.holder ?= { agot_create_artifact_jaehaerys_crown_historical_effect = { OWNER = this } }
+		}
+	}
+	if = { # Circlet of Alysanne
+		limit = {
+			game_start_date >= 8054.9.20
+			character:Targaryen_36 ?= { is_alive = yes }
+		}
+		character:Targaryen_36 ?= { agot_create_artifact_alysanne_crown_historical_effect = { OWNER = this } }
+	}
+	if = { # Crown of the Stepstones
+		limit = {
+			character:Targaryen_61 ?= { is_alive = yes }
+			character:Targaryen_61 ?= { has_title = title:k_the_stepstones }
+		}
+		character:Targaryen_61 ?= { agot_create_artifact_daemon_stepstone_crown_historical_effect = { OWNER = this } }
+	}
+	if = { # Circlet of Aegon III
+		limit = {
+			game_start_date >= 8131.1.14
+			game_start_date < 8284.6.1
+		}
+		title:h_the_iron_throne.holder ?= { agot_create_artifact_aegon_iii_crown_historical_effect = { OWNER = this } }
+	}
+	if = { # Wreath of Baelor
+		limit = {
+			game_start_date >= 8161.6.9
+			character:Targaryen_82 = { is_alive = yes }
+		}
+		character:Targaryen_82 ?= { agot_create_artifact_baelors_crown_historical_effect = { OWNER = this } }
+
+	}
+	if = { # Crown of Aegon IV
+		limit = {
+			game_start_date >= 8172.3.28
+			game_start_date < 8284.6.1
+		}
+		title:h_the_iron_throne.holder ?= { agot_create_artifact_aegon_iv_crown_historical_effect = { OWNER = this } }
+	}
+	if = { # Crown of Maekar
+		limit = {
+			game_start_date >= 8221.1.1
+			game_start_date < 8284.6.1
+		}
+		title:h_the_iron_throne.holder ?= { agot_create_artifact_maekars_crown_historical_effect = { OWNER = this } }
+	}
+	if = { # Circlet of Rhaella
+		limit = { game_start_date >= 8262.1.1 }
+		if = { # Rhaella Targaryen
+			limit = { character:Targaryen_2 ?= { is_alive = yes } }
+			character:Targaryen_2 ?= { agot_create_artifact_rhaella_crown_historical_effect = { OWNER = this } }
+		}
+		else_if = { # Viserys Targaryen
+			limit = { game_start_date < 8294.1.1 }
+			character:Targaryen_8 ?= { agot_create_artifact_rhaella_crown_historical_effect = { OWNER = this } }
+		}
+	}
+	if = { # Crown of Daenerys
+		limit = { game_start_date >= 8299.5.15 }
+		if = {
+			limit = { character:Targaryen_9 ?= { is_alive = yes } }
+			character:Targaryen_9 ?= { agot_create_artifact_daenerys_crown_historical_effect = { OWNER = this } }
+		}
+	}
+	if = { # Crown of Daemon Blackfyre
+		limit = { game_start_date >= 8196.1.8 }
+		if = { # Daemon I Blackfyre
+			limit = { character:Targaryen_94 ?= { is_alive = yes } }
+			character:Targaryen_94 ?= { agot_create_artifact_daemonblackfyre_crown_historical_effect = { OWNER = this } }
+		}
+		else_if = { # Bittesteel before crowning of Haegon
+			limit = { character:Blackfyre_5 ?= { is_alive = yes } }
+			character:Targaryen_95 ?= { agot_create_artifact_daemonblackfyre_crown_historical_effect = { OWNER = this } }
+		}
+		else_if = { # Haegon Blackfyre
+			limit = { character:Blackfyre_6 ?= { is_alive = yes } }
+			character:Blackfyre_6 ?= { agot_create_artifact_daemonblackfyre_crown_historical_effect = { OWNER = this } }
+		}
+		else_if = { # Daemon III Blackfyre
+			limit = { character:Blackfyre_11 ?= { is_alive = yes } }
+			character:Blackfyre_11 ?= { agot_create_artifact_daemonblackfyre_crown_historical_effect = { OWNER = this } }
+		}
+		else_if = { # Daemon Blackfyre
+			limit = { character:Blackfyre_13 ?= { is_alive = yes } }
+			character:Blackfyre_13 ?= { agot_create_artifact_daemonblackfyre_crown_historical_effect = { OWNER = this } }
+		}
+		else_if = { # Maelys Blackfyre
+			limit = { character:Blackfyre_14 ?= { is_alive = yes } }
+			character:Blackfyre_14 ?= { agot_create_artifact_daemonblackfyre_crown_historical_effect = { OWNER = this } }
+		}
+	}
+
+	### Crowns of house Baratheon
+	if = { # Crown of Robert
+		limit = { game_start_date >= 8284.6.1 }
+		title:h_the_iron_throne.holder ?= { agot_create_artifact_robertI_crown_historical_effect = { OWNER = this } }
+	}
+	if = { # Crown of Joffrey
+		limit = { game_start_date >= 8298.10.24 }
+		title:h_the_iron_throne.holder ?= { agot_create_artifact_joffreyI_crown_historical_effect = { OWNER = this } }
+	}
+	if = { # Crown of Stannis
+		limit = {
+			game_start_date >= 8299.1.4
+			character:Baratheon_3 ?= { is_alive = yes }
+		}
+		character:Baratheon_3 ?= { agot_create_artifact_stannis_crown_historical_effect = { OWNER = this } }
+	}
+	if = { # Crown of Renly
+		limit = {
+			game_start_date >= 8299.1.5
+			character:Baratheon_4 ?= { is_alive = yes }
+		}
+		character:Baratheon_4 ?= { agot_create_artifact_renly_crown_historical_effect = { OWNER = this } }
+	}
+
+	### Crowns of other houses
+	if = { # Old crown of Winter
+		limit = { game_start_date < 8000.12.1 }
+		title:e_the_north.holder ?= { agot_create_artifact_crown_of_winter_historical_1_effect = { OWNER = this } }
+	}
+	if = { # New crown of Winter
+		limit = { game_start_date >= 8299.1.16 }
+		if = { # Robb Stark
+			limit = { character:Stark_6 ?= { is_alive = yes } }
+			character:Stark_6 ?= { agot_create_artifact_crown_of_winter_historical_2_effect = { OWNER = this } }
+		}
+		else_if = { # Ryman Frey
+			limit = { character:Frey_3 ?= { is_alive = yes } }
+			character:Frey_3 ?= { agot_create_artifact_crown_of_winter_historical_2_effect = { OWNER = this } }
+		}
+		else_if = { # Lady Stoneheart
+			limit = { character:Tully_5 ?= { is_alive = yes } }
+			character:Tully_5 ?= { agot_create_artifact_crown_of_winter_historical_2_effect = { OWNER = this } }
+		}
+	}
+	if = { # Crown of Jeyne Westerling
+		limit = {
+			game_start_date >= 8299.9.15
+			game_start_date < 8299.12.15
+		}
+		character:Westerling_2 ?= { agot_create_artifact_crown_of_jeyne_westerling_historical_effect = { OWNER = this } }
+	}
+	if = { # Crown of Dorne
+		limit = {
+			NOT = {
+				dynasty:dynn_Martell.dynast ?= { has_character_flag = house_customizer_placeholder }
+			}
+		}
+		dynasty:dynn_Martell.dynast ?= { agot_create_artifact_dorne_crown_historical_effect = { OWNER = this } }
+	}
+
+	### EQUIP CROWNS
+	# Targaryen Crowns
+	title:h_the_iron_throne.holder ?= { # Kings of the Seven Kingdoms
+		if = { # Crown of Aegon I
+			limit = {
+				OR = {
+					THIS = character:Targaryen_27 # Aegon I Targaryen
+					THIS = character:Targaryen_31 # Maegor Targaryen
+					THIS = character:Targaryen_65 # Aegon II Targaryen
+					THIS = character:Targaryen_81 # Daeron I Targaryen
+				}
+			}
+			random_character_artifact = {
+				limit = {
+					prev = { can_equip_artifact = prev }
+					has_variable = crown_aegon_i_artifact
+				}
+				equip_artifact_to_owner_replace = yes
+			}
+		}
+		else_if = { # Crown of Jaehaerys
+			limit = {
+				OR = {
+					THIS = character:Targaryen_35 # Jaehaerys I Targaryen
+					THIS = character:Targaryen_60 # Viserys I Targaryen
+				}
+			}
+			random_character_artifact = {
+				limit = {
+					prev = { can_equip_artifact = prev }
+					has_variable = crown_jaehaerys_artifact
+				}
+				equip_artifact_to_owner_replace = yes
+			}
+		}
+		else_if = { # Crown of Aenys
+			limit = {
+				OR = {
+					THIS = character:Targaryen_30 # Aenys Targaryen
+					THIS = character:Targaryen_35 # Jaehaerys I Targaryen (early reign)
+				}
+			}
+			random_character_artifact = {
+				limit = {
+					prev = { can_equip_artifact = prev }
+					has_variable = crown_aenys_artifact
+				}
+				equip_artifact_to_owner_replace = yes
+			}
+		}
+		else_if = { # Circlet of Aegon III
+			limit = {
+				OR = {
+					THIS = character:Targaryen_78 # Aegon III Targaryen
+					THIS = character:Targaryen_79 # Viserys II Targaryen
+					THIS = character:Targaryen_122 # Aegon V Targaryen
+				}
+			}
+			random_character_artifact = {
+				limit = {
+					prev = { can_equip_artifact = prev }
+					has_variable = crown_aegon_iii_artifact
+				}
+				equip_artifact_to_owner_replace = yes
+			}
+		}
+		else_if = { # Circlet of Aegon III
+			limit = { THIS = character:Targaryen_82 } # Baelor Targaryen
+			random_character_artifact = {
+				limit = {
+					prev = { can_equip_artifact = prev }
+					has_variable = crown_baelor_artifact
+				}
+				equip_artifact_to_owner_replace = yes
+			}
+		}
+		else_if = { # Crown of Aegon IV
+			limit = {
+				OR = {
+					THIS = character:Targaryen_88 # Aegon IV Targaryen
+					THIS = character:Targaryen_91 # Daeron II Targaryen
+					THIS = character:Targaryen_108 # Aerys I Targaryen
+					THIS = character:Targaryen_1 # Aerys II Targaryen
+				}
+			}
+			random_character_artifact = {
+				limit = {
+					prev = { can_equip_artifact = prev }
+					has_variable = crown_aegon_iv_artifact
+				}
+				equip_artifact_to_owner_replace = yes
+			}
+		}
+		else_if = { # Crown of Maekar
+			limit = {
+				OR = {
+					THIS = character:Targaryen_110 # Maekar Targaryen
+					THIS = character:Targaryen_127 # Jaehaerys II Targaryen
+				}
+			}
+			random_character_artifact = {
+				limit = {
+					prev = { can_equip_artifact = prev }
+					has_variable = crown_maekar_artifact
+				}
+				equip_artifact_to_owner_replace = yes
+			}
+		}
+		else_if = { # Crown of Robert
+			limit = { THIS = character:Baratheon_2 } # Robert Baratheon
+			random_character_artifact = {
+				limit = {
+					prev = { can_equip_artifact = prev }
+					has_variable = robertI_crown_artifact
+				}
+				equip_artifact_to_owner_replace = yes
+			}
+		}
+		else_if = { # Crown of Joffrey
+			limit = {
+				OR = {
+					THIS = character:Baratheon_5 # Joffrey Baratheon
+					THIS = character:Baratheon_7 # Tommen Baratheon
+				}
+			}
+			random_character_artifact = {
+				limit = {
+					prev = { can_equip_artifact = prev }
+					has_variable = joffreyI_crown_artifact
+				}
+				equip_artifact_to_owner_replace = yes
+			}
+		}
+	}
+	if = { # Visenya Targaryen
+		limit = {
+			game_start_date >= 7999.4.1
+			game_start_date < 8037.9.9 # Aegon I Death
+			character:Targaryen_28 ?= { is_alive = yes }
+		}
+		character:Targaryen_28 ?= {
+			random_character_artifact = {
+				limit = {
+					prev = { can_equip_artifact = prev }
+					has_variable = circlet_visenya_artifact
+				}
+				equip_artifact_to_owner_replace = yes
+			}
+		}
+	}
+	if = { # Rhaenys Targaryen
+		limit = {
+			game_start_date >= 7999.4.1
+			character:Targaryen_29 ?= { is_alive = yes }
+		}
+		character:Targaryen_29 ?= {
+			random_character_artifact = {
+				limit = {
+					prev = { can_equip_artifact = prev }
+					has_variable = circlet_rhaenys_artifact
+				}
+				equip_artifact_to_owner_replace = yes
+			}
+		}
+	}
+	if = { # Alysanne Targaryen
+		limit = {
+			game_start_date >= 8054.9.20
+			character:Targaryen_36 ?= { is_alive = yes }
+		}
+		character:Targaryen_36 ?= {
+			random_character_artifact = {
+				limit = {
+					prev = { can_equip_artifact = prev }
+					has_variable = crown_alysanne_artifact
+				}
+				equip_artifact_to_owner_replace = yes
+			}
+		}
+	}
+	if = { # Daemon Targaryen
+		limit = {
+			game_start_date >= 8109.1.1
+			character:Targaryen_61 ?= { is_alive = yes }
+		}
+		character:Targaryen_61 ?= {
+			random_character_artifact = {
+				limit = {
+					prev = { can_equip_artifact = prev }
+					has_variable = daemon_stepstone_crown_artifact
+				}
+				equip_artifact_to_owner_replace = yes
+			}
+		}
+	}
+	if = { # Rhaenyra Targaryen
+		limit = {
+			game_start_date >= 8129.3.3
+			character:Targaryen_63 ?= { is_alive = yes }
+		}
+		character:Targaryen_63 ?= {
+			random_character_artifact = {
+				limit = {
+					prev = { can_equip_artifact = prev }
+					has_variable = crown_jaehaerys_artifact
+				}
+				equip_artifact_to_owner_replace = yes
+			}
+		}
+	}
+	if = { # Daenerys Targaryen
+		limit = {
+			game_start_date >= 8299.5.15
+			character:Targaryen_9 ?= { is_alive = yes }
+		}
+		character:Targaryen_9 ?= {
+			random_character_artifact = {
+				limit = {
+					prev = { can_equip_artifact = prev }
+					has_variable = daenerys_crown_artifact
+				}
+				equip_artifact_to_owner_replace = yes
+			}
+		}
+	}
+	if = { # Rhaella Targaryen
+		limit = {
+			game_start_date >= 8262.1.1
+			character:Targaryen_2 ?= { is_alive = yes }
+		}
+		character:Targaryen_2 ?= {
+			random_character_artifact = {
+				limit = {
+					prev = { can_equip_artifact = prev }
+					has_variable = crown_rhaella_artifact
+				}
+				equip_artifact_to_owner_replace = yes
+			}
+		}
+	}
+	title:e_blackfyre_rebellion.holder ?= { # Blackfyre Rebels
+		random_character_artifact = {
+			limit = {
+				prev = { can_equip_artifact = prev }
+				has_variable = crown_daemonblackfyre_artifact
+			}
+			equip_artifact_to_owner_replace = yes
+		}
+	}
+	# War of the Five Kings
+	if = { # Stannis Baratheon
+		limit = {
+			game_start_date >= 8299.1.4
+			character:Baratheon_3 ?= { is_alive = yes }
+		}
+		character:Baratheon_3 ?= {
+			random_character_artifact = {
+				limit = {
+					prev = { can_equip_artifact = prev }
+					has_variable = stannis_crown_artifact
+				}
+				equip_artifact_to_owner_replace = yes
+			}
+		}
+	}
+	if = { # Renly Baratheon
+		limit = {
+			game_start_date >= 8299.1.5
+			character:Baratheon_4 ?= { is_alive = yes }
+		}
+		character:Baratheon_4 ?= {
+			random_character_artifact = {
+				limit = {
+					prev = { can_equip_artifact = prev }
+					has_variable = renly_crown_artifact
+				}
+				equip_artifact_to_owner_replace = yes
+			}
+		}
+	}
+	if = { # Robb Stark
+		limit = {
+			game_start_date >= 8299.1.16
+			character:Stark_6 ?= { is_alive = yes }
+		}
+		character:Stark_6 ?= {
+			random_character_artifact = {
+				limit = {
+					prev = { can_equip_artifact = prev }
+					has_variable = crown_of_winter_artifact
+				}
+				equip_artifact_to_owner_replace = yes
+			}
+		}
+	}
+	if = { # Jeyne Westerling
+		limit = {
+			game_start_date >= 8299.9.15
+			character:Westerling_2 ?= { is_alive = yes }
+		}
+		character:Westerling_2 ?= {
+			random_character_artifact = {
+				limit = {
+					prev = { can_equip_artifact = prev }
+					has_variable = crown_of_jeyne_westerling_artifact
+				}
+				equip_artifact_to_owner_replace = yes
+			}
+		}
+	}
+	# Past Kings
+	title:e_the_north.holder ?= { # Kings of the North
+		random_character_artifact = {
+			limit = {
+				prev = { can_equip_artifact = prev }
+				has_variable = crown_of_winter_artifact
+			}
+			equip_artifact_to_owner_replace = yes
+		}
+	}
+	dynasty:dynn_Martell.dynast ?= { # Princes of Dorne
+		random_character_artifact = {
+			limit = {
+				prev = { can_equip_artifact = prev }
+				has_variable = dorne_crown_artifact
+			}
+			equip_artifact_to_owner_replace = yes
+		}
+	}
+}
