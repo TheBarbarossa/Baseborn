@@ -391,8 +391,45 @@ Giantsbane_1 = {
 		trait = overseer
 	}
 }
+Giantsbane_s_1 = { # created 02/02 slambroski
+	name = Athala
+	female = yes
+
+	religion = old_gods_btw_fnf
+	culture = forestman
+
+	trait = education_martial_2
+	trait = giant
+	trait = strong
+	trait = brave
+	trait = compassionate
+	trait = calm
+	trait = rowdy
+
+	disallow_random_traits = yes
+
+	8252.1.1 = { birth = yes }
+	8268.1.1 = { trait = education_martial_prowess_2 }
+	8287.1.1 = { death = { death_reason = death_battle } }
+}
+Giantsbane_s_2 = { # created 02/02 slambroski
+	name = Gilesa
+	female = yes
+
+	religion = old_gods_wnw
+	culture = bearman
+
+	trait = education_martial_2
+	trait = physique_good_1
+	trait = gregarious
+	trait = just
+
+	8261.1.1 = { birth = yes }
+	8277.1.1 = { trait = education_martial_prowess_2 }
+	8292.1.1 = { death = { death_reason = death_childbirth } }
+}
 ### Issue of Tormund
-Giantsbane_2 = {
+Giantsbane_2 = { # edited 04/13 slambroski
 	name = Toregg # Canon
 	dynasty = dynn_Ruddy_Hall
 	dna = Giantsbane_2
@@ -401,6 +438,7 @@ Giantsbane_2 = {
 	culture = fangman
 
 	father = Giantsbane_1
+	mother = Giantsbane_s_1
 
 	trait = education_martial_2
 	trait = education_martial_prowess_2
@@ -421,7 +459,7 @@ Giantsbane_2 = {
 		give_nickname = nick_agot_historical_the_tall_Giantsbane_2
 	}
 }
-Giantsbane_3 = {
+Giantsbane_3 = { # edited 04/13 slambroski
 	name = Torwynd # Canon
 	dynasty = dynn_Ruddy_Hall
 	dna = Giantsbane_3
@@ -430,10 +468,12 @@ Giantsbane_3 = {
 	culture = fangman
 
 	father = Giantsbane_1
+	mother = Giantsbane_s_1
 
 	trait = education_martial_2
 	trait = education_martial_prowess_1
-	trait = physique_good_1
+	# trait = physique_good_1
+	trait = physique_bad_1
 	trait = calm
 	trait = compassionate
 	trait = craven
@@ -444,11 +484,11 @@ Giantsbane_3 = {
 		add_character_flag = canon_status_canon
 	}
 	8293.1.1 = { give_nickname = nick_agot_historical_the_tame }
-	8300.1.29 = {
-		death = { death_reason = death_hypothermia }
-	}
+	# 8300.1.29 = {
+	#	death = { death_reason = death_hypothermia }
+	# }
 }
-Giantsbane_4 = {
+Giantsbane_4 = { # edited 04/13 slambroski
 	name = Dormund # Canon
 	dynasty = dynn_Ruddy_Hall
 	dna = Giantsbane_4
@@ -457,6 +497,7 @@ Giantsbane_4 = {
 	culture = fangman
 
 	father = Giantsbane_1
+	mother = Giantsbane_s_1
 
 	trait = education_martial_2
 	trait = physique_good_1
@@ -472,14 +513,14 @@ Giantsbane_4 = {
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
-	8300.1.29 = {
-		death = {
-			death_reason = death_battle # Battle of the Wall
-			killer = Horpe_3 # Richard Horpe
-		}
-	}
+	# 8300.1.29 = {
+	#	death = {
+	#		death_reason = death_battle # Battle of the Wall
+	#		killer = Horpe_3 # Richard Horpe
+	#	}
+	# }
 }
-Giantsbane_5 = {
+Giantsbane_5 = { # edited 04/13 slambroski
 	name = Munda # Canon, married Longspear Ryk
 	dynasty = dynn_Ruddy_Hall
 	female = yes
@@ -489,9 +530,11 @@ Giantsbane_5 = {
 	culture = fangman
 
 	father = Giantsbane_1
+	mother = Giantsbane_s_1
 
 	trait = education_martial_2
 	trait = education_martial_prowess_2
+	trait = physique_good_1
 	trait = brave
 	trait = honest
 	trait = stubborn
@@ -505,7 +548,7 @@ Giantsbane_5 = {
 		add_character_flag = canon_status_canon
 	}
 }
-Giantsbane_6 = {
+Giantsbane_6 = { # edited 04/13 slambroski
 	name = Dryn # Canon
 	dynasty = dynn_Ruddy_Hall
 
@@ -513,6 +556,7 @@ Giantsbane_6 = {
 	culture = fangman
 
 	father = Giantsbane_1
+	mother = Giantsbane_s_2
 
 	trait = education_martial_2
 	trait = physique_good_1
@@ -4312,6 +4356,74 @@ Dalba_1 = {
 	}
 	8277.1.1 = { give_nickname = nick_agot_historical_dim }
 }
+Dalba_s_1 = { # created 01/25 slambroski
+	name = Hali
+	female = yes 
+
+	religion = old_gods_btw_fnf
+	culture = forestman
+
+	8253.1.1 = { birth = yes }
+	8310.1.1 = { death = yes }
+}
+# Issue of Dalba
+Dalba_2 = { # created 01/25 slambroski
+	name = Eik
+
+	religion = old_gods_btw_fnf
+	culture = forestman
+
+	father = Dalba_1
+	mother = Dalba_s_1
+
+	8273.1.1 = { birth = yes }
+	8290.1.1 = { add_spouse = Dalba_s_2 }
+}
+Dalba_s_2 = { # created 01/25 slambroski
+	name = Thistle
+	female = yes
+
+	religion = old_gods_btw_fnf
+	culture = forestman
+
+	8272.1.1 = { birth = yes }
+}
+Dalba_3 = { # created 01/25 slambroski
+	name = Skeyga
+	female = yes 
+
+	religion = old_gods_btw_fnf
+	culture = forestman
+
+	father = Dalba_1
+	mother = Dalba_s_1
+
+	8276.1.1 = { birth = yes }
+}
+Dalba_4 = { # created 01/25 slambroski
+	name = Meha
+	female = yes
+
+	religion = old_gods_btw_fnf
+	culture = forestman
+
+	father = Dalba_1
+	mother = Dalba_s_1
+
+	8281.1.1 = { birth = yes }
+}
+# Issue of Eik
+Dalba_5 = { # created 01/25 slambroski
+	name = Mance
+
+	religion = old_gods_btw_fnf
+	culture = forestman
+
+	father = Dalba_2
+	mother = Dalba_s_2
+
+	8295.1.1 = { birth = yes }
+}
 ### Morga Bearkin
 Bearkin_1 = {
 	name = Morga # Semi-Canon, Pretender Queen Beyond the Wall
@@ -4693,6 +4805,7 @@ Lowborn_Wildling_3 = {
 	culture = fangman
 
 	trait = education_martial_2
+	trait = bb_skinchanger_2
 	trait = vengeful
 	#trait = eagle # AGOT TODO trait
 
