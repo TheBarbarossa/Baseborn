@@ -4165,6 +4165,13 @@ agot_assign_starting_family_weapons_effect = {
 			character:Kingsblood_4 ?= { agot_create_artifact_redbeard_axe_effect = { OWNER = this } }
 		}
 	}
+	if = {
+		limit = { game_start_date >= 8300.1.1 }
+		if = {
+			limit = { character:Tarth_6 ?= { is_alive = yes } }
+			character:Tarth_6 = { create_artifact_vs_oathkeeper_effect = { OWNER = this } }
+		}
+	}
 }
 
 agot_assign_starting_crowns_effect = {
