@@ -225,20 +225,30 @@ Rayder_hh_3 = {
 				limit = { character:Rayder_hh_4 = { is_alive = yes } }
 				set_relation_lover = character:Rayder_hh_4 # Jarl
 			}
+			effect = { add_character_modifier = contraceptives_modifier }
 		}
 	}
-	8300.1.29 = {
-		employer = Baratheon_3 # Stannis Baratheon
+	# 8300.1.29 = {
+	#	employer = Baratheon_3 # Stannis Baratheon
+	#	effect = {
+	#		agot_safe_imprison_in_castle_history_effect = {
+	#			CASTLE = title:k_dragonstone
+	#			RELEASE_DATE = 9999.1.1
+	#			TYPE = house_arrest
+	#		}
+	#	}
+	# }
+	8300.5.1 = {
 		effect = {
 			agot_safe_imprison_in_castle_history_effect = {
-				CASTLE = title:k_dragonstone
-				RELEASE_DATE = 9999.1.1
+				CASTLE = title:k_the_wall
+				RELEASE_DATE = 8399.1.1
 				TYPE = house_arrest
 			}
 		}
 	}
 }
-Rayder_hh_4 = {
+Rayder_hh_4 = { # edited 04/13 slambroski
 	name = Jarl # Canon, lover of Val
 
 	martial = 7
@@ -266,6 +276,11 @@ Rayder_hh_4 = {
 			}
 		}
 		effect = { add_character_modifier = contraceptives_modifier }
+	}
+	8299.12.18 = {
+		death = {
+			death_reason = death_fall
+		}
 	}
 }
 ### Issue of Mance
@@ -2876,23 +2891,24 @@ Rattleshirt_1 = {
 		add_character_flag = canon_status_canon
 	}
 	8279.1.1 = { give_nickname = nick_agot_historical_rattleshirt }
+	#C8 S1
 	8300.1.20 = {
 		effect = {
 			agot_safe_imprison_in_castle_history_effect = {
 				CASTLE = title:k_the_wall
-				RELEASE_DATE = 8300.2.24
+				RELEASE_DATE = 8399.1.1 # 8300.2.24
 				TYPE = dungeon
 			}
 		}
 	}
-	8300.1.29 = { employer = Slynt_1 } # Janos Slynt
-	8300.2.24 = { # Swapped with Mance if loaded as alive
-		employer = Stark_7 # Jon Snow
-		effect = {
-			clear_traits = yes
-			copy_traits = character:Rayder_1 # Mance Rayder
-		}
-	}
+	# 8300.1.29 = { employer = Slynt_1 } # Janos Slynt
+	# 8300.2.24 = { # Swapped with Mance if loaded as alive
+	#	employer = Stark_7 # Jon Snow
+	#	effect = {
+	#		clear_traits = yes
+	#		copy_traits = character:Rayder_1 # Mance Rayder
+	#	}
+	# }
 }
 ### The Weeper
 Weeper_1 = { # edited 04/13 slambroski
