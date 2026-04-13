@@ -1,0 +1,1349 @@
+﻿### Armors ###
+valyrian_steel_armor_template = {
+	can_equip = {
+		always = yes
+	}
+	# can this character benefit from the full modifiers of the artifact?
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					culture = {
+						has_cultural_pillar = heritage_valyrian
+					}
+				}
+			}
+			add = -10000
+		}
+	}
+}
+
+decorated_dragon_plate_armor_template = {
+	can_equip = {
+		always = yes
+	}
+	# can this character benefit from the full modifiers of the artifact?
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					culture = {
+						has_cultural_pillar = heritage_valyrian
+					}
+				}
+			}
+			add = -10000
+		}
+	}
+}
+
+maelys_armor_template = {
+	can_equip = {
+		always = yes
+	}
+	# can this character benefit from the full modifiers of the artifact?
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					house = house:house_Blackfyre
+				}
+			}
+			add = -10000
+		}
+	}
+}
+
+rhaegars_armor_template = {
+	can_equip = {
+		always = yes
+	}
+	# can this character benefit from the full modifiers of the artifact?
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 0
+		if = {
+			limit = {
+				dynasty = dynasty:dynn_Targaryen
+			}
+			add = 100
+		}
+	}
+}
+
+roberts_armor_template = {
+	can_equip = {
+		always = yes
+	}
+	# can this character benefit from the full modifiers of the artifact?
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 0
+		if = {
+			limit = {
+				OR = {
+					dynasty = dynasty:dynn_Durrandon
+					dynasty = dynasty:dynn_Baratheon
+				}
+			}
+			add = 100
+		}
+	}
+}
+
+kingsguard_armor_template = {
+	can_equip = {
+		has_trait = kingsguard
+	}
+	# can this character benefit from the full modifiers of the artifact?
+	can_benefit = {
+		always = yes
+	}
+	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+### Valyrian Steel ###
+vs_adders_fang_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_blackfyre_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_brightroar_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_cloudbreak_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_dancer_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_dark_moon_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_dark_sister_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_darktalon_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_dawn_template = {
+	can_equip = {
+		custom_tooltip = {
+			text = claimed_dawn_desc
+			has_character_flag = claimed_dawn
+		}
+	}
+	can_benefit = {
+		custom_tooltip = {
+			text = sword_of_the_morning_desc
+			has_character_flag = is_sword_of_morning
+		}
+	}
+	fallback = {
+		prowess_no_portrait = 10
+		general_opinion = -15
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_defiance_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_disputant_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_the_dagger_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_dusk_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_eleneis_bulwark_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_iron_will_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_heartsbane_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_ice_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_justicar_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_lady_forlorn_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_lamentation_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_longclaw_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_nightfall_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_oathkeeper_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_orphan_maker_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_pincer_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_pride_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_red_rain_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_remige_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_seafoam_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_skinpeeler_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_skullcleaver_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_soaring_glory_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_stalwart_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_sting_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_supremacy_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_swansong_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_swordfish_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_yron_key_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_tranquility_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_vigilance_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_widestripe_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_widows_wail_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_wyrmfang_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_evergold_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_truth_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+#Forgables
+vs_black_death_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_mothers_grief_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_talon_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_glory_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_stormy_nights_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_strangers_touch_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_dragonbane_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_iron_price_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_unkindness_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_generic_andal_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_generic_firstman_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+vs_generic_valyrian_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+#Other Weapons
+maekar_mace_template = {
+	can_equip = {
+		save_temporary_scope_as = owner
+		custom_tooltip = {
+			text = hes_strong
+			OR = {
+				has_trait = strong
+				has_trait = physique_good
+			}
+		}
+	}
+	# can this character benefit from the full modifiers of the artifact?
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
+	fallback = {
+	}
+	unique = yes
+	ai_score = {
+		value = 0
+		if = {
+			limit = {
+				dynasty ?= dynasty:dynn_Targaryen
+			}
+			add = 100
+		}
+	}
+}
+
+bobby_hammer_template = {
+	can_equip = {
+		save_temporary_scope_as = owner
+		custom_tooltip = {
+			text = hes_strong
+			OR = {
+				has_trait = strong
+				has_trait = physique_good
+			}
+		}
+	}
+	# can this character benefit from the full modifiers of the artifact?
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
+	fallback = {
+	}
+	unique = yes
+	ai_score = {
+		value = 0
+		if = {
+			limit = {
+				dynasty ?= dynasty:dynn_Baratheon
+			}
+			add = 100
+		}
+	}
+}
+
+emoBoy_sword_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 0
+		if = {
+			limit = {
+				dynasty ?= dynasty:dynn_Targaryen
+			}
+			add = 100
+		}
+	}
+}
+
+bumblin_sword_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 0
+		if = {
+			limit = {
+				dynasty ?= dynasty:dynn_Beesbury
+			}
+			add = 100
+		}
+	}
+}
+
+redbeard_axe_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		custom_tooltip = {
+			text = agot_is_wildling_desc
+			culture = { agot_is_wildling_culture = yes }
+		}
+	}
+	fallback = {
+		prowess_no_portrait = 5
+		monthly_prestige = 0.25
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+weirwood_longbow_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		religion = religion:the_pact_religion
+	}
+	fallback = {
+		martial = 1
+		prowess_no_portrait = 2
+		general_opinion = -10
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					religion = religion:the_pact_religion
+				}
+			}
+			add = -10000
+		}
+	}
+}
+
+dragonbone_longbow_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+	}
+	fallback = {
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+skinchangers_second_pelt_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		custom_tooltip = {
+			text = agot_is_wildling_desc
+			culture = { agot_is_wildling_culture = yes }
+		}
+	}
+	fallback = {
+		prowess_no_portrait = 3
+		enemy_hard_casualty_modifier = 0.1
+		hard_casualty_modifier = 0.05
+		general_opinion = -5
+	}
+	unique = yes
+	ai_score = {
+		value = 0
+		if = {
+			limit = {
+				culture = { agot_is_wildling_culture = yes }
+			}
+			add = 75
+		}
+		if = {
+			limit = {
+				has_trait = eccentric
+			}
+			add = 10
+		}
+		if = {
+			limit = {
+				has_trait = lunatic
+			}
+			add = 25
+		}
+		if = {
+			limit = {
+				has_trait = berserker
+			}
+			add = 100
+		}
+	}
+}
+
+lucerys_gun_template = {
+	can_equip = {
+		this = character:Targaryen_76
+	}
+	can_benefit = {
+		always = yes
+	}
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}
+
+royce_runic_armor_template = {
+	can_equip = {
+		always = yes
+	}
+	# can this character benefit from the full modifiers of the artifact?
+	can_benefit = {
+		is_capable_adult = yes
+	}
+	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
+	fallback = {
+		#always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 0
+		if = {
+			limit = {
+				dynasty = dynasty:dynn_Royce
+			}
+			add = 100
+		}
+	}
+}
+
+raven_feather_cloak_template = {
+	can_equip = {
+		always = yes
+	}
+	# can this character benefit from the full modifiers of the artifact?
+	can_benefit = {
+		is_capable_adult = yes
+		religion = religion:the_pact_religion
+	}
+	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
+	fallback = {
+		monthly_dynasty_prestige_mult = 0.01
+		monthly_prestige = 0.1
+	}
+	unique = yes
+	ai_score = {
+		value = 0
+		if = {
+			limit = {
+				dynasty = dynasty:dynn_Blackwood
+			}
+			add = 100
+		}
+	}
+}
