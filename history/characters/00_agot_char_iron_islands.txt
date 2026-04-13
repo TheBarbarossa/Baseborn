@@ -4772,7 +4772,7 @@ Merlyn_105 = {
 
 ### Hammerhorn Branch
 ############################
-Goodbrother_1 = {
+Goodbrother_1 = { # edited 04/13 slambroski
 	name = Gorold # Canon, a lord, Victarion supporter
 	dynasty = dynn_Goodbrother
 	dna = Goodbrother_1
@@ -4808,6 +4808,14 @@ Goodbrother_1 = {
 	8293.1.1 = {
 		agot_safe_buy_august_perk_history_effect = yes
 		trait = august
+	}
+	#C8 S1
+	8300.5.1 = {
+		trait = one_handed
+		death = {
+			death_reason = death_execution
+			killer = Frey_1 # Walder Frey
+		}
 	}
 }
 ### Issue of Gorold
@@ -5143,7 +5151,7 @@ Goodbrother_15 = { # edited 03/29 slambroski
 		add_character_flag = canon_status_canon
 	}
 	#C8 S1
-	8300.1.20 = {
+	8300.5.1 = {
 		trait = wounded_3
 		death = {
 			death_reason = death_duel
@@ -7619,15 +7627,20 @@ Sunderly_3 = {
 	8294.1.1 = { death = yes }
 }
 ### Issue of Kenned
-Sunderly_4 = {
+Sunderly_4 = { # edited 04/13 slambroski
 	name = Lucas # Mentioned, a lord
 	dynasty = dynn_Sunderly
+
+	stewardship = 6
 
 	religion = drowned_god
 	culture = ironborn
 
 	father = Sunderly_3
 	mother = FarwyndDL_2
+
+	trait = education_stewardship_3
+	trait = diligent
 
 	8263.1.1 = {
 		birth = yes
@@ -10268,6 +10281,13 @@ Salt_6 = { # edited 03/29 slambroski
 	}
 	8300.1.20 = {
 		trait = lifestyle_blademaster
+	}
+	8300.5.1 = {
+		trait = one_handed
+		death = {
+			death_reason = death_execution
+			killer = Frey_1 # Walder Frey
+		}
 	}
 }
 ### Issue of Urzen
