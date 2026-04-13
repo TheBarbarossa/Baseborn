@@ -3599,6 +3599,17 @@ else_if = {
 			}
 		}
 	}
+	else_if = {
+		limit = {
+			exists = character:Goodbrother_16
+			character:Goodbrother_16 = { is_alive = yes }
+		}
+		character:Goodbrother_16 = {
+			agot_create_artifact_baseborn_goodbrother_artifact_effect = {
+				OWNER = this
+			}
+		}
+	}	
 	if = {
 		limit = {
 			exists = character:FarwyndLL_25
