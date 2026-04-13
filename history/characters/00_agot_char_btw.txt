@@ -152,7 +152,7 @@ Rayder_hh_6 = {
 	}
 	8297.1.1 = { death = yes }
 }
-Rayder_hh_2 = {
+Rayder_hh_2 = { # edited 04/13 slambroski
 	name = Dalla # Canon, married Mance Rayder
 	female = yes
 	dna = Rayder_hh_2
@@ -169,15 +169,18 @@ Rayder_hh_2 = {
 	trait = beauty_good_2
 	trait = brave
 	trait = compassionate
+	trait = stubborn
+
+	disallow_random_traits = yes 
 
 	8278.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
-	8300.1.29 = {
-		death = { death_reason = death_childbirth }
-	}
+	# 8300.1.29 = {
+	#	death = { death_reason = death_childbirth }
+	# }
 }
 Rayder_hh_3 = {
 	name = Val # Canon
@@ -300,6 +303,23 @@ Rayder_hh_4 = {
 # 		}
 # 	}
 # }
+Rayder_2 = { # created 04/13 slambroski
+	name = Willow # Willow Steelsong
+	dynasty = dynn_Rayder
+
+	religion = old_gods_btw_fnf
+ 	culture = fangman
+
+ 	father = Rayder_1
+ 	mother = Rayder_hh_2
+
+	trait = strong
+
+	8300.2.18 = {
+		birth = yes 
+		give_nickname = nick_agot_historical_steelsong
+	}
+}
 ### Household
 Rayder_hh_7 = { # created 04/05 slambroski
 	name = Nella
