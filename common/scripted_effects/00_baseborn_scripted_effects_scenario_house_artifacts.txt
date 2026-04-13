@@ -1046,6 +1046,17 @@ else_if = {
 			}
 		}
 	}
+	else_if = {
+		limit = {
+			exists = character:Mallister_7
+			character:Mallister_7 = { is_alive = yes }
+		}
+		character:Mallister_7 = {
+			agot_create_artifact_baseborn_mallister_artifact_effect = {
+				OWNER = this
+			}
+		}
+	}	
 	if = {
 		limit = {
 			exists = character:Mooton_26
@@ -3577,7 +3588,7 @@ else_if = {
 			}
 		}
 	}
-		else_if = {
+	else_if = {
 		limit = {
 			exists = character:Goodbrother_1
 			character:Goodbrother_1 = { is_alive = yes }
