@@ -1,0 +1,881 @@
+﻿#Weapons, Historical VS
+vs_adders_fang_visuals = {
+	icon = "vs_adders_fang.dds"
+	asset = portrait_prop_Adders_fang_entity
+}
+vs_blackfyre_visuals = {
+	icon = "vs_blackfyre.dds"
+	asset = blackfyre_sword_entity
+}
+vs_brightroar_visuals = {
+	icon = "vs_brightroar.dds"
+	asset = {
+		reference = brightroar_entity
+	}
+}
+vs_brightroar_court_visuals = {
+	icon = "vs_brightroar.dds"
+	asset = {
+		reference = brightroar_a_entity
+	}
+}
+vs_cloudbreak_visuals = {
+	icon = "vs_cloudbreak.dds"
+	asset = portrait_prop_Cloudbreak_entity
+}
+vs_pincer_visuals = {
+	icon = "vs_pincer.dds"
+	asset = portrait_prop_Pincer_entity
+}
+vs_dancer_visuals = {
+	icon = "vs_dancer.dds"
+	asset = portrait_prop_Dancer_entity
+}
+vs_dark_moon_visuals = {
+	icon = "vs_dark_moon.dds"
+	asset = portrait_prop_Dark_moon_entity
+}
+vs_dark_sister_visuals = {
+	icon = "vs_dark_sister.dds"
+	asset = Darksister_sword_entity
+}
+vs_darktalon_visuals = {
+	icon = "vs_darktalon.dds"
+	asset = portrait_prop_Darktalon_entity
+}
+vs_dawn_visuals = {
+	icon = "vs_dawn.dds"
+	asset = sword_dawn_entity
+}
+vs_defiance_visuals = {
+	icon = "vs_defiance.dds"
+	asset = portrait_prop_Defiance_entity
+}
+vs_disputant_visuals = {
+	icon = "vs_disputant.dds"
+	asset = portrait_prop_disputant_entity
+}
+vs_evergold_visuals = {
+	icon = "vs_evergold.dds"
+	asset = portrait_prop_Evergold_entity
+}
+vs_heartsbane_visuals = {
+	icon = "vs_heartsbane.dds"
+	asset = heartsbane_prop_entity
+}
+vs_ice_visuals = {
+	icon = "vs_ice.dds"
+	asset = sword_ice_entity
+}
+vs_iron_will_visuals = {
+	icon = "vs_iron_will.dds"
+	asset = forrester_entity
+}
+vs_iron_will_court_visuals = {
+	icon = "vs_iron_will.dds"
+		asset = {
+		reference = forrester_a_entity
+	}
+}
+vs_lady_forlorn_visuals = {
+	icon = "vs_lady_forlorn.dds"
+	asset = ladyForlon_prop_entity
+}
+vs_lamentation_visuals = {
+	icon = "vs_lamentation.dds"
+	asset = portrait_prop_Lamentation_entity
+}
+vs_longclaw_visuals = { #Mormont Bear #Implement Jons also
+	icon = "vs_longclaw.dds" # icon = "vs_longclaw_snow.dds" # trigger for jon snow
+	asset = {	#striped
+		trigger = {
+			dynasty = dynasty:dynn_Mormont
+		}
+		reference = longclawMormont_prop_entity
+	}
+	asset = {
+		trigger = {
+			dynasty = dynasty:dynn_Stark
+		}
+		reference = longclawStark_prop_entity
+	}
+	asset = {
+		trigger = {
+			NOT = {
+				dynasty = dynasty:dynn_Stark
+				dynasty = dynasty:dynn_Mormont
+			}
+		}
+		reference = longclawMormont_prop_entity
+	}
+}
+vs_nightfall_visuals = { #Is made, not in game
+	icon = "vs_nightfall.dds"
+	asset = portrait_prop_Nightfall_entity
+}
+vs_orphan_maker_visuals = {
+	icon = "vs_orphan_maker.dds"
+	asset = portrait_prop_Orphan_Maker_entity
+}
+vs_oathkeeper_visuals = {
+	icon = "vs_oathkeeper.dds" #OathKeeper isn't made yet
+	asset = ep1_western_sword_01_a_portrait_entity
+}
+vs_poison_visuals = { #what is this sword?
+	icon = "vs_poison.dds"
+	asset = ep1_western_sword_01_a_portrait_entity
+}
+vs_pride_visuals = {
+	icon = "vs_pride.dds"
+	asset = portrait_prop_Pride_entity
+}
+vs_prosperity_visuals = {
+	icon = "vs_prosperity.dds"
+	asset = portrait_prop_Prosperity_entity
+}
+vs_remige_visuals = {
+	icon = "vs_remige.dds"
+	asset = portrait_prop_Remige_entity
+}
+vs_siren_visuals = {
+	icon = "vs_siren.dds"
+	asset = portrait_prop_Pentos_Siren_entity
+}
+vs_seafoam_visuals = {
+	icon = "vs_seafoam.dds"
+	asset = portrait_prop_seafoam_entity
+}
+vs_supremacy_visuals = {
+	icon = "vs_supremacy.dds"
+	asset = sword_supremacy_entity
+}
+vs_swansong_visuals = {
+	icon = "vs_swansong.dds"
+	asset = portrait_prop_swansong_entity
+}
+vs_swordfish_visuals = {
+	icon = "vs_swordfish.dds"
+	asset = sword_swordfish_entity
+}
+vs_red_rain_visuals = { #Not made yet
+	icon = "vs_red_rain.dds"
+	asset = portrait_prop_RedRain_entity
+}
+vs_strangers_mercy_visuals = { #Not made, can't find anything on it
+	icon = "vs_strangers_mercy.dds"
+	asset = ep1_western_sword_01_a_portrait_entity
+}
+vs_skinpeeler_visuals = {
+	icon = "vs_skinpeeler.dds"
+	asset = skinpeeler_prop_entity
+}
+vs_skullcleaver_visuals = {
+	icon = "vs_skullcleaver.dds"
+	asset = portrait_prop_Skullcleaver_entity
+}
+vs_stalwart_visuals = {
+	icon = "vs_stalwart.dds"
+	asset = portrait_prop_Stalwart_entity
+}
+vs_truth_visuals = { #
+	icon = "vs_truth.dds"
+	asset = portrait_prop_Lys_Truth_entity
+}
+vs_tranquility_visuals = { #
+	icon = "vs_tranquility.dds"
+	asset = portrait_prop_Tranquility_entity
+}
+vs_vigilance_visuals = {
+	icon = "vs_vigilance.dds"
+	asset = portrait_prop_Vigilance_entity
+}
+vs_widestripe_visuals = {
+	icon = "vs_widestripe.dds"
+	asset = portrait_prop_Widestripe_entity
+}
+vs_widows_wail_visuals = {
+	icon = "vs_widows_wail.dds"
+	asset = portrait_prop_widows_wail_entity
+}
+vs_wyrmfang_visuals = {
+	icon = "vs_wyrmfang.dds"
+	asset = portrait_prop_Wyrmfang_entity
+}
+
+#Weapons, Forgable VS
+vs_black_death_visuals = {
+	icon = "vs_black_death.dds"
+	asset = portrait_prop_blackdeath_entity
+}
+vs_mothers_grief_visuals = {
+	icon = "vs_mothers_grief.dds"
+	asset = portrait_prop_mothers_grief_entity
+}
+vs_talon_visuals = {
+	icon = "vs_talon.dds"
+	asset = portrait_prop_Talon_entity
+}
+vs_glory_visuals = {
+	icon = "vs_glory.dds"
+	asset = portrait_prop_glory_entity
+}
+vs_sting_visuals = {
+	icon = "vs_sting.dds"
+	asset = portrait_prop_Sting_entity
+}
+vs_stormy_nights_visuals = {
+	icon = "vs_stormy_nights.dds"
+	asset = portrait_prop_Stormy_entity
+}
+vs_strangers_touch_visuals = {
+	icon = "vs_strangerstouch.dds"
+	asset = Strangers_Touch_entity
+}
+vs_dragonbane_visuals = {
+	icon = "vs_dragonbane.dds"
+	asset = portrait_prop_dragonbane_entity
+}
+vs_iron_price_visuals = {
+	icon = "vs_iron_price.dds"
+	asset = portrait_prop_Iron_Price_entity
+}
+vs_unkindness_visuals = {
+	icon = "vs_unkindness.dds"
+	asset = portrait_prop_Unkindness_entity
+}
+vs_andal_armingsword_gold_visuals = {
+	icon = "vs_andal_arming_gold.dds"
+	asset = portrait_prop_VSE_Andal_ArmingSword_GOLD_entity
+}
+vs_andal_armingsword_silver_visuals = {
+	icon = "vs_andal_arming_silver.dds"
+	asset = portrait_prop_VSE_Andal_ArmingSword_SILVER_entity
+}
+vs_andal_longsword_gold_visuals = {
+	icon = "vs_andal_longsword_gold.dds"
+	asset = portrait_prop_VSE_Andal_Longsword_GOLD_entity
+}
+vs_andal_longsword_silver_visuals = {
+	icon = "vs_andal_longsword_silver.dds"
+	asset = portrait_prop_VSE_Andal_Longsword_SILVER_entity
+}
+vs_firstman_armingsword_gold_visuals = {
+	icon = "vs_firstman_arming_gold.dds"
+	asset = portrait_prop_VSE_FirstMan_ArmingSword_GOLD_entity
+}
+vs_firstman_armingsword_silver_visuals = {
+	icon = "vs_firstman_arming_silver.dds"
+	asset = portrait_prop_VSE_FirstMan_ArmingSword_SILVER_entity
+}
+vs_firstman_armingsword_bronze_visuals = {
+	icon = "vs_firstman_arming_bronze.dds"
+	asset = portrait_prop_VSE_FirstMan_ArmingSword_BRONZE_entity
+}
+vs_firstman_longsword_gold_visuals = {
+	icon = "vs_firstman_longsword_gold.dds"
+	asset = portrait_prop_VSE_FirstMan_Longsword_GOLD_entity
+}
+vs_firstman_longsword_silver_visuals = {
+	icon = "vs_firstman_longsword_silver.dds"
+	asset = portrait_prop_VSE_FirstMan_Longsword_SILVER_entity
+}
+vs_firstman_longsword_bronze_visuals = {
+	icon = "vs_firstman_longsword_bronze.dds"
+	asset = portrait_prop_VSE_FirstMan_Longsword_BRONZE_entity
+}
+vs_valyrian_armingsword_gold_visuals = {
+	icon = "vs_valyrian_arming_gold.dds"
+	asset = portrait_prop_VSE_Val_ArmingSword_GOLD_entity
+}
+vs_valyrian_armingsword_silver_visuals = {
+	icon = "vs_valyrian_arming_silver.dds"
+	asset = portrait_prop_VSE_Val_ArmingSword_SILVER_entity
+}
+vs_valyrian_longsword_gold_visuals = {
+	icon = "vs_valyrian_longsword_gold.dds"
+	asset = portrait_prop_VSE_Val_Longsword_GOLD_entity
+}
+vs_valyrian_longsword_silver_visuals = {
+	icon = "vs_valyrian_longsword_silver.dds"
+	asset = portrait_prop_VSE_Val_Longsword_SILVER_entity
+}
+
+#Weapons, Other
+maekar_mace_visuals = {
+	icon = "maekar_mace.dds"
+	asset = portrait_prop_maekar_mace_entity
+}
+bobby_hammer_visuals = {
+	icon = "bobby_hammer.dds"
+	asset = portrait_prop_BobbyBsBreastplateSquisher_entity
+}
+
+emoBoy_sword_visuals = {
+	icon = "emoBoy_sword.dds"
+	asset = portrait_prop_emoBoy_sword_entity
+}
+bumblin_sword_visuals = {
+	icon = "bumblin.dds"
+	asset = portrait_prop_bumblin_entity
+}
+dothraki_bow_visuals = {
+	icon = "artifact_bow_steppe.dds"
+	asset = ep2_steppe_bow_01_a_portrait_entity
+}
+redbeard_axe_visuals = {
+	icon = "artifact_steppe_axe.dds"
+	asset = ep1_steppe_axe_01_a_portrait_entity
+}
+weirwood_longbow_visuals = {
+	icon = "weirwood_longbow.dds"
+	asset = agot_weirwood_longbow_portrait_entity
+}
+dragonbone_longbow_visuals = {
+	icon = "dragonbone_longbow.dds"
+	asset = agot_dragonbone_longbow_portrait_entity
+}
+
+#Armor
+valyrian_steel_armor_visuals = {
+	icon = "valyrian_steel_armor.dds"
+	asset = male_clothes_secular_valyrian_steel_armor_01_entity
+}
+decorated_dragon_plate_armor_visuals = {
+	icon = "decorated_dragon_plate_armor.dds"
+	asset = male_clothes_secular_valyrian_war_05_entity
+}
+maelys_armor_visuals = {
+	icon = "maelys_armor.dds"
+	asset = male_clothes_secular_valyrian_war_05_entity
+}
+rhaegars_armor_visuals = {
+	icon = "targaryen_prince_armor.dds"
+	asset = male_clothes_secular_valyrian_war_04_entity #Rhaegar's armor
+}
+roberts_armor_visuals = {
+	icon = "baratheon_armor.dds"
+	asset = male_clothes_secular_stormlands_war_04_entity #Robert's armor
+}
+kingsguard_armor_visuals = {
+	icon = "kingsguard_armor.dds"
+	asset = male_clothes_special_kingsguard_war_01_entity
+}
+skinchangers_second_pelt_visuals = {
+	icon = "artifact_pelt.dds"
+	asset = male_clothes_secular_fp1_war_nobility_01_entity
+}
+royce_runic_armor_visuals = {
+	icon = "royce_runic_armor.dds"
+	asset = m_clothes_spe_royce_war_nob_03_entity
+}
+raven_feather_cloak_visuals = {
+	icon = "raven_feather_cloak.dds"
+	asset = agot_nw_male_furs_nw_01_entity
+}
+
+#Crowns
+aegon_i_crown_visuals = {
+	icon = "aegon_i_crown.dds"
+	asset = aegonI_crown_prop_entity
+}
+aenys_crown_visuals = {
+	icon = "aenys_crown.dds"
+	asset = aenysI_crown_prop_entity
+}
+jaehaerys_crown_visuals = {
+	icon = "jaehaerys_crown.dds"
+	asset = jaehaerysI_crown_prop_entity
+}
+aegon_iii_crown_visuals = {
+	icon = "aegon_iii_crown.dds"
+	asset = aegonIII_crown_prop_entity
+}
+baelors_crown_visuals = {
+	icon = "baelors_crown.dds"
+	asset = floreal_crown_prop_entity
+}
+aegon_iv_crown_visuals = {
+	icon = "aegon_iv_crown.dds"
+	asset = aegonIV_crown_prop_entity
+}
+maekars_crown_visuals = {
+	icon = "maekars_crown.dds"
+	asset = maekarI_crown_prop_entity
+}
+daenerys_crown_visuals = {
+	icon = "daenerys_crown.dds"
+	asset = daenerys_crown_prop_entity
+}
+robertI_crown_visuals = {
+	icon = "robertI_crown.dds"
+	asset = robertI_crown_prop_entity
+}
+stannis_crown_visuals = {
+	icon = "stannis_crown.dds"
+	asset = stannis_crown_prop_entity
+}
+renly_crown_visuals = {
+	icon = "renly_crown.dds"
+	asset = renly_crown_prop_entity
+}
+joffreyI_crown_visuals = {
+	icon = "joffreyI_crown.dds"
+	asset = joffreyI_crown_prop_entity
+}
+driftwood_crown_1_visuals = {
+	icon = "driftwood_crown_1.dds"
+	asset = driftwood_crown_1_prop_entity
+}
+valyrian_crown1_visuals = {
+	icon = "valyrian_crown1.dds"
+	asset = valyrian_crown1_prop_entity
+}
+valyrian_crown2_visuals = {
+	icon = "valyrian_crown2.dds"
+	asset = valyrian_crown2_prop_entity
+}
+westerosi_valyrian_crown1_visuals = {
+	icon = "westerosi_valyrian_crown1.dds"
+	asset = westerosi_valyrian_crown1_prop_entity
+}
+westerosi_valyrian_crown2_visuals = {
+	icon = "westerosi_valyrian_crown2.dds"
+	asset = westerosi_valyrian_crown2_prop_entity
+}
+beyondthewall_crown_visuals = {
+	icon = "beyondthewall_crown.dds"
+	asset = beyondthewall_crown_prop_entity
+}
+iron_isles_crown_visuals = {
+	icon = "iron_isles_crown.dds"
+	asset = iron_isles_crown_prop_entity
+}
+riverlands_crown_visuals = {
+	icon = "riverlands_crown.dds"
+	asset = riverlands_crown_prop_entity
+}
+blackwood_crown_visuals = {
+	icon = "blackwood_crown.dds"
+	asset = blackwood_crown_prop_entity
+}
+bolton_crown_visuals = {
+	icon = "bolton_crown.dds"
+	asset = bolton_crown_prop_entity
+}
+bolton_skin_crown_visuals = {
+	icon = "bolton_skin_crown.dds"
+	asset = bolton_skin_crown_prop_entity
+}
+cargyll_crown_visuals = {
+	icon = "cargyll_crown.dds"
+	asset = cargyll_crown_prop_entity
+}
+swann_crown_visuals = {
+	icon = "swann_crown.dds"
+	asset = swann_crown_prop_entity
+}
+crown_of_winter_visuals = {
+	icon = "crown_of_winter.dds"
+	asset = crown_of_winter_prop_entity
+}
+crown_of_first_men_visuals = {
+	icon = "crown_of_first_men.dds"
+	asset = crown_of_first_men_prop_entity
+}
+crown_of_the_andals_visuals = {
+	icon = "crown_of_the_andals.dds"
+	asset = crown_of_the_andals_prop_entity
+}
+crown_of_the_andals_silver_visuals = {
+	icon = "crown_of_the_andals_silver.dds"
+	asset = crown_of_the_andals_silver_prop_entity
+}
+crown_of_darklyn_visuals = {
+	icon = "crown_of_darklyn.dds"
+	asset = crown_of_darklyn_prop_entity
+}
+crown_of_westerosi_diadem_visuals = {
+	icon = "crown_of_westerosi_diadem.dds"
+	asset = crown_of_westerosi_diadem_prop_entity
+}
+crown_of_westerosi_diadem_silver_visuals = {
+	icon = "crown_of_westerosi_diadem_silver.dds"
+	asset = crown_of_westerosi_diadem_silver_prop_entity
+}
+dayne_crown_visuals = {
+	icon = "dayne_crown.dds"
+	asset = dayne_crown_prop_entity
+}
+dorne_crown_visuals = {
+	icon = "dorne_crown.dds"
+	asset = dorne_crown_prop_entity
+}
+dornish_crown_visuals = {
+	icon = "dornish_crown.dds"
+	asset = dornish_crown_prop_entity
+}
+dustin_crown_visuals = {
+	icon = "dustin_crown.dds"
+	asset = dustin_crown_prop_entity
+}
+falcon_crown_visuals = {
+	icon = "falcon_crown.dds"
+	asset = falcon_crown_prop_entity
+}
+valeman_crown_visuals = {
+	icon = "valeman_crown.dds"
+	asset = valeman_crown_prop_entity
+}
+florent_crown_visuals = {
+	icon = "florent_crown.dds"
+	asset = florent_crown_prop_entity
+}
+frey_crown_visuals = {
+	icon = "frey_crown.dds"
+	asset = frey_crown_prop_entity
+}
+greyjoy_crown_visuals = {
+	icon = "greyjoy_crown.dds"
+	asset = greyjoy_crown_prop_entity
+}
+harlaw_crown_visuals = {
+	icon = "harlaw_crown.dds"
+	asset = harlaw_crown_prop_entity
+}
+hightower_crown_visuals = {
+	icon = "hightower_crown.dds"
+	asset = hightower_crown_prop_entity
+}
+iron_stag_crown_visuals = {
+	icon = "iron_stag_crown.dds"
+	asset = iron_stag_crown_prop_entity
+}
+manderly_crown_visuals = {
+	icon = "manderly_crown.dds"
+	asset = manderly_crown_prop_entity
+}
+reach_crown_visuals = {
+	icon = "reach_crown.dds"
+	asset = reach_crown_prop_entity
+}
+reachman_crown_visuals = {
+	icon = "reachman_crown.dds"
+	asset = reachman_crown_prop_entity
+}
+redwyne_crown_visuals = {
+	icon = "redwyne_crown.dds"
+	asset = redwyne_crown_prop_entity
+}
+reed_crown_visuals = {
+	icon = "reed_crown.dds"
+	asset = reed_crown_prop_entity
+}
+royce_crown_visuals = {
+	icon = "royce_crown.dds"
+	asset = royce_crown_prop_entity
+}
+stormlands_crown_visuals = {
+	icon = "stormlands_crown.dds"
+	asset = stormlands_crown_prop_entity
+}
+stormlander_crown_visuals = {
+	icon = "stormlander_crown.dds"
+	asset = stormlander_crown_prop_entity
+}
+tarly_crown_visuals = {
+	icon = "tarly_crown.dds"
+	asset = tarly_crown_prop_entity
+}
+tarth_crown_visuals = {
+	icon = "tarth_crown.dds"
+	asset = tarth_crown_prop_entity
+}
+tully_crown_visuals = {
+	icon = "tully_crown.dds"
+	asset = tully_crown_prop_entity
+}
+umber_crown_visuals = {
+	icon = "umber_crown.dds"
+	asset = umber_crown_prop_entity
+}
+westerlands_crown_visuals = {
+	icon = "westerlands_crown.dds"
+	asset = westerlands_crown_prop_entity
+}
+westerlands2_crown_visuals = {
+	icon = "westerlands2_crown.dds"
+	asset = westerlands2_crown_prop_entity
+}
+westerlander2_crown_visuals = {
+	icon = "westerlander2_crown.dds"
+	asset = westerlander2_crown_prop_entity
+}
+crown_of_the_wall_visuals = {
+	icon = "crown_of_the_wall.dds"
+	asset = crown_of_the_wall_prop_entity
+}
+crown_of_westerling_visuals = {
+	icon = "crown_of_westerling.dds"
+	asset = crown_of_westerling_prop_entity
+}
+crown_of_the_tides_visuals = {
+	icon = "crown_of_the_tides.dds"
+	asset = crown_of_the_tides_prop_entity
+}
+crown_of_gardener_peace_visuals = {
+	icon = "crown_of_gardener_peace.dds"
+	asset = crown_of_gardener_peace_prop_entity
+}
+crown_of_gardener_war_iron_visuals = {
+	icon = "crown_of_gardener_war_iron.dds"
+	asset = crown_of_gardener_war_iron_prop_entity
+}
+crown_of_mudd_visuals = {
+	icon = "crown_of_mudd.dds"
+	asset = crown_of_mudd_prop_entity
+}
+crown_of_mudd_coa_visuals = {
+	icon = "crown_of_mudd_coa.dds"
+	asset = crown_of_mudd_coa_prop_entity
+}
+crown_of_the_grey_king_rusted_visuals = {
+	icon = "crown_of_the_grey_king_rusted.dds"
+	asset = crown_of_the_grey_king_rusted_prop_entity
+}
+crown_of_the_nights_king_visuals = {
+	icon = "crown_of_the_nights_king.dds"
+	asset = crown_of_the_nights_king_prop_entity
+}
+cannibal_crown_visuals = {
+	icon = "cannibal_crown.dds"
+	asset = cannibal_crown_prop_entity
+}
+crown_of_true_winter_visuals = {
+	icon = "crown_of_true_winter.dds"
+	asset = crown_of_true_winter_prop_entity
+}
+crown_of_the_seven_visuals = {
+	icon = "crown_of_the_seven.dds"
+	asset = crown_of_the_seven_prop_entity
+}
+crown_of_the_old_gods_visuals = {
+	icon = "crown_of_the_old_gods.dds"
+	asset = crown_of_the_old_gods_prop_entity
+}
+crown_of_rhllor_visuals = {
+	icon = "crown_of_rhllor.dds"
+	asset = crown_of_rhllor_prop_entity
+}
+circlet_of_rhllor_visuals = {
+	icon = "circlet_of_rhllor.dds"
+	asset = circlet_of_rhllor_prop_entity
+}
+crown_of_hugor_visuals = {
+	icon = "crown_of_hugor.dds"
+	asset = crown_of_hugor_prop_entity
+}
+crown_of_bear_island_visuals = {
+	icon = "crown_of_bear_island.dds"
+	asset = crown_of_bear_island_prop_entity
+}
+crown_of_hearts_home_visuals = {
+	icon = "crown_of_hearts_home.dds"
+	asset = crown_of_hearts_home_prop_entity
+}
+crown_of_dondarrion_visuals = {
+	icon = "crown_of_dondarrion.dds"
+	asset = crown_of_dondarrion_prop_entity
+}
+crown_of_hellholt_visuals = {
+	icon = "crown_of_hellholt.dds"
+	asset = crown_of_hellholt_prop_entity
+}
+crown_of_castamere_visuals = {
+	icon = "crown_of_castamere.dds"
+	asset = crown_of_castamere_prop_entity
+}
+crown_of_deep_den_visuals = {
+	icon = "crown_of_deep_den.dds"
+	asset = crown_of_deep_den_prop_entity
+}
+crown_of_the_banefort_visuals = {
+	icon = "crown_of_the_banefort.dds"
+	asset = crown_of_the_banefort_prop_entity
+}
+crown_of_crakehall_visuals = {
+	icon = "crown_of_crakehall.dds"
+	asset = crown_of_crakehall_prop_entity
+}
+crown_of_jeyne_westerling_visuals = {
+	icon = "crown_of_jeyne_westerling.dds"
+	asset = crown_of_jeyne_westerling_prop_entity
+}
+crown_of_winter_roses_visuals = {
+	icon = "crown_of_winter_roses.dds"
+	asset = crown_of_winter_roses_prop_entity
+}
+crown_of_qolab_generic_visuals = {
+	icon = "wedding_crown.dds"
+	asset = m_headgear_spec_ep2_western_wedding_prop_entity
+}
+rhaella_crown_visuals = {
+	icon = "rhaella_crown.dds"
+	asset = rhaella_crown_prop_entity
+}
+visenya_circlet_visuals = {
+	icon = "visenya_circlet.dds"
+	asset = male_headgear_visenya_circlet_01_prop_entity
+}
+qolab_crown_01_visuals = {
+	icon = "qolab_crown_redblue.dds"
+	asset = queen_of_love_and_beauty_rose_crown_01_prop_entity
+}
+qolab_crown_02_visuals = {
+	icon = "qolab_crown_goldwhite.dds"
+	asset = queen_of_love_and_beauty_rose_crown_02_prop_entity
+}
+qolab_crown_03_visuals = {
+	icon = "qolab_crown_red.dds"
+	asset = queen_of_love_and_beauty_rose_crown_03_prop_entity
+}
+qolab_crown_04_visuals = {
+	icon = "qolab_crown_gold.dds"
+	asset = queen_of_love_and_beauty_rose_crown_04_prop_entity
+}
+qolab_crown_05_visuals = {
+	icon = "qolab_crown_pink.dds"
+	asset = queen_of_love_and_beauty_rose_crown_05_prop_entity
+}
+qolab_crown_06_visuals = {
+	icon = "qolab_crown_white.dds"
+	asset = queen_of_love_and_beauty_rose_crown_06_prop_entity
+}
+qolab_crown_07_visuals = {
+	icon = "qolab_crown_pinkyellow.dds"
+	asset = queen_of_love_and_beauty_rose_crown_07_prop_entity
+}
+crown_of_deep_winter_roses_visuals = {
+	icon = "crown_of_deep_winter_roses.dds"
+	asset = crown_of_deep_winter_roses_prop_entity
+}
+daemonblackfyre_crown_visuals = {
+	icon = "daemonblackfyre_crown.dds"
+	asset = daemonblackfyre_crown_prop_entity
+}
+daemon_stepstone_crown_visuals = {
+	icon = "daemon_stepstone_crown.dds"
+	asset = daemon_stepstone_crown_prop_entity
+}
+daemon_queen_stepstone_crown_visuals = {
+	icon = "daemon_queen_stepstone_crown.dds"
+	asset = daemon_queen_stepstone_crown_prop_entity
+}
+alysannecrown_visuals = {
+	icon = "jaehaerys_crown.dds"
+	asset = alysannecrown_prop_entity
+}
+rhaenys_circlet_visuals = {
+	icon = "rhaenys_circlet.dds"
+	asset = rhaenys_circlet_prop_entity
+}
+
+#Misc Artifacts
+white_book_visuals = {
+	icon = "white_book.dds"
+	asset = ep1_western_book_big_01_a_entity
+}
+martell_wall_shield = {
+	icon = "artifact_wall_shield.dds"
+	default_type = wall_small
+	asset = portrait_prop_martell_shield_01_entity
+}
+shieraseastar_necklace_visuals = {
+	icon = "shieraseastar_necklace.dds"
+	asset = male_headgear_secular_dde_hre_imperial_01_artifact_entity
+}
+myrish_lace_visuals = {
+	icon = "artifact_fabric_roll.dds"
+	asset = ep1_generic_jewelry_01_a_entity
+}
+norvoshi_bear_carving_visuals = {
+	icon = "artifact_animal_figurine.dds"
+	asset = ep1_generic_jewelry_01_a_entity
+}
+pentoshi_cheese_visuals = {
+	icon = "artefact_icons_unique_artifact_cheese.dds"
+	asset = ep1_generic_jewelry_01_a_entity
+}
+weirwood_flute_visuals = {
+	icon = "weirwood_flute.dds"
+	asset = ep1_western_pouch_basic_01_a_entity
+}
+brewing_herbs_visuals = {
+	icon = "artifact_pouch.dds"
+	asset = ep1_western_pouch_basic_01_a_entity
+}
+krakenhorn = {
+	icon = "krakenhorn.dds"
+	asset = ep1_western_box_reliquary_01_a_entity
+}
+gold_leaves_visuals = {
+	icon = "gold_leaves.dds"
+	asset = artifact_gold_leaves_entity
+	pedestal = "tall_pillow"
+}
+bors_skull_visuals = {
+	icon = "bors_skull.dds"
+	asset = artifact_bors_skull_entity
+	pedestal = "tall_pillow"
+}
+stone_skin_club_visuals = {
+	icon = "artifact_medium_box.dds"
+	asset = ep1_western_box_reliquary_01_a_entity
+}
+herndons_horn_visuals = {
+	icon = "artifact_reliquary.dds"
+	asset = ep1_western_box_reliquary_01_a_entity
+}
+florys_cloak_01_visuals = {
+	icon = "artifact_reliquary.dds"
+	asset = ep1_western_box_reliquary_01_a_entity
+}
+florys_cloak_02_visuals = {
+	icon = "artifact_medium_box.dds"
+	asset = ep1_western_box_reliquary_01_a_entity
+}
+florys_cloak_03_visuals = {
+	icon = "artifact_small_box.dds"
+	asset = ep1_western_box_reliquary_01_a_entity
+}
+foss_bow_visuals = {
+	icon = "artifact_bow_mediterranean.dds"
+	asset = ep1_western_box_reliquary_01_a_entity
+}
+elenei_cloak_visuals = {
+	icon = "artifact_medium_box.dds"
+	asset = ep1_western_box_reliquary_01_a_entity
+}
+dondarrion_message_visuals = {
+	icon = "artifact_scroll.dds"
+	asset = ep1_western_box_reliquary_01_a_entity
+}
+flaying_knife_visuals = {
+	icon = "artifact_dagger.dds"
+	asset = ep1_western_box_reliquary_01_a_entity
+}
+falcon_knight_helm_visuals = {
+	icon = "falcon_knight_helm.dds"
+	asset = ep1_western_box_reliquary_01_a_entity
+}
+marsh_king_mount_visuals = {
+	icon = "artifact_reliquary.dds"
+	asset = ep1_western_box_reliquary_01_a_entity
+}
+horns_of_the_wood_visuals = {
+	icon = "artifact_reliquary.dds"
+	asset = ep1_western_box_reliquary_01_a_entity
+}
+green_hand_tabard_visuals = {
+	icon = "artifact_reliquary.dds"
+	asset = ep1_western_box_reliquary_01_a_entity
+}
