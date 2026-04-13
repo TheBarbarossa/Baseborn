@@ -736,7 +736,7 @@ Sixskins_2 = {
 	}
 	8298.1.1 = { death = yes }
 }
-Sixskins_3 = {
+Sixskins_3 = { # edited 04/13 slambroski
 	name = Varamyr # Canon
 
 	dna = Sixskins_3
@@ -751,6 +751,7 @@ Sixskins_3 = {
 
 	trait = education_martial_2
 	trait = education_martial_prowess_2
+	trait = bb_skinchanger_3
 	trait = arrogant
 	trait = ambitious
 	trait = vengeful
@@ -2286,7 +2287,7 @@ Hardhunter_2 = {
 		}
 	}
 }
-Hardhunter_3 = {
+Hardhunter_3 = { # edited 04/13 slambroski
 	name = Eyron # a lord
 	dynasty = dynn_Hardhunter
 
@@ -2299,6 +2300,7 @@ Hardhunter_3 = {
 	trait = ambitious
 
 	8245.1.1 = { birth = yes }
+	8277.1.1 = { add_spouse = Boarhell_7 }
 }
 ### Issue of Jeor
 Hardhunter_4 = {
@@ -2324,7 +2326,7 @@ Hardhunter_5 = {
 	8271.1.1 = { birth = yes }
 }
 ### Issue of Eyron
-Hardhunter_6 = {
+Hardhunter_6 = { # edited 04/13 slambroski
 	name = Toregg
 	dynasty = dynn_Hardhunter
 
@@ -2332,10 +2334,11 @@ Hardhunter_6 = {
 	culture = forestman
 
 	father = Hardhunter_3
+	mother = Boarhell_7
 
 	8279.1.1 = { birth = yes }
 }
-Hardhunter_7 = {
+Hardhunter_7 = { # edited 04/13 slambroski
 	name = Hali
 	dynasty = dynn_Hardhunter
 	female = yes
@@ -2344,6 +2347,7 @@ Hardhunter_7 = {
 	culture = forestman
 
 	father = Hardhunter_3
+	mother = Boarhell_7
 
 	8282.1.1 = { birth = yes }
 }
@@ -2843,19 +2847,21 @@ Rattleshirt_1 = {
 	}
 }
 ### The Weeper
-Weeper_1 = {
+Weeper_1 = { # edited 04/13 slambroski
 	name = Gendel # Canon, AKA: The Weeper, AKA: The Weeping Man, a lord
 	dynasty = dynn_Warriormane
 
 	dna = Weeper_1
 
 	martial = 6
+	prowess = 6
 
 	religion = old_gods_btw_fnf
 	culture = fangman
 
 	trait = education_martial_3
-	trait = education_martial_prowess_3
+	# trait = education_martial_prowess_3
+	trait = education_martial_prowess_4
 	trait = sadistic
 	trait = arrogant
 	trait = deceitful
@@ -2869,7 +2875,362 @@ Weeper_1 = {
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
+	8275.1.1 = { trait = education_martial_prowess_4 }
 	8279.1.1 = { give_nickname = nick_agot_historical_the_weeper_gendel }
+	#C8 S1
+	8300.4.1 = {
+		trait = berserker
+	}
+}
+# Weeper Wives
+Weeper_s_1 = { # created 02/01 slambroski
+	name = Chella
+	female = yes 
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	8260.1.1 = { birth = yes }
+	8277.1.1 = { add_spouse = Weeper_1 }
+	8283.1.1 = { death = { death_reason = death_ill } }
+}
+Weeper_s_2 = { # created 02/01 slambroski
+	name = Johssi
+	female = yes 
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	8269.1.1 = { birth = yes }
+	8286.1.1 = { add_spouse = Weeper_1 }
+}
+Weeper_s_3 = { # created 02/01 slambroski
+	name = Val
+	female = yes 
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	8276.1.1 = { birth = yes }
+	8293.1.1 = { add_spouse = Weeper_1 }
+}
+# Weeper Victims
+Weeper_m_1 = { # created 02/01 slambroski
+	name = Aisling
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = hill_clansman
+
+	8262.1.1 = { birth = yes }
+	8282.1.1 = { 
+		trait = blind
+		death = {
+			death_reason = death_torture
+			killer = Weeper_1 # the Weeper
+		}
+	}
+}
+Weeper_m_2 = { # created 02/01 slambroski
+	name = Lyanne
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = hill_clansman
+
+	8268.1.1 = { birth = yes }
+	8287.1.1 = { 
+		trait = blind
+		death = {
+			death_reason = death_torture
+			killer = Weeper_1 # the Weeper
+		}
+	}
+}
+Weeper_m_3 = { # created 02/01 slambroski
+	name = Tansy
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = hill_clansman
+
+	8267.1.1 = { birth = yes }
+	8290.1.1 = { 
+		trait = blind
+		death = {
+			death_reason = death_torture
+			killer = Weeper_1 # the Weeper
+		}
+	}
+}
+Weeper_m_4 = { # created 02/01 slambroski
+	name = Alysanne
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = hill_clansman
+
+	8271.1.1 = { birth = yes }
+	8290.2.1 = { 
+		trait = blind
+		death = {
+			death_reason = death_torture
+			killer = Weeper_1 # the Weeper
+		}
+	}
+}
+Weeper_m_5 = { # created 02/01 slambroski
+	name = Danny
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = hill_clansman
+
+	8278.1.1 = { birth = yes }
+	8295.1.1 = { 
+		trait = blind
+		death = {
+			death_reason = death_torture
+			killer = Weeper_1 # the Weeper
+		}
+	}
+}
+Weeper_m_6 = { # created 02/01 slambroski
+	name = Bennara
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = hill_clansman
+
+	8275.1.1 = { birth = yes }
+	8295.2.1 = { 
+		trait = blind
+		death = {
+			death_reason = death_torture
+			killer = Weeper_1 # the Weeper
+		}
+	}
+}
+Weeper_m_7 = { # created 02/01 slambroski
+	name = Eddara
+	female = yes 
+
+	religion = old_gods_wnw
+	culture = hill_clansman
+
+	8278.1.1 = { birth = yes }
+	8299.1.1 = { 
+		trait = blind
+		death = {
+			death_reason = death_torture
+			killer = Weeper_1 # the Weeper
+		}
+	}
+}
+# Weeper Children
+Weeper_2 = { # created 02/01 slambroski
+	name = Gaut
+	dynasty = dynn_Warriormane
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Weeper_1
+	mother = Weeper_s_1
+
+	8279.1.1 = { birth = yes }
+}
+Weeper_3 = { # created 02/01 slambroski
+	name = Rowan
+	dynasty = dynn_Warriormane
+	female = yes 
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Weeper_1
+	mother = Weeper_m_1
+
+	trait = wild_oat
+
+	8282.1.1 = { birth = yes }
+}
+Weeper_4 = { # created 02/01 slambroski
+	name = Orrin
+	dynasty = dynn_Warriormane
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Weeper_1
+	mother = Weeper_s_1
+
+	8282.8.1 = { birth = yes }
+	8299.1.1 = { death = { death_reason = death_battle } }
+}
+Weeper_5 = { # created 02/01 slambroski
+	name = Svenar
+	dynasty = dynn_Warriormane
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Weeper_1
+	mother = Flint_14 # Arya Flint
+
+	trait = wild_oat
+
+	8284.1.1 = { birth = yes }
+}
+Weeper_6 = { # created 02/01 slambroski
+	name = Kare
+	dynasty = dynn_Warriormane
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Weeper_1
+	mother = Weeper_m_2
+
+	trait = wild_oat
+
+	8287.1.1 = { birth = yes }
+}
+Weeper_7 = { # created 02/01 slambroski
+	name = Ryka
+	dynasty = dynn_Warriormane
+	female = yes
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Weeper_1
+	mother = Weeper_s_2
+
+	8288.1.1 = { birth = yes }
+}
+Weeper_8 = { # created 02/01 slambroski
+	name = Errika
+	dynasty = dynn_Warriormane
+	female = yes
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Weeper_1
+	mother = Weeper_m_3
+
+	trait = wild_oat
+
+	8290.1.1 = { birth = yes }
+}
+Weeper_9 = { # created 02/01 slambroski
+	name = Skar
+	dynasty = dynn_Warriormane
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Weeper_1
+	mother = Weeper_m_4
+
+	trait = wild_oat
+
+	8290.2.1 = { birth = yes }
+	8292.1.1 = { death = { death_reason = death_sickly } }
+}
+Weeper_10 = { # created 02/01 slambroski
+	name = Throst
+	dynasty = dynn_Warriormane
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Weeper_1
+	mother = Weeper_s_2
+
+	8292.1.1 = { birth = yes }
+}
+Weeper_11 = { # created 02/01 slambroski
+	name = Gerin
+	dynasty = dynn_Warriormane
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Weeper_1
+	mother = Weeper_s_3
+
+	8294.6.1 = { birth = yes }
+}
+Weeper_12 = { # created 02/01 slambroski
+	name = Munda
+	dynasty = dynn_Warriormane
+	female = yes
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Weeper_1
+	mother = Weeper_m_5
+
+	trait = wild_oat
+
+	8295.1.1 = { birth = yes }
+}
+Weeper_13 = { # created 02/01 slambroski
+	name = Halleck
+	dynasty = dynn_Warriormane
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Weeper_1
+	mother = Weeper_m_6
+
+	trait = wild_oat
+
+	8295.2.1 = { birth = yes }
+}
+Weeper_14 = { # created 02/01 slambroski
+	name = Frenya
+	dynasty = dynn_Warriormane
+	female = yes 
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Weeper_1
+	mother = Weeper_s_3
+
+	8297.1.1 = { birth = yes }
+}
+Weeper_15 = { # created 02/01 slambroski
+	name = Ygritte
+	dynasty = dynn_Warriormane
+	female = yes 
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Weeper_1
+	mother = Weeper_s_2
+
+	8298.1.1 = { birth = yes }
+}
+Weeper_16 = { # created 02/01 slambroski
+	name = Doss
+	dynasty = dynn_Warriormane
+
+	religion = old_gods_btw_fnf
+	culture = fangman
+
+	father = Weeper_1
+	mother = Weeper_m_7
+
+	trait = wild_oat
+
+	8299.1.1 = { birth = yes }
 }
 ### Devyn Sealskinner
 Sealskinner_1 = {
@@ -2895,7 +3256,28 @@ Sealskinner_1 = {
 	}
 	8279.1.1 = { give_nickname = nick_agot_historical_sealskinner }
 }
-Sealskinner_2 = {
+Sealskinner_s_1 = { # created 02/01 slambroski
+	name = Tansa
+	female = yes
+
+	religion = old_gods_btw_sni
+	culture = forestman
+
+	8260.1.1 = { birth = yes }
+	8283.1.1 = { add_spouse = Sealskinner_1 }
+}
+Sealskinner_m_1 = { # created 02/01 slambroski
+	name = Olma
+	female = yes
+
+	religion = old_gods_btw_sni
+	culture = forestman
+
+	8268.1.1 = { birth = yes }
+	8287.1.1 = { add_spouse = Sealskinner_1 }
+}
+### Issue of Devyn
+Sealskinner_2 = { # edited 04/13 slambroski
 	name = Rory # Mentioned
 	dynasty = dynn_Iceguard
 
@@ -2913,13 +3295,13 @@ Sealskinner_2 = {
 	trait = twin
 	trait = brave
 
-	8285.1.1 = {
+	8285.6.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 	8300.8.17 = { employer = Sealskinner_1 } # Devyn Sealskinner
 }
-Sealskinner_3 = {
+Sealskinner_3 = { # edited 04/13 slambroski
 	name = Cory # Mentioned
 	dynasty = dynn_Iceguard
 
@@ -2937,7 +3319,7 @@ Sealskinner_3 = {
 	trait = twin
 	trait = brave
 
-	8289.1.1 = {
+	8285.6.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
@@ -2947,6 +3329,63 @@ Sealskinner_3 = {
 				WARDEN = title:k_the_wall.holder
 			}
 		}
+	}
+}
+Sealskinner_4 = { # created 02/01 slambroski
+	name = Hrolf
+	dynasty = dynn_Iceguard
+
+	religion = old_gods_btw_sni
+	culture = forestman
+
+	father = Sealskinner_1
+	mother = Sealskinner_m_1
+
+	8288.1.1 = {
+		birth = yes
+	}
+}
+Sealskinner_5 = { # created 02/01 slambroski
+	name = Lenn
+	dynasty = dynn_Iceguard
+
+	religion = old_gods_btw_sni
+	culture = forestman
+
+	father = Sealskinner_1
+	mother = Sealskinner_s_1
+
+	8290.1.1 = {
+		birth = yes
+	}
+}
+Sealskinner_6 = { # created 02/01 slambroski
+	name = Efla
+	dynasty = dynn_Iceguard
+	female = yes 
+
+	religion = old_gods_btw_sni
+	culture = forestman
+
+	father = Sealskinner_1
+	mother = Sealskinner_m_1
+
+	8294.1.1 = {
+		birth = yes
+	}
+}
+Sealskinner_7 = { # created 02/01 slambroski
+	name = Haggon
+	dynasty = dynn_Iceguard
+
+	religion = old_gods_btw_sni
+	culture = forestman
+
+	father = Sealskinner_1
+	mother = Sealskinner_s_1
+
+	8296.6.1 = {
+		birth = yes
 	}
 }
 ### Morna White-Mask
