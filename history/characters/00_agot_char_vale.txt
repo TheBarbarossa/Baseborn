@@ -6044,7 +6044,10 @@ Templeton_3 = {
 	}
 	8287.1.1 = { add_spouse = Wydman_3 } # Ysilla Wydman
 	8300.5.1 = {
-		death = { death_reason = death_horse }
+		death = {
+			death_reason = death_battle
+			killer = Knight_Vale_3
+		}
 	}
 }
 ### Household
@@ -8568,6 +8571,12 @@ Knight_Vale_3 = {
 	# 8299.9.8 = { employer = Baratheon_5 } # Joffrey Baratheon
 	# 8300.1.1 = { employer = Baratheon_7 } # Tommen Baratheon
 	# 8300.5.14 = { employer = Baelish_2 } # Petyr Baelish
+	8300.5.1 = {
+        death = {
+            death_reason = death_battle
+            killer = Templeton_3
+        }
+    }
 }
 Knight_Vale_4 = {
 	name = Byron # Canon, AKA: Byron the Beautiful
@@ -8648,7 +8657,40 @@ Knight_Vale_6 = {
 	}
 	8220.1.1 = { death = yes }
 }
+Knight_Vale_7 = {
+	name = Rolland
 
+	prowess = 8
+	martial = 5
+
+	religion = fots_seven
+	culture = crownlander
+
+	trait = education_martial_2
+	trait = callous
+	trait = ambitious
+	trait = deceitful
+	trait = education_martial_prowess_2
+
+	disallow_random_traits = yes
+
+	8270.1.1 = {
+		birth = yes
+		make_trait_inactive = scripted_appearance
+		add_character_flag = canon_status_canon
+		set_to_lowborn = yes
+	}
+	8295.1.1 = {
+		trait = knight
+	}
+	8300.5.1 = {
+		trait = wounded_2
+        death = {
+            death_reason = death_battle
+            killer = Stewart_66
+        }		
+	}
+}
 
 ############################    MOUNTAINS OF THE MOON   ############################
 ####################################################################################
