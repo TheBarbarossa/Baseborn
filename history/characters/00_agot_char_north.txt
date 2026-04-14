@@ -5596,7 +5596,17 @@ Bolton_5 = { # edited 03/19 slambroski
 			agot_safe_betrothal_history_effect = { TARGET = character:Poole_Dummy_3 } # Jeyne Pool as Arya Stark
 		}
 	}
-	8300.6.14 = { add_spouse = Poole_Dummy_3 } # Jeyne Pool as Arya Stark
+	8300.5.1 = {
+		effect = {
+			if = {
+				limit = { character:Greyjoy_14 = { is_alive = yes } }
+				add_hook = {
+					target = character:Greyjoy_14 # Lysa Tully
+					type = loyalty_hook
+				}
+			}
+		}
+	}	
 }
 ### Ramsay's Mother & Family
 Miller_Wife_1 = { # created 02/24 slambroski
