@@ -1,0 +1,4317 @@
+﻿k_myr = {
+	7800.1.1 = {
+		government = administrative_government
+		effect = {
+			# Law Setup for Myr
+			holder ?= {
+				if = {
+					limit = {
+						NOT = { has_realm_law = free_city_election_succession_law }
+					}
+					add_realm_law_skip_effects = free_city_election_succession_law
+				}
+				# Term Length Laws
+				if = {
+					limit = {
+						NOT = { has_realm_law = term_length_historical }
+					}
+					add_realm_law_skip_effects = term_length_historical
+				}
+				# Francise Laws
+				if = {
+					limit = {
+						NOT = { has_realm_law = franchise_lean_aristocratic }
+					}
+					add_realm_law_skip_effects = franchise_lean_aristocratic
+				}
+				# Policy Laws
+				if = {
+					limit = {
+						NOT = { has_realm_law = policy_lean_mercantile }
+					}
+					add_realm_law_skip_effects = policy_lean_mercantile
+				}
+				# Slavery Laws
+				if = {
+					limit = {
+						NOT = { has_realm_law = slavery_allowed_law }
+					}
+					add_realm_law_skip_effects = slavery_allowed_law
+				}
+			}
+			every_in_de_jure_hierarchy = {
+				set_variable = historical_slavery
+				holder ?= {
+					if = {
+						limit = {
+							NOT = { has_realm_law = slavery_allowed_law }
+						}
+						add_realm_law_skip_effects = slavery_allowed_law
+					}
+				}
+			}
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7827.1.1 = { # Initial Election
+		holder = Myrahar_21
+	}
+	7831.1.1 = { # Magistrate has died
+		holder = Unerelos_19
+	}
+	7833.1.1 = { # Magistrate has died
+		holder = Drahar_20
+	}
+	7838.1.1 = { # Magistrate has died
+		holder = Drahar_6
+	}
+	7844.1.1 = { # Term has ended
+		holder = Mercor_20
+	}
+	7845.1.1 = { # Magistrate has died
+		holder = Mallar_8
+	}
+	7851.1.1 = { # Term has ended
+		holder = Saldorys_6
+	}
+	7857.1.1 = { # Term has ended
+		holder = Rhegan_6
+	}
+	7863.1.1 = { # Term has ended
+		holder = Mercor_7
+	}
+	7869.1.1 = { # Term has ended
+		holder = Rynhar_5
+	}
+	7875.1.1 = { # Term has ended
+		holder = Annadho_3
+	}
+	7881.1.1 = { # Term has ended
+		holder = Sordios_12
+	}
+	7886.1.1 = { # Early Election
+		holder = Valduran_58
+	}
+	7892.1.1 = { # Term has ended
+		holder = Rynhar_7
+	}
+	7893.1.1 = { # Magistrate has died
+		holder = Devaeran_1
+	}
+	7894.1.1 = { # Magistrate has died
+		holder = Abersys_11
+	}
+	7900.1.1 = { # Term has ended
+		holder = Lavelos_14
+	}
+	7906.1.1 = { # Term has ended
+		holder = Curaze_15
+	}
+	7912.1.1 = { # Term has ended
+		holder = Naelor_48
+	}
+	7918.1.1 = { # Term has ended
+		holder = Valduran_62
+	}
+	7924.1.1 = { # Term has ended
+		holder = Abersys_12
+	}
+	7930.1.1 = { # Term has ended
+		holder = Varghan_15
+	}
+	7936.1.1 = { # Term has ended
+		holder = Valduran_62
+	}
+	7942.1.1 = { # Term has ended
+		holder = Annadho_10
+	}
+	7948.1.1 = { # Term has ended
+		holder = Lavelos_18
+	}
+	7954.1.1 = { # Term has ended
+		holder = Valduran_62 # Important
+	}
+	7956.5.2 = { # Magistrate executed by Volantene
+		holder = Mercor_14
+		# liege = e_volantis
+	}
+	7959.1.1 = { # Magistrate has died
+		holder = Breneyan_23
+	}
+	7965.1.1 = { # Term has ended
+		holder = Nericos_14
+	}
+	7971.1.1 = { # Term has ended
+		holder = Annadho_10
+	}
+	7972.1.1 = { # Magistrate has died
+		holder = Drahar_16
+	}
+	7978.1.1 = { # Term has ended
+		holder = Mallar_14
+	}
+	7984.1.1 = { # Term has ended
+		holder = Drahar_46
+	}
+	7990.1.1 = { # Term has ended
+		holder = Annadho_11 # Important
+	}
+	7992.12.3 = { # Revolt
+		holder = Unerelos_17 # Important
+		# liege = 0
+	}
+	7999.1.1 = { # Term has ended
+		holder = Berradho_14 # Important
+	}
+	8002.2.2 = { # Magistrate has died
+		holder = Drahar_50 # Important, Sea Faction
+	}
+	8009.1.1 = { # Term has ended
+		holder = Nericos_16 # Old Blood Faction
+	}
+	8013.1.1 = { # Magistrate has died
+		holder = Mallar_18 # Old Blood Faction
+	}
+	8019.1.1 = { # Term has ended
+		holder = Drahar_50 # Sea Faction
+	}
+	8024.1.1 = { # Magistrate has died
+		holder = Varghan_45 # Old Blood Faction
+	}
+	8028.1.1 = { # Magistrate has died
+		holder = Valduran_72 # Old Blood Faction
+	}
+	8034.1.1 = { # Term has ended
+		holder = Deorel_53 # Sea Faction
+	}
+	8035.1.1 = { # Magistrate has died
+		holder = Rhegan_50 # Sea Faction
+	}
+	8036.1.1 = { # Magistrate has died
+		holder = Naelor_54 # Sea Faction
+	}
+	8042.1.1 = { # Term has ended
+		holder = Valduran_77 # Old Blood Faction
+	}
+	8048.1.1 = { # Term has ended
+		holder = Varghan_48 # Old Blood Faction
+	}
+	8054.1.1 = { # Term has ended
+		holder = Naelor_11 # Sea Faction
+	}
+	8060.1.1 = { # Term has ended
+		holder = Nericos_25 # Old Blood Faction
+	}
+	8066.1.1 = { # Term has ended
+		holder = Valduran_84 # Old Blood Faction
+	}
+	8072.1.1 = { # Term has ended
+		holder = Drahar_56 # Sea Faction
+	}
+	8078.1.1 = { # Term has ended
+		holder = Lavelos_62 # Important, Sea Faction
+	}
+	8084.1.1 = { # Term has ended
+		holder = Nericos_29 # Important, Old Blood Faction
+	}
+	8090.1.1 = { # Term has ended
+		holder = Lavelos_62 # Important, Sea Faction
+	}
+	8091.1.22 = { # Violent takeover
+		holder = Nericos_29 # Important, Old Blood Faction
+	}
+	8091.4.9 = { # Violent takeover
+		holder = Lavelos_62 # Important, Sea Faction
+	}
+	8093.1.1 = { # Magistrate has died
+		holder = Rhegan_56 # Sea Faction
+	}
+	8096.8.13 = {
+		# Triarchy is formed, leaving empty bracket for reference
+	}
+	8099.1.1 = { # Term has ended
+		holder = Mercor_67
+	}
+	8105.1.1 = { # Term has ended
+		holder = Naelor_9 # Important
+	}
+	8111.1.1 = { # Term has ended
+		holder = Curaze_40
+	}
+	8117.1.1 = { # Term has ended
+		holder = Sordios_76
+	}
+	8123.1.1 = { # Term has ended
+		holder = Deorel_61
+	}
+	8127.1.1 = { # Magistrate has died
+		holder = Mallar_79
+	}
+	8132.1.1 = {
+		liege = 0
+	}
+	8133.1.1 = { # Term has ended
+		holder = Naelor_8
+	}
+	8139.1.1 = { # Term has ended
+		holder = Lavelos_82
+	}
+	8145.1.1 = { # Term has ended
+		holder = Rhegan_58
+	}
+	8151.1.1 = { # Term has ended
+		holder = Vaelos_40
+	}
+	8157.1.1 = { # Term has ended
+		holder = Abersys_85
+	}
+	8163.1.1 = { # Term has ended
+		holder = Rhegan_59
+	}
+	8169.1.1 = { # Term has ended
+		holder = Drahar_69
+	}
+	8175.1.1 = { # Term has ended
+		holder = Mercor_76
+	}
+	8181.1.1 = { # Term has ended
+		holder = Drahar_73
+	}
+	8187.1.1 = { # Term has ended
+		holder = Allegel_5
+	}
+	8193.1.1 = { # Term has ended
+		holder = Mallar_5
+	}
+	8199.1.1 = { # Term has ended
+		holder = Mercor_5
+	}
+	8205.1.1 = { # Term has ended
+		holder = Abersys_4
+	}
+	8211.1.1 = { # Term has ended
+		holder = Berradho_57
+	}
+	8212.1.1 = { # Magistrate has died
+		holder = Mallar_5
+	}
+	8218.1.1 = { # Term has ended
+		holder = Rhegan_5
+	}
+	8221.2.11 = { # Magistrate has died
+		holder = Abersys_4
+	}
+	8226.1.1 = { # Magistrate has died
+		holder = Mallar_5
+	}
+	8228.1.1 = { # Magistrate has died
+		holder = Allegel_4
+	}
+	8230.1.1 = { # Magistrate has died
+		holder = Myrahar_2
+	}
+	8236.1.1 = { # Term has ended
+		holder = Sordios_4
+	}
+	8239.1.1 = { # Magistrate has died
+		holder = Mallar_3
+	}
+	8240.1.1 = { # Magistrate has died
+		holder = Rhegan_4
+	}
+	8246.1.1 = { # Term has ended
+		holder = Valduran_3
+	}
+	8250.1.1 = { # Magistrate has died
+		holder = Rhegan_3
+	}
+	8256.1.1 = { # Term has ended
+		holder = Mercor_3
+	}
+	8259.1.1 = { # Pay tribute to Maelys to goad him into fighting Stepstones instead
+		effect = {
+			holder ?= {
+				agot_safe_add_timed_tribuatry_history_effect = {
+					EXPIRE = 8260.10.1
+					SUZERAIN = title:e_blackfyre_rebellion
+				}
+			}
+		}
+	}
+	8262.1.1 = { # Term has ended
+		holder = Varghan_2
+	}
+	8268.1.1 = { # Term has ended
+		holder = Abersys_2
+	}
+	8271.1.1 = { # Magistrate has died
+		holder = Naelor_1
+	}
+	8277.1.1 = { # Term has ended
+		holder = Abersys_1
+	}
+	8283.1.1 = { # Term has ended
+		holder = Breneyan_112
+	}
+	8289.1.1 = { # Term has ended
+		holder = Sordios_1
+	}
+	8295.1.1 = { # Term has ended
+		holder = Mercor_1
+	}
+}
+d_myr = {
+	7800.1.1 = {
+		succession_laws = { magisterial_attached_titles_law }
+		government = administrative_government
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = { has_realm_law = free_city_election_succession_law }
+					}
+					add_realm_law_skip_effects = free_city_election_succession_law
+				}
+			}
+			add_title_law = magisterial_attached_titles_law
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7827.1.1 = { # Initial Election
+		liege = k_myr
+		holder = Myrahar_21
+	}
+	7831.1.1 = { # Magistrate has died
+		holder = Unerelos_19
+	}
+	7833.1.1 = { # Magistrate has died
+		holder = Drahar_20
+	}
+	7838.1.1 = { # Magistrate has died
+		holder = Drahar_6
+	}
+	7844.1.1 = { # Term has ended
+		holder = Mercor_20
+	}
+	7845.1.1 = { # Magistrate has died
+		holder = Mallar_8
+	}
+	7851.1.1 = { # Term has ended
+		holder = Saldorys_6
+	}
+	7857.1.1 = { # Term has ended
+		holder = Rhegan_6
+	}
+	7863.1.1 = { # Term has ended
+		holder = Mercor_7
+	}
+	7869.1.1 = { # Term has ended
+		holder = Rynhar_5
+	}
+	7875.1.1 = { # Term has ended
+		holder = Annadho_3
+	}
+	7881.1.1 = { # Term has ended
+		holder = Sordios_12
+	}
+	7886.1.1 = { # Early Election
+		holder = Valduran_58
+	}
+	7892.1.1 = { # Term has ended
+		holder = Rynhar_7
+	}
+	7893.1.1 = { # Magistrate has died
+		holder = Devaeran_1
+	}
+	7894.1.1 = { # Magistrate has died
+		holder = Abersys_11
+	}
+	7900.1.1 = { # Term has ended
+		holder = Lavelos_14
+	}
+	7906.1.1 = { # Term has ended
+		holder = Curaze_15
+	}
+	7912.1.1 = { # Term has ended
+		holder = Naelor_48
+	}
+	7918.1.1 = { # Term has ended
+		holder = Valduran_62
+	}
+	7924.1.1 = { # Term has ended
+		holder = Abersys_12
+	}
+	7930.1.1 = { # Term has ended
+		holder = Varghan_15
+	}
+	7936.1.1 = { # Term has ended
+		holder = Valduran_62
+	}
+	7942.1.1 = { # Term has ended
+		holder = Annadho_10
+	}
+	7948.1.1 = { # Term has ended
+		holder = Lavelos_18
+	}
+	7954.1.1 = { # Term has ended
+		holder = Valduran_62
+	}
+	7956.5.2 = { # Magistrate executed by Volantene
+		holder = Mercor_14
+	}
+	7959.1.1 = { # Magistrate has died
+		holder = Breneyan_23
+	}
+	7965.1.1 = { # Term has ended
+		holder = Nericos_14
+	}
+	7971.1.1 = { # Term has ended
+		holder = Annadho_10
+	}
+	7972.1.1 = { # Magistrate has died
+		holder = Drahar_16
+	}
+	7978.1.1 = { # Term has ended
+		holder = Mallar_14
+	}
+	7984.1.1 = { # Term has ended
+		holder = Drahar_46
+	}
+	7990.1.1 = { # Term has ended
+		holder = Annadho_11
+	}
+	7992.12.3 = { # Revolt
+		holder = Unerelos_17
+	}
+	7999.1.1 = { # Term has ended
+		holder = Berradho_14
+	}
+	8002.2.2 = { # Magistrate has died
+		holder = Drahar_50
+	}
+	8009.1.1 = { # Term has ended
+		holder = Nericos_16
+	}
+	8013.1.1 = { # Magistrate has died
+		holder = Mallar_18
+	}
+	8019.1.1 = { # Term has ended
+		holder = Drahar_50
+	}
+	8024.1.1 = { # Magistrate has died
+		holder = Varghan_45
+	}
+	8028.1.1 = { # Magistrate has died
+		holder = Valduran_72
+	}
+	8034.1.1 = { # Term has ended
+		holder = Deorel_53
+	}
+	8035.1.1 = { # Magistrate has died
+		holder = Rhegan_50
+	}
+	8036.1.1 = { # Magistrate has died
+		holder = Naelor_54
+	}
+	8042.1.1 = { # Term has ended
+		holder = Valduran_77
+	}
+	8048.1.1 = { # Term has ended
+		holder = Varghan_48
+	}
+	8054.1.1 = { # Term has ended
+		holder = Naelor_11
+	}
+	8060.1.1 = { # Term has ended
+		holder = Nericos_25
+	}
+	8066.1.1 = { # Term has ended
+		holder = Valduran_84
+	}
+	8072.1.1 = { # Term has ended
+		holder = Drahar_56
+	}
+	8078.1.1 = { # Term has ended
+		holder = Lavelos_62
+	}
+	8084.1.1 = { # Term has ended
+		holder = Nericos_29
+	}
+	8090.1.1 = { # Term has ended
+		holder = Lavelos_62
+	}
+	8093.1.1 = { # Magistrate has died
+		holder = Rhegan_56
+	}
+	8099.1.1 = { # Term has ended
+		holder = Mercor_67
+	}
+	8105.1.1 = { # Term has ended
+		holder = Naelor_9 # Important
+	}
+	8111.1.1 = { # Term has ended
+		holder = Curaze_40
+	}
+	8117.1.1 = { # Term has ended
+		holder = Sordios_76
+	}
+	8123.1.1 = { # Term has ended
+		holder = Deorel_61
+	}
+	8127.1.1 = { # Magistrate has died
+		holder = Mallar_79
+	}
+	8133.1.1 = { # Term has ended
+		holder = Naelor_8
+	}
+	8139.1.1 = { # Term has ended
+		holder = Lavelos_82
+	}
+	8145.1.1 = { # Term has ended
+		holder = Rhegan_58
+	}
+	8151.1.1 = { # Term has ended
+		holder = Vaelos_40
+	}
+	8157.1.1 = { # Term has ended
+		holder = Abersys_85
+	}
+	8163.1.1 = { # Term has ended
+		holder = Rhegan_59
+	}
+	8169.1.1 = { # Term has ended
+		holder = Drahar_69
+	}
+	8175.1.1 = { # Term has ended
+		holder = Mercor_76
+	}
+	8181.1.1 = { # Term has ended
+		holder = Drahar_73
+	}
+	8187.1.1 = { # Term has ended
+		holder = Allegel_5
+	}
+	8193.1.1 = { # Term has ended
+		holder = Mallar_5
+	}
+	8199.1.1 = { # Term has ended
+		holder = Mercor_5
+	}
+	8205.1.1 = { # Term has ended
+		holder = Abersys_4
+	}
+	8211.1.1 = { # Term has ended
+		holder = Berradho_57
+	}
+	8212.1.1 = { # Magistrate has died
+		holder = Mallar_5
+	}
+	8218.1.1 = { # Term has ended
+		holder = Rhegan_5
+	}
+	8221.2.11 = { # Magistrate has died
+		holder = Abersys_4
+	}
+	8226.1.1 = { # Magistrate has died
+		holder = Mallar_5
+	}
+	8228.1.1 = { # Magistrate has died
+		holder = Allegel_4
+	}
+	8230.1.1 = { # Magistrate has died
+		holder = Myrahar_2
+	}
+	8236.1.1 = { # Term has ended
+		holder = Sordios_4
+	}
+	8239.1.1 = { # Magistrate has died
+		holder = Mallar_3
+	}
+	8240.1.1 = { # Magistrate has died
+		holder = Rhegan_4
+	}
+	8246.1.1 = { # Term has ended
+		holder = Valduran_3
+	}
+	8250.1.1 = { # Magistrate has died
+		holder = Rhegan_3
+	}
+	8256.1.1 = { # Term has ended
+		holder = Mercor_3
+	}
+	8262.1.1 = { # Term has ended
+		holder = Varghan_2
+	}
+	8268.1.1 = { # Term has ended
+		holder = Abersys_2
+	}
+	8271.1.1 = { # Magistrate has died
+		holder = Naelor_1
+	}
+	8277.1.1 = { # Term has ended
+		holder = Abersys_1
+	}
+	8283.1.1 = { # Term has ended
+		holder = Breneyan_112
+	}
+	8289.1.1 = { # Term has ended
+		holder = Sordios_1
+	}
+	8295.1.1 = { # Term has ended
+		holder = Mercor_1
+	}
+}
+c_myr = {
+	7800.1.1 = {
+		succession_laws = { magisterial_attached_titles_law }
+		government = administrative_government
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = { has_realm_law = free_city_election_succession_law }
+					}
+					add_realm_law_skip_effects = free_city_election_succession_law
+				}
+			}
+			add_title_law = magisterial_attached_titles_law
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7827.1.1 = { # Initial Election
+		liege = d_myr
+		holder = Myrahar_21
+	}
+	7831.1.1 = { # Magistrate has died
+		holder = Unerelos_19
+	}
+	7833.1.1 = { # Magistrate has died
+		holder = Drahar_20
+	}
+	7838.1.1 = { # Magistrate has died
+		holder = Drahar_6
+	}
+	7844.1.1 = { # Term has ended
+		holder = Mercor_20
+	}
+	7845.1.1 = { # Magistrate has died
+		holder = Mallar_8
+	}
+	7851.1.1 = { # Term has ended
+		holder = Saldorys_6
+	}
+	7857.1.1 = { # Term has ended
+		holder = Rhegan_6
+	}
+	7863.1.1 = { # Term has ended
+		holder = Mercor_7
+	}
+	7869.1.1 = { # Term has ended
+		holder = Rynhar_5
+	}
+	7875.1.1 = { # Term has ended
+		holder = Annadho_3
+	}
+	7881.1.1 = { # Term has ended
+		holder = Sordios_12
+	}
+	7886.1.1 = { # Early Election
+		holder = Valduran_58
+	}
+	7892.1.1 = { # Term has ended
+		holder = Rynhar_7
+	}
+	7893.1.1 = { # Magistrate has died
+		holder = Devaeran_1
+	}
+	7894.1.1 = { # Magistrate has died
+		holder = Abersys_11
+	}
+	7900.1.1 = { # Term has ended
+		holder = Lavelos_14
+	}
+	7906.1.1 = { # Term has ended
+		holder = Curaze_15
+	}
+	7912.1.1 = { # Term has ended
+		holder = Naelor_48
+	}
+	7918.1.1 = { # Term has ended
+		holder = Valduran_62
+	}
+	7924.1.1 = { # Term has ended
+		holder = Abersys_12
+	}
+	7930.1.1 = { # Term has ended
+		holder = Varghan_15
+	}
+	7936.1.1 = { # Term has ended
+		holder = Valduran_62
+	}
+	7942.1.1 = { # Term has ended
+		holder = Annadho_10
+	}
+	7948.1.1 = { # Term has ended
+		holder = Lavelos_18
+	}
+	7954.1.1 = { # Term has ended
+		holder = Valduran_62
+	}
+	7956.5.2 = { # Magistrate executed by Volantene
+		holder = Mercor_14
+	}
+	7959.1.1 = { # Magistrate has died
+		holder = Breneyan_23
+	}
+	7965.1.1 = { # Term has ended
+		holder = Nericos_14
+	}
+	7971.1.1 = { # Term has ended
+		holder = Annadho_10
+	}
+	7972.1.1 = { # Magistrate has died
+		holder = Drahar_16
+	}
+	7978.1.1 = { # Term has ended
+		holder = Mallar_14
+	}
+	7984.1.1 = { # Term has ended
+		holder = Drahar_46
+	}
+	7990.1.1 = { # Term has ended
+		holder = Annadho_11
+	}
+	7992.12.3 = { # Revolt
+		holder = Unerelos_17
+	}
+	7999.1.1 = { # Term has ended
+		holder = Berradho_14
+	}
+	8002.2.2 = { # Magistrate has died
+		holder = Drahar_50
+	}
+	8009.1.1 = { # Term has ended
+		holder = Nericos_16
+	}
+	8013.1.1 = { # Magistrate has died
+		holder = Mallar_18
+	}
+	8019.1.1 = { # Term has ended
+		holder = Drahar_50
+	}
+	8024.1.1 = { # Magistrate has died
+		holder = Varghan_45
+	}
+	8028.1.1 = { # Magistrate has died
+		holder = Valduran_72
+	}
+	8034.1.1 = { # Term has ended
+		holder = Deorel_53
+	}
+	8035.1.1 = { # Magistrate has died
+		holder = Rhegan_50
+	}
+	8036.1.1 = { # Magistrate has died
+		holder = Naelor_54
+	}
+	8042.1.1 = { # Term has ended
+		holder = Valduran_77
+	}
+	8048.1.1 = { # Term has ended
+		holder = Varghan_48
+	}
+	8054.1.1 = { # Term has ended
+		holder = Naelor_11
+	}
+	8060.1.1 = { # Term has ended
+		holder = Nericos_25
+	}
+	8066.1.1 = { # Term has ended
+		holder = Valduran_84
+	}
+	8072.1.1 = { # Term has ended
+		holder = Drahar_56
+	}
+	8078.1.1 = { # Term has ended
+		holder = Lavelos_62
+	}
+	8084.1.1 = { # Term has ended
+		holder = Nericos_29
+	}
+	8090.1.1 = { # Term has ended
+		holder = Lavelos_62
+	}
+	8093.1.1 = { # Magistrate has died
+		holder = Rhegan_56
+	}
+	8099.1.1 = { # Term has ended
+		holder = Mercor_67
+	}
+	8105.1.1 = { # Term has ended
+		holder = Naelor_9 # Important
+	}
+	8111.1.1 = { # Term has ended
+		holder = Curaze_40
+	}
+	8117.1.1 = { # Term has ended
+		holder = Sordios_76
+	}
+	8123.1.1 = { # Term has ended
+		holder = Deorel_61
+	}
+	8127.1.1 = { # Magistrate has died
+		holder = Mallar_79
+	}
+	8133.1.1 = { # Term has ended
+		holder = Naelor_8
+	}
+	8139.1.1 = { # Term has ended
+		holder = Lavelos_82
+	}
+	8145.1.1 = { # Term has ended
+		holder = Rhegan_58
+	}
+	8151.1.1 = { # Term has ended
+		holder = Vaelos_40
+	}
+	8157.1.1 = { # Term has ended
+		holder = Abersys_85
+	}
+	8163.1.1 = { # Term has ended
+		holder = Rhegan_59
+	}
+	8169.1.1 = { # Term has ended
+		holder = Drahar_69
+	}
+	8175.1.1 = { # Term has ended
+		holder = Mercor_76
+	}
+	8181.1.1 = { # Term has ended
+		holder = Drahar_73
+	}
+	8187.1.1 = { # Term has ended
+		holder = Allegel_5
+	}
+	8193.1.1 = { # Term has ended
+		holder = Mallar_5
+	}
+	8199.1.1 = { # Term has ended
+		holder = Mercor_5
+	}
+	8205.1.1 = { # Term has ended
+		holder = Abersys_4
+	}
+	8211.1.1 = { # Term has ended
+		holder = Berradho_57
+	}
+	8212.1.1 = { # Magistrate has died
+		holder = Mallar_5
+	}
+	8218.1.1 = { # Term has ended
+		holder = Rhegan_5
+	}
+	8221.2.11 = { # Magistrate has died
+		holder = Abersys_4
+	}
+	8226.1.1 = { # Magistrate has died
+		holder = Mallar_5
+	}
+	8228.1.1 = { # Magistrate has died
+		holder = Allegel_4
+	}
+	8230.1.1 = { # Magistrate has died
+		holder = Myrahar_2
+	}
+	8236.1.1 = { # Term has ended
+		holder = Sordios_4
+	}
+	8239.1.1 = { # Magistrate has died
+		holder = Mallar_3
+	}
+	8240.1.1 = { # Magistrate has died
+		holder = Rhegan_4
+	}
+	8246.1.1 = { # Term has ended
+		holder = Valduran_3
+	}
+	8250.1.1 = { # Magistrate has died
+		holder = Rhegan_3
+	}
+	8256.1.1 = { # Term has ended
+		holder = Mercor_3
+	}
+	8262.1.1 = { # Term has ended
+		holder = Varghan_2
+	}
+	8268.1.1 = { # Term has ended
+		holder = Abersys_2
+	}
+	8271.1.1 = { # Magistrate has died
+		holder = Naelor_1
+	}
+	8277.1.1 = { # Term has ended
+		holder = Abersys_1
+	}
+	8283.1.1 = { # Term has ended
+		holder = Breneyan_112
+	}
+	8289.1.1 = { # Term has ended
+		holder = Sordios_1
+	}
+	8295.1.1 = { # Term has ended
+		holder = Mercor_1
+	}
+}
+c_myrish_docks = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_myr
+		effect = {
+			add_title_law = magisterial_attached_titles_law
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7827.1.1 = { # Initial Election
+		liege = d_myr
+		holder = Myrahar_21
+	}
+	7831.1.1 = { # Magistrate has died
+		holder = Unerelos_19
+	}
+	7833.1.1 = { # Magistrate has died
+		holder = Drahar_20
+	}
+	7838.1.1 = { # Magistrate has died
+		holder = Drahar_6
+	}
+	7844.1.1 = { # Term has ended
+		holder = Mercor_20
+	}
+	7845.1.1 = { # Magistrate has died
+		holder = Mallar_8
+	}
+	7851.1.1 = { # Term has ended
+		holder = Saldorys_6
+	}
+	7857.1.1 = { # Term has ended
+		holder = Rhegan_6
+	}
+	7863.1.1 = { # Term has ended
+		holder = Mercor_7
+	}
+	7869.1.1 = { # Term has ended
+		holder = Rynhar_5
+	}
+	7875.1.1 = { # Term has ended
+		holder = Annadho_3
+	}
+	7881.1.1 = { # Term has ended
+		holder = Sordios_12
+	}
+	7886.1.1 = { # Early Election
+		holder = Valduran_58
+	}
+	7892.1.1 = { # Term has ended
+		holder = Rynhar_7
+	}
+	7893.1.1 = { # Magistrate has died
+		holder = Devaeran_1
+	}
+	7894.1.1 = { # Magistrate has died
+		holder = Abersys_11
+	}
+	7900.1.1 = { # Term has ended
+		holder = Lavelos_14
+	}
+	7906.1.1 = { # Term has ended
+		holder = Curaze_15
+	}
+	7912.1.1 = { # Term has ended
+		holder = Naelor_48
+	}
+	7918.1.1 = { # Term has ended
+		holder = Valduran_62
+	}
+	7924.1.1 = { # Term has ended
+		holder = Abersys_12
+	}
+	7930.1.1 = { # Term has ended
+		holder = Varghan_15
+	}
+	7936.1.1 = { # Term has ended
+		holder = Valduran_62
+	}
+	7942.1.1 = { # Term has ended
+		holder = Annadho_10
+	}
+	7948.1.1 = { # Term has ended
+		holder = Lavelos_18
+	}
+	7954.1.1 = { # Term has ended
+		holder = Valduran_62
+	}
+	7956.5.2 = { # Magistrate executed by Volantene
+		holder = Mercor_14
+	}
+	7959.1.1 = { # Magistrate has died
+		holder = Breneyan_23
+	}
+	7965.1.1 = { # Term has ended
+		holder = Nericos_14
+	}
+	7971.1.1 = { # Term has ended
+		holder = Annadho_10
+	}
+	7972.1.1 = { # Magistrate has died
+		holder = Drahar_16
+	}
+	7978.1.1 = { # Term has ended
+		holder = Mallar_14
+	}
+	7984.1.1 = { # Term has ended
+		holder = Drahar_46
+	}
+	7990.1.1 = { # Term has ended
+		holder = Annadho_11
+	}
+	7992.12.3 = { # Revolt
+		holder = Unerelos_17
+	}
+	7999.1.1 = { # Term has ended
+		holder = Berradho_14
+	}
+	8002.2.2 = { # Magistrate has died
+		holder = Drahar_50
+	}
+	8009.1.1 = { # Term has ended
+		holder = Nericos_16
+	}
+	8013.1.1 = { # Magistrate has died
+		holder = Mallar_18
+	}
+	8019.1.1 = { # Term has ended
+		holder = Drahar_50
+	}
+	8024.1.1 = { # Magistrate has died
+		holder = Varghan_45
+	}
+	8028.1.1 = { # Magistrate has died
+		holder = Valduran_72
+	}
+	8034.1.1 = { # Term has ended
+		holder = Deorel_53
+	}
+	8035.1.1 = { # Magistrate has died
+		holder = Rhegan_50
+	}
+	8036.1.1 = { # Magistrate has died
+		holder = Naelor_54
+	}
+	8042.1.1 = { # Term has ended
+		holder = Valduran_77
+	}
+	8048.1.1 = { # Term has ended
+		holder = Varghan_48
+	}
+	8054.1.1 = { # Term has ended
+		holder = Naelor_11
+	}
+	8060.1.1 = { # Term has ended
+		holder = Nericos_25
+	}
+	8066.1.1 = { # Term has ended
+		holder = Valduran_84
+	}
+	8072.1.1 = { # Term has ended
+		holder = Drahar_56
+	}
+	8078.1.1 = { # Term has ended
+		holder = Lavelos_62
+	}
+	8084.1.1 = { # Term has ended
+		holder = Nericos_29
+	}
+	8090.1.1 = { # Term has ended
+		holder = Lavelos_62
+	}
+	8093.1.1 = { # Magistrate has died
+		holder = Rhegan_56
+	}
+	8099.1.1 = { # Term has ended
+		holder = Mercor_67
+	}
+	8105.1.1 = { # Term has ended
+		holder = Naelor_9 # Important
+	}
+	8111.1.1 = { # Term has ended
+		holder = Curaze_40
+	}
+	8117.1.1 = { # Term has ended
+		holder = Sordios_76
+	}
+	8123.1.1 = { # Term has ended
+		holder = Deorel_61
+	}
+	8127.1.1 = { # Magistrate has died
+		holder = Mallar_79
+	}
+	8133.1.1 = { # Term has ended
+		holder = Naelor_8
+	}
+	8139.1.1 = { # Term has ended
+		holder = Lavelos_82
+	}
+	8145.1.1 = { # Term has ended
+		holder = Rhegan_58
+	}
+	8151.1.1 = { # Term has ended
+		holder = Vaelos_40
+	}
+	8157.1.1 = { # Term has ended
+		holder = Abersys_85
+	}
+	8163.1.1 = { # Term has ended
+		holder = Rhegan_59
+	}
+	8169.1.1 = { # Term has ended
+		holder = Drahar_69
+	}
+	8175.1.1 = { # Term has ended
+		holder = Mercor_76
+	}
+	8181.1.1 = { # Term has ended
+		holder = Drahar_73
+	}
+	8187.1.1 = { # Term has ended
+		holder = Allegel_5
+	}
+	8193.1.1 = { # Term has ended
+		holder = Mallar_5
+	}
+	8199.1.1 = { # Term has ended
+		holder = Mercor_5
+	}
+	8205.1.1 = { # Term has ended
+		holder = Abersys_4
+	}
+	8211.1.1 = { # Term has ended
+		holder = Berradho_57
+	}
+	8212.1.1 = { # Magistrate has died
+		holder = Mallar_5
+	}
+	8218.1.1 = { # Term has ended
+		holder = Rhegan_5
+	}
+	8221.2.11 = { # Magistrate has died
+		holder = Abersys_4
+	}
+	8226.1.1 = { # Magistrate has died
+		holder = Mallar_5
+	}
+	8228.1.1 = { # Magistrate has died
+		holder = Allegel_4
+	}
+	8230.1.1 = { # Magistrate has died
+		holder = Myrahar_2
+	}
+	8236.1.1 = { # Term has ended
+		holder = Sordios_4
+	}
+	8239.1.1 = { # Magistrate has died
+		holder = Mallar_3
+	}
+	8240.1.1 = { # Magistrate has died
+		holder = Rhegan_4
+	}
+	8246.1.1 = { # Term has ended
+		holder = Valduran_3
+	}
+	8250.1.1 = { # Magistrate has died
+		holder = Rhegan_3
+	}
+	8256.1.1 = { # Term has ended
+		holder = Mercor_3
+	}
+	8262.1.1 = { # Term has ended
+		holder = Varghan_2
+	}
+	8268.1.1 = { # Term has ended
+		holder = Abersys_2
+	}
+	8271.1.1 = { # Magistrate has died
+		holder = Naelor_1
+	}
+	8277.1.1 = { # Term has ended
+		holder = Abersys_1
+	}
+	8283.1.1 = { # Term has ended
+		holder = Breneyan_112
+	}
+	8289.1.1 = { # Term has ended
+		holder = Sordios_1
+	}
+	8295.1.1 = { # Term has ended
+		holder = Mercor_1
+	}
+}
+c_imeimyr = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_myr
+		effect = {
+			add_title_law = magisterial_attached_titles_law
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7827.1.1 = { # Initial Election
+		liege = d_myr
+		holder = Myrahar_21
+	}
+	7831.1.1 = { # Magistrate has died
+		holder = Unerelos_19
+	}
+	7833.1.1 = { # Magistrate has died
+		holder = Drahar_20
+	}
+	7838.1.1 = { # Magistrate has died
+		holder = Drahar_6
+	}
+	7844.1.1 = { # Term has ended
+		holder = Mercor_20
+	}
+	7845.1.1 = { # Magistrate has died
+		holder = Mallar_8
+	}
+	7851.1.1 = { # Term has ended
+		holder = Saldorys_6
+	}
+	7857.1.1 = { # Term has ended
+		holder = Rhegan_6
+	}
+	7863.1.1 = { # Term has ended
+		holder = Mercor_7
+	}
+	7869.1.1 = { # Term has ended
+		holder = Rynhar_5
+	}
+	7875.1.1 = { # Term has ended
+		holder = Annadho_3
+	}
+	7881.1.1 = { # Term has ended
+		holder = Sordios_12
+	}
+	7886.1.1 = { # Early Election
+		holder = Valduran_58
+	}
+	7892.1.1 = { # Term has ended
+		holder = Rynhar_7
+	}
+	7893.1.1 = { # Magistrate has died
+		holder = Devaeran_1
+	}
+	7894.1.1 = { # Magistrate has died
+		holder = Abersys_11
+	}
+	7900.1.1 = { # Term has ended
+		holder = Lavelos_14
+	}
+	7906.1.1 = { # Term has ended
+		holder = Curaze_15
+	}
+	7912.1.1 = { # Term has ended
+		holder = Naelor_48
+	}
+	7918.1.1 = { # Term has ended
+		holder = Valduran_62
+	}
+	7924.1.1 = { # Term has ended
+		holder = Abersys_12
+	}
+	7930.1.1 = { # Term has ended
+		holder = Varghan_15
+	}
+	7936.1.1 = { # Term has ended
+		holder = Valduran_62
+	}
+	7942.1.1 = { # Term has ended
+		holder = Annadho_10
+	}
+	7948.1.1 = { # Term has ended
+		holder = Lavelos_18
+	}
+	7954.1.1 = { # Term has ended
+		holder = Valduran_62
+	}
+	7956.5.2 = { # Magistrate executed by Volantene
+		holder = Mercor_14
+	}
+	7959.1.1 = { # Magistrate has died
+		holder = Breneyan_23
+	}
+	7965.1.1 = { # Term has ended
+		holder = Nericos_14
+	}
+	7971.1.1 = { # Term has ended
+		holder = Annadho_10
+	}
+	7972.1.1 = { # Magistrate has died
+		holder = Drahar_16
+	}
+	7978.1.1 = { # Term has ended
+		holder = Mallar_14
+	}
+	7984.1.1 = { # Term has ended
+		holder = Drahar_46
+	}
+	7990.1.1 = { # Term has ended
+		holder = Annadho_11
+	}
+	7992.12.3 = { # Revolt
+		holder = Unerelos_17
+	}
+	7999.1.1 = { # Term has ended
+		holder = Berradho_14
+	}
+	8002.2.2 = { # Magistrate has died
+		holder = Drahar_50
+	}
+	8009.1.1 = { # Term has ended
+		holder = Nericos_16
+	}
+	8013.1.1 = { # Magistrate has died
+		holder = Mallar_18
+	}
+	8019.1.1 = { # Term has ended
+		holder = Drahar_50
+	}
+	8024.1.1 = { # Magistrate has died
+		holder = Varghan_45
+	}
+	8028.1.1 = { # Magistrate has died
+		holder = Valduran_72
+	}
+	8034.1.1 = { # Term has ended
+		holder = Deorel_53
+	}
+	8035.1.1 = { # Magistrate has died
+		holder = Rhegan_50
+	}
+	8036.1.1 = { # Magistrate has died
+		holder = Naelor_54
+	}
+	8042.1.1 = { # Term has ended
+		holder = Valduran_77
+	}
+	8048.1.1 = { # Term has ended
+		holder = Varghan_48
+	}
+	8054.1.1 = { # Term has ended
+		holder = Naelor_11
+	}
+	8060.1.1 = { # Term has ended
+		holder = Nericos_25
+	}
+	8066.1.1 = { # Term has ended
+		holder = Valduran_84
+	}
+	8072.1.1 = { # Term has ended
+		holder = Drahar_56
+	}
+	8078.1.1 = { # Term has ended
+		holder = Lavelos_62
+	}
+	8084.1.1 = { # Term has ended
+		holder = Nericos_29
+	}
+	8090.1.1 = { # Term has ended
+		holder = Lavelos_62
+	}
+	8093.1.1 = { # Magistrate has died
+		holder = Rhegan_56
+	}
+	8099.1.1 = { # Term has ended
+		holder = Mercor_67
+	}
+	8105.1.1 = { # Term has ended
+		holder = Naelor_9 # Important
+	}
+	8111.1.1 = { # Term has ended
+		holder = Curaze_40
+	}
+	8117.1.1 = { # Term has ended
+		holder = Sordios_76
+	}
+	8123.1.1 = { # Term has ended
+		holder = Deorel_61
+	}
+	8127.1.1 = { # Magistrate has died
+		holder = Mallar_79
+	}
+	8133.1.1 = { # Term has ended
+		holder = Naelor_8
+	}
+	8139.1.1 = { # Term has ended
+		holder = Lavelos_82
+	}
+	8145.1.1 = { # Term has ended
+		holder = Rhegan_58
+	}
+	8151.1.1 = { # Term has ended
+		holder = Vaelos_40
+	}
+	8157.1.1 = { # Term has ended
+		holder = Abersys_85
+	}
+	8163.1.1 = { # Term has ended
+		holder = Rhegan_59
+	}
+	8169.1.1 = { # Term has ended
+		holder = Drahar_69
+	}
+	8175.1.1 = { # Term has ended
+		holder = Mercor_76
+	}
+	8181.1.1 = { # Term has ended
+		holder = Drahar_73
+	}
+	8187.1.1 = { # Term has ended
+		holder = Allegel_5
+	}
+	8193.1.1 = { # Term has ended
+		holder = Mallar_5
+	}
+	8199.1.1 = { # Term has ended
+		holder = Mercor_5
+	}
+	8205.1.1 = { # Term has ended
+		holder = Abersys_4
+	}
+	8211.1.1 = { # Term has ended
+		holder = Berradho_57
+	}
+	8212.1.1 = { # Magistrate has died
+		holder = Mallar_5
+	}
+	8218.1.1 = { # Term has ended
+		holder = Rhegan_5
+	}
+	8221.2.11 = { # Magistrate has died
+		holder = Abersys_4
+	}
+	8226.1.1 = { # Magistrate has died
+		holder = Mallar_5
+	}
+	8228.1.1 = { # Magistrate has died
+		holder = Allegel_4
+	}
+	8230.1.1 = { # Magistrate has died
+		holder = Myrahar_2
+	}
+	8236.1.1 = { # Term has ended
+		holder = Sordios_4
+	}
+	8239.1.1 = { # Magistrate has died
+		holder = Mallar_3
+	}
+	8240.1.1 = { # Magistrate has died
+		holder = Rhegan_4
+	}
+	8246.1.1 = { # Term has ended
+		holder = Valduran_3
+	}
+	8250.1.1 = { # Magistrate has died
+		holder = Rhegan_3
+	}
+	8256.1.1 = { # Term has ended
+		holder = Mercor_3
+	}
+	8262.1.1 = { # Term has ended
+		holder = Varghan_2
+	}
+	8268.1.1 = { # Term has ended
+		holder = Abersys_2
+	}
+	8271.1.1 = { # Magistrate has died
+		holder = Naelor_1
+	}
+	8277.1.1 = { # Term has ended
+		holder = Abersys_1
+	}
+	8283.1.1 = { # Term has ended
+		holder = Breneyan_112
+	}
+	8289.1.1 = { # Term has ended
+		holder = Sordios_1
+	}
+	8295.1.1 = { # Term has ended
+		holder = Mercor_1
+	}
+}
+
+d_southcliffs = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = k_myr
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7866.1.1 = {
+		holder = Devaeran_1
+	}
+	7894.1.1 = {
+		holder = Devaeran_4
+	}
+	7916.1.1 = {
+		holder = Devaeran_6
+	}
+	7932.1.1 = {
+		holder = Devaeran_7
+	}
+	7965.1.1 = {
+		holder = Devaeran_8
+	}
+	7985.1.1 = {
+		holder = Devaeran_14
+	}
+	8001.1.1 = {
+		holder = Devaeran_20
+	}
+	8003.9.11 = {
+		holder = Devaeran_21
+	}
+	8003.12.21 = {
+		holder = Drahar_50
+	}
+	8024.1.1 = {
+		holder = Drahar_52
+	}
+	8036.1.1 = {
+		holder = Drahar_53
+	}
+	8041.1.1 = {
+		holder = Drahar_56
+	}
+	8106.1.1 = {
+		holder = Drahar_63
+	}
+	8121.1.1 = {
+		holder = Drahar_65
+	}
+	8151.1.1 = {
+		holder = Drahar_69
+	}
+	8176.1.1 = {
+		holder = Drahar_73
+	}
+	8201.1.1 = {
+		holder = Drahar_4 # Ghazaro
+	}
+	8250.1.1 = {
+		holder = Drahar_3 # Qarrash
+	}
+	8271.1.1 = {
+		holder = Drahar_1 # Erando
+	}
+}
+c_baherion = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_southcliffs
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7866.1.1 = {
+		holder = Devaeran_1
+	}
+	7894.1.1 = {
+		holder = Devaeran_4
+	}
+	7916.1.1 = {
+		holder = Devaeran_6
+	}
+	7932.1.1 = {
+		holder = Devaeran_7
+	}
+	7965.1.1 = {
+		holder = Devaeran_8
+	}
+	7985.1.1 = {
+		holder = Devaeran_14
+	}
+	8001.1.1 = {
+		holder = Devaeran_20
+	}
+	8003.9.11 = {
+		holder = Devaeran_21
+	}
+	8003.12.21 = {
+		holder = Drahar_50
+	}
+	8024.1.1 = {
+		holder = Drahar_52
+	}
+	8036.1.1 = {
+		holder = Drahar_53
+	}
+	8041.1.1 = {
+		holder = Drahar_56
+	}
+	8106.1.1 = {
+		holder = Drahar_63
+	}
+	8121.1.1 = {
+		holder = Drahar_65
+	}
+	8151.1.1 = {
+		holder = Drahar_69
+	}
+	8176.1.1 = {
+		holder = Drahar_73
+	}
+	8201.1.1 = {
+		holder = Drahar_4 # Ghazaro
+	}
+	8250.1.1 = {
+		holder = Drahar_3 # Qarrash
+	}
+	8271.1.1 = {
+		holder = Drahar_1 # Erando
+	}
+}
+b_foraenor = {
+	8240.1.1 = {
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+		holder = Varkar_1 # Daeryssa
+	}
+	8258.1.1 = {
+		holder = Varkar_2 # Eloros
+	}
+	8278.1.1 = {
+		holder = Varkar_5 # Danisa
+	}
+	8288.1.1 = {
+		holder = Varkar_8
+	}
+}
+c_aberfields = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_southcliffs
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7846.1.1 = {
+		holder = Abersys_20 # Galeran
+	}
+	7852.1.1 = {
+		holder = Abersys_8
+	}
+	7860.1.1 = {
+		holder = Rynhar_19
+	}
+	7869.1.1 = {
+		holder = Rynhar_5
+	}
+	7888.1.1 = {
+		holder = Rynhar_7
+	}
+	7893.1.1 = {
+		holder = Rynhar_10
+	}
+	7929.1.1 = {
+		holder = Rynhar_11
+	}
+	7957.1.1 = {
+		holder = Rynhar_12
+	}
+	8005.1.1 = {
+		holder = Rynhar_49
+	}
+	8037.1.1 = {
+		holder = Rynhar_52
+	}
+	8049.1.1 = {
+		holder = Rynhar_53
+	}
+	8099.1.1 = {
+		holder = Rynhar_57
+	}
+	8142.1.1 = {
+		holder = Rynhar_60
+	}
+	8173.1.1 = {
+		holder = Rynhar_4 # Rhesos
+	}
+	8229.1.1 = {
+		holder = Rynhar_2 # Mollos
+	}
+	8265.1.1 = {
+		holder = Rynhar_1 # Qarrash
+	}
+}
+c_rael_trunos = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_southcliffs
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7847.1.1 = {
+		holder = Unaris_1
+	}
+	7867.1.1 = {
+		holder = Unaris_2
+	}
+	7898.1.1 = {
+		holder = Unaris_15
+	}
+	7899.1.1 = {
+		holder = Unaris_20
+	}
+	7948.1.1 = {
+		holder = Unaris_21
+	}
+	7961.1.1 = {
+		holder = Unaris_27
+	}
+	8002.1.1 = {
+		holder = Unaris_30
+	}
+	8020.1.1 = {
+		holder = Unaris_32
+	}
+	8034.1.1 = {
+		holder = Unaris_33
+	}
+	8048.1.1 = {
+		holder = Unaris_37
+	}
+	8080.1.1 = {
+		holder = Unaris_47
+	}
+	8114.1.1 = {
+		holder = Unaris_50
+	}
+	8149.1.1 = {
+		holder = Unaris_57
+	}
+	8172.1.1 = {
+		holder = Unaris_71
+	}
+	8189.1.1 = {
+		holder = Unaris_63
+	}
+	8212.1.1 = {
+		holder = Unaris_74
+	}
+	8228.1.1 = {
+		holder = Unaris_75
+	}
+	8243.1.1 = {
+		holder = Unaris_81
+	}
+	8254.1.1 = {
+		holder = Unaris_85
+	}
+	8295.1.1 = {
+		holder = Unaris_86
+	}
+}
+
+d_loomwright = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = k_myr
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7825.1.1 = {
+		holder = Nericos_1
+	}
+	7869.1.1 = {
+		holder = Nericos_4
+	}
+	7897.1.1 = {
+		holder = Nericos_6
+	}
+	7927.1.1 = {
+		holder = Nericos_14
+	}
+	7984.1.1 = {
+		holder = Nericos_16
+	}
+	8013.1.1 = {
+		holder = Nericos_23
+	}
+	8042.1.1 = {
+		holder = Nericos_25
+	}
+	8069.1.1 = {
+		holder = Nericos_29
+	}
+	8091.4.9 = {
+		holder = Abersys_77
+	}
+	8100.1.1 = {
+		holder = Abersys_79
+	}
+	8102.1.1 = {
+		holder = Abersys_78
+	}
+	8110.1.1 = {
+		holder = Abersys_81
+	}
+	8140.1.1 = {
+		holder = Abersys_85
+	}
+	8182.1.1 = {
+		holder = Abersys_5 # Vanio
+	}
+	8204.1.1 = {
+		holder = Abersys_4 # Nemarro
+	}
+	8226.1.1 = {
+		holder = Abersys_3 # Qonane
+	}
+	8252.1.1 = {
+		holder = Abersys_2 # Anagros
+	}
+	8271.1.1 = {
+		holder = Abersys_1 # Thrasos
+	}
+}
+c_drennelion = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_loomwright
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7825.1.1 = {
+		holder = Nericos_1
+	}
+	7869.1.1 = {
+		holder = Nericos_4
+	}
+	7897.1.1 = {
+		holder = Nericos_6
+	}
+	7927.1.1 = {
+		holder = Nericos_14
+	}
+	7984.1.1 = {
+		holder = Nericos_16
+	}
+	8013.1.1 = {
+		holder = Nericos_23
+	}
+	8042.1.1 = {
+		holder = Nericos_25
+	}
+	8069.1.1 = {
+		holder = Nericos_29
+	}
+	8091.4.9 = {
+		holder = Abersys_77
+	}
+	8100.1.1 = {
+		holder = Abersys_79
+	}
+	8102.1.1 = {
+		holder = Abersys_78
+	}
+	8110.1.1 = {
+		holder = Abersys_81
+	}
+	8140.1.1 = {
+		holder = Abersys_85
+	}
+	8182.1.1 = {
+		holder = Abersys_5 # Vanio
+	}
+	8204.1.1 = {
+		holder = Abersys_4 # Nemarro
+	}
+	8226.1.1 = {
+		holder = Abersys_3 # Qonane
+	}
+	8252.1.1 = {
+		holder = Abersys_2 # Anagros
+	}
+	8271.1.1 = {
+		holder = Abersys_1 # Thrasos
+	}
+}
+c_rynlos = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_loomwright
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7840.1.1 = {
+		holder = Herinor_1
+	}
+	7851.1.1 = {
+		holder = Herinor_2
+	}
+	7862.1.1 = {
+		holder = Herinor_4
+	}
+	7908.1.1 = {
+		holder = Herinor_6
+	}
+	7917.1.1 = {
+		holder = Herinor_9
+	}
+	7931.1.1 = {
+		holder = Herinor_12
+	}
+	7965.1.1 = {
+		holder = Herinor_13
+	}
+	8004.1.1 = {
+		holder = Herinor_15
+	}
+	8033.1.1 = {
+		holder = Herinor_16
+	}
+	8060.1.1 = {
+		holder = Herinor_25
+	}
+	8091.1.1 = {
+		holder = Herinor_26
+	}
+	8091.4.9 = {
+		holder = Herinor_28
+	}
+	8125.1.1 = {
+		holder = Herinor_66
+	}
+	8134.1.1 = {
+		holder = Herinor_84
+	}
+	8180.1.1 = {
+		holder = Herinor_43
+	}
+	8220.1.1 = {
+		holder = Herinor_75
+	}
+	8247.1.1 = {
+		holder = Herinor_79
+	}
+	8258.1.1 = {
+		holder = Herinor_83
+	}
+	8271.1.1 = {
+		holder = Herinor_82
+	}
+	8279.1.1 = {
+		holder = Herinor_81
+	}
+	8283.1.1 = {
+		holder = Herinor_71
+	}
+}
+c_naqes_embar = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = k_myr
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7842.1.1 = {
+		holder = Naelor_20 # Garros
+	}
+	7844.1.1 = {
+		holder = Naelor_42
+	}
+	7852.1.1 = {
+		holder = Naelor_46
+	}
+	7904.1.1 = {
+		holder = Naelor_48
+	}
+	7936.1.1 = {
+		holder = Naelor_49
+	}
+	7958.1.1 = {
+		holder = Naelor_50
+	}
+	7968.1.1 = {
+		holder = Naelor_52
+	}
+	7992.1.1 = {
+		holder = Naelor_54
+	}
+	8043.1.1 = {
+		holder = Naelor_11
+	}
+	8070.1.1 = {
+		holder = Naelor_10 # Gamallo
+	}
+	8091.1.22 = {
+		holder = Naelor_9 # Costos
+	}
+	8124.1.1 = {
+		holder = Naelor_8 # Qos
+	}
+	8140.1.1 = {
+		holder = Naelor_7 # Doran
+	}
+	8151.1.1 = {
+		holder = Naelor_5 # Mazio
+	}
+	8199.1.1 = {
+		holder = Naelor_4 # Malo
+	}
+	8214.1.1 = {
+		holder = Naelor_3 # Gorlas
+	}
+	8255.1.1 = {
+		holder = Naelor_1 # Errio
+	}
+}
+b_ahrios = {
+	8241.1.1 = {
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+		holder = Saidon_1 # Aemono
+	}
+	8247.1.1 = {
+		holder = Saidon_2 # Daenora
+	}
+	8268.1.1 = {
+		holder = Saidon_5 # Laera
+	}
+	8269.1.1 = {
+		holder = Saidon_10 # Viserio
+	}
+	8274.1.1 = {
+		holder = Saidon_13 # Thamia
+	}
+}
+c_jaeren = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_loomwright
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7859.1.1 = {
+		holder = Vagresys_1
+	}
+	7877.1.1 = {
+		holder = Vagresys_6
+	}
+	7892.1.1 = {
+		holder = Vagresys_14
+	}
+	7942.1.1 = {
+		holder = Vagresys_15
+	}
+	7961.1.1 = {
+		holder = Vagresys_22
+	}
+	7975.1.1 = {
+		holder = Vagresys_24
+	}
+	8001.1.1 = {
+		holder = Vagresys_26
+	}
+	8053.1.1 = {
+		holder = Vagresys_27
+	}
+	8071.1.1 = {
+		holder = Vagresys_28
+	}
+	8088.1.1 = {
+		holder = Vagresys_41
+	}
+	8132.1.1 = {
+		holder = Vagresys_44
+	}
+	8149.1.1 = {
+		holder = Vagresys_55
+	}
+	8182.1.1 = {
+		holder = Vagresys_58
+	}
+	8208.1.1 = {
+		holder = Vagresys_61
+	}
+	8214.1.1 = {
+		holder = Vagresys_69
+	}
+	8256.1.1 = {
+		holder = Vagresys_73
+	}
+	8281.1.1 = {
+		holder = Vagresys_85
+	}
+}
+
+d_croraera = {
+	7792.1.1 = {
+		holder = Allegel_22
+	}
+	7800.1.1 = {
+		holder = Allegel_6
+		government = administrative_government
+		liege = k_myr
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7857.1.1 = {
+		holder = Allegel_9
+	}
+	7859.1.1 = {
+		holder = Allegel_10
+	}
+	7892.1.1 = {
+		holder = Allegel_12
+	}
+	7920.1.1 = {
+		holder = Allegel_13
+	}
+	7930.1.1 = {
+		holder = Allegel_17
+	}
+	7963.1.1 = {
+		holder = Allegel_19
+	}
+	8002.1.1 = {
+		holder = Allegel_70
+	}
+	8020.1.1 = {
+		holder = Allegel_74
+	}
+	8056.1.1 = {
+		holder = Allegel_77
+	}
+	8069.1.1 = {
+		holder = Allegel_81
+	}
+	8093.1.1 = {
+		holder = Allegel_82
+	}
+	8132.1.1 = {
+		holder = Allegel_87
+	}
+	8151.1.1 = {
+		holder = Allegel_88
+	}
+	8162.1.1 = {
+		holder = Allegel_92
+	}
+	8164.1.1 = {
+		holder = Allegel_5 # Bosqo
+	}
+	8221.1.1 = {
+		holder = Allegel_4 # Haego
+	}
+	8230.1.1 = {
+		holder = Allegel_3 # Mavrolo
+	}
+	8268.1.1 = {
+		holder = Allegel_2 # Eladon
+	}
+	8275.1.1 = {
+		holder = Allegel_1 # Craghas
+	}
+}
+c_draembyr = {
+	7792.1.1 = {
+		holder = Allegel_22
+	}
+	7800.1.1 = {
+		holder = Allegel_6
+		government = administrative_government
+		liege = d_croraera
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7857.1.1 = {
+		holder = Allegel_9
+	}
+	7859.1.1 = {
+		holder = Allegel_10
+	}
+	7892.1.1 = {
+		holder = Allegel_12
+	}
+	7920.1.1 = {
+		holder = Allegel_13
+	}
+	7930.1.1 = {
+		holder = Allegel_17
+	}
+	7963.1.1 = {
+		holder = Allegel_19
+	}
+	8002.1.1 = {
+		holder = Allegel_70
+	}
+	8020.1.1 = {
+		holder = Allegel_74
+	}
+	8056.1.1 = {
+		holder = Allegel_77
+	}
+	8069.1.1 = {
+		holder = Allegel_81
+	}
+	8093.1.1 = {
+		holder = Allegel_82
+	}
+	8132.1.1 = {
+		holder = Allegel_87
+	}
+	8151.1.1 = {
+		holder = Allegel_88
+	}
+	8162.1.1 = {
+		holder = Allegel_92
+	}
+	8164.1.1 = {
+		holder = Allegel_5 # Bosqo
+	}
+	8221.1.1 = {
+		holder = Allegel_4 # Haego
+	}
+	8230.1.1 = {
+		holder = Allegel_3 # Mavrolo
+	}
+	8268.1.1 = {
+		holder = Allegel_2 # Eladon
+	}
+	8275.1.1 = {
+		holder = Allegel_1 # Craghas
+	}
+}
+c_draemvale = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_croraera
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7855.1.1 = {
+		holder = Qrinno_1
+	}
+	7868.1.1 = {
+		holder = Qrinno_2
+	}
+	7886.1.1 = {
+		holder = Qrinno_7
+	}
+	7913.1.1 = {
+		holder = Qrinno_13
+	}
+	7937.1.1 = {
+		holder = Qrinno_16
+	}
+	7959.1.1 = {
+		holder = Qrinno_19
+	}
+	7991.1.1 = {
+		holder = Qrinno_21
+	}
+	8001.1.1 = {
+		holder = Qrinno_22
+	}
+	8036.1.1 = {
+		holder = Qrinno_23
+	}
+	8078.1.1 = {
+		holder = Qrinno_27
+	}
+	8095.1.1 = {
+		holder = Qrinno_30
+	}
+	8147.1.1 = {
+		holder = Qrinno_34
+	}
+	8166.1.1 = {
+		holder = Qrinno_37
+	}
+	8176.1.1 = {
+		holder = Qrinno_42
+	}
+	8207.1.1 = {
+		holder = Qrinno_43
+	}
+	8221.2.11 = { # Harako Dagareon's campaign
+		liege = 0
+		effect = {
+			holder ?= {
+				agot_safe_add_timed_tribuatry_history_effect = {
+					EXPIRE = 8232.12.12
+					SUZERAIN = title:k_lys
+				}
+			}
+		}
+	}
+	8232.12.12 = { # Harako Dagareon crowns himself king of Disputed Lands
+		effect = {
+			holder ?= {
+				agot_safe_add_timed_tribuatry_history_effect = {
+					EXPIRE = 8238.2.5
+					SUZERAIN = title:k_disputed_lands
+				}
+			}
+		}
+	}
+	8238.2.5 = { # Lys and Myr jointly defeat Harako Dagareon
+		liege = d_croraera
+	}
+	8251.1.1 = {
+		holder = Qrinno_48
+	}
+	8290.1.1 = {
+		holder = Qrinno_52
+	}
+}
+c_latnyr = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_croraera
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7867.1.1 = {
+		holder = Apojon_1
+	}
+	7869.1.1 = {
+		holder = Apojon_2
+	}
+	7886.1.1 = {
+		holder = Apojon_14
+	}
+	7907.1.1 = {
+		holder = Apojon_15
+	}
+	7917.1.1 = {
+		holder = Apojon_5
+	}
+	7920.1.1 = {
+		holder = Apojon_7
+	}
+	7951.1.1 = {
+		holder = Apojon_11
+	}
+	7979.1.1 = {
+		holder = Apojon_16
+	}
+	7983.1.1 = {
+		holder = Apojon_21
+	}
+	8003.1.1 = {
+		holder = Apojon_29
+	}
+	8008.1.1 = {
+		holder = Apojon_35
+	}
+	8068.1.1 = {
+		holder = Apojon_36
+	}
+	8090.1.1 = {
+		holder = Apojon_38
+	}
+	8120.1.1 = {
+		holder = Apojon_41
+	}
+	8157.1.1 = {
+		holder = Apojon_42
+	}
+	8175.1.1 = {
+		holder = Apojon_44
+	}
+	8210.1.1 = {
+		holder = Apojon_48
+	}
+	8216.1.1 = {
+		holder = Apojon_49
+	}
+	8225.1.1 = {
+		holder = Apojon_53
+	}
+	8276.1.1 = {
+		holder = Apojon_54
+	}
+}
+c_myrwater = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_croraera
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7864.1.1 = {
+		holder = Raqeros_1
+	}
+	7875.1.1 = {
+		holder = Raqeros_2
+	}
+	7890.1.1 = {
+		holder = Raqeros_9
+	}
+	7891.1.1 = {
+		holder = Raqeros_15
+	}
+	7903.1.1 = {
+		holder = Raqeros_16
+	}
+	7933.1.1 = {
+		holder = Raqeros_25
+	}
+	7972.1.1 = {
+		holder = Raqeros_26
+	}
+	7998.1.1 = {
+		holder = Raqeros_27
+	}
+	8040.1.1 = {
+		holder = Raqeros_30
+	}
+	8060.1.1 = {
+		holder = Raqeros_34
+	}
+	8080.1.1 = {
+		holder = Raqeros_36
+	}
+	8111.1.1 = {
+		holder = Raqeros_37
+	}
+	8136.1.1 = {
+		holder = Raqeros_38
+	}
+	8175.1.1 = {
+		holder = Raqeros_39
+	}
+	8196.1.1 = {
+		holder = Raqeros_41
+	}
+	8204.1.1 = {
+		holder = Raqeros_43
+	}
+	8221.2.11 = { # Harako Dagareon's campaign
+		liege = 0
+		effect = {
+			holder ?= {
+				agot_safe_add_timed_tribuatry_history_effect = {
+					EXPIRE = 8232.12.12
+					SUZERAIN = title:k_lys
+				}
+			}
+		}
+	}
+	8226.1.1 = {
+		holder = Raqeros_44
+	}
+	8232.12.12 = { # Harako Dagareon crowns himself king of Disputed Lands
+		effect = {
+			holder ?= {
+				agot_safe_add_timed_tribuatry_history_effect = {
+					EXPIRE = 8238.2.5
+					SUZERAIN = title:k_disputed_lands
+				}
+			}
+		}
+	}
+	8238.2.5 = { # Lys and Myr jointly defeat Harako Dagareon
+		liege = d_croraera
+	}
+	8266.1.1 = {
+		holder = Raqeros_46
+	}
+	8287.1.1 = {
+		holder = Raqeros_48
+	}
+}
+
+d_brenassar = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = k_myr
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7842.1.1 = {
+		holder = Mercor_20 # Qos
+	}
+	7845.1.1 = {
+		holder = Mercor_6
+	}
+	7862.1.1 = {
+		holder = Mercor_7
+	}
+	7877.1.1 = {
+		holder = Mercor_8
+	}
+	7899.1.1 = {
+		holder = Mercor_9
+	}
+	7938.1.1 = {
+		holder = Mercor_11
+	}
+	7945.1.1 = {
+		holder = Mercor_14
+	}
+	7959.1.1 = {
+		holder = Mercor_17
+	}
+	7999.1.1 = {
+		holder = Mercor_57
+	}
+	8024.1.1 = {
+		holder = Mercor_62
+	}
+	8028.1.1 = {
+		holder = Mercor_64
+	}
+	8074.1.1 = {
+		holder = Mercor_67
+	}
+	8111.1.1 = {
+		holder = Mercor_71
+	}
+	8115.1.1 = {
+		holder = Mercor_74
+	}
+	8142.1.1 = {
+		holder = Mercor_76
+	}
+	8185.1.1 = {
+		holder = Mercor_5 # Ghorgho
+	}
+	8223.1.1 = {
+		holder = Mercor_4 # Borso
+	}
+	8230.1.1 = {
+		holder = Mercor_3 # Ghazaro
+	}
+	8267.1.1 = {
+		holder = Mercor_2 # Mavrolo
+	}
+	8283.1.1 = {
+		holder = Mercor_1 # Harpalo
+	}
+}
+c_byloth = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_brenassar
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7842.1.1 = {
+		holder = Mercor_20 # Qos
+	}
+	7845.1.1 = {
+		holder = Mercor_6
+	}
+	7862.1.1 = {
+		holder = Mercor_7
+	}
+	7877.1.1 = {
+		holder = Mercor_8
+	}
+	7899.1.1 = {
+		holder = Mercor_9
+	}
+	7938.1.1 = {
+		holder = Mercor_11
+	}
+	7945.1.1 = {
+		holder = Mercor_14
+	}
+	7959.1.1 = {
+		holder = Mercor_17
+	}
+	7999.1.1 = {
+		holder = Mercor_57
+	}
+	8024.1.1 = {
+		holder = Mercor_62
+	}
+	8028.1.1 = {
+		holder = Mercor_64
+	}
+	8074.1.1 = {
+		holder = Mercor_67
+	}
+	8111.1.1 = {
+		holder = Mercor_71
+	}
+	8115.1.1 = {
+		holder = Mercor_74
+	}
+	8142.1.1 = {
+		holder = Mercor_76
+	}
+	8185.1.1 = {
+		holder = Mercor_5 # Ghorgho
+	}
+	8223.1.1 = {
+		holder = Mercor_4 # Borso
+	}
+	8230.1.1 = {
+		holder = Mercor_3 # Ghazaro
+	}
+	8267.1.1 = {
+		holder = Mercor_2 # Mavrolo
+	}
+	8283.1.1 = {
+		holder = Mercor_1 # Harpalo
+	}
+}
+c_eranah = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_brenassar
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7842.1.1 = {
+		holder = Mercor_20 # Qos
+	}
+	7845.1.1 = {
+		holder = Mercor_6
+	}
+	7862.1.1 = {
+		holder = Mercor_7
+	}
+	7877.1.1 = {
+		holder = Mercor_8
+	}
+	7899.1.1 = {
+		holder = Mercor_9
+	}
+	7938.1.1 = {
+		holder = Mercor_11
+	}
+	7945.1.1 = {
+		holder = Mercor_14
+	}
+	7959.1.1 = {
+		holder = Mercor_17
+	}
+	7999.1.1 = {
+		holder = Mercor_57
+	}
+	8024.1.1 = {
+		holder = Mercor_62
+	}
+	8028.1.1 = {
+		holder = Mercor_64
+	}
+	8074.1.1 = {
+		holder = Mercor_67
+	}
+	8111.1.1 = {
+		holder = Mercor_71
+	}
+	8115.1.1 = {
+		holder = Mercor_74
+	}
+	8142.1.1 = {
+		holder = Mercor_76
+	}
+	8185.1.1 = {
+		holder = Mercor_5 # Ghorgho
+	}
+	8223.1.1 = {
+		holder = Mercor_4 # Borso
+	}
+	8230.1.1 = {
+		holder = Mercor_3 # Ghazaro
+	}
+	8267.1.1 = {
+		holder = Mercor_2 # Mavrolo
+	}
+	8283.1.1 = {
+		holder = Mercor_1 # Harpalo
+	}
+}
+c_vymolys = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_brenassar
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7866.1.1 = {
+		holder = Diterys_1
+	}
+	7888.1.1 = {
+		holder = Diterys_2
+	}
+	7894.1.1 = {
+		holder = Diterys_5
+	}
+	7934.1.1 = {
+		holder = Diterys_11
+	}
+	7957.1.1 = {
+		holder = Diterys_12
+	}
+	7991.1.1 = {
+		holder = Diterys_16
+	}
+	8006.1.1 = {
+		holder = Diterys_22
+	}
+	8044.1.1 = {
+		holder = Diterys_30
+	}
+	8069.1.1 = {
+		holder = Diterys_31
+	}
+	8100.1.1 = {
+		holder = Diterys_36
+	}
+	8134.1.1 = {
+		holder = Diterys_38
+	}
+	8160.1.1 = {
+		holder = Diterys_39
+	}
+	8164.1.1 = {
+		holder = Diterys_40
+	}
+	8179.1.1 = {
+		holder = Diterys_60
+	}
+	8212.1.1 = {
+		holder = Diterys_41
+	}
+	8217.1.1 = {
+		holder = Diterys_43
+	}
+	8247.1.1 = {
+		holder = Diterys_45
+	}
+	8270.1.1 = {
+		holder = Diterys_46
+	}
+	8299.1.1 = {
+		holder = Diterys_49
+	}
+}
+c_molranno = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_brenassar
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7889.1.1 = {
+		holder = Toderhar_1
+	}
+	7892.1.1 = {
+		holder = Toderhar_2
+	}
+	7904.1.1 = {
+		holder = Toderhar_7
+	}
+	7930.1.1 = {
+		holder = Toderhar_8
+	}
+	7950.1.1 = {
+		holder = Toderhar_10
+	}
+	7961.1.1 = {
+		holder = Toderhar_12
+	}
+	7995.1.1 = {
+		holder = Toderhar_14
+	}
+	8003.1.1 = {
+		holder = Toderhar_15
+	}
+	8064.1.1 = {
+		holder = Toderhar_16
+	}
+	8089.1.1 = {
+		holder = Toderhar_21
+	}
+	8109.1.1 = {
+		holder = Toderhar_22
+	}
+	8139.1.1 = {
+		holder = Toderhar_25
+	}
+	8172.1.1 = {
+		holder = Toderhar_33
+	}
+	8196.1.1 = {
+		holder = Toderhar_37
+	}
+	8206.1.1 = {
+		holder = Toderhar_39
+	}
+	8239.1.1 = {
+		holder = Toderhar_40
+	}
+	8270.1.1 = {
+		holder = Toderhar_42
+	}
+}
+
+d_lotyr_bay = {
+	7827.1.1 = {
+		government = administrative_government
+		liege = k_myr
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7842.1.1 = {
+		holder = Naelor_20 # Garros
+	}
+	7844.1.1 = {
+		holder = Naelor_42
+	}
+	7852.1.1 = {
+		holder = Naelor_46
+	}
+	7904.1.1 = {
+		holder = Naelor_48
+	}
+	7936.1.1 = {
+		holder = Naelor_49
+	}
+	7958.1.1 = {
+		holder = Naelor_50
+	}
+	7968.1.1 = {
+		holder = Naelor_52
+	}
+	7992.1.1 = {
+		holder = Naelor_54
+	}
+	8043.1.1 = {
+		holder = Naelor_11
+	}
+	8070.1.1 = {
+		holder = Naelor_10 # Gamallo
+	}
+	8091.1.22 = {
+		holder = Naelor_9 # Costos
+	}
+	8124.1.1 = {
+		holder = Naelor_8 # Qos
+	}
+	8140.1.1 = {
+		holder = Naelor_7 # Doran
+	}
+	8151.1.1 = {
+		holder = Naelor_5 # Mazio
+	}
+	8199.1.1 = {
+		holder = Naelor_4 # Malo
+	}
+	8214.1.1 = {
+		holder = Naelor_3 # Gorlas
+	}
+	8255.1.1 = {
+		holder = Naelor_1 # Errio
+	}
+}
+c_lotyr_bay = {
+	7827.1.1 = {
+		government = administrative_government
+		liege = d_lotyr_bay
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7842.1.1 = {
+		holder = Naelor_20 # Garros
+	}
+	7844.1.1 = {
+		holder = Naelor_42
+	}
+	7852.1.1 = {
+		holder = Naelor_46
+	}
+	7904.1.1 = {
+		holder = Naelor_48
+	}
+	7936.1.1 = {
+		holder = Naelor_49
+	}
+	7958.1.1 = {
+		holder = Naelor_50
+	}
+	7968.1.1 = {
+		holder = Naelor_52
+	}
+	7992.1.1 = {
+		holder = Naelor_54
+	}
+	8043.1.1 = {
+		holder = Naelor_11
+	}
+	8070.1.1 = {
+		holder = Naelor_10 # Gamallo
+	}
+	8091.1.22 = {
+		holder = Naelor_9 # Costos
+	}
+	8124.1.1 = {
+		holder = Naelor_8 # Qos
+	}
+	8140.1.1 = {
+		holder = Naelor_7 # Doran
+	}
+	8151.1.1 = {
+		holder = Naelor_5 # Mazio
+	}
+	8199.1.1 = {
+		holder = Naelor_4 # Malo
+	}
+	8214.1.1 = {
+		holder = Naelor_3 # Gorlas
+	}
+	8255.1.1 = {
+		holder = Naelor_1 # Errio
+	}
+}
+c_thaeros = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_lotyr_bay
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7870.1.1 = {
+		holder = Phalar_1
+	}
+	7881.1.1 = {
+		holder = Phalar_2
+	}
+	7922.1.1 = {
+		holder = Phalar_10
+	}
+	7956.1.1 = {
+		holder = Phalar_11
+	}
+	7984.1.1 = {
+		holder = Phalar_12
+	}
+	8008.1.1 = {
+		holder = Phalar_15
+	}
+	8022.1.1 = {
+		holder = Phalar_17
+	}
+	8027.1.1 = {
+		holder = Phalar_20
+	}
+	8070.1.1 = {
+		holder = Phalar_21
+	}
+	8102.1.1 = {
+		holder = Phalar_24
+	}
+	8120.1.1 = {
+		holder = Phalar_35
+	}
+	8144.1.1 = {
+		holder = Phalar_37
+	}
+	8176.1.1 = {
+		holder = Phalar_47
+	}
+	8186.1.1 = {
+		holder = Phalar_49
+	}
+	8218.1.1 = {
+		holder = Phalar_57
+	}
+	8240.1.1 = {
+		holder = Phalar_60
+	}
+	8286.1.1 = {
+		holder = Phalar_64
+	}
+}
+c_lerysha = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_lotyr_bay
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7864.1.1 = {
+		holder = Qarel_1
+	}
+	7901.1.1 = {
+		holder = Qarel_3
+	}
+	7910.1.1 = {
+		holder = Qarel_22
+	}
+	7945.1.1 = {
+		holder = Qarel_23
+	}
+	7973.1.1 = {
+		holder = Qarel_27
+	}
+	7988.1.1 = {
+		holder = Qarel_35
+	}
+	8043.1.1 = {
+		holder = Qarel_39
+	}
+	8056.1.1 = {
+		holder = Qarel_44
+	}
+	8083.1.1 = {
+		holder = Qarel_52
+	}
+	8118.1.1 = {
+		holder = Qarel_53
+	}
+	8129.1.1 = {
+		holder = Qarel_57
+	}
+	8158.1.1 = {
+		holder = Qarel_62
+	}
+	8175.1.1 = {
+		holder = Qarel_64
+	}
+	8198.1.1 = {
+		holder = Qarel_65
+	}
+	8207.1.1 = {
+		holder = Qarel_66
+	}
+	8266.1.1 = {
+		holder = Qarel_67
+	}
+	8295.1.1 = {
+		holder = Qarel_70
+	}
+}
+
+d_qehes = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = k_myr
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7840.1.1 = {
+		holder = Sordios_22 # Ghirio
+	}
+	7846.1.1 = {
+		holder = Sordios_11
+	}
+	7874.1.1 = {
+		holder = Sordios_12
+	}
+	7892.1.1 = {
+		holder = Sordios_13
+	}
+	7905.1.1 = {
+		holder = Sordios_14
+	}
+	7930.1.1 = {
+		holder = Sordios_15
+	}
+	7944.1.1 = {
+		holder = Sordios_16
+	}
+	7997.1.1 = {
+		holder = Sordios_17
+	}
+	8036.1.1 = {
+		holder = Sordios_21
+	}
+	8043.1.1 = {
+		holder = Sordios_63
+	}
+	8056.1.1 = {
+		holder = Sordios_54
+	}
+	8066.1.1 = {
+		holder = Sordios_72
+	}
+	8117.1.1 = {
+		holder = Sordios_76
+	}
+	8145.1.1 = {
+		holder = Sordios_80
+	}
+	8166.1.1 = {
+		holder = Sordios_81
+	}
+	8181.1.1 = {
+		holder = Sordios_5 # Ghovan
+	}
+	8217.1.1 = {
+		holder = Sordios_4 # Benkano
+	}
+	8239.1.1 = {
+		holder = Sordios_3 # Rhesos
+	}
+	8268.1.1 = {
+		holder = Sordios_2 # Mollos
+	}
+	8277.1.1 = {
+		holder = Sordios_1 # Visario
+	}
+}
+c_mogho = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_qehes
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7840.1.1 = {
+		holder = Sordios_22 # Ghirio
+	}
+	7846.1.1 = {
+		holder = Sordios_11
+	}
+	7874.1.1 = {
+		holder = Sordios_12
+	}
+	7892.1.1 = {
+		holder = Sordios_13
+	}
+	7905.1.1 = {
+		holder = Sordios_14
+	}
+	7930.1.1 = {
+		holder = Sordios_15
+	}
+	7944.1.1 = {
+		holder = Sordios_16
+	}
+	7997.1.1 = {
+		holder = Sordios_17
+	}
+	8036.1.1 = {
+		holder = Sordios_21
+	}
+	8043.1.1 = {
+		holder = Sordios_63
+	}
+	8056.1.1 = {
+		holder = Sordios_54
+	}
+	8066.1.1 = {
+		holder = Sordios_72
+	}
+	8117.1.1 = {
+		holder = Sordios_76
+	}
+	8145.1.1 = {
+		holder = Sordios_80
+	}
+	8166.1.1 = {
+		holder = Sordios_81
+	}
+	8181.1.1 = {
+		holder = Sordios_5 # Ghovan
+	}
+	8217.1.1 = {
+		holder = Sordios_4 # Benkano
+	}
+	8239.1.1 = {
+		holder = Sordios_3 # Rhesos
+	}
+	8268.1.1 = {
+		holder = Sordios_2 # Mollos
+	}
+	8277.1.1 = {
+		holder = Sordios_1 # Visario
+	}
+}
+c_ergos = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_qehes
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7840.1.1 = {
+		holder = Sordios_22 # Ghirio
+	}
+	7846.1.1 = {
+		holder = Sordios_11
+	}
+	7874.1.1 = {
+		holder = Sordios_12
+	}
+	7892.1.1 = {
+		holder = Sordios_13
+	}
+	7905.1.1 = {
+		holder = Sordios_14
+	}
+	7930.1.1 = {
+		holder = Sordios_15
+	}
+	7944.1.1 = {
+		holder = Sordios_16
+	}
+	7997.1.1 = {
+		holder = Sordios_17
+	}
+	8036.1.1 = {
+		holder = Sordios_21
+	}
+	8043.1.1 = {
+		holder = Sordios_63
+	}
+	8056.1.1 = {
+		holder = Sordios_54
+	}
+	8066.1.1 = {
+		holder = Sordios_72
+	}
+	8117.1.1 = {
+		holder = Sordios_76
+	}
+	8145.1.1 = {
+		holder = Sordios_80
+	}
+	8166.1.1 = {
+		holder = Sordios_81
+	}
+	8181.1.1 = {
+		holder = Sordios_5 # Ghovan
+	}
+	8217.1.1 = {
+		holder = Sordios_4 # Benkano
+	}
+	8239.1.1 = {
+		holder = Sordios_3 # Rhesos
+	}
+	8268.1.1 = {
+		holder = Sordios_2 # Mollos
+	}
+	8277.1.1 = {
+		holder = Sordios_1 # Visario
+	}
+}
+c_drasaho = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_qehes
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7869.1.1 = {
+		holder = Vallel_1
+	}
+	7871.1.1 = {
+		holder = Vallel_2
+	}
+	7918.1.1 = {
+		holder = Vallel_3
+	}
+	7954.1.1 = {
+		holder = Vallel_5
+	}
+	7984.1.1 = {
+		holder = Vallel_6
+	}
+	8008.1.1 = {
+		holder = Vallel_7
+	}
+	8027.1.1 = {
+		holder = Vallel_12
+	}
+	8057.1.1 = {
+		holder = Vallel_13
+	}
+	8081.1.1 = {
+		holder = Vallel_20
+	}
+	8086.1.1 = {
+		holder = Vallel_24
+	}
+	8108.1.1 = {
+		holder = Vallel_27
+	}
+	8146.1.1 = {
+		holder = Vallel_35
+	}
+	8151.1.1 = {
+		holder = Vallel_40
+	}
+	8188.1.1 = {
+		holder = Vallel_43
+	}
+	8212.1.1 = {
+		holder = Vallel_44
+	}
+	8250.1.1 = {
+		holder = Vallel_47
+	}
+	8265.1.1 = {
+		holder = Vallel_52
+	}
+	8275.1.1 = {
+		holder = Vallel_58
+	}
+}
+
+d_greenlace = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = k_myr
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7813.1.1 = {
+		holder = Varghan_20
+	}
+	7827.1.1 = {
+		holder = Varghan_7
+	}
+	7838.1.1 = {
+		holder = Varghan_9
+	}
+	7900.1.1 = {
+		holder = Varghan_11
+	}
+	7901.1.1 = {
+		holder = Varghan_15
+	}
+	7952.1.1 = {
+		holder = Varghan_18
+	}
+	7980.1.1 = {
+		holder = Varghan_42
+	}
+	7998.1.1 = {
+		holder = Varghan_44
+	}
+	8016.1.1 = {
+		holder = Varghan_45
+	}
+	8030.1.1 = {
+		holder = Varghan_48
+	}
+	8079.1.1 = {
+		holder = Varghan_54
+	}
+	8091.4.9 = { # Myrish Bloodbath - Eliate Lavelos retakes Myr
+		holder = Deorel_61
+	}
+	8127.1.1 = {
+		holder = Deorel_65
+	}
+	8152.1.1 = {
+		holder = Deorel_66
+	}
+	8175.1.1 = {
+		holder = Deorel_67
+	}
+	8192.1.1 = {
+		holder = Deorel_4 # Ghirio
+	}
+	8228.1.1 = {
+		holder = Deorel_3 # Galeran
+	}
+	8258.1.1 = {
+		holder = Deorel_2 # Erando
+	}
+	8264.1.1 = {
+		holder = Deorel_1 # Errio
+	}
+}
+c_aror_drennah = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_greenlace
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7813.1.1 = {
+		holder = Varghan_20
+	}
+	7827.1.1 = {
+		holder = Varghan_7
+	}
+	7838.1.1 = {
+		holder = Varghan_9
+	}
+	7900.1.1 = {
+		holder = Varghan_11
+	}
+	7901.1.1 = {
+		holder = Varghan_15
+	}
+	7952.1.1 = {
+		holder = Varghan_18
+	}
+	7980.1.1 = {
+		holder = Varghan_42
+	}
+	7998.1.1 = {
+		holder = Varghan_44
+	}
+	8016.1.1 = {
+		holder = Varghan_45
+	}
+	8030.1.1 = {
+		holder = Varghan_48
+	}
+	8079.1.1 = {
+		holder = Varghan_54
+	}
+	8091.4.9 = { # Myrish Bloodbath - Eliate Lavelos retakes Myr
+		holder = Deorel_61
+	}
+	8127.1.1 = {
+		holder = Deorel_65
+	}
+	8152.1.1 = {
+		holder = Deorel_66
+	}
+	8175.1.1 = {
+		holder = Deorel_67
+	}
+	8192.1.1 = {
+		holder = Deorel_4 # Ghirio
+	}
+	8228.1.1 = {
+		holder = Deorel_3 # Galeran
+	}
+	8258.1.1 = {
+		holder = Deorel_2 # Erando
+	}
+	8264.1.1 = {
+		holder = Deorel_1 # Errio
+	}
+}
+c_qolash = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_greenlace
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7813.1.1 = {
+		holder = Uteuran_21
+	}
+	7821.1.1 = {
+		holder = Uteuran_6
+	}
+	7850.1.1 = {
+		holder = Uteuran_7
+	}
+	7886.1.1 = {
+		holder = Uteuran_8
+	}
+	7917.1.1 = {
+		holder = Uteuran_9
+	}
+	7938.1.1 = {
+		holder = Uteuran_12
+	}
+	7953.1.1 = {
+		holder = Uteuran_19
+	}
+	7990.1.1 = {
+		holder = Uteuran_45
+	}
+	8018.1.1 = {
+		holder = Uteuran_46
+	}
+	8040.1.1 = {
+		holder = Uteuran_52
+	}
+	8076.1.1 = {
+		holder = Uteuran_55
+	}
+	8126.1.1 = {
+		holder = Uteuran_56
+	}
+	8161.1.1 = {
+		holder = Uteuran_63
+	}
+	8192.1.1 = {
+		holder = Uteuran_5 # Gyran
+	}
+	8226.1.1 = {
+		holder = Uteuran_4 # Qonane
+	}
+	8237.1.1 = {
+		holder = Uteuran_3 # Qos
+	}
+	8265.1.1 = {
+		holder = Uteuran_2 # Tymeo
+	}
+	8280.1.1 = {
+		holder = Uteuran_1 # Nisario
+	}
+}
+c_erintys = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_greenlace
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7822.1.1 = {
+		holder = Trellos_22
+	}
+	7831.1.1 = {
+		holder = Trellos_5
+	}
+	7846.1.1 = {
+		holder = Trellos_6
+	}
+	7878.1.1 = {
+		holder = Trellos_8
+	}
+	7910.1.1 = {
+		holder = Trellos_15
+	}
+	7935.1.1 = {
+		holder = Trellos_21
+	}
+	7952.1.1 = {
+		holder = Trellos_44
+	}
+	7989.1.1 = {
+		holder = Trellos_52
+	}
+	8033.1.1 = {
+		holder = Trellos_58
+	}
+	8062.1.1 = {
+		holder = Trellos_68
+	}
+	8085.1.1 = {
+		holder = Trellos_70
+	}
+	8122.1.1 = {
+		holder = Trellos_75
+	}
+	8151.1.1 = {
+		holder = Trellos_80
+	}
+	8180.1.1 = {
+		holder = Trellos_82
+	}
+	8208.1.1 = {
+		holder = Trellos_83
+	}
+	8229.1.1 = {
+		holder = Trellos_4 # Andrio
+	}
+	8236.1.1 = {
+		holder = Trellos_3 # Bosqo
+	}
+	8262.1.1 = {
+		holder = Trellos_2 # Dinio
+	}
+	8281.1.1 = {
+		holder = Trellos_1 # Ragono
+	}
+}
+c_illiros = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = k_myr
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7822.1.1 = {
+		holder = Trellos_22
+	}
+	7831.1.1 = {
+		holder = Trellos_5
+	}
+	7846.1.1 = {
+		holder = Trellos_6
+	}
+	7878.1.1 = {
+		holder = Trellos_8
+	}
+	7910.1.1 = {
+		holder = Trellos_15
+	}
+	7935.1.1 = {
+		holder = Trellos_21
+	}
+	7952.1.1 = {
+		holder = Trellos_44
+	}
+	7989.1.1 = {
+		holder = Trellos_52
+	}
+	8033.1.1 = {
+		holder = Trellos_58
+	}
+	8062.1.1 = {
+		holder = Trellos_68
+	}
+	8085.1.1 = {
+		holder = Trellos_70
+	}
+	8122.1.1 = {
+		holder = Trellos_75
+	}
+	8151.1.1 = {
+		holder = Trellos_80
+	}
+	8180.1.1 = {
+		holder = Trellos_82
+	}
+	8208.1.1 = {
+		holder = Trellos_83
+	}
+	8229.1.1 = {
+		holder = Trellos_4 # Andrio
+	}
+	8236.1.1 = {
+		holder = Trellos_3 # Bosqo
+	}
+	8262.1.1 = {
+		holder = Trellos_2 # Dinio
+	}
+	8281.1.1 = {
+		holder = Trellos_1 # Ragono
+	}
+}
+
+d_daarano = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = k_myr
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7827.1.1 = {
+		holder = Mallar_21 # Gamallo
+	}
+	7831.1.1 = {
+		holder = Mallar_8
+	}
+	7882.1.1 = {
+		holder = Mallar_10
+	}
+	7907.1.1 = {
+		holder = Mallar_12
+	}
+	7924.1.1 = {
+		holder = Mallar_13
+	}
+	7956.1.1 = {
+		holder = Mallar_14
+	}
+	7993.1.1 = {
+		holder = Mallar_18
+	}
+	8024.1.1 = {
+		holder = Mallar_63
+	}
+	8038.1.1 = {
+		holder = Mallar_64
+	}
+	8049.1.1 = {
+		holder = Mallar_71
+	}
+	8092.1.1 = {
+		holder = Mallar_75
+	}
+	8093.1.1 = {
+		holder = Mallar_79
+	}
+	8133.1.1 = {
+		holder = Mallar_88
+	}
+	8188.1.1 = {
+		holder = Mallar_5 # Menio
+	}
+	8228.1.1 = {
+		holder = Mallar_4 # Togosh
+	}
+	8232.1.1 = {
+		holder = Mallar_3 # Eladon
+	}
+	8240.1.1 = {
+		holder = Mallar_2 # Galeran
+	}
+	8257.1.1 = {
+		holder = Mallar_1 # Ghazaro
+	}
+}
+c_qapys = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_daarano
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7827.1.1 = {
+		holder = Mallar_21 # Gamallo
+	}
+	7831.1.1 = {
+		holder = Mallar_8
+	}
+	7882.1.1 = {
+		holder = Mallar_10
+	}
+	7907.1.1 = {
+		holder = Mallar_12
+	}
+	7924.1.1 = {
+		holder = Mallar_13
+	}
+	7956.1.1 = {
+		holder = Mallar_14
+	}
+	7993.1.1 = {
+		holder = Mallar_18
+	}
+	8024.1.1 = {
+		holder = Mallar_63
+	}
+	8038.1.1 = {
+		holder = Mallar_64
+	}
+	8049.1.1 = {
+		holder = Mallar_71
+	}
+	8092.1.1 = {
+		holder = Mallar_75
+	}
+	8093.1.1 = {
+		holder = Mallar_79
+	}
+	8133.1.1 = {
+		holder = Mallar_88
+	}
+	8188.1.1 = {
+		holder = Mallar_5 # Menio
+	}
+	8228.1.1 = {
+		holder = Mallar_4 # Togosh
+	}
+	8232.1.1 = {
+		holder = Mallar_3 # Eladon
+	}
+	8240.1.1 = {
+		holder = Mallar_2 # Galeran
+	}
+	8257.1.1 = {
+		holder = Mallar_1 # Ghazaro
+	}
+}
+c_sweetpale = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_daarano
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7827.1.1 = {
+		holder = Mallar_21 # Gamallo
+	}
+	7831.1.1 = {
+		holder = Mallar_8
+	}
+	7882.1.1 = {
+		holder = Mallar_10
+	}
+	7907.1.1 = {
+		holder = Mallar_12
+	}
+	7924.1.1 = {
+		holder = Mallar_13
+	}
+	7956.1.1 = {
+		holder = Mallar_14
+	}
+	7993.1.1 = {
+		holder = Mallar_18
+	}
+	8024.1.1 = {
+		holder = Mallar_63
+	}
+	8038.1.1 = {
+		holder = Mallar_64
+	}
+	8049.1.1 = {
+		holder = Mallar_71
+	}
+	8092.1.1 = {
+		holder = Mallar_75
+	}
+	8093.1.1 = {
+		holder = Mallar_79
+	}
+	8133.1.1 = {
+		holder = Mallar_88
+	}
+	8188.1.1 = {
+		holder = Mallar_5 # Menio
+	}
+	8228.1.1 = {
+		holder = Mallar_4 # Togosh
+	}
+	8232.1.1 = {
+		holder = Mallar_3 # Eladon
+	}
+	8240.1.1 = {
+		holder = Mallar_2 # Galeran
+	}
+	8257.1.1 = {
+		holder = Mallar_1 # Ghazaro
+	}
+}
+c_aenoris = {
+	7800.1.1 = {
+		government = administrative_government
+		liege = d_daarano
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7866.1.1 = {
+		holder = Feryna_1
+	}
+	7867.1.1 = {
+		holder = Feryna_2
+	}
+	7903.1.1 = {
+		holder = Feryna_8
+	}
+	7921.1.1 = {
+		holder = Feryna_10
+	}
+	7950.1.1 = {
+		holder = Feryna_14
+	}
+	7973.1.1 = {
+		holder = Feryna_22
+	}
+	7986.1.1 = {
+		holder = Feryna_29
+	}
+	8025.1.1 = {
+		holder = Feryna_33
+	}
+	8050.1.1 = {
+		holder = Feryna_35
+	}
+	8089.1.1 = {
+		holder = Feryna_36
+	}
+	8111.1.1 = {
+		holder = Feryna_40
+	}
+	8150.1.1 = {
+		holder = Feryna_42
+	}
+	8165.1.1 = {
+		holder = Feryna_45
+	}
+	8207.1.1 = {
+		holder = Feryna_48
+	}
+	8235.1.1 = {
+		holder = Feryna_53
+	}
+	8263.1.1 = {
+		holder = Feryna_57
+	}
+	8281.1.1 = {
+		holder = Feryna_68
+	}
+}

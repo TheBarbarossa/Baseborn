@@ -1,0 +1,1926 @@
+﻿k_tyrosh = {
+	7806.1.1 = {
+		holder = Basetys_25 # Seqqo
+		government = administrative_government
+		effect = {
+			# Law Setup for Tyrosh
+			holder ?= {
+				if = {
+					limit = {
+						NOT = { has_realm_law = free_city_election_succession_law }
+					}
+					add_realm_law_skip_effects = free_city_election_succession_law
+				}
+				# Term Length Laws
+				if = {
+					limit = {
+						NOT = { has_realm_law = term_length_historical }
+					}
+					add_realm_law_skip_effects = term_length_historical
+				}
+				# Francise Laws
+				if = {
+					limit = {
+						NOT = { has_realm_law = franchise_lean_democratic }
+					}
+					add_realm_law_skip_effects = franchise_lean_democratic
+				}
+				# Policy Laws
+				if = {
+					limit = {
+						NOT = { has_realm_law = policy_lean_mercantile }
+					}
+					add_realm_law_skip_effects = policy_lean_mercantile
+				}
+				# Slavery Laws
+				if = {
+					limit = {
+						NOT = { has_realm_law = slavery_allowed_law }
+					}
+					add_realm_law_skip_effects = slavery_allowed_law
+				}
+			}
+			every_in_de_jure_hierarchy = {
+				set_variable = historical_slavery
+				holder ?= {
+					if = {
+						limit = {
+							NOT = { has_realm_law = slavery_allowed_law }
+						}
+						add_realm_law_skip_effects = slavery_allowed_law
+					}
+				}
+			}
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7815.1.1 = { # Term has ended
+		holder = Ryndoon_20
+	}
+	7822.1.1 = { # Magistrate has died
+		holder = Adarys_22
+	}
+	7831.1.1 = { # Term has ended
+		holder = Tyraanis_21
+	}
+	7839.1.1 = { # Magistrate has died
+		holder = Moratyr_1
+	}
+	7848.1.1 = { # Term has ended
+		holder = Zokan_22
+	}
+	7857.1.1 = { # Term has ended
+		holder = Gaergyn_1
+	}
+	7875.1.1 = { # Term has ended
+		holder = Atuhoris_34
+	}
+	7884.1.1 = { # Term has ended
+		holder = Camardoon_40
+	}
+	7893.1.1 = { # Term has ended
+		holder = Quaynis_27
+	}
+	7902.1.1 = { # Term has ended
+		holder = Camardoon_40
+	}
+	7908.1.1 = { # Magistrate has died
+		holder = Ryndoon_73
+	}
+	7917.1.1 = { # Term has ended
+		holder = Basetys_34
+	}
+	7926.1.1 = { # Magistrate has died
+		holder = Baerdoon_78
+	}
+	7933.1.1 = { # Magistrate has died
+		holder = Uthis_8
+	}
+	7942.1.1 = { # Term has ended
+		holder = Moratyr_15
+	}
+	7951.1.1 = { # Term has ended
+		holder = Atuhoris_43
+	}
+	7960.1.1 = { # Term has ended
+		holder = Basetys_44
+	}
+	7969.1.1 = { # Magistrate has died
+		holder = Zomaros_18
+	}
+	7978.1.1 = { # Term has ended
+		holder = Atuhoris_50
+	}
+	7987.1.1 = { # Term has ended
+		holder = Raharyen_11
+	}
+	7996.1.1 = { # Term has ended
+		holder = Camardoon_45
+	}
+	7997.1.1 = { # Magistrate has died
+		holder = Ryndoon_84 # Important
+	}
+	8006.1.1 = { # Term has ended
+		holder = Adarys_44
+	}
+	8015.1.1 = { # Term has ended
+		holder = Uthis_17
+	}
+	8024.1.1 = { # Term has ended
+		holder = Rohar_19
+	}
+	8033.1.1 = { # Term has ended
+		holder = Zokan_72
+	}
+	8042.1.1 = { # Term has ended
+		holder = Basetys_60
+	}
+	8045.1.1 = { # Magistrate has died
+		holder = Adarys_46 # Important
+	}
+	8054.1.1 = { # Term has ended
+		holder = Gaergyn_36
+	}
+	8063.1.1 = { # Term has ended
+		holder = Basetys_63
+	}
+	8073.1.1 = { # Term has ended
+		holder = Gaergyn_37
+	}
+	8082.1.1 = { # Term has ended
+		holder = Tyraanis_98
+	}
+	8091.1.1 = { # Term has ended
+		holder = Adarys_50
+	}
+	8096.8.13 = {
+		# Triarchy is formed, leaving empty bracket for reference
+	}
+	8100.1.1 = { # Term has ended
+		holder = Camardoon_57
+	}
+	8103.1.1 = { # Magistrate has died
+		holder = Basetys_67
+	}
+	8112.1.1 = { # Term has ended
+		holder = Uthis_22
+	}
+	8116.1.1 = { # Magistrate has died
+		holder = Moratyr_44
+	}
+	8125.1.1 = { # Term has ended
+		holder = Quaynis_60
+	}
+	8128.1.1 = { # Magistrate has died
+		holder = Moratyr_44 # Important
+	}
+	8137.1.1 = { # Term has ended
+		holder = Adarys_52
+	}
+	8138.1.1 = { # Magistrate has died
+		holder = Basetys_78
+	}
+	8140.1.1 = { # Magistrate has died
+		holder = Gaergyn_54
+	}
+	8149.1.1 = { # Term has ended
+		holder = Moratyr_44
+	}
+	8155.2.19 = { # Violent takeover
+		holder = Rohar_34
+	}
+	8167.1.1 = { # Term has ended
+		holder = Adarys_53
+	}
+	8176.1.1 = { # Term has ended
+		holder = Atuhoris_80 # Important, Blackfyre Faction
+	}
+	8185.1.1 = { # Term has ended
+		holder = Adarys_54 # Important, Targaryen Faction
+	}
+	8191.1.1 = { # Magistrate has died
+		holder = Camardoon_8 # Important, Targaryen Faction
+	}
+	8200.1.1 = { # Term has ended
+		holder = Atuhoris_5 # Important, Blackfyre Faction
+	}
+	8209.1.1 = { # Term has ended
+		holder = Camardoon_8 # Important, Targaryen Faction
+	}
+	8214.1.1 = { # Magistrate has died
+		holder = Basetys_87 # Important, Blackfyre Faction
+	}
+	8223.1.1 = { # Term has ended
+		holder = Atuhoris_4 # Important, Blackfyre Faction
+	}
+	8232.1.1 = { # Term has ended
+		holder = Adarys_4 # Important, Targaryen Faction
+	}
+	8241.1.1 = { # Term has ended
+		holder = Moratyr_72 # Important, Targaryen Faction
+	}
+	8250.1.1 = { # Term has ended
+		holder = Uthis_38 # Important, Targaryen Faction
+	}
+	8255.1.1 = { # Magistrate has died
+		holder = Camardoon_5 # Kasporio Camardoon, Targaryen Faction, Alequo lost the election and he flips to Blackfyre Faction
+	}
+	8259.1.1 = { # Violent takeover
+		holder = Adarys_1 # Alequo Adarys, Band of Nine
+	}
+	8266.7.19 = { # Violent takeover
+		holder = Camardoon_5 # Previous Archon reinstated after Alequo's death
+		effect = { # Forced to repay debt to Myr, stop sending money after half the time in 8271
+			holder ?= {
+				agot_safe_add_timed_tribuatry_history_effect = {
+					EXPIRE = 8271.7.19
+					SUZERAIN = title:k_myr
+				}
+			}
+		}
+	}
+	8275.1.1 = { # Term has ended
+		holder = Basetys_2
+	}
+	8284.1.1 = { # Term has ended
+		holder = Zokan_1
+	}
+	8293.1.1 = { # Term has ended
+		holder = Basetys_2 # Important
+	}
+}
+d_tyrosh = {
+	7806.1.1 = {
+		holder = Basetys_25 # Seqqo
+		liege = k_tyrosh
+		succession_laws = { magisterial_attached_titles_law }
+		government = administrative_government
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = { has_realm_law = free_city_election_succession_law }
+					}
+					add_realm_law_skip_effects = free_city_election_succession_law
+				}
+			}
+			add_title_law = magisterial_attached_titles_law
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7815.1.1 = { # Term has ended
+		holder = Ryndoon_20
+	}
+	7822.1.1 = { # Magistrate has died
+		holder = Adarys_22
+	}
+	7831.1.1 = { # Term has ended
+		holder = Tyraanis_21
+	}
+	7839.1.1 = { # Magistrate has died
+		holder = Moratyr_1
+	}
+	7848.1.1 = { # Term has ended
+		holder = Zokan_22
+	}
+	7857.1.1 = { # Term has ended
+		holder = Gaergyn_1
+	}
+	7875.1.1 = { # Term has ended
+		holder = Atuhoris_34
+	}
+	7884.1.1 = { # Term has ended
+		holder = Camardoon_40
+	}
+	7893.1.1 = { # Term has ended
+		holder = Quaynis_27
+	}
+	7902.1.1 = { # Term has ended
+		holder = Camardoon_40
+	}
+	7908.1.1 = { # Magistrate has died
+		holder = Ryndoon_73
+	}
+	7917.1.1 = { # Term has ended
+		holder = Basetys_34
+	}
+	7926.1.1 = { # Magistrate has died
+		holder = Baerdoon_78
+	}
+	7933.1.1 = { # Magistrate has died
+		holder = Uthis_8
+	}
+	7942.1.1 = { # Term has ended
+		holder = Moratyr_15
+	}
+	7951.1.1 = { # Term has ended
+		holder = Atuhoris_43
+	}
+	7960.1.1 = { # Term has ended
+		holder = Basetys_44
+	}
+	7969.1.1 = { # Magistrate has died
+		holder = Zomaros_18
+	}
+	7978.1.1 = { # Term has ended
+		holder = Atuhoris_50
+	}
+	7987.1.1 = { # Term has ended
+		holder = Raharyen_11
+	}
+	7996.1.1 = { # Term has ended
+		holder = Camardoon_45
+	}
+	7997.1.1 = { # Magistrate has died
+		holder = Ryndoon_84
+	}
+	8006.1.1 = { # Term has ended
+		holder = Adarys_44
+	}
+	8015.1.1 = { # Term has ended
+		holder = Uthis_17
+	}
+	8024.1.1 = { # Term has ended
+		holder = Rohar_19
+	}
+	8033.1.1 = { # Term has ended
+		holder = Zokan_72
+	}
+	8042.1.1 = { # Term has ended
+		holder = Basetys_60
+	}
+	8045.1.1 = { # Magistrate has died
+		holder = Adarys_46 # Important
+	}
+	8054.1.1 = { # Term has ended
+		holder = Gaergyn_36
+	}
+	8063.1.1 = { # Term has ended
+		holder = Basetys_63
+	}
+	8073.1.1 = { # Term has ended
+		holder = Gaergyn_37
+	}
+	8082.1.1 = { # Term has ended
+		holder = Tyraanis_98
+	}
+	8091.1.1 = { # Term has ended
+		holder = Adarys_50
+	}
+	8100.1.1 = { # Term has ended
+		holder = Camardoon_57
+	}
+	8103.1.1 = { # Magistrate has died
+		holder = Basetys_67
+	}
+	8112.1.1 = { # Term has ended
+		holder = Uthis_22
+	}
+	8116.1.1 = { # Magistrate has died
+		holder = Moratyr_44
+	}
+	8125.1.1 = { # Term has ended
+		holder = Quaynis_60
+	}
+	8128.1.1 = { # Magistrate has died
+		holder = Moratyr_44 # Important
+	}
+	8137.1.1 = { # Term has ended
+		holder = Adarys_52
+	}
+	8138.1.1 = { # Magistrate has died
+		holder = Basetys_78
+	}
+	8140.1.1 = { # Magistrate has died
+		holder = Gaergyn_54
+	}
+	8149.1.1 = { # Term has ended
+		holder = Moratyr_44
+	}
+	8155.2.19 = { # Violent takeover
+		holder = Rohar_34
+	}
+	8167.1.1 = { # Term has ended
+		holder = Adarys_53
+	}
+	8176.1.1 = { # Term has ended
+		holder = Atuhoris_80 # Important
+	}
+	8185.1.1 = { # Term has ended
+		holder = Adarys_54
+	}
+	8191.1.1 = { # Magistrate has died
+		holder = Camardoon_8 # Important
+	}
+	8200.1.1 = { # Term has ended
+		holder = Atuhoris_5 # Important
+	}
+	8209.1.1 = { # Term has ended
+		holder = Camardoon_8 # Important
+	}
+	8214.1.1 = { # Magistrate has died
+		holder = Basetys_87
+	}
+	8223.1.1 = { # Term has ended
+		holder = Atuhoris_4
+	}
+	8232.1.1 = { # Term has ended
+		holder = Adarys_4
+	}
+	8241.1.1 = { # Term has ended
+		holder = Moratyr_72
+	}
+	8250.1.1 = { # Term has ended
+		holder = Uthis_38
+	}
+	8255.1.1 = { # Magistrate has died
+		holder = Camardoon_5 # Kasporio Camardoon, Alequo lost the election
+	}
+	8259.1.1 = { # Violent takeover
+		holder = Adarys_1 # Alequo Adarys, Band of Nine
+	}
+	8266.7.19 = { # Violent takeover
+		holder = Camardoon_5 # Previous Archon reinstated after Alequo's death
+	}
+	8275.1.1 = { # Term has ended
+		holder = Basetys_2
+	}
+	8284.1.1 = { # Term has ended
+		holder = Zokan_1
+	}
+	8293.1.1 = { # Term has ended
+		holder = Basetys_2 # Important
+	}
+}
+c_tyrosh = {
+	7806.1.1 = {
+		holder = Basetys_25 # Seqqo
+		liege = d_tyrosh
+		succession_laws = { magisterial_attached_titles_law }
+		government = administrative_government
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = { has_realm_law = free_city_election_succession_law }
+					}
+					add_realm_law_skip_effects = free_city_election_succession_law
+				}
+			}
+			add_title_law = magisterial_attached_titles_law
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7815.1.1 = { # Term has ended
+		holder = Ryndoon_20
+	}
+	7822.1.1 = { # Magistrate has died
+		holder = Adarys_22
+	}
+	7831.1.1 = { # Term has ended
+		holder = Tyraanis_21
+	}
+	7839.1.1 = { # Magistrate has died
+		holder = Moratyr_1
+	}
+	7848.1.1 = { # Term has ended
+		holder = Zokan_22
+	}
+	7857.1.1 = { # Term has ended
+		holder = Gaergyn_1
+	}
+	7875.1.1 = { # Term has ended
+		holder = Atuhoris_34
+	}
+	7884.1.1 = { # Term has ended
+		holder = Camardoon_40
+	}
+	7893.1.1 = { # Term has ended
+		holder = Quaynis_27
+	}
+	7902.1.1 = { # Term has ended
+		holder = Camardoon_40
+	}
+	7908.1.1 = { # Magistrate has died
+		holder = Ryndoon_73
+	}
+	7917.1.1 = { # Term has ended
+		holder = Basetys_34
+	}
+	7926.1.1 = { # Magistrate has died
+		holder = Baerdoon_78
+	}
+	7933.1.1 = { # Magistrate has died
+		holder = Uthis_8
+	}
+	7942.1.1 = { # Term has ended
+		holder = Moratyr_15
+	}
+	7951.1.1 = { # Term has ended
+		holder = Atuhoris_43
+	}
+	7960.1.1 = { # Term has ended
+		holder = Basetys_44
+	}
+	7969.1.1 = { # Magistrate has died
+		holder = Zomaros_18
+	}
+	7978.1.1 = { # Term has ended
+		holder = Atuhoris_50
+	}
+	7987.1.1 = { # Term has ended
+		holder = Raharyen_11
+	}
+	7996.1.1 = { # Term has ended
+		holder = Camardoon_45
+	}
+	7997.1.1 = { # Magistrate has died
+		holder = Ryndoon_84
+	}
+	8006.1.1 = { # Term has ended
+		holder = Adarys_44
+	}
+	8015.1.1 = { # Term has ended
+		holder = Uthis_17
+	}
+	8024.1.1 = { # Term has ended
+		holder = Rohar_19
+	}
+	8033.1.1 = { # Term has ended
+		holder = Zokan_72
+	}
+	8042.1.1 = { # Term has ended
+		holder = Basetys_60
+	}
+	8045.1.1 = { # Magistrate has died
+		holder = Adarys_46 # Important
+	}
+	8054.1.1 = { # Term has ended
+		holder = Gaergyn_36
+	}
+	8063.1.1 = { # Term has ended
+		holder = Basetys_63
+	}
+	8073.1.1 = { # Term has ended
+		holder = Gaergyn_37
+	}
+	8082.1.1 = { # Term has ended
+		holder = Tyraanis_98
+	}
+	8091.1.1 = { # Term has ended
+		holder = Adarys_50
+	}
+	8100.1.1 = { # Term has ended
+		holder = Camardoon_57
+	}
+	8103.1.1 = { # Magistrate has died
+		holder = Basetys_67
+	}
+	8112.1.1 = { # Term has ended
+		holder = Uthis_22
+	}
+	8116.1.1 = { # Magistrate has died
+		holder = Moratyr_44
+	}
+	8125.1.1 = { # Term has ended
+		holder = Quaynis_60
+	}
+	8128.1.1 = { # Magistrate has died
+		holder = Moratyr_44 # Important
+	}
+	8137.1.1 = { # Term has ended
+		holder = Adarys_52
+	}
+	8138.1.1 = { # Magistrate has died
+		holder = Basetys_78
+	}
+	8140.1.1 = { # Magistrate has died
+		holder = Gaergyn_54
+	}
+	8149.1.1 = { # Term has ended
+		holder = Moratyr_44
+	}
+	8155.2.19 = { # Violent takeover
+		holder = Rohar_34
+	}
+	8167.1.1 = { # Term has ended
+		holder = Adarys_53
+	}
+	8176.1.1 = { # Term has ended
+		holder = Atuhoris_80 # Important
+	}
+	8185.1.1 = { # Term has ended
+		holder = Adarys_54
+	}
+	8191.1.1 = { # Magistrate has died
+		holder = Camardoon_8 # Important
+	}
+	8200.1.1 = { # Term has ended
+		holder = Atuhoris_5 # Important
+	}
+	8209.1.1 = { # Term has ended
+		holder = Camardoon_8 # Important
+	}
+	8214.1.1 = { # Magistrate has died
+		holder = Basetys_87
+	}
+	8223.1.1 = { # Term has ended
+		holder = Atuhoris_4
+	}
+	8232.1.1 = { # Term has ended
+		holder = Adarys_4
+	}
+	8241.1.1 = { # Term has ended
+		holder = Moratyr_72
+	}
+	8250.1.1 = { # Term has ended
+		holder = Uthis_38
+	}
+	8255.1.1 = { # Magistrate has died
+		holder = Camardoon_5 # Kasporio Camardoon, Alequo lost the election
+	}
+	8259.1.1 = { # Violent takeover
+		holder = Adarys_1 # Alequo Adarys, Band of Nine
+	}
+	8266.7.19 = { # Violent takeover
+		holder = Camardoon_5 # Previous Archon reinstated after Alequo's death
+	}
+	8275.1.1 = { # Term has ended
+		holder = Basetys_2
+	}
+	8284.1.1 = { # Term has ended
+		holder = Zokan_1
+	}
+	8293.1.1 = { # Term has ended
+		holder = Basetys_2 # Important
+	}
+}
+c_great_hue = {
+	7700.1.1 = {
+		government = administrative_government
+		liege = d_tyrosh
+		effect = {
+			add_title_law = magisterial_attached_titles_law
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7815.1.1 = { # Term has ended
+		holder = Ryndoon_20
+	}
+	7822.1.1 = { # Magistrate has died
+		holder = Adarys_22
+	}
+	7831.1.1 = { # Term has ended
+		holder = Tyraanis_21
+	}
+	7839.1.1 = { # Magistrate has died
+		holder = Moratyr_1
+	}
+	7848.1.1 = { # Term has ended
+		holder = Zokan_22
+	}
+	7857.1.1 = { # Term has ended
+		holder = Gaergyn_1
+	}
+	7875.1.1 = { # Term has ended
+		holder = Atuhoris_34
+	}
+	7884.1.1 = { # Term has ended
+		holder = Camardoon_40
+	}
+	7893.1.1 = { # Term has ended
+		holder = Quaynis_27
+	}
+	7902.1.1 = { # Term has ended
+		holder = Camardoon_40
+	}
+	7908.1.1 = { # Magistrate has died
+		holder = Ryndoon_73
+	}
+	7917.1.1 = { # Term has ended
+		holder = Basetys_34
+	}
+	7926.1.1 = { # Magistrate has died
+		holder = Baerdoon_78
+	}
+	7933.1.1 = { # Magistrate has died
+		holder = Uthis_8
+	}
+	7942.1.1 = { # Term has ended
+		holder = Moratyr_15
+	}
+	7951.1.1 = { # Term has ended
+		holder = Atuhoris_43
+	}
+	7960.1.1 = { # Term has ended
+		holder = Basetys_44
+	}
+	7969.1.1 = { # Magistrate has died
+		holder = Zomaros_18
+	}
+	7978.1.1 = { # Term has ended
+		holder = Atuhoris_50
+	}
+	7987.1.1 = { # Term has ended
+		holder = Raharyen_11
+	}
+	7996.1.1 = { # Term has ended
+		holder = Camardoon_45
+	}
+	7997.1.1 = { # Magistrate has died
+		holder = Ryndoon_84
+	}
+	8006.1.1 = { # Term has ended
+		holder = Adarys_44
+	}
+	8015.1.1 = { # Term has ended
+		holder = Uthis_17
+	}
+	8024.1.1 = { # Term has ended
+		holder = Rohar_19
+	}
+	8033.1.1 = { # Term has ended
+		holder = Zokan_72
+	}
+	8042.1.1 = { # Term has ended
+		holder = Basetys_60
+	}
+	8045.1.1 = { # Magistrate has died
+		holder = Adarys_46 # Important
+	}
+	8054.1.1 = { # Term has ended
+		holder = Gaergyn_36
+	}
+	8063.1.1 = { # Term has ended
+		holder = Basetys_63
+	}
+	8073.1.1 = { # Term has ended
+		holder = Gaergyn_37
+	}
+	8082.1.1 = { # Term has ended
+		holder = Tyraanis_98
+	}
+	8091.1.1 = { # Term has ended
+		holder = Adarys_50
+	}
+	8100.1.1 = { # Term has ended
+		holder = Camardoon_57
+	}
+	8103.1.1 = { # Magistrate has died
+		holder = Basetys_67
+	}
+	8112.1.1 = { # Term has ended
+		holder = Uthis_22
+	}
+	8116.1.1 = { # Magistrate has died
+		holder = Moratyr_44
+	}
+	8125.1.1 = { # Term has ended
+		holder = Quaynis_60
+	}
+	8128.1.1 = { # Magistrate has died
+		holder = Moratyr_44 # Important
+	}
+	8137.1.1 = { # Term has ended
+		holder = Adarys_52
+	}
+	8138.1.1 = { # Magistrate has died
+		holder = Basetys_78
+	}
+	8140.1.1 = { # Magistrate has died
+		holder = Gaergyn_54
+	}
+	8149.1.1 = { # Term has ended
+		holder = Moratyr_44
+	}
+	8155.2.19 = { # Violent takeover
+		holder = Rohar_34
+	}
+	8167.1.1 = { # Term has ended
+		holder = Adarys_53
+	}
+	8176.1.1 = { # Term has ended
+		holder = Atuhoris_80 # Important
+	}
+	8185.1.1 = { # Term has ended
+		holder = Adarys_54
+	}
+	8191.1.1 = { # Magistrate has died
+		holder = Camardoon_8 # Important
+	}
+	8200.1.1 = { # Term has ended
+		holder = Atuhoris_5 # Important
+	}
+	8209.1.1 = { # Term has ended
+		holder = Camardoon_8 # Important
+	}
+	8214.1.1 = { # Magistrate has died
+		holder = Basetys_87
+	}
+	8223.1.1 = { # Term has ended
+		holder = Atuhoris_4
+	}
+	8232.1.1 = { # Term has ended
+		holder = Adarys_4
+	}
+	8241.1.1 = { # Term has ended
+		holder = Moratyr_72
+	}
+	8250.1.1 = { # Term has ended
+		holder = Uthis_38
+	}
+	8255.1.1 = { # Magistrate has died
+		holder = Camardoon_5 # Kasporio Camardoon, Alequo lost the election
+	}
+	8259.1.1 = { # Violent takeover
+		holder = Adarys_1 # Alequo Adarys, Band of Nine
+	}
+	8266.7.19 = { # Violent takeover
+		holder = Camardoon_5 # Previous Archon reinstated after Alequo's death
+	}
+	8275.1.1 = { # Term has ended
+		holder = Basetys_2
+	}
+	8284.1.1 = { # Term has ended
+		holder = Zokan_1
+	}
+	8293.1.1 = { # Term has ended
+		holder = Basetys_2 # Important
+	}
+}
+c_bleeding_bay = {
+	7806.1.1 = {
+		government = administrative_government
+		liege = d_tyrosh
+		effect = {
+			add_title_law = magisterial_attached_titles_law
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7815.1.1 = { # Term has ended
+		holder = Ryndoon_20
+	}
+	7822.1.1 = { # Magistrate has died
+		holder = Adarys_22
+	}
+	7831.1.1 = { # Term has ended
+		holder = Tyraanis_21
+	}
+	7839.1.1 = { # Magistrate has died
+		holder = Moratyr_1
+	}
+	7848.1.1 = { # Term has ended
+		holder = Zokan_22
+	}
+	7857.1.1 = { # Term has ended
+		holder = Gaergyn_1
+	}
+	7875.1.1 = { # Term has ended
+		holder = Atuhoris_34
+	}
+	7884.1.1 = { # Term has ended
+		holder = Camardoon_40
+	}
+	7893.1.1 = { # Term has ended
+		holder = Quaynis_27
+	}
+	7902.1.1 = { # Term has ended
+		holder = Camardoon_40
+	}
+	7908.1.1 = { # Magistrate has died
+		holder = Ryndoon_73
+	}
+	7917.1.1 = { # Term has ended
+		holder = Basetys_34
+	}
+	7926.1.1 = { # Magistrate has died
+		holder = Baerdoon_78
+	}
+	7933.1.1 = { # Magistrate has died
+		holder = Uthis_8
+	}
+	7942.1.1 = { # Term has ended
+		holder = Moratyr_15
+	}
+	7951.1.1 = { # Term has ended
+		holder = Atuhoris_43
+	}
+	7960.1.1 = { # Term has ended
+		holder = Basetys_44
+	}
+	7969.1.1 = { # Magistrate has died
+		holder = Zomaros_18
+	}
+	7978.1.1 = { # Term has ended
+		holder = Atuhoris_50
+	}
+	7987.1.1 = { # Term has ended
+		holder = Raharyen_11
+	}
+	7996.1.1 = { # Term has ended
+		holder = Camardoon_45
+	}
+	7997.1.1 = { # Magistrate has died
+		holder = Ryndoon_84
+	}
+	8006.1.1 = { # Term has ended
+		holder = Adarys_44
+	}
+	8015.1.1 = { # Term has ended
+		holder = Uthis_17
+	}
+	8024.1.1 = { # Term has ended
+		holder = Rohar_19
+	}
+	8033.1.1 = { # Term has ended
+		holder = Zokan_72
+	}
+	8042.1.1 = { # Term has ended
+		holder = Basetys_60
+	}
+	8045.1.1 = { # Magistrate has died
+		holder = Adarys_46 # Important
+	}
+	8054.1.1 = { # Term has ended
+		holder = Gaergyn_36
+	}
+	8063.1.1 = { # Term has ended
+		holder = Basetys_63
+	}
+	8073.1.1 = { # Term has ended
+		holder = Gaergyn_37
+	}
+	8082.1.1 = { # Term has ended
+		holder = Tyraanis_98
+	}
+	8091.1.1 = { # Term has ended
+		holder = Adarys_50
+	}
+	8100.1.1 = { # Term has ended
+		holder = Camardoon_57
+	}
+	8103.1.1 = { # Magistrate has died
+		holder = Basetys_67
+	}
+	8112.1.1 = { # Term has ended
+		holder = Uthis_22
+	}
+	8116.1.1 = { # Magistrate has died
+		holder = Moratyr_44
+	}
+	8125.1.1 = { # Term has ended
+		holder = Quaynis_60
+	}
+	8128.1.1 = { # Magistrate has died
+		holder = Moratyr_44 # Important
+	}
+	8137.1.1 = { # Term has ended
+		holder = Adarys_52
+	}
+	8138.1.1 = { # Magistrate has died
+		holder = Basetys_78
+	}
+	8140.1.1 = { # Magistrate has died
+		holder = Gaergyn_54
+	}
+	8149.1.1 = { # Term has ended
+		holder = Moratyr_44
+	}
+	8155.2.19 = { # Violent takeover
+		holder = Rohar_34
+	}
+	8167.1.1 = { # Term has ended
+		holder = Adarys_53
+	}
+	8176.1.1 = { # Term has ended
+		holder = Atuhoris_80 # Important
+	}
+	8185.1.1 = { # Term has ended
+		holder = Adarys_54
+	}
+	8191.1.1 = { # Magistrate has died
+		holder = Camardoon_8 # Important
+	}
+	8200.1.1 = { # Term has ended
+		holder = Atuhoris_5 # Important
+	}
+	8209.1.1 = { # Term has ended
+		holder = Camardoon_8 # Important
+	}
+	8214.1.1 = { # Magistrate has died
+		holder = Basetys_87
+	}
+	8223.1.1 = { # Term has ended
+		holder = Atuhoris_4
+	}
+	8232.1.1 = { # Term has ended
+		holder = Adarys_4
+	}
+	8241.1.1 = { # Term has ended
+		holder = Moratyr_72
+	}
+	8250.1.1 = { # Term has ended
+		holder = Uthis_38
+	}
+	8255.1.1 = { # Magistrate has died
+		holder = Camardoon_5 # Kasporio Camardoon, Alequo lost the election
+	}
+	8259.1.1 = { # Violent takeover
+		holder = Adarys_1 # Alequo Adarys, Band of Nine
+	}
+	8266.7.19 = { # Violent takeover
+		holder = Camardoon_5 # Previous Archon reinstated after Alequo's death
+	}
+	8275.1.1 = { # Term has ended
+		holder = Basetys_2
+	}
+	8284.1.1 = { # Term has ended
+		holder = Zokan_1
+	}
+	8293.1.1 = { # Term has ended
+		holder = Basetys_2 # Important
+	}
+}
+c_zernosh = {
+	7806.1.1 = {
+		government = administrative_government
+		liege = k_tyrosh
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	# Camardoon Family
+	7837.1.1 = {
+		holder = Camardoon_26
+	}
+	7839.1.1 = {
+		holder = Camardoon_28
+	}
+	7863.1.1 = {
+		holder = Camardoon_37
+	}
+	7889.1.1 = {
+		holder = Camardoon_40
+	}
+	7908.1.1 = {
+		holder = Camardoon_41
+	}
+	7915.1.1 = {
+		holder = Camardoon_44
+	}
+	7957.1.1 = {
+		holder = Camardoon_45
+	}
+	7997.1.1 = {
+		holder = Camardoon_48
+	}
+	8030.1.1 = {
+		holder = Camardoon_51
+	}
+	8065.1.1 = {
+		holder = Camardoon_57
+	}
+	8103.1.1 = {
+		holder = Camardoon_61
+	}
+	8116.1.1 = {
+		holder = Camardoon_62
+	}
+	8129.1.1 = {
+		holder = Camardoon_65
+	}
+	8173.1.1 = {
+		holder = Camardoon_8 # Anello
+	}
+	8214.1.1 = {
+		holder = Camardoon_7 # Cossomo
+	}
+	8228.1.1 = {
+		holder = Camardoon_6 # Harpalo
+	}
+	8239.1.1 = {
+		holder = Camardoon_5 # Kasporio
+	}
+	8278.1.1 = {
+		holder = Camardoon_1 # Rodo
+	}
+}
+
+d_muricosh = {
+	7806.1.1 = {
+		liege = k_tyrosh
+		government = administrative_government
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7899.8.14 = {
+		holder = Urnebar_1
+	}
+	# Atuhoris Family
+	7902.3.3 = {
+		holder = Atuhoris_42
+	}
+	7946.1.1 = {
+		holder = Atuhoris_43
+	}
+	7962.1.1 = {
+		holder = Atuhoris_50
+	}
+	7989.1.1 = {
+		holder = Atuhoris_51
+	}
+	8012.1.1 = {
+		holder = Atuhoris_58
+	}
+	8044.1.1 = {
+		holder = Atuhoris_65
+	}
+	8072.1.1 = {
+		holder = Atuhoris_68
+	}
+	8085.1.1 = {
+		holder = Atuhoris_69
+	}
+	8096.1.1 = {
+		holder = Atuhoris_79
+	}
+	8154.1.1 = {
+		holder = Atuhoris_80
+	}
+	8189.1.1 = {
+		holder = Atuhoris_83
+	}
+	8212.1.1 = {
+		holder = Atuhoris_5 # Silvario
+	}
+	8219.1.1 = {
+		holder = Atuhoris_4 # Racallio
+	}
+	8236.1.1 = {
+		holder = Atuhoris_3 # Eloro
+	}
+	8267.1.1 = {
+		holder = Atuhoris_1 # Ghazaro
+	}
+}
+c_muricosh = {
+	7806.1.1 = {
+		liege = d_muricosh
+		government = administrative_government
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7899.8.14 = {
+		holder = Urnebar_1
+	}
+	# Atuhoris Family
+	7902.3.3 = {
+		holder = Atuhoris_42
+	}
+	7946.1.1 = {
+		holder = Atuhoris_43
+	}
+	7962.1.1 = {
+		holder = Atuhoris_50
+	}
+	7989.1.1 = {
+		holder = Atuhoris_51
+	}
+	8012.1.1 = {
+		holder = Atuhoris_58
+	}
+	8044.1.1 = {
+		holder = Atuhoris_65
+	}
+	8072.1.1 = {
+		holder = Atuhoris_68
+	}
+	8085.1.1 = {
+		holder = Atuhoris_69
+	}
+	8096.1.1 = {
+		holder = Atuhoris_79
+	}
+	8154.1.1 = {
+		holder = Atuhoris_80
+	}
+	8189.1.1 = {
+		holder = Atuhoris_83
+	}
+	8212.1.1 = {
+		holder = Atuhoris_5 # Silvario
+	}
+	8219.1.1 = {
+		holder = Atuhoris_4 # Racallio
+	}
+	8236.1.1 = {
+		holder = Atuhoris_3 # Eloro
+	}
+	8267.1.1 = {
+		holder = Atuhoris_1 # Ghazaro
+	}
+}
+b_whelcastle = {
+	8196.11.22 = {
+		holder = Atuhoris_5 # Silvario
+	}
+	8219.1.1 = {
+		holder = Atuhoris_4 # Racallio
+	}
+	8236.1.1 = {
+		holder = Atuhoris_3 # Eloro
+	}
+	8267.1.1 = {
+		holder = Atuhoris_1 # Ghazaro
+	}
+}
+c_uhyrosh_coast = {
+	7806.1.1 = {
+		liege = k_tyrosh
+		government = administrative_government
+		name = c_tyroshi_landing
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7835.1.1 = {
+		holder = Zokan_22
+	}
+	7861.1.1 = {
+		holder = Zokan_56
+	}
+	7878.1.1 = {
+		holder = Zokan_59
+	}
+	7908.1.1 = {
+		holder = Zokan_61
+	}
+	7930.1.1 = {
+		holder = Zokan_63
+	}
+	7961.1.1 = {
+		holder = Zokan_68
+	}
+	7978.1.1 = {
+		holder = Zokan_69
+	}
+	8016.1.1 = {
+		holder = Zokan_72
+	}
+	8048.1.1 = {
+		holder = Zokan_79
+	}
+	8061.1.1 = {
+		holder = Zokan_85
+	}
+	8074.1.1 = {
+		holder = Zokan_93
+	}
+	8137.1.1 = {
+		holder = Zokan_96
+	}
+	8169.1.1 = {
+		holder = Zokan_97
+	}
+	8191.1.1 = {
+		holder = Zokan_5
+	}
+	8214.1.1 = {
+		holder = Zokan_4 # Denano
+	}
+	8260.1.1 = {
+		holder = Zokan_2 # Roggerio
+	}
+	8277.1.1 = {
+		holder = Zokan_1 # Nisario
+	}
+}
+c_tandaynish = {
+	7806.1.1 = {
+		government = administrative_government
+		liege = k_tyrosh
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7828.1.1 = {
+		holder = Baerdoon_19
+	}
+	7858.1.1 = {
+		holder = Baerdoon_70
+	}
+	7871.1.1 = {
+		holder = Baerdoon_73
+	}
+	7902.1.1 = {
+		holder = Baerdoon_78
+	}
+	7933.1.1 = {
+		holder = Baerdoon_82
+	}
+	7941.1.1 = {
+		holder = Baerdoon_83
+	}
+	7997.1.1 = {
+		holder = Baerdoon_84
+	}
+	8013.1.1 = {
+		holder = Baerdoon_87
+	}
+	8031.1.1 = {
+		holder = Baerdoon_90
+	}
+	8056.1.1 = {
+		holder = Baerdoon_92
+	}
+	8096.1.1 = {
+		holder = Baerdoon_94
+	}
+	8103.1.1 = {
+		holder = Baerdoon_96
+	}
+	8137.1.1 = {
+		holder = Baerdoon_97
+	}
+	8154.1.1 = {
+		holder = Baerdoon_5 # Seqqo
+	}
+	8195.1.1 = {
+		holder = Baerdoon_4 # Gamallo
+	}
+	8222.1.1 = {
+		holder = Baerdoon_3 # Tybio
+	}
+	8267.1.1 = {
+		holder = Baerdoon_2 # Manto
+	}
+	8276.1.1 = {
+		holder = Baerdoon_1 # Haego
+	}
+}
+
+d_ryrys = {
+	7806.1.1 = {
+		liege = k_tyrosh
+		government = administrative_government
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	# Adarys Family
+	7824.1.1 = {
+		holder = Adarys_22 # Daario
+	}
+	7833.1.1 = {
+		holder = Adarys_28
+	}
+	7836.1.1 = {
+		holder = Adarys_30
+	}
+	7884.1.1 = {
+		holder = Adarys_31
+	}
+	7904.1.1 = {
+		holder = Adarys_32
+	}
+	7935.1.1 = {
+		holder = Adarys_41
+	}
+	7947.1.1 = {
+		holder = Adarys_42
+	}
+	7986.1.1 = {
+		holder = Adarys_44
+	}
+	8025.1.1 = {
+		holder = Adarys_45
+	}
+	8033.1.1 = {
+		holder = Adarys_46
+	}
+	8073.1.1 = {
+		holder = Adarys_50
+	}
+	8119.1.1 = {
+		holder = Adarys_52
+	}
+	8138.1.1 = {
+		holder = Adarys_53
+	}
+	8182.1.1 = {
+		holder = Adarys_54
+	}
+	8191.1.1 = {
+		holder = Adarys_59
+	}
+	8208.1.1 = {
+		holder = Adarys_4 # Moro
+	}
+	8248.1.1 = {
+		holder = Adarys_2 # Bylaro
+	}
+	8259.5.1 = {
+		holder = Adarys_1 # Alequo
+	}
+	8266.7.19 = {
+		holder = Rohar_45
+	}
+	8293.1.1 = {
+		holder = Rohar_56
+	}
+}
+c_kylos = {
+	7806.1.1 = {
+		liege = d_ryrys
+		government = administrative_government
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	# Adarys Family
+	7824.1.1 = {
+		holder = Adarys_22 # Daario
+	}
+	7833.1.1 = {
+		holder = Adarys_28
+	}
+	7836.1.1 = {
+		holder = Adarys_30
+	}
+	7884.1.1 = {
+		holder = Adarys_31
+	}
+	7904.1.1 = {
+		holder = Adarys_32
+	}
+	7935.1.1 = {
+		holder = Adarys_41
+	}
+	7947.1.1 = {
+		holder = Adarys_42
+	}
+	7986.1.1 = {
+		holder = Adarys_44
+	}
+	8025.1.1 = {
+		holder = Adarys_45
+	}
+	8033.1.1 = {
+		holder = Adarys_46
+	}
+	8073.1.1 = {
+		holder = Adarys_50
+	}
+	8119.1.1 = {
+		holder = Adarys_52
+	}
+	8138.1.1 = {
+		holder = Adarys_53
+	}
+	8182.1.1 = {
+		holder = Adarys_54
+	}
+	8191.1.1 = {
+		holder = Adarys_59
+	}
+	8208.1.1 = {
+		holder = Adarys_4 # Moro
+	}
+	8248.1.1 = {
+		holder = Adarys_2 # Bylaro
+	}
+	8259.5.1 = {
+		holder = Adarys_1 # Alequo
+	}
+	8266.7.19 = {
+		holder = Rohar_45
+	}
+	8293.1.1 = {
+		holder = Rohar_56
+	}
+}
+c_adaron = {
+	7806.1.1 = {
+		government = administrative_government
+		liege = d_ryrys
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	7827.1.1 = {
+		holder = Torheon_1
+	}
+	7869.1.1 = {
+		holder = Torheon_3
+	}
+	7901.1.1 = {
+		holder = Torheon_16
+	}
+	7914.1.1 = {
+		holder = Torheon_20
+	}
+	7954.1.1 = {
+		holder = Torheon_32
+	}
+	7981.1.1 = {
+		holder = Torheon_33
+	}
+	7984.1.1 = {
+		holder = Torheon_52
+	}
+	7995.1.1 = {
+		holder = Torheon_53
+	}
+	8028.1.1 = {
+		holder = Torheon_58
+	}
+	8070.1.1 = {
+		holder = Torheon_60
+	}
+	8098.1.1 = {
+		holder = Torheon_70
+	}
+	8121.1.1 = {
+		holder = Torheon_77
+	}
+	8147.1.1 = {
+		holder = Torheon_90
+	}
+	8174.1.1 = {
+		holder = Torheon_98
+	}
+	8192.1.1 = {
+		holder = Torheon_102
+	}
+	8204.1.1 = {
+		holder = Torheon_104
+	}
+	8225.1.1 = {
+		holder = Torheon_109
+	}
+	8265.3.5 = { # Myr creates split off puppet state
+		liege = d_ibonanne
+		holder = Torheon_113
+	}
+	8281.12.29 = {
+		liege = k_myr
+	}
+	8284.2.20 = {
+		liege = 0
+		effect = {
+			holder ?= {
+				agot_safe_add_timed_tribuatry_history_effect = {
+					EXPIRE = 8288.8.19
+					SUZERAIN = title:k_myr
+				}
+			}
+		}
+	}
+	8288.8.19 = {
+		liege = d_ryrys
+	}
+	8290.1.1 = {
+		holder = Torheon_116
+	}
+}
+
+d_great_vilibosh = {
+	7806.1.1 = {
+		liege = k_tyrosh
+		government = administrative_government
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	# Basetys Family
+	7810.1.1 = {
+		holder = Basetys_25
+	}
+	7821.1.1 = {
+		holder = Basetys_26
+	}
+	7871.1.1 = {
+		holder = Basetys_34
+	}
+	7926.1.1 = {
+		holder = Basetys_36
+	}
+	7938.1.1 = {
+		holder = Basetys_44
+	}
+	7969.1.1 = {
+		holder = Basetys_46
+	}
+	7972.1.1 = {
+		holder = Basetys_48
+	}
+	7986.1.1 = {
+		holder = Basetys_57
+	}
+	8022.1.1 = {
+		holder = Basetys_60
+	}
+	8045.1.1 = {
+		holder = Basetys_63
+	}
+	8095.1.1 = {
+		holder = Basetys_67
+	}
+	8123.1.1 = {
+		holder = Basetys_70
+	}
+	8124.1.1 = {
+		holder = Basetys_78
+	}
+	8140.1.1 = {
+		holder = Basetys_77
+	}
+	8165.1.1 = {
+		holder = Basetys_79
+	}
+	8181.1.1 = {
+		holder = Basetys_80
+	}
+	8196.1.1 = {
+		holder = Basetys_87
+	}
+	8231.1.1 = {
+		holder = Basetys_7 # Bello
+	}
+	8255.1.1 = {
+		holder = Basetys_1 # Orybaso
+	}
+	8266.1.1 = {
+		holder = Basetys_2 # Matiro
+	}
+}
+c_vilibosh = {
+	7806.1.1 = {
+		liege = d_great_vilibosh
+		government = administrative_government
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	# Basetys Family
+	7810.1.1 = {
+		holder = Basetys_25
+	}
+	7821.1.1 = {
+		holder = Basetys_26
+	}
+	7871.1.1 = {
+		holder = Basetys_34
+	}
+	7926.1.1 = {
+		holder = Basetys_36
+	}
+	7938.1.1 = {
+		holder = Basetys_44
+	}
+	7969.1.1 = {
+		holder = Basetys_46
+	}
+	7972.1.1 = {
+		holder = Basetys_48
+	}
+	7986.1.1 = {
+		holder = Basetys_57
+	}
+	8022.1.1 = {
+		holder = Basetys_60
+	}
+	8045.1.1 = {
+		holder = Basetys_63
+	}
+	8095.1.1 = {
+		holder = Basetys_67
+	}
+	8123.1.1 = {
+		holder = Basetys_70
+	}
+	8124.1.1 = {
+		holder = Basetys_78
+	}
+	8140.1.1 = {
+		holder = Basetys_77
+	}
+	8165.1.1 = {
+		holder = Basetys_79
+	}
+	8181.1.1 = {
+		holder = Basetys_80
+	}
+	8196.1.1 = {
+		holder = Basetys_87
+	}
+	8231.1.1 = {
+		holder = Basetys_7 # Bello
+	}
+	8255.1.1 = {
+		holder = Basetys_1 # Orybaso
+	}
+	8266.1.1 = {
+		holder = Basetys_2 # Matiro
+	}
+}
+c_cape_basibosh = {
+	7806.1.1 = {
+		government = administrative_government
+		liege = d_great_vilibosh
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					NOT = { has_dlc_feature = roads_to_power }
+				}
+				holder = {
+					change_government = republic_government
+				}
+			}
+		}
+	}
+	# Basetys Family
+	7810.1.1 = {
+		holder = Basetys_25
+	}
+	7821.1.1 = {
+		holder = Basetys_26
+	}
+	7871.1.1 = {
+		holder = Basetys_34
+	}
+	7926.1.1 = {
+		holder = Basetys_36
+	}
+	7938.1.1 = {
+		holder = Basetys_44
+	}
+	7969.1.1 = {
+		holder = Basetys_46
+	}
+	7972.1.1 = {
+		holder = Basetys_48
+	}
+	7986.1.1 = {
+		holder = Basetys_57
+	}
+	8022.1.1 = {
+		holder = Basetys_60
+	}
+	8045.1.1 = {
+		holder = Basetys_63
+	}
+	8095.1.1 = {
+		holder = Basetys_67
+	}
+	8123.1.1 = {
+		holder = Basetys_70
+	}
+	8124.1.1 = {
+		holder = Basetys_78
+	}
+	8140.1.1 = {
+		holder = Basetys_77
+	}
+	8165.1.1 = {
+		holder = Basetys_79
+	}
+	8181.1.1 = {
+		holder = Basetys_80
+	}
+	8196.1.1 = {
+		holder = Basetys_87
+	}
+	8231.1.1 = {
+		holder = Basetys_7 # Bello
+	}
+	8255.1.1 = {
+		holder = Basetys_1 # Orybaso
+	}
+	8266.1.1 = {
+		holder = Basetys_2 # Matiro
+	}
+}

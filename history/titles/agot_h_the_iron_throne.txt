@@ -1,0 +1,123 @@
+h_the_iron_throne = {
+	7999.4.1 = {
+		holder = Targaryen_27	 # Aegon I 'the Conqueror'
+		#law = slavery_0
+		effect = {
+			set_variable = agot_is_paramountcy_realm
+			if = {	# Set Court Language to Common
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_language = language_agot_westeros
+					if = {
+						limit = { NOT = { knows_court_language_of = this } }
+						learn_court_language_of = this
+					}
+				}
+			}
+			# set_global_flag = e_iron_throne_created
+			# set_title_flag = aegons_crown #record which crowns have been forged for crown forgin event
+			# holder_scope = { add_character_flag = iron_throne_crown_event }
+		}
+	}
+	# 8001.6.1 = { # AGOT TODO
+		# reset_name = yes
+		# reset_adjective = yes
+		# capital = 226 #Kings Landing established
+	# }
+	8010.1.1 = { # Visenya founds Kingsguard
+		effect = {
+			set_variable = kingsguard
+		}
+	}
+	8037.9.9 = {
+		holder = Targaryen_30	 # Aenys I
+	}
+	8042.3.1 = {
+		holder = Targaryen_31		#Maegor I 'the Cruel'
+	}
+	8048.3.7 = {
+		holder = Targaryen_35		#Jaehaerys I 'the Conciliator'
+	}
+	8048.6.2 = {
+		#law = investiture_law_1 # AGOT TODO
+	}
+	8103.10.3 = {
+		holder = Targaryen_60		#Viserys I
+	}
+	8129.3.3 = {
+		holder = Targaryen_65	 # Aegon II
+	}
+	8131.1.14 = {
+		holder = Targaryen_78	 # Aegon III the Unlucky
+	}
+	8157.1.13 = {
+		holder = Targaryen_81		#Daeron I the Young Dragon
+	}
+	8161.6.9 = {
+		holder = Targaryen_82		#Baelor I the Blessed
+	}
+	8171.1.20 = {
+		holder = Targaryen_79		#Viserys II
+	}
+	8172.3.28 = {
+		holder = Targaryen_88	 # Aegon IV the Unworthy
+	}
+	8184.1.1 = {
+		holder = Targaryen_91		#Daeron II the Good
+	}
+	8209.9.1 = {
+		holder = Targaryen_108	 # Aerys I
+	}
+	8221.1.1 = {
+		holder = Targaryen_110		#Maekar I
+	}
+	8233.6.1 = {
+		holder = Targaryen_122	 # Aegon V the Unlikley
+	}
+	8259.6.1 = {
+		holder = Targaryen_127		#Jaehaerys II
+	}
+	8262.1.1 = {
+		holder = Targaryen_1	 # Aerys II the Mad
+	}
+	8283.9.1 = {
+		holder = Baratheon_2		#Robert I Baratheon
+	}
+	8298.10.24 = {
+		holder = Baratheon_5 #Joffrey I "Baratheon"
+	}
+	8300.1.1 = {
+		holder = Baratheon_7 #Tommen I "Baratheon"
+	}
+	8300.4.10 = {
+		# law = investiture_law_2 # AGOT TODO
+		# effect = { # AGOT TODO
+			# k_the_most_devout = {
+				# holder_scope = {
+					# d_warriors_sons = {
+						# holder_scope = {
+							# set_defacto_liege = PREVPREV
+							# # dynasty = father_bastard
+							# add_trait = knight
+							# add_trait = zealous
+							# add_trait = blademaster_2
+							# add_trait = celibate
+						# }
+					# }
+					# d_poor_fellows = {
+						# holder_scope = {
+							# set_defacto_liege = PREVPREV
+							# add_trait = knight
+							# add_trait = zealous
+							# add_trait = blademaster_2
+							# add_trait = celibate
+						# }
+					# }
+				# }
+			# }
+		# }
+	}
+}

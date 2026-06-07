@@ -1,0 +1,94 @@
+# MAP TOOL: This title is not in the sheet
+# Warrior's Sons
+d_laamp_Warriors_Sons = {
+	7897.1.1 = {
+		holder = Tarbeck_73 # Jon Tarbeck
+		liege = 0
+		government = landless_adventurer_government
+		succession_laws = { landless_adventurer_succession_law }
+		effect = {
+			holder ?= {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = camp_purpose_mercenaries
+						}
+					}
+					add_realm_law_skip_effects = camp_purpose_mercenaries
+				}
+			}
+			create_landless_adventurer_title_history_effect = yes
+			set_variable = { name = adventurer_creation_reason value = flag:historical }
+		}
+	}
+	7912.1.1 = {
+		holder = Cargyll_2_C # Manly Cargyll
+	}
+	7920.1.1 = {
+		holder = Hightower_161 # Bryndon Hightower
+	}
+	7932.1.1 = {
+		holder = Wensington_63 # Jon Wensington
+	}
+	7947.1.1 = {
+		holder = Clarisse_11 # Darien Clarisse
+	}
+	7952.1.1 = {
+		holder = Silverfield_2_a # Willem Silverfield
+	}
+	7961.1.1 = {
+		holder = Hightower_144 # Barth Hightower
+	}
+	7969.1.1 = {
+		holder = ArrynHP_80 # Torgold Arryn
+	}
+	7978.1.1 = {
+		holder = Arryn_54 # Alester Arryn
+	}
+	7986.1.1 = {
+		holder = Osgrey_100 # Tommard Osgrey
+	}
+	7990.1.1 = {
+		holder = Graceford_85 # Godry Graceford
+	}
+	7995.1.1 = {
+		holder = Mooton_69 # Oswald Mooton
+	}
+	7998.1.1 = {
+		holder = Tarbeck_51 # Lambert Tarbeck
+	}
+	8011.1.1 = {
+		holder = Toyne_40 # Petyr Toyne
+	}
+	8015.1.1 = {
+		holder = Banefort_88 # Garth Banefort
+	}
+	8021.1.1 = {
+		holder = Wayn_62 # Hollis Wayn
+	}
+	8036.1.1 = {
+		holder = Morrigen_14 # Damon Morrigen
+	}
+	8041.6.1 = {
+		effect = {
+			agot_safe_move_laamp_history_effect = { CASTLE = title:b_rhaenyss_hill }
+		}
+	}
+	8042.3.2 = {
+		holder = Doggett_12 # Joffrey Doggett
+		effect = {
+			agot_safe_move_laamp_history_effect = { CASTLE = title:b_lannisport }
+		}
+	}
+	8048.6.2 = {
+		holder = 0
+	}
+	8300.4.10 = {
+		holder = Wells_88 # Theodan Wells
+	}
+}
+
+# d_poor_fellows = {
+# 	20.1.1 = {
+# 	}
+# }
