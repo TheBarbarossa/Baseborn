@@ -1,6 +1,7 @@
 version="1.0"
 tags={
-	"Character Interactions"
+	"1.19 'Scribe'"
+	"Alternative History"
 }
 name="Baseborn"
-supported_version="1.16.2.*"
+supported_version="1.19.*"
