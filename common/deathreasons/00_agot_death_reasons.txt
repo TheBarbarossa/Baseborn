@@ -1,0 +1,589 @@
+﻿death_erased_for_script = {
+	icon = "death_murder.dds" # Special death reason for people who should not exist yet
+}
+
+death_broken_heart = {
+	natural = yes
+	natural_death_trigger = {
+		has_trait = widowed
+	}
+	priority = 8 # Lower than old age
+	icon = "death_disease.dds"
+}
+
+death_dragon_wounded_1 = {
+	natural_death_trigger = {
+		OR = {
+			has_trait = dragon_wounded_1
+			has_trait = dragon_wounded_2
+			has_trait = dragon_wounded_3
+		}
+	}
+	priority = 12
+	icon = "death_disease.dds"
+}
+
+death_dragon_wounded_2 = {
+	natural_death_trigger = {
+		OR = {
+			has_trait = dragon_wounded_4
+			has_trait = dragon_wounded_5
+		}
+	}
+	priority = 8 # Lower than old age
+	icon = "death_disease.dds"
+}
+
+# higher priority value is selected first ( 2 is selected over 1 )
+death_dragon_hatching_sacrifice = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_dragon_hatching_accident = {
+	public_knowledge = yes
+	icon = "death_natural.dds"
+}
+
+death_dragon = {
+	public_knowledge = yes
+	icon = "death_dragon.dds"
+}
+
+death_dragon_siege = {
+	public_knowledge = yes
+	icon = "death_dragon.dds"
+}
+
+death_dragon_siege_attacker = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_dragon_scorpion = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_dragon_scorpion_rider = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_dragon_scorpion_siege = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_dragon_water_wizard = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_dragon_water_wizard_rider = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_battle_dragon = {
+	public_knowledge = yes
+	icon = "death_dragon.dds"
+}
+
+death_fed_to_dragon = {
+	public_knowledge = yes
+	icon = "death_dragon.dds"
+}
+
+death_dragon_ate = {
+	public_knowledge = yes
+	icon = "death_dragon.dds"
+}
+
+death_dragon_ate_failed_tamed = {
+	public_knowledge = yes
+	icon = "death_dragon.dds"
+}
+
+death_battle_dragon_ate = {
+	public_knowledge = yes
+	icon = "death_dragon.dds"
+}
+
+death_dragon_fire = {
+	public_knowledge = yes
+	icon = "death_dragon.dds"
+}
+death_dragon_fire_failed_tame = {
+	public_knowledge = yes
+	icon = "death_dragon.dds"
+}
+
+death_battle_dragon_fire = {
+	public_knowledge = yes
+	icon = "death_dragon.dds"
+}
+
+death_dragon_duel = {
+	public_knowledge = yes
+	icon = "death_dragon.dds"
+}
+
+death_dragon_duel_ate = {
+	public_knowledge = yes
+	icon = "death_dragon.dds"
+}
+
+death_dragon_duel_fire = {
+	public_knowledge = yes
+	icon = "death_dragon.dds"
+}
+
+death_fell_from_dragon = {
+	public_knowledge = yes
+	icon = "death_natural.dds"
+}
+
+death_fell_from_other_dragon = {
+	public_knowledge = yes
+	icon = "death_natural.dds"
+}
+
+death_dragon_stomped = {
+	public_knowledge = yes
+	icon = "death_dragon.dds"
+}
+
+death_dropped_from_dragon = {
+	public_knowledge = yes
+	icon = "death_dragon.dds"
+}
+
+death_dragon_crushed_by_tail = {
+	public_knowledge = yes
+	icon = "death_dragon.dds"
+}
+
+death_dragon_slain = { # This one is for the dragon
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_hatching_fail = {
+	public_knowledge = yes
+	icon = "death_dragon.dds"
+}
+
+death_hatching_sacrifice = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_wildfire_killer = {
+	public_knowledge = yes
+	icon = "death_wildfire.dds"
+}
+
+death_wildfire_KL = {
+	public_knowledge = yes
+	icon = "death_wildfire.dds"
+}
+
+death_drinking_wildfire = {
+	public_knowledge = yes
+	icon = "death_wildfire.dds"
+}
+
+death_wildfire_accident = {
+	public_knowledge = yes
+	icon = "death_wildfire.dds"
+}
+
+death_horn_blow = {
+	public_knowledge = yes
+	icon = "death_dragon.dds"
+}
+
+death_duel_trial_by_combat = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_duel_trial_by_seven = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_froze_to_death = {
+	public_knowledge = yes
+	icon = "death_natural.dds"
+}
+
+death_eaten_alive_by_lions = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_ripped_to_death_by_lizard_lion = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_died_in_the_neck = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_ratiod = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_lost_at_sea = {
+	public_knowledge = yes
+	icon = "death_natural.dds"
+}
+
+death_lost_at_sea_red = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_scurvy = {
+	natural = yes
+	natural_death_trigger = {
+		has_trait = scurvy
+	}
+	priority = 30
+	icon = "death_disease.dds"
+}
+
+death_tourney_joust = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_wolf_hunt = {
+	public_knowledge = yes
+	icon = "death_natural.dds"
+}
+
+death_shivers = {
+	natural = yes
+	natural_death_trigger = {
+		has_trait = shivers
+	}
+	priority = 30
+	icon = "death_disease.dds"
+}
+
+death_spring_sickness = {
+	natural = yes
+	natural_death_trigger = {
+		has_trait = spring_sickness
+	}
+	priority = 30
+	icon = "death_disease.dds"
+}
+
+death_winter_fever = {
+	natural = yes
+	# natural_death_trigger = { AGOT TODO
+	# 	has_trait = winter_fever
+	# }
+	priority = 30
+	icon = "death_disease.dds"
+}
+
+death_greyscale = {
+	natural = yes
+	natural_death_trigger = {
+		has_trait = greyscale
+		# OR = {
+		# 	has_trait = greyscale_1
+		# 	has_trait = greyscale_2
+		# 	has_trait = greyscale_3
+		# }
+	}
+	priority = 30
+	icon = "death_disease.dds"
+}
+
+death_bloody_flux = {
+	natural = yes
+	# natural_death_trigger = { AGOT TODO
+	# 	has_trait = bloody_flux
+	# }
+	priority = 30
+	icon = "death_disease.dds"
+}
+
+#Need for history
+death_stillborn = {
+	public_knowledge = yes
+	icon = "death_natural.dds"
+}
+
+death_childbed_fever = {
+	natural = yes
+	icon = "death_disease.dds"
+}
+
+death_rabble = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+#Added because it's missing
+death_wild_animal = {
+	icon = "death_natural.dds"
+}
+
+death_crushed_by_boulder = {
+	public_knowledge = yes
+	icon = "death_natural.dds"
+}
+
+death_fell_off_the_wall = {
+	public_knowledge = yes
+	icon = "death_natural.dds"
+}
+
+death_jumped_off_the_wall = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_suffocate_on_cock = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_turned_into_soup = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_devoured_in_womb = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_vanished_slave_trade = {
+	public_knowledge = yes
+	icon = "death_unknown.dds"
+}
+
+death_disappeared_on_ranging = {
+	public_knowledge = yes
+	icon = "death_natural.dds"
+}
+
+death_grabbed_by_grumkins = {
+	public_knowledge = yes
+	icon = "death_natural.dds"
+}
+
+death_lost_in_snowstorm = {
+	public_knowledge = yes
+	icon = "death_natural.dds"
+}
+
+death_shot_arrow = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_shot_arrow_murder = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_wildlings = {
+	icon = "death_unknown.dds"
+}
+
+death_moonclans = {
+	icon = "death_unknown.dds"
+}
+
+death_fell_into_crevasse = {
+	public_knowledge = yes
+	icon = "death_natural.dds"
+}
+
+death_iron_throne = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_iron_throne_impaled_sabotage = {
+	icon = "death_murder.dds"
+}
+
+death_throne_slipped_sabotage = {
+	icon = "death_murder.dds"
+}
+
+death_kg_fleeing = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_spontaneous_combustion = {
+	public_knowledge = yes
+	icon = "death_dragon.dds"
+}
+
+death_flew_away_to_valyria = {
+	public_knowledge = yes
+	icon = "death_unknown.dds"
+}
+
+death_flew_away_to_sothoryos = {
+	public_knowledge = yes
+	icon = "death_unknown.dds"
+}
+
+death_fire_worms = {
+	icon = "death_disease.dds"
+}
+
+death_sacrificed = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_succumbed_fate = {
+	icon = "death_disease.dds"
+}
+
+death_hacked_to_pieces = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_aegonvi_murder_known = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_childrenoftheforest = {
+	public_knowledge = yes
+	icon = "death_unknown.dds"
+}
+
+death_moon_door = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_vanished_horse = {
+	public_knowledge = yes
+	icon = "death_unknown.dds"
+}
+
+death_blood_drained = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_joined_dosh_khaleen = {
+	public_knowledge = yes
+	icon = "death_unknown.dds"
+}
+
+death_sacrificed_dark_ritual = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_sacrificed_to_others = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_bloodrider_suicide = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_oyster = {
+	public_knowledge = yes
+	icon = "death_disease.dds"
+}
+
+death_house_of_baw = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_flay = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_drowned_murder = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_thrown_off_the_wall = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_vanished_into_rainwood = {
+	public_knowledge = yes
+	icon = "death_unknown.dds"
+}
+death_fell_into_shipbreaker_bay = {
+	public_knowledge = yes
+	icon = "death_natural.dds"
+}
+death_drinking_celebrating = {
+	public_knowledge = yes
+	icon = "death_natural.dds"
+}
+
+death_raid_pirate_ship = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_doom = {
+	public_knowledge = yes
+	icon = "death_dragon.dds"
+}
+
+death_framed_poison_tyrion = {
+	icon = "death_murder.dds"
+}
+death_framed_execution_theon = {
+	icon = "death_murder.dds"
+}
+death_framed_battle_theon = {
+	icon = "death_murder.dds"
+}
+death_framed_battle_robb = {
+	icon = "death_murder.dds"
+}
+death_framed_murder_marillion = {
+	icon = "death_murder.dds"
+}
+death_framed_murder_brienne = {
+	icon = "death_murder.dds"
+}
+death_framed_duel_hound = {
+	icon = "death_murder.dds"
+}
+
+death_battle_trident = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_battle_kingsroad = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
