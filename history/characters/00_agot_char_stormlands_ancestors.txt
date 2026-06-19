@@ -4016,7 +4016,7 @@ Baratheon_45 = {
 		death = { death_reason = death_childbirth }
 	}
 }
-Baratheon_46 = {
+Baratheon_46 = { # Edited, Cafe, 19/06
 	name = Tarwen # Semi-Canon, AKA: The Silver Stag
 	dynasty = dynn_Baratheon
 	dna = Baratheon_46
@@ -4030,6 +4030,11 @@ Baratheon_46 = {
 
 	trait = education_martial_1
 	trait = physique_good_1
+	trait = humble
+	trait = inquisitive
+	trait = temperate
+
+	disallow_random_traits = yes
 
 	8104.1.1 = {
 		birth = yes
@@ -4042,6 +4047,9 @@ Baratheon_46 = {
 	}
 	8120.1.1 = { trait = knight }
 	8130.1.1 = { add_spouse = Toyne_20 } # Ibera Toyne
+	8131.1.9 = {
+		trait = scarred
+	}
 	8176.1.1 = { death = yes }
 }
 ### Issue of Orys
@@ -4070,9 +4078,12 @@ Baratheon_39 = {
 	8128.1.1 = {
 		effect = { agot_handle_knightless_squire_history_effect = yes }
 	}
-	8131.1.9 = {
+	8131.1.9 = { # Edited, Cafe, 19/06
 		trait = squire
-		death = { death_reason = death_battle_kingsroad } # Battle of the Kingsroad
+		death = {
+			death_reason = death_battle_kingsroad # Battle of the Kingsroad
+			killer = Bracken_60 # Raylon Rivers, nc kill
+		}
 	}
 }
 Baratheon_40 = {
@@ -7782,7 +7793,12 @@ Connington_43 = {
 	}
 	8107.1.1 = { trait = knight }
 	8110.1.1 = { add_spouse = Tarly_63 } # Caronne Tarly
-	8147.1.1 = { death = yes }
+	8131.1.9 = { # Edited, Cafe, 19/06
+        death = {
+            death_reason = death_battle_kingsroad # Battle of the Kingsroad
+            killer = Mooton_36 # 
+        }
+    }
 }
 ### Issue of Alfros
 Connington_31 = {
@@ -7907,13 +7923,24 @@ Connington_34 = {
 	mother = Lannister_92
 
 	trait = education_learning_4
+	trait = honest
+	trait = diligent
+	trait = stubborn
+
+	disallow_random_traits = yes
 
 	8114.1.1 = {
 		birth = yes
 		make_trait_inactive = red_hair
 		add_character_flag = canon_status_semicanon
 	}
-	8136.1.1 = {
+	8131.1.9 = { # Edited, Cafe, 19/06
+		trait = one_eyed
+		trait = scarred
+		trait = one_legged
+		trait = beauty_bad_3
+	}
+	8132.3.6 = {
 		trait = maester_historical
 		effect = { # Maester of Strongsong
 			agot_maester_starting_setup_history_effect = yes
@@ -9446,6 +9473,10 @@ Estermont_24 = {
 	8124.1.1 = {
 		trait = knight
 		add_spouse = Rosby_17 # Hemona Rosby
+	}
+	8131.1.9 = { # Edited, Cafe, 19/06
+		trait = maimed
+		trait = dull
 	}
 	8166.1.1 = { death = yes }
 }
@@ -11744,8 +11775,9 @@ Fell_18 = {
 	}
 	8096.1.1 = { add_spouse = Wendwater_14 } # Dylla Wendwater
 	8100.1.1 = { trait = knight }
-	8131.1.9 = {
-		death = { death_reason = death_battle_kingsroad } # Battle of the Kingsroad
+	8131.1.9 = { # Edited, Cafe, 19/06
+		death = { death_reason = death_battle_kingsroad 
+	killer = Mallister_27 } # Battle of the Kingsroad
 	}
 }
 Fell_27 = {
@@ -11829,8 +11861,9 @@ Fell_20 = {
 	}
 	8116.1.1 = { trait = knight }
 	8120.1.1 = { add_spouse = Wagstaff_21 } # Lynella Wagstaff
-	8131.1.9 = {
-		death = { death_reason = death_battle_kingsroad } # Battle of the Kingsroad
+	8131.1.9 = { # Edited, Cafe, 19/06
+		death = { death_reason = death_battle_kingsroad 
+	killer = Mallister_27 } # Battle of the Kingsroad
 	}
 }
 Fell_24 = {
@@ -11848,8 +11881,9 @@ Fell_24 = {
 		add_character_flag = canon_status_semicanon
 	}
 	8120.1.1 = { trait = knight }
-	8131.1.9 = {
-		death = { death_reason = death_battle_kingsroad } # Battle of the Kingsroad
+	8131.1.9 = { # Edited, Cafe, 19/06
+		death = { death_reason = death_battle_kingsroad 
+	killer = Keath_17 } # Battle of the Kingsroad
 	}
 }
 Fell_25 = {
@@ -12182,13 +12216,17 @@ Fell_28 = {
 		trait = knight
 		add_spouse = Ashford_20 # Elia Ashford
 	}
-	8131.1.9 = {
-		death = { death_reason = death_battle_kingsroad } # Battle of the Kingsroad
+	8131.1.9 = { # Cafe, 19/06
+		death = { 
+			death_reason = death_battle_kingsroad
+			killer = Mallister_31 } # Battle of the Kingsroad
 	}
 }
 Fell_30 = { # Conquest of Dorne
 	name = Armond # Semi-Canon, Armaund Fell, a lord
 	dynasty = dynn_Fell
+	
+	prowess = 0
 
 	religion = fots_seven
 	culture = stormlander_main
@@ -12196,6 +12234,14 @@ Fell_30 = { # Conquest of Dorne
 
 	father = Fell_17
 	mother = Ashford_17
+
+	trait = education_diplomacy_2
+	trait = craven # Edited, Cafe, 19/06
+	trait = diligent
+	trait = patient
+	trait = education_martial_prowess_1
+
+	disallow_random_traits = yes
 
 	8107.1.1 = {
 		birth = yes
@@ -12226,8 +12272,9 @@ Fell_32 = {
 		add_character_flag = canon_status_semicanon
 	}
 	8126.1.1 = { trait = knight }
-	8131.1.9 = {
-		death = { death_reason = death_battle_kingsroad } # Battle of the Kingsroad
+	8131.1.9 = { # Edited, Cafe, 19/06
+		death = { death_reason = death_battle_kingsroad
+	killer = Mallister_28 } # Battle of the Kingsroad
 	}
 }
 Fell_33 = {
@@ -12247,9 +12294,10 @@ Fell_33 = {
 	8125.1.1 = {
 		effect = { agot_handle_knightless_squire_history_effect = yes }
 	}
-	8131.1.9 = {
+	8131.1.9 = { # Edited, Cafe, 19/06
 		trait = squire
-		death = { death_reason = death_battle_kingsroad } # Battle of the Kingsroad
+		death = { death_reason = death_battle_kingsroad
+	killer = Mallister_28 } # Battle of the Kingsroad
 	}
 }
 Fell_34 = {
@@ -12265,6 +12313,10 @@ Fell_34 = {
 	8118.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
+	}
+	8131.1.9 = { # Edited, Cafe, 19/06
+		trait = one_handed
+		trait = squire
 	}
 	8138.1.1 = {
 		trait = knight
@@ -18846,9 +18898,11 @@ Mertyns_27 = {
 	}
 	8177.1.1 = { death = yes }
 }
-Mertyns_50 = {
+Mertyns_50 = { # Edited, Cafe, 19/06
 	name = Jarmyn # Semi-Canon
 	dynasty = dynn_Mertyns
+
+	prowess = 5
 
 	religion = fots_seven
 	culture = stormlander_main
@@ -18859,6 +18913,9 @@ Mertyns_50 = {
 
 	trait = education_martial_3
 	trait = brave
+	trait = diligent
+	trait = eccentric
+	trait = education_martial_prowess_3
 
 	8113.1.1 = {
 		birth = yes
@@ -18899,9 +18956,10 @@ Mertyns_28 = {
 	8124.1.1 = {
 		effect = { agot_handle_knightless_squire_history_effect = yes }
 	}
-	8131.1.9 = {
+	8131.1.9 = { # Edited, Cafe, 19/06
 		trait = squire
-		death = { death_reason = death_battle_kingsroad } # Battle of the Kingsroad
+		death = { death_reason = death_battle_kingsroad 
+	killer = Frey_121 } # Battle of the Kingsroad
 	}
 }
 Mertyns_29 = {
@@ -21473,7 +21531,12 @@ Peasebury_14 = {
 	8091.1.1 = { birth = yes }
 	8107.1.1 = { trait = knight }
 	8116.1.1 = { add_spouse = Herston_46 } # Arianne Herston
-	8138.1.1 = { death = yes }
+	8131.1.9 = { # Edited, Cafe, 19/06
+        death = {
+            death_reason = death_battle_kingsroad # Battle of the Kingsroad
+            killer = Paege_21 # 
+        }
+    }
 }
 Peasebury_15 = {
 	name = Jother # Semi-Canon
@@ -22785,6 +22848,38 @@ Penrose_20 = {
 		add_spouse = Cafferen_34_B # Carellen Cafferen
 	}
 	8163.1.1 = { death = yes }
+}
+Penrose_20_lowborn = { # Edited, Cafe, 19/06
+	name = Axel 
+	
+	religion = fots_seven
+	culture = riverman_main
+
+	prowess = 8
+	martial = 6
+
+	trait = brave
+	trait = arrogant
+	trait = sadistic
+	trait = education_martial_1
+	trait = education_martial_prowess_3
+	trait = physique_good_1
+
+	8106.8.14 = {
+		birth = yes
+	}
+	8122.1.1 = {
+		trait = knight
+		trait = disfigured
+		trait = murderer
+	}
+	8131.1.9 = {
+		give_nickname = nick_agot_bb_historical_mudface
+        death = {
+            death_reason = death_battle_kingsroad # Battle of the Kingsroad
+            killer = Penrose_20 # 
+        }
+    }
 }
 Penrose_21 = {
 	name = Lucinda # Canon, hoped to wed a king
@@ -25065,9 +25160,11 @@ Staedmon_16 = {
 	8142.1.1 = { death = yes }
 }
 ### Issue of Alyn
-Staedmon_17 = {
+Staedmon_17 = { # Edited, Cafe, 19/06
 	name = Rondon # Semi-Canon, AKA: Bastard of Broad Arch
 	dynasty = dynn_Staedmon
+
+	prowess = 7
 
 	religion = fots_seven
 	culture = stormlander_main
@@ -25075,6 +25172,13 @@ Staedmon_17 = {
 	father = Staedmon_16
 
 	trait = bastard
+	trait = education_martial_2
+	trait = brave
+	trait = trusting
+	trait = lazy # Edited, Cafe, 19/06
+	trait = education_martial_prowess_3
+
+	disallow_random_traits = yes
 
 	8104.1.1 = {
 		birth = yes
@@ -25084,15 +25188,25 @@ Staedmon_17 = {
 	8123.1.1 = { trait = knight }
 	8163.1.1 = { death = yes }
 }
-Staedmon_18 = {
+Staedmon_18 = { # Edited, Cafe, 19/06
 	name = Humfrey # Semi-Canon
 	dynasty = dynn_Staedmon
+
+	prowess = 6
 
 	religion = fots_seven
 	culture = stormlander_main
 
 	father = Staedmon_16
 	mother = Toyne_18_B
+
+	trait = shy
+	trait = lustful
+	trait = gluttonous
+	trait = education_martial_1
+	trait = education_martial_prowess_2
+
+	disallow_random_traits = yes
 
 	8104.1.1 = {
 		birth = yes
@@ -25102,9 +25216,12 @@ Staedmon_18 = {
 	8130.1.1 = { add_spouse = Arryn_93 } # Theona Arryn
 	8135.1.1 = { death = { death_reason = death_contest_joust_accident } }
 }
-Staedmon_19 = {
+Staedmon_19 = { # Edited, Cafe, 19/06
 	name = Fulk # Semi-Canon, a Kingsguard
 	dynasty = dynn_Staedmon
+
+	prowess = 9
+	martial = 7
 
 	religion = fots_seven
 	culture = stormlander_main
@@ -25112,8 +25229,13 @@ Staedmon_19 = {
 	father = Staedmon_16
 	mother = Toyne_18_B
 
-	trait = education_martial_2
+	trait = education_martial_3
 	trait = brave
+	trait = greedy
+	trait = wrathful
+	trait = education_martial_prowess_4
+
+	disallow_random_traits = yes
 
 	8106.1.1 = {
 		birth = yes
@@ -25138,15 +25260,26 @@ Staedmon_19 = {
 		}
 	}
 }
-Staedmon_20 = {
+Staedmon_20 = { # Edited, Cafe, 19/06
 	name = Triston # Semi-Canon, Tristen Staedmon, a lord
 	dynasty = dynn_Staedmon
+
+	prowess = 6
+	stewardship = 7
 
 	religion = fots_seven
 	culture = stormlander_main
 
 	father = Staedmon_16
 	mother = Toyne_18_B
+
+	trait = content
+	trait = calm
+	trait = brave
+	trait = education_stewardship_3
+	trait = education_martial_prowess_3
+
+	disallow_random_traits = yes
 
 	8108.1.1 = {
 		birth = yes
@@ -25156,9 +25289,12 @@ Staedmon_20 = {
 		trait = knight
 		add_spouse = Massey_43 # Larra Massey
 	}
+	8131.1.9 = {
+		trait = scarred
+	}
 	8164.1.1 = { death = yes }
 }
-Staedmon_22 = {
+Staedmon_22 = { # Edited, Cafe, 19/06
 	name = Symeon # Semi-Canon
 	dynasty = dynn_Staedmon
 
@@ -25176,7 +25312,12 @@ Staedmon_22 = {
 		trait = knight
 		add_spouse = Selmy_29 # Osmera Selmy
 	}
-	8136.11.1 = { death = { death_reason = death_horse_riding_accident } }
+	8131.1.9 = { # Edited, Cafe, 19/06
+        death = {
+            death_reason = death_battle_kingsroad # Battle of the Kingsroad
+            killer = Darry_69 # 
+        }
+    }
 }
 Staedmon_23 = {
 	name = Genna # Semi-Canon, married Dermett Footly
@@ -26662,6 +26803,9 @@ Tarth_57 = {
 	8086.1.1 = { birth = yes }
 	8102.1.1 = { trait = knight }
 	8119.1.1 = { add_spouse = Vance_Atranta_55 } # Zia Vance of Atranta
+	8131.1.9 = { # Edited, Cafe, 19/06
+		trait = scarred
+	}
 	8154.1.1 = {
 		trait = ill
 		death = { death_reason = death_ill }
@@ -46884,8 +47028,12 @@ Dondarrion_21 = {
 }
 ### Issue of Arlan
 Dondarrion_22 = { # Conquest of Dorne
-	name = Manfred # Semi-Canon, a lord
+	name = Robin # Semi-Canon, a lord
 	dynasty = dynn_Dondarrion
+
+	prowess = 7
+	martial = 1
+	learning = 0
 
 	religion = fots_seven
 	culture = marcher
@@ -46893,12 +47041,24 @@ Dondarrion_22 = { # Conquest of Dorne
 	father = Dondarrion_20
 	mother = Farring_49
 
+	trait = brave
+	trait = wrathful
+	trait = impatient
+	trait = authoritative
+	trait = education_martial_1
+	trait = education_martial_prowess_4
+
+	disallow_random_traits = yes
+
 	8110.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
 	}
 	8126.1.1 = { trait = knight }
 	8130.1.1 = { add_spouse = Yronwood_35 } # Loreza Yronwood
+	8131.1.9 = {
+		give_nickname = nick_agot_bb_historical_redbolt
+	}
 	8161.10.6 = {
 		death = { death_reason = death_fight } # Riot in the army
 	}
@@ -46921,6 +47081,9 @@ Dondarrion_23 = {
 		trait = knight
 		add_spouse = Melcolm_28 # Barra Melcolm
 	}
+	8131.1.9 = { # Edited, Cafe, 19/06
+		trait = maimed
+    }
 	8157.5.2 = {
 		death = {
 			death_reason = death_battle # Skirmish in the Boneway
@@ -46943,8 +47106,13 @@ Dondarrion_24 = {
 		add_character_flag = canon_status_semicanon
 	}
 	8129.1.1 = { trait = knight }
+	8131.1.9 = { # Edited, Cafe, 19/06
+        death = {
+            death_reason = death_battle_kingsroad # Battle of the Kingsroad
+            killer = Bolling_55 # 
+        }
+    }
 	8135.1.1 = { add_spouse = Peake_49 } # Rosalei Peake
-	8180.1.1 = { death = yes }
 }
 Dondarrion_30 = {
 	name = Elyssa # Semi-Canon, married Garth Darry
@@ -47079,6 +47247,7 @@ Dondarrion_31 = {
 
 	8131.1.1 = {
 		birth = yes
+		trait = twin
 		add_character_flag = canon_status_semicanon
 	}
 	8151.1.1 = {
@@ -47101,8 +47270,9 @@ Dondarrion_32 = {
 	trait = education_martial_prowess_2
 	trait = brave
 
-	8133.1.1 = {
+	8132.1.1 = {
 		birth = yes
+		trait = twin
 		add_character_flag = canon_status_semicanon
 	}
 	8149.1.1 = {
@@ -48302,6 +48472,7 @@ Caron_48 = {
 		trait = knight
 		trait = just
 		trait = brave
+		trait = honest # Edited, Cafe, 19/06
 	}
 	8110.1.1 = {
 		trait = refusing_marriage
@@ -48313,7 +48484,7 @@ Caron_48 = {
 	}
 }
 ### Issue of Olyver
-Caron_23 = {
+Caron_23 = { # Edited, Cafe, 19/06
 	name = Royce # Canon, a lord, regent of Aegon III
 	dynasty = dynn_Caron
 
@@ -48325,6 +48496,10 @@ Caron_23 = {
 
 	trait = education_martial_2
 	trait = education_martial_prowess_2
+	trait = patient
+	trait = compassionate
+
+	disallow_random_traits = yes
 
 	8073.1.1 = {
 		birth = yes
@@ -48368,15 +48543,25 @@ Caron_24 = {
 	}
 	8143.1.1 = { death = yes }
 }
-Caron_25 = {
+Caron_25 = { # Edited, Cafe, 19/06
 	name = Jason # Semi-Canon, a lord
 	dynasty = dynn_Caron
+
+	diplomacy = 6
+	intrigue = 6
 
 	religion = fots_seven
 	culture = marcher
 
 	father = Caron_23
 	mother = Dondarrion_19
+
+	trait = education_intrigue_3
+	trait = deceitful
+	trait = cynical
+	trait = gregarious
+
+	disallow_random_traits = yes
 
 	8095.1.1 = {
 		birth = yes
@@ -48388,19 +48573,33 @@ Caron_25 = {
 	}
 	8172.1.1 = { death = yes }
 }
-Caron_26 = {
+Caron_26 = { # Edited, Cafe, 19/06
 	name = Eldric # Semi-Canon
 	dynasty = dynn_Caron
 
+	diplomacy = 9
+	prowess = 10	
+
 	religion = fots_seven
 	culture = marcher
+	sexuality = homosexual
 
 	father = Caron_23
 	mother = Dondarrion_19
 
+	trait = compassionate
+	trait = brave
+	trait = humble
+	trait = education_martial_2
+	trait = education_martial_prowess_2
+	trait = depressed_1
+
+	disallow_random_traits = yes
+
 	8098.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
+		add_character_flag = sexuality_ensure_homosexual
 	}
 	8114.1.1 = {
 		trait = knight
@@ -48443,6 +48642,7 @@ Caron_33 = {
 	trait = diligent
 	trait = just
 	trait = rowdy
+	trait = education_martial_prowess_4 # Edited, Cafe, 19/06
 
 	disallow_random_traits = yes
 
@@ -49508,7 +49708,8 @@ Selmy_22 = {
 		add_spouse = Staunton_21 # Jennei Staunton
 	}
 	8131.1.9 = {
-		death = { death_reason = death_battle_kingsroad } # Battle of the Kingsroad
+		death = { death_reason = death_battle_kingsroad 
+	killer = Darklyn_21 } # Battle of the Kingsroad
 	}
 }
 Selmy_28 = {
@@ -49692,7 +49893,8 @@ Selmy_32 = {
 	8121.1.1 = { trait = knight }
 	8125.1.1 = { add_spouse = Locke_25 } # Orenna Locke
 	8131.1.9 = {
-		death = { death_reason = death_battle_kingsroad } # Battle of the Kingsroad
+		death = { death_reason = death_battle_kingsroad 
+	killer = Piper_29 } # Battle of the Kingsroad
 	}
 }
 Selmy_30 = { # Conquest of Dorne
@@ -49751,6 +49953,9 @@ Selmy_33 = {
 	8114.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
+	}
+	8131.1.9 = {
+		trait = scarred
 	}
 	8134.1.1 = {
 		trait = maester_historical
@@ -55006,7 +55211,8 @@ Cafferen_16 = {
 	8107.1.1 = { trait = knight }
 	8109.1.1 = { add_spouse = Dondarrion_20_B } # Olanne Dondarrion
 	8131.1.9 = {
-		death = { death_reason = death_battle_kingsroad } # Battle of the Kingsroad
+		death = { death_reason = death_battle_kingsroad 
+	killer = Vypren_15 } # Battle of the Kingsroad
 	}
 }
 Cafferen_35 = {

@@ -982,7 +982,10 @@ Tully_37 = {
 			}
 		}
 	}
-	8170.1.1 = { death = yes }
+	8131.1.9 = { # Edited, Cafe, 19/06
+		death = { death_reason = death_battle_kingsroad 
+	killer = Mertyns_50 } # Battle of the Kingsroad
+	}
 }
 Tully_36 = {
 	name = Neria # Semi-Canon, married Orstos Hawick
@@ -9360,7 +9363,9 @@ Mallister_31 = {
 	}
 	8131.1.9 = {
 		trait = squire
-		death = { death_reason = death_battle_kingsroad } # Battle of the Kingsroad
+		death = { 
+			death_reason = death_battle_kingsroad
+		killer = Fell_28 } # Battle of the Kingsroad
 	}
 }
 ### Issue of Patrek
@@ -11755,6 +11760,9 @@ Keath_17 = {
 		add_character_flag = canon_status_semicanon
 	}
 	8130.1.1 = { trait = knight }
+	8131.1.9 = { # Edited, Cafe, 19/06
+		trait = one_eyed
+	}
 	8136.1.1 = {
 		add_spouse = Ryger_29 # Elyria Ryger
 		effect = { # Captain of the Guard at Willow Wood
@@ -18178,9 +18186,12 @@ Blackwood_64 = {
 		trait = brave
 	}
 	8118.5.1 = { add_spouse = Coldwater_21 } # Janna Coldwater
-	8131.1.9 = {
-		death = { death_reason = death_battle_kingsroad } # Battle of the Kingsroad
-	}
+	8131.1.9 = { # Edited, Cafe, 19/06
+        death = {
+            death_reason = death_battle_kingsroad # Battle of the Kingsroad
+            killer = Dondarrion_22 #
+        }
+    }
 }
 Blackwood_62 = {
 	name = Tylbert # Semi-Canon
@@ -29345,6 +29356,12 @@ Darry_69 = {
 
 	father = Darry_33
 	mother = Paege_60
+
+	trait = calm
+	trait = generous
+	trait = gregarious
+	trait = education_martial_4
+	trait = education_martial_prowess_3
 
 	8105.1.1 = { birth = yes }
 	8122.1.1 = { trait = knight }
