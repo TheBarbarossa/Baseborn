@@ -4200,6 +4200,69 @@ Targaryen_68 = {
 		}
 	}
 }
+
+Targaryen_68_f = { # Edited, Cafe, 19/06
+	name = Daeron # False Daeron
+	dynasty = dynn_Targaryen
+
+	dna = Targaryen_68
+
+	diplomacy = 5
+	martial = 3
+	stewardship = 0
+	intrigue = 8
+	learning = 2
+	prowess = 4
+
+	religion = fots_seven
+	culture = high_valyrian
+
+	father = Targaryen_60
+	mother = Hightower_97 # Alicent Hightower
+
+	trait = education_intrigue_2
+	trait = education_martial_prowess_2
+	trait = intellect_good_1
+	trait = deceitful
+	trait = ambitious
+	trait = gregarious
+	#rait = dragonwidowed
+
+	disallow_random_traits = yes
+
+	8114.12.27 = {
+		birth = yes
+		set_real_father = character:Silver_Denys_3 # Silver Denys
+		set_real_mother = character:Silver_Denys_rs_3 # Silver Denys' wife
+		make_trait_inactive = silver_blonde_hair
+		make_trait_inactive = purple_eyes_6
+		make_trait_inactive = scripted_appearance
+		#make_trait_inactive = visible_disfigurement_4
+		add_character_flag = canon_status_canon
+		employer = Hightower_102
+	}
+	8130.1.20 = {
+		trait = knight
+		effect = {
+			add_trait = knight
+			agot_knighted_char_history_effect = { KNIGHT = character:Hightower_92 } # Ormund Hightower
+		}
+		give_nickname = nick_agot_historical_the_daring_daeron
+	}
+	8130.10.15 = {
+		trait = burned
+		trait = one_eyed
+		trait = disputed_heritage
+		trait = scarred
+		effect = {
+			add_trait_xp = {
+				trait = burned
+				value = trait_third_level
+			}		
+		}
+	}		
+}
+
 ### Issue of Aegon II and Helaena
 Targaryen_71 = {
 	name = Jaehaera # Canon, married Aegon III Targaryen
