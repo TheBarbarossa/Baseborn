@@ -1,0 +1,197 @@
+﻿undead = {
+	icon = blasphemer.dds
+	physical = yes
+
+	can_have_children = no
+	attraction_opinion = -25
+	general_opinion = -30
+
+	can_have_children = no
+	inheritance_blocker = all
+	claim_inheritance_blocker = all
+
+	immortal = yes
+
+	ai_rationality = -50
+
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_undead_desc
+			}
+			desc = trait_undead_character_desc
+		}
+	}
+}
+
+bb_inactive = {
+	icon = inactive.dds
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_bb_inactive_desc
+			}
+			desc = trait_bb_inactive_desc
+		}
+	}
+	flag = can_not_marry
+	shown_in_ruler_designer = no
+	ai_sociability = -1000
+	ai_energy = -1000
+	ai_rationality = -1000
+	ai_boldness = -1000
+	ai_greed = 1000
+	ai_zeal = -1000
+}
+
+bb_missing = { # created 01/24 slambroski
+	icon = follower.dds
+
+	diplomacy = -4
+	intrigue = 2
+
+	incapacitating = yes
+
+	disables_combat_leadership = yes
+
+	personal_scheme_power_mult = -0.25
+	hostile_scheme_power_mult = -0.25
+	hostile_scheme_resistance_mult = 0.8
+	
+	shown_in_ruler_designer = no 
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_bb_missing_desc
+			}
+			desc = trait_bb_missing_desc
+		}
+	}
+
+	ai_sociability = -100
+}
+
+### Skinchanger traits
+bb_skinchanger_1 = { # Novice
+	icon = skinchanger.dds
+	intrigue = 1
+	prowess = 2
+
+	dread_baseline_add = 5
+
+	stress_gain_mult = 0.25
+
+	the_pact_religion_opinion = 5
+	the_seven_religion_opinion = -5
+
+	# inherit_chance = 0
+	birth = 0
+	random_creation = 0
+
+	group = skinchanger
+	level = 1
+
+	# genetic = yes
+
+	shown_in_ruler_designer = yes
+	ruler_designer_cost = 50
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_bb_skinchanger_1_desc
+			}
+			desc = trait_bb_skinchanger_1_desc
+		}
+	}
+}
+bb_skinchanger_2 = { # Intermediate
+	icon = skinchanger.dds
+	intrigue = 2
+	prowess = 4
+
+	dread_baseline_add = 10
+
+	stress_gain_mult = 0.25
+	fertility = -0.1
+
+	the_pact_religion_opinion = 5
+	the_seven_religion_opinion = -10
+
+	# inherit_chance = 0
+	birth = 0
+	random_creation = 0
+
+	group = skinchanger
+	level = 2
+
+	# genetic = yes
+
+	shown_in_ruler_designer = yes
+	ruler_designer_cost = 75
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_bb_skinchanger_2_desc
+			}
+			desc = trait_bb_skinchanger_2_desc
+		}
+	}
+}
+bb_skinchanger_3 = { # Master
+	icon = skinchanger.dds
+	intrigue = 2
+	learning = 2
+	prowess = 6
+
+	dread_baseline_add = 20
+
+	stress_gain_mult = 0.20
+	fertility = -0.20
+
+	the_pact_religion_opinion = 5
+	the_seven_religion_opinion = -15
+
+	# inherit_chance = 0
+	birth = 0
+	random_creation = 0
+
+	group = skinchanger
+	level = 3
+
+	# genetic = yes
+
+	shown_in_ruler_designer = yes
+	ruler_designer_cost = 100
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_bb_skinchanger_3_desc
+			}
+			desc = trait_bb_skinchanger_3_desc
+		}
+	}
+}
