@@ -1,0 +1,48 @@
+﻿offer_imprisonment_interaction = {
+	icon = icon_scheme_abduct
+	category = interaction_category_hostile
+	interface_priority = 10
+	desc = offer_imprisonment_interaction_desc
+	popup_on_receive = yes
+	use_diplomatic_range = no
+
+	notification_text = SEND_IMPRISONMENT_OFFER
+
+	answer_accept_key = SEND_IMPRISONMENT_ACCEPT
+	answer_reject_key = SEND_IMPRISONMENT_REJECT
+
+	is_shown = {
+		scope:actor != scope:recipient
+		scope:actor = {
+			is_imprisoned = no
+			is_ai = no
+		}
+		scope:recipient = { is_human = yes }
+	}
+
+	on_accept = {
+		scope:recipient = {
+			imprison = {
+				target = scope:actor
+				type = dungeon
+			}
+		}
+	}
+	
+	auto_accept = {
+		custom_description = {
+			text = auto_accept_interaction_ai	
+			object = scope:recipient
+			scope:recipient = {
+				is_ai = yes
+			}
+		}
+	}
+	
+	ai_min_reply_days = 2
+	ai_max_reply_days = 2
+	
+	ai_will_do = {
+		base = 0
+	}
+}
