@@ -1,0 +1,96 @@
+﻿fp1_adventure_legacy_track = {
+	is_shown = {
+		has_dlc_feature = the_northern_lords
+		OR = {
+			has_game_rule = unrestricted_dynasty_legacies_all
+			AND = {
+				has_game_rule = unrestricted_dynasty_legacies_player_only
+				is_ai = no
+			}
+			dynasty = {
+				OR = {
+					#AGOT Disabled
+					# dynast = {
+					# 	culture = {
+					# 		OR = {
+					# 			this = culture:norse
+					# 			any_parent_culture_or_above = {
+					# 				this = culture:norse
+					# 			}
+					# 		}
+					# 	}
+					# }
+					has_dynasty_perk = fp1_adventure_legacy_1
+	
+					#AGOT Added
+					# agot_fp1_adventure_legacy_track_trigger = yes #Must match this trigger, but scripted trigger in legacy tracks crash game
+					OR = {
+						dynast = {
+							culture = {
+								OR = {
+									has_cultural_pillar = heritage_ironman
+									this = culture:westerosi_valyrian
+									any_parent_culture_or_above = {
+										this = culture:westerosi_valyrian
+									}
+									this = culture:vineman
+									any_parent_culture_or_above = {
+										this = culture:vineman
+									}
+								}
+							}
+						}
+						this = dynasty:dynn_Farman
+						this = dynasty:dynn_Estermont
+					}
+				}
+			}
+		}
+	}
+}
+
+fp1_pillage_legacy_track = {
+	is_shown = {
+		has_dlc_feature = the_northern_lords
+		OR = {
+			has_game_rule = unrestricted_dynasty_legacies_all
+			AND = {
+				has_game_rule = unrestricted_dynasty_legacies_player_only
+				is_ai = no
+			}
+			dynasty = {
+				OR = {
+					#AGOT Disabled
+					# dynast = {
+					# 	culture = {
+					# 		OR = {
+					# 			this = culture:norse
+					# 			any_parent_culture_or_above = {
+					# 				this = culture:norse
+					# 			}
+					# 		}
+					# 	}
+					# }
+					has_dynasty_perk = fp1_pillage_legacy_1
+	
+					#AGOT Added
+					# agot_fp1_pillage_legacy_track_trigger = yes #Must match this trigger, but scripted trigger in legacy tracks crash game
+					dynast = {
+						OR = {
+							culture = {
+								OR = {
+									#No, you cannot use any scripted triggers here, it will crash the game
+									has_variable = wildling_culture
+									has_cultural_pillar = heritage_ironman
+									has_cultural_tradition = tradition_agot_wildling
+									has_cultural_tradition = tradition_practiced_pirates
+								}
+							}
+							government_has_flag = government_is_pirate
+						}
+					}
+				}
+			}
+		}
+	}
+}

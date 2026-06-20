@@ -1,0 +1,31 @@
+﻿dayne_legacy_track = {
+	is_shown = {
+		OR = {
+			dynasty = dynasty:dynn_Dayne
+			dynasty = { has_dynasty_perk = dayne_legacy_1 }
+		}
+	}
+}
+
+dornish_legacy_track = {
+	is_shown = {
+		OR = {
+			culture = {
+				OR = {
+					this = culture:stone_dornish
+					this = culture:sand_dornish
+					this = culture:salt_dornish
+					any_parent_culture_or_above = {
+						OR = {
+							this = culture:stone_dornish
+							this = culture:sand_dornish
+							this = culture:salt_dornish
+						}
+					}
+				}
+			}
+			dynasty = { has_dynasty_perk = dornish_legacy_1 }
+		}
+	}
+}
+
