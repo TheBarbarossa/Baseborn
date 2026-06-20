@@ -1,0 +1,227 @@
+﻿tradition_agot_insular_marriage = {
+	category = realm
+
+	layers = {
+		0 = martial
+		1 = mediterranean
+		4 = greeting.dds
+	}
+
+	parameters = {
+		dislikes_marrying_outside_of_culture = yes
+		ai_doesnt_marry_outside_culture = yes
+		romance_scheme_bonus_vs_spouse = yes
+	}
+	character_modifier = {
+		same_culture_opinion = 10
+		spouse_opinion = 10
+
+		ai_war_chance = -0.5
+		ai_war_cooldown = 5
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_communal = { is_in_list = traits }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+						culture_pillar:heritage_rhoynar = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_communal_egalitarian_or_courtly_desc
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_innovation = innovation_baliffs
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = lacks_baliffs_innovation_desc
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_innovation = innovation_development_02
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = lacks_development_02_innovation_desc
+				}
+			}
+
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 100
+		if = {
+			limit = {
+				scope:character = {
+					any_vassal = {
+						count < 30
+					}
+				}
+			}
+			multiply = 0.5
+		}
+		if = {
+			limit = {
+				NOR = {
+					has_innovation = innovation_baliffs
+					has_innovation = innovation_development_02
+				}
+			}
+			multiply = 0.25
+		}
+	}
+}
+
+tradition_agot_debug = {
+	category = realm
+
+	layers = {
+		0 = intrigue
+		1 = mediterranean
+		4 = crown.dds
+	}
+
+	is_shown = { always = no }
+	can_pick = { always = no }
+	can_pick_for_hybridization = { always = no }
+
+	parameters = {
+		better_gathering_hall_bonuses = yes
+		better_war_camp_bonuses = yes
+		better_hospice_bonuses = yes
+		county_peasant_and_populist_factions_more_common = yes
+		military_governor_appointment_score = yes
+		eunuch_powerful_scheme_agents = yes
+		may_commission_kris = yes
+		must_pledge_loyalty_to_liege = yes
+		forming_confederations_is_easier = yes
+		invite_to_confederation_extra_reasons = yes
+		mandala_tributaries = yes
+		unlock_late_medieval_gunpowder_units = yes
+		court_machinations_eunuch_trait_bonuses = yes
+		male_only_inheritance = yes
+		may_build_sacred_pools_ahead_of_time = yes
+		family_shares_merit = yes
+		prestige_gain_on_building_complete_in_mountains_forest = yes
+		religious_relations_is_empowered = yes
+		piety_level_affect_artifact_quality = yes
+		founding_temple_citadels_gives_more_piety = yes
+		more_successful_kowtows = yes
+		warmonger_city_founders = yes
+		increases_effect_of_mandala_realm_contracts = yes
+		champa_rice_wet_land_paddies = yes
+		honorable_trait_bonuses = yes
+		temple_citadel_fort_level_bonus = yes
+		castle_holding_fort_level_in_jungle_bonus = yes
+		temple_citadel_control_bonus = yes
+		waterworks_additional_bonuses = yes
+		coastal_tribe_bonuses = yes
+		sacred_pool_additional_bonuses = yes
+		reduced_marriage_acceptance_outside_culture = yes
+		reduced_marriage_acceptance_distant_realms = yes
+		less_likely_to_force_conversion = yes
+		governor_trait_gives_counter_resistance = yes
+		desert_warrior_trait_is_better = yes
+		desert_hunt_success_chance = yes
+		resistant_to_desert_privation = yes
+		coastal_holding_bonuses = yes
+		coastal_agriculture_building_bonuses = yes
+		hunting_archery_building_bonuses = yes
+
+		unlock_zhanmadao = yes
+		unlock_burenjia = yes
+		unlock_emishi_horse_archers_units = yes
+		unlock_infantry_samurai_units = yes
+		unlock_maa_pesilat = yes
+		unlock_maa_tiefutu = yes
+
+		unlock_maa_skahazdahn_wardens = yes
+		unlock_maa_dragonsworn = yes
+		unlock_maa_triarchs_herd = yes
+		unlock_maa_demon_guards = yes
+		unlock_maa_tolosi_slingers = yes
+		unlock_maa_market_guard = yes
+		unlock_maa_elyrian_sailors = yes
+		unlock_maa_iron_legion = yes
+
+		unlock_maa_tear_sailors = yes
+		unlock_maa_wyven_hunters = yes
+		unlock_maa_zamoyos_sailors = yes
+		unlock_maa_brindled_warriors = yes
+		unlock_maa_corsairs = yes
+		unlock_maa_pen_guards = yes
+
+		unlock_maa_black_blood_cavalry = yes
+
+		unlock_maa_collar_breakers = yes
+		unlock_maa_sunset_feathers = yes
+		unlock_maa_indigo_spears = yes
+		unlock_maa_tree_speakers = yes
+		unlock_maa_abulu_spears = yes
+		unlock_maa_butterflies = yes
+
+		unlock_maa_pale_cavalry = yes
+		unlock_maa_gate_sailors = yes
+		unlock_maa_civic_guard = yes
+
+		unlock_maa_port_guard = yes
+		unlock_maa_mountain_spears = yes
+		unlock_maa_sar_wardens = yes
+
+		unlock_maa_asa_scouts = yes
+		unlock_maa_sand_couriers = yes
+		unlock_maa_stone_shields = yes
+		unlock_maa_bone_collectors = yes
+		unlock_maa_patriarchal_guard = yes
+
+		unlock_maa_pearl_phoenixes = yes
+		unlock_maa_jade_dragons = yes
+		unlock_maa_tourmaline_tortoises = yes
+		unlock_maa_onyx_crows = yes
+		unlock_maa_topaz_tigers = yes
+		unlock_maa_opal_cranes = yes
+
+		unlock_maa_depth_killers = yes
+		unlock_maa_jade_sailors = yes
+		unlock_maa_poison_stings = yes
+		unlock_maa_crescent_blades = yes
+		unlock_maa_moraqi_elephants = yes
+		unlock_maa_shans_herd = yes
+		unlock_maa_blue_eyes = yes
+		unlock_maa_stone_ranchers = yes
+
+		unlock_maa_ash_wardens = yes
+		unlock_maa_shadow_raiders = yes
+
+		unlock_maa_lions_of_night = yes
+		unlock_maa_vassals_in_yellow = yes
+		unlock_maa_lions_of_night = yes
+		unlock_maa_drainers = yes
+		unlock_maa_waste_raiders = yes
+		unlock_maa_wind_demons = yes
+		unlock_maa_venom_bites = yes
+	}
+
+	cost = { prestige = 300000 }
+
+	ai_will_do = { value = 0 }
+}

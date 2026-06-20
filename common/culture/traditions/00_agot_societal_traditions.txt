@@ -1,0 +1,61 @@
+﻿tradition_agot_fashionistas = {
+	category = societal
+
+	layers = {
+		0 = diplo
+		1 = mediterranean
+		4 = artisan.dds
+	}
+
+	can_pick = {
+		scope:character = { has_trait = fashionable }
+	}
+
+	parameters = {
+		fashionable_trait_more_common = yes
+		fashionistas_marriage_acceptance_bonus = yes
+		estate_building_upgrade_development_gain = yes
+	}
+	culture_modifier = {
+		cultural_acceptance_gain_mult = -0.25
+	}
+	character_modifier = {
+		cultural_head_fascination_mult = -0.10
+		monthly_influence_mult = 0.1
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOT = {
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_courtly_desc
+				}
+			}
+
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 50
+		if = {
+			limit = {
+				NOT = {
+					culture_pillar:ethos_courtly = { is_in_list = traits }
+				}
+			}
+			multiply = 0
+		}
+	}
+}
