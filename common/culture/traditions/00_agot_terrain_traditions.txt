@@ -1,0 +1,636 @@
+﻿tradition_agot_frozen_flats = {
+	category = realm
+
+	layers = {
+		0 = steward
+		1 = western
+		4 = mountain.dds
+	}
+
+	can_pick = {
+		custom_description = {
+			text = culture_in_frozen_flats_desc
+			any_culture_county = {
+				any_county_province = {
+					OR = {
+						agot_is_frozen_flats_terrain = yes
+					}
+				}
+			}
+		}
+	}
+
+	parameters = {
+		peat_quarries_building_bonuses = yes
+	}
+
+	character_modifier = {
+		frozen_flats_travel_danger = frozen_flats_medium_danger_reduction
+		majorroad_frozen_flats_travel_danger = majorroad_frozen_flats_medium_danger_reduction
+		minorroad_frozen_flats_travel_danger = minorroad_frozen_flats_medium_danger_reduction
+		glacier_travel_danger = glacier_low_danger_reduction
+		majorroad_glacier_travel_danger = majorroad_glacier_low_danger_reduction
+		minorroad_glacier_travel_danger = minorroad_glacier_low_danger_reduction
+		frozen_flats_advantage = 10
+		majorroad_frozen_flats_advantage = 10
+		minorroad_frozen_flats_advantage = 10
+	}
+
+	county_modifier = {
+		frozen_flats_development_growth_factor = 0.1
+		majorroad_frozen_flats_development_growth_factor = 0.1
+		minorroad_frozen_flats_development_growth_factor = 0.1
+	}
+
+	province_modifier = {
+		frozen_flats_levy_size = 0.1
+		majorroad_frozen_flats_levy_size = 0.1
+		minorroad_frozen_flats_levy_size = 0.1
+		frozen_flats_construction_gold_cost = -0.1
+		majorroad_frozen_flats_construction_gold_cost = -0.1
+		minorroad_frozen_flats_construction_gold_cost = -0.1
+		frozen_flats_holding_construction_gold_cost = -0.1
+		majorroad_frozen_flats_holding_construction_gold_cost = -0.1
+		minorroad_frozen_flats_holding_construction_gold_cost = -0.1
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					culture_pillar:ethos_bellicose = { is_in_list = traits }
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = culture_not_bellicose
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_culture_county = {
+							percent >= 0.3
+							any_county_province = {
+								OR = {
+									agot_is_glacier_terrain = yes
+									agot_is_frozen_flats_terrain = yes
+								}
+							}
+						}
+					}
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+}
+
+tradition_agot_glacier = {
+	category = realm
+
+	layers = {
+		0 = steward
+		1 = western
+		4 = mountain.dds
+	}
+
+	can_pick = {
+		custom_description = {
+			text = culture_in_glacier_desc
+			any_culture_county = {
+				any_county_province = {
+					OR = {
+						agot_is_glacier_terrain = yes
+					}
+				}
+			}
+		}
+	}
+
+	character_modifier = {
+		glacier_travel_danger = glacier_medium_danger_reduction
+		majorroad_glacier_travel_danger = majorroad_glacier_medium_danger_reduction
+		minorroad_glacier_travel_danger = minorroad_glacier_medium_danger_reduction
+		frozen_flats_travel_danger = frozen_flats_low_danger_reduction
+		majorroad_frozen_flats_travel_danger = majorroad_frozen_flats_low_danger_reduction
+		minorroad_frozen_flats_travel_danger = minorroad_frozen_flats_low_danger_reduction
+		glacier_advantage = 10
+		majorroad_glacier_advantage = 10
+		minorroad_glacier_advantage = 10
+	}
+
+	county_modifier = {
+		glacier_development_growth_factor = 0.1
+		majorroad_glacier_development_growth_factor = 0.1
+		minorroad_glacier_development_growth_factor = 0.1
+	}
+
+	province_modifier = {
+		glacier_levy_size = 0.1
+		majorroad_glacier_levy_size = 0.1
+		minorroad_glacier_levy_size = 0.1
+		glacier_construction_gold_cost = -0.1
+		majorroad_glacier_construction_gold_cost = -0.1
+		minorroad_glacier_construction_gold_cost = -0.1
+		glacier_holding_construction_gold_cost = -0.1
+		majorroad_glacier_holding_construction_gold_cost = -0.1
+		minorroad_glacier_holding_construction_gold_cost = -0.1
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					culture_pillar:ethos_bellicose = { is_in_list = traits }
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = culture_not_bellicose
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_culture_county = {
+							percent >= 0.3
+							any_county_province = {
+								OR = {
+									agot_is_glacier_terrain = yes
+									agot_is_frozen_flats_terrain = yes
+								}
+							}
+						}
+					}
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+}
+
+tradition_agot_cloudforest = {
+	category = realm
+
+	layers = {
+		0 = steward
+		1 = western
+		4 = jungle.dds
+	}
+
+	can_pick = {
+		custom_description = {
+			text = culture_in_cloudforest_desc
+			any_culture_county = {
+				any_county_province = {
+					OR = {
+						agot_is_cloudforest_terrain = yes
+					}
+				}
+			}
+		}
+	}
+
+	character_modifier = {
+		cloudforest_travel_danger = cloudforest_medium_danger_reduction
+		majorroad_cloudforest_travel_danger = majorroad_cloudforest_medium_danger_reduction
+		minorroad_cloudforest_travel_danger = minorroad_cloudforest_medium_danger_reduction
+		forest_travel_danger = forest_low_danger_reduction
+		majorroad_forest_travel_danger = majorroad_forest_low_danger_reduction
+		minorroad_forest_travel_danger = minorroad_forest_low_danger_reduction
+		cloudforest_advantage = 10
+		majorroad_cloudforest_advantage = 10
+		minorroad_cloudforest_advantage = 10
+	}
+
+	county_modifier = {
+		cloudforest_development_growth_factor = 0.1
+		majorroad_cloudforest_development_growth_factor = 0.1
+		minorroad_cloudforest_development_growth_factor = 0.1
+	}
+
+	province_modifier = {
+		cloudforest_levy_size = 0.1
+		majorroad_cloudforest_levy_size = 0.1
+		minorroad_cloudforest_levy_size = 0.1
+		cloudforest_construction_gold_cost = -0.1
+		majorroad_cloudforest_construction_gold_cost = -0.1
+		minorroad_cloudforest_construction_gold_cost = -0.1
+		cloudforest_holding_construction_gold_cost = -0.1
+		majorroad_cloudforest_holding_construction_gold_cost = -0.1
+		minorroad_cloudforest_holding_construction_gold_cost = -0.1
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					culture_pillar:ethos_bellicose = { is_in_list = traits }
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = culture_not_bellicose
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_culture_county = {
+							percent >= 0.3
+							any_county_province = {
+								OR = {
+									agot_is_cloudforest_terrain = yes
+									agot_is_forest_terrain = yes
+								}
+							}
+						}
+					}
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+}
+
+tradition_agot_highlands = {
+	category = realm
+
+	layers = {
+		0 = steward
+		1 = western
+		4 = mountain.dds
+	}
+
+	can_pick = {
+		custom_description = {
+			text = culture_in_highlands_desc
+			any_culture_county = {
+				any_county_province = {
+					OR = {
+						agot_is_highlands_terrain = yes
+					}
+				}
+			}
+		}
+	}
+
+	character_modifier = {
+		highlands_travel_danger = highlands_medium_danger_reduction
+		majorroad_highlands_travel_danger = majorroad_highlands_medium_danger_reduction
+		minorroad_highlands_travel_danger = minorroad_highlands_medium_danger_reduction
+		hills_travel_danger = hills_low_danger_reduction
+		majorroad_hills_travel_danger = majorroad_hills_low_danger_reduction
+		minorroad_hills_travel_danger = minorroad_hills_low_danger_reduction
+		highlands_advantage = 10
+		majorroad_highlands_advantage = 10
+		minorroad_highlands_advantage = 10
+	}
+
+	county_modifier = {
+		highlands_development_growth_factor = 0.1
+		majorroad_highlands_development_growth_factor = 0.1
+		minorroad_highlands_development_growth_factor = 0.1
+	}
+
+	province_modifier = {
+		highlands_levy_size = 0.1
+		majorroad_highlands_levy_size = 0.1
+		minorroad_highlands_levy_size = 0.1
+		highlands_construction_gold_cost = -0.1
+		majorroad_highlands_construction_gold_cost = -0.1
+		minorroad_highlands_construction_gold_cost = -0.1
+		highlands_holding_construction_gold_cost = -0.1
+		majorroad_highlands_holding_construction_gold_cost = -0.1
+		minorroad_highlands_holding_construction_gold_cost = -0.1
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					culture_pillar:ethos_bellicose = { is_in_list = traits }
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = culture_not_bellicose
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_culture_county = {
+							percent >= 0.3
+							any_county_province = {
+								OR = {
+									agot_is_highlands_terrain = yes
+									agot_is_hills_terrain = yes
+								}
+							}
+						}
+					}
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+}
+
+tradition_agot_taiga_bog = {
+	category = realm
+
+	layers = {
+		0 = steward
+		1 = western
+		4 = swamp.dds
+	}
+
+	can_pick = {
+		custom_description = {
+			text = culture_in_taiga_bog_desc
+			any_culture_county = {
+				any_county_province = {
+					OR = {
+						agot_is_taiga_bog_terrain = yes
+					}
+				}
+			}
+		}
+	}
+
+	character_modifier = {
+		taiga_bog_travel_danger = taiga_bog_medium_danger_reduction
+		majorroad_taiga_bog_travel_danger = majorroad_taiga_bog_medium_danger_reduction
+		minorroad_taiga_bog_travel_danger = minorroad_taiga_bog_medium_danger_reduction
+		taiga_travel_danger = taiga_low_danger_reduction
+		majorroad_taiga_travel_danger = majorroad_taiga_low_danger_reduction
+		minorroad_taiga_travel_danger = minorroad_taiga_low_danger_reduction
+		taiga_bog_advantage = 10
+		majorroad_taiga_bog_advantage = 10
+		minorroad_taiga_bog_advantage = 10
+	}
+
+	county_modifier = {
+		taiga_bog_development_growth_factor = 0.1
+		majorroad_taiga_bog_development_growth_factor = 0.1
+		minorroad_taiga_bog_development_growth_factor = 0.1
+	}
+
+	province_modifier = {
+		taiga_bog_levy_size = 0.1
+		majorroad_taiga_bog_levy_size = 0.1
+		minorroad_taiga_bog_levy_size = 0.1
+		taiga_bog_construction_gold_cost = -0.1
+		majorroad_taiga_bog_construction_gold_cost = -0.1
+		minorroad_taiga_bog_construction_gold_cost = -0.1
+		taiga_bog_holding_construction_gold_cost = -0.1
+		majorroad_taiga_bog_holding_construction_gold_cost = -0.1
+		minorroad_taiga_bog_holding_construction_gold_cost = -0.1
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					culture_pillar:ethos_bellicose = { is_in_list = traits }
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = culture_not_bellicose
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_culture_county = {
+							percent >= 0.3
+							any_county_province = {
+								OR = {
+									agot_is_taiga_bog_terrain = yes
+									agot_is_taiga_terrain = yes
+								}
+							}
+						}
+					}
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+}
+
+tradition_agot_urban = {
+	category = realm
+
+	layers = {
+		0 = steward
+		1 = western
+		4 = city.dds
+	}
+
+	can_pick = {
+		custom_description = {
+			text = culture_in_urban_desc
+			any_culture_county = {
+				any_county_province = {
+					OR = {
+						agot_is_urban_terrain = yes
+					}
+				}
+			}
+		}
+	}
+
+	character_modifier = {
+		urban_travel_danger = urban_medium_danger_reduction
+		majorroad_urban_travel_danger = majorroad_urban_medium_danger_reduction
+		minorroad_urban_travel_danger = minorroad_urban_medium_danger_reduction
+		urban_advantage = 10
+		majorroad_urban_advantage = 10
+		minorroad_urban_advantage = 10
+	}
+
+	county_modifier = {
+		urban_development_growth_factor = 0.1
+		majorroad_urban_development_growth_factor = 0.1
+		minorroad_urban_development_growth_factor = 0.1
+	}
+
+	province_modifier = {
+		urban_levy_size = 0.1
+		majorroad_urban_levy_size = 0.1
+		minorroad_urban_levy_size = 0.1
+		urban_construction_gold_cost = -0.1
+		majorroad_urban_construction_gold_cost = -0.1
+		minorroad_urban_construction_gold_cost = -0.1
+		urban_holding_construction_gold_cost = -0.1
+		majorroad_urban_holding_construction_gold_cost = -0.1
+		minorroad_urban_holding_construction_gold_cost = -0.1
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					culture_pillar:ethos_bellicose = { is_in_list = traits }
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = culture_not_bellicose
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_culture_county = {
+							percent >= 0.3
+							any_county_province = {
+								OR = {
+									agot_is_urban_terrain = yes
+								}
+							}
+						}
+					}
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+}
+
+tradition_agot_the_bog = {
+	category = realm
+
+	layers = {
+		0 = steward
+		1 = western
+		4 = swamp.dds
+	}
+
+	can_pick = {
+		custom_description = {
+			text = culture_in_the_bog_desc
+			any_culture_county = {
+				any_county_province = {
+					OR = {
+						agot_is_the_bog_terrain = yes
+					}
+				}
+			}
+		}
+	}
+
+	character_modifier = {
+		the_bog_travel_danger = the_bog_high_danger_reduction
+		majorroad_the_bog_travel_danger = majorroad_the_bog_high_danger_reduction
+		minorroad_the_bog_travel_danger = minorroad_the_bog_high_danger_reduction
+		taiga_bog_travel_danger = taiga_medium_danger_reduction
+		majorroad_taiga_bog_travel_danger = majorroad_taiga_medium_danger_reduction
+		minorroad_taiga_bog_travel_danger = minorroad_taiga_medium_danger_reduction
+		the_bog_advantage = 10
+		majorroad_the_bog_advantage = 10
+		minorroad_the_bog_advantage = 10
+		taiga_bog_advantage = 5
+		majorroad_taiga_bog_advantage = 5
+		minorroad_taiga_bog_advantage = 5
+	}
+
+	county_modifier = {
+		the_bog_development_growth_factor = 0.25
+		majorroad_the_bog_development_growth_factor = 0.25
+		minorroad_the_bog_development_growth_factor = 0.25
+		taiga_bog_development_growth_factor = 0.1
+		majorroad_taiga_bog_development_growth_factor = 0.1
+		minorroad_taiga_bog_development_growth_factor = 0.1
+	}
+
+	province_modifier = {
+		the_bog_levy_size = 0.1
+		majorroad_the_bog_levy_size = 0.1
+		minorroad_the_bog_levy_size = 0.1
+		the_bog_construction_gold_cost = -0.15
+		majorroad_the_bog_construction_gold_cost = -0.15
+		minorroad_the_bog_construction_gold_cost = -0.15
+		the_bog_holding_construction_gold_cost = -0.15
+		majorroad_the_bog_holding_construction_gold_cost = -0.15
+		minorroad_the_bog_holding_construction_gold_cost = -0.15
+		the_bog_supply_limit_mult = 0.25
+		majorroad_the_bog_supply_limit_mult = 0.25
+		minorroad_the_bog_supply_limit_mult = 0.25
+		taiga_bog_levy_size = 0.05
+		majorroad_taiga_bog_levy_size = 0.05
+		minorroad_taiga_bog_levy_size = 0.05
+		taiga_bog_construction_gold_cost = -0.1
+		majorroad_taiga_bog_construction_gold_cost = -0.1
+		minorroad_taiga_bog_construction_gold_cost = -0.1
+		taiga_bog_holding_construction_gold_cost = -0.1
+		majorroad_taiga_bog_holding_construction_gold_cost = -0.1
+		minorroad_taiga_bog_holding_construction_gold_cost = -0.1
+		taiga_bog_supply_limit_mult = 0.1
+		majorroad_taiga_bog_supply_limit_mult = 0.1
+		minorroad_taiga_bog_supply_limit_mult = 0.1
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					culture_pillar:ethos_bellicose = { is_in_list = traits }
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = culture_not_bellicose
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_culture_county = {
+							percent >= 0.3
+							any_county_province = {
+								OR = {
+									agot_is_the_bog_terrain = yes
+									agot_is_taiga_bog_terrain = yes
+								}
+							}
+						}
+					}
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+}
