@@ -1,0 +1,81 @@
+﻿# GENERIC IRONBORN LEGACIES - Raiding/Wandering/Warfare hybrid
+
+ironborn_legacy_1 = { # Salt Legs
+	legacy = ironborn_legacy_track
+
+	can_be_picked = {
+		culture = {
+			OR = {
+			this = culture:ironborn
+			any_parent_culture_or_above = {
+				this = culture:ironborn
+				}
+			}
+		}
+	}
+
+	character_modifier = {
+		coastal_advantage = 10
+		prowess = 1
+		martial = 1
+		ai_boldness = medium_positive_ai_value
+		ai_greed = medium_positive_ai_value
+	}
+
+	ai_chance = {
+		value = 11
+		if = {
+			limit = {
+				can_start_new_legacy_track_trigger = no
+			}
+			multiply = 0
+		}
+	}
+}
+
+ironborn_legacy_2 = { # Iron Price - Famous enough to organize a great reaving / Reaver benefits
+	legacy = ironborn_legacy_track
+
+	#Great Reaving Disabled, temporarily take more hostages
+	effect = {
+		custom_description_no_bullet = { text = ironborn_legacy_2_effect }
+	}
+}
+
+ironborn_legacy_3 = { # Iron Fleet
+	legacy = ironborn_legacy_track
+
+	character_modifier = {
+		movement_speed = 0.3
+		naval_movement_speed_mult = 0.3
+		retreat_losses = -0.30
+	}
+}
+
+ironborn_legacy_4 = { # Kraken Plate
+	legacy = ironborn_legacy_track
+
+	character_modifier = {
+		heavy_infantry_max_size_add = 2 #More reavers
+		heavy_infantry_siege_value_add = 0.2
+		martial_per_piety_level = 1
+	}
+}
+
+ironborn_legacy_5 = { # The Black Blood
+	legacy = ironborn_legacy_track
+
+	#Great Reaving Disabled
+	# effect = { # Extra Prestige/Piety from Raiding
+	# 	custom_description_no_bullet = { text = ironborn_legacy_5_effect }
+	# }
+
+	character_modifier = {
+		enemy_hard_casualty_modifier = 0.1
+		siege_morale_loss = 0.1
+		health = 0.2
+		ironborn_opinion = 10
+		monthly_prestige = 0.2
+	}
+}
+
