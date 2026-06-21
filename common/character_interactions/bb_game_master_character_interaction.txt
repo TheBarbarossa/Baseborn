@@ -461,7 +461,7 @@ bbgm_remove_contraceptives = {
 
 bbgm_make_character_inactive = {
     category = interaction_category_bb_game_master
-    interface_priority = 0
+    interface_priority = 10
     icon = icon_scheme_abduct
     desc = bbgm_make_character_inactive_desc
     auto_accept = yes
@@ -474,6 +474,7 @@ bbgm_make_character_inactive = {
             NOT = { has_trait = bb_inactive }
         }
         scope:actor = {
+            is_ai = no
             has_trait = game_master
         }
     }
@@ -487,7 +488,7 @@ bbgm_make_character_inactive = {
 
 bbgm_make_character_active = {
     category = interaction_category_bb_game_master
-    interface_priority = 0
+    interface_priority = 10
     icon = icon_scheme_befriend
     desc = bbgm_make_character_active_desc
     auto_accept = yes
@@ -500,6 +501,7 @@ bbgm_make_character_active = {
             has_trait = bb_inactive
         }
         scope:actor = {
+            is_ai = no
             has_trait = game_master
         }
     }
@@ -507,6 +509,34 @@ bbgm_make_character_active = {
     on_send = {
         scope:recipient = {
             remove_trait = bb_inactive
+        }
+    }
+}
+
+bbgm_give_cancer = {
+    category = interaction_category_bb_game_master
+    interface_priority = 0
+    icon = icon_force_to_step_down
+    desc = bbgm_give_cancer_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+	common_interaction = yes
+	popup_on_receive = yes
+
+    is_shown = {
+        scope:recipient = {
+            NOT = { has_trait = cancer }
+        }
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+    }
+
+    on_send = {
+        scope:recipient = {
+            add_trait = cancer
         }
     }
 }
