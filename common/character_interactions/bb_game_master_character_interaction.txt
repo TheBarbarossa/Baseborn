@@ -223,7 +223,7 @@ bbgm_become_game_master = {
             set_character_faith = faith:fg_pan_bronze
             change_first_name = The_Game_Master
             remove_nickname = yes
-            divorce = primary_spouse
+            every_spouse = { divorce = prev }
             primary_title = { set_coa = bb_dm_coa }
             house = {
                 set_house_name = dynn_GM
@@ -257,9 +257,54 @@ bbgm_divorce = {
     }
 }
 
-bbgm_abort = {
+bbgm_start_pregnancy = {
     category = interaction_category_bb_game_master
     interface_priority = 97
+    icon = child
+    desc = bbgm_start_pregnancy_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+	common_interaction = yes
+
+    is_shown = {
+		NOT = { scope:recipient = scope:actor }
+        scope:recipient = {
+            is_female = yes
+            is_pregnant = no
+        }
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+    }
+
+    populate_actor_list = {
+        every_living_character = {
+            limit = { has_relation_lover = scope:recipient }
+            add_to_list = characters
+        }
+        scope:recipient = {
+            every_spouse = { add_to_list = characters }
+        }
+    }
+
+	can_be_picked = {
+        always = yes
+	}
+
+    on_send = {
+        scope:recipient = {
+            make_pregnant = { father = scope:secondary_actor }
+            #AGOT Added; LMF
+            event_pregnancy_effect = yes
+        }
+    }
+}
+
+bbgm_abort = {
+    category = interaction_category_bb_game_master
+    interface_priority = 96
     icon = child
     desc = bbgm_abort_desc
     auto_accept = yes
@@ -286,7 +331,7 @@ bbgm_abort = {
 
 bbgm_independence = {
     category = interaction_category_bb_game_master
-    interface_priority = 96
+    interface_priority = 95
     icon = icon_found_despotate
     desc = bbgm_independence_desc
     auto_accept = yes
@@ -320,7 +365,7 @@ bbgm_independence = {
 
 bbgm_break_alliances = {
     category = interaction_category_bb_game_master
-    interface_priority = 95
+    interface_priority = 94
     icon = change_allegiance
     desc = bbgm_break_alliances_desc
     auto_accept = yes
@@ -358,7 +403,7 @@ bbgm_break_alliances = {
 
 bbgm_enforce_contraceptives = {
     category = interaction_category_bb_game_master
-    interface_priority = 94
+    interface_priority = 93
     icon = icon_force_to_step_down
     desc = bbgm_enforce_contraceptives_desc
     auto_accept = yes
@@ -373,7 +418,6 @@ bbgm_enforce_contraceptives = {
             has_trait = game_master
         }
         scope:recipient = {
-			is_adult = yes
 			NOT = { has_character_modifier = contraceptives_modifier }
 
         }
@@ -388,7 +432,7 @@ bbgm_enforce_contraceptives = {
 
 bbgm_remove_contraceptives = {
     category = interaction_category_bb_game_master
-    interface_priority = 93
+    interface_priority = 92
     icon = icon_scheme_seduce
     desc = bbgm_remove_contraceptives_desc
     auto_accept = yes
@@ -403,7 +447,6 @@ bbgm_remove_contraceptives = {
             has_trait = game_master
         }
         scope:recipient = {
-			is_adult = yes
 			has_character_modifier = contraceptives_modifier
 
         }
