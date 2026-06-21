@@ -5,8 +5,11 @@ change_hunt_success_chance = {
 	ignores_pending_interaction_block = yes
 	common_interaction = yes
 	icon = activity_hunt
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		scope:actor.involved_activity ?= {
 			has_activity_type = activity_hunt
 			exists = var:hunt_success_chance
@@ -107,8 +110,11 @@ debug_give_animal_interaction = {
 	ignores_pending_interaction_block = yes
 	common_interaction = no
 	icon = dog_positive
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		scope:recipient = {
 			NAND = {
 				any_owned_story = { story_type = story_cycle_pet_cat }
@@ -177,8 +183,11 @@ change_tournament_score = {
 	ignores_pending_interaction_block = yes
 	common_interaction = yes
 	icon = activity_tournament
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		scope:recipient = {
 			exists = involved_activity
 			involved_activity = {
@@ -274,8 +283,11 @@ add_to_court_interaction = {
 	use_diplomatic_range = no
 	ignores_pending_interaction_block = yes
 	icon = guest
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		NOT = { scope:recipient = scope:actor }
 		scope:recipient = {
 			is_playable_character = no
@@ -299,8 +311,11 @@ debug_secrets_interaction = {
 	ignores_pending_interaction_block = yes
 	icon = debug_secret
 
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 	}
 
 	send_option = {
@@ -466,8 +481,11 @@ add_hook_interaction = {
 	icon = hook_icon
 	common_interaction = no
 
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		NOT = { scope:recipient = scope:actor }
 	}
 
@@ -528,8 +546,11 @@ set_relation_debug = {
 	ignores_pending_interaction_block = yes
 	icon = debug_chars
 	common_interaction = yes
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		NOT = {
 			scope:recipient = scope:actor
 		}
@@ -971,7 +992,12 @@ change_character_weight_interaction = {
 	ignores_pending_interaction_block = yes
 	icon = activity_feast
 
-	is_shown = { scope:actor = { has_trait = game_master } }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
+	}
 
 	send_option = {
 		flag = gain_weight
@@ -1003,7 +1029,12 @@ slay_character_interaction = {
 
 	interface_priority = -1
 
-	is_shown = { scope:actor = { has_trait = game_master } }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
+	}
 
 	send_option = {
 		flag = random_slayer
@@ -1067,8 +1098,11 @@ change_cultural_acceptance_debug_interaction = {
 	ignores_pending_interaction_block = yes
 	icon = icon_culture
 
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		NOT = { scope:actor.culture = scope:recipient.culture }
 	}
 
@@ -1113,8 +1147,11 @@ learn_language_debug_interaction = {
 
 	interface_priority = -1
 
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		NOT = {
 			scope:actor = { knows_language_of_culture = scope:recipient.culture }
 		}
@@ -1134,8 +1171,11 @@ start_bout_interaction = {
 	use_diplomatic_range = no
 	ignores_pending_interaction_block = yes
 	icon = icon_combat
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		NOT = { scope:recipient = scope:actor }
 	}
 
@@ -1204,8 +1244,11 @@ add_artifact_interaction = {
 	use_diplomatic_range = no
 	ignores_pending_interaction_block = yes
 	icon = artifact
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 	}
 
 	send_option = {
@@ -1458,8 +1501,11 @@ take_artifact_interaction = {
 	target_type = artifact
 	target_filter = recipient_artifacts
 
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		scope:recipient = {
 			any_character_artifact = { exists = this }
 		}
@@ -1534,8 +1580,11 @@ add_artifact_claim_interaction = {
 		scope:recipient = {
 			any_character_artifact = { exists = this }
 		}
-		NOT = { scope:recipient = scope:actor }
-		scope:actor = { has_trait = game_master }
+		NOT = { scope:recipient = scope:actor } # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 	}
 
 	send_option = {
@@ -1569,8 +1618,11 @@ debug_destroy_artifact_interaction = {
 	target_type = artifact
 	target_filter = recipient_artifacts
 
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		scope:recipient = {
 			any_character_artifact = { exists = this }
 		}
@@ -1615,8 +1667,11 @@ inspire_interaction = {
 	ignores_pending_interaction_block = yes
 	icon = inspiration
 
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		scope:recipient = {
 			NOT = { exists = inspiration }
 			has_completed_inspiration = no
@@ -1725,8 +1780,11 @@ sponsor_inspiration_debug = {
 	ignores_pending_interaction_block = yes
 	auto_accept = yes
 
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		exists = scope:recipient.inspiration
 	}
 
@@ -1753,8 +1811,11 @@ test_effect_localization_interaction = {
 	category = interaction_debug_main
 	use_diplomatic_range = no
 
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		scope:actor = { is_ai = no }
 		NOT = { scope:actor = scope:recipient }
 		always = no # Comment out this line to see this interaction
@@ -1878,8 +1939,11 @@ give_criminal_trait_interaction = {
 	ignores_pending_interaction_block = yes
 	icon = prison
 
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		NOT = {
 			scope:actor = {
 				has_imprisonment_reason = scope:recipient
@@ -1931,8 +1995,11 @@ generate_artifact_with_history_interaction = {
 	ignores_pending_interaction_block = yes
 	icon = artifact
 
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		NOT = { scope:recipient = scope:actor }
 	}
 
@@ -1949,8 +2016,11 @@ debug_sex_interaction = { # Sleep With Character
 	category = interaction_debug_main
 	use_diplomatic_range = no
 	ignores_pending_interaction_block = yes
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		NOT = { scope:recipient = scope:actor }
 	}
 
@@ -1964,7 +2034,12 @@ debug_change_every_county = {
 	ignores_pending_interaction_block = yes
 	icon = alliance
 
-	is_shown = { scope:actor = { has_trait = game_master } }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
+	}
 	send_option = { # Set Control to Max (100)
 		flag = debug_change_every_county_max_control
 		localization = debug_change_every_county.a
@@ -2026,8 +2101,11 @@ do_a_crime_embezzle_interaction = {
 	use_diplomatic_range = no
 	ignores_pending_interaction_block = yes
 	icon = icon_gold
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		NOT = { scope:recipient = scope:actor }
 	}
 
@@ -2104,8 +2182,11 @@ add_glory_interaction = {
 
 	interface_priority = -1
 
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 	}
 
 	send_option = {
@@ -2174,7 +2255,12 @@ debug_progress_all_active_schemes_interaction = {
 	use_diplomatic_range = no
 	ignores_pending_interaction_block = yes
 	icon = debug_secret
-	is_shown = { scope:actor = { has_trait = game_master } }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
+	}
 	is_valid_showing_failures_only = {
 		scope:actor = {
 			any_scheme = { count >= 1 }
@@ -2189,8 +2275,11 @@ debug_travel_to_ruler_interaction = {
 	use_diplomatic_range = no
 	ignores_pending_interaction_block = yes
 	icon = travel_mixed
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		NOT = { scope:recipient = scope:actor }
 	}
 
@@ -2241,8 +2330,11 @@ debug_add_truce_interaction = {
 	use_diplomatic_range = no
 	ignores_pending_interaction_block = yes
 	icon = icon_retreat
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		NOT = { scope:recipient = scope:actor }
 	}
 
@@ -2303,8 +2395,11 @@ spawn_epidemic_interaction = {
 
 	interface_priority = -1
 
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 	}
 
 	send_option = {
@@ -2493,8 +2588,11 @@ spawn_legend_interaction = {
 
 	interface_priority = -1
 
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 	}
 
 	send_option = {
@@ -2576,7 +2674,12 @@ debug_buff_schemes = {
 
 	interface_priority = -1
 
-	is_shown = { scope:actor = { has_trait = game_master } }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
+	}
 
 	auto_accept = yes
 
@@ -2691,7 +2794,12 @@ debug_clear_agents_from_schemes = {
 
 	interface_priority = -1
 
-	is_shown = { scope:actor = { has_trait = game_master } }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
+	}
 
 	auto_accept = yes
 
@@ -2827,7 +2935,12 @@ debug_make_laamp = {
 
 	interface_priority = -1
 
-	is_shown = { scope:actor = { has_trait = game_master } }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
+	}
 
 	auto_accept = yes
 
@@ -2850,8 +2963,11 @@ debug_add_to_contact_list_interaction = {
 	use_diplomatic_range = no
 	ignores_pending_interaction_block = yes
 	icon = icon_contract_modification_single
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		NOT = { scope:recipient = scope:actor }
 		scope:actor = {
 			is_landless_adventurer = yes
@@ -2877,8 +2993,11 @@ debug_alliance_interaction = {
 	use_diplomatic_range = no
 	ignores_pending_interaction_block = yes
 	icon = icon_ally
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		NOR = {
 			scope:recipient = scope:actor
 			scope:recipient = { is_allied_to = scope:actor }
@@ -2912,8 +3031,11 @@ create_task_contract_interaction = {
 
 	interface_priority = -1
 
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 	}
 
 	send_option = { flag = create_task_contract_interaction_option_1 }
@@ -3022,8 +3144,11 @@ debug_move_domicile_interaction = {
 
 	interface_priority = -1
 
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		scope:actor = {
 			has_domicile = yes
 		}
@@ -3114,8 +3239,11 @@ debug_populate_contracts = {
 
 	interface_priority = -1
 
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 	}
 
 	auto_accept = yes
@@ -3138,8 +3266,11 @@ give_infinite_schemes_of_type_interaction = {
 
 	interface_priority = -1
 
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 	}
 
 	send_option = { flag = give_infinite_schemes_of_type_all }
@@ -3186,8 +3317,11 @@ antagonise_court = {
 	ignores_pending_interaction_block = yes
 	icon = icon_hostile
 
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 	}
 
 	send_option = {
@@ -3289,8 +3423,11 @@ spawn_courtier_interaction = {
 
 	interface_priority = -1
 
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 		scope:recipient = { is_ruler = yes }
 	}
 
@@ -3416,8 +3553,11 @@ destroy_title_interaction = {
 	ignores_pending_interaction_block = yes
 	icon = antagonistic
 	
-	is_shown = {
-		scope:actor = { has_trait = game_master }
+	is_shown = { # Edited, Robin, 21/06
+		OR = {
+			debug_only = yes
+			scope:actor = { has_trait = game_master }
+		}
 	}
 
 	send_option = { # Destroys just the top title of the realm
