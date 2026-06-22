@@ -540,3 +540,64 @@ bbgm_give_cancer = {
         }
     }
 }
+
+#Added by Thulius on 22/6-2026
+baseborn_create_title = {
+	category = interaction_category_bb_game_master
+	desc = baseborn_create_title
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+	target_type = title
+	target_filter = recipient_domain_titles
+	interface_priority = 79
+	
+	is_shown = {
+		scope:recipient = {
+			is_ruler = yes
+		}
+		scope:actor = {
+			is_ai = no
+			has_trait = game_master
+		}
+	}
+	
+	is_valid_showing_failures_only = {
+		scope:actor = { is_ai = no }
+	}
+	
+	can_be_picked_title = {
+		scope:target = {
+			holder = scope:recipient
+		}
+	}
+	
+	ai_will_do = {
+		base = -999999
+	}
+
+	auto_accept = yes
+	
+	on_auto_accept = {
+	}
+	
+	on_accept = {
+		scope:actor = {
+			if = {
+				limit = {scope:recipient = scope:actor}
+				trigger_event = baseborn_create_title.1020
+			}
+			else_if = {
+				limit = {
+					scope:recipient = {
+						primary_title.tier = tier_barony
+					}
+				}
+				trigger_event = baseborn_create_title.1001
+			}
+			else = {
+				trigger_event = baseborn_create_title.1000
+			}
+				
+		}
+	}
+}

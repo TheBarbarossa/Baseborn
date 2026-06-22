@@ -41,3 +41,377 @@ bb_gm_events.1 = {
 		remove_localized_text = customannouncement_text
 	}
 }
+
+#Added by Thulius on 22/6-2026
+
+namespace = baseborn_create_title
+
+baseborn_create_title.1000 = {
+	type = character_event
+	title = baseborn_create_title.1000.t
+	desc = baseborn_create_title.1000.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = war_defender
+	}
+	right_portrait = {
+		character = scope:recipient
+		animation = love
+	}
+
+	option = {
+		name = baseborn_create_title.1000.me
+		trigger_event = baseborn_create_title.1001
+	}
+	option = {
+		trigger = {
+			scope:recipient = {
+				primary_title.tier >= tier_county
+			}
+		}
+		name = baseborn_create_title.1000.recipient
+		trigger_event = baseborn_create_title.1010
+	}
+	option = {
+		name = baseborn_create_title.back
+	}
+}
+
+######## Take it for myself
+
+baseborn_create_title.1001 = {
+	type = character_event
+	title = baseborn_create_title.1001.t
+	desc = baseborn_create_title.1001.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = war_defender
+	}
+
+	option = {
+		name = baseborn_create_title.1001.duchy
+		trigger_event = baseborn_create_title.1002
+	}
+	option = {
+		name = baseborn_create_title.1001.kingdom
+		trigger_event = baseborn_create_title.1003
+	}
+	option = {
+		name = baseborn_create_title.1001.empire
+		trigger_event = baseborn_create_title.1004
+	}
+	option = {
+		name = baseborn_create_title.back
+		trigger_event = baseborn_create_title.1000
+	}
+}
+
+baseborn_create_title.1002 = {
+	hidden = yes
+		
+	immediate = {
+		create_dynamic_title = {
+			tier = duchy
+			name = GET_TARGET_TITLE_NAME
+		}
+
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		scope:new_title = {
+			set_color_from_title = scope:target
+			set_coa = scope:target
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+		}
+
+		resolve_title_and_vassal_change = scope:change
+
+		scope:new_title = {
+			set_global_variable = {
+				name = dm_tool_created_title
+				value = scope:new_title
+			}
+		}
+		every_player = {
+			send_interface_message = {
+				type = dm_tool_alert_created_title
+				left_icon = root
+				seconds = 10
+			}
+		}
+	}
+}
+baseborn_create_title.1003 = {
+	hidden = yes
+		
+	immediate = {
+		create_dynamic_title = {
+			tier = kingdom
+			name = GET_TARGET_TITLE_NAME
+			adjective = GET_TARGET_TITLE_ADJECTIVE
+		}
+
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		scope:new_title = {
+			set_color_from_title = scope:target
+			set_coa = scope:target
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+
+		scope:new_title = {
+			set_global_variable = {
+				name = dm_tool_created_title
+				value = scope:new_title
+			}
+		}
+		every_player = {
+			send_interface_message = {
+				type = dm_tool_alert_created_title
+				left_icon = root
+				seconds = 10
+			}
+		}
+	}
+}
+baseborn_create_title.1004 = {
+	hidden = yes
+		
+	immediate = {
+		create_dynamic_title = {
+			tier = empire
+			name = GET_TARGET_TITLE_NAME
+			adjective = GET_TARGET_TITLE_ADJECTIVE
+		}
+
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		scope:new_title = {
+			set_color_from_title = scope:target
+			set_coa = scope:target
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+
+		scope:new_title = {
+			set_global_variable = {
+				name = dm_tool_created_title
+				value = scope:new_title
+			}
+		}
+		every_player = {
+			send_interface_message = {
+				type = dm_tool_alert_created_title
+				left_icon = root
+				seconds = 10
+			}
+		}
+	}
+}
+
+#######################################
+###### grant it to the recipient ######
+#######################################
+
+baseborn_create_title.1010 = {
+	type = character_event
+	title = baseborn_create_title.1001.t
+	desc = baseborn_create_title.1001.desc
+	theme = realm
+	left_portrait = {
+		character = scope:recipient
+		animation = war_defender
+	}
+
+	desc = baseborn_create_title.1001.desc
+
+	option = {
+		name = baseborn_create_title.1001.duchy
+		trigger_event = baseborn_create_title.1011
+	}
+	option = {
+		name = baseborn_create_title.1001.kingdom
+		trigger_event = baseborn_create_title.1012
+	}
+	option = {
+		name = baseborn_create_title.1001.empire
+		trigger_event = baseborn_create_title.1013
+	}
+	option = {
+		name = baseborn_create_title.back
+		trigger_event = baseborn_create_title.1000
+	}
+}
+
+baseborn_create_title.1011 = {
+	hidden = yes
+		
+	immediate = {
+		create_dynamic_title = {
+			tier = duchy
+			name = GET_TARGET_TITLE_NAME
+		}
+
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		scope:new_title = {
+			set_color_from_title = scope:target
+			set_coa = scope:target
+			change_title_holder = {
+				holder = scope:recipient
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+
+		scope:new_title = {
+			set_global_variable = {
+				name = dm_tool_created_title
+				value = scope:new_title
+			}
+		}
+		every_player = {
+			send_interface_message = {
+				type = dm_tool_alert_created_title
+				left_icon = root
+				seconds = 10
+			}
+		}
+	}
+}
+baseborn_create_title.1012 = {
+	hidden = yes
+		
+	immediate = {
+		create_dynamic_title = {
+			tier = kingdom
+			name = GET_TARGET_TITLE_NAME
+			adjective = GET_TARGET_TITLE_ADJECTIVE
+		}
+
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		scope:new_title = {
+			set_color_from_title = scope:target
+			set_coa = scope:target
+			change_title_holder = {
+				holder = scope:recipient
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+
+		scope:new_title = {
+			set_global_variable = {
+				name = dm_tool_created_title
+				value = scope:new_title
+			}
+		}
+		every_player = {
+			send_interface_message = {
+				type = dm_tool_alert_created_title
+				left_icon = root
+				seconds = 10
+			}
+		}
+	}
+}
+baseborn_create_title.1013 = {
+	hidden = yes
+		
+	immediate = {
+		create_dynamic_title = {
+			tier = empire
+			name = GET_TARGET_TITLE_NAME
+			adjective = GET_TARGET_TITLE_ADJECTIVE
+		}
+
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		scope:new_title = {
+			set_color_from_title = scope:target
+			set_coa = scope:target
+			change_title_holder = {
+				holder = scope:recipient
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+
+		scope:new_title = {
+			set_global_variable = {
+				name = dm_tool_created_title
+				value = scope:new_title
+			}
+		}
+		every_player = {
+			send_interface_message = {
+				type = dm_tool_alert_created_title
+				left_icon = root
+				seconds = 10
+			}
+		}
+	}
+}
+
+#######################################
+######### select from myself ##########
+#######################################
+
+baseborn_create_title.1020 = {
+	type = character_event
+	title = baseborn_create_title.1001.t
+	desc = baseborn_create_title.1001.desc
+	theme = realm
+	left_portrait = {
+		character = scope:recipient
+		animation = war_defender
+	}
+
+	desc = baseborn_create_title.1001.desc
+
+	option = {
+		name = baseborn_create_title.1001.duchy
+		trigger_event = baseborn_create_title.1011
+	}
+	option = {
+		name = baseborn_create_title.1001.kingdom
+		trigger_event = baseborn_create_title.1012
+	}
+	option = {
+		name = baseborn_create_title.1001.empire
+		trigger_event = baseborn_create_title.1013
+	}
+	option = {
+		name = baseborn_create_title.back
+	}
+}
