@@ -224,10 +224,10 @@ bbgm_become_game_master = {
             change_first_name = The_Game_Master
             remove_nickname = yes
             every_spouse = { divorce = prev }
-            primary_title = { set_coa = bb_dm_coa }
+            primary_title = { set_coa = dynn_GM }
             house = {
                 set_house_name = dynn_GM
-                set_coa = bb_dm_coa
+                set_coa = dynn_GM
             }
         }
     }
@@ -459,6 +459,57 @@ bbgm_remove_contraceptives = {
     }
 }
 
+bbgm_spawn_money = {
+    category = interaction_category_bb_game_master
+    interface_priority = 0
+    icon = icon_gold
+    desc = bbgm_spawn_money_desc
+    ignores_pending_interaction_block = yes
+	common_interaction = yes
+
+    is_shown = {
+        scope:actor = {
+            this = scope:recipient
+            has_trait = game_master
+            is_ai = no
+        }
+    }
+
+    send_option = {
+		localization = "1000"
+		flag = bbgm_spawn_money_1000
+    }
+    send_option = {
+		localization = "500"
+		flag = bbgm_spawn_money_500
+    }
+    send_option = {
+		localization = "100"
+		flag = bbgm_spawn_money_100
+    }
+    send_option = {
+		localization = "50"
+		flag = bbgm_spawn_money_50
+    }
+    on_send = {
+        switch = {
+            trigger = yes
+            scope:bbgm_spawn_money_1000 = {
+                scope:actor = { add_gold = 1000 }
+            }
+            scope:bbgm_spawn_money_500 = {
+                scope:actor = { add_gold = 500 }
+            }
+            scope:bbgm_spawn_money_100 = {
+                scope:actor = { add_gold = 100 }
+            }
+            scope:bbgm_spawn_money_50 = {
+                scope:actor = { add_gold = 50 }
+            }
+        }
+    }
+}
+
 bbgm_make_character_inactive = {
     category = interaction_category_bb_game_master
     interface_priority = 10
@@ -526,7 +577,10 @@ bbgm_give_cancer = {
 
     is_shown = {
         scope:recipient = {
-            NOT = { has_trait = cancer }
+            NOT = {
+                has_trait = cancer
+                this = scope:actor
+            }
         }
         scope:actor = {
             is_ai = no
@@ -544,12 +598,13 @@ bbgm_give_cancer = {
 #Added by Thulius on 22/6-2026
 baseborn_create_title = {
 	category = interaction_category_bb_game_master
-	desc = baseborn_create_title
+	desc = baseborn_create_title_desc
+    icon = force_abdication
 	use_diplomatic_range = no
 	ignores_pending_interaction_block = yes
 	target_type = title
 	target_filter = recipient_domain_titles
-	interface_priority = 79
+	interface_priority = 2
 	
 	is_shown = {
 		scope:recipient = {
