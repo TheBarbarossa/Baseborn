@@ -27993,7 +27993,7 @@ Vance_Atranta_20_B = {
 	8083.1.1 = { birth = yes }
 	8135.1.1 = { death = yes }
 }
-Vance_Atranta_72 = {
+Vance_Atranta_72 = { # Edited, Cafe, 23/06
 	name = Warren # a lord
 	dynasty_house = house_VanceA
 
@@ -28003,8 +28003,21 @@ Vance_Atranta_72 = {
 	father = Vance_Atranta_41
 	mother = Vance_Wayfarers_Rest_73
 
-	8084.1.1 = { birth = yes }
+	8084.1.1 = { 
+		birth = yes 
+		trait = arrogant
+		trait = rude
+		trait = chaste
+	}
 	8103.1.1 = { trait = knight }
+	8132.3.6 = {
+		effect = {
+			agot_appoint_as_councillor_for_castle_history_effect = {
+				CASTLE = title:e_the_riverlands
+				POSITION = councillor_chancellor
+			}
+		}
+	}
 	8144.1.1 = {
 		death = { death_reason = death_natural_causes }
 	}
