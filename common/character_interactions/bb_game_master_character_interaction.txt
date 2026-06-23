@@ -401,9 +401,151 @@ bbgm_break_alliances = {
     }
 }
 
+bbgm_spawn_army = {
+    category = interaction_category_bb_game_master
+    interface_priority = 90
+    icon = icon_scheme_seizure
+    desc = bbgm_spawn_army_desc
+    ignores_pending_interaction_block = yes
+	common_interaction = yes
+    auto_accept = yes
+
+    is_shown = {
+        scope:actor = {
+            has_trait = game_master
+            is_ai = no
+        }
+    }
+
+    send_option = {
+		localization = "Archers"
+		flag = bbgm_spawn_army_archers
+    }
+    send_option = {
+		localization = "Crossbowmen"
+		flag = bbgm_spawn_army_crossbowmen
+    }
+    send_option = {
+		localization = "Pikemen"
+		flag = bbgm_spawn_army_pikemen
+    }
+    send_option = {
+		localization = "Light Infantry"
+		flag = bbgm_spawn_army_light_inf
+    }
+    send_option = {
+		localization = "Heavy Infantry"
+		flag = bbgm_spawn_army_heavy_inf
+    }
+    send_option = {
+		localization = "Light Cavalry"
+		flag = bbgm_spawn_army_light_cav
+    }
+    send_option = {
+		localization = "Heavy Cavalry"
+		flag = bbgm_spawn_army_heavy_cav
+    }
+    on_send = {
+        switch = {
+            trigger = yes
+            scope:bbgm_spawn_army_archers = {
+                scope:recipient = {
+                    spawn_army = {
+                        men_at_arms = {
+                            type = bowmen
+                            men = 50
+                            inheritable = no
+                        }
+                        location = capital_province
+                        name = "Game Master Archers"
+                    }
+                }
+            }
+            scope:bbgm_spawn_army_crossbowmen = {
+                scope:recipient = {
+                    spawn_army = {
+                        men_at_arms = {
+                            type = crossbowmen
+                            men = 50
+                            inheritable = no
+                        }
+                        location = capital_province
+                        name = "Game Master Crossbowmen"
+                    }
+                }
+            }
+            scope:bbgm_spawn_army_pikemen = {
+                scope:recipient = {
+                    spawn_army = {
+                        men_at_arms = {
+                            type = pikemen_unit
+                            men = 50
+                            inheritable = no
+                        }
+                        location = capital_province
+                        name = "Game Master Pikemen"
+                    }
+                }
+            }
+            scope:bbgm_spawn_army_light_inf = {
+                scope:recipient = {
+                    spawn_army = {
+                        men_at_arms = {
+                            type = light_footmen
+                            men = 50
+                            inheritable = no
+                        }
+                        location = capital_province
+                        name = "Game Master Light Infantry"
+                    }
+                }
+            }
+            scope:bbgm_spawn_army_heavy_inf = {
+                scope:recipient = {
+                    spawn_army = {
+                        men_at_arms = {
+                            type = heavy_infantry
+                            men = 50
+                            inheritable = no
+                        }
+                        location = capital_province
+                        name = "Game Master Heavy Infantry"
+                    }
+                }
+            }
+            scope:bbgm_spawn_army_light_cav = {
+                scope:recipient = {
+                    spawn_army = {
+                        men_at_arms = {
+                            type = light_cavalry
+                            men = 50
+                            inheritable = no
+                        }
+                        location = capital_province
+                        name = "Game Master Light Cavalry"
+                    }
+                }
+            }
+            scope:bbgm_spawn_army_heavy_cav = {
+                scope:recipient = {
+                    spawn_army = {
+                        men_at_arms = {
+                            type = heavy_cavalry
+                            men = 50
+                            inheritable = no
+                        }
+                        location = capital_province
+                        name = "Game Master Heavy Cavalry"
+                    }
+                }
+            }
+        }
+    }
+}
+
 bbgm_enforce_contraceptives = {
     category = interaction_category_bb_game_master
-    interface_priority = 93
+    interface_priority = 83
     icon = icon_force_to_step_down
     desc = bbgm_enforce_contraceptives_desc
     auto_accept = yes
@@ -432,7 +574,7 @@ bbgm_enforce_contraceptives = {
 
 bbgm_remove_contraceptives = {
     category = interaction_category_bb_game_master
-    interface_priority = 92
+    interface_priority = 72
     icon = icon_scheme_seduce
     desc = bbgm_remove_contraceptives_desc
     auto_accept = yes
@@ -461,7 +603,7 @@ bbgm_remove_contraceptives = {
 
 bbgm_spawn_money = {
     category = interaction_category_bb_game_master
-    interface_priority = 0
+    interface_priority = 60
     icon = icon_gold
     desc = bbgm_spawn_money_desc
     ignores_pending_interaction_block = yes
@@ -512,7 +654,7 @@ bbgm_spawn_money = {
 
 bbgm_make_character_inactive = {
     category = interaction_category_bb_game_master
-    interface_priority = 10
+    interface_priority = 50
     icon = icon_scheme_abduct
     desc = bbgm_make_character_inactive_desc
     auto_accept = yes
@@ -539,7 +681,7 @@ bbgm_make_character_inactive = {
 
 bbgm_make_character_active = {
     category = interaction_category_bb_game_master
-    interface_priority = 10
+    interface_priority = 50
     icon = icon_scheme_befriend
     desc = bbgm_make_character_active_desc
     auto_accept = yes
