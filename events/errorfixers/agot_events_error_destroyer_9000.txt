@@ -1,0 +1,700 @@
+﻿namespace = agot_error_destroyer_9000
+
+#Ah Perry the platypus, behold my errordestroyerinator
+agot_error_destroyer_9000.1 = {
+	type = character_event
+	hidden = yes
+	trigger = {
+		OR = {
+			exists = var:agot_ha_neutral_list
+			exists = var:ev_culture
+			exists = var:wv_culture
+			exists = var:error_suppresser_1
+			exists = var:error_suppresser_2
+			exists = var:error_suppresser_3
+			exists = var:error_suppresser_4
+			exists = var:error_suppresser_5
+			exists = var:error_suppresser_6
+			exists = var:error_suppresser_7
+			exists = var:error_suppresser_8
+			exists = var:dynastic_nickname
+			exists = flag:running
+			exists = flag:finish
+			exists = flag:chose_loyalists
+			exists = flag:chose_rebels
+			exists = flag:fired
+			exists = flag:pay
+			exists = flag:rare_artifact
+			exists = flag:truth_revealed_robert
+			exists = flag:loyalist #used in AGOT debug mode for tracking
+			exists = flag:rebel #used in AGOT debug mode for tracking
+			exists = flag:independence #used in AGOT debug mode for tracking
+			exists = var:teats_name #used in loc
+			exists = var:greenborn_culture #used in loc
+			exists = var:ironborn_culture #used in loc
+			exists = flag:possessed_1 #used for flipped trait storage
+			exists = flag:fire_obsessed #used for flipped trait storage
+			exists = var:memory_location #used in loc
+			exists = flag:white_peace #MW outcome, no related events at this time
+			exists = var:emoBoy_sword_artifact
+			exists = var:past_riders # For dragon character gui display
+			exists = var:slain_dragon # For dragonslayer loc tracking
+			exists = var:kingsguard_sword_artifact
+			exists = var:bittersteel_skull_artifact
+			exists = var:maelys_skull_artifact
+			exists = var:daemon_blackfyre_skull_artifact
+			exists = var:iron_throne
+			exists = var:fake_iron_throne
+			exists = var:seastone_chair
+			exists = var:gilded_throne
+			exists = var:oakenseat
+			exists = var:painted_table
+			exists = var:high_seat_of_winter
+			exists = var:weirwood_throne
+			has_variable = possible_artifacts #used in gooey
+			exists = var:dragon_age # Used to display dragon genes
+			exists = var:ShownInvestProfit #used in loc
+			exists = var:ShownShares #used in loc
+			exists = var:show_loan #used in loc
+			exists = var:BankName #used in loc
+			exists = var:BankValue #used in loc
+			exists = var:InterestLevel #used in loc
+			exists = var:bank_name #used in loc
+			exists = var:hide_in_ledger #GUI
+
+			#terrain types, used in debug logging
+			exists = flag:plains
+			exists = flag:majorroad_plains
+			exists = flag:minorroad_plains
+			exists = flag:farmlands
+			exists = flag:majorroad_farmlands
+			exists = flag:minorroad_farmlands
+			exists = flag:hills
+			exists = flag:majorroad_hills
+			exists = flag:minorroad_hills
+			exists = flag:mountains
+			exists = flag:majorroad_mountains
+			exists = flag:minorroad_mountains
+			exists = flag:desert
+			exists = flag:majorroad_desert
+			exists = flag:minorroad_desert
+			exists = flag:desert_mountains
+			exists = flag:majorroad_desert_mountains
+			exists = flag:minorroad_desert_mountains
+			exists = flag:oasis
+			exists = flag:majorroad_oasis
+			exists = flag:minorroad_oasis
+			exists = flag:jungle
+			exists = flag:majorroad_jungle
+			exists = flag:minorroad_jungle
+			exists = flag:forest
+			exists = flag:majorroad_forest
+			exists = flag:minorroad_forest
+			exists = flag:taiga
+			exists = flag:majorroad_taiga
+			exists = flag:minorroad_taiga
+			exists = flag:wetlands
+			exists = flag:majorroad_wetlands
+			exists = flag:minorroad_wetlands
+			exists = flag:steppe
+			exists = flag:majorroad_steppe
+			exists = flag:minorroad_steppe
+			exists = flag:floodplains
+			exists = flag:majorroad_floodplains
+			exists = flag:minorroad_floodplains
+			exists = flag:drylands
+			exists = flag:majorroad_drylands
+			exists = flag:minorroad_drylands
+			exists = flag:frozen_flats
+			exists = flag:majorroad_frozen_flats
+			exists = flag:minorroad_frozen_flats
+			exists = flag:glacier
+			exists = flag:majorroad_glacier
+			exists = flag:minorroad_glacier
+			exists = flag:canyon
+			exists = flag:majorroad_canyon
+			exists = flag:minorroad_canyon
+			exists = flag:cloudforest
+			exists = flag:majorroad_cloudforest
+			exists = flag:minorroad_cloudforest
+			exists = flag:highlands
+			exists = flag:majorroad_highlands
+			exists = flag:minorroad_highlands
+			exists = flag:taiga_bog
+			exists = flag:majorroad_taiga_bog
+			exists = flag:minorroad_taiga_bog
+			exists = flag:urban
+			exists = flag:majorroad_urban
+			exists = flag:minorroad_urban
+			exists = flag:the_bog
+			exists = flag:majorroad_the_bog
+			exists = flag:minorroad_the_bog
+			exists = flag:hotsprings
+			exists = flag:majorroad_hotsprings
+			exists = flag:minorroad_hotsprings
+			exists = flag:sea
+			exists = flag:coastal_sea
+			exists = flag:DOWAGER
+			exists = flag:REGENT_MALE
+			exists = flag:REGENT_FEMALE
+			exists = flag:REGENT_PROTECTOR
+			exists = flag:REGENT_PROTECTRESS
+
+			# LMF
+			exists = var:story_stray_seed_location # Used in Loc
+			exists = var:marry_for_love # Used in Loc
+
+			# Cultre Descs
+			exists = var:agot_culture_tt_desc
+
+			# White Book
+			exists = var:kingsguard_white_book
+		}
+	}
+	immediate = {
+		save_scope_as = edit_scope #used in gooey
+		save_scope_as = dp_county #used in gooey
+		save_scope_as = object #used in gooey
+
+		create_character = {
+			template = priest_character_template
+			location = root.location
+			culture = root.location.county.culture
+			faith = root.location.county.faith
+			save_scope_as = sacrificial_lamb
+		}
+
+		scope:sacrificial_lamb = {
+			set_variable = agot_event_window_wide
+			set_variable = relic
+			set_variable = kingsguard
+			set_variable = agot_is_kingsguard_member
+			set_variable = agot_is_kingsguard_commander
+			set_variable = nw_petition_202_deserters
+			set_variable = necklace_shieraseastar_artifact
+			set_variable = historical_slavery #set in history files
+			set_variable = agot_historical_march #set in history files
+			set_variable = agot_is_paramountcy_realm #set in history files
+			set_variable = houseless_small_ship #set in history files
+			set_variable = houseless_big_ship #to be set in history files
+			set_variable = { name = error_suppresser_1 value = flag:men_army }
+			set_variable = { name = error_suppresser_2 value = flag:men_add_to_pool }
+			set_variable = { name = error_suppresser_3 value = flag:supplies_army }
+			set_variable = { name = error_suppresser_4 value = flag:supplies_normal }
+			set_variable = { name = error_suppresser_5 value = flag:supplies_army_army_army }
+			set_variable = { name = error_suppresser_6 value = flag:supplies_army_army_pool }
+			set_variable = { name = error_suppresser_7 value = flag:supplies_normal_army_army }
+			set_variable = { name = error_suppresser_8 value = flag:supplies_normal_army_pool }
+			set_variable = { name = error_suppresser_8 value = flag:nothing_sad_emoji }
+			set_variable = { name = error_suppresser_9 value = flag:golden_legend }
+			set_variable = { name = error_suppresser_10 value = flag:finish }
+			set_variable = { name = error_suppresser_11 value = flag:religious } #unused in artifact creation
+			set_variable = customannouncement_text # Edited, Robin, 22/06
+			set_variable = dm_tool_created_title
+
+			if = { # Prisoners and Jailors mod interaction with RV
+				limit = { exists = global_var:gm1_is_loaded }
+				set_global_variable = gm1_is_loaded
+			}
+			#aithnea to do, add unite the wildling tribes decision
+			set_variable = unite_the_wildling_tribes_decision
+			set_variable = unite_the_wildling_tribes_decision_title
+			set_variable = historic_lord_house #set in title histories
+			add_character_flag = do_not_assign_strong_seed #set in character histories
+			add_character_flag = bookmark_independent #set in character histories
+			add_character_flag = intrigue_duel_on_attack #vanilla unused
+			add_character_flag = has_secret_identity #set in character histories
+			add_character_flag = historical_disinheritance #set in character histories
+			add_character_flag = good_queen #set in character histories
+			add_character_flag = designated_rhaenyra_heir #set in character histories
+			add_character_flag = agot_has_scripted_hat #set in character histories
+			add_character_flag = should_not_start_feud
+			#Dragonriders with no DNA
+			add_character_flag = is_Belaerys_1
+			add_character_flag = is_Mataeryon_1
+			add_character_flag = is_Sonaryen_1
+			add_character_flag = is_Targaryen_13_a
+			add_character_flag = is_Targaryen_13_b
+			add_character_flag = is_Targaryen_13_c
+			add_character_flag = is_Targaryen_13_d
+			add_character_flag = is_Targaryen_18
+			add_character_flag = is_Targaryen_19
+			add_character_flag = is_Targaryen_26
+			add_character_flag = is_Urnebar_1
+
+			#Canon Children Traits
+			save_scope_value_as = { name = error_suppresser value = flag:education_republican_knowledge_1 }
+			save_scope_value_as = { name = error_suppresser value = flag:education_republican_knowledge_2 }
+			save_scope_value_as = { name = error_suppresser value = flag:education_republican_knowledge_3 }
+			save_scope_value_as = { name = error_suppresser value = flag:education_republican_knowledge_4 }
+
+			#Hairs
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_no_hairstyles }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_western_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_western_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_western_02_disease }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_western_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_western_03_disease }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_western_04 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_western_05 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_western_06 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_western_07 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_western_07_disease }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_western_08 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_western_09 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_western_09_disease }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_western_10 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_mena_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_mena_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_mena_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_mena_04 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_byzantine_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_byzantine_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_sub_saharan_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_sub_saharan_01_disease }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_sub_saharan_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_sub_saharan_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_rtt_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_rtt_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_indian_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_indian_01_disease }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_indian_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_indian_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_northern_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_northern_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_northern_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_steppe_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_steppe_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_fp1_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_fp1_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_fp1_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_fp1_04 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_fp1_05 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_fp1_06 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_fp1_07 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_fp1_08 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_fp1_09 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_fp2_iberian_muslim_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_fp2_iberian_muslim_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_fp2_iberian_muslim_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_fp2_iberian_christian_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_fp2_iberian_christian_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_fp2_iberian_christian_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_fp3_iranian_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_fp3_iranian_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_fp3_iranian_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_ep2_western_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_ep2_western_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_ep3_byzantine_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_ep3_byzantine_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_ep3_byzantine_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_ep3_byzantine_04 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_sp4_western_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_sp4_mena_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_mpo_mongol_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_mpo_mongol_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_mpo_mongol_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_tgp_chinese_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_tgp_chinese_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_tgp_chinese_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_tgp_chinese_04 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_tgp_chinese_04_bald }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_tgp_chinese_02_bald }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_tgp_japanese_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_tgp_japanese_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_western_baby_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_m_hair_sp3_western_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_04 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_05 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_06 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_07 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_08 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_09 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_10 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_10_1 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_10_2 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_11 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_12 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_12_no_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_13 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_14 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_15 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_16 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_17 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_18 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_19 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_20 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_21 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_22 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_custom_23 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_valyrian_braid_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_valyrian_braid_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_valyrian_loose_hair_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_valyrian_loose_hair_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_male_hair_the_brave_cut_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_western_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_western_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_western_02_disease }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_western_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_western_04 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_western_05 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_western_05_disease }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_western_06 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_western_07 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_western_08 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_western_09 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_western_10 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_mena_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_mena_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_byzantine_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_byzantine_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_sub_saharan_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_sub_saharan_01_disease }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_sub_saharan_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_sub_saharan_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_sub_saharan_03_disease }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_rtt_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_rtt_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_rtt_02_milla }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_indian_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_indian_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_indian_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_indian_03_disease }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_northern_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_northern_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_northern_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_steppe_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_steppe_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_steppe_02_disease }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_fp1_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_fp1_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_fp1_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_fp1_04 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_fp1_05 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_fp1_06 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_fp2_iberian_muslim_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_fp2_iberian_muslim_01_common }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_fp2_iberian_muslim_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_fp2_iberian_muslim_02_common }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_fp2_iberian_muslim_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_fp2_iberian_muslim_03_common }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_fp2_iberian_christian_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_fp2_iberian_christian_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_fp2_iberian_christian_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_fp3_iranian_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_fp3_iranian_01_common }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_fp3_iranian_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_fp3_iranian_02_common }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_fp3_iranian_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_fp3_iranian_03_common }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_ep2_western_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_ep2_western_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_fp4_disease_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_ep3_byzantine_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_ep3_byzantine_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_ep3_byzantine_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_ep3_byzantine_04 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_ep3_byzantine_01_common }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_ep3_byzantine_02_common }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_ep3_byzantine_03_common }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_ep3_byzantine_04_common }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_sp4_western_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_sp4_mena_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_mpo_mongol_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_mpo_mongol_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_mpo_mongol_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_tgp_chinese_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_tgp_chinese_01_common }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_tgp_chinese_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_tgp_chinese_02_common }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_tgp_chinese_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_tgp_chinese_03_common }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_tgp_chinese_04 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_tgp_chinese_04_common }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_tgp_chinese_05 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_tgp_chinese_05_common }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_tgp_japanese_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_tgp_japanese_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_tgp_japanese_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_tgp_japanese_04 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_tgp_sea_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_tgp_sea_01_common }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_tgp_sea_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_tgp_sea_02_common }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_tgp_sea_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_tgp_sea_03_common }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_tgp_sea_04 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_western_baby_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_04 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_05 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_06 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_07 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_08 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_09 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_10 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_11 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_12 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_13 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_14 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_15 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_16 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_17 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_18 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_19 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_21 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_22 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_23 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_24 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_25 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_26 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_27 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_27_1 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_27_2 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_36 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_37 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_38 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_39 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_40 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_41 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_41_1 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_42 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_43 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_44 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_custom_45 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_fem_dragonrider_hair_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_fem_valyrian_large_braid_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_f_hair_byz_short_hair_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:hair_trait_female_hair_agot_valyrian_princess }
+
+			#Beards
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_no_beard }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_western_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_western_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_western_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_western_04 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_western_05 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_western_06 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_western_07 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_western_08 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_western_09 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_western_10 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_mena_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_mena_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_mena_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_mena_04 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_northern_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_northern_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_northern_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_steppe_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_steppe_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_sub_saharan_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_sub_saharan_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_sub_saharan_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_indian_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_indian_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_indian_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_fp1_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_fp1_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_fp1_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_fp1_04 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_fp1_05 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_fp2_iberian_christian_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_fp2_iberian_christian_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_fp2_iberian_christian_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_fp2_iberian_christian_04 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_fp2_iberian_muslim_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_fp2_iberian_muslim_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_fp2_iberian_muslim_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_fp3_iranian_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_fp3_iranian_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_fp3_iranian_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_ep2_western_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_ep2_western_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_ep2_western_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_sp2_western_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_sp3_western_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_ep3_byzantine_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_ep3_byzantine_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_ep3_byzantine_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_ep3_byzantine_04 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_sp4_rus_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_sp4_mena_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_mpo_mongol_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_mpo_mongol_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_mpo_mongol_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_mpo_mongol_05 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_mpo_mongol_06 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_tgp_japanese_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_tgp_japanese_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_tgp_japanese_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_tgp_japanese_04 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_tgp_chinese_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_tgp_chinese_02 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_tgp_chinese_03 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_tgp_chinese_04 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_tgp_chinese_05 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_tgp_chinese_06 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_tgp_chinese_09 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_tgp_chinese_10 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_tgp_chinese_11 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_m_beard_tgp_chinese_13 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_rtt_01 }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_beard_tywins_muttonchops }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_beard_western_10_pointy }
+			save_scope_value_as = { name = error_suppresser value = flag:beard_trait_male_agot_old_king_beard_01 }
+
+			#Hair Dyes
+			save_scope_value_as = { name = error_suppresser value = flag:poppy_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:asshaii_scarlet_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:ghost_rose_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:hibiscus_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:aquan_red_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:ghiscari_copper_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:hranna_bloom_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:melee_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:bloodstone_red_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:passioned_plea_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:dragons_breath_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:cut_crimson_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:rich_madder_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:womens_weapon_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:maidens_game_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:sarhoy_flush_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:pennyroyal_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:sweet_lotus_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:oleander_heart_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:panteras_bite_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:lovers_blush_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:sunset_on_the_narrows_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:pink_graces_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:wild_cherry_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:twilight_ruby_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:trueborn_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:mountain_magenta_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:pink_cardoon_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:lord_of_the_seas_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:nightshade_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:secret_city_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:lavender_haze_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:winesink_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:courtesan_locks_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:thistles_touch_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:lilac_dream_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:dornish_plum_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:archonite_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:emperors_tune_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:palemoon_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:princely_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:misty_cloud_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:shade_of_the_evening_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:spirit_of_sapphire_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:winter_rose_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:bluejay_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:azure_crown_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:shivering_ends_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:melange_sea_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:berry_mash_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:mummers_mask_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:coldsnap_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:griffins_hide_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:crashing_waves_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:mermaids_flowers_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:glittering_galley_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:myrish_lace_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:shadowmint_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:seaglass_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:jungles_welcome_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:viridescent_charm_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:clover_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:merling_green_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:imperial_jade_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:evergreen_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:cliffmoss_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:wildfire_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:selhoru_skies_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:verdant_mane_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:summer_emerald_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:isles_venom_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:olive_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:pipers_grass_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:yellow_toad_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:evening_star_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:lemon_cake_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:goldenrod_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:bees_wax_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:honeywine_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:rogare_gold_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:aged_cheddar_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:ambitious_amber_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:saffron_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:lantern_glow_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:spiced_pumpkin_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:peach_petals_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:coastal_orange_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:tigers_poise_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:blood_orange_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:coral_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:snow_white_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:polished_silver_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:tarnished_silver_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:coal_ash_hair_dye }
+			save_scope_value_as = { name = error_suppresser value = flag:raven_black_hair_dye }
+
+			#Trial of Seven unused scenario variables
+			set_variable = { name = match_rule value = flag:dead_every days = 1 }
+			set_variable = { name = duel_background value = flag:terrain_type days = 1 }
+			add_character_flag = { flag = multi_duelist_plot_armor days = 1 }
+
+			#Naming Gui
+			save_scope_value_as = { name = error_suppresser value = flag:ALL } # set_title_localization_effect
+			save_scope_value_as = { name = error_suppresser value = flag:silent_sisterhood }
+			save_scope_value_as = { name = error_suppresser value = flag:the_citadel }
+			save_scope_value_as = { name = error_suppresser value = flag:first_ranger }
+			save_scope_value_as = { name = error_suppresser value = flag:nights_watch }
+			save_scope_value_as = { name = error_suppresser value = flag:kingsguard }
+			save_scope_value_as = { name = error_suppresser value = flag:command }
+			save_scope_value_as = { name = error_suppresser value = flag:pirate_no_dlc }
+			save_scope_value_as = { name = fullname value = yes }
+			save_scope_value_as = { name = tooltip value = yes }
+			save_scope_value_as = { name = nicknamed value = yes }
+			save_scope_value_as = { name = display_suffix value = yes }
+			save_scope_value_as = { name = suffix_format value = yes }
+			save_scope_value_as = { name = possessive value = yes }
+
+			#White Book
+			save_scope_value_as = { name = selected_white_book_page value = yes }
+			save_scope_value_as = { name = fallback value = yes }
+
+			if = {
+				limit = {
+					exists = var:agot_ha_neutral_list
+					exists = var:error_suppresser_1
+					exists = var:error_suppresser_2
+					exists = var:error_suppresser_3
+					exists = var:error_suppresser_4
+					exists = var:error_suppresser_5
+					exists = var:error_suppresser_6
+					exists = var:error_suppresser_7
+					exists = var:error_suppresser_8
+					exists = var:error_suppresser_9
+					exists = var:error_suppresser_10
+					exists = var:error_suppresser_11
+					exists = var:dragon_egg_color
+				}
+				debug_log = ""
+			}
+
+			death = {
+				death_reason = death_vanished
+			}
+		}
+
+		debug_log = "Errors purged, mission complete"
+	}
+}
