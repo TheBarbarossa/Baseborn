@@ -80509,7 +80509,12 @@ Strong_13 = {
 		add_character_flag = canon_status_mentioned
 	}
 	8073.12.1 = { trait = septon } # Septa
-	8143.1.1 = { death = yes }
+	8130.3.1 = { # Edited, Cafe, 23/06
+		death = {
+			death_reason = death_execution # Massacre of House Strong
+			killer = Targaryen_67 # Aemond Targaryen
+		}
+	}
 }
 Strong_14 = {
 	name = Jeyne # Mentioned
@@ -80534,7 +80539,12 @@ Strong_14 = {
 	8073.12.1 = { employer = Strong_9 } # Bywin Strong
 	8076.1.1 = { employer = Strong_27 } # Osmund Strong
 	8086.1.1 = { employer = Strong_29 } # Lyonel Strong
-	8134.1.1 = { death = yes }
+	8130.3.1 = { # Edited, Cafe, 23/06
+		death = {
+			death_reason = death_execution # Massacre of House Strong
+			killer = Targaryen_67 # Aemond Targaryen
+		}
+	}
 }
 Strong_15 = {
 	name = Brynden # Mentioned
@@ -80676,7 +80686,12 @@ Strong_20 = {
 	}
 	8073.12.1 = { employer = Velaryon_20 } # Daemon Velaryon
 	8086.1.1 = { employer = Velaryon_31 } # Corlys Velaryon
-	8156.1.1 = { death = yes }
+	8130.3.1 = { # Edited, Cafe, 23/06
+		death = {
+			death_reason = death_execution # Massacre of House Strong
+			killer = Targaryen_67 # Aemond Targaryen
+		}
+	}
 }
 Strong_21 = {
 	name = Robert # Mentioned
@@ -80767,7 +80782,12 @@ Strong_24 = {
 		add_character_flag = canon_status_mentioned
 	}
 	8073.12.1 = { employer = Baratheon_34 } # Boremund Baratheon
-	8134.1.1 = { death = yes }
+	8130.3.1 = { # Edited, Cafe, 23/06
+		death = {
+			death_reason = death_execution # Massacre of House Strong
+			killer = Targaryen_67 # Aemond Targaryen
+		}
+	}
 }
 Strong_25 = {
 	name = Roslin # Mentioned
@@ -80790,7 +80810,12 @@ Strong_25 = {
 		add_character_flag = canon_status_mentioned
 	}
 	8073.12.1 = { employer = Baratheon_34 } # Boremund Baratheon
-	8149.1.1 = { death = yes }
+	8130.3.1 = { # Edited, Cafe, 23/06
+		death = {
+			death_reason = death_execution # Massacre of House Strong
+			killer = Targaryen_67 # Aemond Targaryen
+		}
+	}
 }
 Strong_26 = {
 	name = Osmund # Mentioned
@@ -80812,7 +80837,12 @@ Strong_26 = {
 		add_character_flag = canon_status_mentioned
 	}
 	8073.12.1 = { employer = Baratheon_34 } # Boremund Baratheon
-	8151.1.1 = { death = yes }
+	8130.3.1 = { # Edited, Cafe, 23/06
+		death = {
+			death_reason = death_execution # Massacre of House Strong
+			killer = Targaryen_67 # Aemond Targaryen
+		}
+	}
 }
 ### Issue of Bywin
 Strong_27 = {
@@ -81245,6 +81275,16 @@ Strong_34 = {
 		}
 	}
 }
+Strong_34_BM_1 = {
+
+}
+Strong_34_BM_2 = {
+
+}
+Strong_34_BM_3 = {
+
+}
+Strong_34_BM_4
 ### Issue of Simon
 Strong_35 = {
 	name = Duncan
@@ -81720,7 +81760,7 @@ Strong_53 = {
 
 ### Exiled Branch
 ############################
-Strong_40 = {
+Strong_40 = { # Edited, Cafe, 23/06
 	name = Bywin
 	dynasty = dynn_Strong
 
@@ -81730,6 +81770,14 @@ Strong_40 = {
 	father = Strong_36 # Borick Strong
 
 	trait = bastard
+
+	trait = compassionate
+	trait = chaste
+	trait = forgiving
+	trait = physique_good_2
+	trait = charming
+
+	disallow_random_traits = yes
 
 	8120.1.1 = {
 		birth = yes
@@ -81741,6 +81789,9 @@ Strong_40 = {
 		effect = { # Warded, to explain why he survived
 			agot_set_as_ward_and_squire_history_effect = { KNIGHT = character:Roote_13 } # Andahar Roote
 		}
+	}
+	8132.3.6 = {
+		employer = Roote_13 # Edited, Cafe, 23/06
 	}
 	8136.1.1 = {
 		trait = knight
