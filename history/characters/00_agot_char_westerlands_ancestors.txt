@@ -10762,7 +10762,7 @@ Westerling_23 = {
 	}
 }
 ### Issue of Walder
-Westerling_24 = {
+Westerling_24 = { # Edited, Cafe, 24/06
 	name = Roland # Canon, a lord, regent of Aegon III
 	dynasty = dynn_Westerling
 	dna = Westerling_24
@@ -10773,6 +10773,15 @@ Westerling_24 = {
 	father = Westerling_22
 	mother = Hetherspoon_27
 
+	trait = just
+	trait = calm
+	trait = ambitious
+
+	trait = education_diplomacy_4
+	trait = education_martial_prowess_1
+
+	disallow_random_traits = yes
+
 	8079.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
@@ -10781,6 +10790,9 @@ Westerling_24 = {
 	8095.1.1 = {
 		trait = knight
 		add_spouse = Farman_26 # Elissa Farman
+	}
+	8132.3.6 = {
+		trait = ill
 	}
 	8133.6.1 = {
 		#trait = winter_fever #winter fever AGOT TODO Trait
@@ -10804,10 +10816,11 @@ Westerling_25 = {
 	}
 	8097.1.1 = { trait = knight }
 	8099.1.1 = { add_spouse = Lansdale_76 } # Dolessa Lansdale
-	8130.4.20 = { death = { death_reason = death_battle } }
+	8130.4.20 = { death = { death_reason = death_battle 
+	killer = Greyjoy_59 } }
 }
 ### Issue of Steffon
-Westerling_26 = {
+Westerling_26 = { # Edited, Cafe, 24/06
 	name = Tybolt # Mentioned, cousin of Johanna present at Aegon III's coronation
 	dynasty = dynn_Westerling
 	dna = Westerling_26
@@ -10824,10 +10837,14 @@ Westerling_26 = {
 		add_character_flag = canon_status_mentioned
 	}
 	8119.1.1 = { trait = knight }
+	8130.3.5 = {
+		trait = crippled
+		trait = scarred
+	}
 	8152.1.1 = { death = yes }
 }
 ### Issue of Roland
-Westerling_27 = {
+Westerling_27 = { # Edited, Cafe, 24/06
 	name = Harrold # a lord
 	dynasty = dynn_Westerling
 	dna = Westerling_27
@@ -10837,6 +10854,17 @@ Westerling_27 = {
 
 	father = Westerling_24
 	mother = Farman_26
+
+	trait = lazy
+	trait = arbitrary
+	trait = compassionate
+
+	trait = drunkard
+
+	trait = education_learning_1
+	trait = education_martial_prowess_1
+
+	disallow_random_traits = yes
 
 	8097.1.1 = {
 		birth = yes
@@ -10933,6 +10961,9 @@ Westerling_31 = {
 	name = Duren # Semi-Canon
 	dynasty = dynn_Westerling
 
+	martial = 8
+	prowess = 8
+
 	religion = fots_seven
 	culture = westerman_main
 
@@ -10957,6 +10988,7 @@ Westerling_31 = {
 	}
 	8131.1.14 = { employer = Targaryen_78 } # Aegon III Targaryen
 	8132.3.6 = { # Edited, Cafe, 13/6
+		trait = scarred
 		effect = { # Master-at-arms at the Red Keep
 			agot_appoint_as_councillor_for_castle_history_effect = {
 				CASTLE = title:h_the_iron_throne
@@ -10971,15 +11003,24 @@ Westerling_31 = {
 	8155.1.1 = { death = yes }
 }
 ### Issue of Harrold
-Westerling_32 = {
+Westerling_32 = { # Edited, Cafe, 24/06
 	name = Daric # a lord
 	dynasty = dynn_Westerling
+
+	diplomacy = 7
 
 	religion = fots_seven
 	culture = westerman_main
 
 	father = Westerling_27
 	mother = Talbot_47
+
+	trait = zealous
+	trait = generous
+	trait = diligent
+	trait = charming
+	
+	disallow_random_traits = yes
 
 	8117.1.1 = { birth = yes }
 	8135.1.1 = {
