@@ -7177,9 +7177,12 @@ Reyne_24 = { # Dance of the Dragons
 		trait = knight
 		add_spouse = Brax_27 # Cerissa Brax
 	}
-	8130.3.5 = {
-		death = { death_reason = death_battle } # Battle by the Lakeshore
-	}
+	8130.3.5 = { # Edited, Cafe, 24/06
+        death = { 
+            death_reason = death_battle
+            killer = Frey_116
+         } # Battle by the Lakeshore
+    }
 }
 Reyne_25 = {
 	name = Malanne # Semi-Canon, married Bellard Hunter
@@ -7302,13 +7305,29 @@ Reyne_27 = { # Conquest of Dorne
 	mother = Brax_27
 
 	trait = arrogant
+	trait = wrathful
+	trait = patient
+
+	trait = education_martial_4
+	trait = education_martial_prowess_3
+
+	disallow_random_traits = yes
 
 	8113.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_semicanon
 	}
-	8129.1.1 = { trait = knight }
+	8129.1.1 = { 
+		trait = knight
+		trait = military_engineer
+		effect = {
+		add_trait_xp = {
+			trait = military_engineer
+			value = trait_second_level
+		}			
+		}
+	}
 	8130.1.1 = { add_spouse = Webber_10 } # Victaria Webber
 	8176.1.1 = { death = yes }
 }
