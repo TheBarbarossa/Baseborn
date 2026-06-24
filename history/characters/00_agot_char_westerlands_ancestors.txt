@@ -28315,9 +28315,12 @@ Banefort_24 = {
 	8089.1.1 = { birth = yes }
 	8104.1.1 = { add_spouse = Farman_79 }
 	8105.1.1 = { trait = knight }
-	8130.3.5 = {
-		death = { death_reason = death_battle } # Battle by the Lakeshore
-	}
+	8130.3.5 = { # Edited, Cafe, 24/06
+        death = { 
+            death_reason = death_battle
+            killer = Charlton_16
+         } # Battle by the Lakeshore
+    }
 }
 Banefort_82 = {
 	name = Daric
@@ -28357,15 +28360,31 @@ Banefort_83 = {
 	}
 }
 ### Issue of Quenten
-Banefort_25 = {
+Banefort_25 = { # Edited, Cafe, 24/06
 	name = Qarlon # Semi-Canon, a lord
 	dynasty = dynn_Banefort
+
+	diplomacy = 5
+	martial = 2
+	stewardship = 6
+	intrigue = 3
+	learning = 4
+	prowess = 3
 
 	religion = fots_seven
 	culture = westerman_main
 
 	father = Banefort_24
 	mother = Farman_79
+
+	trait = craven
+	trait = shy
+	trait = content
+
+	trait = education_stewardship_2
+	trait = education_martial_prowess_1
+
+	disallow_random_traits = yes
 
 	8105.1.1 = {
 		birth = yes
@@ -28414,7 +28433,7 @@ Banefort_27 = {
 	}
 }
 ### Issue of Qarlon
-Banefort_28 = {
+Banefort_28 = { # Edited, Cafe, 24/06
 	name = Quentyn # Semi-Canon, Quentyn Sunbane, Hero of the Dornish Conquest, missing from MUSH family trees, a lord
 	dynasty = dynn_Banefort
 
@@ -28430,13 +28449,13 @@ Banefort_28 = {
 	trait = education_martial_3
 	trait = education_martial_prowess_3
 	trait = diligent
-	trait = arrogant
-	trait = brave
+	trait = brave	
+	# trait = arrogant
 	trait = rowdy
 
 	disallow_random_traits = yes
 
-	8129.1.1 = {
+	8126.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
 	}
@@ -28456,7 +28475,7 @@ Banefort_28 = {
 	}
 	8196.1.1 = { death = { death_reason = death_battle } }
 }
-Banefort_29 = {
+Banefort_29 = { # Edited, Cafe, 24/06
 	name = Ryon # Semi-Canon
 	dynasty = dynn_Banefort
 
@@ -28466,7 +28485,7 @@ Banefort_29 = {
 	father = Banefort_25
 	mother = Tarbeck_68
 
-	8131.1.1 = {
+	8128.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
 	}
