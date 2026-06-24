@@ -1,0 +1,1906 @@
+﻿activity_agot_sailing = {
+	is_shown = {
+		OR = {
+			AND = {
+				is_landed = yes
+				any_held_county = {
+					any_county_province = {
+						OR = {
+							has_building_or_higher = common_tradeport_01
+							has_sailing_special_building = yes
+							has_building_or_higher = agot_great_fleet_01
+						}
+					}
+				}
+			}
+			is_landless_adventurer = yes
+			highest_held_title_tier >= tier_kingdom
+			government_has_flag = government_is_pirate_trigger_check
+		}
+		NOT = { government_has_flag = government_is_nw }
+		NOT = { government_has_flag = government_is_uninteractable }
+	}
+
+	can_start_showing_failures_only = {
+		is_available_healthy_adult = yes
+		is_at_war = no
+		trigger_if = {
+			limit = { is_landed = yes }
+			custom_tooltip = {
+				text = realm_is_isolated
+				NOR = {
+					any_liege_or_above = {
+						capital_county = { has_county_modifier = agot_containing_the_spread }
+					}
+					capital_county = { has_county_modifier = agot_containing_the_spread }
+				}
+			}
+		}
+		trigger_else = {
+			domicile.domicile_location.county.holder = {
+				custom_tooltip = {
+					text = realm_is_isolated
+					NOR = {
+						any_liege_or_above = {
+							capital_county = { has_county_modifier = agot_containing_the_spread }
+						}
+						capital_county = { has_county_modifier = agot_containing_the_spread }
+					}
+				}
+			}
+		}
+	}
+
+	is_valid = {
+		scope:host = {
+			is_alive = yes
+			is_imprisoned = no
+			NOT = { is_incapable = yes }
+		}
+		scope:host = {
+			OR = {
+				agot_sailing_type_hunt_requirements = yes
+				agot_sailing_type_raid_requirements = yes
+				agot_sailing_type_treasure_requirements = yes
+				agot_sailing_type_valyria_requirements = yes
+			}
+		}
+	}
+
+	on_invalidated = { #
+		# Save scopes for flavor events
+		scope:activity = {
+			activity_location = { save_scope_as = location }
+		}
+		if = {
+			limit = {
+				scope:host = { is_incapable = yes }
+			}
+			scope:activity = {
+				activity_type = { save_scope_as = activity_type }
+			}
+			scope:host = { trigger_event = activity_system.0330 }
+			every_attending_character = {
+				limit = {
+					NOT = { this = scope:host }
+				}
+				trigger_event = activity_system.0331
+			}
+		}
+		scope:host = {
+			if = {
+				limit = { has_character_flag = treasure_hunt }
+				remove_character_flag = treasure_hunt
+			}
+			if = {
+				limit = { has_character_flag = traveling_to_valyria }
+				remove_character_flag = traveling_to_valyria
+			}
+		}
+	}
+
+	cost = {
+		gold = {
+			add = {
+				add = {
+					value = sailing_base_cost #Base level
+					desc = hunt_base_cost
+				}
+				add = {
+					value = sailing_base_cost
+					multiply = activity_cost_scale_by_era
+					subtract = sailing_base_cost
+					desc = activity_cost_scale_by_era_desc
+				}
+				if = {
+					limit = {
+						dynasty ?= { has_dynasty_perk = law_legacy_1 }
+					}
+					subtract = {
+						value = 0
+						add = {
+							value = sailing_base_cost
+							add = {
+								value = sailing_base_cost
+								multiply = activity_cost_scale_by_era
+								subtract = sailing_base_cost
+							}
+						}
+						multiply = law_legacy_cost_reduction_mult
+						desc = law_legacy_1_name
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { has_building_or_higher = agot_great_fleet_01 }
+					}
+					multiply = {
+						value = 0.6
+						desc = activity_agot_sailing_province_desc_great_fleet
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { has_building_or_higher = common_tradeport_07 }
+					}
+					multiply = {
+						value = 0.6
+						desc = activity_agot_sailing_province_desc_common_tradeport_max
+					}
+				}
+				else_if = {
+					limit = {
+						scope:province ?= { has_building = common_tradeport_06 }
+					}
+					multiply = {
+						value = 0.7
+						desc = activity_agot_sailing_province_desc_common_tradeport_major
+					}
+				}
+				else_if = {
+					limit = {
+						scope:province ?= { has_building_or_higher = common_tradeport_03 }
+					}
+					multiply = {
+						value = 0.8
+						desc = activity_agot_sailing_province_desc_common_tradeport_medium
+					}
+				}
+				else_if = {
+					limit = {
+						scope:province ?= { has_building_or_higher = common_tradeport_01 }
+					}
+					multiply = {
+						value = 0.9
+						desc = activity_agot_sailing_province_desc_common_tradeport_minor
+					}
+				}
+				if = {
+					limit = {
+						scope:province.county.holder ?= {
+							employs_court_position = harbormaster_court_position
+						}
+					}
+					if = {
+						limit = {
+							scope:province.county.holder ?= {
+								harbormaster_court_position_apptitude_check = { VALUE = 3 }
+							}
+						}
+						multiply = {
+							value = 0.8
+							desc = activity_agot_sailing_harbormaster_court_position_apptitude_check_3
+						}
+					}
+					else_if = {
+						limit = {
+							scope:province.county.holder ?= {
+								harbormaster_court_position_apptitude_check = { VALUE = 4 }
+							}
+						}
+						multiply = {
+							value = 0.7
+							desc = activity_agot_sailing_harbormaster_court_position_apptitude_check_4
+						}
+					}
+					else_if = {
+						limit = {
+							scope:province.county.holder ?= {
+								harbormaster_court_position_apptitude_check = { VALUE = 5 }
+							}
+						}
+						multiply = {
+							value = 0.6
+							desc = activity_agot_sailing_harbormaster_court_position_apptitude_check_5
+						}
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { has_sailing_special_building = yes }
+					}
+					multiply = {
+						value = 0.6
+						desc = activity_agot_sailing_province_desc_special_building
+					}
+				}
+			}
+		}
+	}
+
+	ui_predicted_cost = {
+		# All costs are balanced on County/Early Era starting point
+		gold = {
+			add = { # Base cost, scaled by era
+				value = sailing_base_cost
+				multiply = activity_cost_scale_by_era
+			}
+			if = {
+				limit = {
+					dynasty ?= { has_dynasty_perk = law_legacy_1 }
+				}
+				subtract = {
+					value = sailing_base_cost
+					multiply = law_legacy_cost_reduction_mult
+				}
+			}
+			# Make it a multiple of 5 (rounded up)
+			divide = 5
+			ceiling = yes
+			multiply = 5
+		}
+	}
+
+	on_host_death = { invalidate_activity = scope:activity }
+
+	is_location_valid = {
+		save_temporary_scope_as = location_in_question
+		trigger_if = {
+			limit = {
+				NOT = { scope:special_option ?= flag:agot_sailing_type_treasure }
+			}
+			trigger_if = {
+				limit = {
+					scope:host = { is_landed = yes }
+				}
+				# Only display plague if the location is otherwise valid
+				trigger_if = {
+					limit = {
+						agot_sailing_location_is_valid = yes
+					}
+					custom_tooltip = {
+						text = realm_is_isolated
+						NOT = {
+							duchy ?= {
+								any_de_jure_county = { has_county_modifier = agot_containing_the_spread }
+							}
+						}
+					}
+				}
+				trigger_else = {
+					custom_tooltip = {
+						text = agot_sailing_province_requirement_landed
+						always = no
+					}
+				}
+			}
+			trigger_else = { # Landless characters
+				# Only display plague if the location is otherwise valid
+				trigger_if = {
+					limit = {
+						agot_sailing_location_is_valid_landless = yes
+					}
+					custom_tooltip = {
+						text = realm_is_isolated
+						NOT = {
+							duchy ?= {
+								any_de_jure_county = { has_county_modifier = agot_containing_the_spread }
+							}
+						}
+					}
+				}
+				trigger_else = {
+					custom_tooltip = {
+						text = agot_sailing_province_requirement_landless
+						always = no
+					}
+				}
+			}
+		}
+		trigger_else = {
+			trigger_if = {
+				limit = {
+					OR = {
+						scope:host = {
+							has_map_here = { LOCATION = scope:location_in_question }
+						}
+						has_province_modifier = sunken_ship_sighted
+					}
+				}
+				always = yes
+			}
+			trigger_else = { always = no }
+		}
+	}
+
+	ai_will_do = {
+		value = 50
+
+		if = {
+			limit = { agot_prefers_sailing = yes }
+			add = 40
+		}
+		if = {
+			limit = { highest_held_title_tier = tier_kingdom }
+			add = -30
+		}
+		else_if = {
+			limit = { highest_held_title_tier = tier_empire }
+			add = -40
+		}
+		add = {
+			value = ai_sociability
+			multiply = 0.5
+			desc = "ai_sociability"
+		}
+		if = {
+			limit = { ai_energy < 0 }
+			add = {
+				add = ai_energy
+				desc = "ai_energy"
+			}
+		}
+		if = {
+			limit = {
+				any_held_county = {
+					any_county_province = { is_coastal = no }
+				}
+			}
+			add = -100
+		}
+		if = {
+			limit = {
+				any_held_county = {
+					any_county_province = { has_building_or_higher = agot_great_fleet_01 }
+				}
+			}
+			add = 35
+		}
+		# Personality
+		if = { # Avoids responsibilities
+			limit = { has_trait = lazy }
+			add = {
+				value = 20
+				desc = lazy
+			}
+		}
+		else_if = { # Better things to do
+			limit = { has_trait = diligent }
+			add = {
+				value = -10
+				desc = diligent
+			}
+		}
+		if = { # Likes hurting things
+			limit = { has_trait = sadistic }
+			add = {
+				value = 20
+				desc = sadistic
+			}
+		}
+		else_if = { # Empathetic
+			limit = { has_trait = compassionate }
+			add = {
+				value = -10
+				desc = compassionate
+			}
+		}
+		if = { # Likes to socialize
+			limit = { has_trait = gregarious }
+			add = {
+				value = 20
+				desc = gregarious
+			}
+		}
+		else_if = {
+			limit = { has_trait = shy }
+			add = {
+				value = -10
+				desc = shy
+			}
+		}
+		if = {
+			limit = { has_trait = reclusive }
+			add = {
+				value = -25
+				desc = reclusive
+			}
+		}
+		# Culture
+		if = {
+			limit = {
+				culture = { has_cultural_tradition = tradition_seafaring }
+			}
+			add = 20
+		}
+		# Court
+		if = {
+			limit = {
+				has_royal_court = yes
+				has_court_type = court_warlike
+			}
+			add = {
+				value = 15
+				desc = court_warlike
+			}
+		}
+		# Education
+		if = {
+			limit = { has_trait = education_martial }
+			add = {
+				value = 20
+				desc = education_martial
+			}
+		}
+		# Prestige
+		if = {
+			limit = { prestige < 0 }
+			add = {
+				value = 30
+				desc = "Very low prestige"
+			}
+		}
+		if = {
+			limit = { prestige_level <= 1 }
+			add = {
+				value = 5
+				desc = "Low prestige level"
+			}
+		}
+		# Lifestyle
+		if = {
+			limit = { has_trait = lifestyle_mariner }
+			add = {
+				value = 25
+				desc = lifestyle_mariner
+			}
+		}
+		if = {
+			limit = {
+				has_trait = lifestyle_mariner
+				has_trait_xp = {
+					trait = lifestyle_mariner
+					value >= trait_second_level
+				}
+			}
+			add = {
+				value = 25
+				desc = "experienced hunter"
+			}
+		}
+		# Stress
+		if = { # Low Stress
+			limit = { stress >= lower_than_baseline_stress }
+			add = {
+				value = 20
+				desc = "lower_than_baseline_stress"
+			}
+		}
+		if = { # High Stress
+			limit = { stress >= higher_than_baseline_stress }
+			add = {
+				value = 20
+				desc = "higher_than_baseline_stress"
+			}
+		}
+		if = { # Very High Stress
+			limit = { stress >= high_stress }
+			add = {
+				value = 20
+				desc = "high_stress"
+			}
+		}
+		if = {
+			limit = {
+				short_term_gold >= hunt_activity_base_cost
+				short_term_gold >= major_gold_value
+			}
+			add = {
+				value = 30
+				desc = "Got gold to burn"
+			}
+		}
+		if = {
+			limit = { has_character_flag = hunts_a_lot }
+			add = {
+				value = 500
+				desc = "hunts a lot"
+			}
+		}
+		if = {
+			limit = {
+				ai_has_conqueror_personality = yes
+				OR = {
+					AND = {
+						prestige_level < 4
+						can_use_conquest_cbs_trigger = yes
+					}
+					prestige < 1000
+				}
+			}
+			add = {
+				value = 1000
+				desc = "conqueror looking for prestige"
+			}
+		}
+		if = {
+			limit = {
+				ai_has_conqueror_personality = yes
+				trigger_if = {
+					limit = {
+						prestige_level >= 4
+						can_use_conquest_cbs_trigger = yes
+					}
+					prestige_level >= 4
+				}
+				prestige >= 1000
+			}
+			add = {
+				value = -5000
+				desc = "conqueror sated for prestige"
+			}
+		}
+		# Legitimacy
+		if = {
+			limit = {
+				is_valid_for_legitimacy_change = yes
+			}
+			if = { # Low Legitimacy
+				limit = {
+					OR = {
+						legitimacy_level = 1
+						legitimacy_level = 2
+					}
+				}
+				add = {
+					value = 10
+					desc = "low_legitimacy"
+				}
+			}
+			if = { # Very Low Legitimacy
+				limit = {
+					legitimacy_level = 0
+				}
+				add = {
+					value = 20
+					desc = "low_legitimacy"
+				}
+			}
+		}
+		# Plague
+		if = {
+			limit = {
+				any_held_county = {
+					any_county_province = {
+						any_province_epidemic = {
+							count >= 1
+							outbreak_intensity < apocalyptic
+						}
+					}
+				}
+				would_follow_social_distancing_value >= -1
+			}
+			add = {
+				value = -60
+				desc = "Plague in Domain"
+			}
+		}
+		else_if = {
+			limit = {
+			any_held_county = {
+				any_county_province = {
+						any_province_epidemic = {
+							count >= 1
+							outbreak_intensity < apocalyptic
+						}
+					}
+				}
+				would_follow_social_distancing_value >= -1
+			}
+			add = {
+				value = -20
+				desc = "Plague in Top Realm"
+			}
+		}
+		if = {
+			limit = {
+				any_held_county = {
+					any_county_province = {
+						any_province_epidemic = {
+							count >= 1
+							outbreak_intensity = apocalyptic
+						}
+					}
+				}
+			}
+			add = {
+				value = -200
+				desc = "Apocalyptic Plague in Domain"
+			}
+		}
+		else_if = {
+			limit = {
+				any_held_county = {
+					any_county_province = {
+						any_province_epidemic = {
+							count >= 1
+							outbreak_intensity = apocalyptic
+						}
+					}
+				}
+			}
+			add = {
+				value = -40
+				desc = "Apocalyptic Plague in Top Realm"
+			}
+		}
+		if = { # Has a ship
+			limit = {
+				has_access_to_a_ship = yes
+			}
+			add = {
+				value = 50
+			}
+		}
+	}
+
+	ai_will_select_province = {
+		value = 1
+		# Buildings
+		if = {
+			limit = { has_building = common_tradeport_06 }
+			add = {
+				value = 300
+				desc = "Tradeport"
+			}
+		}
+		else_if = {
+			limit = {
+				has_building_or_higher = common_tradeport_03
+			}
+			add = {
+				value = 200
+				desc = "Tradeport"
+			}
+		}
+		else_if = {
+			limit = {
+				has_building_or_higher = common_tradeport_01
+			}
+			add = {
+				value = 100
+				desc = "Tradeport"
+			}
+		}
+		if = {
+			limit = { county.holder ?= scope:host }
+			add = {
+				value = 300
+				desc = "Personally Holds dock"
+			}
+		}
+	}
+
+	host_description = {
+		desc = activity_agot_sailing_host_desc
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_trait = lifestyle_mariner }
+				desc = activity_sailing_desc_trait_xp
+			}
+			desc = activity_sailing_desc_trait
+		}
+	}
+
+	guest_description = {
+		desc = activity_agot_sailing_guest_desc
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_trait = lifestyle_mariner }
+				desc = activity_sailing_desc_trait_xp
+			}
+			desc = activity_sailing_desc_trait
+		}
+	}
+
+	cooldown = { years = standard_sailing_cooldown_time } # 1 year
+
+	conclusion_description = { desc = activity_agot_sailing_conclusion_desc }
+
+	ai_check_interval = 60
+
+	###################
+	# PARAMETERS
+	###################
+
+	is_single_location = yes
+
+	###################
+	# LOCATION
+	###################
+
+	max_province_icons = 20
+
+	ai_province_filter = geographical_region
+	province_filter = geographical_region
+	province_filter_target = coastal_counties
+
+	province_description = {
+		desc = activity_agot_sailing_province_desc
+
+		# Activity type
+		triggered_desc = {
+			trigger = { scope:special_option ?= flag:agot_sailing_type_hunt }
+			desc = activity_agot_sailing_hunt_province_desc
+		}
+		triggered_desc = {
+			trigger = { scope:special_option ?= flag:agot_sailing_type_raid }
+			desc = activity_agot_sailing_raid_province_desc
+		}
+		triggered_desc = {
+			trigger = { scope:special_option ?= flag:agot_sailing_type_treasure }
+			desc = activity_agot_sailing_treasure_province_desc
+		}
+		triggered_desc = {
+			trigger = { scope:special_option ?= flag:agot_sailing_type_valyria }
+			desc = activity_agot_sailing_valyria_province_desc
+		}
+		# Cost reduction due to port building chain
+		triggered_desc = {
+			trigger = { has_building_or_higher = agot_great_fleet_01 }
+			desc = activity_agot_sailing_province_desc_great_fleet
+		}
+		triggered_desc = {
+			trigger = {
+				has_building_or_higher = common_tradeport_01
+				NOT = { has_building_or_higher = common_tradeport_03 }
+			}
+			desc = activity_agot_sailing_province_desc_common_tradeport_minor
+		}
+		triggered_desc = {
+			trigger = {
+				has_building_or_higher = common_tradeport_03
+				NOT = { has_building_or_higher = common_tradeport_06 }
+			}
+			desc = activity_agot_sailing_province_desc_common_tradeport_medium
+		}
+		triggered_desc = {
+			trigger = { has_building = common_tradeport_06 }
+			desc = activity_agot_sailing_province_desc_common_tradeport_major
+		}
+		triggered_desc = {
+			trigger = { has_building_or_higher = common_tradeport_07 }
+			desc = activity_agot_sailing_province_desc_common_tradeport_max
+		}
+		triggered_desc = { # Big discount
+			trigger = { has_sailing_special_building = yes }
+			desc = activity_agot_sailing_province_desc_special_building
+		}
+	}
+
+	province_score = {
+		value = 0
+		if = {
+			limit = { has_building_or_higher = common_tradeport_07 }
+			add = 20
+		}
+		else_if = {
+			limit = { has_building = common_tradeport_06 }
+			add = 15
+		}
+		else_if = {
+			limit = { has_building_or_higher = common_tradeport_03 }
+			add = 10
+		}
+		else_if = {
+			limit = { has_building_or_higher = common_tradeport_01 }
+			add = 5
+		}
+		if = {
+			limit = { has_building_or_higher = agot_great_fleet_01 }
+			add = 20
+		}
+		if = {
+			limit = { has_sailing_special_building = yes }
+			add = 20
+		}
+		if = {
+			limit = {
+				OR = {
+					has_province_modifier = sunken_ship_sighted
+					scope:host = {
+						has_map_here = { LOCATION = root }
+					}
+				}
+			}
+			add = 100
+		}
+	}
+
+
+	###################
+	# OPTIONS
+	###################
+
+	special_option_category = special_type
+
+	options = {
+		special_type = {
+			agot_sailing_type_hunt = {
+				default = yes
+				is_valid = {
+					agot_sailing_type_hunt_requirements = yes
+				}
+				cost = {
+					gold = {
+						add = {
+							if = {
+								limit = {
+									dynasty ?= { has_dynasty_perk = law_legacy_1 }
+								}
+								subtract = {
+									value = 0
+									add = {
+										value = sailing_base_cost
+										add = {
+											value = sailing_base_cost
+											multiply = activity_cost_scale_by_era
+											subtract = sailing_base_cost
+										}
+									}
+									multiply = law_legacy_cost_reduction_mult
+									desc = law_legacy_1_name
+								}
+							}
+						}
+					}
+				}
+				ai_will_do = {
+					value = 30
+				}
+			}
+			agot_sailing_type_raid = {
+				is_valid = {
+					agot_sailing_type_raid_requirements = yes
+				}
+				cost = {
+					gold = {
+						add = {
+							if = {
+								limit = {
+									dynasty ?= { has_dynasty_perk = law_legacy_1 }
+								}
+								subtract = {
+									value = 0
+									add = {
+										value = sailing_base_cost
+										add = {
+											value = sailing_base_cost
+											multiply = activity_cost_scale_by_era
+											subtract = sailing_base_cost
+										}
+									}
+									multiply = law_legacy_cost_reduction_mult
+									desc = law_legacy_1_name
+								}
+							}
+						}
+					}
+				}
+				ai_will_do = {
+					value = 30
+					if = {
+						limit = { has_trait = craven }
+						multiply = 0
+					}
+				}
+			}
+			agot_sailing_type_treasure = {
+				is_valid = {
+					agot_sailing_type_treasure_requirements = yes
+				}
+				cost = {
+					gold = {
+						add = {
+							if = {
+								limit = {
+									dynasty ?= { has_dynasty_perk = law_legacy_1 }
+								}
+								subtract = {
+									value = 0
+									add = {
+										value = sailing_base_cost
+										add = {
+											value = sailing_base_cost
+											multiply = activity_cost_scale_by_era
+											subtract = sailing_base_cost
+										}
+									}
+									multiply = law_legacy_cost_reduction_mult
+									desc = law_legacy_1_name
+								}
+							}
+						}
+					}
+				}
+				ai_will_do = {
+					value = 30
+					if = {
+						limit = {
+							NOT = {
+								any_province = { has_province_modifier = sunken_ship_sighted }
+								any_character_artifact = { has_variable = sunken_ship }
+								has_access_to_a_diving_ship = yes
+							}
+						}
+						multiply = 0
+					}
+				}
+			}
+			agot_sailing_type_valyria = {
+				is_valid = { # Edited, Robin, 24/06
+					custom_tooltip = {
+						text = bb_sailing_tooltip
+						always = no
+					}
+				}
+				cost = {
+					gold = {
+						add = {
+							if = {
+								limit = {
+									dynasty ?= { has_dynasty_perk = law_legacy_1 }
+								}
+								subtract = {
+									value = 0
+									add = {
+										value = sailing_base_cost
+										add = {
+											value = sailing_base_cost
+											multiply = activity_cost_scale_by_era
+											subtract = sailing_base_cost
+										}
+									}
+									multiply = law_legacy_cost_reduction_mult
+									desc = law_legacy_1_name
+								}
+							}
+						}
+					}
+				}
+				ai_will_do = {
+					value = 0
+					if = {
+						limit = {
+							OR = {
+								has_trait = lunatic_1
+								has_trait = lunatic_genetic
+							}
+						}
+						add = 20
+					}
+					if = {
+						limit = { has_trait = fire_obsessed }
+						add = 20
+					}
+					if = {
+						limit = {
+							culture = { has_cultural_pillar = heritage_valyrian }
+						}
+						add = 10
+					}
+					if = {
+						limit = { ai_boldness >= dominant_positive_ai_value }
+						add = 0
+					}
+					else_if = {
+						limit = { ai_boldness >= 100 }
+						add = 10
+					}
+					else_if = {
+						limit = { ai_boldness >= very_high_positive_ai_value }
+						add = 0
+					}
+					else_if = {
+						limit = { ai_boldness >= high_positive_ai_value }
+						add = -10
+					}
+					else_if = {
+						limit = { ai_boldness >= low_positive_ai_value }
+						add = -20
+					}
+					else = { add = -30 }
+					if = {
+						limit = { ai_rationality >= dominant_positive_ai_value }
+						add = -50
+					}
+					else_if = {
+						limit = { ai_rationality >= 100 }
+						add = -40
+					}
+					else_if = {
+						limit = { ai_rationality >= very_high_positive_ai_value }
+						add = -30
+					}
+					else_if = {
+						limit = { ai_rationality >= high_positive_ai_value }
+						add = -20
+					}
+					else_if = {
+						limit = { ai_rationality >= low_positive_ai_value }
+						add = 0
+					}
+					else_if = {
+						limit = { ai_rationality >= low_negative_ai_value }
+						add = 10
+					}
+					else_if = {
+						limit = { ai_rationality >= high_negative_ai_value }
+						add = 15
+					}
+					else = { add = 35 }
+				}
+			}
+		}
+
+		#########
+		# SHIP CHOICE
+		#########
+		agot_sailing_option_ship_choice = {
+			agot_sailing_charter = {
+				default = yes
+				is_valid = {
+					custom_tooltip = {
+						text = OWNING_SMALL_SHIP
+						has_access_to_a_small_ship = no
+					}
+					custom_tooltip = {
+						text = OWNING_BIG_SHIP
+						has_access_to_a_big_ship = no
+					}
+				}
+				cost = {
+					gold = {
+						add = {
+							add = {
+								value = agot_sailing_charter_ship_cost
+								desc = agot_sailing_charter_ship
+							}
+						}
+					}
+				}
+				ai_will_do = {
+					value = 100
+					if = {
+						limit = {
+							OR = {
+								has_access_to_a_big_ship = yes
+								has_access_to_a_small_ship = yes
+								trigger_if = {
+									limit = { has_trait = lifestyle_mariner }
+									has_trait_xp = {
+										trait = lifestyle_mariner
+										value < 50
+									}
+								}
+							}
+						}
+						multiply = 0
+					}
+				}
+			}
+			agot_sailing_small_ship = {
+				is_valid = {
+					can_make_expensive_purchase_trigger = { PRICE = root.agot_sailing_small_ship_cost }
+					custom_tooltip = {
+						text = OWNING_BIG_SHIP
+						has_access_to_a_big_ship = no
+					}
+				}
+				cost = {
+					gold = {
+						add = {
+							add = {
+								value = agot_sailing_small_ship_cost
+								desc = agot_sailing_select_small_ship
+							}
+							if = {
+								limit = {
+									has_access_to_a_small_ship = yes
+								}
+								subtract = {
+									value = agot_sailing_small_ship_cost
+									desc = sailing_owns_small_ship_desc
+								}
+							}
+						}
+					}
+				}
+				ai_will_do = {
+					value = 100
+					if = {
+						limit = { has_access_to_a_big_ship = yes }
+						multiply = 0
+					}
+				}
+			}
+			agot_sailing_big_ship = {
+				is_valid = {
+					can_make_expensive_purchase_trigger = { PRICE = root.agot_sailing_big_ship_cost }
+					trigger_if = {
+						limit = { government_has_flag = government_is_pirate }
+						custom_tooltip = {
+							text = OWNING_SMALL_PIRATE_SHIP
+							domicile = { has_domicile_building_or_higher = agot_pirate_ship_main_05 }
+						}
+					}
+				}
+				cost = {
+					gold = {
+						add = {
+							add = {
+								value = agot_sailing_big_ship_cost #Base level
+								desc = agot_sailing_select_big_ship
+							}
+							if = {
+								limit = {
+									has_access_to_a_big_ship = yes
+								}
+								subtract = {
+									value = agot_sailing_big_ship_cost
+									desc = sailing_owns_big_ship_desc
+								}
+							}
+							else_if = {
+								limit = {
+									has_access_to_a_small_ship = yes
+								}
+								subtract = {
+									value = agot_sailing_small_ship_cost
+									desc = sailing_owns_big_ship_desc
+								}
+							}
+						}
+					}
+				}
+				ai_will_do = {
+					value = 100
+					if = {
+						limit = { has_access_to_a_small_ship = yes }
+						multiply = 0
+					}
+				}
+			}
+		}
+
+		#########
+		# GUEST NUMBER
+		#########
+		agot_sailing_option_guests = {
+			agot_sailing_guests_none = {
+				#Alone or just one or two guests
+				default = yes
+				travel_entourage_selection = {
+					weight = standard_travel_entourage_additions
+					max = 5
+					invite_rule_order = 1
+				}
+				ai_will_do = {
+					value = 20
+					if = {
+						limit = { has_trait = greedy }
+						add = 10
+					}
+				}
+			}
+			agot_sailing_guests_few = {
+				cost = {
+					gold = {
+						add = {
+							value = 0
+							desc = agot_sailing_guests_few_amount
+							add = {
+								value = minor_gold_value
+								desc = agot_sailing_guests_few_amount
+							}
+						}
+					}
+				}
+				travel_entourage_selection = {
+					weight = standard_travel_entourage_additions
+					max = 10
+					invite_rule_order = 2
+				}
+				ai_will_do = {
+					value = 30
+					if = {
+						limit = { short_term_gold <= minor_gold_value }
+						subtract = { value = 30 }
+					}
+					if = {
+						limit = { has_trait = compassionate }
+						add = 5
+					}
+					if = {
+						limit = { has_trait = just }
+						add = 5
+					}
+					if = {
+						limit = { has_trait = generous }
+						add = 5
+					}
+				}
+			}
+			agot_sailing_guests_many = {
+				cost = {
+					gold = {
+						add = {
+							value = 0
+							desc = agot_sailing_guests_many_amount
+							add = {
+								value = medium_gold_value
+								desc = agot_sailing_guests_many_amount
+							}
+						}
+					}
+				}
+				travel_entourage_selection = {
+					weight = standard_travel_entourage_additions
+					max = 20
+					invite_rule_order = 2
+				}
+				ai_will_do = {
+					value = 10
+					if = {
+						limit = { short_term_gold <= medium_gold_value }
+						subtract = { value = 10 }
+					}
+					if = {
+						limit = { has_trait = compassionate }
+						add = 5
+					}
+					if = {
+						limit = { has_trait = just }
+						add = 5
+					}
+					if = {
+						limit = { has_trait = generous }
+						add = 5
+					}
+				}
+			}
+		}
+	}
+
+	###################
+	# PHASES
+	###################
+
+	max_guest_arrival_delay_time = { months = 3 }
+
+	phases = {
+		agot_sailing_phase = {
+			is_predefined = yes
+
+			on_phase_active = {
+				if = {
+					limit = {
+						NOT = { exists = scope:first_mate }
+					}
+					set_first_mate = yes
+				}
+				if = {
+					limit = {
+						this = scope:host
+					}
+					scope:host = { trigger_event = agot_sailing.0800 }
+				}
+			}
+		}
+	}
+
+	###################
+	# GUEST HANDLING
+	###################
+
+	guest_invite_rules = {
+		rules = {
+			1 = activity_invite_rule_confederates
+			2 = activity_invite_rule_glory_hounds
+			2 = activity_invite_rule_friends
+			2 = activity_invite_rule_lovers
+			3 = activity_invite_rule_close_family
+			3 = activity_invite_rule_extended_family
+			3 = activity_invite_rule_liege
+			3 = activity_invite_rule_suzerain
+			3 = activity_invite_rule_tributaries
+			3 = activity_invite_rule_vassals
+			4 = activity_invite_rule_guests
+			4 = activity_invite_rule_fellow_vassals
+
+			# MP
+			6 = activity_invite_mp
+		}
+		defaults = {
+			1 = activity_invite_rule_knights
+			1 = activity_invite_rule_landless_adventurers_restricted_range
+			4 = activity_invite_rule_courtiers
+		}
+	}
+
+	max_guests = 20
+
+	can_be_activity_guest = {
+		is_adult = yes
+		NOT = { has_trait = incapable }
+		is_human = yes
+		in_diplomatic_range = scope:host
+		agot_can_be_activity_guest = yes
+		is_available_healthy_adult = yes
+		NOT = { has_title = title:k_the_most_devout }
+	}
+
+	host_intents = {
+		intents = { reduce_stress_intent gain_sailing_xp_intent murder_attendee_intent woo_attendee_intent befriend_attendee_intent }
+		default = reduce_stress_intent
+		player_defaults = { reduce_stress_intent }
+	}
+
+	guest_intents = {
+		intents = { reduce_stress_intent murder_attendee_intent woo_attendee_intent befriend_attendee_intent }
+		default = reduce_stress_intent
+		player_defaults = { reduce_stress_intent }
+	}
+
+	guest_join_chance = {
+		base = 10
+		base_activity_modifier = yes
+
+		# Scripted Modifiers
+		activity_guest_shared_ai_accept_modifier = yes
+		modifier = {
+			add = -100
+			scope:special_type = flag:agot_sailing_type_valyria
+			is_landed = yes
+			desc = ACTIVITY_GUEST_OPTION_VALYRIA
+		}
+		modifier = {
+			add = 20
+			AND = {
+				has_trait = lifestyle_mariner
+				has_trait_xp = {
+					trait = lifestyle_mariner
+					value < 50
+				}
+			}
+			desc = ACTIVITY_GUEST_OPTION_SAILOR_REASON
+		}
+		modifier = {
+			add = 40
+			has_trait = lifestyle_mariner
+			has_trait_xp = {
+				trait = lifestyle_mariner
+				value >= 50
+				value < 100
+			}
+			desc = ACTIVITY_GUEST_OPTION_SAILOR_REASON
+		}
+		modifier = {
+			add = 60
+			has_trait = lifestyle_mariner
+			has_trait_xp = {
+				trait = lifestyle_mariner
+				value >= 100
+			}
+			desc = ACTIVITY_GUEST_OPTION_SAILOR_REASON
+		}
+	}
+
+	###################
+	# ACTIVITY-SPECIFIC PULSES
+	###################
+
+	pulse_actions = {
+		entries = { guest_friendship guest_insulted host_gains_diplo_xp apa_legend_spreads guest_tells_fantastic_joke relation_gains_friend apa_overcome_with_emotion apa_legend_spreads }
+	}
+
+	on_start = {
+		scope:host = {
+			if = {
+				limit = {
+					scope:activity = {
+						has_activity_option = { category = agot_sailing_option_ship_choice option = agot_sailing_small_ship }
+					}
+					NOR = {
+						scope:host.house ?= {
+							has_house_modifier = owns_small_ship
+							has_house_modifier = owns_small_ship_diving
+						}
+					}
+					trigger_if = {
+						limit = { exists = domicile }
+						NOT = {
+							domicile = { has_domicile_building_or_higher = agot_pirate_ship_main_01 }
+						}
+					}
+				}
+				scope:host.house ?= { add_house_modifier = owns_small_ship }
+			}
+			else_if = {
+				limit = {
+					scope:activity = {
+						has_activity_option = { category = agot_sailing_option_ship_choice option = agot_sailing_big_ship }
+					}
+					NOR = {
+						scope:host.house ?= {
+							has_house_modifier = owns_big_ship
+							has_house_modifier = owns_big_ship_diving
+						}
+					}
+					trigger_if = {
+						limit = { exists = domicile }
+						NOT = {
+							domicile = { has_domicile_building_or_higher = agot_pirate_ship_main_01 }
+						}
+					}
+				}
+				scope:host.house ?= {
+					if = {
+						limit = {
+							has_house_modifier = owns_small_ship
+						}
+						remove_house_modifier = owns_small_ship
+						add_house_modifier = owns_big_ship
+					}
+					else_if = {
+						limit = {
+							has_house_modifier = owns_small_ship_diving
+						}
+						remove_house_modifier = owns_small_ship_diving
+						add_house_modifier = owns_big_ship_diving
+					}
+					else = {
+						add_house_modifier = owns_big_ship
+					}
+				}
+			}
+			if = {
+				limit = {
+					scope:activity = {
+						has_activity_option = { category = special_type option = agot_sailing_type_treasure }
+					}
+				}
+				add_character_flag = treasure_hunt
+				random_character_artifact = {
+					limit = {
+						has_variable = sunken_ship
+						var:sunken_ship = scope:activity.activity_location
+					}
+					set_variable = used_map_here
+				}
+				scope:activity.activity_location = {
+					if = {
+						limit = { has_province_modifier = sunken_ship_sighted }
+						remove_province_modifier = sunken_ship_sighted
+						add_province_modifier = sunken_ship_sighted
+					}
+				}
+			}
+			if = {
+				limit = {
+					scope:activity = {
+						has_activity_option = { category = special_type option = agot_sailing_type_valyria }
+					}
+				}
+				add_character_flag = traveling_to_valyria
+			}
+			sailing_variable_effect = yes
+		}
+	}
+
+	allow_zero_guest_invites = no
+
+	on_complete = {
+	}
+
+	###################
+	# GRAPHICS
+	###################
+
+	# Travel
+	background = { # Bridge
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				is_riverside_province = yes
+				#geographical_region = world_europe
+				OR = {
+					terrain = farmlands
+					terrain = plains
+					terrain = mountains
+					terrain = hills
+				}
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_travel_bridge.dds"
+		environment = "environment_travel_bridge"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
+	}
+
+	background = { # Farmland, settled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				terrain = farmlands
+				exists = province_owner
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_travel_farm.dds"
+		environment = "environment_travel_farmlands"
+		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
+	}
+	background = { # Farmland, unsettled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				terrain = farmlands
+				NOT = { exists = province_owner }
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/farms.dds"
+		environment = "environment_event_farms"
+		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
+	}
+
+	background = { #Desert, settled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_wilderness_desert_trigger = yes
+				exists = province_owner
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_travel_desert.dds"
+		environment = "environment_travel_desert"
+		ambience = "event:/SFX/Events/Backgrounds/desert_day"
+	}
+	background = { #Desert, unsettled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_wilderness_desert_trigger = yes
+				NOT = { exists = province_owner }
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/desert.dds"
+		environment = "environment_event_bp1_desert"
+		ambience = "event:/SFX/Events/Backgrounds/desert_day"
+	}
+
+	background = { #forest snowy
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location ?= { hunt_snowy_forest_trigger = yes }
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_hunt_snowy_forest.dds"
+		environment = "environment_hunt_snowy_forest"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
+	}
+
+	background = { #forest_pine
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_wilderness_forest_pine_trigger = yes
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/forest_pine.dds"
+		environment = "environment_event_forest_pine"
+		ambience = "event:/SFX/Events/Backgrounds/coniferous_forest_day"
+	}
+
+	background = { #forest
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_wilderness_forest_trigger = yes
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/forest.dds"
+		environment = "environment_event_forest"
+		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
+	}
+
+	background = { #mountains, settled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_wilderness_mountains_trigger = yes
+				exists = province_owner
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_travel_mountains.dds"
+		environment = "environment_travel_mountain_settlement"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
+	}
+	background = { #mountains, unsettled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_wilderness_mountains_trigger = yes
+				NOT = { exists = province_owner }
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/mountains.dds"
+		environment = "environment_event_mountains"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
+	}
+
+	background = { #steppe, settled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_wilderness_steppe_trigger = yes
+				exists = province_owner
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_travel_steppe.dds"
+		environment = "environment_travel_steppe_settlement"
+		ambience = "event:/SFX/Events/Backgrounds/steppe_day"
+	}
+	background = { #steppe, unsettled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_wilderness_steppe_trigger = yes
+				NOT = { exists = province_owner }
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/steppe.dds"
+		environment = "environment_event_steppe"
+		ambience = "event:/SFX/Events/Backgrounds/steppe_day"
+	}
+
+	background = { #drylands (formerly desert)
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_drylands_trigger = yes
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/drylands.dds"
+		environment = "environment_event_desert"
+		ambience = "event:/SFX/Events/Backgrounds/desert_day"
+	}
+
+	background = { #wetlands
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_wilderness_wetlands_trigger = yes
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/bp1_wetlands.dds"
+		environment = "environment_event_bp1_wetlands"
+		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
+	}
+
+	background = { #jungle
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_wilderness_jungle_trigger = yes
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/bp1_jungle.dds"
+		environment = "environment_event_bp1_jungle"
+		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
+	}
+
+	background = { #plains, settled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_plains_trigger = yes
+				exists = province_owner
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_travel_hills.dds"
+		environment = "environment_travel_hills_settlement"
+		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
+	}
+
+	background = { #plains, unsettled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_plains_trigger = yes
+				NOT = { exists = province_owner }
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/bp1_plains.dds"
+		environment = "environment_event_bp1_plains"
+		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
+	}
+
+	background = { #hills, settled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_hills_trigger = yes
+				exists = province_owner
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_travel_hills.dds"
+		environment = "environment_travel_hills_settlement"
+		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
+	}
+	background = { #hills, unsettled
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_hills_trigger = yes
+				NOT = { exists = province_owner }
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/bp1_hills.dds"
+		environment = "environment_event_bp1_hills"
+		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
+	}
+
+	background = { #sea
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				is_sea_province = yes
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
+		environment = "environment_event_fp1_ocean"
+		ambience = "event:/DLC/FP1/SFX/Events/event_ocean_longship"
+	}
+
+	#Fallback
+	background = {
+		texture = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
+		environment = "environment_event_fp1_ocean"
+		ambience = "event:/DLC/FP1/SFX/Events/event_ocean_longship"
+	}
+
+	window_characters = {
+
+		guest = {
+			camera = camera_body
+
+			effect = {
+				every_attending_character = {
+					limit = {
+						scope:host.location = scope:activity.activity_location
+						can_be_knight_trigger = { ARMY_OWNER = scope:host }
+					}
+					add_to_list = characters
+				}
+			}
+
+			scripted_animation = { animation = throne_room_two_handed_passive_1 }
+		}
+
+		guest = {
+			camera = camera_body
+
+			effect = {
+				every_attending_character = {
+					limit = {
+						scope:host.location = scope:activity.activity_location
+						can_be_knight_trigger = { ARMY_OWNER = scope:host }
+					}
+					add_to_list = characters
+				}
+			}
+
+			scripted_animation = { animation = throne_room_conversation_1 }
+		}
+
+		guest = {
+			camera = camera_body
+
+			effect = {
+				every_attending_character = {
+					limit = {
+						scope:host.location = scope:activity.activity_location
+						can_be_knight_trigger = { ARMY_OWNER = scope:host }
+					}
+					add_to_list = characters
+				}
+			}
+
+			scripted_animation = { animation = throne_room_conversation_4 }
+		}
+
+		guest = {
+			camera = camera_body
+
+			effect = {
+				every_attending_character = {
+					limit = {
+						scope:host.location = scope:activity.activity_location
+						can_be_knight_trigger = { ARMY_OWNER = scope:host }
+					}
+					add_to_list = characters
+				}
+			}
+
+			scripted_animation = { animation = interested }
+		}
+
+		host = {
+			camera = camera_body
+
+			effect = {
+				if = {
+					limit = { scope:host.location = scope:activity.activity_location }
+					scope:host = { add_to_list = characters }
+				}
+			}
+
+			scripted_animation = { animation = personality_content }
+		}
+
+		travel_host = {
+			camera = camera_activity_horse
+
+			effect = {
+				if = {
+					limit = {
+						NOT = { scope:host.location = scope:activity.activity_location }
+					}
+					scope:host = { add_to_list = characters }
+				}
+			}
+
+			scripted_animation = { animation = jockey_walk }
+		}
+
+		guest = {
+			camera = camera_body
+
+			effect = {
+				every_attending_character = {
+					limit = {
+						scope:host.location = scope:activity.activity_location
+						can_be_knight_trigger = { ARMY_OWNER = scope:host }
+					}
+					add_to_list = characters
+				}
+			}
+
+			scripted_animation = { animation = personality_bold }
+		}
+
+		guest = {
+			camera = camera_body
+
+			effect = {
+				every_attending_character = {
+					limit = {
+						scope:host.location = scope:activity.activity_location
+						can_be_knight_trigger = { ARMY_OWNER = scope:host }
+					}
+					add_to_list = characters
+				}
+			}
+
+			scripted_animation = { animation = personality_rational }
+		}
+	}
+}
