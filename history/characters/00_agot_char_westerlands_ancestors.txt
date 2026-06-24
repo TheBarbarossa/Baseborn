@@ -14284,12 +14284,12 @@ Lefford_78 = {
 	}
 }
 ### Main Line
-Lefford_20 = { # Dance of the Dragons
+Lefford_20 = { # Dance of the Dragons # Edited, Cafe, 24/06
 	name = Humfrey # Canon, a lord, commander of Westerlander host in Dance of the Dragons
 	dynasty = dynn_Lefford
 	dna = Lefford_20
 
-	martial = 8
+	martial = 11
 
 	religion = fots_seven
 	culture = westerman_main
@@ -14297,7 +14297,9 @@ Lefford_20 = { # Dance of the Dragons
 	father = Lefford_18 # Lyle Lefford
 	mother = Myatt_63
 
-	trait = education_martial_2
+	trait = education_martial_3
+	trait = education_martial_prowess_3
+	trait = brave
 	trait = patient
 	trait = lazy
 
@@ -14316,16 +14318,25 @@ Lefford_20 = { # Dance of the Dragons
 		death = { death_reason = death_battle } # Battle by the Lakeshore
 	}
 }
-Lefford_21 = {
+Lefford_21 = { # Edited, Cafe, 24/06
 	name = Leo # a lord
 	dynasty = dynn_Lefford
 	dna = Lefford_21
+
+	martial = 2
 
 	religion = fots_seven
 	culture = westerman_main
 
 	father = Lefford_20
 	mother = Lannister_149
+
+	trait = deceitful
+	trait = greedy
+	trait = gregarious
+
+	trait = education_learning_3
+	trait = education_martial_prowess_1
 
 	8083.1.1 = {
 		birth = yes
@@ -14355,7 +14366,7 @@ Lefford_22 = {
 	}
 	8169.7.9 = { death = { death_reason = death_accident } }
 }
-Lefford_23 = {
+Lefford_23 = { # Edited, Cafe, 24/06
 	name = Leo
 	dynasty = dynn_Lefford
 
@@ -14365,14 +14376,24 @@ Lefford_23 = {
 	father = Lefford_21
 	mother = Vance_Atranta_50
 
+	trait = shy
+	trait = diligent
+	trait = inquisitive
+
+	trait = education_stewardship_3
+	trait = education_martial_prowess_1
+
 	8102.1.1 = { birth = yes }
 	8120.1.1 = {
 		trait = knight
 		add_spouse = Estren_57 # Elana Estren
 	}
+	8132.3.6 = {
+		give_nickname = nick_agot_historical_the_younger_Targaryen_78
+	}
 	8143.1.1 = { death = yes }
 }
-Lefford_24 = {
+Lefford_24 = { # Edited, Cafe, 24/06
 	name = Eldon # Semi-Canon
 	dynasty = dynn_Lefford
 
@@ -14382,6 +14403,12 @@ Lefford_24 = {
 	father = Lefford_21
 	mother = Vance_Atranta_50
 
+	trait = brave
+	trait = vengeful
+	trait = zealous
+
+	trait = education_martial_2
+
 	8104.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
@@ -14389,6 +14416,10 @@ Lefford_24 = {
 	8120.1.1 = {
 		trait = knight
 		add_spouse = Bar_Emmon_23 # Oriya Bar Emmon
+	}
+	8130.3.5 = {
+		add_trait = one_handed
+		trait = scarred
 	}
 	8151.1.1 = { death = { death_reason = death_accident } }
 }
