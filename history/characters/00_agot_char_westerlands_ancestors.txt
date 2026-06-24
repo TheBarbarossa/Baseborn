@@ -17811,7 +17811,7 @@ Crakehall_27 = {
 	8066.1.1 = { add_spouse = Tinpenny_25 } # Sylwa Tinpenny
 	8105.1.1 = { death = yes }
 }
-Crakehall_28 = { # Dance of the Dragons
+Crakehall_28 = { # Dance of the Dragons # Edited, Cafe, 24/06
 	name = Shiera # Mentioned, a lord
 	dynasty = dynn_Crakehall
 	female = yes
@@ -17822,15 +17822,33 @@ Crakehall_28 = { # Dance of the Dragons
 	father = Crakehall_27
 	mother = Tinpenny_25
 
+	trait = depressed_1
+
+	trait = diligent
+	trait = calm
+	trait = stubborn
+
+	trait = education_diplomacy_3
+
+	disallow_random_traits = yes
+
 	8067.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 	8083.1.1 = { add_matrilineal_spouse = Nayland_60 } # Osfryd Nayland
+	8132.3.6 = {
+		effect = { # Master of Laws
+			agot_appoint_as_councillor_for_castle_history_effect = {
+				CASTLE = title:c_casterly_rock
+				POSITION = councillor_chancellor
+			}
+		}
+	}	
 	8140.1.1 = { death = yes }
 }
 ### Issue of Shiera
-Crakehall_29 = { # Conquest of Dorne
+Crakehall_29 = { # Conquest of Dorne # Edited, Cafe, 24/06
 	name = Jonos # Semi-Canon, a lord
 	dynasty = dynn_Crakehall
 
@@ -17841,6 +17859,15 @@ Crakehall_29 = { # Conquest of Dorne
 	mother = Crakehall_28
 
 	trait = physique_good_2
+
+	trait = education_martial_3
+	trait = education_martial_prowess_2
+
+	trait = gregarious
+	trait = compassionate
+	trait = forgiving
+
+	disallow_random_traits = yes
 
 	8085.1.1 = {
 		birth = yes
