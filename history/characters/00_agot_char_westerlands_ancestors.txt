@@ -66649,7 +66649,7 @@ Stackspear_61 = {
 	}
 }
 ### Issue of Walder
-Stackspear_17 = {
+Stackspear_17 = { # Edited, Cafe, 25/06
 	name = Willam # Canon, a lord, regent of Aegon III
 	dynasty = dynn_Stackspear
 
@@ -66671,6 +66671,8 @@ Stackspear_17 = {
 	8112.1.1 = {
 		trait = knight
 		trait = arrogant
+		trait = lazy
+		trait = patient
 		trait = lifestyle_hunter
 		add_trait_xp = {
 			trait = lifestyle_hunter
@@ -66698,7 +66700,7 @@ Stackspear_16 = {
 	}
 	8176.1.1 = { death = yes }
 }
-Stackspear_15 = {
+Stackspear_15 = { # Edited, Cafe, 25/06
 	name = Lancel # Semi-Canon
 	dynasty = dynn_Stackspear
 
@@ -66710,8 +66712,12 @@ Stackspear_15 = {
 	father = Stackspear_14
 	mother = Voyald_56
 
-	trait = education_martial_2
-	trait = education_martial_prowess_3
+	trait = education_martial_3
+	trait = education_martial_prowess_4
+
+	trait = brave
+	trait = honest
+	trait = stubborn
 
 	8107.1.1 = {
 		birth = yes
@@ -66727,6 +66733,14 @@ Stackspear_15 = {
 			agot_appoint_as_court_position_for_castle_history_effect = {
 				CASTLE = title:c_castamere
 				POSITION = master_at_arms_court_position
+			}
+		}
+	}
+	8132.3.6 = {
+		effect = {
+			if = {
+				limit = { character:Reyne_27 = { is_alive = yes } }
+				set_relation_friend = character:Reyne_27 # Lyndon Farman
 			}
 		}
 	}
