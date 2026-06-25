@@ -2624,7 +2624,7 @@ Lannister_103 = { # Conquest of Dorne
 	}
 	8132.3.6 = {
 		effect = {
-			agot_set_as_ward_history_effect = { KNIGHT = character:Payne_45 } # Josmyn Payne
+			agot_set_as_ward_history_effect = { GUARDIAN = character:Payne_45 } # Josmyn Payne
 		}		
 	}
 	8138.1.1 = { add_spouse = Lefford_30 } # Jeane Lefford
@@ -15983,7 +15983,7 @@ Lydden_24 = {
 	8120.1.1 = { death = yes }
 }
 ### Issue of Lewys
-Lydden_25 = {
+Lydden_25 = { # Edited, Cafe, 25/06
 	name = Cyril # Semi-Canon, a lord
 	dynasty = dynn_Lydden
 
@@ -15994,6 +15994,15 @@ Lydden_25 = {
 
 	father = Lydden_24
 	mother = Merrell_63
+
+	trait = deceitful
+	trait = cynical
+	trait = vengeful
+
+	trait = education_intrigue_3
+	trait = education_martial_prowess_2
+
+	disallow_random_traits = yes
 
 	8091.1.1 = {
 		birth = yes
@@ -16025,7 +16034,7 @@ Lydden_26 = {
 	8121.1.1 = { add_spouse = Bar_Emmon_24 } # Onna Bar Emmon
 	8175.1.1 = { death = yes }
 }
-Lydden_28 = {
+Lydden_28 = { # Edited, Cafe, 25/06
 	name = Haros # Semi-Canon
 	dynasty = dynn_Lydden
 
@@ -16043,7 +16052,8 @@ Lydden_28 = {
 		trait = knight
 		add_spouse = Frey_118 # Eleyne Frey
 	}
-	8131.1.1 = { death = { death_reason = death_battle } } # Dance of the Dragons
+	8131.1.1 = { death = { death_reason = death_head_ripped_off
+	killer = Salt_1 } } # Dance of the Dragons
 }
 Lydden_31 = {
 	name = Serylla # Semi-Canon, married Wayland Waynwood
@@ -16089,7 +16099,8 @@ Lydden_63 = {
 	}
 	8131.1.1 = {
 		trait = squire
-		death = { death_reason = death_battle } # Dance of the Dragons
+		death = { death_reason = death_viciously_dismembered 
+	killer = Salt_46 } # Dance of the Dragons
 	}
 }
 Lydden_27 = {
@@ -39888,7 +39899,7 @@ Payne_44 = {
 		death = { death_reason = death_treatment }
 	}
 }
-Payne_45 = {
+Payne_45 = { # Edited, Cafe, 25/06
 	name = Josmyn # a lord
 	dynasty = dynn_Payne
 
@@ -39905,6 +39916,8 @@ Payne_45 = {
 	trait = education_martial_3
 	trait = education_martial_prowess_4
 
+	disallow_random_traits = yes
+
 	8096.1.1 = { birth = yes }
 	8113.1.1 = { trait = knight }
 	8122.1.1 = { add_spouse = Ferren_42 } # Marita Ferren
@@ -39913,7 +39926,13 @@ Payne_45 = {
 		add_trait_xp = {
 			trait = lifestyle_blademaster
 			value = trait_second_level
-		}		
+		}
+		effect = { # Master-at-arms at the Red Keep
+			agot_appoint_as_councillor_for_castle_history_effect = {
+				CASTLE = title:c_casterly_rock
+				POSITION = councillor_marshal
+			}
+		}
 	}
 	8139.1.1 = { death = yes }
 }
