@@ -706,35 +706,195 @@ bbgm_make_character_active = {
     }
 }
 
-bbgm_give_cancer = {
-    category = interaction_category_bb_game_master
-    interface_priority = 0
-    icon = icon_force_to_step_down
-    desc = bbgm_give_cancer_desc
-    auto_accept = yes
-    use_diplomatic_range = no
-    ignores_pending_interaction_block = yes
-	common_interaction = yes
-	popup_on_receive = yes
+bbgm_spawn_plague = { # Duped the regular debug interaction since it wouldn't show up, Robin, 25/06
+	category = interaction_category_bb_game_master
+	desc = bbgm_spawn_plague_desc
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+	icon = plague
 
-    is_shown = {
-        scope:recipient = {
-            NOT = {
-                has_trait = cancer
-                this = scope:actor
-            }
-        }
-        scope:actor = {
-            is_ai = no
-            has_trait = game_master
-        }
-    }
+	interface_priority = 3
 
-    on_send = {
-        scope:recipient = {
-            add_trait = cancer
-        }
-    }
+	is_shown = {
+		scope:actor = { has_trait = game_master }
+	}
+
+	send_option = {
+		is_valid = {
+			scope:consumption = no
+			scope:smallpox = no
+			scope:ergotism = no
+			scope:bubonic_plague = no
+			scope:typhus = no
+			scope:dysentery = no
+		}
+		flag = measles
+		localization = spawn_epidemic_interaction_measles
+	}
+	send_option = {
+		is_valid = {
+			scope:measles = no
+			scope:smallpox = no
+			scope:ergotism = no
+			scope:bubonic_plague = no
+			scope:typhus = no
+			scope:dysentery = no
+		}
+		flag = consumption
+		localization = spawn_epidemic_interaction_consumption
+	}
+	send_option = {
+		is_valid = {
+			scope:measles = no
+			scope:consumption = no
+			scope:ergotism = no
+			scope:bubonic_plague = no
+			scope:typhus = no
+			scope:dysentery = no
+		}
+		flag = smallpox
+		localization = spawn_epidemic_interaction_smallpox
+	}
+	send_option = {
+		is_valid = {
+			scope:measles = no
+			scope:consumption = no
+			scope:smallpox = no
+			scope:bubonic_plague = no
+			scope:typhus = no
+			scope:dysentery = no
+		}
+		flag = ergotism
+		localization = spawn_epidemic_interaction_ergotism
+	}
+	send_option = {
+		is_valid = {
+			scope:measles = no
+			scope:consumption = no
+			scope:smallpox = no
+			scope:ergotism = no
+			scope:typhus = no
+			scope:dysentery = no
+		}
+		flag = bubonic_plague
+		localization = spawn_epidemic_interaction_bubonic_plague
+	}
+	send_option = {
+		is_valid = {
+			scope:measles = no
+			scope:consumption = no
+			scope:smallpox = no
+			scope:ergotism = no
+			scope:bubonic_plague = no
+			scope:dysentery = no
+		}
+		flag = typhus
+		localization = spawn_epidemic_interaction_typhus
+	}
+	send_option = {
+		is_valid = {
+			scope:measles = no
+			scope:consumption = no
+			scope:smallpox = no
+			scope:ergotism = no
+			scope:bubonic_plague = no
+			scope:typhus = no
+		}
+		flag = dysentery
+		localization = spawn_epidemic_interaction_dysentery
+	}
+	send_option = {
+		is_valid = {
+			scope:major = no
+			scope:apocalyptic = no
+		}
+		flag = minor
+		localization = spawn_minor_epidemic_interaction
+	}
+	send_option = {
+		is_valid = {
+			scope:minor = no
+			scope:apocalyptic = no
+		}
+		flag = major
+		localization = spawn_major_epidemic_interaction
+	}
+	send_option = {
+		is_valid = {
+			scope:minor = no
+			scope:major = no
+		}
+		flag = apocalyptic
+		localization = spawn_apocalyptic_epidemic_interaction
+	}
+
+	send_options_exclusive = no
+
+	can_send = {
+		calc_true_if = {
+			amount >= 1
+			scope:measles = yes
+			scope:consumption = yes
+			scope:smallpox = yes
+			scope:ergotism = yes
+			scope:bubonic_plague = yes
+			scope:typhus = yes
+			scope:dysentery = yes
+		}
+		calc_true_if = {
+			amount >= 1
+			scope:minor = yes
+			scope:major = yes
+			scope:apocalyptic = yes
+		}
+	}
+
+	on_accept = {
+		scope:recipient.capital_province = {
+			hidden_effect = {
+				switch = {
+					trigger = yes
+					scope:minor = {
+						switch = {
+							trigger = yes
+							scope:measles = { create_epidemic_outbreak = { type = measles intensity = minor } }
+							scope:consumption = { create_epidemic_outbreak = { type = consumption intensity = minor } }
+							scope:smallpox = { create_epidemic_outbreak = { type = smallpox intensity = minor } }
+							scope:dysentery = { create_epidemic_outbreak = { type = dysentery intensity = minor } }
+							scope:bubonic_plague = { create_epidemic_outbreak = { type = bubonic_plague intensity = minor } }
+							scope:ergotism = { create_epidemic_outbreak = { type = ergotism intensity = minor } }
+							scope:typhus = { create_epidemic_outbreak = { type = typhus intensity = minor } }
+						}
+					}
+					scope:major = {
+						switch = {
+							trigger = yes
+							scope:measles = { create_epidemic_outbreak = { type = measles intensity = major } }
+							scope:consumption = { create_epidemic_outbreak = { type = consumption intensity = major } }
+							scope:smallpox = { create_epidemic_outbreak = { type = smallpox intensity = major } }
+							scope:dysentery = { create_epidemic_outbreak = { type = dysentery intensity = major } }
+							scope:bubonic_plague = { create_epidemic_outbreak = { type = bubonic_plague intensity = major } }
+							scope:ergotism = { create_epidemic_outbreak = { type = ergotism intensity = major } }
+							scope:typhus = { create_epidemic_outbreak = { type = typhus intensity = major } }
+						}
+					}
+					scope:apocalyptic = {
+						switch = {
+							trigger = yes
+							scope:measles = { create_epidemic_outbreak = { type = measles intensity = apocalyptic } }
+							scope:consumption = { create_epidemic_outbreak = { type = consumption intensity = apocalyptic } }
+							scope:smallpox = { create_epidemic_outbreak = { type = smallpox intensity = apocalyptic } }
+							scope:dysentery = { create_epidemic_outbreak = { type = dysentery intensity = apocalyptic } }
+							scope:bubonic_plague = { create_epidemic_outbreak = { type = bubonic_plague intensity = apocalyptic } }
+							scope:ergotism = { create_epidemic_outbreak = { type = ergotism intensity = apocalyptic } }
+							scope:typhus = { create_epidemic_outbreak = { type = typhus intensity = apocalyptic } }
+						}
+					}
+				}
+			}
+		}
+	}
+	auto_accept = yes
 }
 
 #Added by Thulius on 22/6-2026
@@ -746,7 +906,7 @@ baseborn_create_title = {
 	ignores_pending_interaction_block = yes
 	target_type = title
 	target_filter = recipient_domain_titles
-	interface_priority = 2
+	interface_priority = 1
 	
 	is_shown = {
 		scope:recipient = {
@@ -797,4 +957,35 @@ baseborn_create_title = {
 				
 		}
 	}
+}
+
+bbgm_give_cancer = {
+    category = interaction_category_bb_game_master
+    interface_priority = 0
+    icon = icon_force_to_step_down
+    desc = bbgm_give_cancer_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+	common_interaction = yes
+	popup_on_receive = yes
+
+    is_shown = {
+        scope:recipient = {
+            NOT = {
+                has_trait = cancer
+                this = scope:actor
+            }
+        }
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+    }
+
+    on_send = {
+        scope:recipient = {
+            add_trait = cancer
+        }
+    }
 }
