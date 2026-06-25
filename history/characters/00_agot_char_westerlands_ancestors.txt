@@ -2622,6 +2622,11 @@ Lannister_103 = { # Conquest of Dorne
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
+	8132.3.6 = {
+		effect = {
+			agot_set_as_ward_history_effect = { KNIGHT = character:Payne_45 } # Josmyn Payne
+		}		
+	}
 	8138.1.1 = { add_spouse = Lefford_30 } # Jeane Lefford
 	8143.1.1 = { trait = knight }
 	8167.1.1 = { death = yes }
@@ -39893,9 +39898,23 @@ Payne_45 = {
 	father = Payne_40
 	mother = Foote_48
 
+	trait = impatient
+	trait = zealous
+	trait = ambitious
+
+	trait = education_martial_3
+	trait = education_martial_prowess_4
+
 	8096.1.1 = { birth = yes }
 	8113.1.1 = { trait = knight }
 	8122.1.1 = { add_spouse = Ferren_42 } # Marita Ferren
+	8132.3.6 = {
+		trait = lifestyle_blademaster
+		add_trait_xp = {
+			trait = lifestyle_blademaster
+			value = trait_second_level
+		}		
+	}
 	8139.1.1 = { death = yes }
 }
 ### Issue of Josmyn
