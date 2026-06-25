@@ -52435,7 +52435,7 @@ Plumm_16 = {
 	8121.1.1 = { death = yes }
 }
 ### Issue of Maynard
-Plumm_17 = {
+Plumm_17 = { # Edited, Cafe, 25/06
 	name = Petyr # a lord
 	dynasty = dynn_Plumm
 	dna = Plumm_17
@@ -52446,6 +52446,15 @@ Plumm_17 = {
 	father = Plumm_16
 	mother = Swyft_77
 
+	trait = paranoid
+	trait = gluttonous
+	trait = brave
+
+	trait = education_martial_2
+	trait = education_martial_prowess_2
+
+	disallow_random_traits = yes
+
 	8086.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
@@ -52453,6 +52462,10 @@ Plumm_17 = {
 	8102.1.1 = {
 		trait = knight
 		add_spouse = Lugus_102 # Sherei Lugus
+	}
+	8132.3.6 = {
+		trait = maimed
+		trait = scarred
 	}
 	8147.1.1 = { death = yes }
 }
@@ -52499,7 +52512,7 @@ Plumm_18 = {
 		death = { death_reason = death_heart_attack } # Died consummating the marriage
 	}
 }
-Plumm_19 = {
+Plumm_19 = { # Edited, Cafe, 25/06
 	name = Alfryn # Semi-Canon, a temporary lord
 	dynasty = dynn_Plumm
 
@@ -52529,12 +52542,20 @@ Plumm_19 = {
 	8132.1.1 = {
 		effect = { # Master-at-arms at Faircastle
 			agot_appoint_as_councillor_for_castle_history_effect = {
-				CASTLE = title:c_faircastle
+				CASTLE = title:c_rundridge
 				POSITION = councillor_marshal
 			}
 			agot_appoint_as_court_position_for_castle_history_effect = {
-				CASTLE = title:c_faircastle
+				CASTLE = title:c_rundridge
 				POSITION = master_at_arms_court_position
+			}
+		}
+	}
+	8132.3.6 = {
+		effect = {
+			if = {
+				limit = { character:Farman_28 = { is_alive = yes } }
+				set_relation_friend = character:Farman_28 # Lyndon Farman
 			}
 		}
 	}
