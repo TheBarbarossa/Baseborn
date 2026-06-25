@@ -929,6 +929,7 @@ Tully_38 = {
 	8121.1.1 = { add_spouse = Lefford_22 } # Elona Lefford
 	8132.3.6 = {
 		employer = Tully_44 # Edited, Cafe, 23/06
+		trait = disfigured # Edited, Cafe, 25/06
 	}
 	8156.1.1 = { death = yes }
 }
@@ -20058,6 +20059,7 @@ Paege_21 = {
 	8116.1.1 = { add_spouse = Hazeley_35 } # Glenna Hazeley
 	8132.3.6 = {
 		trait = knight
+		trait = one_eyed # Edited, Cafe, 25/06
 	}
 	8137.1.1 = { death = yes }
 }
@@ -20098,7 +20100,8 @@ Paege_20 = { # Edited, Cafe, 23/06
 				limit = { character:Tully_44 = { is_alive = yes } }
 				set_relation_best_friend = character:Tully_44 # Kermit Tully
 			}
-		}		
+		}
+		trait = scarred # Edited, Cafe, 25/06
 	}
 	8173.1.1 = { death = yes }
 }
@@ -22921,6 +22924,9 @@ Bracken_60 = { # Edited, Cafe, 23/06
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
+	8132.3.6 = {
+		trait = scarred # Edited, Cafe, 25/06
+	}
 	8121.1.1 = { trait = knight }
 	8153.1.1 = { death = yes }
 }
@@ -22938,6 +22944,9 @@ Bracken_61 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
+	8132.3.6 = {
+		trait = scarred # Edited, Cafe, 25/06
+	}	
 	8133.1.1 = {
 		# trait = winter_fever # AGOT TODO Trait
 		death = { death_reason = death_winter_fever }
@@ -27090,11 +27099,12 @@ Vance_Wayfarers_Rest_32 = {
 	8132.1.1 = { trait = knight }
 	8132.3.6 = {
 		trait = unyielding_defender
+		trait = scarred
 		effect = {
 		add_trait_xp = {
 			trait = unyielding_defender
 			value = trait_third_level
-		}			
+			}			
 		}
 	}
 	8133.1.1 = { add_spouse = Broome_72 } # Roslyn Broome
@@ -29451,6 +29461,7 @@ Darry_38 = { # Edited, Cafe, 23/06
 	}
 	8132.3.6 = {
 		employer = Darry_45
+		trait = maimed # Edited, Cafe, 25/06 
 	}
 	8171.1.5 = {
 		death = { death_reason = death_accident }
@@ -29622,6 +29633,9 @@ Darry_45 = { # Conquest of Dorne
 	8125.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
+	}
+	8132.3.6 = {
+		trait = burned
 	}
 	8142.1.1 = { trait = knight }
 	8146.1.1 = { add_spouse = Tully_50 } # Malene Tully
@@ -33263,6 +33277,10 @@ Mooton_30 = {
 		add_character_flag = canon_status_semicanon
 	}
 	8126.1.1 = { trait = knight }
+	8132.3.6 = {
+		trait = one_legged # Edited, Cafe, 25/06
+		trait = disfigured # Edited, Cafe, 25/06
+	}
 	8146.1.1 = {
 		effect = {
 			agot_join_kingsguard_char_history_effect = { # Predecessor: Edmund Warrick
@@ -33307,7 +33325,8 @@ Mooton_31 = {
 		trait = chaste
 	}
 	8132.1.1 = { add_spouse = Flint_59 } # Aliona Flint of Widows Watch
-	8134.1.1 = { trait = widowed }
+	8134.1.1 = { trait = widowed 
+	trait = scarred } # Edited, Cafe, 25/06
 	8145.1.1 = {
 		trait = nightswatch_historical
 		effect = {
@@ -34416,7 +34435,7 @@ Piper_54 = {
 	8094.1.1 = { death = yes }
 }
 ### Issue of Lewys
-Piper_26 = { # Dance of the Dragons
+Piper_26 = { # Dance of the Dragons # Edited, Cafe, 25/06
 	name = Petyr # Canon, a lord
 	dynasty = dynn_Piper
 
@@ -34446,7 +34465,8 @@ Piper_26 = { # Dance of the Dragons
 		trait = august
 	}
 	8130.2.24 = {
-		death = { death_reason = death_battle } # Battle at Acorn Hall
+		death = { death_reason = death_fear
+	killer = Crakehall_31 } # Battle at Acorn Hall
 	}
 }
 Piper_58 = {
@@ -34495,6 +34515,10 @@ Piper_56 = {
 	8098.1.1 = { birth = yes }
 	8115.1.1 = { trait = knight }
 	8123.1.1 = { add_spouse = Finch_30 } # Celia Finch
+	8132.3.6 = { # Edited, Cafe, 25/06
+		trait = scarred
+		trait = blind
+	}
 	8159.1.1 = { death = yes }
 }
 ### Issue of Petyr
@@ -34585,7 +34609,7 @@ Piper_28 = {
 	8169.1.1 = { death = yes }
 }
 ### Issue of Stanton
-Piper_30 = {
+Piper_30 = { # Edited, Cafe, 25/06
 	name = Gerald # Semi-Canon
 	dynasty = dynn_Piper
 
@@ -34604,7 +34628,8 @@ Piper_30 = {
 		trait = brave
 	}
 	8130.2.24 = {
-		death = { death_reason = death_battle } # Battle at Acorn Hall
+		death = { death_reason = death_battle 
+	killer = Reyne_29 } # Battle at Acorn Hall
 	}
 }
 ### Issue of Mychel
@@ -47599,7 +47624,7 @@ Nutt_87 = {
 		death = { death_reason = death_heart_attack }
 	}
 }
-Nutt_15 = {
+Nutt_15 = { # Edited, Cafe, 25/06
 	name = Alyn # a lord
 	dynasty = dynn_Nutt
 
@@ -47615,7 +47640,8 @@ Nutt_15 = {
 		add_spouse = Growne_51 # Harra Growne
 	}
 	8130.2.24 = {
-		death = { death_reason = death_battle } # Battle of Acorn Hall
+		death = { death_reason = death_battle
+	killer = Crakehall_31 } # Battle of Acorn Hall
 	}
 }
 ### Issue of Alyn
@@ -49371,6 +49397,9 @@ Butterwell_54 = {
 
 	8103.1.1 = { birth = yes }
 	8120.1.1 = { trait = knight }
+	8132.3.6 = {
+		trait = crippled # Edited, Cafe, 25/06
+	}
 	8133.2.12 = {
 		# trait = winter_fever # AGOT TODO Trait
 		death = { death_reason = death_winter_fever }
@@ -50580,6 +50609,9 @@ Ryger_27 = { # Edited, Cafe, 23/06
 				POSITION = master_at_arms_court_position
 			}
 		}
+	}
+	8132.3.6 = {
+		trait = scarred # Edited, Cafe, 25/06
 	}
 	8180.1.1 = { death = yes }
 }
