@@ -22148,6 +22148,38 @@ Moore_48 = {
 		death = { death_reason = death_feast_accident }
 	}
 }
+Moore_48_B = { # created 06/28 slambroski
+	name = Dywen
+	dynasty = dynn_Moore
+
+	religion = fots_seven
+	culture = valeman_main
+
+	father = Moore_46
+	mother = Lipps_36
+
+	8116.1.1 = { birth = yes }
+	8131.1.9 = {
+		death = {
+			death_reason = death_battle_kingsroad # Battle of the Kingsroad
+			killer = Peake_48 # Amaury Peake
+		}
+	}
+}
+Moore_48_C = { # created 06/28 slambroski
+	name = Oswin
+	dynasty = dynn_Moore
+
+	religion = fots_seven
+	culture = valeman_main
+
+	father = Moore_46
+	
+	trait = bastard
+
+	8121.1.1 = { birth = yes }
+	8145.1.1 = { death = yes }
+}
 ### Issue of Quenton
 Moore_43 = {
 	name = Sarmon
@@ -22166,7 +22198,7 @@ Moore_43 = {
 		death = { death_reason = death_natural_causes }
 	}
 }
-Moore_44 = {
+Moore_44 = { # edited 06/28 slambroski
 	name = Vance
 	dynasty = dynn_Moore
 
@@ -22179,10 +22211,20 @@ Moore_44 = {
 	8085.1.1 = { birth = yes }
 	8104.1.1 = { trait = knight }
 	8105.1.1 = { add_spouse = Vance_Atranta_51 } # Rosey Vance of Atranta
-	8141.1.1 = {
-		trait = ill
-		death = { death_reason = death_ill }
+	8130.1.1 ={
+		trait = burned
+		add_trait_xp = {
+			trait = burned
+			value = trait_third_level
+		}
 	}
+	8130.6.1 = {
+		death = { death_reason = death_wounded_3 }
+	}
+	# 8141.1.1 = {
+	#	trait = ill
+	#	death = { death_reason = death_ill }
+	# }
 }
 ### Issue of Ben
 Moore_49 = {
