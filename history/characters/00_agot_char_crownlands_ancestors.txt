@@ -9623,7 +9623,7 @@ Hollard_24 = {
 	}
 	8140.1.1 = { death = yes }
 }
-Hollard_50 = {
+Hollard_50 = { # edited 06/28 slambroski
 	name = Harmon
 	dynasty = dynn_Hollard
 
@@ -9636,10 +9636,15 @@ Hollard_50 = {
 	8098.1.1 = { birth = yes }
 	8116.1.1 = { add_spouse = Dargood_52 } # Alora Dargood
 	8117.1.1 = { trait = knight }
-	8161.1.1 = {
-		trait = ill
-		death = { death_reason = death_ill }
+	8131.1.9 = {
+		death = {
+			death_reason = death_battle_kingsroad # Battle of the Kingsroad
+		}
 	}
+	# 8161.1.1 = {
+	#	trait = ill
+	#	death = { death_reason = death_ill }
+	# }
 }
 Hollard_51 = {
 	name = Salanna # married Wallace Belgrave
@@ -13660,7 +13665,7 @@ Harte_20 = {
 	}
 }
 ### Issue of Elwood
-Harte_21 = {
+Harte_21 = { # edited 06/28 slambroski
 	name = Denys # Canon, a lord
 	dynasty = dynn_Harte
 
@@ -13682,7 +13687,17 @@ Harte_21 = {
 		birth = yes
 		add_character_flag = canon_status_canon
 	}
-	8132.1.1 = { trait = knight }
+	8124.1.1 = {
+		effect = {
+			agot_set_as_ward_and_squire_history_effect = { KNIGHT = character:Mooton_36 } # Gaston Mooton
+		}
+	}
+	8132.1.1 = { 
+		effect = {
+			add_trait = knight
+			agot_knighted_char_history_effect = { KNIGHT = character:Mooton_36 } # Gaston Mooton
+		}
+	}
 	8144.1.1 = { add_spouse = Wallain_34 } # Arona Wallain
 	8158.1.1 = {
 		agot_safe_buy_schemer_perk_history_effect = yes
@@ -33890,7 +33905,7 @@ Branfield_36 = {
 	}
 }
 ### Issue of Leon
-Branfield_38 = {
+Branfield_38 = { # edited 06/28 slambroski
 	name = Alastor
 	dynasty = dynn_Branfield
 
@@ -33903,9 +33918,14 @@ Branfield_38 = {
 	8102.1.1 = { birth = yes }
 	8120.1.1 = { trait = knight }
 	8122.1.1 = { add_spouse = Hazeley_43 } # Rhaenys Hazeley
-	8165.1.1 = {
-		death = { death_reason = death_choked }
+	8131.1.9 = {
+		death = {
+			death_reason = death_battle_kingsroad # Battle of the Kingsroad
+		}
 	}
+	# 8165.1.1 = {
+	#	death = { death_reason = death_choked }
+	# }
 }
 Branfield_39 = {
 	name = Gerardys
@@ -46716,6 +46736,22 @@ Baxter_49 = {
 	8140.1.1 = { add_spouse = Common_75 } # Helly Common
 	8151.1.1 = {
 		death = { death_reason = death_hunting_accident }
+	}
+}
+Baxter_49_A = { # created 06/28 slambroski
+	name = Duncan
+	dynasty = dynn_Baxter
+
+	religion = fots_seven
+	culture = crownlander
+
+	father = Swygert_66
+	mother = Baxter_48
+
+	8111.6.1 = { birth = yes }
+	8128.1.1 = { trait = knight }
+	8156.1.1 = {
+		death = { death_reason = death_natural_causes }
 	}
 }
 ### Issue of Josua
@@ -59803,6 +59839,22 @@ Quince_39 = {
 	8135.1.1 = { trait = knight }
 	8146.1.1 = { add_spouse = Rambton_19 } # Valena Rambton
 	8179.1.1 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+Quince_39_A = { # created 06/28
+	name = Matrice
+	dynasty = dynn_Quince
+	female = yes 
+
+	religion = fots_seven
+	culture = crownlander
+
+	father = Barrett_86
+	mother = Quince_37
+
+	8121.1.1 = { birth = yes }
+	8165.1.1 = {
 		death = { death_reason = death_natural_causes }
 	}
 }
@@ -77762,8 +77814,9 @@ Fuller_54 = {
 	8125.1.1 = { birth = yes }
 	8172.1.1 = { death = yes }
 }
-Fuller_55 = {
-	name = name
+Fuller_55 = { # edited 06/28 slambroski
+	# name = name
+	name = Narbert
 	dynasty = dynn_Fuller
 
 	religion = fots_seven
