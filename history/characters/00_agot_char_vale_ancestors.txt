@@ -42906,9 +42906,11 @@ LynderlySC_1 = {
 	8109.4.9 = { death = yes }
 }
 ### Issue of Arlyn
-Lynderly_67 = {
+Lynderly_67 = { # edited 06/29 slambroski
 	name = Jasper # a lord
 	dynasty = dynn_Lynderly
+
+	stewardship = 5
 
 	religion = fots_seven
 	culture = valeman_finger
@@ -42916,9 +42918,25 @@ Lynderly_67 = {
 	father = Lynderly_66
 	mother = Woodhull_141
 
+	trait = education_stewardship_2
+	trait = education_martial_prowess_1
+
+	disallow_random_traits = yes
+
 	8073.1.1 = { birth = yes }
+	8086.1.1 = {
+		trait = wrathful
+		trait = greedy
+		trait = lustful
+	}
 	8089.1.1 = { trait = knight }
 	8102.1.1 = { add_spouse = Woodhull_143 } # Allyne Woodhull
+	8120.1.1 = {
+		trait = rakish
+		agot_safe_buy_avaricious_perk_history_effect = yes
+		trait = avaricious
+		trait = lifestyle_reveler
+	}
 	8141.1.1 = {
 		death = { death_reason = death_natural_causes }
 	}
@@ -42958,7 +42976,7 @@ Lynderly_82 = {
 	}
 }
 ### Issue of Jasper
-Lynderly_70 = {
+Lynderly_70 = { # edited 06/29 slambroski
 	name = Gylbert # a lord
 	dynasty = dynn_Lynderly
 
@@ -42968,14 +42986,24 @@ Lynderly_70 = {
 	father = Lynderly_67
 	mother = Woodhull_143
 
+	trait = education_intrigue_2
+	trait = education_martial_prowess_3
+
+	disallow_random_traits = yes 
+
 	8104.1.1 = { birth = yes }
+	8118.1.1 = {
+		trait = ambitious
+		trait = impatient
+		trait = callous
+	}
 	8122.1.1 = { trait = knight }
 	8124.1.1 = { add_spouse = Woodhull_70 } # Serella Woodhull
 	8148.1.1 = {
 		death = { death_reason = death_drank_to_death }
 	}
 }
-Lynderly_71 = {
+Lynderly_71 = { # edited 06/29 slambroski
 	name = Adrian
 	dynasty = dynn_Lynderly
 
@@ -42985,15 +43013,31 @@ Lynderly_71 = {
 	father = Lynderly_67
 	mother = Woodhull_143
 
+	trait = education_martial_2
+	trait = education_martial_prowess_2
+
+	disallow_random_traits = yes
+
 	8106.1.1 = { birth = yes }
-	8123.1.1 = { trait = knight }
-	8130.1.1 = { add_spouse = Elesham_71 } # Gwyneth Elesham
+	8118.1.1 = {
+		trait = impatient
+		trait = ambitious
+		trait = wrathful
+	}
+	8123.1.1 = { 
+		trait = knight 
+		trait = forest_fighter
+	}
+	8130.1.1 = { 
+		add_spouse = Elesham_71 
+		trait = scarred
+	} 
 	8167.1.1 = {
 		trait = gout_ridden
 		death = { death_reason = death_gout_ridden }
 	}
 }
-Lynderly_19 = {
+Lynderly_19 = { # edited 06/29 slambroski
 	name = Benedar # Semi-Canon
 	dynasty = dynn_Lynderly
 
@@ -43003,9 +43047,20 @@ Lynderly_19 = {
 	father = Lynderly_67
 	mother = Woodhull_143
 
+	trait = education_learning_2
+	trait = education_martial_prowess_1
+	trait = spindly
+
+	disallow_random_traits = yes
+
 	8107.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
+	}
+	8120.1.1 = {
+		trait = ambitious
+		trait = impatient
+		trait = zealous
 	}
 	8123.1.1 = { trait = knight }
 	8128.1.1 = { add_spouse = Pryor_19 } # Delanne Pryor
