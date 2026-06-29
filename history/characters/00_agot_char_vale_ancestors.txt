@@ -31529,7 +31529,7 @@ Belmore_52 = {
 	}
 }
 ### Issue of Robar
-Belmore_20 = {
+Belmore_20 = { # Edited, Cafe, 29/06
 	name = Elys # a lord
 	dynasty = dynn_Belmore
 
@@ -31538,6 +31538,15 @@ Belmore_20 = {
 
 	father = Belmore_52
 	mother = Landseer_32
+
+	trait = greedy
+	trait = impatient
+	trait = trusting
+
+	trait = education_learning_1
+	trait = education_martial_prowess_1
+
+	disallow_random_traits = yes
 
 	8086.1.1 = { birth = yes }
 	8104.1.1 = { add_spouse = Dutton_67 } # Lyra Dutton
@@ -31591,7 +31600,7 @@ Belmore_56 = {
 	8063.1.1 = { death = yes }
 }
 ### Issue of Elys
-Belmore_21 = {
+Belmore_21 = { # Edited, Cafe, 29/06
 	name = Ondros # Semi-Canon, a lord
 	dynasty = dynn_Belmore
 
@@ -31601,12 +31610,29 @@ Belmore_21 = {
 	father = Belmore_20
 	mother = Dutton_67
 
+	trait = brave
+	trait = callous
+	trait = just
+
+	trait = education_martial_3
+	trait = education_martial_prowess_3
+
+	disallow_random_traits = yes
+
 	8105.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
 	}
 	8121.1.1 = { trait = knight }
 	8126.1.1 = { add_spouse = Arryn_92 } # Cariah Arryn
+	8132.3.6 = {
+		effect = {
+			if = {
+				limit = { character:Arryn_84 = { is_alive = yes } }
+				set_relation_friend = character:Arryn_84 # Jeyne Arryn
+			}
+		}
+	}	
 	8193.1.1 = { death = yes }
 }
 Belmore_22 = {
@@ -31626,7 +31652,7 @@ Belmore_22 = {
 	}
 	8179.1.1 = { death = yes }
 }
-Belmore_37 = {
+Belmore_37 = { # Edited, Cafe, 29/06
 	name = Olryn # Semi-Canon, Night's Watch
 	dynasty = dynn_Belmore
 
@@ -31645,13 +31671,13 @@ Belmore_37 = {
 	}
 	8126.1.1 = { trait = knight }
 	8130.1.1 = { trait = fornicator }
-	8135.1.1 = {
+	8132.1.1 = {
 		trait = nightswatch_historical
 		effect = {
 			agot_join_nightswatch_history_effect = {
 				ORDER = steward
 				CASTLE = title:c_eastwatch
-				NW_JOIN_AGE = 25
+				NW_JOIN_AGE = 22
 			}
 		}
 	}
@@ -31660,7 +31686,7 @@ Belmore_37 = {
 		death = { death_reason = death_ill }
 	}
 }
-Belmore_23 = {
+Belmore_23 = { # Edited, Cafe, 29/06
 	name = Edryn # Semi-Canon
 	dynasty = dynn_Belmore
 
@@ -31670,12 +31696,26 @@ Belmore_23 = {
 	father = Belmore_20
 	mother = Dutton_67
 
+	trait = brave
+	trait = humble
+	trait = stubborn
+
+	trait = loyal
+
+	trait = education_martial_2
+	trait = education_martial_prowess_3
+
 	8115.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
 	}
-	8135.1.1 = {
+	8132.3.6 = {
 		trait = knight
+		effect = {
+			agot_knighted_char_history_effect = { KNIGHT = character:Tully_44 } # Kermit Tully 
+		}
+	}	
+	8135.1.1 = {
 		add_spouse = Selmy_34 # Brella Selmy
 	}
 	8178.1.1 = { death = yes }
