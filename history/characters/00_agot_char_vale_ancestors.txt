@@ -44460,7 +44460,7 @@ Hersy_43 = {
 	}
 }
 ### Issue of Henrietta
-Hersy_44 = {
+Hersy_44 = { # edited 06/29 slambroski
 	name = Luceon # a lord
 	dynasty = dynn_Hersy
 
@@ -44470,9 +44470,30 @@ Hersy_44 = {
 	father = Woodhull_161
 	mother = Hersy_43
 
+	trait = education_stewardship_3
+	
+	disallow_random_traits = yes 
+
 	8079.1.1 = { birth = yes }
+	8093.1.1 = {
+		trait = stubborn
+		trait = chaste
+		trait = honest
+	}
 	8096.1.1 = { add_spouse = Woodhull_56 } # Gretchel Woodhull
 	8097.1.1 = { trait = knight }
+	8125.1.1 = {
+		agot_safe_buy_architect_perk_history_effect = yes
+		trait = architect
+	}
+	8128.1.1 = {
+		effect = { # Steward
+			agot_appoint_as_councillor_for_castle_history_effect = {
+				CASTLE = title:e_the_vale
+				POSITION = councillor_steward
+			}
+		}
+	}
 	8140.1.1 = {
 		trait = ill
 		death = { death_reason = death_ill }
@@ -44595,7 +44616,7 @@ Hersy_52 = {
 	}
 }
 ### Issue of Luceon
-Hersy_45 = {
+Hersy_45 = { # edited 06/29 slambroski
 	name = Vance # a lord
 	dynasty = dynn_Hersy
 
@@ -44605,11 +44626,19 @@ Hersy_45 = {
 	father = Hersy_44
 	mother = Woodhull_56
 
+	trait = education_martial_prowess_3
 	trait = twin
 
 	8098.1.1 = { birth = yes }
-	8116.1.1 = { trait = knight }
+	8110.1.1 = {
+		trait = temperate
+	}
+	8116.1.1 = { 
+		trait = knight 
+		trait = unyielding_defender
+	}
 	8120.1.1 = { add_spouse = Elesham_66 } # Mysanna Elesham
+	8128.1.1 = { employer = Arryn_84 } # Jeyne Arryn
 	8141.1.1 = {
 		trait = pneumonic
 		death = { death_reason = death_pneumonic }
@@ -52623,7 +52652,7 @@ Woodhull_55 = {
 		death = { death_reason = death_ill }
 	}
 }
-Woodhull_56 = {
+Woodhull_56 = { # edited 06/29 slambroski
 	name = Gretchel # married Luceon Hersy
 	dynasty = dynn_Woodhull
 	female = yes
@@ -52637,6 +52666,9 @@ Woodhull_56 = {
 	trait = twin
 
 	8075.1.1 = { birth = yes }
+	8087.1.1 = {
+		trait = chaste
+	}
 	8139.1.1 = {
 		trait = ill
 		death = { death_reason = death_ill }
