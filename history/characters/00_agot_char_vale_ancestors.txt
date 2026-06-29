@@ -32377,9 +32377,12 @@ Egen_45 = {
 		death = { death_reason = death_fall }
 	}
 }
-Egen_46 = {
+Egen_46 = { # Edited, Cafe, 29/06
 	name = Arston # a lord
 	dynasty = dynn_Egen
+
+	learning = 5
+	prowess = 6
 
 	religion = fots_seven
 	culture = valeman_upper
@@ -32387,9 +32390,21 @@ Egen_46 = {
 	father = Butterwell_55
 	mother = Egen_44
 
+	trait = greedy
+	trait = arrogant
+	trait = rude
+
+	trait = education_martial_3
+	trait = education_martial_prowess_4
+
+	disallow_random_traits = yes
+
 	8079.1.1 = { birth = yes }
 	8095.1.1 = { trait = knight }
 	8108.1.1 = { add_spouse = Breakstone_37 } # Myra Breakstone
+	8132.3.6 = {
+		trait = lifestyle_blademaster			
+	}
 	8138.1.1 = {
 		death = { death_reason = death_natural_causes }
 	}
