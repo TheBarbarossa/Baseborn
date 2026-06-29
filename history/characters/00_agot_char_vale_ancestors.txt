@@ -12545,6 +12545,14 @@ Royce_39 = { # edited 06/29 slambroski
 		trait = profligate
 		trait = lifestyle_hunter
 	}
+	8132.3.6 = {
+		effect = {
+			if = {
+				limit = { character:Royce_36 ?= { is_alive = yes } }
+				set_designated_heir_unsafe = character:Royce_36 # Gunthor Royce
+			}
+		}
+	}	
 	8133.6.1 = {
 		#trait = winter_fever #winter fever AGOT TODO Trait
 		death = { death_reason = death_winter_fever } # Dead as of 134 AC
