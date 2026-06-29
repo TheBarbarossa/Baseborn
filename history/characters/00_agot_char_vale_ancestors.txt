@@ -14870,10 +14870,12 @@ Grafton_25 = {
 	8122.1.1 = { death = yes }
 }
 ### Issue of Dafyn
-Grafton_27 = {
+Grafton_27 = { # edited 06/28 slambroski
 	name = Gawen # Mentioned, a lord
 	dynasty = dynn_Grafton
 	dna = Grafton_27
+
+	intrigue = 6
 
 	religion = fots_seven
 	culture = valeman_main
@@ -14881,12 +14883,22 @@ Grafton_27 = {
 	father = Grafton_25
 	mother = ShettGT_32
 
+	trait = education_intrigue_2
+	trait = education_martial_prowess_1
+
 	8102.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_mentioned
 	}
-	8118.1.1 = { trait = knight }
+	8116.1.1 = {
+		trait = fickle
+		trait = vengeful
+		trait = trusting
+	}
+	8118.1.1 = { 
+		trait = knight 
+	}
 	8120.1.1 = { add_spouse = Branfield_44 } # Andorea Branfield
 	8135.6.1 = { effect = { add_gold = 600 } } # Money for mercenaries
 	8144.1.1 = { death = yes }
