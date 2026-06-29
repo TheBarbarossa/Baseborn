@@ -18101,9 +18101,12 @@ Melcolm_15 = {
 	8095.1.1 = { death = { death_reason = death_murder } }
 }
 ### Issue of Rolland
-Melcolm_16 = {
+Melcolm_16 = { # edited 06/29 slambroski
 	name = Uthor # a lord
 	dynasty = dynn_Melcolm
+
+	martial = 6
+	stewardship = 6
 
 	religion = fots_seven
 	culture = valeman_main
@@ -18111,8 +18114,30 @@ Melcolm_16 = {
 	father = Melcolm_15
 	mother = Hall_43
 
+	disallow_random_traits = yes 
+
+	trait = education_stewardship_3
+	trait = education_martial_prowess_2
+
 	8084.1.1 = { birth = yes }
-	8102.1.1 = { add_spouse = Bar_Emmon_93 } # Corenna Bar Emmon
+	8098.1.1 = {
+		trait = diligent
+		trait = brave
+		trait = forgiving
+	}
+	8102.1.1 = { 
+		add_spouse = Bar_Emmon_93 # Corenna Bar Emmon
+		trait = knight
+	} 
+	8129.1.1 = {
+		effect = { # Admiral
+			agot_appoint_as_councillor_for_castle_history_effect = {
+				CASTLE = title:e_the_vale
+				POSITION = councillor_admiral
+			}
+		}
+		trait = strategist
+	}
 	8142.1.1 = { death = yes }
 }
 Melcolm_17 = {
@@ -18423,7 +18448,7 @@ Melcolm_26 = {
 	}
 	8174.1.1 = { death = yes }
 }
-Melcolm_27 = {
+Melcolm_27 = { # edited 06/29 slambroski 
 	name = Nynia # Semi-Canon, married Tymos Rogers
 	dynasty = dynn_Melcolm
 	female = yes
@@ -18440,9 +18465,10 @@ Melcolm_27 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
 	}
+	8129.1.1 = { employer = Rogers_14 } # Alaric Rogers
 	8176.1.1 = { death = yes }
 }
-Melcolm_28 = {
+Melcolm_28 = { # edited 06/29 slambroski 
 	name = Barra # Semi-Canon, married Pearse Dondarrion
 	dynasty = dynn_Melcolm
 	female = yes
@@ -18459,9 +18485,10 @@ Melcolm_28 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
 	}
+	8132.1.1 = { employer = Dondarrion_20 } # Arlan Dondarrion
 	8181.1.1 = { death = yes }
 }
-Melcolm_41 = {
+Melcolm_41 = { # edited 06/29 slambroski
 	name = Daston # Semi-Canon
 	dynasty = dynn_Melcolm
 
@@ -18472,13 +18499,35 @@ Melcolm_41 = {
 	mother = Bar_Emmon_93
 
 	trait = education_martial_3
+	trait = education_marital_prowess_2
 	trait = twin
+
+	disallow_random_traits = yes 
 
 	8112.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
 	}
-	8128.1.1 = { trait = knight }
+	8126.1.1 = {
+		trait = impatient
+		trait = brave
+		trait = compassionate
+	}
+	8128.1.1 = { 
+		trait = knight 
+		trait = rough_terrain_expert
+	}
+	8130.1.1 = {
+		effect = {
+			if = {
+				limit = { character:Melcolm_26 = { is_alive = yes } }
+				set_relation_rival = {
+					target = character:Melcolm_26 # Jeron Melcolm
+					reason = rival_inter_heir_rivalry
+				}
+			}
+		}
+	}
 	8133.1.1 = {
 		effect = { # Master-at-arms at Saltpans Rise
 			agot_appoint_as_councillor_for_castle_history_effect = {
