@@ -12509,7 +12509,7 @@ Royce_38 = {
 	8111.1.1 = { death = { death_reason = death_childbirth } }
 }
 ### Issue of Perra, nephews to Rhea
-Royce_39 = {
+Royce_39 = { # edited 06/29 slambroski
 	name = Yorbert # Mentioned, a lord
 	dynasty = dynn_Royce
 
@@ -12519,11 +12519,27 @@ Royce_39 = {
 	father = Waxley_78
 	mother = Royce_38
 
+	trait = education_stewardship_1
+	trait = education_martial_prowess_2
+
+	give_nickname = nick_agot_historical_the_younger_Bywater_18
+
+	disallow_random_traits = yes 
+
 	8108.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
-	8124.1.1 = { trait = knight }
+	8120.1.1 = {
+		trait = arbitrary
+		trait = arrogant
+		trait = rude
+	}
+	8124.1.1 = { 
+		trait = knight 
+		trait = profligate
+		trait = lifestyle_hunter
+	}
 	8133.6.1 = {
 		#trait = winter_fever #winter fever AGOT TODO Trait
 		death = { death_reason = death_winter_fever } # Dead as of 134 AC
@@ -12578,7 +12594,7 @@ Royce_90 = {
 	}
 }
 ### Issue of Gunthor
-Royce_41 = {
+Royce_41 = { # edited 06/29 slambroski
 	name = Guncer # Semi-Canon, a lord
 	dynasty = dynn_Royce
 	dna = Royce_41
@@ -12589,15 +12605,18 @@ Royce_41 = {
 	father = Royce_36
 	mother = Upcliff_22
 
+	trait = physique_good_1
+
 	8089.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_semicanon
 	}
 	8105.1.1 = { add_spouse = Sunderland_23 } # Yenna Sunderland
+	8106.1.1 = { trait = knight }
 	8145.1.1 = { death = yes }
 }
-Royce_42 = {
+Royce_42 = { # edited 06/29 slambroski
 	name = Brandon # Semi-Canon
 	dynasty = dynn_Royce
 
@@ -12606,6 +12625,8 @@ Royce_42 = {
 
 	father = Royce_36
 	mother = Upcliff_22
+
+	trait = physique_good_1
 
 	8093.1.1 = {
 		birth = yes
@@ -12657,7 +12678,7 @@ Royce_44 = {
 	8163.1.1 = { death = yes }
 }
 ### Issue of Guncer
-Royce_45 = {
+Royce_45 = { # edited 06/29 slambroski
 	name = Andar # Semi-Canon, a lord
 	dynasty = dynn_Royce
 	dna = Royce_45
@@ -12668,12 +12689,17 @@ Royce_45 = {
 	father = Royce_41
 	mother = Sunderland_23
 
+	trait = physique_good_1
+
 	8109.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_semicanon
 	}
-	8125.1.1 = { add_spouse = Ruthermont_21 } # Ursula Ruthermont
+	8125.1.1 = { 
+		add_spouse = Ruthermont_21 # Ursula Ruthermont
+		trait = knight
+	 } 
 	8180.1.1 = { death = yes }
 }
 Royce_46 = {
@@ -12868,7 +12894,7 @@ Royce_51 = {
 	8136.1.1 = { trait = septon } # Septa
 	8187.1.1 = { death = yes }
 }
-Royce_52 = {
+Royce_52 = { # edited 06/29 slambroski
 	name = Falora # Semi-Canon, married Cendrick Errol
 	dynasty = dynn_Royce
 	female = yes
@@ -12878,6 +12904,8 @@ Royce_52 = {
 
 	father = Royce_42
 	mother = Redfort_23
+
+	trait = physique_good_1
 
 	8121.1.1 = {
 		birth = yes
