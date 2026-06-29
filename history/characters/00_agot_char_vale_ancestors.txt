@@ -15924,10 +15924,12 @@ Redfort_21 = {
 	}
 	8150.1.1 = { death = yes }
 }
-Redfort_22 = {
+Redfort_22 = { # edited 06/29 slambroski
 	name = Creighton # a lord
 	dynasty = dynn_Redfort
 	dna = Redfort_22
+
+	diplomacy = 6
 
 	religion = fots_seven
 	culture = valeman_upper
@@ -15935,12 +15937,34 @@ Redfort_22 = {
 	father = Redfort_20
 	mother = Marks_19
 
+	disallow_random_traits = yes
+
+	trait = education_diplomacy_3
+	trait = education_martial_prowess_2
+
 	8074.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 	}
+	8088.1.1 = {
+		trait = diligent
+		trait = patient
+		trait = just
+	}
 	8090.1.1 = { trait = knight }
 	8092.1.1 = { add_spouse = Waxley_72 } # Yve Waxley
+	8128.1.1 = {
+		agot_safe_buy_august_perk_history_effect = yes
+		trait = august
+	}
+	8129.1.1 = {
+		effect = { # Chancellor
+			agot_appoint_as_councillor_for_castle_history_effect = {
+				CASTLE = title:e_the_vale
+				POSITION = councillor_chancellor
+			}
+		}
+	}
 	8144.1.1 = { death = yes }
 }
 ### Issue of Creighton
@@ -15977,7 +16001,10 @@ Redfort_24 = { # edited 06/28 slambroski
 	father = Redfort_22
 	mother = Waxley_72
 
+	trait = education_learning_2 
 	trait = refusing_marriage
+
+	disallow_random_traits = yes 
 
 	8097.1.1 = {
 		birth = yes
@@ -15985,9 +16012,15 @@ Redfort_24 = { # edited 06/28 slambroski
 		add_character_flag = canon_status_canon
 		add_character_flag = sexuality_ensure_homosexual
 	}
+	8112.1.1 = {
+		trait = generous
+		trait = diligent
+		trait = calm
+	}
+	8118.1.1 = { employer = Arryn_84 } # Jeyne Arryn
 	8144.1.1 = { death = yes }
 }
-Redfort_25 = {
+Redfort_25 = { # edited 06/29 slambroski
 	name = Jon # a lord
 	dynasty = dynn_Redfort
 	dna = Redfort_25
@@ -16003,6 +16036,7 @@ Redfort_25 = {
 		make_trait_inactive = scripted_appearance
 	}
 	8118.1.1 = { add_spouse = Donnerly_40 } # Rylene Donnerly
+	8122.1.1 = { trait = knight }
 	8146.1.1 = { death = yes }
 }
 Redfort_26 = {
