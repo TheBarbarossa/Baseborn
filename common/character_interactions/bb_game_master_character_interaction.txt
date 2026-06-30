@@ -418,31 +418,31 @@ bbgm_spawn_army = {
     }
 
     send_option = {
-		localization = "Archers"
+		localization = bowmen
 		flag = bbgm_spawn_army_archers
     }
     send_option = {
-		localization = "Crossbowmen"
+		localization = crossbowmen
 		flag = bbgm_spawn_army_crossbowmen
     }
     send_option = {
-		localization = "Pikemen"
+		localization = pikemen_unit
 		flag = bbgm_spawn_army_pikemen
     }
     send_option = {
-		localization = "Light Infantry"
+		localization = light_footmen
 		flag = bbgm_spawn_army_light_inf
     }
     send_option = {
-		localization = "Heavy Infantry"
+		localization = armored_footmen
 		flag = bbgm_spawn_army_heavy_inf
     }
     send_option = {
-		localization = "Light Cavalry"
+		localization = light_horsemen
 		flag = bbgm_spawn_army_light_cav
     }
     send_option = {
-		localization = "Heavy Cavalry"
+		localization = armored_horsemen
 		flag = bbgm_spawn_army_heavy_cav
     }
     on_send = {
@@ -457,7 +457,7 @@ bbgm_spawn_army = {
                             inheritable = no
                         }
                         location = capital_province
-                        name = "Game Master Archers"
+                        name = bbgm_army_archers
                     }
                 }
             }
@@ -470,7 +470,7 @@ bbgm_spawn_army = {
                             inheritable = no
                         }
                         location = capital_province
-                        name = "Game Master Crossbowmen"
+                        name = bbgm_army_crossbowmen
                     }
                 }
             }
@@ -483,7 +483,7 @@ bbgm_spawn_army = {
                             inheritable = no
                         }
                         location = capital_province
-                        name = "Game Master Pikemen"
+                        name = bbgm_army_pikemen
                     }
                 }
             }
@@ -496,7 +496,7 @@ bbgm_spawn_army = {
                             inheritable = no
                         }
                         location = capital_province
-                        name = "Game Master Light Infantry"
+                        name = bbgm_army_light_inf
                     }
                 }
             }
@@ -504,12 +504,12 @@ bbgm_spawn_army = {
                 scope:recipient = {
                     spawn_army = {
                         men_at_arms = {
-                            type = heavy_infantry
+                            type = armored_footmen
                             men = 50
                             inheritable = no
                         }
                         location = capital_province
-                        name = "Game Master Heavy Infantry"
+                        name = bbgm_army_heavy_inf
                     }
                 }
             }
@@ -517,12 +517,12 @@ bbgm_spawn_army = {
                 scope:recipient = {
                     spawn_army = {
                         men_at_arms = {
-                            type = light_cavalry
+                            type = light_horsemen
                             men = 50
                             inheritable = no
                         }
                         location = capital_province
-                        name = "Game Master Light Cavalry"
+                        name = bbgm_army_light_cav
                     }
                 }
             }
@@ -530,12 +530,12 @@ bbgm_spawn_army = {
                 scope:recipient = {
                     spawn_army = {
                         men_at_arms = {
-                            type = heavy_cavalry
+                            type = armored_horsemen
                             men = 50
                             inheritable = no
                         }
                         location = capital_province
-                        name = "Game Master Heavy Cavalry"
+                        name = bbgm_army_heavy_cav
                     }
                 }
             }
@@ -608,6 +608,7 @@ bbgm_spawn_money = {
     desc = bbgm_spawn_money_desc
     ignores_pending_interaction_block = yes
 	common_interaction = yes
+    auto_accept = yes
 
     is_shown = {
         scope:actor = {
@@ -618,19 +619,19 @@ bbgm_spawn_money = {
     }
 
     send_option = {
-		localization = "1000"
+		localization = bbgm_spawn_money_1000
 		flag = bbgm_spawn_money_1000
     }
     send_option = {
-		localization = "500"
+		localization = bbgm_spawn_money_500
 		flag = bbgm_spawn_money_500
     }
     send_option = {
-		localization = "100"
+		localization = bbgm_spawn_money_100
 		flag = bbgm_spawn_money_100
     }
     send_option = {
-		localization = "50"
+		localization = bbgm_spawn_money_50
 		flag = bbgm_spawn_money_50
     }
     on_send = {
