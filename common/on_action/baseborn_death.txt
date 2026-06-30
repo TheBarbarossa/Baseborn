@@ -1,0 +1,24 @@
+﻿# Created, Robin, 30/06
+on_death = {
+	on_actions = {
+		bb_c9_royce_succession
+	}
+}
+
+bb_c9_royce_succession = {
+	trigger = {
+		this = character:Royce_36
+		character:Royce_39 = { is_alive = yes }
+		character:Royce_41 = { is_alive = yes }
+		NOT = {
+			character:Royce_39 = {
+				any_child = {
+					is_alive = yes
+				}
+			}
+		}
+	}
+	effect = {
+		character:Royce_39 = { trigger_event = bb_c9_events.0001 }
+	}
+}

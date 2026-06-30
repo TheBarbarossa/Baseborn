@@ -1,0 +1,29 @@
+﻿namespace = bb_c9_events
+
+bb_c9_events.0001 = {
+	type = character_event
+	title = bb_c9_events.0001.t
+	desc = bb_c9_events.0001.desc
+
+	theme = claim_throne_scheme
+	override_background = agot_weirwood
+	widget = { gui = event_window_widget_vfx_godray container = foreground_shader_vfx_container }
+	
+	left_portrait = {
+		animation = chancellor
+		character = character:Royce_39 # Yorbert
+	}
+	lower_center_portrait = character:Royce_36 # Gunthor
+	right_portrait = {
+		character = character:Royce_41 # Guncer
+		animation = admiral
+	}
+
+	option = {
+		name = bb_c9_events.0001.a
+		set_designated_heir_unsafe = character:Royce_41
+	}
+	option = {
+		name = bb_c9_events.0001.b
+	}
+}
