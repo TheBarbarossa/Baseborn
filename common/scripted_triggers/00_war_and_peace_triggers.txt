@@ -280,6 +280,27 @@ can_use_conquest_cbs_trigger = {
 	NOT = { government_has_flag = government_is_uninteractable }
 }
 
+can_be_warrior_trigger_no_dragon = { #Added by Brad 01/07/2026
+	OR = {
+	is_adult = yes
+	AND = { 
+			is_male = yes
+			age >= 14
+			}
+			}
+	NOT = { has_trait = maester }
+	OR = {
+		can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = $ARMY_OWNER$ }
+		AND = {
+			$ARMY_OWNER$.culture = {
+				has_cultural_parameter = high_prowess_ignores_knight_restrictions
+			}
+			prowess >= 12
+		}
+		has_trait = education_martial_prowess
+	}
+}
+
 can_be_warrior_trigger = {
 	is_available_quick = {
 		#AGOT Disabled
@@ -287,6 +308,7 @@ can_be_warrior_trigger = {
 		imprisoned = no
 		incapable = no
 	}
+
 	#AGOT Modified
 	# tgp_is_ceremonial_liege_trigger = no
 	# OR = {
@@ -425,6 +447,13 @@ can_be_commander_basic_trigger = {
 		incapable = no
 		hostage = no
 	}
+	
+	OR{
+		age >= 14 # Added by Brad 01/07/2026
+	}
+
+	is_lowborn = no # added by Brad 01/07/2026
+
 	NAND = {
 		is_clergy = yes
 		NOR = {
@@ -446,14 +475,6 @@ can_be_commander_basic_trigger = {
 		highest_held_title_tier < tier_hegemony
 	}
 
-	#AGOT Added
-	OR = {
-		is_adult = yes
-		AND = {
-			age >= 14
-			is_current_dragonrider_warfare = yes
-		}
-	}
 	OR = {
 		is_ai = yes
 		AND = {
@@ -482,6 +503,12 @@ can_be_commander_now_trigger = {
 		travel = no
 	}
 
+	OR {
+		age >= 14 # Added by Brad
+	}
+
+	is_lowborn = no # added by Brad 01/07/2026
+
 	OR = { # You can always lead your own armies
 		this = $ARMY_OWNER$
 		can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = $ARMY_OWNER$ }
@@ -506,13 +533,6 @@ can_be_commander_now_trigger = {
 	}
 
 	#AGOT Added
-	OR = {
-		is_adult = yes
-		AND = {
-			age >= 14
-			is_current_dragonrider_warfare = yes
-		}
-	}
 	trigger_if = {
 		limit = { is_ai = yes }
 		NOT = { has_trait = pregnant }
