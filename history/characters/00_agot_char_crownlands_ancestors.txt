@@ -81313,3 +81313,28 @@ Hazeley_60 = {
 		death = { death_reason = death_accident }
 	}
 }
+
+###### Lowborn Sellswords
+############################
+###
+###
+The_Loyal_1 = { # created 07/01 slambroski
+	name = Lambert
+
+	religion = fots_seven
+	culture = crownlander
+
+	trait = education_martial_prowess_2
+	trait = lunatic_1
+	trait = loyal
+
+	8098.1.1 = { birth = yes }
+	8130.12.25 = {
+		trait = knight
+		agot_knighted_char_history_effect = { KNIGHT = character:Truefyre_1 } # Trystane Truefyre
+		effect = {
+			agot_create_personal_coa_for_historical_ai = { ACTOR = character:The_Loyal_1 COA_KEY = lambert_the_loyal_personal_coa }
+		}
+		give_nickname = nick_the_loyal 
+	}
+}
