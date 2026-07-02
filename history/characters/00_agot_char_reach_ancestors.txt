@@ -214298,7 +214298,7 @@ Many_Flowers_1 = { # created 07/01 slambroski
 	religion = fots_seven
 	culture = reachman
 
-	trait = education_martial_prowess_2
+	trait = education_martial_prowess_3
 	trait = disputed_heritage
 	trait = deceitful
 
@@ -214313,4 +214313,26 @@ Many_Flowers_1 = { # created 07/01 slambroski
 		}
 	}
 	8140.1.1 = { death = yes }
+}
+Green_Petal_1 = { # created 07/01 slambroski
+	name = Gordan
+
+	religion = fots_seven
+	culture = reachman
+
+	trait = education_martial_prowess_3
+
+	8093.1.1 = { birth = yes }
+	8114.1.1 = {
+		trait = knight
+		give_nickname = nick_agot_historical_green_petal 
+		effect = {
+			agot_create_personal_coa_for_historical_ai = { ACTOR = character:Green_Petal_1 COA_KEY = green_petal_personal_coa }
+		}
+	}
+	8130.1.1 = {
+		trait = one_handed
+	}
+	8131.1.1 = { employer = Staedmon_16 } # Alyn Staedmon 
+	8135.1.1 = { death = yes }
 }
