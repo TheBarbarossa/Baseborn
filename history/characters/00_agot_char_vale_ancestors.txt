@@ -123096,3 +123096,34 @@ Yates_50 = {
 		death = { death_reason = death_accident }
 	}
 }
+
+###### Lowborn Sellswords
+############################
+###
+###
+The_Reborn_1 = { # created 07/01 slambroski
+	name = Robar
+
+	religion = fots_oldnew
+	culture = valeman_main
+
+	trait = education_martial_prowess_2
+	trait = physique_good_2
+	trait = inquisitive
+
+	8096.1.1 = { birth = yes }
+	8122.1.1 = { trait = knight }
+	8130.1.1 = {
+		trait = burned
+		add_trait_xp = {
+			trait = burned
+			value = trait_third_level
+		}
+		give_nickname = nick_agot_historical_the_reborn
+		effect = {
+			agot_create_personal_coa_for_historical_ai = { ACTOR = character:The_Reborn_1 COA_KEY = the_reborn_personal_coa }
+		}
+	}
+	8131.1.1 = { employer = Lynderly_67 } # Jasper Lynderly
+	8137.1.1 = { death = yes }
+}
