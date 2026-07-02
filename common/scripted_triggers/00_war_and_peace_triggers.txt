@@ -283,11 +283,11 @@ can_use_conquest_cbs_trigger = {
 can_be_warrior_trigger_no_dragon = { #Added by Brad 01/07/2026
 	OR = {
 	is_adult = yes
-	AND = { 
+		AND = { 
 			is_male = yes
 			age >= 14
-			}
-			}
+		}
+	}
 	NOT = { has_trait = maester }
 	OR = {
 		can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = $ARMY_OWNER$ }
@@ -501,7 +501,6 @@ can_be_commander_now_trigger = {
 	}
 
 	age >= 14 # Added by Brad 01/07/2026
-
 	is_lowborn = no # Added by Brad 01/07/2026
 
 	OR = { # You can always lead your own armies
