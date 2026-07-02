@@ -56185,8 +56185,9 @@ Sarsfield_65 = {
 		death = { death_reason = death_cancer }
 	}
 }
-Sarsfield_66 = {
-	name = Hathur
+Sarsfield_66 = { # edited 07/01 slambroski
+	# name = Hathur
+	name = Garrison
 	dynasty = dynn_Sarsfield
 
 	religion = fots_seven
@@ -56195,8 +56196,17 @@ Sarsfield_66 = {
 	father = Sarsfield_40
 	mother = Plumm_54
 
+	trait = education_martial_prowess_3
+
 	8114.1.1 = { birth = yes }
-	8132.1.1 = { trait = knight }
+	8132.1.1 = { 
+		trait = knight 
+		give_nickname = nick_agot_historical_green_arrow
+		effect = {
+			agot_create_personal_coa_for_historical_ai = { ACTOR = character:Sarsfield_66 COA_KEY = green_arrow_personal_coa }
+		}
+		employer = Reyne_27 # Red Bertrand Reyne
+	}
 	8159.1.1 = {
 		death = { death_reason = death_accident }
 	}
