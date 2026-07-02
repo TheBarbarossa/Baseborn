@@ -42471,7 +42471,7 @@ Grimm_62 = {
 		death = { death_reason = death_cancer }
 	}
 }
-Grimm_63 = {
+Grimm_63 = { # edited 07/02 slambroski
 	name = Willam
 	dynasty = dynn_Grimm
 
@@ -42481,8 +42481,22 @@ Grimm_63 = {
 	father = Grimm_60
 	mother = Hewett_51
 
+	trait = education_martial_prowess_2
+	trait = colorblind
+
 	8089.1.1 = { birth = yes }
-	8108.1.1 = { trait = knight }
+	8108.1.1 = { 
+		trait = knight 
+		trait = tourney_participant
+		give_nickname = nick_agot_historical_the_grey
+		effect = {
+			agot_create_personal_coa_for_historical_ai = { ACTOR = character:Grimm_63 COA_KEY = the_grey_personal_coa }
+		}
+	}
+	8120.1.1 = { 
+		employer = Oakheart_27  # Omer Oakheart
+		trait = lifestyle_hunter
+	}
 	8158.1.1 = {
 		death = { death_reason = death_natural_causes }
 	}
