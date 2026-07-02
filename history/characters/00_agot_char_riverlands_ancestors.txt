@@ -138875,3 +138875,33 @@ Weeping_9 = {
 		death = { death_reason = death_heart_attack }
 	}
 }
+
+###### Lowborn Sellswords
+############################
+###
+###
+The_Squirrel_1 = { # created 07/01 slambroski
+	name = Ollidar
+	
+	religion = fots_seven
+	culture = riverman_main
+
+	trait = education_martial_prowess_3
+	trait = spindly
+	trait = agile
+	trait = craven
+
+	8101.1.1 = { birth = yes }
+	8122.1.1 = {
+		trait = knight
+		give_nickname = nick_agot_historical_the_squirrel
+		effect = {
+			agot_create_personal_coa_for_historical_ai = { ACTOR = character:The_Squirrel_1 COA_KEY = the_squirrel_personal_coa }
+		}
+	}
+	8130.6.1 = { 
+		employer = Rosby_22 # Haric Rosby
+		trait = lifestyle_blademaster
+	} 
+	8139.1.1 = { death = yes }
+}
