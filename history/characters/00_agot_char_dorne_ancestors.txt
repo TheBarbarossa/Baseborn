@@ -6008,7 +6008,7 @@ Toland_19 = {
 	8117.1.1 = { death = yes }
 }
 ### Issue of Branston
-Toland_20 = {
+Toland_20 = { # edited 07/02 slambroski
 	name = Trebor
 	dynasty = dynn_Toland
 
@@ -6024,6 +6024,7 @@ Toland_20 = {
 	}
 	8094.1.1 = { trait = knight }
 	8098.1.1 = { add_spouse = Shell_Dorne_41 } # Nella Shell
+	8132.1.1 = { employer = Toland_41 } # Talfryn Toland
 	8145.1.1 = { death = yes }
 }
 ### Issue of Elric
@@ -6084,7 +6085,7 @@ Toland_25 = {
 	8168.1.1 = { death = yes }
 }
 ### Issue of Trebor
-Toland_21 = {
+Toland_21 = { # edited 07/02 slambroski
 	name = Mors
 	dynasty = dynn_Toland
 
@@ -6094,12 +6095,20 @@ Toland_21 = {
 	father = Toland_20
 	mother = Shell_Dorne_41
 
+	trait = education_martial_prowess_3
+	trait = inquisitive
+
 	8100.1.1 = {
 		birth = yes
 		make_trait_inactive = light_red_hair
 	}
 	8116.1.1 = { trait = knight }
-	8133.1.1 = { add_spouse = Shell_Dorne_83 } # Myriah Shell
+	8129.1.1 = {
+		trait = lifestyle_traveler
+		give_nickname = nick_agot_historical_the_wanderer
+		employer = Grafton_27 # Gawen Grafton
+	}
+	# 8133.1.1 = { add_spouse = Shell_Dorne_83 } # Myriah Shell
 	8168.1.1 = { death = yes }
 }
 ### Issue of Doran
