@@ -138905,3 +138905,22 @@ The_Squirrel_1 = { # created 07/01 slambroski
 	} 
 	8139.1.1 = { death = yes }
 }
+Pious_Poul_1 = { # created 07/01 slambroski
+	name = Poul
+
+	religion = fots_seven
+	culture = riverman_main
+
+	trait = education_martial_2
+	trait = zealous
+
+	8110.1.1 = { birth = yes }
+	8130.1.1 = {
+		trait = knight 
+		give_nickname = nick_agot_historical_pious
+		effect = {
+			agot_create_personal_coa_for_historical_ai = { ACTOR = character:Pious_Poul_1 COA_KEY = pious_poul_personal_coa }
+		}
+	}
+	8131.1.1 = { employer = Tarbeck_18 } # Tion Tarbeck
+}
