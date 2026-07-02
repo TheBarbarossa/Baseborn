@@ -55988,7 +55988,7 @@ Chyttering_51 = {
 		death = { death_reason = death_fire }
 	}
 }
-Chyttering_52 = {
+Chyttering_52 = { # edited 07/02 slambroski
 	name = Harrold
 	dynasty = dynn_Chyttering
 
@@ -55998,8 +55998,18 @@ Chyttering_52 = {
 	father = Crowell_57
 	mother = Chyttering_48
 
+	trait = education_martial_prowess_3
+	trait = ambidextrous
+
 	8108.1.1 = { birth = yes }
-	8127.1.1 = { trait = knight }
+	8127.1.1 = { 
+		trait = knight 
+		give_nickname = nick_agot_historical_lightlance
+		effect = {
+			agot_create_personal_coa_for_historical_ai = { ACTOR = character:Chyttering_52 COA_KEY = harrold_chyttering_personal_coa }
+		}
+	}
+	8132.1.1 = { employer = Fell_30 } # Armond Fell
 	8134.1.1 = { add_spouse = Lambert_81 } # Andria Lambert
 	8175.1.1 = {
 		death = { death_reason = death_natural_causes }
