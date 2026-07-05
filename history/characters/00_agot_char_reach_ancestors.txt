@@ -10526,7 +10526,7 @@ Hightower_96 = {
 		}
 	}
 }
-Hightower_97 = {
+Hightower_97 = { # edited 07/05 slambroski
 	name = Alicent # Canon, THE Alicent Hightower, Queen of Seven Kingdoms, married Viserys Targaryen
 	dynasty = dynn_Hightower
 	female = yes
@@ -10573,6 +10573,25 @@ Hightower_97 = {
 		}
 	}
 	8131.1.14 = { trait = depressed_1 } # Death of her last son
+	8131.2.1 = { # Confined to her chambers in Maegor's Holdfast
+		effect = {
+			agot_safe_imprison_in_castle_history_effect = {
+				CASTLE = title:h_the_iron_throne
+				RELEASE_DATE = 9999.1.1
+				TYPE = house_arrest
+			}
+		}
+		effect = {
+			if = {
+				limit = { character:Targaryen_78 = { is_alive = yes } }
+				add_opinion = {
+					modifier = hate_opinion
+					target = character:Targaryen_78 # Aegon III
+					opinion = -150
+				}
+			}
+		}
+	}
 	8133.6.1 = {
 		#trait = winter_fever AGOT TODO Trait
 		death = { death_reason = death_winter_fever }
