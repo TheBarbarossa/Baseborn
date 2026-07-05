@@ -1568,7 +1568,7 @@ Martell_65 = { # Dance of the Dragons
 	}
 	8132.1.1 = { death = yes }
 }
-Martell_66 = {
+Martell_66 = { # edited 07/05 slambroski
 	name = Arianne # Mentioned, witnessed Great Council 101 AC
 	dynasty_house = house_Martell
 	female = yes
@@ -1580,11 +1580,17 @@ Martell_66 = {
 	father = Martell_64
 	mother = Blackmont_103
 
+	trait = education_diplomacy_3
+	trait = calm
+
 	8084.1.1 = {
 		birth = yes
 		make_trait_inactive = black_hair
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_mentioned
+	}
+	8100.1.1 = {
+		trait = refusing_marriage
 	}
 	8152.1.1 = { death = yes }
 }
@@ -1647,7 +1653,7 @@ Martell_87 = {
 	8128.1.1 = { add_spouse = Toland_26 } # Tamsyn Toland
 	8129.1.1 = { death = { death_reason = death_attacked } } # Pirates in Stepstones
 }
-Martell_69 = {
+Martell_69 = { # edited 07/05 slambroski
 	name = Aliandra # Canon, a lord
 	dynasty_house = house_Martell
 	female = yes
@@ -1662,6 +1668,7 @@ Martell_69 = {
 
 	religion = fots_seven
 	culture = salt_dornish
+	sexuality = heterosexual
 
 	father = Martell_65
 	mother = Allyrion_25
@@ -1680,6 +1687,7 @@ Martell_69 = {
 		make_trait_inactive = scripted_appearance
 		make_trait_inactive = black_hair
 		add_character_flag = canon_status_canon
+		add_character_flag = sexuality_ensure_heterosexual
 	}
 	8130.1.1 = { trait = lustful }
 	8134.1.1 = { add_matrilineal_spouse = Rogare_3 } # Drazenko Rogare
