@@ -216506,3 +216506,29 @@ Barrowstark_15 = {
 
 	8237.1.1 = { birth = yes }
 }
+
+###### Lowborn Sellswords
+############################
+###
+###
+The_Northman_Sellsword_1 = { # created 07/05 slambroski
+	name = Hareth
+
+	religion = old_gods_wnw
+	culture = northman
+
+	trait = education_martial_prowess_2
+	trait = permanent_scowl
+	trait = brave
+
+	8099.1.1 = { birth = yes }
+	8130.6.1 = {
+		trait = scarred
+		employer = Frey_120
+		give_nickname = nick_agot_historical_the_northman
+		effect = {
+			agot_create_personal_coa_for_historical_ai = { ACTOR = character:The_Northman_Sellsword_1 COA_KEY = the_northman_personal_coa }
+		}
+	}
+	8135.1.1 = { death = yes }
+}
