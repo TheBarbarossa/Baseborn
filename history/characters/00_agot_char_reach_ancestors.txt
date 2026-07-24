@@ -48322,7 +48322,7 @@ Oakheart_26 = {
 	}
 }
 ### Issue of Denys
-Oakheart_27 = {
+Oakheart_27 = { #edited by BoomBler 24.7.2026
 	name = Omer # Mentioned, a lord, son of Lord Oakheart who courted Rhaenyra
 	dynasty = dynn_Oakheart
 	dna = Oakheart_27
@@ -48332,6 +48332,15 @@ Oakheart_27 = {
 
 	father = Oakheart_25
 	mother = Addey_57
+
+	trait = education_martial_1
+	trait = education_prowess_2
+
+	trait = arrogant
+	trait = ambitious
+	trait = impatient
+
+	disallow_random_traits = yes
 
 	8088.1.1 = {
 		birth = yes
@@ -48433,7 +48442,7 @@ Oakheart_29 = {
 	8156.1.1 = { death = yes }
 }
 ### Issue of Omer
-Oakheart_40 = {
+Oakheart_40 = { #edited by BoomBler 24.7.2026
 	name = Olyvar
 	dynasty = dynn_Oakheart
 	dna = Oakheart_40
@@ -48449,9 +48458,14 @@ Oakheart_40 = {
 		make_trait_inactive = scripted_appearance
 	}
 	8129.2.1 = { trait = knight }
-	8130.1.20 = { death = { death_reason = death_battle } } # Battle of Honeywine
+	8130.1.20 = {
+		death = {
+			death_reason = death_battle_dragon_fire # Battle of Honeywine
+			killer = Targaryen_68 # Daeron the Daring
+		}
+	}
 }
-Oakheart_41 = {
+Oakheart_41 = { #edited by BoomBler 24.7.2026
 	name = Arthor
 	dynasty = dynn_Oakheart
 	dna = Oakheart_41
@@ -48471,10 +48485,15 @@ Oakheart_41 = {
 			agot_set_as_ward_and_squire_history_effect = { KNIGHT = character:Oakheart_40 } # Olyvar Oakheart
 		}
 	}
-	8130.3.28 = { death = { death_reason = death_battle } }
+	8130.1.20 = {
+		death = {
+			death_reason = death_battle_dragon_fire # Battle of Honeywine
+			killer = Targaryen_68 # Daeron the Daring
+		}
+	}
 }
 ### Issue of Torgen
-Oakheart_30 = {
+Oakheart_30 = { #edited by BoomBler 24.7.2026
 	name = Arys # a lord
 	dynasty = dynn_Oakheart
 	dna = Oakheart_30
@@ -48484,6 +48503,16 @@ Oakheart_30 = {
 
 	father = Oakheart_28
 	mother = Whitewood_34
+
+	trait = education_martial_3
+	trait = education_martial_prowess_3
+
+	trait = brave
+	trait = cynical
+	trait = gregarious
+	trait = scarred
+	
+	disallow_random_traits = yes
 
 	8110.1.1 = {
 		birth = yes
