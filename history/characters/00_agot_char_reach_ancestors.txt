@@ -12459,7 +12459,7 @@ Florent_39 = {
 		death = { death_reason = death_battle } # Second Battle of Tumbleton
 	}
 }
-Florent_40 = {
+Florent_40 = { #edited by BoomBler 24.7.2026
 	name = Daven # Semi-Canon
 	dynasty = dynn_Florent
 
@@ -12468,6 +12468,15 @@ Florent_40 = {
 
 	father = Florent_37
 	mother = Rowan_79
+
+	trait = education_stewardship_3
+	trait = education_martial_prowess_3
+
+	trait = arrogant
+	trait = authoritative
+	trait = lazy
+
+	disallow_random_traits = yes
 
 	8087.1.1 = {
 		birth = yes
@@ -12750,16 +12759,27 @@ Florent_63 = {
 	8190.1.1 = { death = yes }
 }
 ### Issue of Ryam
-Florent_46 = { # Conquest of Dorne
+Florent_46 = { # Conquest of Dorne, edited by BoomBler 24.7.2026
 	name = Darell # Semi-Canon, a lord
 	dynasty = dynn_Florent
 	dna = Florent_46
+
+	diplomacy = 6
 
 	religion = fots_seven
 	culture = honeywiner
 
 	father = Florent_39
 	mother = Redwyne_71
+
+	trait = education_diplomacy_3
+	trait = education_martial_prowess_2
+
+	trait = lazy
+	trait = gregarious
+	trait = cynical
+
+	disallow_random_traits = yes
 
 	8106.1.1 = {
 		birth = yes
@@ -12770,7 +12790,7 @@ Florent_46 = { # Conquest of Dorne
 	8130.1.1 = { add_spouse = Frey_119 } # Selerra Frey
 	8175.1.1 = { death = yes }
 }
-Florent_47 = {
+Florent_47 = { #edited by BoomBler 24.7.2026
 	name = Aleyn # Semi-Canon, a Kingsguard, Oft called 'Foxglove'
 	dynasty = dynn_Florent
 	dna = Florent_47
@@ -12814,6 +12834,10 @@ Florent_47 = {
 		}
 	}
 	8128.1.1 = { employer = Tarly_27 } # Alan Tarly
+	8132.1.1 = {
+        trait = refusing_marriage
+        effect = { add_character_modifier = training_for_kingsguard }
+    }	
 	8140.1.8 = {
 		effect = {
 			agot_join_kingsguard_char_history_effect = { # Predecessor: Triston Tarly
@@ -12857,6 +12881,15 @@ Florent_49 = {
 
 	father = Florent_39
 	mother = Redwyne_71
+
+	trait = education_martial_2
+	trait = education_martial_prowess_3
+
+	trait = brave
+	trait = honest
+	trait = generous
+
+	disallow_random_traits = yes
 
 	8115.1.1 = {
 		birth = yes
@@ -49566,17 +49599,28 @@ Fossoway_34 = {
 	8108.1.1 = { birth = yes }
 	8140.1.1 = { death = yes }
 }
-Fossoway_35 = {
+Fossoway_35 = { # edited by BoomBler 24.7.2026
 	name = Jancia # Semi-Canon, married a Loras Tyrell and Emmyn Tyrell
 	dynasty = dynn_Fossoway
 	female = yes
 	dna = Fossoway_35
+
+	diplomacy = 5
+	stewardship = 5
 
 	religion = fots_seven
 	culture = reachman
 
 	father = Fossoway_31
 	mother = Vyrwel_50
+
+	trait = education_diplomacy_4
+
+	trait = patient
+	trait = diligent
+	trait = temperate
+
+	disallow_random_traits = yes
 
 	8111.1.1 = {
 		birth = yes
@@ -49591,15 +49635,26 @@ Fossoway_35 = {
 	}
 	8165.1.1 = { death = yes }
 }
-Fossoway_36 = {
+Fossoway_36 = { # edited by BoomBler 24.7.2026
 	name = Oswell # Semi-Canon, a lord
 	dynasty = dynn_Fossoway
+
+	diplomacy = 6
 
 	religion = fots_seven
 	culture = reachman
 
 	father = Fossoway_31
 	mother = Vyrwel_50
+
+	trait = education_diplomacy_3
+	trait = education_martial_prowess_2
+
+	trait = sadistic
+	trait = gregarious
+	trait = patient
+
+	disallow_random_traits = yes
 
 	8114.1.1 = {
 		birth = yes
@@ -49612,15 +49667,25 @@ Fossoway_36 = {
 		death = { death_reason = death_ill }
 	}
 }
-Fossoway_38 = {
+Fossoway_38 = { # edited by BoomBler 24.7.2026
 	name = Raymun # Semi-Canon, a lord
 	dynasty = dynn_Fossoway
+
+	prowess = 6
 
 	religion = fots_seven
 	culture = reachman
 
 	father = Fossoway_31
 	mother = Vyrwel_50
+
+	trait = rowdy
+	trait = brave
+	trait = impatient
+	trait = arrogant
+	trait = scarred
+
+	disallow_random_traits = yes
 
 	8117.1.1 = {
 		birth = yes
@@ -49632,7 +49697,7 @@ Fossoway_38 = {
 	}
 	8184.1.1 = { death = yes }
 }
-Fossoway_39 = {
+Fossoway_39 = { # edited by BoomBler 24.7.2026
 	name = Mathis # Semi-Canon, Matthis Fossoway, AKA: Appleseed
 	dynasty = dynn_Fossoway
 
@@ -49646,6 +49711,11 @@ Fossoway_39 = {
 	trait = education_martial_2
 	trait = education_martial_prowess_2
 	trait = fecund
+	trait = lustful
+	trait = gregarious
+	trait = gluttonous
+
+	disallow_random_traits = yes
 
 	8120.1.1 = {
 		birth = yes
@@ -68577,8 +68647,22 @@ Vyrwel_58 = {
 	father = Vyrwel_49
 	mother = CraneHK_30
 
+	trait = education_diplomacy_3
+
+	trait = patient
+	trait = just
+	trait = diligent
+
+	disallow_random_traits = yes
+
 	8103.1.1 = { birth = yes }
 	8123.1.1 = { add_matrilineal_spouse = Conklyn_90 } # Andris Conklyn
+	8132.1.1 = {
+		effect = {
+			if = {
+				limit = { character:Fossoway_35 = { is_alive = yes } }
+				set_relation_friend = character:Fossoway_35 # Jancia Fossoway
+			}}}
 	8142.1.1 = {
 		death = { death_reason = death_choked }
 	}
