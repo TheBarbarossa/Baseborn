@@ -88754,9 +88754,24 @@ Ball_67 = {
 	father = Ball_65
 	mother = Verge_61
 
+	trait = education_martial_3
+	trait = education_martial_prowess_3
+
+	trait = brave
+	trait = impatient
+	trait = wrathful
+
 	8093.1.1 = { birth = yes }
 	8112.1.1 = { trait = knight }
 	8116.1.1 = { add_spouse = Ambellan_40 } # Berena Ambellan
+	8132.1.1 = {
+		effect = {
+			if = {
+				limit = { character:Payne_45 = { is_alive = yes } }
+				set_relation_rival = character:Payne_45 # Lyonel Tyrell
+			}
+		}
+	}
 	8149.1.1 = {
 		death = { death_reason = death_treatment }
 	}
