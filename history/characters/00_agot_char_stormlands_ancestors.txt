@@ -18923,9 +18923,12 @@ Mertyns_25 = {
 	8171.1.1 = { death = yes }
 }
 ### Issue of Arstan
-Mertyns_26 = {
+Mertyns_26 = { # edited by BoomBler 24.7.2026
 	name = Garse # Semi-Canon, a lord
 	dynasty = dynn_Mertyns
+
+	diplomacy = 9
+	prowess = 6
 
 	religion = fots_seven
 	culture = stormlander_main
@@ -18934,6 +18937,7 @@ Mertyns_26 = {
 	mother = Addey_58
 
 	trait = education_diplomacy_4
+	trait = education_martial_prowess_3
 	trait = intellect_good_1
 
 	8112.1.1 = {
@@ -18970,7 +18974,8 @@ Mertyns_50 = { # Edited, Cafe, 19/06
 	name = Jarmyn # Semi-Canon
 	dynasty = dynn_Mertyns
 
-	prowess = 5
+	prowess = 6
+	martial = 6
 
 	religion = fots_seven
 	culture = stormlander_main
@@ -18980,9 +18985,9 @@ Mertyns_50 = { # Edited, Cafe, 19/06
 	trait = bastard
 
 	trait = education_martial_3
-	trait = arbitrary
+	trait = impatient
 	trait = diligent
-	trait = eccentric
+	trait = calm
 	trait = education_martial_prowess_3
 
 	8113.1.1 = {
@@ -18992,6 +18997,9 @@ Mertyns_50 = { # Edited, Cafe, 19/06
 	}
 	8128.1.1 = { add_spouse = Brownhollow_22 } # Amylla Brune
 	8129.1.1 = { trait = knight }
+	8132.1.1 = {
+		employer = Caron_23 # Royce Caron
+	}
 	8140.1.1 = {
 		effect = { # Captain of the Guard at Mistwood
 			agot_appoint_as_court_position_for_castle_history_effect = {
@@ -19040,6 +19048,13 @@ Mertyns_29 = {
 	father = Mertyns_22
 	mother = Addey_58
 
+	trait = education_learning_2
+	trait = education_martial_prowess_2
+	trait = arbitrary
+	trait = diligent
+	trait = eccentric
+	trait = scarred
+
 	8115.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
@@ -19072,11 +19087,23 @@ Mertyns_24 = {
 	name = Andar # Semi-Canon
 	dynasty = dynn_Mertyns
 
+	prowess = 0
+
 	religion = fots_seven
 	culture = stormlander_main
 
 	father = Mertyns_23
 	mother = Fell_19
+
+	trait = education_martial_2
+	trait = education_martial_prowess_1
+
+	trait = brave
+	trait = impatient
+	trait = arrogant
+	trait = depressed_1
+	trait = scarred
+	trait = maimed
 
 	8116.1.1 = {
 		birth = yes
@@ -20275,31 +20302,54 @@ Morrigen_42 = {
 	}
 }
 ### Issue of Donal
-Morrigen_43 = {
+Morrigen_43 = { # edited by BoomBler 24.7.2026
 	name = Lynella # married Jon Wylde
 	dynasty = dynn_Morrigen
 	female = yes
 
+	intrigue = 6
+
 	religion = fots_seven
 	culture = stormlander_main
 
 	father = Morrigen_42
 	mother = Herston_45
 
+	trait = education_intrigue_3
+	trait = brave
+	trait = ambitious
+	trait = deceitful
+
 	8116.1.1 = { birth = yes }
+		8132.1.2 = {
+		effect = {
+			if = {
+				limit = { character:Morrigen_44 = { is_alive = yes } }
+				set_relation_rival = character:Morrigen_44 # Durran Morrigen
+			}
+		}}
 	8156.1.1 = {
 		death = { death_reason = death_stress }
 	}
 }
-Morrigen_44 = {
+Morrigen_44 = { # edited by BoomBler 24.7.2026
 	name = Durran # a lord
 	dynasty = dynn_Morrigen
+
+	martial = 5
+	prowess = 4
 
 	religion = fots_seven
 	culture = stormlander_main
 
 	father = Morrigen_42
 	mother = Herston_45
+
+	trait = authoritative
+	trait = just
+	trait = compassionate
+	
+	disallow_random_traits = yes
 
 	8119.1.1 = { birth = yes }
 	8138.1.1 = { trait = knight }
