@@ -5139,10 +5139,13 @@ Redwyne_35 = {
 	}
 	8132.1.1 = { death = yes }
 }
-Redwyne_36 = { # Dance of the Dragons
+Redwyne_36 = { # Dance of the Dragons, edited by BoomBler 24.7.2026
 	name = Runcel # Mentioned, a lord, kin to Hightowers, friend of Lyonel Hightower
 	dynasty = dynn_Redwyne
 	dna = Redwyne_36
+
+	diplomacy = 8
+	intrigue = 8
 
 	religion = fots_seven
 	culture = vineman
@@ -5150,7 +5153,13 @@ Redwyne_36 = { # Dance of the Dragons
 	father = Redwyne_34
 	mother = Hightower_93
 
+	trait = education_intrigue_3
+
 	trait = gregarious
+	trait = deceitful
+	trait = generous
+
+	disallow_random_traits = yes
 
 	8102.1.1 = {
 		birth = yes
@@ -5166,7 +5175,7 @@ Redwyne_36 = { # Dance of the Dragons
 	}
 }
 ### Issue of Runcel
-Redwyne_37 = {
+Redwyne_37 = { #edited by BoomBler 24.7.2026
 	name = Patricia # Canon, hoped to wed a king, married Simon Leygood
 	dynasty = dynn_Redwyne
 	female = yes
@@ -5193,9 +5202,16 @@ Redwyne_37 = {
 		make_trait_inactive = scripted_appearance
 		add_character_flag = canon_status_canon
 	}
+	8132.1.1 = {
+		trait = lifestyle_hunter
+		add_trait_xp = {
+			trait = lifestyle_hunter
+			track = hunter
+			value = trait_third_level}
+	}
 	8175.1.1 = { death = yes }
 }
-Redwyne_38 = {
+Redwyne_38 = { #edited by BoomBler 24.7.2026
 	name = Reynard # a lord
 	dynasty = dynn_Redwyne
 	dna = Redwyne_38
@@ -5205,6 +5221,12 @@ Redwyne_38 = {
 
 	father = Redwyne_36
 	mother = Beesbury_28
+
+	trait = rowdy
+	trait = callous
+	trait = stubborn
+
+	disallow_random_traits = yes
 
 	8120.1.1 = {
 		birth = yes
