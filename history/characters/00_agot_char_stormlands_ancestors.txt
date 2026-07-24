@@ -10676,7 +10676,7 @@ Errol_29 = {
 	8101.1.1 = { birth = yes }
 	8152.1.1 = { death = yes }
 }
-Errol_68 = {
+Errol_68 = { # edited by BoomBler 24.7.2026
 	name = Falena # married Willem Wylde then Gawen Wylde
 	dynasty = dynn_Errol
 	female = yes
@@ -10688,6 +10688,9 @@ Errol_68 = {
 	mother = Hasty_16_B
 
 	trait = physique_bad_1
+	trait = ambitious
+	trait = diligent
+	trait = callous
 
 	8104.1.1 = { birth = yes }
 	8133.5.1 = {
@@ -30920,7 +30923,7 @@ Wylde_29 = {
 		death = { death_reason = death_battle_kingsroad } # Battle of the Kingsroad
 	}
 }
-Wylde_30 = {
+Wylde_30 = { # edited by BoomBler 24.7.2026
 	name = Gawen # Mentioned, third child, a lord
 	dynasty = dynn_Wylde
 
@@ -30929,6 +30932,13 @@ Wylde_30 = {
 
 	father = Wylde_27
 	mother = Grandison_57
+
+	trait = education_diplomacy_2
+	trait = education_martial_prowess_1
+
+	trait = gluttonous
+	trait = patient
+	trait = callous
 
 	8103.1.1 = {
 		birth = yes
@@ -31193,7 +31203,7 @@ Wylde_42 = {
 	}
 	8159.1.1 = { death = yes }
 }
-Wylde_43 = {
+Wylde_43 = { # Edited by BoomBler 24.7.2026
 	name = Casper # Mentioned, sixteenth child
 	dynasty = dynn_Wylde
 
@@ -31203,11 +31213,38 @@ Wylde_43 = {
 	father = Wylde_27
 	mother = Kellington_87
 
+	trait = education_intrigue_4
+	trait = education_martial_prowess_3
+
+	trait = ambitious
+	trait = sadistic
+	trait = deceitful
+
 	8116.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 	8132.1.1 = { trait = knight }
+	8132.1.2 = {
+		effect = {
+			if = {
+				limit = { character:Wylde_30 = { is_alive = yes } }
+				set_relation_rival = character:Wylde_30 # Gawen Wylde
+			}
+		}
+			effect = {
+			if = {
+				limit = { character:Wylde_36 = { is_alive = yes } }
+				set_relation_rival = character:Wylde_36 # Jon Wylde
+			}
+		}
+			effect = {
+			if = {
+				limit = { character:Wylde_37 = { is_alive = yes } }
+				set_relation_rival = character:Wylde_37 # Oscar Wylde
+			}
+		}
+	}
 	8133.1.1 = {
 		death = {
 			death_reason = death_battle
@@ -31523,7 +31560,7 @@ Wylde_111 = {
 	}
 }
 ### Issue of Gawen, third child of Jasper, all dead of winter fever
-Wylde_112 = {
+Wylde_112 = { # edited by BoomBler 24.7.2026
 	name = Jasper
 	dynasty = dynn_Wylde
 
@@ -31532,6 +31569,11 @@ Wylde_112 = {
 
 	father = Wylde_30
 	mother = Toyne_45
+
+	trait = charming
+	trait = gregarious
+	
+	disallow_random_traits = yes
 
 	8123.1.1 = { birth = yes }
 	8133.6.1 = {
