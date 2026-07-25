@@ -29400,7 +29400,7 @@ Drumm_38 = {
 	}
 }
 ### Issue of Marlon
-Drumm_39 = {
+Drumm_39 = { # edited 07/25 slambroski
 	name = Regnar # Mentioned, a lord
 	dynasty = dynn_Drumm
 
@@ -29410,11 +29410,23 @@ Drumm_39 = {
 	father = Drumm_37
 	mother = Kenning_74
 
+	trait = education_martial_prowess_3
+	trait = education_martial_2
+	trait = stubborn
+	trait = patient
+	trait = zealous
+
+	disallow_random_traits = yes 
+
 	8064.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 	8086.1.1 = { add_spouse = Tidewood_92 } # Maeva Tidewood
+	8120.1.1 = {
+		agot_safe_buy_strategist_perk_history_effect = yes
+		trait = strategist
+	}
 	8134.5.1 = {
 		death = {
 			death_reason = death_execution
@@ -29423,7 +29435,7 @@ Drumm_39 = {
 	}
 }
 ### Issue of Regnar
-Drumm_40 = {
+Drumm_40 = { # edited 07/25 slambroski
 	name = Cromm # a lord
 	dynasty = dynn_Drumm
 
@@ -29433,6 +29445,8 @@ Drumm_40 = {
 	father = Drumm_39
 	mother = Tidewood_92
 
+	trait = craven
+
 	8090.1.1 = { birth = yes }
 	8107.1.1 = { add_spouse = Myre_78 } # Maeva Myre
 	8111.1.1 = { trait = dull }
@@ -29441,7 +29455,7 @@ Drumm_40 = {
 	}
 }
 ### Issue of Cromm
-Drumm_41 = {
+Drumm_41 = { # edited 07/25 slambroski
 	name = Ulf # a lord
 	dynasty = dynn_Drumm
 
@@ -29450,6 +29464,9 @@ Drumm_41 = {
 
 	father = Drumm_40
 	mother = Myre_78
+
+	trait = education_martial_prowess_2
+	trait = impatient
 
 	8108.1.1 = { birth = yes }
 	8134.1.1 = { add_spouse = Freeborn_69 } # Jorelle Freeborn
