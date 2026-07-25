@@ -1,0 +1,776 @@
+﻿#Historical, Custom Models
+agot_create_artifact_vs_dawn_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_illustrious = yes
+	create_artifact = {
+		name = vs_dawn_name
+		visuals = vs_dawn_visuals
+		description = vs_dawn_description
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = vs_dawn_template
+		history = {
+			type = created_before_history
+			date = 50.1.1
+		}
+		modifier = vs_dawn_modifier
+		save_scope_as = newly_created_artifact
+		decaying = no
+	}
+	scope:newly_created_artifact ?= {
+		if = {
+			limit = {
+				scope:owner = { has_character_flag = is_sword_of_morning }
+			}
+			equip_artifact_to_owner_replace = yes
+		}
+		set_variable = {
+			name = valyrian_steel
+			value = yes
+		}
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Dayne.dynasty_founder.house
+		}
+		agot_add_artifact_history = { # Sword of the Morning
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 4751.1.1
+			RECIPIENT = character:Dayne_15
+		}
+		agot_add_artifact_history = { # Sword of the Morning
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7281.1.1
+			RECIPIENT = character:Dayne_17
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = given
+			DATE = 7305.1.1
+			RECIPIENT = character:Dayne_94
+		}
+		agot_add_artifact_history = { # Sword of the Morning
+			ARTIFACT = this
+			TYPE = given
+			DATE = 7309.1.1
+			RECIPIENT = character:Dayne_18
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7355.1.1
+			RECIPIENT = character:Dayne_19
+		}
+		agot_add_artifact_history = { # Sword of the Morning
+			ARTIFACT = this
+			TYPE = given
+			DATE = 7855.1.1
+			RECIPIENT = character:Dayne_20
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7870.1.1
+			RECIPIENT = character:Dayne_21
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7910.1.1
+			RECIPIENT = character:Dayne_22
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7935.1.1
+			RECIPIENT = character:Dayne_23
+		}
+		agot_add_artifact_history = { # Sword of the Morning
+			ARTIFACT = this
+			TYPE = given
+			DATE = 7956.1.1
+			RECIPIENT = character:Dayne_24
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7977.1.1
+			RECIPIENT = character:Dayne_31
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8004.7.5
+			RECIPIENT = character:Dayne_33
+		}
+		agot_add_artifact_history = { # Sword of the Morning
+			ARTIFACT = this
+			TYPE = given
+			DATE = 8013.4.9
+			RECIPIENT = character:Dayne_32
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8058.4.6
+			RECIPIENT = character:Dayne_34
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8076.1.1
+			RECIPIENT = character:Dayne_35
+		}
+		agot_add_artifact_history = { # Sword of the Morning
+			ARTIFACT = this
+			TYPE = given
+			DATE = 8086.1.1
+			RECIPIENT = character:Dayne_36
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8112.1.1
+			RECIPIENT = character:Dayne_37
+		}
+		agot_add_artifact_history = { # Sword of the Morning
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8150.1.1
+			RECIPIENT = character:Dayne_59
+		}
+		agot_add_artifact_history = { # Sword of the Morning
+			ARTIFACT = this
+			TYPE = conquest
+			DATE = 8157.7.11
+			RECIPIENT = character:Chester_16
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8160.12.8
+			RECIPIENT = character:Dayne_62
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8184.1.1
+			RECIPIENT = character:Dayne_66
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8187.1.1
+			RECIPIENT = character:Dayne_67
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8204.1.1
+			RECIPIENT = character:Dayne_71
+		}
+		agot_add_artifact_history = { # Sword of the Morning
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8221.1.1
+			RECIPIENT = character:Dayne_72
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8265.1.1
+			RECIPIENT = character:Dayne_73
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8272.1.1
+			RECIPIENT = character:Dayne_1
+		}
+		agot_add_artifact_history = { # Sword of the Morning
+			ARTIFACT = this
+			TYPE = given
+			DATE = 8276.1.1
+			RECIPIENT = character:Dayne_5
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = given
+			DATE = 8283.10.20
+			RECIPIENT = character:Dayne_4
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8283.11.1
+			RECIPIENT = character:Dayne_3
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8296.1.1
+			RECIPIENT = character:Dayne_7
+		}
+	}
+}
+
+agot_create_artifact_bobby_hammer_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	$CREATOR$ = {
+		save_scope_as = creator
+	}
+	set_artifact_rarity_masterwork = yes
+	create_artifact = {
+		name = bobby_hammer_name
+		creator = $CREATOR$
+		visuals = bobby_hammer_visuals
+		description = bobby_hammer_description
+		type = hammer
+		wealth = scope:wealth
+		quality = scope:quality
+		template = bobby_hammer_template
+		history = {
+			type = created
+			date = 8280.1.1
+			recipient = character:Baratheon_2
+			location = province:4439
+			actor = scope:creator
+		}
+		modifier = bobby_hammer_modifier
+		save_scope_as = newly_created_artifact
+		decaying = no
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+	}
+}
+
+agot_create_artifact_bobby_hammer_cooler_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	$CREATOR$ = {
+		save_scope_as = creator
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = bobby_hammer_name
+		creator = $CREATOR$
+		visuals = bobby_hammer_visuals
+		description = bobby_hammer_cooler_description
+		type = hammer
+		wealth = scope:wealth
+		quality = scope:quality
+		template = bobby_hammer_template
+		history = {
+			type = created
+			date = 8280.1.1
+			recipient = character:Baratheon_2
+			location = province:4439
+			actor = scope:creator
+		}
+		modifier = bobby_hammer_cooler_modifier
+		save_scope_as = newly_created_artifact
+		decaying = no
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+	}
+}
+
+agot_create_artifact_emoBoy_sword_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_masterwork = yes
+	create_artifact = {
+		name = emoBoy_sword_name
+		description = emoBoy_sword_description
+		visuals = emoBoy_sword_visuals
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = emoBoy_sword_template
+		history = {
+			type = created
+			date = 8275.6.1
+			recipient = character:Targaryen_3
+		}
+		modifier = emoBoy_sword_modifier
+		save_scope_as = newly_created_artifact
+		decaying = no
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = emoBoy_sword_artifact
+			value = yes
+		}
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+	}
+}
+
+agot_create_artifact_bumblin_sword_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_masterwork = yes
+	create_artifact = {
+		name = bumblin_sword_name
+		description = bumblin_sword_description
+		visuals = bumblin_sword_visuals
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = bumblin_sword_template
+		history = {
+			type = created
+			date = 65.1.1
+			recipient = character:Beesbury_8
+			location = province:3601
+		}
+		modifier = bumblin_sword_modifier
+		save_scope_as = newly_created_artifact
+		decaying = no
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7847.1.1
+			RECIPIENT = character:Beesbury_10
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7878.1.1
+			RECIPIENT = character:Beesbury_11
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7906.1.1
+			RECIPIENT = character:Beesbury_12
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7938.1.1
+			RECIPIENT = character:Beesbury_17
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7953.1.1
+			RECIPIENT = character:Beesbury_58
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7976.1.1
+			RECIPIENT = character:Beesbury_65
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7985.1.1
+			RECIPIENT = character:Beesbury_66
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8024.1.1
+			RECIPIENT = character:Beesbury_67
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8060.1.1
+			RECIPIENT = character:Beesbury_19
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8076.1.1
+			RECIPIENT = character:Beesbury_21
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8129.3.4
+			RECIPIENT = character:Beesbury_27
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8130.2.1
+			RECIPIENT = character:Beesbury_35
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8180.1.1
+			RECIPIENT = character:Beesbury_39
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8218.1.1
+			RECIPIENT = character:Beesbury_47
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8258.1.1
+			RECIPIENT = character:Beesbury_1
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8296.1.1
+			RECIPIENT = character:Beesbury_2
+		}
+	}
+}
+
+agot_create_artifact_dennecent_axe_effect = {
+	# Get the character the artifact is being made for.
+	$OWNER$ = { save_scope_as = owner }
+
+	set_artifact_rarity_famed = yes
+
+	# Create the artifact
+	create_artifact = {
+		name = dennecent_axe_name
+		description = dennecent_axe_description
+		type = axe
+		visuals = dennecent_axe_visuals
+		wealth = scope:wealth
+		quality = scope:quality
+		template = dennecent_axe_template
+		modifier = dennecent_axe_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+
+	scope:newly_created_artifact = {
+		set_variable = { name = historical_unique_artifact value = yes }
+		set_variable = {
+			name = artifact_succession_title
+			value = title:c_bronzeaxe
+		}
+		equip_artifact_to_owner_replace = yes
+	}
+}
+
+#Historical, Generic Models
+agot_create_artifact_maekar_mace_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	$CREATOR$ = {
+		save_scope_as = creator
+	}
+	set_artifact_rarity_masterwork = yes
+	create_artifact = {
+		name = maekar_mace_name
+		creator = $CREATOR$
+		visuals = maekar_mace_visuals
+		description = maekar_mace_description
+		type = mace
+		wealth = scope:wealth
+		quality = scope:quality
+		template = maekar_mace_template
+		history = {
+			type = created
+			date = 8192.1.1
+			recipient = character:Targaryen_110
+			location = province:4151
+			actor = scope:creator
+		}
+		modifier = maekar_mace_modifier
+		save_scope_as = newly_created_artifact
+		decaying = no
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+	}
+}
+
+agot_create_artifact_bloodraven_longbow_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	save_scope_value_as = { # Needed to avoid errors with feature groups we don't use
+		name = bow_type
+		value = flag:artifact_bow_type_longbow
+	}
+	# Create the artifact
+	create_artifact = {
+		name = bloodraven_longbow_name
+		description = bloodraven_longbow_description
+		visuals = weirwood_longbow_visuals
+		type = longbow
+		wealth = scope:wealth
+		quality = scope:quality
+		template = weirwood_longbow_template
+		history = {
+			type = created
+			date = 8184.1.1 # Year he got greensight trait
+			recipient = character:Targaryen_96
+			location = province:1686
+		}
+		modifier = bloodraven_longbow_modifier
+		save_scope_as = newly_created_artifact
+		decaying = no
+	}
+	scope:newly_created_artifact ?= {
+		set_variable = {
+			name = bloodraven_longbow_artifact
+			value = yes
+		}
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+	}
+}
+
+agot_create_artifact_redbeard_axe_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_illustrious = yes
+	create_artifact = {
+		name = redbeard_axe_name
+		visuals = redbeard_axe_visuals
+		description = redbeard_axe_description
+		type = axe
+		wealth = scope:wealth
+		quality = scope:quality
+		template = redbeard_axe_template
+		history = {
+			type = created
+			date = 8220.1.1
+			recipient = character:Forester_15
+			location = province:5754
+		}
+		modifier = redbeard_axe_modifier
+		save_scope_as = newly_created_artifact
+		decaying = no
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = redbeard_axe_artifact
+			value = yes
+		}
+		save_scope_value_as = {
+			name = redbeard_axe_artifact
+			value = yes
+		}
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8226.9.9
+			RECIPIENT = character:Kingsblood_1
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8230.1.1
+			RECIPIENT = character:Kingsblood_2
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8252.1.1
+			RECIPIENT = character:Kingsblood_3
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8278.1.1
+			RECIPIENT = character:Kingsblood_4
+		}
+		if = {
+			limit = {
+				current_date > 8226.9.9
+			}
+			set_variable = {
+				name = traditional_house_owner
+				value = dynasty:dynn_Forester.dynasty_founder.house
+			}
+		}
+	}
+}
+
+#Generic
+agot_create_artifact_kingsguard_sword_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_masterwork = yes
+	create_artifact = {
+		name = kingsguard_sword_name
+		description = kingsguard_sword_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		modifier = kingsguard_sword_modifier
+		save_scope_as = newly_created_artifact
+		decaying = no
+	}
+	scope:newly_created_artifact ?= {
+		if = {
+			limit = {
+				scope:owner = {
+					NOT = {
+						any_equipped_character_artifact = {
+							artifact_slot_type = primary_armament
+							OR = {
+								rarity = illustrious
+								rarity = famed
+								rarity = masterwork
+							}
+						}
+					}
+				}
+			}
+			equip_artifact_to_owner_replace = yes
+		}
+		set_variable = {
+			name = kingsguard_sword_artifact
+			value = yes
+		}
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+	}
+}
+
+agot_create_artifact_dothraki_bow_effect = {
+	$OWNER$ = { save_scope_as = owner }
+	set_artifact_rarity_masterwork = yes
+
+	save_scope_value_as = { # Needed to avoid errors with feature groups we don't use
+		name = bow_type
+		value = flag:artifact_bow_type_composite
+	}
+	# Create the artifact
+	create_artifact = {
+		name = agot_artifact_dothraki_bow_name
+		description = agot_artifact_dothraki_bow_desc
+		type = bow
+		modifier = dothraki_bow_modifier
+		visuals = dothraki_bow_visuals
+		wealth = scope:wealth
+		quality = scope:quality
+		save_scope_as = newly_created_artifact
+	}
+
+	scope:newly_created_artifact = { # For bow artifact, has required features
+		# set_artifact_feature_group = bow_wood
+		# set_artifact_feature_group = bow_string
+		save_scope_as = epic
+	}
+}
+
+agot_create_artifact_weirwood_longbow_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_masterwork = yes
+	save_scope_value_as = { # Needed to avoid errors with feature groups we don't use
+		name = bow_type
+		value = flag:artifact_bow_type_longbow
+	}
+	# Create the artifact
+	create_artifact = {
+		name = weirwood_longbow_name
+		description = weirwood_longbow_description
+		visuals = weirwood_longbow_visuals
+		type = longbow
+		wealth = scope:wealth
+		quality = scope:quality
+		template = weirwood_longbow_template
+		modifier = weirwood_longbow_modifier
+		save_scope_as = newly_created_artifact
+		decaying = no
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = weirwood_longbow_artifact
+			value = yes
+		}
+	}
+}
+
+agot_create_artifact_dragonbone_longbow_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_masterwork = yes
+	save_scope_value_as = { # Needed to avoid errors with feature groups we don't use
+		name = bow_type
+		value = flag:artifact_bow_type_longbow
+	}
+	# Create the artifact
+	create_artifact = {
+		name = dragonbone_longbow_name
+		description = dragonbone_longbow_description
+		visuals = dragonbone_longbow_visuals
+		type = longbow
+		wealth = scope:wealth
+		quality = scope:quality
+		template = dragonbone_longbow_template
+		modifier = dragonbone_longbow_modifier
+		save_scope_as = newly_created_artifact
+		decaying = no
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = dragonbone_longbow_artifact
+			value = yes
+		}
+	}
+}
