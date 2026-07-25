@@ -14794,7 +14794,7 @@ Harlaw_82 = {
 		death = { death_reason = death_scuffle_with_soldiers }
 	}
 }
-Harlaw_42 = {
+Harlaw_42 = { # edited 07/25 slambroski
 	name = Maron # Mentioned, a lord
 	dynasty = dynn_Harlaw
 
@@ -14805,12 +14805,28 @@ Harlaw_42 = {
 	mother = Weaver_30
 
 	trait = twin
+	trait = education_martial_1
+	trait = education_martial_prowess_3
+	trait = vengeful
+	trait = paranoid
+	trait = authoritative
+
+	disallow_random_traits = yes 
 
 	8083.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 	8101.1.1 = { add_spouse = Netley_38 } # Gertrud Netley
+	8124.1.1 = {
+		trait = reclusive
+	}
+	8124.2.1 = {
+		trait = lunatic_1
+		give_nickname = nick_agot_historical_mad_Tyrell_78
+		agot_safe_buy_overseer_perk_history_effect = yes
+		trait = overseer
+	}
 	8134.5.1 = {
 		death = {
 			death_reason = death_execution
@@ -14872,7 +14888,7 @@ Harlaw_84 = {
 	}
 }
 ### Issue of Maron
-Harlaw_43 = {
+Harlaw_43 = { # edited 07/25 slambroski
 	name = Euron # a lord
 	dynasty = dynn_Harlaw
 
@@ -14882,9 +14898,26 @@ Harlaw_43 = {
 	father = Harlaw_42
 	mother = Netley_38
 
+	trait = education_martial_prowess_2
+	trait = brave
+
 	8105.1.1 = { birth = yes }
 	8129.1.1 = { add_spouse = Warrens_28 } # Nolla Warrens
 	8163.1.1 = { death = yes }
+}
+Harlaw_43_B = { # created 07/25 slambroski
+	name = Meredyth
+	dynasty = dynn_Harlaw
+	female = yes 
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Harlaw_42
+	mother = Netley_38
+
+	8113.1.1 = { birth = yes }
+	8158.1.1 = { death = yes }
 }
 ### Issue of Euron
 Harlaw_44 = {
