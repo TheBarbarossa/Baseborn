@@ -15912,7 +15912,7 @@ Beesbury_29 = {
 	}
 	8173.1.1 = { death = yes }
 }
-Beesbury_35 = { # Conquest of Dorne
+Beesbury_35 = { # Conquest of Dorne, edited by BoomBler 26.7.2026
 	name = Joslon # Semi-Canon, a lord
 	dynasty = dynn_Beesbury
 
@@ -15923,6 +15923,15 @@ Beesbury_35 = { # Conquest of Dorne
 	father = Beesbury_27
 	mother = Hightower_95 # Lynett Hightower
 
+	trait = education_stewardship_3
+	trait = education_martial_prowess_2
+
+	trait = vengeful
+	trait = lustful
+	trait = stubborn
+
+	disallow_random_traits = yes
+
 	8109.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
@@ -15932,6 +15941,14 @@ Beesbury_35 = { # Conquest of Dorne
 	8124.1.1 = { trait = fornicator }
 	8125.1.1 = { trait = knight }
 	8129.1.1 = { add_spouse = Parren_12 } # Dorna Parren
+	8132.1.1 = {
+		effect = {
+			if = {
+				limit = { character:Hightower_102 = { is_alive = yes } }
+				set_relation_rival = character:Hightower_102 # Lyonel Hightower
+			}
+		}
+	}
 	8180.1.1 = { death = yes }
 }
 Beesbury_30 = {
@@ -19323,7 +19340,7 @@ Costayne_65 = {
 	8180.1.1 = { death = yes }
 }
 ### Issue of Owen
-Costayne_24 = {
+Costayne_24 = { # edited by BoomBler 26.7.2026
 	name = Jonnel # Semi-Canon, Jonel Costayne, a lord
 	dynasty = dynn_Costayne
 
@@ -19334,6 +19351,15 @@ Costayne_24 = {
 	father = Costayne_22
 	mother = Peake_44
 
+	trait = education_martial_2
+	trait = education_martial_prowess_2
+
+	trait = brave
+	trait = wrathful
+	trait = fickle
+
+	disallow_random_traits = yes
+
 	8098.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
@@ -19342,6 +19368,16 @@ Costayne_24 = {
 	}
 	8114.1.1 = { trait = knight }
 	8127.1.1 = { add_spouse = Crane_28 } # Dalla Crane
+	8132.1.1 = {
+		effect = {
+			if = {
+				limit = { character:Hightower_102 = { is_alive = yes } }
+				set_relation_grudge = {
+					target = character:Hightower_102 # Lyonel Hightower
+				}
+			}
+		}
+	}
 	8137.1.1 = { trait = fornicator }
 	8157.12.1 = { death = { death_reason = death_battle } } # Battle of Hellholt
 }
