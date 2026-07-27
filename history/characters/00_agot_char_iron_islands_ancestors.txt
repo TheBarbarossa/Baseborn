@@ -33215,7 +33215,7 @@ Merlyn_53 = {
 		death = { death_reason = death_treatment }
 	}
 }
-Merlyn_54 = {
+Merlyn_54 = { # edited 07/27 slambroski
 	name = Daegon # a lord
 	dynasty = dynn_Merlyn
 
@@ -33225,13 +33225,21 @@ Merlyn_54 = {
 	father = Merlyn_44
 	mother = Tidewood_91
 
+	trait = education_intrigue_3
+	trait = education_martial_prowess_1
+	trait = deceitful
+	trait = calm
+	trait = callous
+
+	disallow_random_traits = yes 
+
 	8086.1.1 = { birth = yes }
 	8116.1.1 = { add_spouse = Weaver_66 } # Shera Weaver
 	8142.1.1 = {
 		death = { death_reason = death_accident }
 	}
 }
-Merlyn_55 = {
+Merlyn_55 = { # edited 07/27 slambroski
 	name = Jonna # married Quenton Stonetree
 	dynasty = dynn_Merlyn
 	female = yes
@@ -33245,12 +33253,20 @@ Merlyn_55 = {
 	trait = twin
 
 	8089.1.1 = { birth = yes }
+	8101.1.1 = {
+		effect = {
+			if = {
+				limit = { character:Merlyn_56 = { is_alive = yes } }
+				set_relation_friend = character:Merlyn_56 # Qhorin Merlyn
+			}
+		}
+	}
 	8143.1.1 = {
 		trait = ill
 		death = { death_reason = death_ill }
 	}
 }
-Merlyn_56 = {
+Merlyn_56 = { # edited 07/27 slambroski
 	name = Qhorin
 	dynasty = dynn_Merlyn
 
@@ -33261,9 +33277,21 @@ Merlyn_56 = {
 	mother = Tidewood_91
 
 	trait = twin
+	trait = education_martial_2
+	trait = education_martial_prowess_2
+	trait = ambitious
 
 	8089.1.1 = { birth = yes }
 	8114.1.1 = { add_spouse = Codd_80 } # Rhiannyn Codd
+	8116.1.1 = {
+		effect = {
+			if = {
+				limit = { character:Merlyn_54 = { is_alive = yes } }
+				set_relation_rival = character:Merlyn_54 # Daegon Merlyn
+			}
+		}
+	}
+	8130.1.1 = { employer = Stonetree_17 } # Harmund Stonetree
 	8157.1.1 = {
 		trait = gout_ridden
 		death = { death_reason = death_gout_ridden }
@@ -33450,7 +33478,7 @@ Merlyn_19 = {
 	}
 	8173.1.1 = { death = yes }
 }
-Merlyn_60 = {
+Merlyn_60 = { # edited 07/27 slambroski
 	name = Burton # a lord
 	dynasty = dynn_Merlyn
 
@@ -33461,6 +33489,7 @@ Merlyn_60 = {
 	mother = Weaver_66
 
 	trait = twin
+	trait = physique_bad_2
 
 	8122.1.1 = { birth = yes }
 	8148.1.1 = { add_spouse = GoodbrotherCPK_34 } # Gwynesse Goodbrother of Crow's Spike Keep
@@ -33522,7 +33551,7 @@ Merlyn_20 = {
 	8157.1.1 = { death = { death_reason = death_childbirth } }
 }
 ### Issue of Qhorin
-Merlyn_57 = {
+Merlyn_57 = { # edited 07/27 slambroski
 	name = Aladale
 	dynasty = dynn_Merlyn
 
@@ -33531,6 +33560,8 @@ Merlyn_57 = {
 
 	father = Merlyn_56
 	mother = Codd_80
+
+	trait = education_martial_prowess_2
 
 	8116.1.1 = { birth = yes }
 	8183.1.1 = {
