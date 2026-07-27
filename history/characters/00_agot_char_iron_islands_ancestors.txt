@@ -5642,7 +5642,7 @@ Goodbrother_118 = {
 	}
 }
 ### Issue of Quellon
-Goodbrother_50 = {
+Goodbrother_50 = { # edited 07/27 slambroski
 	name = Rodrik # Mentioned, a lord
 	dynasty = dynn_Goodbrother
 
@@ -5652,11 +5652,20 @@ Goodbrother_50 = {
 	father = Goodbrother_110
 	mother = Netley_31
 
+	trait = education_stewardship_2
+	trait = education_martial_prowess_2
+	trait = content
+	trait = temperate
+	trait = just
+
+	disallow_random_traits = yes 
+
 	8067.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_mentioned
 	}
 	8098.1.1 = { add_spouse = Netley_37 } # Jonna Netley
+	8128.1.1 = { trait = infirm }
 	8134.5.1 = {
 		death = {
 			death_reason = death_execution
@@ -5742,6 +5751,7 @@ Goodbrother_51 = {
 
 	trait = education_martial_2
 	trait = strong
+	trait = giant
 	trait = wrathful
 	trait = vengeful
 	trait = rowdy
@@ -5764,6 +5774,30 @@ Goodbrother_51 = {
 	8134.5.1 = {
 		death = { death_reason = death_battle }
 	}
+}
+Goodbrother_rs_51_1 = { # created 07/27 slambroski
+	name = Morna
+	female = yes
+
+	religion = drowned_god
+	culture = ironborn
+
+	trait = beauty_good_1
+
+	8101.1.1 = { birth = yes }
+	8120.1.1 = { death = { death_reason = death_childbirth } }
+}
+Goodbrother_rs_51_2 = { # created 07/27 slambroski
+	name = Doreah
+	female = yes
+
+	religion = fc_pan_lys
+	culture = lyseni
+
+	trait = beauty_good_1
+
+	8107.1.1 = { birth = yes }
+	8136.1.1 = { death = yes }
 }
 Goodbrother_52 = {
 	name = Arthur # Canon, a lord, killed Leo Costayne
@@ -5788,6 +5822,56 @@ Goodbrother_52 = {
 	}
 	8127.1.1 = { add_spouse = Pemford_45 } # Barba Pemford
 	8165.1.1 = { death = yes }
+}
+### Issue of Gunthor
+Goodbrother_51_A = { # created 07/27 slambroski
+	name = Herrika
+	dynasty = dynn_Goodbrother
+	female = yes 
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Goodbrother_51
+	mother = Goodbrother_rs_51_1
+
+	trait = bastard
+	trait = beauty_good_1
+
+	8117.1.1 = { birth = yes }
+	8147.1.1 = { death = yes }
+}
+Goodbrother_51_B = { # created 07/27 slambroski
+	name = Fergon
+	dynasty = dynn_Goodbrother
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Goodbrother_51
+	mother = Goodbrother_rs_51_1
+
+	trait = bastard
+	trait = giant
+
+	8120.1.1 = { birth = yes }
+	8166.1.1 = { death = yes }
+}
+Goodbrother_51_C = { # created 07/27 slambroski
+	name = Donnel
+	dynasty = dynn_Goodbrother
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Goodbrother_51
+	mother = Goodbrother_rs_51_2
+
+	trait = bastard
+	trait = beauty_good_1
+
+	8127.1.1 = { birth = yes }
+	8135.1.1 = { death = yes }
 }
 ### Issue of Arthur
 Goodbrother_53 = {
@@ -24669,6 +24753,21 @@ Kenning_95 = {
 		death = { death_reason = death_natural_causes }
 	}
 }
+Kenning_95_B = { # edited 07/27 slambroski
+	name = Cotter
+	dynasty = dynn_Kenning
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Kenning_90
+	mother = Sharp_64
+
+	8114.1.1 = { birth = yes }
+	8170.1.1 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
 ### Issue of Kenned
 Kenning_92 = {
 	name = Snela # married Qarl Goodbrother of Shatterstone
@@ -32066,6 +32165,21 @@ Sparr_82 = {
 		death = { death_reason = death_accident }
 	}
 }
+Sparr_82_B = { # created 07/27 slambroski
+	name = Qhorwyn
+	dynasty = dynn_Sparr
+
+	religion = drowned_god
+	culture = ironborn
+
+	father = Sparr_55
+	mother = GoodbrotherSS_79
+
+	8130.1.1 = { birth = yes }
+	8142.1.1 = {
+		death = { death_reason = death_fall }
+	}
+}
 ### Issue of Toron
 Sparr_83 = {
 	name = Unella # married Gevin Goodbrother of Crow's Spike Keep
@@ -33215,7 +33329,7 @@ Merlyn_53 = {
 		death = { death_reason = death_treatment }
 	}
 }
-Merlyn_54 = {
+Merlyn_54 = { # edited 07/27 slambroski
 	name = Daegon # a lord
 	dynasty = dynn_Merlyn
 
@@ -33225,13 +33339,21 @@ Merlyn_54 = {
 	father = Merlyn_44
 	mother = Tidewood_91
 
+	trait = education_intrigue_3
+	trait = education_martial_prowess_1
+	trait = deceitful
+	trait = calm
+	trait = callous
+
+	disallow_random_traits = yes 
+
 	8086.1.1 = { birth = yes }
 	8116.1.1 = { add_spouse = Weaver_66 } # Shera Weaver
 	8142.1.1 = {
 		death = { death_reason = death_accident }
 	}
 }
-Merlyn_55 = {
+Merlyn_55 = { # edited 07/27 slambroski
 	name = Jonna # married Quenton Stonetree
 	dynasty = dynn_Merlyn
 	female = yes
@@ -33245,12 +33367,20 @@ Merlyn_55 = {
 	trait = twin
 
 	8089.1.1 = { birth = yes }
+	8101.1.1 = {
+		effect = {
+			if = {
+				limit = { character:Merlyn_56 = { is_alive = yes } }
+				set_relation_friend = character:Merlyn_56 # Qhorin Merlyn
+			}
+		}
+	}
 	8143.1.1 = {
 		trait = ill
 		death = { death_reason = death_ill }
 	}
 }
-Merlyn_56 = {
+Merlyn_56 = { # edited 07/27 slambroski
 	name = Qhorin
 	dynasty = dynn_Merlyn
 
@@ -33261,9 +33391,21 @@ Merlyn_56 = {
 	mother = Tidewood_91
 
 	trait = twin
+	trait = education_martial_2
+	trait = education_martial_prowess_2
+	trait = ambitious
 
 	8089.1.1 = { birth = yes }
 	8114.1.1 = { add_spouse = Codd_80 } # Rhiannyn Codd
+	8116.1.1 = {
+		effect = {
+			if = {
+				limit = { character:Merlyn_54 = { is_alive = yes } }
+				set_relation_rival = character:Merlyn_54 # Daegon Merlyn
+			}
+		}
+	}
+	8130.1.1 = { employer = Stonetree_17 } # Harmund Stonetree
 	8157.1.1 = {
 		trait = gout_ridden
 		death = { death_reason = death_gout_ridden }
@@ -33450,7 +33592,7 @@ Merlyn_19 = {
 	}
 	8173.1.1 = { death = yes }
 }
-Merlyn_60 = {
+Merlyn_60 = { # edited 07/27 slambroski
 	name = Burton # a lord
 	dynasty = dynn_Merlyn
 
@@ -33461,6 +33603,7 @@ Merlyn_60 = {
 	mother = Weaver_66
 
 	trait = twin
+	trait = physique_bad_2
 
 	8122.1.1 = { birth = yes }
 	8148.1.1 = { add_spouse = GoodbrotherCPK_34 } # Gwynesse Goodbrother of Crow's Spike Keep
@@ -33522,7 +33665,7 @@ Merlyn_20 = {
 	8157.1.1 = { death = { death_reason = death_childbirth } }
 }
 ### Issue of Qhorin
-Merlyn_57 = {
+Merlyn_57 = { # edited 07/27 slambroski
 	name = Aladale
 	dynasty = dynn_Merlyn
 
@@ -33531,6 +33674,8 @@ Merlyn_57 = {
 
 	father = Merlyn_56
 	mother = Codd_80
+
+	trait = education_martial_prowess_2
 
 	8116.1.1 = { birth = yes }
 	8183.1.1 = {
