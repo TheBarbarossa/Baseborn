@@ -6475,11 +6475,18 @@ Staunton_45 = {
 	father = Staunton_41
 	mother = Dargood_51
 
+	trait = vengeful
+	trait = inquisitive
+	trait = just
+	trait = pensive
+
+	disallow_random_traits = yes
+
 	8117.1.1 = { birth = yes }
 	8133.1.1 = { add_spouse = Ruthermont_83 } # Arrana Ruthermont
 	8158.1.1 = { death = { death_reason = death_battle } }
 }
-Staunton_26 = {
+Staunton_26 = { # edited by BoomBler 27.7.2026
 	name = Joffrey # Canon, a Kingsguard
 	dynasty = dynn_Staunton
 
@@ -7850,6 +7857,7 @@ Darklyn_21 = {
 	name = Robert # Canon, Kingsguard V, only served briefly
 	dynasty = dynn_Darklyn
 
+	martial = 6
 	prowess = 8
 
 	religion = fots_seven
@@ -7862,7 +7870,10 @@ Darklyn_21 = {
 	trait = education_martial_prowess_3
 	trait = just
 	trait = content # Doesn't seek vengeance after dismissal from KG
-	trait = forgiving # Doesn't seek vengeance after dismissal from KG	
+	trait = forgiving # Doesn't seek vengeance after dismissal from KG
+	trait = scarred
+
+	disallow_random_traits = yes
 
 	8105.1.1 = {
 		birth = yes
@@ -7897,11 +7908,13 @@ Darklyn_22 = {
 	culture = crownlander
 
 	stewardship = 12
+	prowess = 6
 
 	father = Darklyn_17
 	mother = Wendwater_53
 
 	trait = education_stewardship_4
+	trait = education_martial_prowess_2
 	trait = greedy # Edited, Cafe, 19/06
 	trait = brave # Edited, Cafe, 19/06
 	trait = cynical # Edited, Cafe, 19/06
@@ -8072,7 +8085,7 @@ Darklyn_28 = {
 	}
 }
 ### Issue of Gunthor
-Darklyn_29 = {
+Darklyn_29 = { # edited by BoomBler 27.7.2026
 	name = Kendel # Semi-Canon, a lord
 	dynasty = dynn_Darklyn
 
@@ -8081,6 +8094,12 @@ Darklyn_29 = {
 
 	father = Darklyn_19
 	mother = Hollard_24
+
+	trait = cynical
+	trait = diligent
+	trait = bossy
+
+	disallow_random_traits = yes
 
 	8120.1.1 = {
 		birth = yes
@@ -15295,6 +15314,7 @@ Stokeworth_23 = {
 		add_character_flag = sexuality_ensure_not_asexual
 		add_character_flag = sexuality_ensure_not_homosexual
 	}
+	8132.1.1 = { employer = Targaryen_78 } # Aegon III
 	8140.1.1 = { trait = lustful }
 	8195.1.1 = { death = { death_reason = death_accident } }
 }
@@ -30946,6 +30966,7 @@ Rosby_18 = {
 	dynasty = dynn_Rosby
 
 	prowess = 8
+	martial = 8
 
 	dna = Rosby_18
 
@@ -30962,6 +30983,7 @@ Rosby_18 = {
 	trait = ambitious
 	trait = generous
 	trait = charming
+	trait = scarred
 
 	disallow_random_traits = yes
 
@@ -31000,6 +31022,14 @@ Rosby_19 = {
 	father = Rosby_15
 	mother = Elridge_22
 
+	trait = education_martial_2
+	trait = education_martial_prowess_2
+
+	trait = lustful
+	trait = paranoid
+	trait = arrogant
+	trait = scarred
+
 	8106.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
@@ -31023,6 +31053,13 @@ Rosby_20 = {
 	mother = Elridge_22
 
 	trait = education_stewardship_2
+	trait = education_martial_prowess_2
+
+	trait = humble
+	trait = fickle
+	trait = diligent
+	trait = scarred
+	trait = one_handed
 
 	8116.1.1 = {
 		birth = yes
@@ -31044,6 +31081,8 @@ Rosby_21 = {
 	name = Janora # Semi-Canon, refused to help Rhaenyra
 	dynasty = dynn_Rosby
 	female = yes
+
+	intrigue = 7
 
 	religion = fots_seven
 	culture = crownlander
@@ -31080,7 +31119,9 @@ Rosby_22 = {
 	name = Haric # Semi-Canon, a lord
 	dynasty = dynn_Rosby
 
-	prowess = 4
+	prowess = 5
+	martial = 5
+	intrigue = 5
 
 	religion = fots_seven
 	culture = crownlander
