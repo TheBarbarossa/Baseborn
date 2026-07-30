@@ -401,6 +401,41 @@ bbgm_break_alliances = {
     }
 }
 
+bbgm_take_artifact = {
+    category = interaction_category_bb_game_master
+    interface_priority = 92
+    icon = artifact
+    desc = bbgm_take_artifact_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+	common_interaction = yes
+
+	target_type = artifact
+	target_filter = recipient_artifacts
+
+    is_shown = {
+		NOT = { scope:recipient = scope:actor }
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+        scope:recipient = {
+            has_any_artifact = yes
+        }
+    }
+
+	can_be_picked_artifact = {
+		always = yes
+	}
+
+    on_send = {
+        scope:target = {
+            set_owner = scope:actor
+        }
+    }
+}
+
 bbgm_spawn_army = {
     category = interaction_category_bb_game_master
     interface_priority = 90
