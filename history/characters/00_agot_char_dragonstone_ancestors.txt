@@ -9691,7 +9691,6 @@ Palehair_1 = {
 		culture = crownlander
 		effect = {
 			set_real_father = character:Targaryen_65 # Aegon II Targaryen
-			agot_safe_set_location_history_effect = { CASTLE = title:b_goldguard_heights }
 		}
 	}
 	8130.10.8 = {
@@ -9707,17 +9706,20 @@ Palehair_1 = {
 		}
 	}
 	8131.1.14 = {
-		effect = { # Cupbearer and Food Taster in the Red Keep
-			agot_appoint_as_court_position_for_castle_history_effect = {
-				CASTLE = title:c_kings_landing
-				POSITION = food_taster_court_position
-			}
-			agot_appoint_as_court_position_for_castle_history_effect = {
-				CASTLE = title:c_kings_landing
-				POSITION = cupbearer_court_position
-			}
-		}
+		# effect = { # Cupbearer and Food Taster in the Red Keep
+		# 	agot_appoint_as_court_position_for_castle_history_effect = {
+		# 		CASTLE = title:c_kings_landing
+		# 		POSITION = food_taster_court_position
+		# 	}
+		# 	agot_appoint_as_court_position_for_castle_history_effect = {
+		# 		CASTLE = title:c_kings_landing
+		# 		POSITION = cupbearer_court_position
+		# 	}
+		# }
 		give_nickname = nick_agot_historical_palehair_gaemon
+		effect = {
+			agot_safe_set_location_history_effect = { CASTLE = title:b_the_red_keep }
+		}
 	}
 	8135.5.1 = {
 		death = {
