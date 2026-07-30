@@ -32655,7 +32655,7 @@ Serrett_17 = {
 	}
 }
 ### Issue of Edmar
-Serrett_58 = {
+Serrett_58 = { # edited 07/30 slambroski
 	name = Benera 
 	dynasty = dynn_Serrett
 	female = yes
@@ -32667,11 +32667,15 @@ Serrett_58 = {
 	mother = Webber_55
 
 	8093.1.1 = { birth = yes }
+	8110.1.1 = { 
+		trait = fornicator
+		trait = septon 
+	}
 	8161.1.1 = {
 		death = { death_reason = death_natural_causes }
 	}
 }
-Serrett_59 = {
+Serrett_59 = { # edited 07/30 slambroski
 	name = Merys 
 	dynasty = dynn_Serrett
 	female = yes
@@ -32683,10 +32687,14 @@ Serrett_59 = {
 	mother = Webber_55
 
 	8095.1.1 = { birth = yes }
-	8160.1.1 = {
-		trait = ill
-		death = { death_reason = death_ill }
+	8096.1.1 = {
+		trait = sickly 
+		death = { death_reason = death_sickly }
 	}
+#	8160.1.1 = {
+#		trait = ill
+#		death = { death_reason = death_ill }
+#	}
 }
 Serrett_60 = {
 	name = Corson
@@ -32703,6 +32711,24 @@ Serrett_60 = {
 	8120.1.1 = { add_spouse = Lansdale_80 } # Renna Lansdale
 	8164.1.1 = {
 		death = { death_reason = death_drowned }
+	}
+}
+### Issue of Benera
+Serrett_58_B = { # edited 07/30 slambroski
+	name = Ryalla 
+	dynasty = dynn_Serrett
+	female = yes
+
+	religion = fots_seven
+	culture = westerman_main
+
+	mother = Serrett_58
+
+	trait = bastard
+
+	8110.1.1 = { birth = yes }
+	8139.1.1 = {
+		death = { death_reason = death_murder}
 	}
 }
 ### Issue of Corson
@@ -32885,7 +32911,7 @@ Serrett_54 = {
 		death = { death_reason = death_ill }
 	}
 }
-Serrett_55 = {
+Serrett_55 = { # edited 07/30 slambroski
 	name = Ondram
 	dynasty = dynn_Serrett
 
@@ -32898,9 +32924,10 @@ Serrett_55 = {
 	8099.1.1 = { birth = yes }
 	8115.1.1 = { trait = knight }
 	8122.1.1 = { add_spouse = Broome_68 } # Andra Broome
-	8166.1.1 = {
-		death = { death_reason = death_natural_causes }
-	}
+	8130.1.1 = { death = { death_reason = death_battle_dragon_fire } }
+	# 8166.1.1 = {
+	#	death = { death_reason = death_natural_causes }
+	# }
 }
 Serrett_56 = {
 	name = Kelvyn
