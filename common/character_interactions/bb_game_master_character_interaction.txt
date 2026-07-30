@@ -1,0 +1,1027 @@
+﻿bbgm_make_announcement = {
+    category = interaction_category_bb_game_master
+    interface_priority = 100
+    icon = icon_contract_modification_single
+    desc = bbgm_make_announcement_desc
+	common_interaction = yes
+    
+    is_shown = {
+		scope:recipient = scope:actor
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+    }
+
+	send_option = {
+		localization = bbgm_announcement_hotjoin_start_5
+		flag = hotjoin_start_5
+	}
+	send_option = {
+		localization = bbgm_announcement_hotjoin_end_5
+		flag = hotjoin_end_5
+	}
+	send_option = {
+		localization = bbgm_announcement_rehost_10
+		flag = hotjoin_rehost_10
+	}
+	send_option = {
+		localization = bbgm_announcement_rehost_now
+		flag = hotjoin_rehost_now
+	}
+    
+	send_option = {
+		localization = bbgm_announcement_mw_pausing_end
+		flag = mw_pausing_end
+	}
+	send_option = {
+		localization = bbgm_announcement_mw_pausing_100
+		flag = mw_pausing_100
+	}
+	send_option = {
+		localization = bbgm_announcement_mw_pausing_50
+		flag = mw_pausing_50
+	}
+	send_option = {
+		localization = bbgm_announcement_pausing_5
+		flag = mw_pausing_5
+	}
+	send_option = {
+		localization = bbgm_announcement_mw_pausing
+		flag = mw_pausing
+	}
+	send_option = {
+		localization = bbgm_announcement_mw_unpausing
+		flag = mw_unpausing
+	}
+    
+	send_option = {
+		localization = bbgm_announcement_end_session_10
+		flag = end_session_10
+	}
+	send_option = {
+		localization = bbgm_announcement_end_session_now
+		flag = end_session_now
+	}
+
+    on_send = {
+        switch = {
+            trigger = yes
+            scope:hotjoin_start_5 = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_hotjoins_start_5
+                        left_icon = scope:actor
+                    }
+                }
+            }
+            scope:hotjoin_end_5 = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_hotjoins_end_5
+                        left_icon = scope:actor
+                    }
+                }
+            }
+            scope:hotjoin_rehost_10 = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_rehosts_10
+                        left_icon = scope:actor
+                    }
+                }
+            }
+            scope:hotjoin_rehost_now = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_rehosts_now
+                        left_icon = scope:actor
+                    }
+                }
+            }
+            scope:mw_pausing_end = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_pausing_mw_end
+                        left_icon = scope:actor
+                    }
+                }
+            }
+            scope:mw_pausing_100 = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_pausing_mw_100
+                        left_icon = scope:actor
+                    }
+                }
+            }
+            scope:mw_pausing_50 = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_pausing_mw_50
+                        left_icon = scope:actor
+                    }
+                }
+            }
+            scope:mw_pausing_5 = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_pausing_5
+                        left_icon = scope:actor
+                    }
+                }
+            }
+            scope:mw_pausing = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_pausing
+                        left_icon = scope:actor
+                    }
+                }
+            }
+            scope:mw_unpausing = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_unpausing
+                        left_icon = scope:actor
+                    }
+                }
+            }
+            scope:end_session_10 = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_session_end_10
+                        left_icon = scope:actor
+                    }
+                }
+            }
+            scope:end_session_now = {
+                every_player = {
+                    send_interface_message = {
+                        type = bbgm_session_end_now
+                        left_icon = scope:actor
+                    }
+                }
+            }
+        }
+    }
+}
+
+bbgm_make_custom_announcement = {
+    category = interaction_category_bb_game_master
+    interface_priority = 99
+    icon = icon_contract_modification_single
+    desc = bbgm_make_custom_announcement_desc
+	common_interaction = yes
+    
+    is_shown = {
+		scope:recipient = scope:actor
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+    }
+
+    on_send = {
+        scope:actor = { trigger_event = bb_gm_events.1 }
+    }
+}
+
+bbgm_become_game_master = {
+    category = interaction_category_bb_game_master
+    interface_priority = 0
+    icon = revoke_governorship
+    desc = bbgm_become_game_master_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+	common_interaction = yes
+
+    is_shown = {
+        OR = {
+            scope:actor = { has_trait = game_master }
+            debug_only = yes
+        }
+        scope:recipient = {
+            NOT = { has_trait = game_master }
+        }
+    }
+
+    on_send = {
+        scope:actor = {
+            remove_trait = game_master
+            set_player_character = scope:recipient
+            house = { 
+                reset_coa = yes
+                set_house_name_from_house = root.house
+            }
+            death = { death_reason = death_vanished }
+        }
+        scope:recipient = {
+            clear_traits = yes
+            add_trait = game_master
+            set_character_faith = faith:fg_pan_bronze
+            change_first_name = The_Game_Master
+            remove_nickname = yes
+            every_spouse = { divorce = prev }
+            primary_title = { set_coa = dynn_GM }
+            house = {
+                set_house_name = dynn_GM
+                set_coa = dynn_GM
+            }
+        }
+    }
+}
+
+bbgm_divorce = {
+    category = interaction_category_bb_game_master
+    interface_priority = 98
+    icon = icon_marriage
+    desc = bbgm_divorce_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+	common_interaction = yes
+
+    is_shown = {
+		NOT = { scope:recipient = scope:actor }
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+        scope:recipient = { is_married = yes }
+    }
+
+    on_send = {
+       scope:recipient = { divorce = primary_spouse } 
+    }
+}
+
+bbgm_start_pregnancy = {
+    category = interaction_category_bb_game_master
+    interface_priority = 97
+    icon = child
+    desc = bbgm_start_pregnancy_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+	common_interaction = yes
+
+    is_shown = {
+		NOT = { scope:recipient = scope:actor }
+        scope:recipient = {
+            is_female = yes
+            is_pregnant = no
+        }
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+    }
+
+    populate_actor_list = {
+        every_living_character = {
+            limit = { has_relation_lover = scope:recipient }
+            add_to_list = characters
+        }
+        scope:recipient = {
+            every_spouse = { add_to_list = characters }
+        }
+    }
+
+	can_be_picked = {
+        always = yes
+	}
+
+    on_send = {
+        scope:recipient = {
+            make_pregnant = { father = scope:secondary_actor }
+            #AGOT Added; LMF
+            event_pregnancy_effect = yes
+        }
+    }
+}
+
+bbgm_abort = {
+    category = interaction_category_bb_game_master
+    interface_priority = 96
+    icon = child
+    desc = bbgm_abort_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+	common_interaction = yes
+
+    is_shown = {
+		NOT = { scope:recipient = scope:actor }
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+        scope:recipient = { is_pregnant = yes }
+    }
+
+    on_send = {
+        scope:recipient = { 
+            end_pregnancy = yes
+            remove_trait = pregnant
+        } 
+    }
+}
+
+bbgm_independence = {
+    category = interaction_category_bb_game_master
+    interface_priority = 95
+    icon = icon_found_despotate
+    desc = bbgm_independence_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+	common_interaction = yes
+
+    is_shown = {
+		NOT = { scope:recipient = scope:actor }
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+        scope:recipient = { is_independent_ruler = no }
+    }
+
+    on_send = {
+		create_title_and_vassal_change = {
+			type = independency
+			save_scope_as = change
+		}
+        scope:recipient = {
+            change_liege_or_become_independent = {
+                CHANGE = scope:change
+                VASSAL = this
+            }
+        }
+		resolve_title_and_vassal_change = scope:change
+    }
+}
+
+bbgm_break_alliances = {
+    category = interaction_category_bb_game_master
+    interface_priority = 94
+    icon = change_allegiance
+    desc = bbgm_break_alliances_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+	common_interaction = yes
+
+    is_shown = {
+		NOT = { scope:recipient = scope:actor }
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+        any_ruler = {
+            is_allied_to = scope:recipient
+        }
+    }
+
+    populate_actor_list = {
+        scope:recipient = {
+            every_ally = { add_to_list = characters }
+        }
+    }
+
+	can_be_picked = {
+		is_allied_to = scope:recipient
+	}
+
+    on_send = {
+       scope:recipient = {
+            break_alliance = scope:secondary_actor
+        }
+    }
+}
+
+bbgm_take_artifact = {
+    category = interaction_category_bb_game_master
+    interface_priority = 92
+    icon = artifact
+    desc = bbgm_take_artifact_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+	common_interaction = yes
+
+	target_type = artifact
+	target_filter = recipient_artifacts
+
+    is_shown = {
+		NOT = { scope:recipient = scope:actor }
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+        scope:recipient = {
+            has_any_artifact = yes
+        }
+    }
+
+	can_be_picked_artifact = {
+		always = yes
+	}
+
+    on_send = {
+        scope:target = {
+            set_owner = scope:actor
+        }
+    }
+}
+
+bbgm_spawn_army = {
+    category = interaction_category_bb_game_master
+    interface_priority = 90
+    icon = icon_scheme_seizure
+    desc = bbgm_spawn_army_desc
+    ignores_pending_interaction_block = yes
+	common_interaction = yes
+    auto_accept = yes
+
+    is_shown = {
+        scope:actor = {
+            has_trait = game_master
+            is_ai = no
+        }
+    }
+
+    send_option = {
+		localization = bowmen
+		flag = bbgm_spawn_army_archers
+    }
+    send_option = {
+		localization = crossbowmen
+		flag = bbgm_spawn_army_crossbowmen
+    }
+    send_option = {
+		localization = pikemen_unit
+		flag = bbgm_spawn_army_pikemen
+    }
+    send_option = {
+		localization = light_footmen
+		flag = bbgm_spawn_army_light_inf
+    }
+    send_option = {
+		localization = armored_footmen
+		flag = bbgm_spawn_army_heavy_inf
+    }
+    send_option = {
+		localization = light_horsemen
+		flag = bbgm_spawn_army_light_cav
+    }
+    send_option = {
+		localization = armored_horsemen
+		flag = bbgm_spawn_army_heavy_cav
+    }
+    on_send = {
+        switch = {
+            trigger = yes
+            scope:bbgm_spawn_army_archers = {
+                scope:recipient = {
+                    spawn_army = {
+                        men_at_arms = {
+                            type = bowmen
+                            men = 50
+                            inheritable = no
+                        }
+                        location = capital_province
+                        name = bbgm_army_archers
+                    }
+                }
+            }
+            scope:bbgm_spawn_army_crossbowmen = {
+                scope:recipient = {
+                    spawn_army = {
+                        men_at_arms = {
+                            type = crossbowmen
+                            men = 50
+                            inheritable = no
+                        }
+                        location = capital_province
+                        name = bbgm_army_crossbowmen
+                    }
+                }
+            }
+            scope:bbgm_spawn_army_pikemen = {
+                scope:recipient = {
+                    spawn_army = {
+                        men_at_arms = {
+                            type = pikemen_unit
+                            men = 50
+                            inheritable = no
+                        }
+                        location = capital_province
+                        name = bbgm_army_pikemen
+                    }
+                }
+            }
+            scope:bbgm_spawn_army_light_inf = {
+                scope:recipient = {
+                    spawn_army = {
+                        men_at_arms = {
+                            type = light_footmen
+                            men = 50
+                            inheritable = no
+                        }
+                        location = capital_province
+                        name = bbgm_army_light_inf
+                    }
+                }
+            }
+            scope:bbgm_spawn_army_heavy_inf = {
+                scope:recipient = {
+                    spawn_army = {
+                        men_at_arms = {
+                            type = armored_footmen
+                            men = 50
+                            inheritable = no
+                        }
+                        location = capital_province
+                        name = bbgm_army_heavy_inf
+                    }
+                }
+            }
+            scope:bbgm_spawn_army_light_cav = {
+                scope:recipient = {
+                    spawn_army = {
+                        men_at_arms = {
+                            type = light_horsemen
+                            men = 50
+                            inheritable = no
+                        }
+                        location = capital_province
+                        name = bbgm_army_light_cav
+                    }
+                }
+            }
+            scope:bbgm_spawn_army_heavy_cav = {
+                scope:recipient = {
+                    spawn_army = {
+                        men_at_arms = {
+                            type = armored_horsemen
+                            men = 50
+                            inheritable = no
+                        }
+                        location = capital_province
+                        name = bbgm_army_heavy_cav
+                    }
+                }
+            }
+        }
+    }
+}
+
+bbgm_enforce_contraceptives = {
+    category = interaction_category_bb_game_master
+    interface_priority = 83
+    icon = icon_force_to_step_down
+    desc = bbgm_enforce_contraceptives_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+	common_interaction = yes
+
+    is_shown = {
+		NOT = { scope:recipient = scope:actor }
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+        scope:recipient = {
+			NOT = { has_character_modifier = contraceptives_modifier }
+
+        }
+    }
+    
+    on_send = {
+		scope:recipient = {
+			add_character_modifier = contraceptives_modifier
+		}
+    }
+}
+
+bbgm_remove_contraceptives = {
+    category = interaction_category_bb_game_master
+    interface_priority = 72
+    icon = icon_scheme_seduce
+    desc = bbgm_remove_contraceptives_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+	common_interaction = yes
+
+    is_shown = {
+		NOT = { scope:recipient = scope:actor }
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+        scope:recipient = {
+			has_character_modifier = contraceptives_modifier
+
+        }
+    }
+    
+    on_send = {
+		scope:recipient = {
+			remove_character_modifier = contraceptives_modifier
+		}
+    }
+}
+
+bbgm_spawn_money = {
+    category = interaction_category_bb_game_master
+    interface_priority = 60
+    icon = icon_gold
+    desc = bbgm_spawn_money_desc
+    ignores_pending_interaction_block = yes
+	common_interaction = yes
+    auto_accept = yes
+
+    is_shown = {
+        scope:actor = {
+            this = scope:recipient
+            has_trait = game_master
+            is_ai = no
+        }
+    }
+
+    send_option = {
+		localization = bbgm_spawn_money_1000
+		flag = bbgm_spawn_money_1000
+    }
+    send_option = {
+		localization = bbgm_spawn_money_500
+		flag = bbgm_spawn_money_500
+    }
+    send_option = {
+		localization = bbgm_spawn_money_100
+		flag = bbgm_spawn_money_100
+    }
+    send_option = {
+		localization = bbgm_spawn_money_50
+		flag = bbgm_spawn_money_50
+    }
+    on_send = {
+        switch = {
+            trigger = yes
+            scope:bbgm_spawn_money_1000 = {
+                scope:actor = { add_gold = 1000 }
+            }
+            scope:bbgm_spawn_money_500 = {
+                scope:actor = { add_gold = 500 }
+            }
+            scope:bbgm_spawn_money_100 = {
+                scope:actor = { add_gold = 100 }
+            }
+            scope:bbgm_spawn_money_50 = {
+                scope:actor = { add_gold = 50 }
+            }
+        }
+    }
+}
+
+bbgm_make_character_inactive = {
+    category = interaction_category_bb_game_master
+    interface_priority = 50
+    icon = icon_scheme_abduct
+    desc = bbgm_make_character_inactive_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+	common_interaction = yes
+
+    is_shown = {
+        scope:recipient = {
+            NOT = { has_trait = bb_inactive }
+        }
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+    }
+
+    on_send = {
+        scope:recipient = {
+            add_trait = bb_inactive
+        }
+    }
+}
+
+bbgm_make_character_active = {
+    category = interaction_category_bb_game_master
+    interface_priority = 50
+    icon = icon_scheme_befriend
+    desc = bbgm_make_character_active_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+	common_interaction = yes
+
+    is_shown = {
+        scope:recipient = {
+            has_trait = bb_inactive
+        }
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+    }
+
+    on_send = {
+        scope:recipient = {
+            remove_trait = bb_inactive
+        }
+    }
+}
+
+bbgm_spawn_plague = { # Duped the regular debug interaction since it wouldn't show up, Robin, 25/06
+	category = interaction_category_bb_game_master
+	desc = bbgm_spawn_plague_desc
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+	icon = plague
+
+	interface_priority = 3
+
+	is_shown = {
+		scope:actor = { has_trait = game_master }
+	}
+
+	send_option = {
+		is_valid = {
+			scope:consumption = no
+			scope:smallpox = no
+			scope:ergotism = no
+			scope:bubonic_plague = no
+			scope:typhus = no
+			scope:dysentery = no
+		}
+		flag = measles
+		localization = spawn_epidemic_interaction_measles
+	}
+	send_option = {
+		is_valid = {
+			scope:measles = no
+			scope:smallpox = no
+			scope:ergotism = no
+			scope:bubonic_plague = no
+			scope:typhus = no
+			scope:dysentery = no
+		}
+		flag = consumption
+		localization = spawn_epidemic_interaction_consumption
+	}
+	send_option = {
+		is_valid = {
+			scope:measles = no
+			scope:consumption = no
+			scope:ergotism = no
+			scope:bubonic_plague = no
+			scope:typhus = no
+			scope:dysentery = no
+		}
+		flag = smallpox
+		localization = spawn_epidemic_interaction_smallpox
+	}
+	send_option = {
+		is_valid = {
+			scope:measles = no
+			scope:consumption = no
+			scope:smallpox = no
+			scope:bubonic_plague = no
+			scope:typhus = no
+			scope:dysentery = no
+		}
+		flag = ergotism
+		localization = spawn_epidemic_interaction_ergotism
+	}
+	send_option = {
+		is_valid = {
+			scope:measles = no
+			scope:consumption = no
+			scope:smallpox = no
+			scope:ergotism = no
+			scope:typhus = no
+			scope:dysentery = no
+		}
+		flag = bubonic_plague
+		localization = spawn_epidemic_interaction_bubonic_plague
+	}
+	send_option = {
+		is_valid = {
+			scope:measles = no
+			scope:consumption = no
+			scope:smallpox = no
+			scope:ergotism = no
+			scope:bubonic_plague = no
+			scope:dysentery = no
+		}
+		flag = typhus
+		localization = spawn_epidemic_interaction_typhus
+	}
+	send_option = {
+		is_valid = {
+			scope:measles = no
+			scope:consumption = no
+			scope:smallpox = no
+			scope:ergotism = no
+			scope:bubonic_plague = no
+			scope:typhus = no
+		}
+		flag = dysentery
+		localization = spawn_epidemic_interaction_dysentery
+	}
+	send_option = {
+		is_valid = {
+			scope:major = no
+			scope:apocalyptic = no
+		}
+		flag = minor
+		localization = spawn_minor_epidemic_interaction
+	}
+	send_option = {
+		is_valid = {
+			scope:minor = no
+			scope:apocalyptic = no
+		}
+		flag = major
+		localization = spawn_major_epidemic_interaction
+	}
+	send_option = {
+		is_valid = {
+			scope:minor = no
+			scope:major = no
+		}
+		flag = apocalyptic
+		localization = spawn_apocalyptic_epidemic_interaction
+	}
+
+	send_options_exclusive = no
+
+	can_send = {
+		calc_true_if = {
+			amount >= 1
+			scope:measles = yes
+			scope:consumption = yes
+			scope:smallpox = yes
+			scope:ergotism = yes
+			scope:bubonic_plague = yes
+			scope:typhus = yes
+			scope:dysentery = yes
+		}
+		calc_true_if = {
+			amount >= 1
+			scope:minor = yes
+			scope:major = yes
+			scope:apocalyptic = yes
+		}
+	}
+
+	on_accept = {
+		scope:recipient.capital_province = {
+			hidden_effect = {
+				switch = {
+					trigger = yes
+					scope:minor = {
+						switch = {
+							trigger = yes
+							scope:measles = { create_epidemic_outbreak = { type = measles intensity = minor } }
+							scope:consumption = { create_epidemic_outbreak = { type = consumption intensity = minor } }
+							scope:smallpox = { create_epidemic_outbreak = { type = smallpox intensity = minor } }
+							scope:dysentery = { create_epidemic_outbreak = { type = dysentery intensity = minor } }
+							scope:bubonic_plague = { create_epidemic_outbreak = { type = bubonic_plague intensity = minor } }
+							scope:ergotism = { create_epidemic_outbreak = { type = ergotism intensity = minor } }
+							scope:typhus = { create_epidemic_outbreak = { type = typhus intensity = minor } }
+						}
+					}
+					scope:major = {
+						switch = {
+							trigger = yes
+							scope:measles = { create_epidemic_outbreak = { type = measles intensity = major } }
+							scope:consumption = { create_epidemic_outbreak = { type = consumption intensity = major } }
+							scope:smallpox = { create_epidemic_outbreak = { type = smallpox intensity = major } }
+							scope:dysentery = { create_epidemic_outbreak = { type = dysentery intensity = major } }
+							scope:bubonic_plague = { create_epidemic_outbreak = { type = bubonic_plague intensity = major } }
+							scope:ergotism = { create_epidemic_outbreak = { type = ergotism intensity = major } }
+							scope:typhus = { create_epidemic_outbreak = { type = typhus intensity = major } }
+						}
+					}
+					scope:apocalyptic = {
+						switch = {
+							trigger = yes
+							scope:measles = { create_epidemic_outbreak = { type = measles intensity = apocalyptic } }
+							scope:consumption = { create_epidemic_outbreak = { type = consumption intensity = apocalyptic } }
+							scope:smallpox = { create_epidemic_outbreak = { type = smallpox intensity = apocalyptic } }
+							scope:dysentery = { create_epidemic_outbreak = { type = dysentery intensity = apocalyptic } }
+							scope:bubonic_plague = { create_epidemic_outbreak = { type = bubonic_plague intensity = apocalyptic } }
+							scope:ergotism = { create_epidemic_outbreak = { type = ergotism intensity = apocalyptic } }
+							scope:typhus = { create_epidemic_outbreak = { type = typhus intensity = apocalyptic } }
+						}
+					}
+				}
+			}
+		}
+	}
+	auto_accept = yes
+}
+
+#Added by Thulius on 22/6-2026
+baseborn_create_title = {
+	category = interaction_category_bb_game_master
+	desc = baseborn_create_title_desc
+    icon = force_abdication
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+	target_type = title
+	target_filter = recipient_domain_titles
+	interface_priority = 1
+	
+	is_shown = {
+		scope:recipient = {
+			is_ruler = yes
+		}
+		scope:actor = {
+			is_ai = no
+			has_trait = game_master
+		}
+	}
+	
+	is_valid_showing_failures_only = {
+		scope:actor = { is_ai = no }
+	}
+	
+	can_be_picked_title = {
+		scope:target = {
+			holder = scope:recipient
+		}
+	}
+	
+	ai_will_do = {
+		base = -999999
+	}
+
+	auto_accept = yes
+	
+	on_auto_accept = {
+	}
+	
+	on_accept = {
+		scope:actor = {
+			if = {
+				limit = {scope:recipient = scope:actor}
+				trigger_event = baseborn_create_title.1020
+			}
+			else_if = {
+				limit = {
+					scope:recipient = {
+						primary_title.tier = tier_barony
+					}
+				}
+				trigger_event = baseborn_create_title.1001
+			}
+			else = {
+				trigger_event = baseborn_create_title.1000
+			}
+				
+		}
+	}
+}
+
+bbgm_give_cancer = {
+    category = interaction_category_bb_game_master
+    interface_priority = 0
+    icon = icon_force_to_step_down
+    desc = bbgm_give_cancer_desc
+    auto_accept = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+	common_interaction = yes
+	popup_on_receive = yes
+
+    is_shown = {
+        scope:recipient = {
+            NOT = {
+                has_trait = cancer
+                this = scope:actor
+            }
+        }
+        scope:actor = {
+            is_ai = no
+            has_trait = game_master
+        }
+    }
+
+    on_send = {
+        scope:recipient = {
+            add_trait = cancer
+        }
+    }
+}

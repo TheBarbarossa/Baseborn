@@ -12,7 +12,7 @@
 
 	birth = 1
 	random_creation = 1
-	#inherit_chance = 1
+	inherit_chance = 0 # Edited, Robin, 22/06 - Errored when commented out
 
 	ruler_designer_cost = 40
 
@@ -45,7 +45,7 @@ glowing = {
 
 	birth = 1
 	random_creation = 1
-	inherit_chance = 1
+	# inherit_chance = 1 # Edited, Robin, 22/06 - Errored when paired with "genetic = yes"
 
 	ruler_designer_cost = 20
 
@@ -358,6 +358,8 @@ hyperlexic = {
 	stewardship = 1
 	learning = 2
 	learn_language_scheme_phase_duration_add = -25
+
+	inheritable = yes # Edited, Robin, 22/06 - Errored if absent
 
 	birth = 1.5
 	random_creation = 1.5
@@ -830,7 +832,7 @@ insomniac = {
 	fertility = -0.15
 	attraction_opinion = -5
 	same_opinion = 10
-	hostile_scheme_resistance_mult = 15
+	enemy_hostile_scheme_phase_duration_add = 15
 	
 	genetic = yes
 
@@ -865,7 +867,7 @@ narcoleptic = {
 	attraction_opinion = -5
 	parochial_opinion = -10
 	courtly_opinion = -20
-	hostile_scheme_resistance_mult = -15
+	enemy_hostile_scheme_phase_duration_add = -15
 
 	genetic = yes
 

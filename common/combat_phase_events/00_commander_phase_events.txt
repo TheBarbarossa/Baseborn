@@ -1,0 +1,978 @@
+﻿commander_none = {
+	type = commander
+
+	#AGOT Added
+	is_valid = {
+		has_character_flag = calculated_dragon_modifier # Run dragon calcs first
+	}
+	#End AGOT Added
+
+	chance = {
+		base = 150 #edited by Brad 01/07/2026
+		#AGOT Disabled, same chances as AI
+		# modifier = {
+		# 	add = 1000
+		# 	has_perk = stalwart_leader_perk
+		# 	is_ai = no
+		# }
+		modifier = {
+			add = 300
+			#AGOT Modified
+			has_perk = stalwart_leader_perk
+			#AGOT Disabled
+			#is_ai = yes
+		}
+		modifier = {
+			add = 500
+			is_acclaimed = yes
+		}
+		modifier = {
+			add = 300
+			dynasty ?= {
+				has_dynasty_perk = warfare_legacy_3
+			}
+		}
+		modifier = { # Difficulty
+			add = 1000
+			is_ai = no
+			has_game_rule = easy_difficulty
+		}
+		modifier = {
+			add = 2000
+			is_ai = no
+			has_game_rule = very_easy_difficulty
+		}
+		modifier = {
+			add = 2000
+			ai_should_get_extreme_conqueror_bonuses = yes
+		}
+	}
+}
+
+commander_wounded = {
+	type = commander
+
+	is_valid = {
+		exists = root
+		has_trait_rank = {
+			trait = wounded
+			rank <= 3
+		}
+		#AGOT Added - no fighting dragonriders on foot (by default anyway)
+		is_current_dragonrider_warfare = no
+		has_character_flag = calculated_dragon_modifier # Run dragon calcs first
+	}
+
+	chance = {
+		base = 40 #edited by Brad 01/07/2026
+		modifier = {
+			factor = { # Prowess directly reduces chance of injury/death
+				#AGOT Modified
+				# value = 40 # Value at which 'immortality' happens
+				value = 50
+				subtract = prowess
+				#AGOT Modified
+				# divide = 40
+				divide = 50
+				min = 0.1 # Everyone dies.
+			}
+		}
+		modifier = { # Reduce chance when outnumbering the enemy
+			factor = {
+				value = scope:combat_side.enemy_side.side_strength
+				divide = scope:combat_side.side_strength
+				multiply = 1.4 # Outnumbering 2-1 reduces chance by 30%
+				max = 1
+			}
+			scope:combat_side.side_strength > scope:combat_side.enemy_side.side_strength
+		}
+		modifier = {
+			factor = 1.1
+			faith = {
+				has_doctrine_parameter = death_is_glory
+			}
+		}
+		modifier = {
+			factor = 2
+			has_trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			has_trait = craven
+		}
+	}
+
+	effect = {
+		save_scope_as = commander
+		# Trigger the battle event indicating we have been Wounded.
+		if = {
+			limit = {
+				scope:combat_side.enemy_side = {
+					any_side_knight = {
+						this.prowess >= scope:commander.prowess_for_combat_event_opponent
+					}
+				}
+			}
+			scope:combat_side.enemy_side = {
+				random_side_knight = {
+					limit = {
+						this.prowess >= scope:commander.prowess_for_combat_event_opponent
+					}
+					save_scope_as = enemy_knight
+					add_prestige = knight_prestige_gain_on_wound_inverse
+					knight_increase_prowess_chance_effect = yes
+				}
+			}
+			# Trigger the battle event where we are wounded by the enemy Knight.
+			scope:combat_side = {
+				battle_event = {
+					key = "commander_wounded_by_enemy"
+					left_portrait = scope:commander
+					right_portrait = scope:enemy_knight
+					type = wound
+				}
+			}
+			# Send the toast telling the player if they have been wounded.
+			send_interface_toast = {
+				type = event_toast_effect_bad
+				title = commander_wounded_by_enemy_interface_friendly_player
+				left_icon = scope:commander
+				right_icon = scope:enemy_knight
+
+				# Inflict a wound on the commander.
+				increase_wounds_effect = { REASON = fight }
+			}
+		}
+		else = {
+			# Trigger the battle event where we are wounded by a nameless soldier.
+			scope:combat_side = {
+				battle_event = {
+					key = "commander_wounded_no_enemy"
+					left_portrait = scope:commander
+					type = wound
+				}
+			}
+			# Send the toast telling the player if they have been wounded.
+			send_interface_toast = {
+				type = event_toast_effect_bad
+				title = commander_wounded_no_enemy_interface_friendly_player
+				left_icon = scope:commander
+
+				# Inflict a wound on the commander.
+				increase_wounds_effect = { REASON = fight }
+			}
+		}
+	}
+}
+
+commander_maimed = {
+	type = commander
+
+	is_valid = {
+		exists = root
+		NAND = {
+			has_trait = one_legged
+			has_trait = disfigured
+			has_trait = one_eyed
+			has_trait = maimed
+			#AGOT Added
+			has_trait = half_blind
+		}
+		#AGOT Added - no fighting dragonriders on foot (by default anyway)
+		is_current_dragonrider_warfare = no
+		has_character_flag = calculated_dragon_modifier # Run dragon calcs first
+	}
+
+	chance = {
+		base = 30 #edited by Brad 01/07/2026
+		modifier = {
+			factor = { # Prowess directly reduces chance of injury/death
+				#AGOT Modified
+				# value = 30 # Value at which 'immortality' happens
+				value = 40
+				subtract = prowess
+				#AGOT Modified
+				# divide = 30
+				divide = 40
+				min = 0.1 # Everyone dies.
+			}
+		}
+		modifier = { # Reduce chance when outnumbering the enemy
+			factor = {
+				value = scope:combat_side.enemy_side.side_strength
+				divide = scope:combat_side.side_strength
+				multiply = 1.4 # Outnumbering 2-1 reduces chance by 30%
+				max = 1
+			}
+			scope:combat_side.side_strength > scope:combat_side.enemy_side.side_strength
+		}
+		modifier = { # No deaths when vastly outnumbering the enemy
+			factor = 0
+			scope:combat_side.side_strength > scope:combat_side.enemy_side.vastly_outnumbered_combat_side_threshold
+		}
+		modifier = {
+			factor = 1.1
+			faith = {
+				has_doctrine_parameter = death_is_glory
+			}
+		}
+		modifier = {
+			factor = 2
+			has_trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			has_trait = craven
+		}
+	}
+
+	effect = {
+		save_scope_as = commander
+		# Trigger the battle event indicating we have been Maimed.
+		if = {
+			limit = {
+				scope:combat_side.enemy_side = {
+					any_side_knight = {
+						this.prowess >= scope:commander.prowess_for_combat_event_opponent
+					}
+				}
+			}
+			scope:combat_side.enemy_side = {
+				random_side_knight = {
+					limit = {
+						this.prowess >= scope:commander.prowess_for_combat_event_opponent
+					}
+					save_scope_as = enemy_knight
+					add_prestige = knight_prestige_gain_on_wound_inverse
+					knight_increase_prowess_chance_effect = yes
+				}
+			}
+
+			# Trigger the battle event where we are maimed by an enemy Knight.
+			scope:combat_side = {
+				battle_event = {
+					key = "commander_maimed_by_enemy"
+					left_portrait = scope:commander
+					right_portrait = scope:enemy_knight
+					type = wound
+				}
+			}
+			# Send the toast telling the player if they have been maimed.
+			send_interface_toast = {
+				type = event_toast_effect_bad
+				title = commander_maimed_by_enemy_interface_friendly_player
+				left_icon = scope:commander
+				right_icon = scope:enemy_knight
+
+				# Main the commander.
+				maimed_in_battle_effect = yes
+			}
+		}
+		else = {
+			# Trigger the battle event were we are maimed by a nameless soldier.
+			scope:combat_side = {
+				battle_event = {
+					key = "commander_maimed_no_enemy"
+					left_portrait = scope:commander
+					type = wound
+				}
+			}
+			# Send the toast telling the player if they have been maimed.
+			send_interface_toast = {
+				type = event_toast_effect_bad
+				title = commander_maimed_no_enemy_interface_friendly_player
+				left_icon = scope:commander
+
+				# Main the commander.
+				maimed_in_battle_effect = yes
+			}	
+		}
+	}
+}
+
+commander_killed = {
+	type = commander
+
+	is_valid = {
+		exists = root
+		#Commanders cannot be killed outright unless...
+		OR = {
+			#...they are already wounded...
+			has_trait_rank = {
+				trait = wounded
+				rank >= 1
+			}
+			#...or they are absolutely terrible at battle to begin with!
+			AND = {
+				martial <= low_skill_rating
+				prowess <= low_skill_rating
+			}
+		}
+		NOR = {
+			AND = {
+				is_ai = no
+				has_game_rule = very_easy_difficulty
+			}
+			ai_should_get_extreme_conqueror_bonuses = yes
+		}
+		#AGOT Added - no fighting dragonriders on foot (by default anyway)
+		is_current_dragonrider_warfare = no
+		has_character_flag = calculated_dragon_modifier # Run dragon calcs first
+	}
+
+	chance = {
+		base = 20 #edited by Brad 01/07/2026
+		modifier = {
+			factor = { # Prowess directly reduces chance of injury/death
+				#AGOT Modified
+				# value = 30 # Value at which 'immortality' happens
+				value = 40
+				subtract = prowess
+				#AGOT Modified
+				# divide = 30
+				value = 40
+				min = 0.1 # Everyone dies.
+			}
+		}
+		modifier = { # Reduce chance when outnumbering the enemy
+			factor = {
+				value = scope:combat_side.enemy_side.side_strength
+				divide = scope:combat_side.side_strength
+				multiply = 1.4 # Outnumbering 2-1 reduces chance by 30%
+				max = 1
+			}
+			scope:combat_side.side_strength > scope:combat_side.enemy_side.side_strength
+		}
+		modifier = { # No deaths when vastly outnumbering the enemy
+			factor = 0
+			scope:combat_side.side_strength > scope:combat_side.enemy_side.vastly_outnumbered_combat_side_threshold
+		}
+		modifier = {
+			factor = 1.1
+			faith = {
+				has_doctrine_parameter = death_is_glory
+			}
+		}
+		modifier = {
+			factor = 2
+			has_trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			has_trait = craven
+		}
+		modifier = {
+			factor = 4
+			has_trait_rank = {
+				trait = wounded
+				rank = 3
+			}
+		}
+	}
+
+	effect = {
+		save_scope_as = commander
+		save_died_in_battle_variables_effect = {
+			ENEMY = scope:combat_side.enemy_side.side_primary_participant
+			LEADER = scope:combat_side.side_primary_participant
+			LOCATION = scope:combat_side.combat.location
+		}
+		if = {
+			limit = {
+				scope:combat_side.enemy_side = {
+					any_side_knight = {
+						this.prowess >= scope:commander.prowess_for_combat_event_opponent
+					}
+				}
+			}
+			#AGOT Modified
+			# scope:combat_side.enemy_side = {
+			# 	random_side_knight = {
+			# 		limit = {
+			# 			this.prowess >= scope:commander.prowess_for_combat_event_opponent
+			# 		}
+			# 		save_scope_as = enemy_knight
+			# 		add_prestige = knight_prestige_gain_on_kill_inverse
+			# 		knight_increase_prowess_chance_effect = yes
+			# 	}
+			# }
+			# scope:combat_side = {
+			# 	battle_event = {
+			# 		key = "commander_killed_by_enemy"
+			# 		left_portrait = scope:commander
+			# 		right_portrait = scope:enemy_knight
+			# 		type = death
+			# 	}
+			# }
+			# house ?= {
+			# 	change_house_relation_effect = {
+			# 		HOUSE = scope:enemy_knight.house
+			# 		VALUE = house_relation_damage_medium_value
+			# 		REASON = killed
+			# 		CHAR = scope:enemy_knight
+			# 		TARGET_CHAR = scope:commander
+			# 		TITLE = scope:dummy_gender
+			# 	}
+			# }
+			# send_interface_toast = {
+			# 	type = event_slain_combatants_bad
+			# 	title = commander_killed_by_enemy_interface_friendly
+			# 	left_icon = scope:commander
+			# 	right_icon = scope:enemy_knight
+
+			# 	# Kill the commander.
+			# 	death = {
+			# 		death_reason = death_battle
+			# 		killer = scope:enemy_knight
+			# 	}
+			# }
+			if = {
+				limit = {
+					scope:commander = {
+						agot_dying_king_trigger = yes
+					}
+				}
+				scope:commander = {
+					save_scope_as = crown_theft_king
+					scope:crown_theft_king = { crown_theft_battle_effect = yes }
+				}
+			}
+			else_if = {
+				scope:combat_side.enemy_side = {
+					random_side_knight = {
+						limit = {
+							this.prowess >= scope:commander.prowess_for_combat_event_opponent
+						}
+						save_scope_as = enemy_knight
+						add_prestige = knight_prestige_gain_on_kill_inverse
+						knight_increase_prowess_chance_effect = yes
+					}
+				}
+				scope:combat_side = {
+					battle_event = {
+						key = "commander_killed_by_enemy"
+						left_portrait = scope:commander
+						right_portrait = scope:enemy_knight
+						type = death
+					}
+				}
+				house ?= {
+					change_house_relation_effect = {
+						HOUSE = scope:enemy_knight.house
+						VALUE = house_relation_damage_medium_value
+						REASON = killed
+						CHAR = scope:enemy_knight
+						TARGET_CHAR = scope:commander
+						TITLE = scope:dummy_gender
+					}
+				}
+				send_interface_toast = {
+					type = event_slain_combatants_bad
+					title = commander_killed_by_enemy_interface_friendly
+					left_icon = scope:commander
+					right_icon = scope:enemy_knight
+
+					# Kill the commander.
+					death = {
+						death_reason = death_battle
+						killer = scope:enemy_knight
+					}
+				}
+			}
+		}
+		else = {
+			scope:combat_side = {
+				battle_event = {
+					key = "commander_killed_no_enemy"
+					left_portrait = scope:commander
+					type = death
+				}
+			}
+			send_interface_toast = {
+				type = event_slain_combatants_bad
+				title = commander_killed_no_enemy_interface_friendly
+				left_icon = scope:commander
+				# Kill the commander.
+				death = {
+					death_reason = death_battle
+				}
+			}
+		}
+	}
+}
+
+#AGOT Added, Ronko
+commander_duel = {
+	type = knight
+	is_valid = {
+		#is_ai = no
+		is_alive = yes
+		NOT = { has_character_flag = already_fighting }
+		# prevent duels from deciding wars as the outcome can be quite random
+		NOT = { scope:combat_side.combat.combat_war.primary_attacker ?= root }
+		NOT = { scope:combat_side.combat.combat_war.primary_defender ?= root }
+		NOT = { scope:combat_side.combat.combat_war.primary_attacker.primary_heir ?= root }
+		NOT = { scope:combat_side.combat.combat_war.primary_defender.primary_heir ?= root }
+		NOT = { scope:combat_side.combat.combat_war.primary_attacker.player_heir ?= root }
+		NOT = { scope:combat_side.combat.combat_war.primary_defender.player_heir ?= root }
+		#No fighting dragonriders on foot (by default anyway)
+		is_current_dragonrider_warfare = no
+		has_character_flag = calculated_dragon_modifier # Run dragon calcs first
+	}
+	chance = {
+		base = 30
+		modifier = {
+			factor = 2
+			has_trait = brave
+		}
+		modifier = {
+			factor = 0.5
+			has_trait = craven
+		}
+	}
+	effect = {
+		scope:combat_side.enemy_side = {
+			random_side_knight = {
+				limit = {
+					is_alive = yes
+					NOT = { has_character_flag = already_fighting }
+					# prevent duels from deciding wars as the outcome can be quite random
+					NOT = { scope:combat_side.combat.combat_war.primary_attacker ?= this }
+					NOT = { scope:combat_side.combat.combat_war.primary_defender ?= this }
+					NOT = { scope:combat_side.combat.combat_war.primary_attacker.primary_heir ?= this }
+					NOT = { scope:combat_side.combat.combat_war.primary_defender.primary_heir ?= this }
+					NOT = { scope:combat_side.combat.combat_war.primary_attacker.player_heir ?= this }
+					NOT = { scope:combat_side.combat.combat_war.primary_defender.player_heir ?= this }
+				}
+				save_temporary_scope_as = enemy_knight
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:enemy_knight
+				scope:enemy_knight = { is_alive = yes }
+				scope:enemy_knight = { is_at_same_location = root }
+				scope:enemy_knight = { NOT = { has_character_flag = already_fighting } }
+				NOT = { has_character_flag = already_fighting }
+			}
+			add_character_flag = already_fighting
+			scope:enemy_knight = { add_character_flag = already_fighting }
+			configure_start_single_combat_effect = {
+				SC_INITIATOR = root
+				SC_ATTACKER = root
+				SC_DEFENDER = scope:enemy_knight
+				FATALITY = possible
+				FIXED = no
+				LOCALE = battlefield
+				OUTPUT_EVENT = agot_battlefield_duel.0001
+				INVALIDATION_EVENT = single_combat.1006
+			}
+		}
+	}
+}
+
+#AGOT Added - Dragon modifier calculations
+# Grabs the dragon army support modifier from any character to be used in the combat
+# by the leading commander
+commander_dragon_sum = {
+	type = commander
+	
+	chance = {
+		base = 1 # Everything else should 0 out if this is valid
+	}
+
+	is_valid = {
+		exists = scope:combat_side
+		NOT = { has_character_flag = calculated_dragon_modifier }
+	}
+
+	effect = {
+		scope:combat_side = {
+			side_commander = { # First, add the flag to say we've done this
+				remove_base_dragon_army_modifiers = yes
+				add_character_flag = {
+					flag = calculated_dragon_modifier
+					days = 10
+				}
+			}
+			every_side_commander = { # Then check for commander dragons
+				limit = {
+					exists = commanding_army # Is commander
+					is_current_dragonrider_warfare = yes
+				}
+				save_scope_as = dragonrider_commander
+				# Calculate the dragon effect
+				prev.side_commander = {
+					base_dragon_army_modifier_share_effect = {
+						DRAGON = scope:dragonrider_commander.var:current_dragon
+					}
+				}
+				# Calculate the counter effects - applied as debuffs on the dragon side commander
+				prev.enemy_side = {
+					if = {
+						limit = { has_maa_of_type = scorpions }
+						enemy_side.side_commander = {
+							base_dragon_army_scorpions_counter_effect = {
+								DRAGON = scope:dragonrider_commander.var:current_dragon
+							}
+						}
+					}
+				}
+				prev.enemy_side = {
+					if = {
+						limit = { has_maa_of_type = water_wizards }
+						enemy_side.side_commander = {
+							base_dragon_army_water_wizards_counter_effect = {
+								DRAGON = scope:dragonrider_commander.var:current_dragon
+							}
+						}
+					}
+				}
+				# Give battle prowess
+				agot_give_dragon_battle_prowess = yes
+			}
+			every_side_knight = { # Then check for knight dragons
+				limit = {
+					exists = knight_army # Is knight
+					NOT = { exists = commanding_army } # Not also a commander (already calculated)
+					is_current_dragonrider_warfare = yes
+				}
+				save_scope_as = dragonrider_knight
+				# Calculate the dragon-rider's dragon
+				prev.side_commander = {
+					base_dragon_army_modifier_share_effect = {
+						DRAGON = scope:dragonrider_knight.var:current_dragon
+					}
+				}
+				# Calculate the dragon-rider's dragon counter value - applied as debuffs on the dragon side commander
+				prev.enemy_side = {
+					if = {
+						limit = { has_maa_of_type = scorpions }
+						enemy_side.side_commander = {
+							base_dragon_army_scorpions_counter_effect = {
+								DRAGON = scope:dragonrider_knight.var:current_dragon
+							}
+						}
+					}
+				}
+				prev.enemy_side = {
+					if = {
+						limit = { has_maa_of_type = water_wizards }
+						enemy_side.side_commander = {
+							base_dragon_army_water_wizards_counter_effect = {
+								DRAGON = scope:dragonrider_knight.var:current_dragon
+							}
+						}
+					}
+				}
+				# Give battle prowess
+				agot_give_dragon_battle_prowess = yes
+			}
+		}
+	}
+}
+
+#AGOT Added - commander is dragonrider
+commander_dragon_joined_battle = {
+	type = commander
+
+	is_valid = {
+		scope:combat_side = {
+			any_side_commander = {
+				is_current_dragonrider_warfare = yes
+				var:current_dragon = { NOT = { has_character_flag = recently_joined_battle } }
+			}
+		}
+		has_character_flag = calculated_dragon_modifier # Run dragon calcs first
+	}
+
+	chance = {
+		base = 100000
+	}
+
+	effect = {
+		location = { # Save the location of the battle
+			save_scope_as = battle_location
+		}
+		scope:combat_side = {
+			# Get commander
+			if = {
+				limit = {
+					exists = side_commander
+				}
+				side_commander = {
+					save_scope_as = dragon_commander_in_battle
+				}
+			}
+			# Get dragonrider
+			random_side_commander = {
+				limit = {
+					is_current_dragonrider_warfare = yes
+					var:current_dragon = { NOT = { has_character_flag = recently_joined_battle } }
+				}
+				save_scope_as = dragonrider_in_battle
+				var:current_dragon = {
+					save_scope_as = dragon_in_battle
+				}
+			}
+		}
+		# Get dragonrider enemy
+		if = {
+			limit = {
+				scope:combat_side.enemy_side = {
+					OR = {
+						any_side_knight = { # Enemy knight is alive, is dragonrider, and has a dragon
+							is_alive = yes
+							is_current_dragonrider_warfare = yes
+						}
+						any_side_commander = { # Enemy commander is alive, is dragonrider, and has a dragon
+							is_alive = yes
+							is_current_dragonrider_warfare = yes
+						}
+					}
+				}
+			}
+			scope:combat_side.enemy_side = { # Grab appropriate enemy dragonrider, commanders are prioritized
+				random_side_knight = {
+					limit = {
+						is_alive = yes
+						is_current_dragonrider_warfare = yes
+					}
+					save_scope_as = enemy_dragonrider
+				}
+				random_side_commander = {
+					limit = {
+						is_alive = yes
+						is_current_dragonrider_warfare = yes
+					}
+					save_scope_as = enemy_dragonrider
+				}
+			}
+		}
+		# Get non-dragonrider enemy
+		if = {
+			limit = {
+				scope:combat_side.enemy_side = {
+					any_side_knight = {
+						is_alive = yes
+						is_current_dragonrider_warfare = no
+					}
+				}
+			}
+			scope:combat_side.enemy_side = {
+				random_side_knight = {
+					limit = {
+						is_alive = yes
+						is_current_dragonrider_warfare = no
+					}
+					save_scope_as = enemy_knight
+				}
+			}
+		}
+		# Get enemy commander
+		scope:combat_side.enemy_side = {
+			if = {
+				limit = { exists = side_commander }
+				side_commander = {
+					save_scope_as = enemy_commander_in_battle
+					if = { # Duel primary commander first if possible
+						limit = {
+							is_alive = yes
+							is_current_dragonrider_warfare = yes
+						}
+						save_scope_as = enemy_dragonrider
+					}
+				}
+			}
+		}
+		# Add flag to dragon
+		scope:dragon_in_battle = {
+			add_character_flag = {
+				flag = recently_joined_battle
+				days = 15
+			}
+		}
+		# Call dragon warfare events
+		scope:dragonrider_in_battle = {
+			agot_call_dragon_warfare_events = yes
+		}
+	}
+}
+
+commander_wild_dragon_joined_battle = {
+	type = commander
+
+	is_valid = {
+		exists = location.county
+
+		agot_dragon_population_alive = yes
+
+		scope:combat_side ?= {
+			NOR = { # For now, no dragons to mess it up
+				any_side_commander = {
+					is_current_dragonrider_warfare = yes
+				}
+				any_side_knight = {
+					is_current_dragonrider_warfare = yes
+				}
+			}
+			enemy_side ?= {
+				NOR = { # For now, no dragons to mess it up
+					any_side_commander = {
+						is_current_dragonrider_warfare = yes
+					}
+					any_side_knight = {
+						is_current_dragonrider_warfare = yes
+					}
+				}
+			}
+		}
+
+		any_in_global_list = {
+			variable = living_dragons
+			location.county ?= root.location.county
+			dragon_size >= dragon_taming_minimum_size
+			NOT = { has_character_flag = owned_dragon }
+
+			NOR = { # Dragon is not badly wounded
+				has_trait = dragon_wounded_3
+				has_trait = dragon_wounded_4
+				has_trait = dragon_wounded_5
+				has_character_flag = wild_dragon_warfare_event_0026
+				has_character_flag = wild_dragon_warfare_event_0029
+				has_character_flag = in_dragon_combat
+			}
+		}
+	}
+
+	chance = {
+		base = 0
+
+		modifier = {
+			any_in_global_list = {
+				variable = living_dragons
+				location.county ?= root.location.county
+				dragon_size >= dragon_taming_minimum_size
+				NOT = { has_character_flag = owned_dragon }
+
+				NOR = { # Dragon is not badly wounded
+					has_trait = dragon_wounded_3
+					has_trait = dragon_wounded_4
+					has_trait = dragon_wounded_5
+					has_character_flag = wild_dragon_warfare_event_0026
+				}
+
+				save_temporary_scope_as = wild_dragon
+			}
+			add = {
+				value = {
+					add = scope:wild_dragon.ai_boldness
+					subtract = scope:wild_dragon.ai_compassion
+				}
+				multiply = 0.03
+			}
+		}
+
+		modifier = { # Drawn to larger crowds
+			add = {
+				value = scope:combat_side.enemy_side.side_strength
+				add = scope:combat_side.side_strength
+				multiply = 0.04
+			}
+		}
+
+		modifier = {
+			scope:combat_side = { # Dragon prefers people it "knows"
+				any_side_commander = {
+					root.location.county.holder = this
+				}
+			}
+			add = 0.5
+		}
+
+		modifier = {
+			agot_has_dragonblood_heritage = yes
+			add = 1
+		}
+	}
+
+	effect = {
+		location = { save_scope_as = battle_location }
+		random_in_global_list = {
+			variable = living_dragons
+			limit = {
+				location.county ?= root.location.county
+				dragon_size >= dragon_taming_minimum_size
+				NOT = { has_character_flag = owned_dragon }
+
+				NOR = { # Dragon is not badly wounded
+					has_trait = dragon_wounded_3
+					has_trait = dragon_wounded_4
+					has_trait = dragon_wounded_5
+					OR = {
+						has_character_flag = wild_dragon_warfare_event_0026
+						has_character_flag = wild_dragon_warfare_event_0029
+					}
+				}
+			}
+			save_scope_as = dragon_in_battle
+		}
+
+		if = {
+			limit = {
+				exists = scope:dragon_in_battle
+			}
+
+			scope:combat_side = {
+				# Get a commander on the other side and a knight
+				enemy_side = {
+					if = {
+						limit = { exists = side_commander }
+						side_commander = { save_scope_as = enemy_commander_in_battle }
+					}
+					random_side_knight = {
+						save_scope_as = enemy_knight
+					}
+				}
+			}
+			save_scope_as = dragon_commander_in_battle
+			random_list = {
+				50 = {
+					modifier = {
+						agot_has_dragonblood_heritage = yes
+						add = 75
+					}
+					modifier = {
+						scope:combat_side = { # Dragon prefers people it "knows"
+							any_side_commander = {
+								root.location.county.holder = this
+							}
+						}
+						add = 50
+					}
+					scope:dragon_in_battle = {
+						add_character_flag = {
+							flag = wild_dragon_warfare_event_0026
+							years = 5
+						}
+					}
+					trigger_event = agot_dragon_warfare.0026
+				}
+				50 = {
+					# This one should only happen if the otherside has a commander
+					trigger = {
+						exists = scope:enemy_commander_in_battle
+					}
+					# Fire a bad event for everyone
+					scope:dragon_in_battle = {
+						add_character_flag = {
+							flag = wild_dragon_warfare_event_0029
+							years = 5
+						}
+					}
+					trigger_event = agot_dragon_warfare.0029
+				}
+			}
+		}
+	}
+}
