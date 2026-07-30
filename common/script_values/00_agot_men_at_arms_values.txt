@@ -1,0 +1,398 @@
+﻿######################
+# Men-at-Arms Values #
+######################
+
+#########
+# Costs #
+#########
+
+@high_maint_mult = 3
+
+### Base Cost Values
+@skirmisher_recruitment_cost = 45
+@skirmisher_low_maint_cost = 0.25
+@skirmisher_high_maint_cost = @[skirmisher_low_maint_cost * high_maint_mult]
+
+#Skirmisher Recruitment Costs
+skirmisher_recruitment_cost_slaves = @[skirmisher_recruitment_cost * 0.25]
+skirmisher_recruitment_cost_indentured = @[skirmisher_recruitment_cost * 0.5]
+skirmisher_recruitment_cost_very_cheap = @[skirmisher_recruitment_cost - 10]
+skirmisher_recruitment_cost_cheap = @[skirmisher_recruitment_cost - 5]
+skirmisher_recruitment_cost_normal = @[skirmisher_recruitment_cost + 0]
+skirmisher_recruitment_cost_expensive = @[skirmisher_recruitment_cost + 5]
+skirmisher_recruitment_cost_very_expensive = @[skirmisher_recruitment_cost + 10]
+
+#Skirmisher Low Maintenance Costs
+skirmisher_low_maint_cost_slaves = @[skirmisher_low_maint_cost * 0.25]
+skirmisher_low_maint_cost_indentured = @[skirmisher_low_maint_cost * 0.5]
+skirmisher_low_maint_cost_very_cheap = @[skirmisher_low_maint_cost - 0.1]
+skirmisher_low_maint_cost_cheap = @[skirmisher_low_maint_cost - 0.05]
+skirmisher_low_maint_cost_normal = @[skirmisher_low_maint_cost + 0]
+skirmisher_low_maint_cost_expensive = @[skirmisher_low_maint_cost + 0.05]
+skirmisher_low_maint_cost_very_expensive = @[skirmisher_low_maint_cost + 0.1]
+
+#Skirmisher High Maintenance Costs
+skirmisher_high_maint_cost_slaves = @[skirmisher_high_maint_cost * 0.25]
+skirmisher_high_maint_cost_indentured = @[skirmisher_high_maint_cost * 0.5]
+skirmisher_high_maint_cost_very_cheap = @[skirmisher_high_maint_cost - 0.1]
+skirmisher_high_maint_cost_cheap = @[skirmisher_high_maint_cost - 0.05]
+skirmisher_high_maint_cost_normal = @[skirmisher_high_maint_cost + 0]
+skirmisher_high_maint_cost_expensive = @[skirmisher_high_maint_cost + 0.05]
+skirmisher_high_maint_cost_very_expensive = @[skirmisher_high_maint_cost + 0.1]
+
+### Base Cost Values: Archers
+@archers_recruitment_cost = 55
+@archers_low_maint_cost = 0.2
+@archers_high_maint_cost = @[archers_low_maint_cost * high_maint_mult]
+
+#Archers Recruitment Costs
+archers_recruitment_cost_slaves = @[archers_recruitment_cost * 0.25]
+archers_recruitment_cost_indentured = @[archers_recruitment_cost * 0.5]
+archers_recruitment_cost_very_cheap = @[archers_recruitment_cost - 10]
+archers_recruitment_cost_cheap = @[archers_recruitment_cost - 5]
+archers_recruitment_cost_normal = @[archers_recruitment_cost + 0]
+archers_recruitment_cost_expensive = @[archers_recruitment_cost + 5]
+archers_recruitment_cost_very_expensive = @[archers_recruitment_cost + 10]
+
+#archers Low Maintenance Costs
+archers_low_maint_cost_slaves = @[archers_low_maint_cost * 0.25]
+archers_low_maint_cost_indentured = @[archers_low_maint_cost * 0.5]
+archers_low_maint_cost_very_cheap = @[archers_low_maint_cost - 0.1]
+archers_low_maint_cost_cheap = @[archers_low_maint_cost - 0.05]
+archers_low_maint_cost_normal = @[archers_low_maint_cost + 0]
+archers_low_maint_cost_expensive = @[archers_low_maint_cost + 0.05]
+archers_low_maint_cost_very_expensive = @[archers_low_maint_cost + 0.1]
+
+#archers High Maintenance Costs
+archers_high_maint_cost_slaves = @[archers_high_maint_cost * 0.25]
+archers_high_maint_cost_indentured = @[archers_high_maint_cost * 0.5]
+archers_high_maint_cost_very_cheap = @[archers_high_maint_cost - 0.1]
+archers_high_maint_cost_cheap = @[archers_high_maint_cost - 0.05]
+archers_high_maint_cost_normal = @[archers_high_maint_cost + 0]
+archers_high_maint_cost_expensive = @[archers_high_maint_cost + 0.05]
+archers_high_maint_cost_very_expensive = @[archers_high_maint_cost + 0.1]
+
+### Base Cost Values: Pikemen
+@pikemen_recruitment_cost = 75
+@pikemen_low_maint_cost = 0.5
+@pikemen_high_maint_cost = @[pikemen_low_maint_cost * high_maint_mult]
+
+#Pikemen Recruitment Costs
+pikemen_recruitment_cost_slaves = @[pikemen_recruitment_cost * 0.25]
+pikemen_recruitment_cost_indentured = @[pikemen_recruitment_cost * 0.5]
+pikemen_recruitment_cost_very_cheap = @[pikemen_recruitment_cost - 10]
+pikemen_recruitment_cost_cheap = @[pikemen_recruitment_cost - 5]
+pikemen_recruitment_cost_normal = @[pikemen_recruitment_cost + 0]
+pikemen_recruitment_cost_expensive = @[pikemen_recruitment_cost + 5]
+pikemen_recruitment_cost_very_expensive = @[pikemen_recruitment_cost + 10]
+
+#pikemen Low Maintenance Costs
+pikemen_low_maint_cost_slaves = @[pikemen_low_maint_cost * 0.25]
+pikemen_low_maint_cost_indentured = @[pikemen_low_maint_cost * 0.5]
+pikemen_low_maint_cost_very_cheap = @[pikemen_low_maint_cost - 0.1]
+pikemen_low_maint_cost_cheap = @[pikemen_low_maint_cost - 0.05]
+pikemen_low_maint_cost_normal = @[pikemen_low_maint_cost + 0]
+pikemen_low_maint_cost_expensive = @[pikemen_low_maint_cost + 0.05]
+pikemen_low_maint_cost_very_expensive = @[pikemen_low_maint_cost + 0.1]
+
+#pikemen High Maintenance Costs
+pikemen_high_maint_cost_slaves = @[pikemen_high_maint_cost * 0.25]
+pikemen_high_maint_cost_indentured = @[pikemen_high_maint_cost * 0.5]
+pikemen_high_maint_cost_very_cheap = @[pikemen_high_maint_cost - 0.1]
+pikemen_high_maint_cost_cheap = @[pikemen_high_maint_cost - 0.05]
+pikemen_high_maint_cost_normal = @[pikemen_high_maint_cost + 0]
+pikemen_high_maint_cost_expensive = @[pikemen_high_maint_cost + 0.05]
+pikemen_high_maint_cost_very_expensive = @[pikemen_high_maint_cost + 0.1]
+
+### Base Cost Values: Heavy Infantry
+@heavy_infantry_recruitment_cost = 90
+@heavy_infantry_low_maint_cost = 0.4
+@heavy_infantry_high_maint_cost = @[heavy_infantry_low_maint_cost * high_maint_mult]
+
+#Heavy Infantry Recruitment Costs
+heavy_infantry_recruitment_cost_slaves = @[heavy_infantry_recruitment_cost * 0.25]
+heavy_infantry_recruitment_cost_indentured = @[heavy_infantry_recruitment_cost * 0.5]
+heavy_infantry_recruitment_cost_very_cheap = @[heavy_infantry_recruitment_cost - 10]
+heavy_infantry_recruitment_cost_cheap = @[heavy_infantry_recruitment_cost - 5]
+heavy_infantry_recruitment_cost_normal = @[heavy_infantry_recruitment_cost + 0]
+heavy_infantry_recruitment_cost_expensive = @[heavy_infantry_recruitment_cost + 5]
+heavy_infantry_recruitment_cost_very_expensive = @[heavy_infantry_recruitment_cost + 10]
+
+#heavy_infantry Low Maintenance Costs
+heavy_infantry_low_maint_cost_slaves = @[heavy_infantry_low_maint_cost * 0.25]
+heavy_infantry_low_maint_cost_indentured = @[heavy_infantry_low_maint_cost * 0.5]
+heavy_infantry_low_maint_cost_very_cheap = @[heavy_infantry_low_maint_cost - 0.1]
+heavy_infantry_low_maint_cost_cheap = @[heavy_infantry_low_maint_cost - 0.05]
+heavy_infantry_low_maint_cost_normal = @[heavy_infantry_low_maint_cost + 0]
+heavy_infantry_low_maint_cost_expensive = @[heavy_infantry_low_maint_cost + 0.05]
+heavy_infantry_low_maint_cost_very_expensive = @[heavy_infantry_low_maint_cost + 0.1]
+
+#heavy_infantry High Maintenance Costs
+heavy_infantry_high_maint_cost_slaves = @[heavy_infantry_high_maint_cost * 0.25]
+heavy_infantry_high_maint_cost_indentured = @[heavy_infantry_high_maint_cost * 0.5]
+heavy_infantry_high_maint_cost_very_cheap = @[heavy_infantry_high_maint_cost - 0.2]
+heavy_infantry_high_maint_cost_cheap = @[heavy_infantry_high_maint_cost - 0.1]
+heavy_infantry_high_maint_cost_normal = @[heavy_infantry_high_maint_cost + 0]
+heavy_infantry_high_maint_cost_expensive = @[heavy_infantry_high_maint_cost + 0.1]
+heavy_infantry_high_maint_cost_very_expensive = @[heavy_infantry_high_maint_cost + 0.2]
+
+### Base Cost Values: Light Cavalry
+@light_cavalry_recruitment_cost = 85
+@light_cavalry_low_maint_cost = 0.35
+@light_cavalry_high_maint_cost = @[light_cavalry_low_maint_cost * high_maint_mult]
+
+#Light Cavalry Recruitment Costs
+light_cavalry_recruitment_cost_slaves = @[light_cavalry_recruitment_cost * 0.25]
+light_cavalry_recruitment_cost_indentured = @[light_cavalry_recruitment_cost * 0.5]
+light_cavalry_recruitment_cost_very_cheap = @[light_cavalry_recruitment_cost - 10]
+light_cavalry_recruitment_cost_cheap = @[light_cavalry_recruitment_cost - 5]
+light_cavalry_recruitment_cost_normal = @[light_cavalry_recruitment_cost + 0]
+light_cavalry_recruitment_cost_expensive = @[light_cavalry_recruitment_cost + 5]
+light_cavalry_recruitment_cost_very_expensive = @[light_cavalry_recruitment_cost + 10]
+
+#light_cavalry Low Maintenance Costs
+light_cavalry_low_maint_cost_slaves = @[light_cavalry_low_maint_cost * 0.25]
+light_cavalry_low_maint_cost_indentured = @[light_cavalry_low_maint_cost * 0.5]
+light_cavalry_low_maint_cost_very_cheap = @[light_cavalry_low_maint_cost - 0.1]
+light_cavalry_low_maint_cost_cheap = @[light_cavalry_low_maint_cost - 0.05]
+light_cavalry_low_maint_cost_normal = @[light_cavalry_low_maint_cost + 0]
+light_cavalry_low_maint_cost_expensive = @[light_cavalry_low_maint_cost + 0.05]
+light_cavalry_low_maint_cost_very_expensive = @[light_cavalry_low_maint_cost + 0.1]
+
+#light_cavalry High Maintenance Costs
+light_cavalry_high_maint_cost_slaves = @[light_cavalry_high_maint_cost * 0.25]
+light_cavalry_high_maint_cost_indentured = @[light_cavalry_high_maint_cost * 0.5]
+light_cavalry_high_maint_cost_very_cheap = @[light_cavalry_high_maint_cost - 0.1]
+light_cavalry_high_maint_cost_cheap = @[light_cavalry_high_maint_cost - 0.05]
+light_cavalry_high_maint_cost_normal = @[light_cavalry_high_maint_cost + 0]
+light_cavalry_high_maint_cost_expensive = @[light_cavalry_high_maint_cost + 0.05]
+light_cavalry_high_maint_cost_very_expensive = @[light_cavalry_high_maint_cost + 0.1]
+
+### Base Cost Values: Heavy Cavalry
+@heavy_cavalry_recruitment_cost = 200
+@heavy_cavalry_low_maint_cost = 0.7
+@heavy_cavalry_high_maint_cost = @[heavy_cavalry_low_maint_cost * high_maint_mult]
+
+#Heavy Cavalry Recruitment Costs
+heavy_cavalry_recruitment_cost_slaves = @[heavy_cavalry_recruitment_cost * 0.25]
+heavy_cavalry_recruitment_cost_indentured = @[heavy_cavalry_recruitment_cost * 0.5]
+heavy_cavalry_recruitment_cost_very_cheap = @[heavy_cavalry_recruitment_cost - 50]
+heavy_cavalry_recruitment_cost_cheap = @[heavy_cavalry_recruitment_cost - 25]
+heavy_cavalry_recruitment_cost_normal = @[heavy_cavalry_recruitment_cost + 0]
+heavy_cavalry_recruitment_cost_expensive = @[heavy_cavalry_recruitment_cost + 25]
+heavy_cavalry_recruitment_cost_very_expensive = @[heavy_cavalry_recruitment_cost + 50]
+
+#heavy_cavalry Low Maintenance Costs
+heavy_cavalry_low_maint_cost_slaves = @[heavy_cavalry_low_maint_cost * 0.25]
+heavy_cavalry_low_maint_cost_indentured = @[heavy_cavalry_low_maint_cost * 0.5]
+heavy_cavalry_low_maint_cost_very_cheap = @[heavy_cavalry_low_maint_cost - 0.1]
+heavy_cavalry_low_maint_cost_cheap = @[heavy_cavalry_low_maint_cost - 0.05]
+heavy_cavalry_low_maint_cost_normal = @[heavy_cavalry_low_maint_cost + 0]
+heavy_cavalry_low_maint_cost_expensive = @[heavy_cavalry_low_maint_cost + 0.05]
+heavy_cavalry_low_maint_cost_very_expensive = @[heavy_cavalry_low_maint_cost + 0.1]
+
+#heavy_cavalry High Maintenance Costs
+heavy_cavalry_high_maint_cost_slaves = @[heavy_cavalry_high_maint_cost * 0.25]
+heavy_cavalry_high_maint_cost_indentured = @[heavy_cavalry_high_maint_cost * 0.5]
+heavy_cavalry_high_maint_cost_very_cheap = @[heavy_cavalry_high_maint_cost - 0.1]
+heavy_cavalry_high_maint_cost_cheap = @[heavy_cavalry_high_maint_cost - 0.05]
+heavy_cavalry_high_maint_cost_normal = @[heavy_cavalry_high_maint_cost + 0]
+heavy_cavalry_high_maint_cost_expensive = @[heavy_cavalry_high_maint_cost + 0.05]
+heavy_cavalry_high_maint_cost_very_expensive = @[heavy_cavalry_high_maint_cost + 0.1]
+
+### Base Cost Values: Archer Cavalry
+@archer_cavalry_recruitment_cost = 135
+@archer_cavalry_low_maint_cost = 0.45
+@archer_cavalry_high_maint_cost = @[archer_cavalry_low_maint_cost * high_maint_mult]
+
+#Heavy Cavalry Recruitment Costs
+archer_cavalry_recruitment_cost_slaves = @[archer_cavalry_recruitment_cost * 0.25]
+archer_cavalry_recruitment_cost_indentured = @[archer_cavalry_recruitment_cost * 0.5]
+archer_cavalry_recruitment_cost_very_cheap = @[archer_cavalry_recruitment_cost - 50]
+archer_cavalry_recruitment_cost_cheap = @[archer_cavalry_recruitment_cost - 25]
+archer_cavalry_recruitment_cost_normal = @[archer_cavalry_recruitment_cost + 0]
+archer_cavalry_recruitment_cost_expensive = @[archer_cavalry_recruitment_cost + 25]
+archer_cavalry_recruitment_cost_very_expensive = @[archer_cavalry_recruitment_cost + 50]
+
+#archer_cavalry Low Maintenance Costs
+archer_cavalry_low_maint_cost_slaves = @[archer_cavalry_low_maint_cost * 0.25]
+archer_cavalry_low_maint_cost_indentured = @[archer_cavalry_low_maint_cost * 0.5]
+archer_cavalry_low_maint_cost_very_cheap = @[archer_cavalry_low_maint_cost - 0.1]
+archer_cavalry_low_maint_cost_cheap = @[archer_cavalry_low_maint_cost - 0.05]
+archer_cavalry_low_maint_cost_normal = @[archer_cavalry_low_maint_cost + 0]
+archer_cavalry_low_maint_cost_expensive = @[archer_cavalry_low_maint_cost + 0.05]
+archer_cavalry_low_maint_cost_very_expensive = @[archer_cavalry_low_maint_cost + 0.1]
+
+#archer_cavalry High Maintenance Costs
+archer_cavalry_high_maint_cost_slaves = @[archer_cavalry_high_maint_cost * 0.25]
+archer_cavalry_high_maint_cost_indentured = @[archer_cavalry_high_maint_cost * 0.5]
+archer_cavalry_high_maint_cost_very_cheap = @[archer_cavalry_high_maint_cost - 0.1]
+archer_cavalry_high_maint_cost_cheap = @[archer_cavalry_high_maint_cost - 0.05]
+archer_cavalry_high_maint_cost_normal = @[archer_cavalry_high_maint_cost + 0]
+archer_cavalry_high_maint_cost_expensive = @[archer_cavalry_high_maint_cost + 0.05]
+archer_cavalry_high_maint_cost_very_expensive = @[archer_cavalry_high_maint_cost + 0.1]
+
+### Base Cost Values: Camel Cavalry
+@camel_cavalry_recruitment_cost = 85
+@camel_cavalry_low_maint_cost = 0.28
+@camel_cavalry_high_maint_cost = @[camel_cavalry_low_maint_cost * high_maint_mult]
+
+#Heavy Cavalry Recruitment Costs
+camel_cavalry_recruitment_cost_slaves = @[camel_cavalry_recruitment_cost * 0.25]
+camel_cavalry_recruitment_cost_indentured = @[camel_cavalry_recruitment_cost * 0.5]
+camel_cavalry_recruitment_cost_very_cheap = @[camel_cavalry_recruitment_cost - 10]
+camel_cavalry_recruitment_cost_cheap = @[camel_cavalry_recruitment_cost - 5]
+camel_cavalry_recruitment_cost_normal = @[camel_cavalry_recruitment_cost + 0]
+camel_cavalry_recruitment_cost_expensive = @[camel_cavalry_recruitment_cost + 5]
+camel_cavalry_recruitment_cost_very_expensive = @[camel_cavalry_recruitment_cost + 10]
+
+#camel_cavalry Low Maintenance Costs
+camel_cavalry_low_maint_cost_slaves = @[camel_cavalry_low_maint_cost * 0.25]
+camel_cavalry_low_maint_cost_indentured = @[camel_cavalry_low_maint_cost * 0.5]
+camel_cavalry_low_maint_cost_very_cheap = @[camel_cavalry_low_maint_cost - 0.1]
+camel_cavalry_low_maint_cost_cheap = @[camel_cavalry_low_maint_cost - 0.05]
+camel_cavalry_low_maint_cost_normal = @[camel_cavalry_low_maint_cost + 0]
+camel_cavalry_low_maint_cost_expensive = @[camel_cavalry_low_maint_cost + 0.05]
+camel_cavalry_low_maint_cost_very_expensive = @[camel_cavalry_low_maint_cost + 0.1]
+
+#camel_cavalry High Maintenance Costs
+camel_cavalry_high_maint_cost_slaves = @[camel_cavalry_high_maint_cost * 0.25]
+camel_cavalry_high_maint_cost_indentured = @[camel_cavalry_high_maint_cost * 0.5]
+camel_cavalry_high_maint_cost_very_cheap = @[camel_cavalry_high_maint_cost - 0.1]
+camel_cavalry_high_maint_cost_cheap = @[camel_cavalry_high_maint_cost - 0.05]
+camel_cavalry_high_maint_cost_normal = @[camel_cavalry_high_maint_cost + 0]
+camel_cavalry_high_maint_cost_expensive = @[camel_cavalry_high_maint_cost + 0.05]
+camel_cavalry_high_maint_cost_very_expensive = @[camel_cavalry_high_maint_cost + 0.1]
+
+### Base Cost Values: Elephant Cavalry
+@elephant_cavalry_recruitment_cost = 400
+@elephant_cavalry_low_maint_cost = 0.85
+@elephant_cavalry_high_maint_cost = @[elephant_cavalry_low_maint_cost * high_maint_mult]
+
+#Heavy Cavalry Recruitment Costs
+elephant_cavalry_recruitment_cost_slaves = @[elephant_cavalry_recruitment_cost * 0.25]
+elephant_cavalry_recruitment_cost_indentured = @[elephant_cavalry_recruitment_cost * 0.5]
+elephant_cavalry_recruitment_cost_very_cheap = @[elephant_cavalry_recruitment_cost - 50]
+elephant_cavalry_recruitment_cost_cheap = @[elephant_cavalry_recruitment_cost - 25]
+elephant_cavalry_recruitment_cost_normal = @[elephant_cavalry_recruitment_cost + 0]
+elephant_cavalry_recruitment_cost_expensive = @[elephant_cavalry_recruitment_cost + 25]
+elephant_cavalry_recruitment_cost_very_expensive = @[elephant_cavalry_recruitment_cost + 50]
+
+#elephant_cavalry Low Maintenance Costs
+elephant_cavalry_low_maint_cost_slaves = @[elephant_cavalry_low_maint_cost * 0.25]
+elephant_cavalry_low_maint_cost_indentured = @[elephant_cavalry_low_maint_cost * 0.5]
+elephant_cavalry_low_maint_cost_very_cheap = @[elephant_cavalry_low_maint_cost - 0.1]
+elephant_cavalry_low_maint_cost_cheap = @[elephant_cavalry_low_maint_cost - 0.05]
+elephant_cavalry_low_maint_cost_normal = @[elephant_cavalry_low_maint_cost + 0]
+elephant_cavalry_low_maint_cost_expensive = @[elephant_cavalry_low_maint_cost + 0.05]
+elephant_cavalry_low_maint_cost_very_expensive = @[elephant_cavalry_low_maint_cost + 0.1]
+
+#elephant_cavalry High Maintenance Costs
+elephant_cavalry_high_maint_cost_slaves = @[elephant_cavalry_high_maint_cost * 0.25]
+elephant_cavalry_high_maint_cost_indentured = @[elephant_cavalry_high_maint_cost * 0.5]
+elephant_cavalry_high_maint_cost_very_cheap = @[elephant_cavalry_high_maint_cost - 0.1]
+elephant_cavalry_high_maint_cost_cheap = @[elephant_cavalry_high_maint_cost - 0.05]
+elephant_cavalry_high_maint_cost_normal = @[elephant_cavalry_high_maint_cost + 0]
+elephant_cavalry_high_maint_cost_expensive = @[elephant_cavalry_high_maint_cost + 0.05]
+elephant_cavalry_high_maint_cost_very_expensive = @[elephant_cavalry_high_maint_cost + 0.1]
+
+### Base Cost Values: Chariot Cavalry
+@chariot_cavalry_recruitment_cost = 325
+@chariot_cavalry_low_maint_cost = 0.75
+@chariot_cavalry_high_maint_cost = @[chariot_cavalry_low_maint_cost * high_maint_mult]
+
+#Heavy Cavalry Recruitment Costs
+chariot_cavalry_recruitment_cost_slaves = @[chariot_cavalry_recruitment_cost * 0.25]
+chariot_cavalry_recruitment_cost_indentured = @[chariot_cavalry_recruitment_cost * 0.5]
+chariot_cavalry_recruitment_cost_very_cheap = @[chariot_cavalry_recruitment_cost - 50]
+chariot_cavalry_recruitment_cost_cheap = @[chariot_cavalry_recruitment_cost - 25]
+chariot_cavalry_recruitment_cost_normal = @[chariot_cavalry_recruitment_cost + 0]
+chariot_cavalry_recruitment_cost_expensive = @[chariot_cavalry_recruitment_cost + 25]
+chariot_cavalry_recruitment_cost_very_expensive = @[chariot_cavalry_recruitment_cost + 50]
+
+#chariot_cavalry Low Maintenance Costs
+chariot_cavalry_low_maint_cost_slaves = @[chariot_cavalry_low_maint_cost * 0.25]
+chariot_cavalry_low_maint_cost_indentured = @[chariot_cavalry_low_maint_cost * 0.5]
+chariot_cavalry_low_maint_cost_very_cheap = @[chariot_cavalry_low_maint_cost - 0.1]
+chariot_cavalry_low_maint_cost_cheap = @[chariot_cavalry_low_maint_cost - 0.05]
+chariot_cavalry_low_maint_cost_normal = @[chariot_cavalry_low_maint_cost + 0]
+chariot_cavalry_low_maint_cost_expensive = @[chariot_cavalry_low_maint_cost + 0.05]
+chariot_cavalry_low_maint_cost_very_expensive = @[chariot_cavalry_low_maint_cost + 0.1]
+
+#chariot_cavalry High Maintenance Costs
+chariot_cavalry_high_maint_cost_slaves = @[chariot_cavalry_high_maint_cost * 0.25]
+chariot_cavalry_high_maint_cost_indentured = @[chariot_cavalry_high_maint_cost * 0.5]
+chariot_cavalry_high_maint_cost_very_cheap = @[chariot_cavalry_high_maint_cost - 0.1]
+chariot_cavalry_high_maint_cost_cheap = @[chariot_cavalry_high_maint_cost - 0.05]
+chariot_cavalry_high_maint_cost_normal = @[chariot_cavalry_high_maint_cost + 0]
+chariot_cavalry_high_maint_cost_expensive = @[chariot_cavalry_high_maint_cost + 0.05]
+chariot_cavalry_high_maint_cost_very_expensive = @[chariot_cavalry_high_maint_cost + 0.1]
+
+### Base Cost Values: Siege Weapons
+@siege_weapons_recruitment_cost = 60
+@siege_weapons_low_maint_cost = 0.1
+@siege_weapons_high_maint_cost = @[siege_weapons_low_maint_cost * high_maint_mult]
+
+#Siege Weapons Recruitment Costs
+siege_weapons_recruitment_cost_slaves = @[siege_weapons_recruitment_cost * 0.25]
+siege_weapons_recruitment_cost_indentured = @[siege_weapons_recruitment_cost * 0.5]
+siege_weapons_recruitment_cost_very_cheap = @[siege_weapons_recruitment_cost - 10]
+siege_weapons_recruitment_cost_cheap = @[siege_weapons_recruitment_cost - 5]
+siege_weapons_recruitment_cost_normal = @[siege_weapons_recruitment_cost + 0]
+siege_weapons_recruitment_cost_expensive = @[siege_weapons_recruitment_cost + 5]
+siege_weapons_recruitment_cost_very_expensive = @[siege_weapons_recruitment_cost + 10]
+
+#siege_weapons Low Maintenance Costs
+siege_weapons_low_maint_cost_slaves = @[siege_weapons_low_maint_cost * 0.25]
+siege_weapons_low_maint_cost_indentured = @[siege_weapons_low_maint_cost * 0.5]
+siege_weapons_low_maint_cost_very_cheap = @[siege_weapons_low_maint_cost - 0.1]
+siege_weapons_low_maint_cost_cheap = @[siege_weapons_low_maint_cost - 0.05]
+siege_weapons_low_maint_cost_normal = @[siege_weapons_low_maint_cost + 0]
+siege_weapons_low_maint_cost_expensive = @[siege_weapons_low_maint_cost + 0.05]
+siege_weapons_low_maint_cost_very_expensive = @[siege_weapons_low_maint_cost + 0.1]
+
+#siege_weapons High Maintenance Costs
+siege_weapons_high_maint_cost_slaves = @[siege_weapons_high_maint_cost * 0.25]
+siege_weapons_high_maint_cost_indentured = @[siege_weapons_high_maint_cost * 0.5]
+siege_weapons_high_maint_cost_very_cheap = @[siege_weapons_high_maint_cost - 0.2]
+siege_weapons_high_maint_cost_cheap = @[siege_weapons_high_maint_cost - 0.1]
+siege_weapons_high_maint_cost_normal = @[siege_weapons_high_maint_cost + 0]
+siege_weapons_high_maint_cost_expensive = @[siege_weapons_high_maint_cost + 0.1]
+siege_weapons_high_maint_cost_very_expensive = @[siege_weapons_high_maint_cost + 0.2]
+
+### Base Cost Values: Crossbowmen
+@crossbowmen_recruitment_cost = 90
+@crossbowmen_low_maint_cost = 0.5
+@crossbowmen_high_maint_cost = @[crossbowmen_low_maint_cost * high_maint_mult]
+
+#Crossbowmen Recruitment Costs
+crossbowmen_recruitment_cost_slaves = @[crossbowmen_recruitment_cost * 0.25]
+crossbowmen_recruitment_cost_indentured = @[crossbowmen_recruitment_cost * 0.5]
+crossbowmen_recruitment_cost_very_cheap = @[crossbowmen_recruitment_cost - 10]
+crossbowmen_recruitment_cost_cheap = @[crossbowmen_recruitment_cost - 5]
+crossbowmen_recruitment_cost_normal = @[crossbowmen_recruitment_cost + 0]
+crossbowmen_recruitment_cost_expensive = @[crossbowmen_recruitment_cost + 5]
+crossbowmen_recruitment_cost_very_expensive = @[crossbowmen_recruitment_cost + 10]
+
+#crossbowmen Low Maintenance Costs
+crossbowmen_low_maint_cost_slaves = @[crossbowmen_low_maint_cost * 0.25]
+crossbowmen_low_maint_cost_indentured = @[crossbowmen_low_maint_cost * 0.5]
+crossbowmen_low_maint_cost_very_cheap = @[crossbowmen_low_maint_cost - 0.1]
+crossbowmen_low_maint_cost_cheap = @[crossbowmen_low_maint_cost - 0.05]
+crossbowmen_low_maint_cost_normal = @[crossbowmen_low_maint_cost + 0]
+crossbowmen_low_maint_cost_expensive = @[crossbowmen_low_maint_cost + 0.05]
+crossbowmen_low_maint_cost_very_expensive = @[crossbowmen_low_maint_cost + 0.1]
+
+#crossbowmen High Maintenance Costs
+crossbowmen_high_maint_cost_slaves = @[crossbowmen_high_maint_cost * 0.25]
+crossbowmen_high_maint_cost_indentured = @[crossbowmen_high_maint_cost * 0.5]
+crossbowmen_high_maint_cost_very_cheap = @[crossbowmen_high_maint_cost - 0.2]
+crossbowmen_high_maint_cost_cheap = @[crossbowmen_high_maint_cost - 0.1]
+crossbowmen_high_maint_cost_normal = @[crossbowmen_high_maint_cost + 0]
+crossbowmen_high_maint_cost_expensive = @[crossbowmen_high_maint_cost + 0.1]
+crossbowmen_high_maint_cost_very_expensive = @[crossbowmen_high_maint_cost + 0.2]
+
+# Note: Dragons cannot be recruited, this is only to remove startup errors
+dragons_recruitment_cost = 0.0
+dragons_low_maint_cost = 0.0
+dragons_high_maint_cost = 0.0
