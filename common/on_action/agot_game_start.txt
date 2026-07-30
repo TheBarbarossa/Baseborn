@@ -14,6 +14,7 @@ on_game_start = {
 		agot_pirate_domiciles_setup
 		agot_traditional_coronation_setup
 		agot_sailing_game_start_ships
+		baseborn_game_start
 	}
 }
 
@@ -4011,6 +4012,81 @@ agot_sailing_game_start_ships = {
 			else = {
 				house ?= { add_house_modifier = owns_big_ship }
 			}
+		}
+	}
+}
+
+baseborn_game_start = {
+	effect = {
+		every_county_in_region = {
+			region = world_essos
+			limit = {
+				NOT = {
+					# Lys
+					this = title:c_lys
+					this = title:c_magistes_avenue
+					this = title:c_pleasure_heights
+					this = title:c_kemmaroli
+					this = title:c_whitesands
+					this = title:c_numys
+					# Mangrove Shoals
+					this = title:c_fetted_grove
+					this = title:c_orthas_reon
+					this = title:c_morghos
+					# Thaehaes
+					this = title:c_aercadar
+					this = title:c_lopornon
+					this = title:c_dyreno_hills
+
+					# Braavos
+					this = title:c_braavos
+					this = title:c_ragmans_harbor
+					this = title:c_truth_canals
+					this = title:c_sellagoros_shields
+					this = title:c_the_jagged_shields
+					# Teggarlozar
+					this = title:c_ironport_isles
+					this = title:c_ironport
+					this = title:c_nabyspharos
+					this = title:c_the_marshes
+					this = title:c_moonbridge
+					# Inkolantibyr
+					this = title:c_lower_daerves
+					this = title:c_byraabelmos
+					this = title:c_daerves_hills
+					# Braavosian Coastlands
+					this = title:c_freneros
+					this = title:c_masked_ridge
+					this = title:c_othoggos
+					this = title:c_revosghar
+					this = title:c_terys_isles
+					this = title:c_zelaan_garab
+					# Sweetwater
+					this = title:c_ryqelbar
+					this = title:c_ezylla_steps
+					this = title:c_gezelvos
+					this = title:c_tohars_fork
+					# Lunar Bay Hills
+					this = title:c_crystal_hollow
+					this = title:c_noqostyos
+					this = title:c_pearl_point
+					# Noporzhyr
+					this = title:c_burning_crescent
+					this = title:c_singers_retreat
+					# Mothermont
+					this = title:c_drohonargos
+					this = title:c_mothermont
+					this = title:c_naqio
+				}
+			}
+			add_county_modifier = block_settlement_ability
+		}
+		every_county_in_region = {
+			region = world_westeros_the_riverlands
+		}
+		add_county_modifier = {
+			modifier = baseborn_red_wedding_aftermath_modifier
+			years = 15
 		}
 	}
 }
