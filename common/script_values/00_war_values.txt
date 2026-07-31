@@ -759,7 +759,7 @@ third_of_defenders_strength = {
 #############
 
 siege_base_capture_chance = {
-	value = 35
+	value = 60
 
 	# Dynasty Perk: Practiced Kidnappers
 	if = {
@@ -768,7 +768,8 @@ siege_base_capture_chance = {
 				dynasty ?= { has_dynasty_perk = fp1_pillage_legacy_3 }
 			}
 		}
-		add = 20
+		#add = 20
+		add = 40
 	}
 	# peasants capture and kill more nobles
 	if = {
@@ -792,11 +793,12 @@ siege_base_capture_chance = {
 			# And independent characters likewise have no incentive.
 			top_liege != this
 		}
-		add = 50
+		#add = 50
+		add = 100
 	}
 }
 raid_base_capture_chance = {
-	value = 20
+	value = 40
 
 	if = {
 		limit = {
@@ -805,7 +807,7 @@ raid_base_capture_chance = {
 		# Trait: Viking
 		if = {
 			limit = { root.army_commander = { has_trait = viking } }
-			add = 5
+			add = 15
 		}
 		# Dynasty Perk: Practiced Kidnappers
 		if = {
