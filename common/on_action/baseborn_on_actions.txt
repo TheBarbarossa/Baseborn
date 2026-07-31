@@ -114,7 +114,41 @@ baseborn_setup = {
 				modifier = baseborn_red_wedding_aftermath_modifier
 				years = 15
 			}	
-		}		
+		}
+
+		every_county_in_region = {
+			region = world_westeros_the_crownlands
+			limit = {
+				OR = {
+					this = title:c_greyhelm
+					this = title:c_brushmill
+					this = title:c_bywater
+					this = title:c_stripeharbor
+					this = title:c_darkgroves
+					this = title:c_noblewood
+					this = title:c_wendwater_fork
+				}
+			}
+			add_county_modifier = {
+				modifier = baseborn_kingswood
+			}
+		}
+		every_county_in_region = {
+			region = world_westeros_the_stormlands
+			limit = {
+				OR = {
+					this = title:c_wendover
+					this = title:c_gallowsgrey
+					this = title:c_blackheart
+					this = title:c_blackmill
+					this = title:c_rootvyne
+					this = title:c_wormwood
+					this = title:c_timberlyn
+					this = title:c_murdren
+				}
+			}
+		}
+
 		# every_county_in_region = {
 		# 	region = world_westeros_the_reach
 		# 	limit = {
