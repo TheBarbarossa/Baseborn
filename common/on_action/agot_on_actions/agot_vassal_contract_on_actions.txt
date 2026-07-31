@@ -127,7 +127,7 @@
 			every_de_jure_county_holder = {
 				if = {
 					limit = {
-						primary_title.tier <= tier_county
+						primary_title.tier > tier_county
 					}
 					set_variable = { name = mw_obl_feudal_levies value = 0 }
 					add_character_flag = {
@@ -426,6 +426,7 @@
 		title:k_the_white_knife.holder ?= {
 			set_variable = { name = mw_obl_religious_rights value = 1 }
 			set_variable = { name = mw_obl_coinage_rights value = 1 }
+			set_variable = { name = mw_obl_feudal_levies value = 0 }			
 			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
 			add_character_flag = {
 				flag = startup_contracts
@@ -2189,7 +2190,7 @@
 		### THE REACH
 		title:k_the_arbor.holder ?= {
 			set_variable = { name = mw_obl_feudal_taxes value = 1 }
-			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_feudal_levies value = 0 }
 			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
 			add_character_flag = {
 				flag = startup_contracts
@@ -2199,7 +2200,7 @@
 		}
 		title:k_oldtown.holder ?= {
 			set_variable = { name = mw_obl_feudal_taxes value = 1 }
-			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_feudal_levies value = 0 }
 			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
 			add_character_flag = {
 				flag = startup_contracts
@@ -3313,7 +3314,7 @@
 			agot_mw_reset_vassal_contract = yes
 		}
 		title:k_yronwood.holder ?= {
-			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_feudal_levies value = 0 }
 			set_variable = { name = mw_obl_feudal_taxes value = 1 }
 			set_variable = { name = mw_obl_special_contract value = 2 }
 			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
