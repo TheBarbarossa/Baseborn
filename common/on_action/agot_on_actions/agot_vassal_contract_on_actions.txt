@@ -1,0 +1,3711 @@
+﻿agot_vassal_contracts = {
+	# Lower titles are usually targeted intentionally, so they work in multiple scenarios
+	effect = {
+		### LORDS PARAMOUNT
+		if = {
+			limit = { game_start_date > 8000.12.1 }
+			title:e_the_north.holder ?= {
+				set_variable = { name = mw_obl_feudal_taxes value = 1 }
+				set_variable = { name = mw_obl_feudal_levies value =  0 }
+				set_variable = { name = mw_obl_religious_rights value = 1 }
+				set_variable = { name = mw_obl_special_contract value = 2 }
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+			}
+		}
+		if = {
+			limit = { game_start_date > 8000.12.15 }
+			title:e_the_vale.holder ?= {
+				set_variable = { name = mw_obl_feudal_levies value =  0 }
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+			}
+		}
+		if = {
+			limit = { game_start_date > 7999.8.15 }
+			title:e_the_riverlands.holder ?= {
+				set_variable = { name = mw_obl_feudal_levies value =  0 }
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+			}
+			title:e_the_iron_islands.holder ?= {
+				set_variable = { name = mw_obl_feudal_taxes value = 1 }
+				set_variable = { name = mw_obl_feudal_levies value =  0 }
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+			}
+		}
+		if = {
+			limit = { game_start_date > 8000.5.2 }
+			title:e_the_westerlands.holder ?= {
+				set_variable = { name = mw_obl_feudal_taxes value = 3 }
+				set_variable = { name = mw_obl_feudal_levies value =  0 }
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+			}
+		}
+		if = {
+			limit = { game_start_date > 8000.5.1 }
+			title:e_the_reach.holder ?= {
+				set_variable = { name = mw_obl_feudal_taxes value = 3 }
+				set_variable = { name = mw_obl_feudal_levies value =  0 }
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+			}
+		}
+		if = {
+			limit = { game_start_date > 7999.9.15 }
+			title:e_the_stormlands.holder ?= {
+				set_variable = { name = mw_obl_feudal_levies value =  0 }
+				set_variable = { name = mw_obl_fortification_rights value = 1 }
+				set_variable = { name = mw_obl_special_contract value = 2 }
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+			}
+		}
+		if = {
+			limit = { game_start_date > 8187.6.1 }
+			title:e_dorne.holder ?= {
+				set_variable = { name = mw_obl_feudal_levies value =  0 }
+				set_variable = { name = mw_obl_feudal_taxes value = 1 }
+				set_variable = { name = mw_obl_special_contract value = 4 }
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+			}
+		}
+		else_if = {
+			limit = {
+				game_start_date > 8158.1.3
+				game_start_date < 8160.1.4
+			}
+			title:e_dorne.holder ?= {
+				set_variable = { name = mw_obl_feudal_levies value =  0 }
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+			}
+		}
+
+		### THE CROWNLANDS
+		title:k_dragonstone.holder ?= {
+			set_variable = { name = mw_obl_feudal_levies value =  0 }
+			set_variable = { name = mw_obl_feudal_taxes value = 0 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+
+			#Disabled until Royal Privilege is separate
+			# if = {
+			# 	limit = { game_start_date < 8283.6.1 }
+			# 	set_variable = { name = mw_obl_special_contract value = 4 }
+			# }
+
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_duskendale.holder ?= {
+			set_variable = { name = mw_obl_feudal_levies value = 3 }
+			set_variable = { name = mw_obl_feudal_taxes value = 3 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_rosby.holder ?= {
+			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_feudal_taxes value = 3 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_driftmark.holder ?= {
+			set_variable = { name = mw_obl_council_rights value = 1 }
+			set_variable = { name = mw_obl_war_declaration_rights value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_claw_isle.holder ?= {
+			set_variable = { name = mw_obl_council_rights value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:c_the_scales.holder ?= {
+			set_variable = { name = mw_obl_coinage_rights value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:c_yellowstars.holder ?= {
+			set_variable = { name = mw_obl_feudal_taxes value = 3 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:c_shadowshield.holder ?= {
+			set_variable = { name = mw_obl_feudal_taxes value = 3 }
+			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:c_spinney.holder ?= {
+			set_variable = { name = mw_obl_feudal_taxes value = 3 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:c_darkwoods_mull.holder ?= {
+			set_variable = { name = mw_obl_feudal_taxes value = 3 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:c_middleton.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_middleton ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_tuskford.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_tuskford ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_point_square.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_point_square ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_redbend.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_redbend ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_briarcrest.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_briarcrest ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_the_scales.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_council_rights value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_the_scales ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_sows_horn.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_sows_horn ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		if = {
+			limit = { game_start_date > 8196.11.22 }
+			title:c_longgrass.holder ?= {
+				set_variable = { name = mw_obl_special_contract value = 6 }
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+				additional_flavor_check_effect = yes
+				title:c_longgrass ?= { agot_landed_knight_posthistory_effect = yes }
+			}
+		}
+		title:c_brownhollow.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_brownhollow ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_pikemouth.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_pikemouth ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_spinney.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_spinney ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_edgerton.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_edgerton ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_crownback.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_crownback ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_nessing.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_nessing ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_longbar.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_longbar ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_noblewood.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_noblewood ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+
+		### THE NORTH
+		title:k_the_white_knife.holder ?= {
+			set_variable = { name = mw_obl_religious_rights value = 1 }
+			set_variable = { name = mw_obl_coinage_rights value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_flints_finger.holder ?= {
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_stony_shore.holder ?= {
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_bear_island.holder ?= {
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_last_lands.holder ?= {
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 2 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_edgewood.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+		}
+		title:d_the_wolfswood.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+		}
+		if = {
+			limit = { game_start_date > 8227.1.1 }
+			title:c_wolf_branch.holder ?= {
+				set_variable = { name = mw_obl_council_rights value = 1 }
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+			}
+		}
+		title:c_branchside.holder ?= {
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:c_eagle_cross.holder ?= {
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:c_ramsgate.holder ?= {
+			if = {
+				limit = { NOT = { THIS.religion = THIS.liege.religion } }
+				set_variable = { name = mw_obl_religious_rights value = 1 }
+			}
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:c_woodward.holder ?= {
+			if = {
+				limit = { NOT = { THIS.religion = THIS.liege.religion } }
+				set_variable = { name = mw_obl_religious_rights value = 1 }
+			}
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:c_silverfield.holder ?= {
+			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_feudal_taxes value = 3 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:c_white_knife.holder ?= {
+			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_feudal_taxes value = 3 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_white_knife ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_first_hollow.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_first_hollow ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_darsett.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_darsett ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_acorn_grove.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_acorn_grove ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_flatmire.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_flatmire ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_moorwood.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_moorwood ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_greenwood.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_greenwood ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_allpine.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_allpine ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_timberwatch.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_timberwatch ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_denwood.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_denwood ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_silverglade.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_silverglade ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_calfton.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_calfton ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_the_cinders.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_the_cinders ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_the_gap.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_the_gap ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_greysward.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_greysward ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_beam_cross.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_beam_cross ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_grimm_lake.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_grimm_lake ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_the_grey_cliffs.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_the_grey_cliffs ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_grey_cliff_point.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_grey_cliff_point ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_everwood.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_everwood ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_sleetwood.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_sleetwood ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_sharpwater.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_sharpwater ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_woodhaven.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_woodhaven ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_seal_shore.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_seal_shore ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_coldenside.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_coldenside ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_arnscarre.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_arnscarre ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_wristerley.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_wristerley ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_morrenland.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_morrenland ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_murkwood.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_murkwood ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_spears_sound.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_spears_sound ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_blazewater_bay.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_blazewater_bay ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		### Mountain Clans
+		title:d_the_northern_mountains = {
+			every_de_jure_county_holder = {
+				if = {
+					limit = { culture = culture:northern_clan }
+					set_variable = { name = mw_obl_feudal_levies value = 1 }
+					set_variable = { name = mw_obl_feudal_taxes value = 1 }
+					set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+					add_character_flag = {
+						flag = startup_contracts
+						days = 1
+					}
+					agot_mw_reset_vassal_contract = yes
+				}
+			}
+		}
+		### Skagosi
+		title:d_skagos = {
+			every_de_jure_county_holder = {
+				if = {
+					limit = { culture = culture:skagosi }
+					set_variable = { name = mw_obl_feudal_levies value =  0 }
+					set_variable = { name = mw_obl_feudal_taxes value = 0 }
+					set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+					add_character_flag = {
+						flag = startup_contracts
+						days = 1
+					}
+					agot_mw_reset_vassal_contract = yes
+				}
+			}
+		}
+		### The Neck
+		title:d_the_neck.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 2 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_the_neck = {
+			every_de_jure_county_holder = {
+				if = {
+					limit = { culture = culture:crannogman }
+					set_variable = { name = mw_obl_feudal_taxes value = 1 }
+					set_variable = { name = mw_obl_feudal_levies value = 1 }
+					set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+					add_character_flag = {
+						flag = startup_contracts
+						days = 1
+					}
+					agot_mw_reset_vassal_contract = yes
+				}
+			}
+		}
+		title:d_fever = {
+			every_de_jure_county_holder = {
+				if = {
+					limit = { culture = culture:crannogman }
+					set_variable = { name = mw_obl_feudal_taxes value = 1 }
+					set_variable = { name = mw_obl_feudal_levies value = 1 }
+					set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+					add_character_flag = {
+						flag = startup_contracts
+						days = 1
+					}
+					agot_mw_reset_vassal_contract = yes
+				}
+			}
+		}
+		title:d_silvereed = {
+			every_de_jure_county_holder = {
+				if = {
+					limit = { culture = culture:crannogman }
+					set_variable = { name = mw_obl_feudal_taxes value = 1 }
+					set_variable = { name = mw_obl_feudal_levies value = 1 }
+					set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+					add_character_flag = {
+						flag = startup_contracts
+						days = 1
+					}
+					agot_mw_reset_vassal_contract = yes
+				}
+			}
+		}
+
+		### THE VALE
+		title:d_gulltown.holder ?= {
+			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_feudal_taxes value = 3 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_grimholm.holder ?= {
+			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_feudal_taxes value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_the_sisters.holder ?= {
+			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_feudal_taxes value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_ninestars.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+		}
+		title:c_moongates.holder ?= {
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:c_port_of_arryn.holder ?= {
+			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_feudal_taxes value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:c_osgoodswell.holder ?= {
+			set_variable = { name = mw_obl_feudal_taxes value = 3 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:c_gullview.holder ?= {
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:c_witch_isle.holder ?= {
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:c_coldwater_burn.holder ?= {
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:c_hardvale.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_hardvale ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_ryefeld.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_ryefeld ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_gullview.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_gullview ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_wickenden.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_wickenden ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_marbletoft.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_marbletoft ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_kipress.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_kipress ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_purling.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_purling ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_donnersdown.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_donnersdown ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_tangled_shore.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_tangled_shore ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_kear.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_kear ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_etterbill.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_etterbill ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_bronzeguard.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_bronzeguard ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_brackenbrick_point.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_brackenbrick_point ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_the_stills.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_the_stills ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_correll.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_correll ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_timbers_wedge.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_timbers_wedge ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_waldlake.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_waldlake ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_tammerlan.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_tammerlan ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_pinkstrath.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_pinkstrath ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_strikeguard.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_strikeguard ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_moonbloom.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_moonbloom ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_wycliffe.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_wycliffe ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_bronzespear.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_bronzespear ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_brownden.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_brownden ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_harrowpool.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_harrowpool ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_reckshaw.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_reckshaw ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_forgotten_shore.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_forgotten_shore ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+
+		### THE RIVERLANDS
+		title:d_maidenpool.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_cape_of_eagles.holder ?= {
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 2 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_fairmarket.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+		}
+		title:d_blackwood_vale = {
+			every_de_jure_county_holder = {
+				if = {
+					limit = {
+						culture = culture:riverman_main
+						NOT = { THIS.religion = THIS.liege.religion }
+					}
+					set_variable = { name = mw_obl_religious_rights value = 1 }
+					set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+					add_character_flag = {
+						flag = startup_contracts
+						days = 1
+					}
+					agot_mw_reset_vassal_contract = yes
+				}
+			}
+		}
+		title:c_briarwhite.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_briarwhite ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_saltpans.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_saltpans ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		if = {
+			limit = { game_start_date > 8284.1.1 }
+			title:c_darry.holder ?= {
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				set_variable = { name = mw_obl_special_contract value = 6 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+				additional_flavor_check_effect = yes
+				title:c_darry ?= { agot_landed_knight_posthistory_effect = yes }
+			}
+		}
+		if = {
+			limit = { game_start_date > 8042.10.1 }
+			title:c_woodrush.holder ?= {
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				set_variable = { name = mw_obl_special_contract value = 6 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+				additional_flavor_check_effect = yes
+				title:c_woodrush ?= { agot_landed_knight_posthistory_effect = yes }
+			}
+		}
+		title:c_ramsford.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_ramsford ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_martlet_bend.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_martlet_bend ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_blackpitch.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_blackpitch ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_oldferns.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_oldferns ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_mudgrave.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_mudgrave ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_helney.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_helney ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_mistcore.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_mistcore ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_grimwind.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_grimwind ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_wernell.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_wernell ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_elmbridge.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_elmbridge ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_rippledown_rill.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_rippledown_rill ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_flockshade.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_flockshade ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_the_ravishment.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_the_ravishment ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_burnout.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_burnout ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_oldwithe.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_oldwithe ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_the_willows.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_the_willows ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_morningswake.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_morningswake ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_whitebricks.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_whitebricks ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_rushinground.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_rushinground ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_blackrush.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_blackrush ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_honeymaiden.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_honeymaiden ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+
+		### THE IRON ISLANDS
+		title:e_the_iron_islands = {
+			every_de_jure_county_holder = {
+				if = {
+					limit = {
+						culture = culture:ironborn
+						primary_title.tier <= tier_duchy
+					}
+					set_variable = { name = mw_obl_feudal_taxes value = 1 }
+					set_variable = { name = mw_obl_feudal_levies value = 3 }
+					set_variable = { name = mw_obl_war_declaration_rights value = 1 }
+					set_variable = { name = mw_obl_fortification_rights value = 1 }
+					set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+					add_character_flag = {
+						flag = startup_contracts
+						days = 1
+					}
+					agot_mw_reset_vassal_contract = yes
+				}
+			}
+		}
+		title:d_lonely_light.holder ?= {
+			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:c_iron_holt.holder ?= {
+			set_variable = { name = mw_obl_council_rights value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:c_seagrave.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_seagrave ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_glimmering_shore.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_glimmering_shore ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_grey_garden.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_grey_garden ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_harridan_hills.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_harridan_hills ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_trawling.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_trawling ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_needlefin.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_needlefin ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_fishbourne.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_fishbourne ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_tiller.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_tiller ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_axfirth.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_axfirth ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_scatterchain.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_scatterchain ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_seastone_isles.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_seastone_isles ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+
+		### THE WESTERLANDS
+		title:d_withermoore.holder ?= {
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_the_golden_tooth.holder ?= {
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_crakehall.holder ?= {
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_sterling.holder ?= {
+			set_variable = { name = mw_obl_feudal_taxes value = 3 }
+			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		if = {
+			limit = {
+				exists = title:d_castamere.holder
+				game_start_date < 8261.11.1
+			}
+			title:d_castamere.holder ?= {
+				set_variable = { name = mw_obl_special_contract value = 4 }
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+			}
+			if = {
+				limit = { game_start_date > 8250.1.1 }
+				title:d_castamere.holder ?= {
+					set_variable = { name = mw_obl_feudal_levies value = 1 }
+					set_variable = { name = mw_obl_feudal_taxes value = 1 }
+					set_variable = { name = mw_obl_fortification_rights value = 1 }
+					set_variable = { name = mw_obl_coinage_rights value = 1 }
+					set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+					add_character_flag = {
+						flag = startup_contracts
+						days = 1
+					}
+					agot_mw_reset_vassal_contract = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = title:d_tarrich.holder
+				game_start_date > 8250.1.1
+				game_start_date < 8261.11.1
+			}
+			title:d_tarrich.holder ?= {
+				set_variable = { name = mw_obl_feudal_levies value = 1 }
+				set_variable = { name = mw_obl_feudal_taxes value = 1 }
+				set_variable = { name = mw_obl_fortification_rights value = 1 }
+				set_variable = { name = mw_obl_coinage_rights value = 1 }
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+			}
+		}
+		title:d_goldmarch.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+		}
+		title:d_the_gold_road.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+		}
+		if = {
+			limit = { game_start_date > 8197.5.5 }
+			title:c_cornfield.holder ?= {
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				set_variable = { name = mw_obl_special_contract value = 6 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+				additional_flavor_check_effect = yes
+				title:c_cornfield ?= { agot_landed_knight_posthistory_effect = yes }
+			}
+		}
+		if = {
+			limit = { game_start_date < 8132.1.1 }
+			title:c_kayce.holder ?= {
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				set_variable = { name = mw_obl_special_contract value = 6 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+				additional_flavor_check_effect = yes
+				title:c_kayce ?= { agot_landed_knight_posthistory_effect = yes }
+			}
+		}
+		title:c_fang_hill.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_fang_hill ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		if = {
+			limit = { game_start_date > 8254.1.1 }
+			title:c_eldress.holder ?= {
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				set_variable = { name = mw_obl_special_contract value = 6 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+				additional_flavor_check_effect = yes
+				title:c_eldress ?= { agot_landed_knight_posthistory_effect = yes }
+			}
+		}
+		title:c_stars_ridge.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_stars_ridge ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_clifton.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_clifton ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_stingrock.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_stingrock ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_greenfield.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_greenfield ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_borrenline.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_borrenline ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_the_drop.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_the_drop ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_forthane.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_forthane ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_hetherfield.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_hetherfield ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_pendric_hills.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_feudal_taxes value = 3 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_pendric_hills ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_borrowmore.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_borrowmore ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_clever_cove.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_clever_cove ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_brixworth.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_brixworth ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_hadersly.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_hadersly ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_greybrocks.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_greybrocks ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+
+		### THE REACH
+		title:k_the_arbor.holder ?= {
+			set_variable = { name = mw_obl_feudal_taxes value = 1 }
+			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:k_oldtown.holder ?= {
+			set_variable = { name = mw_obl_feudal_taxes value = 1 }
+			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_shield_islands.holder ?= {
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		if = {
+			limit = { game_start_date < 8192.1.1 }
+			title:c_norcross.holder ?= {
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				set_variable = { name = mw_obl_special_contract value = 6 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+				additional_flavor_check_effect = yes
+				title:c_norcross ?= { agot_landed_knight_posthistory_effect = yes }
+			}
+		}
+		title:c_pippengrow.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_pippengrow ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_harmony.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_harmony ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_deadwater.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_deadwater ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_alderedge.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_alderedge ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_rutland.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_rutland ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_ruffell.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_ruffell ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_tread_hills.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_tread_hills ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_rilldene.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_rilldene ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_blandford.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_blandford ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_brennwater.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_brennwater ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_beachcastle.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_beachcastle ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_turrellis.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_turrellis ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_lavenderne.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_lavenderne ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_freeridge.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_freeridge ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_wantington.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_wantington ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_melneyness.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_melneyness ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_cherlysh.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_cherlysh ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_runnelweald.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_runnelweald ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_grave_ridge.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_grave_ridge ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_hastwyck.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_hastwyck ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_ridgeland.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_ridgeland ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_derring_downs.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_derring_downs ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_cobble_cove.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_cobble_cove ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_small_shields.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_small_shields ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_daisyfield.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_daisyfield ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_windflower.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_windflower ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_mandervale.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_mandervale ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_oaken_rills.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_oaken_rills ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		if = {
+			limit = { game_start_date > 8196.11.22 }
+			title:c_dunstonbury.holder ?= {
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				set_variable = { name = mw_obl_special_contract value = 6 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+				additional_flavor_check_effect = yes
+				title:c_dunstonbury ?= { agot_landed_knight_posthistory_effect = yes }
+			}
+		}
+		title:c_florynn.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_florynn ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_stalkvale.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_stalkvale ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_sugarbush.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_sugarbush ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_runchester.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_runchester ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_manderside.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_manderside ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_endrick.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_endrick ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_bloomfield_hills.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_bloomfield_hills ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_ashridge.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_ashridge ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_walnut_bank.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_walnut_bank ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_ashborne.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_ashborne ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_perrygate.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_perrygate ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_meadowsmeet.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_meadowsmeet ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_orchard_shore.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_orchard_shore ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		### The Northmarch
+		title:d_goldengrove.holder ?= {
+			set_variable = { name = mw_obl_feudal_taxes value = 1 }
+			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 2 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_red_front.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 2 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_the_northmarch.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 2 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		if = {
+			limit = { game_start_date > 8044.1.1 }
+			title:c_standfast.holder ?= {
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				set_variable = { name = mw_obl_special_contract value = 6 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+				additional_flavor_check_effect = yes
+				title:c_standfast ?= { agot_landed_knight_posthistory_effect = yes }
+			}
+		}
+		### Marchers
+		title:d_the_westmarch.holder ?= {
+			set_variable = { name = mw_obl_feudal_taxes value = 1 }
+			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 2 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_palemarch.holder ?= {
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 2 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_palemarch = {
+			every_de_jure_county_holder = {
+				if = {
+					limit = { culture = culture:marcher }
+					set_variable = { name = mw_obl_fortification_rights value = 1 }
+					set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+					add_character_flag = {
+						flag = startup_contracts
+						days = 1
+					}
+					agot_mw_reset_vassal_contract = yes
+				}
+			}
+		}
+		title:c_dersling.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_dersling ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_apple_hills.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_apple_hills ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		if = {
+			limit = { game_start_date < 8219.10.14 }
+			title:c_wethermere.holder ?= {
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				set_variable = { name = mw_obl_special_contract value = 6 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+				additional_flavor_check_effect = yes
+				title:c_wethermere ?= { agot_landed_knight_posthistory_effect = yes }
+			}
+		}
+		title:c_sunwatch.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_sunwatch ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_echo_hills.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_echo_hills ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+
+		### The Stormlands
+		title:e_the_stormlands = {
+			every_de_jure_county_holder = {
+				if = {
+					limit = {
+						OR = {
+							culture = culture:marcher
+							culture = culture:stormlander_main
+						}
+						primary_title.tier <= tier_duchy
+					}
+					set_variable = { name = mw_obl_fortification_rights value = 1 }
+					set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+					add_character_flag = {
+						flag = startup_contracts
+						days = 1
+					}
+					agot_mw_reset_vassal_contract = yes
+				}
+			}
+		}
+		title:d_tarth.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 4 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:c_hadlow_fields.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_hadlow_fields ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_the_grief.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_the_grief ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		if = {
+			limit = { game_start_date > 8283.10.1 }
+			title:c_rainshore.holder ?= {
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				set_variable = { name = mw_obl_special_contract value = 6 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+				additional_flavor_check_effect = yes
+				title:c_rainshore ?= { agot_landed_knight_posthistory_effect = yes }
+			}
+		}
+		if = {
+			limit = { game_start_date > 8284.1.1 }
+			title:c_griffins_roost.holder ?= {
+				set_variable = { name = mw_obl_special_contract value = 6 }
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+				additional_flavor_check_effect = yes
+				title:c_griffins_roost ?= { agot_landed_knight_posthistory_effect = yes }
+			}
+		}
+		title:c_wrathfield.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_wrathfield ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_castletyne.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_castletyne ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_timberlyn.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_timberlyn ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_darcroft.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_darcroft ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_the_hollows.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_the_hollows ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_morlescent.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_morlescent ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_pikerock.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_pikerock ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_evernight.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_evernight ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_nubbock.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_nubbock ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_buttonweed.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_buttonweed ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_blythedurn.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_blythedurn ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_blythedurn.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_blythedurn ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_wetherstruck.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_wetherstruck ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_oldfield.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_oldfield ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_brightmoor.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_brightmoor ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_sundown.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_sundown ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_highwind.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_highwind ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_griffin_river.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_griffin_river ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		if = {
+			limit = { game_start_date > 8283.9.1 }
+			title:c_summerfield.holder ?= {
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				set_variable = { name = mw_obl_special_contract value = 6 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+				additional_flavor_check_effect = yes
+				title:c_summerfield ?= { agot_landed_knight_posthistory_effect = yes }
+			}
+		}
+		title:c_redpool.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_redpool ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		### Marchers
+		title:d_red_watch.holder ?= {
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 2 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_blackhaven.holder ?= {
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 2 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_whentway.holder ?= {
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 2 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_marchfields.holder ?= {
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 2 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_nightsong.holder ?= {
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 2 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:c_corningstone.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_corningstone ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_riskmarch.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_riskmarch ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_nailstone.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_nailstone ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_dead_rise.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_dead_rise ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_fielderidge.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_fielderidge ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_greyhawk.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_greyhawk ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+
+		### DORNE
+		title:d_blackmont.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 2 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_torrentine.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 2 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_the_princes_pass.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 2 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_redmarch.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 2 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_the_stoneway.holder ?= {
+			set_variable = { name = mw_obl_special_contract value = 2 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:k_yronwood.holder ?= {
+			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_feudal_taxes value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 2 }
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+		}
+		title:d_lemonwood.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+		}
+		title:d_broken_arm.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+		}
+		title:c_high_hermitage.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_high_hermitage ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_astermine.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_astermine ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_rustbarren.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_rustbarren ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_the_scourge.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_the_scourge ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_greenbelt.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_greenbelt ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_fangside.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_fangside ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_shady_sands.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_shady_sands ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_flatwater.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_flatwater ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_westroost.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_westroost ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_white_dunes.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_white_dunes ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_pronghorn.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_pronghorn ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_sulphur_flats.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_sulphur_flats ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_steamfall.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_steamfall ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_the_scablands.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_the_scablands ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_the_barrens.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_the_barrens ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_sourmarket.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_sourmarket ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_rockwell.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_rockwell ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_princemarch.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_princemarch ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_wide_way.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_fortification_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_wide_way ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_radiant_cliffs.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_radiant_cliffs ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_shining_sands.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_shining_sands ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		title:c_the_dustbowl.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_the_dustbowl ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+		if = {
+			limit = { game_start_date > 6441.1.1 }
+			title:c_brimstone.holder ?= {
+				set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+				set_variable = { name = mw_obl_special_contract value = 6 }
+				add_character_flag = {
+					flag = startup_contracts
+					days = 1
+				}
+				agot_mw_reset_vassal_contract = yes
+				additional_flavor_check_effect = yes
+				title:c_brimstone ?= { agot_landed_knight_posthistory_effect = yes }
+			}
+		}
+		title:c_stedding.holder ?= {
+			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_special_contract value = 6 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_stedding ?= { agot_landed_knight_posthistory_effect = yes }
+		}
+
+		### BRAAVOS
+		if = {
+			limit = { has_dlc_feature = admin_gov }
+			title:d_teggarlozar.holder ?= {
+				if = {
+					limit = {
+						is_independent_ruler = no
+						any_sub_realm_county = {
+							is_coastal_county = yes
+						}
+					}
+					vassal_contract_set_obligation_level = {
+						type = administrative_themes
+						level = 5
+					}
+				}
+			}
+			title:d_braavosian_coastlands.holder ?= {
+				if = {
+					limit = {
+						is_independent_ruler = no
+						any_sub_realm_county = {
+							any_neighboring_county = {
+								holder = {
+									NOT = { top_liege = title:d_braavosian_coastlands.holder.top_liege }
+								}
+							}
+						}
+					}
+					vassal_contract_set_obligation_level = {
+						type = administrative_themes
+						level = 3
+					}
+				}
+			}
+			title:d_inkolantibyr.holder ?= {
+				if = {
+					limit = {
+						is_independent_ruler = no
+						any_sub_realm_county = {
+							is_coastal_county = yes
+						}
+					}
+					vassal_contract_set_obligation_level = {
+						type = administrative_themes
+						level = 5
+					}
+				}
+			}
+			title:d_lunar_bay_hills.holder ?= {
+				if = {
+					limit = {
+						is_independent_ruler = no
+						any_sub_realm_county = {
+							is_coastal_county = yes
+						}
+					}
+					vassal_contract_set_obligation_level = {
+						type = administrative_themes
+						level = 5
+					}
+				}
+			}
+			title:d_mothers_crown.holder ?= {
+				if = {
+					limit = {
+						is_independent_ruler = no
+						any_sub_realm_county = {
+							any_neighboring_county = {
+								holder = {
+									NOT = { top_liege = title:d_mothers_crown.holder.top_liege }
+								}
+							}
+						}
+					}
+					vassal_contract_set_obligation_level = {
+						type = administrative_themes
+						level = 3
+					}
+				}
+			}
+			title:d_sweetwater.holder ?= {
+				if = {
+					limit = {
+						is_independent_ruler = no
+					}
+					vassal_contract_set_obligation_level = {
+						type = administrative_themes
+						level = 1
+					}
+				}
+			}
+		}
+
+		### SMALL COUNCIL
+		if = {
+			limit = {
+				exists = title:h_the_iron_throne.holder
+			}
+			title:h_the_iron_throne.holder = {
+				every_councillor = {
+					limit = { has_variable = small_council }
+					vassal_contract_set_obligation_level = {
+						type = special_contract
+						level = 5
+					}
+					set_vassal_contract_modification_blocked = yes
+				}
+			}
+		}
+	}
+}
