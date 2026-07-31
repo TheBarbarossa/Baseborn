@@ -123,19 +123,22 @@
 
 		### THE CROWNLANDS
 
-		title:e_the_iron_throne = {
+		title:h_the_iron_throne = {
 			every_de_jure_county_holder = {
 				if = {
 					limit = {
-						NOT = { primary_title.tier = tier_county }
-						NOT = { primary_title.tier = tier_barony }
+						primary_title.tier <= tier_county
 					}
-					set_variable = mw_obl_feudal_levies_exempt
-					agot_mw_reset_vassal_contract = yes					
+					set_variable = { name = mw_obl_feudal_levies value = 0 }
+					add_character_flag = {
+						flag = startup_contracts
+						days = 1
+					}					
+					agot_mw_reset_vassal_contract = yes
 				}
 			}
 		}
-
+		
 		title:k_dragonstone.holder ?= {
 			set_variable = { name = mw_obl_feudal_levies value =  0 }
 			set_variable = { name = mw_obl_feudal_taxes value = 0 }
