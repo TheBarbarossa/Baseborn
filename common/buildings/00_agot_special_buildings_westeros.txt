@@ -8221,3 +8221,49 @@ agot_old_stone_bridge_01 = {
 
 	flag = travel_point_of_interest_diplomatic
 }
+
+agot_kingswood_1 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_building_royal_forest.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	can_construct = {
+		always = no
+	}
+
+	is_enabled = {
+		agot_generic_is_special_building_enabled = yes
+	}
+
+	# asset = {
+	# 	type = pdxmesh
+	# 	name = "mapitems_dragon_skeletons_mesh"
+	# }
+
+	province_modifier = {
+		monthly_income = 2
+	}
+
+	county_modifier = {
+		travel_danger = 25
+		development_growth_factor = -0.05
+		defender_advantage = 5
+	}
+	
+	character_modifier = {
+		lifestyle_hunter_xp_gain_mult = 0.2
+	}
+
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+	}
+
+	type = special
+
+	flag = travel_point_of_interest_martial
+}
