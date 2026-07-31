@@ -1,0 +1,45 @@
+﻿####################
+# BETRAY INTERACTIONS
+####################
+
+namespace = sub_betray_interaction
+
+sub_betray_interaction.0001 = {
+	type = letter_event
+	opening = {
+		desc = char_interaction.0010.opening
+	}
+	desc = char_interaction.0010.desc
+		
+	sender = scope:recipient
+
+	immediate = {
+		show_as_tooltip = { betray_effect = yes }
+	}
+
+	option = {
+		name = char_interaction.0010.a
+	}
+}
+
+sub_betray_interaction.0002 = {
+	type = letter_event
+	desc = betray_interaction.0030.desc
+		
+	sender = scope:actor
+
+	option = {
+		name = betray_interaction.0020.a
+	}
+}
+
+sub_betray_interaction.0003 = {
+	type = letter_event
+	desc = betray_interaction.0020.desc
+		
+	sender = scope:recipient
+
+	option = {
+		name = betray_interaction.0020.a
+	}
+}
