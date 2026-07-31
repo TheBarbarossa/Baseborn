@@ -1,0 +1,1240 @@
+﻿##Feudal Government
+# Hegemony
+FEUDAL_HEGEMONY_MALE = { # Male
+	type = character
+
+	# Rhoynish Prince
+	text = {
+		trigger = {
+			agot_flavour_is_prince_rhoynish_trigger = { CHAR = this }
+		}
+		localization_key = king_rhoynish
+	}
+
+	# King
+	text = {
+		trigger = {
+			agot_flavour_hegemony_is_kingdom_trigger = { CHAR = this }
+		}
+		localization_key = king
+	}
+
+	# Rhoynish Prince Spouse
+	text = {
+		trigger = {
+			any_spouse = { agot_flavour_is_prince_rhoynish_trigger = { CHAR = this } }
+		}
+		localization_key = king_rhoynish
+	}
+
+	# King Spouse
+	text = {
+		trigger = {
+			any_spouse = { agot_flavour_hegemony_is_kingdom_trigger = { CHAR = this } }
+		}
+		localization_key = king
+	}
+
+	# Fallback
+	text = {
+		fallback = yes
+		localization_key = hegemon
+	}
+}
+FEUDAL_HEGEMONY_FEMALE = { # Female
+	type = character
+
+	# Good Queen Corollary
+	text = {
+		trigger = {
+			OR = {
+				primary_title ?= title:h_the_iron_throne
+				any_spouse = {
+					primary_title ?= title:h_the_iron_throne
+				}
+			}
+			has_character_flag = good_queen
+		}
+		localization_key = good_queen
+	}
+
+	# Rhoynish Princess
+	text = {
+		trigger = {
+			agot_flavour_is_prince_rhoynish_trigger = { CHAR = this }
+		}
+		localization_key = queen_rhoynish
+	}
+
+	# Queen
+	text = {
+		trigger = {
+			agot_flavour_hegemony_is_kingdom_trigger = { CHAR = this }
+		}
+		localization_key = king_female
+	}
+
+	# Rhoynish Princess Spouse
+	text = {
+		trigger = {
+			any_spouse = { agot_flavour_is_prince_rhoynish_trigger = { CHAR = this } }
+		}
+		localization_key = queen_rhoynish
+	}
+
+	# Queen Spouse
+	text = {
+		trigger = {
+			any_spouse = { agot_flavour_hegemony_is_kingdom_trigger = { CHAR = this } }
+		}
+		localization_key = king_female
+	}
+
+	# Fallback
+	text = {
+		fallback = yes
+		localization_key = hegemon_female
+	}
+}
+
+# Empire
+FEUDAL_EMPIRE_MALE = { # Male
+	type = character
+
+	# Palatinate Rhoynish Prince
+	text = {
+		trigger = {
+			agot_flavour_is_prince_rhoynish_trigger = { CHAR = this }
+			agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+			agot_flavour_palatinate_is_kingdom_trigger = { CHAR = this }
+		}
+		localization_key = king_rhoynish
+	}
+
+	# Palatinate King
+	text = {
+		trigger = {
+			agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+			agot_flavour_palatinate_is_kingdom_trigger = { CHAR = this }
+		}
+		localization_key = king
+	}
+
+	# Historic Lord
+	text = {
+		trigger = {
+			agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+			agot_flavour_is_historic_lord_trigger = { CHAR = this }
+		}
+		localization_key = lord_non_paramount
+	}
+
+	# Lord Paramount
+	text = {
+		trigger = {
+			agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+		}
+		localization_key = lord_paramount
+	}
+
+	# Rhoynish Prince
+	text = {
+		trigger = {
+			agot_flavour_is_prince_rhoynish_trigger = { CHAR = this }
+		}
+		localization_key = king_rhoynish
+	}
+
+	# Storm King
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:e_the_stormlands }
+		}
+		localization_key = king_stormlands
+	}
+
+	# Winter King # AGOT TODO; loc only says "King"
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:e_the_north }
+		}
+		localization_key = king_north
+	}
+
+	# River King
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:e_the_riverlands }
+		}
+		localization_key = king_riverlands
+	}
+
+	# Palatinate Rhoynish Prince Spouse
+	text = {
+		trigger = {
+			any_spouse = {
+				agot_flavour_is_prince_rhoynish_trigger = { CHAR = this }
+				agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+				agot_flavour_palatinate_is_kingdom_trigger = { CHAR = this }
+			}
+		}
+		localization_key = lord_non_paramount
+	}
+
+	# Palatinate King Spouse
+	text = {
+		trigger = {
+			any_spouse = {
+				agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+				agot_flavour_palatinate_is_kingdom_trigger = { CHAR = this }
+			}
+		}
+		localization_key = king
+	}
+
+	# Lord Spouse
+	text = {
+		trigger = {
+			any_spouse = {
+				agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+			}
+		}
+		localization_key = lord_non_paramount
+	}
+
+	# Rhoynish Prince Spouse
+	text = {
+		trigger = {
+			OR = {
+				any_spouse = { agot_flavour_is_prince_rhoynish_trigger = { CHAR = this } }
+			}
+		}
+		localization_key = king_rhoynish
+	}
+
+	# Fallback
+	text = {
+		fallback = yes
+		localization_key = king
+	}
+}
+FEUDAL_EMPIRE_FEMALE = { # Female
+	type = character
+
+	# Palatinate Rhoynish Princess
+	text = {
+		trigger = {
+			agot_flavour_is_prince_rhoynish_trigger = { CHAR = this }
+			agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+			agot_flavour_palatinate_is_kingdom_trigger = { CHAR = this }
+		}
+		localization_key = queen_rhoynish
+	}
+
+	# Palatinate Queen
+	text = {
+		trigger = {
+			agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+			agot_flavour_palatinate_is_kingdom_trigger = { CHAR = this }
+		}
+		localization_key = king_female
+	}
+
+	# Historic Lady
+	text = {
+		trigger = {
+			agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+			agot_flavour_is_historic_lord_trigger = { CHAR = this }
+		}
+		localization_key = lady_non_paramount
+	}
+
+	# Lady Paramount
+	text = {
+		trigger = {
+			agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+		}
+		localization_key = lady_paramount
+	}
+
+	# Storm King
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:e_the_stormlands }
+		}
+		localization_key = queen_stormlands
+	}
+
+	# Winter King # AGOT TODO; loc only says "King"
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:e_the_north }
+		}
+		localization_key = queen_north
+	}
+
+	# River King
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:e_the_riverlands }
+		}
+		localization_key = queen_riverlands
+	}
+
+	# Rhoynish Princess
+	text = {
+		trigger = {
+			agot_flavour_is_prince_rhoynish_trigger = { CHAR = this }
+		}
+		localization_key = queen_rhoynish
+	}
+
+	# Palatinate Rhoynish Princess Spouse
+	text = {
+		trigger = {
+			any_spouse = {
+				agot_flavour_is_prince_rhoynish_trigger = { CHAR = this }
+				agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+				agot_flavour_palatinate_is_kingdom_trigger = { CHAR = this }
+			}
+		}
+		localization_key = lady_non_paramount
+	}
+
+	# Palatinate Queen Spouse
+	text = {
+		trigger = {
+			any_spouse = {
+				agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+				agot_flavour_palatinate_is_kingdom_trigger = { CHAR = this }
+			}
+		}
+		localization_key = king_female
+	}
+
+	# Lady Spouse
+	text = {
+		trigger = {
+			any_spouse = { agot_flavour_is_lord_in_westeros_trigger = { CHAR = this } }
+		}
+		localization_key = lady_non_paramount
+	}
+
+	# Rhoynish Princess Spouse
+	text = {
+		trigger = {
+			any_spouse = { agot_flavour_is_prince_rhoynish_trigger = { CHAR = this } }
+		}
+		localization_key = queen_rhoynish
+	}
+
+	# Fallback
+	text = {
+		fallback = yes
+		localization_key = king_female
+	}
+}
+
+# Kingdom
+FEUDAL_KINGDOM_MALE = { # Male
+	type = character
+
+	# Prince (Dragonstone)
+	text = {
+		trigger = {
+			agot_flavour_is_prince_dragonstone_trigger = { CHAR = this }
+		}
+		localization_key = king_dragonstone_heir
+	}
+
+	# Palatinate Rhoynish Prince
+	text = {
+		trigger = {
+			agot_flavour_is_prince_rhoynish_trigger = { CHAR = this }
+			agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+			agot_flavour_palatinate_is_kingdom_trigger = { CHAR = this }
+		}
+		localization_key = king_rhoynish
+	}
+
+	# Palatinate King
+	text = {
+		trigger = {
+			agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+			agot_flavour_palatinate_is_kingdom_trigger = { CHAR = this }
+		}
+		localization_key = king
+	}
+
+	# Lord
+	text = {
+		trigger = {
+			agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+		}
+		localization_key = duke
+	}
+
+	# Rhoynish Prince
+	text = {
+		trigger = {
+			agot_flavour_is_prince_rhoynish_trigger = { CHAR = this }
+		}
+		localization_key = king_rhoynish
+	}
+
+	## Petty Kingdom Flavour
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_red_lands }
+		}
+		localization_key = king_the_dreadlands
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_barrows_and_rills }
+		}
+		localization_key = king_barrows_and_rills
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_the_neck }
+		}
+		localization_key = king_the_neck
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_fishers_haft }
+		}
+		localization_key = king_tridents_mouth
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_the_bay_of_crabs }
+		}
+		localization_key = king_the_bay_of_crabs
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_runestone }
+		}
+		localization_key = king_runestone
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_the_red_mountains }
+		}
+		localization_key = king_the_red_mountains
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_hooded_coves }
+		}
+		localization_key = king_withermoore
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_yronwood }
+		}
+		localization_key = king_yronwood
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_shipbreaker_bay }
+		}
+		localization_key = king_the_stormlands
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_the_greenblood }
+		}
+		localization_key = king_rhoynish
+	}
+
+	# Dragonstone Prince Spouse
+	text = {
+		trigger = {
+			any_spouse = {
+				agot_flavour_is_prince_dragonstone_trigger = { CHAR = this }
+			}
+		}
+		localization_key = duke
+	}
+
+	# Palatinate Rhoynish Prince Spouse
+	text = {
+		trigger = {
+			any_spouse = {
+				agot_flavour_is_prince_rhoynish_trigger = { CHAR = this }
+				agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+				agot_flavour_palatinate_is_kingdom_trigger = { CHAR = this }
+			}
+		}
+		localization_key = lord_non_paramount
+	}
+
+	# Palatinate King Spouse
+	text = {
+		trigger = {
+			any_spouse = {
+				agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+				agot_flavour_palatinate_is_kingdom_trigger = { CHAR = this }
+			}
+		}
+		localization_key = king
+	}
+
+	# Lord Spouse
+	text = {
+		trigger = {
+			OR = {
+				any_spouse = { agot_flavour_is_lord_in_westeros_trigger = { CHAR = this } }
+				# Spouse is Dragonstone Prince
+				any_spouse = { agot_flavour_is_prince_dragonstone_trigger = { CHAR = this } }
+			}
+		}
+		localization_key = duke
+	}
+
+	# Rhoynish Prince Spouse
+	text = {
+		trigger = {
+			OR = {
+				any_spouse = { agot_flavour_is_prince_rhoynish_trigger = { CHAR = this } }
+			}
+		}
+		localization_key = king_rhoynish
+	}
+
+	# Fallback
+	text = {
+		fallback = yes
+		localization_key = king
+	}
+}
+FEUDAL_KINGDOM_FEMALE = { # Female
+	type = character
+
+	# Princess (Dragonstone)
+	text = {
+		trigger = {
+			agot_flavour_is_prince_dragonstone_trigger = { CHAR = this }
+		}
+		localization_key = queen_dragonstone_heir
+	}
+
+	# Palatinate Rhoynish Princess
+	text = {
+		trigger = {
+			agot_flavour_is_prince_rhoynish_trigger = { CHAR = this }
+			agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+			agot_flavour_palatinate_is_kingdom_trigger = { CHAR = this }
+		}
+		localization_key = queen_rhoynish
+	}
+
+	# Palatinate Queen
+	text = {
+		trigger = {
+			agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+			agot_flavour_palatinate_is_kingdom_trigger = { CHAR = this }
+		}
+		localization_key = king_female
+	}
+
+	# Lady
+	text = {
+		trigger = {
+			agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+		}
+		localization_key = duke_female
+	}
+
+	# Rhoynish Princess
+	text = {
+		trigger = {
+			agot_flavour_is_prince_rhoynish_trigger = { CHAR = this }
+		}
+		localization_key = queen_rhoynish
+	}
+
+	## Petty Kingdom Flavour
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_red_lands }
+		}
+		localization_key = queen_the_dreadlands
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_barrows_and_rills }
+		}
+		localization_key = queen_barrows_and_rills
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_the_neck }
+		}
+		localization_key = queen_the_neck
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_fishers_haft }
+		}
+		localization_key = queen_tridents_mouth
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_the_bay_of_crabs }
+		}
+		localization_key = queen_the_bay_of_crabs
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_runestone }
+		}
+		localization_key = queen_runestone
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_the_red_mountains }
+		}
+		localization_key = queen_the_red_mountains
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_hooded_coves }
+		}
+		localization_key = queen_withermoore
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_yronwood }
+		}
+		localization_key = queen_yronwood
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_shipbreaker_bay }
+		}
+		localization_key = queen_the_stormlands
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_the_greenblood }
+		}
+		localization_key = queen_rhoynish
+	}
+
+	# Dragonstone Princess Spouse
+	text = {
+		trigger = {
+			any_spouse = {
+				agot_flavour_is_prince_dragonstone_trigger = { CHAR = this }
+			}
+		}
+		localization_key = duke_female
+	}
+
+	# Palatinate Rhoynish Princess Spouse
+	text = {
+		trigger = {
+			any_spouse = {
+				agot_flavour_is_prince_rhoynish_trigger = { CHAR = this }
+				agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+				agot_flavour_palatinate_is_kingdom_trigger = { CHAR = this }
+			}
+		}
+		localization_key = duke_female
+	}
+
+	# Palatinate Queen Spouse
+	text = {
+		trigger = {
+			any_spouse = {
+				agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+				agot_flavour_palatinate_is_kingdom_trigger = { CHAR = this }
+			}
+		}
+		localization_key = king_female
+	}
+
+	# Lady Spouse
+	text = {
+		trigger = {
+			OR = {
+				any_spouse = { agot_flavour_is_lord_in_westeros_trigger = { CHAR = this } }
+				# Spouse is Dragonstone Prince
+				any_spouse = { agot_flavour_is_prince_dragonstone_trigger = { CHAR = this } }
+			}
+		}
+		localization_key = duke_female
+	}
+
+	# Rhoynish Princess Spouse
+	text = {
+		trigger = {
+			OR = {
+				any_spouse = { agot_flavour_is_prince_rhoynish_trigger = { CHAR = this } }
+			}
+		}
+		localization_key = queen_rhoynish
+	}
+
+	# Fallback
+	text = {
+		fallback = yes
+		localization_key = king_female
+	}
+}
+
+# Queen/Princess Mother
+EMPRESS_MOTHER = { # Female
+	type = character
+
+	text = {
+		trigger = {
+			culture = {
+				OR = {
+					has_name_list = name_list_salt_dornish
+					has_name_list = name_list_sand_dornish
+					has_name_list = name_list_rhoynish
+					has_cultural_pillar = heritage_rhoynar
+				}
+			}
+		}
+		localization_key = princess_mother
+	}
+
+	text = {
+		trigger = {
+			agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+		}
+		localization_key = queen_mother_default
+	}
+
+	text = {
+		fallback = yes
+		localization_key = empress_mother_default
+	}
+}
+# Queen/Princess Mother
+QUEEN_MOTHER = { # Female
+	type = character
+
+	text = {
+		trigger = {
+			culture = {
+				OR = {
+					has_name_list = name_list_salt_dornish
+					has_name_list = name_list_sand_dornish
+					has_name_list = name_list_rhoynish
+					has_cultural_pillar = heritage_rhoynar
+				}
+			}
+		}
+		localization_key = princess_mother
+	}
+
+	text = {
+		fallback = yes
+		localization_key = queen_mother_default
+	}
+}
+
+# Ruler Children
+PRINCE_MALE = { # Male
+	type = character
+
+	# Prince
+	text = {
+		trigger = {
+			OR = {
+				father ?= {
+					OR = {
+						# Dragonstone
+						agot_flavour_is_prince_dragonstone_trigger = { CHAR = this }
+						# Palatinate
+						agot_flavour_palatinate_is_kingdom_trigger = { CHAR = this }
+					}
+				}
+				mother ?= {
+					OR = {
+						# Dragonstone
+						agot_flavour_is_prince_dragonstone_trigger = { CHAR = this }
+						# Palatinate
+						agot_flavour_palatinate_is_kingdom_trigger = { CHAR = this }
+					}
+				}
+			}
+		}
+		localization_key = prince
+	}
+
+	# Lord
+	text = {
+		trigger = {
+			OR = {
+				father ?= { agot_flavour_is_lord_in_westeros_trigger = { CHAR = this } }
+				mother ?= { agot_flavour_is_lord_in_westeros_trigger = { CHAR = this } }
+			}
+		}
+		localization_key = child_lord
+	}
+
+	# Fallback: Prince
+	text = {
+		fallback = yes
+		localization_key = prince
+	}
+}
+PRINCE_FEMALE = { # Female
+	type = character
+
+	# Princess
+	text = {
+		trigger = {
+			OR = {
+				father ?= {
+					OR = {
+						# Dragonstone
+						agot_flavour_is_prince_dragonstone_trigger = { CHAR = this }
+						# Palatinate
+						agot_flavour_palatinate_is_kingdom_trigger = { CHAR = this }
+					}
+				}
+				mother ?= {
+					OR = {
+						# Dragonstone
+						agot_flavour_is_prince_dragonstone_trigger = { CHAR = this }
+						# Palatinate
+						agot_flavour_palatinate_is_kingdom_trigger = { CHAR = this }
+					}
+				}
+			}
+		}
+		localization_key = princess
+	}
+
+	# Lady
+	text = {
+		trigger = {
+			OR = {
+				father ?= { agot_flavour_is_lord_in_westeros_trigger = { CHAR = this } }
+				mother ?= { agot_flavour_is_lord_in_westeros_trigger = { CHAR = this } }
+			}
+		}
+		localization_key = child_lady
+	}
+
+	# Fallback: Princess
+	text = {
+		fallback = yes
+		localization_key = princess
+	}
+}
+
+# Claimants
+CLAIMANT_FEUDAL_KINGDOM_MALE = {
+	type = character
+
+	text = {
+		trigger = {
+			has_character_flag = agot_claimant_king
+			any_character_war = {
+				OR = {
+					casus_belli = {
+						any_target_title = {
+							this = title:e_the_stormlands
+						}
+					}
+					AND = {
+						prev = { has_title = title:e_the_stormlands }
+						OR = {
+							using_cb = independence_war
+							using_cb = agot_independence_war
+						}
+					}
+				}
+			}
+		}
+		localization_key = king_stormlands
+	}
+	text = {
+		trigger = {
+			has_character_flag = agot_claimant_king
+			culture = {
+				OR = {
+					has_name_list = name_list_salt_dornish
+					has_name_list = name_list_sand_dornish
+					has_name_list = name_list_rhoynish
+					has_cultural_pillar = heritage_rhoynar
+				}
+			}
+			any_character_war = {
+				OR = {
+					casus_belli = {
+						any_target_title = {
+							this = title:e_dorne
+						}
+					}
+					AND = {
+						prev = { has_title = title:e_dorne }
+						OR = {
+							using_cb = independence_war
+							using_cb = agot_independence_war
+						}
+					}
+				}
+			}
+		}
+		localization_key = king_rhoynish
+	}
+	text = {
+		fallback = yes
+		localization_key = king
+	}
+}
+CLAIMANT_FEUDAL_KINGDOM_FEMALE = {
+	type = character
+
+	text = {
+		trigger = {
+			has_character_flag = agot_claimant_king
+			any_character_war = {
+				OR = {
+					casus_belli = {
+						any_target_title = {
+							this = title:e_the_stormlands
+						}
+					}
+					AND = {
+						prev = { has_title = title:e_the_stormlands }
+						OR = {
+							using_cb = independence_war
+							using_cb = agot_independence_war
+						}
+					}
+				}
+			}
+		}
+		localization_key = queen_stormlands
+	}
+	text = {
+		trigger = {
+			has_character_flag = agot_claimant_king
+			culture = {
+				OR = {
+					has_name_list = name_list_salt_dornish
+					has_name_list = name_list_sand_dornish
+					has_name_list = name_list_rhoynish
+					has_cultural_pillar = heritage_rhoynar
+				}
+			}
+			any_character_war = {
+				OR = {
+					casus_belli = {
+						any_target_title = {
+							this = title:e_dorne
+						}
+					}
+					AND = {
+						prev = { has_title = title:e_dorne }
+						OR = {
+							using_cb = independence_war
+							using_cb = agot_independence_war
+						}
+					}
+				}
+			}
+		}
+		localization_key = queen_rhoynish
+	}
+	text = {
+		fallback = yes
+		localization_key = king_female
+	}
+}
+
+AGOT_KING_FLAVOUR = {
+	type = character
+
+	# Dornish
+	text = {
+		trigger = {
+			agot_flavour_is_prince_rhoynish_trigger = { CHAR = this }
+		}
+		localization_key = king_rhoynish
+	}
+
+	# Storm King
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:e_the_stormlands }
+		}
+		localization_key = king_stormlands
+	}
+
+	# Winter King # AGOT TODO; loc only says "King"
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:e_the_north }
+		}
+		localization_key = king_north
+	}
+
+	# River King
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:e_the_riverlands }
+		}
+		localization_key = king_riverlands
+	}
+
+	## Petty Kingdom Flavour
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_red_lands }
+		}
+		localization_key = king_the_dreadlands
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_barrows_and_rills }
+		}
+		localization_key = king_barrows_and_rills
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_the_neck }
+		}
+		localization_key = king_the_neck
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_fishers_haft }
+		}
+		localization_key = king_tridents_mouth
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_the_bay_of_crabs }
+		}
+		localization_key = king_the_bay_of_crabs
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_runestone }
+		}
+		localization_key = king_runestone
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_the_red_mountains }
+		}
+		localization_key = king_the_red_mountains
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_hooded_coves }
+		}
+		localization_key = king_withermoore
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_yronwood }
+		}
+		localization_key = king_yronwood
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_shipbreaker_bay }
+		}
+		localization_key = king_the_stormlands
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_the_greenblood }
+		}
+		localization_key = king_rhoynish
+	}
+
+	# Fallback
+	text = {
+		fallback = yes
+		localization_key = king
+	}
+}
+AGOT_QUEEN_FLAVOUR = {
+	type = character
+
+	# Good Queen Corollary
+	text = {
+		trigger = {
+			primary_title ?= title:h_the_iron_throne
+			has_character_flag = good_queen
+		}
+		localization_key = good_queen
+	}
+
+	# Dornish
+	text = {
+		trigger = {
+			agot_flavour_is_prince_rhoynish_trigger = { CHAR = this }
+		}
+		localization_key = queen_rhoynish
+	}
+
+	# Storm King
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:e_the_stormlands }
+		}
+		localization_key = queen_stormlands
+	}
+
+	# Winter King # AGOT TODO; loc only says "King"
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:e_the_north }
+		}
+		localization_key = queen_north
+	}
+
+	# River King
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:e_the_riverlands }
+		}
+		localization_key = queen_riverlands
+	}
+
+	## Petty Kingdom Flavour
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_red_lands }
+		}
+		localization_key = queen_the_dreadlands
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_barrows_and_rills }
+		}
+		localization_key = queen_barrows_and_rills
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_the_neck }
+		}
+		localization_key = queen_the_neck
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_fishers_haft }
+		}
+		localization_key = queen_tridents_mouth
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_the_bay_of_crabs }
+		}
+		localization_key = queen_the_bay_of_crabs
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_runestone }
+		}
+		localization_key = queen_runestone
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_the_red_mountains }
+		}
+		localization_key = queen_the_red_mountains
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_hooded_coves }
+		}
+		localization_key = queen_withermoore
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_yronwood }
+		}
+		localization_key = queen_yronwood
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_shipbreaker_bay }
+		}
+		localization_key = queen_the_stormlands
+	}
+	text = {
+		trigger = {
+			agot_flavour_char_special_title_trigger = { CHAR = this TITLE = title:k_the_greenblood }
+		}
+		localization_key = queen_rhoynish
+	}
+
+	# Fallback
+	text = {
+		fallback = yes
+		localization_key = king_female
+	}
+}
+
+AGOT_KING_SPOUSE_FLAVOUR = {
+	type = character
+
+	# Dornish
+	text = {
+		trigger = {
+			any_spouse = {
+				agot_flavour_is_prince_rhoynish_trigger = { CHAR = this }
+				NOT = {
+					agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+				}
+			}
+		}
+		localization_key = king_rhoynish
+	}
+
+	# Fallback
+	text = {
+		fallback = yes
+		localization_key = king
+	}
+}
+AGOT_QUEEN_SPOUSE_FLAVOUR = {
+	type = character
+
+	# Good Queen Corollary
+	text = {
+		trigger = {
+			any_spouse = {
+				primary_title ?= title:h_the_iron_throne
+			}
+			has_character_flag = good_queen
+		}
+		localization_key = good_queen
+	}
+
+	# Dornish
+	text = {
+		trigger = {
+			any_spouse = {
+				agot_flavour_is_prince_rhoynish_trigger = { CHAR = this }
+				NOT = {
+					agot_flavour_is_lord_in_westeros_trigger = { CHAR = this }
+				}
+			}
+		}
+		localization_key = queen_rhoynish
+	}
+
+	# Fallback
+	text = {
+		fallback = yes
+		localization_key = king_female
+	}
+}
