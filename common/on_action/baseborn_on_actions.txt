@@ -13,9 +13,23 @@ baseborn_setup = {
 				NOR = {
 					target_is_de_jure_liege_or_above = title:k_braavos
 					target_is_de_jure_liege_or_above = title:k_lys
+					target_is_de_jure_liege_or_above = title:k_the_stepstones
 				}
 			}
 			make_settlement_county_wilderness = { COUNTY = this }
+		}
+		# No colonisation, county modifier just didn't work
+		every_ruler = {
+			set_variable = {
+				name = colonization_cooldown
+				years = 200
+			}
+			every_courtier_or_guest = {
+				set_variable = {
+					name = colonization_cooldown
+					years = 200
+				}
+			}
 		}
 		# Lobotomise NPRs
 		every_county_in_region = {
