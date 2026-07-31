@@ -1,0 +1,447 @@
+﻿agot_can_visit_house_of_baw = {
+	OR = {
+		faith = {
+			has_doctrine = tenet_many_faces
+		}
+		AND = {
+			is_landed = yes
+			capital_province = {
+				geographical_region = world_essos_braavos
+			}
+		}
+		location = {
+			geographical_region = world_essos_braavos
+		}
+	}
+}
+
+agot_should_be_knight_idle_trigger = {
+	portrait_wear_armor_trigger = yes
+}
+
+agot_wall_is_normal = {
+	has_variable = agot_wall_is_normal
+	NOR = {
+		agot_wall_has_fallen_left = yes
+		agot_wall_has_fallen_middle = yes
+		agot_wall_has_fallen_right = yes
+	}
+}
+
+agot_wall_has_fallen_left = {
+	has_variable = agot_wall_has_fallen_left
+}
+
+agot_wall_has_fallen_middle = {
+	has_variable = agot_wall_has_fallen_middle
+}
+
+agot_wall_has_fallen_right = {
+	has_variable = agot_wall_has_fallen_right
+}
+
+agot_KL_is_normal = {
+	NOT = {
+		has_variable = agot_KL_is_burning
+	}
+}
+
+#MW Compatible
+agot_is_independent_ruler = {
+	custom_description = {
+		text = "is_independent_ruler"
+		AND = {
+			is_independent_ruler = yes
+			NOT = { has_variable = agot_pwl_direct }
+			NOT = { has_character_flag = bookmark_independent }
+		}
+	}
+}
+# For whenever someone needs a conventional check for independence, like petition liege/pay homage
+is_vanilla_independent_ruler = {
+	is_independent_ruler = yes
+}
+
+agot_has_historical_events_trigger = {
+	OR = {
+		has_game_rule = agot_story_historical_events_historical_outcomes
+		has_game_rule = agot_story_historical_events_weighted_outcomes
+		has_game_rule = agot_story_historical_events_random_outcomes
+	}
+}
+
+agot_has_any_shattered_rule_trigger = {
+	OR = {
+		has_game_rule = agot_shatter_to_counties
+		has_game_rule = agot_shatter_to_counties_even
+		has_game_rule = agot_shatter_to_petty_kingdoms
+		has_game_rule = agot_shatter_to_kingdoms
+		has_game_rule = agot_shatter_to_duchies
+		has_game_rule = agot_shatter_to_empires
+	}
+}
+
+is_available_prisoner_for_sacrifice = {
+	is_ai = yes
+	is_adult = yes
+	is_human = yes
+	is_incapable = no
+}
+
+agot_any_available_family_for_sacrifice = {
+	OR = {
+		any_courtier = {
+			is_available_ai = yes
+			is_close_family_of = root
+			NOT = { has_relation_soulmate = root }
+		}
+		any_prisoner = {
+			is_ai = yes
+			is_human = yes
+			is_close_family_of = root
+			NOT = { has_relation_soulmate = root }
+		}
+	}
+}
+
+agot_has_throne_room = {
+	OR = {
+		capital_county = title:c_kings_landing
+		capital_county = title:c_pyke
+		capital_county = title:c_casterly_rock
+		capital_county = title:c_dragonstone
+		capital_county = title:c_highgarden
+		capital_county = title:c_winterfell
+		capital_county = title:c_the_eyrie
+		capital_county = title:c_riverrun
+		capital_county = title:c_storms_end
+		AND = {
+			has_ep3_dlc_trigger = yes
+			OR = {
+				capital_county = title:c_pentos
+				capital_county = title:c_princes_quarter
+				capital_county = title:c_lys
+				capital_county = title:c_myr
+				capital_county = title:c_tyrosh
+				capital_county = title:c_braavos
+			}
+		}
+		agot_is_graphical_reach_region_trigger = yes
+	}
+}
+
+agot_death_can_start_feud_trigger = {
+	$VICTIM$ = { save_temporary_scope_as = victim }
+	trigger_if = {
+		limit = {
+			exists = scope:victim
+			exists = scope:victim.killer
+			OR = {
+				scope:victim.killer ?= { has_dead_character_flag = should_not_start_feud }
+				scope:victim ?= { has_dead_character_flag = should_not_start_feud }
+			}
+		}
+		always = no
+	}
+	trigger_else = {
+		always = yes
+	}
+}
+
+agot_can_form_lord_paramountcy = {
+	NOT = { exists = holder }
+	any_de_jure_county = {
+		percent > 0.5
+		holder.top_liege = scope:king
+	}
+	title_capital_county.holder.top_liege = scope:king
+	NOT = { title_capital_county.holder = scope:king }
+}
+
+
+### Used to set Title and holder names flavour
+agot_flavour_is_in_westeros_trigger = {
+	trigger_if = {
+		limit = { is_alive = no }
+		$CHAR$.primary_title.title_province ?= { geographical_region = world_westeros_seven_kingdoms_without_wall }
+	}
+	trigger_else = {
+		agot_flavour_is_living_in_westerosi_realm_trigger = { CHAR = $CHAR$ }
+	}
+}
+
+agot_flavour_capital_is_in_westerosi_trigger = {
+	is_landed = yes
+	capital_county.title_province ?= { geographical_region = world_westeros_seven_kingdoms_without_wall }
+}
+
+agot_flavour_is_living_in_westerosi_realm_trigger = {
+	$CHAR$ = {
+		is_landed = yes
+		# Baron > Count Liege
+		trigger_if = {
+			limit = {
+				top_liege = { has_variable = agot_pwl_direct }
+			}
+			top_liege.var:agot_pwl_direct = {
+				# Count > Duke Liege
+				trigger_if = {
+					limit = {
+						top_liege = { has_variable = agot_pwl_direct }
+					}
+					top_liege.var:agot_pwl_direct = {
+						# Duke > King Liege
+						trigger_if = {
+							limit = {
+								top_liege = { has_variable = agot_pwl_direct }
+							}
+							top_liege.var:agot_pwl_direct = {
+								# King > Emperor Liege
+								trigger_if = {
+									limit = {
+										top_liege = { has_variable = agot_pwl_direct }
+									}
+									top_liege.var:agot_pwl_direct = {
+										# Emperor > Heggy Liege
+										trigger_if = {
+											limit = {
+												top_liege = { has_variable = agot_pwl_direct }
+											}
+										}
+										trigger_else = {
+											top_liege = { agot_flavour_capital_is_in_westerosi_trigger = yes }
+										}
+									}
+								}
+								trigger_else = {
+									top_liege = { agot_flavour_capital_is_in_westerosi_trigger = yes }
+								}
+							}
+						}
+						trigger_else = {
+							top_liege = { agot_flavour_capital_is_in_westerosi_trigger = yes }
+						}
+					}
+				}
+				trigger_else = {
+					top_liege = { agot_flavour_capital_is_in_westerosi_trigger = yes }
+				}
+			}
+		}
+		trigger_else = {
+			top_liege = { agot_flavour_capital_is_in_westerosi_trigger = yes }
+		}
+	}
+}
+
+agot_flavour_iron_throne_exists_trigger = {
+	title:h_the_iron_throne = { is_title_created = yes }
+}
+
+agot_flavour_hegemony_is_kingdom_trigger = {
+	$CHAR$ ?= {
+		trigger_if = {
+			limit = { primary_title = title:h_the_iron_throne }
+			always = yes
+		}
+		trigger_else = { # else check dynamic requirements
+			agot_flavour_is_in_westeros_trigger = { CHAR = this }
+			primary_title.tier = tier_hegemony
+		}
+	}
+}
+
+agot_flavour_palatinate_is_kingdom_trigger = {
+	$CHAR$ = {
+		highest_held_title_tier >= tier_kingdom
+		OR = {
+			AND = {
+				vassal_contract_has_flag = has_palatinate_contract
+				liege = top_liege
+			}
+			AND = {
+				is_alive = yes
+				var:mw_obl_special_contract ?= 4
+				var:agot_pwl_direct ?= { agot_is_independent_ruler = yes }
+			}
+			has_inactive_trait = had_palatinate_contract
+		}
+	}
+}
+
+agot_flavour_is_lord_in_westeros_trigger = {
+	$CHAR$ = {
+		trigger_if = { # if char is dead check inactive trait
+			limit = { is_alive = no }
+			has_inactive_trait = agot_was_westerosi_lord
+		}
+		trigger_else = { # else check dynamic requirements
+			agot_flavour_is_living_in_westerosi_realm_trigger = { CHAR = this }
+			agot_is_independent_ruler = no
+		}
+	}
+}
+
+agot_flavour_is_historic_lord_trigger = {
+	$CHAR$ = {
+		exists = house
+		primary_title ?= {
+			var:historic_lord_house ?= prev.house
+		}
+	}
+}
+
+agot_flavour_char_special_title_trigger = {
+	trigger_if = {
+		limit = {
+			trigger_if = {
+				limit = { is_landed = yes }
+				agot_flavour_is_in_westeros_trigger = { CHAR = $CHAR$ }
+			}
+			trigger_else = {
+				OR = {
+					NOT = { agot_is_historical_government_trigger = { GOV = lp_feudal } }
+					NOT = { agot_is_historical_government_trigger = { GOV = feudal } }
+				}
+			}
+			agot_flavour_iron_throne_exists_trigger = yes
+		}
+		trigger_if = {
+			limit = { is_alive = no }
+			historical_independent_ruler = yes
+		}
+		trigger_else = {
+			is_independent_ruler = yes
+			NOT = { has_variable = agot_pwl_direct }
+		}
+	}
+	trigger_else = {
+		always = yes
+	}
+	$CHAR$.primary_title ?= $TITLE$
+}
+
+agot_flavour_is_prince_dragonstone_trigger = {
+	$CHAR$ ?= {
+		# You are Targ: your or your parents hold Dragonstone
+		OR = {
+			AND = {
+				primary_title ?= title:k_dragonstone
+				dynasty ?= dynasty:dynn_Targaryen
+			}
+			mother ?= {
+				dynasty ?= dynasty:dynn_Targaryen
+				primary_title ?= title:k_dragonstone
+			}
+			father ?= {
+				dynasty ?= dynasty:dynn_Targaryen
+				primary_title ?= title:k_dragonstone
+			}
+		}
+	}
+}
+
+agot_flavour_is_prince_rhoynish_trigger = {
+	$CHAR$ = {
+		exists = primary_title
+		culture = {
+			OR = {
+				has_name_list = name_list_salt_dornish
+				has_name_list = name_list_sand_dornish
+				has_name_list = name_list_rhoynish
+				has_cultural_pillar = heritage_rhoynar
+			}
+		}
+	}
+}
+
+agot_flavour_is_landed_knight_ser_trigger = {
+	$CHAR$ ?= { is_agot_knight_trigger = yes }
+	OR = {
+		$CHAR$ ?= { vassal_contract_has_flag = has_landed_knight_contract }
+		$CHAR$.var:mw_obl_special_contract ?= 6
+		is_target_in_global_variable_list = { name = historical_landed_knights_list target = $CHAR$ }
+	}
+	NOT = {
+		$CHAR$ ?= { agot_is_independent_ruler = yes }
+	}
+}
+
+agot_flavour_is_landed_knight_warden_trigger = {
+	$CHAR$ ?= {
+		NOR = {
+			religion = religion:the_pact_religion
+			religion = religion:the_ways_religion
+		}
+	}
+	OR = {
+		$CHAR$ ?= { vassal_contract_has_flag = has_landed_knight_contract }
+		$CHAR$.var:mw_obl_special_contract ?= 6
+		is_target_in_global_variable_list = { name = historical_landed_knights_list target = $CHAR$ }
+	}
+	NOT = {
+		$CHAR$ ?= { agot_is_independent_ruler = yes }
+	}
+}
+
+agot_flavour_is_landed_knight_master_trigger = {
+	$CHAR$ ?= {
+		OR = {
+			religion = religion:the_pact_religion
+			religion = religion:the_ways_religion
+		}
+	}
+	OR = {
+		$CHAR$ ?= { vassal_contract_has_flag = has_landed_knight_contract }
+		$CHAR$.var:mw_obl_special_contract ?= 6
+		is_target_in_global_variable_list = { name = historical_landed_knights_list target = $CHAR$ }
+	}
+	NOT = {
+		$CHAR$ ?= { agot_is_independent_ruler = yes }
+	}
+}
+
+agot_flavour_is_landed_knight_ser_barony_trigger = {
+	$CHAR$ ?= { is_agot_knight_trigger = yes }
+	$CHAR$ ?= { highest_held_title_tier = tier_barony }
+}
+
+agot_flavour_is_landed_knight_warden_barony_trigger = {
+	$CHAR$ ?= {
+		NOR = {
+			religion = religion:the_pact_religion
+			religion = religion:the_ways_religion
+		}
+	}
+	$CHAR$ ?= { highest_held_title_tier = tier_barony }
+}
+
+agot_flavour_is_landed_knight_master_barony_trigger = {
+	$CHAR$ ?= {
+		OR = {
+			religion = religion:the_pact_religion
+			religion = religion:the_ways_religion
+		}
+	}
+	$CHAR$ ?= { highest_held_title_tier = tier_barony }
+}
+
+agot_qualifies_for_posthistory_trigger = {
+	is_alive = no
+	NOT = { death_reason = death_erased_for_script }
+}
+
+has_unusual_agot_culture_trigger = {
+	culture = {
+		has_cultural_pillar = heritage_elder_races
+	}
+}
+
+agot_laamp_location_is_valid_for_treasure_hunting_contract = {
+	OR = {
+		capital_province = {
+			geographical_region = world_westeros_beyond_the_wall
+		}
+		# Add other "TODO FLAVOR" regions here
+	}
+}
