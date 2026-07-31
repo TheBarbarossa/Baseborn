@@ -321,6 +321,15 @@ agot_flavour_char_special_title_trigger = {
 	$CHAR$.primary_title ?= $TITLE$
 }
 
+agot_bb_flavour_char_special_title_trigger = {
+	$CHAR$ ?= {
+		AND = {
+			primary_title ?= title:k_yronwood
+			dynasty ?= dynasty:dynn_Yronwood
+		}
+	}
+}
+
 agot_flavour_is_prince_dragonstone_trigger = {
 	$CHAR$ ?= {
 		# You are Targ: your or your parents hold Dragonstone
