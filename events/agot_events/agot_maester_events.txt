@@ -1,0 +1,1631 @@
+﻿namespace = agot_maester
+
+agot_maester.0001 = { # A maester arrives from the Citadel
+	title = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = capital_province }
+				}
+				desc = agot_maester.0001.t_alt
+			}
+			desc = agot_maester.0001.t
+		}
+	}
+	desc = agot_maester.0001.desc
+	theme = learning_scholarship_focus
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	right_portrait = {
+		character = scope:new_maester
+		animation = personality_rational
+	}
+
+	trigger = {
+		exists = capital_province
+		is_landed = yes
+		NOT = {
+			any_court_position_holder = {
+				type = maester_court_position
+			}
+		}
+	}
+
+	immediate = {
+		capital_province = { save_scope_as = capital }
+		save_scope_as = ruler
+		agot_grab_new_maester_effect = yes
+		scope:new_maester = {
+			add_character_flag = recruited_maester
+		}
+	}
+
+	option = { # Hire maester
+		name = agot_maester.0001.a
+
+		remove_short_term_gold = high_skill_court_physician_cost
+		set_court_physician_effect = {
+			EMPLOYER = root
+			PHYSICIAN = scope:new_maester
+		}
+
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	option = { #You're not in the budget
+		name = agot_maester.0001.b
+
+		add_prestige = miniscule_prestige_loss
+		add_piety = miniscule_piety_loss
+
+		if = {
+			limit = {
+				NOT = { scope:new_maester.employer ?= global_var:citadel_title.holder }
+			}
+			global_var:citadel_title.holder = {
+				add_courtier ?= scope:new_maester
+			}
+		}
+	}
+
+	after = {
+		scope:new_maester = {
+			remove_character_flag = recruited_maester
+		}
+	}
+}
+
+# Dan - I gutted this for a trait based method
+agot_maester.0002 = { #Transferral of Grand Maester
+	title = agot_maester.0002.t
+	desc = agot_maester.0002.desc
+	theme = crown
+
+	trigger = {
+		scope:title = title:h_the_iron_throne
+	}
+
+
+	left_portrait = root
+
+	right_portrait = scope:grandmaester_candidate
+
+	immediate = {
+		if = {
+			limit = {
+				scope:title.holder = {
+					any_courtier_or_guest = {
+						OR = {
+							has_inactive_trait = grandmaester
+							has_variable = grandmaester
+						}
+					}
+				}
+			}
+			scope:title.holder = {
+				random_courtier_or_guest = {
+					limit = {
+						OR = {
+							has_inactive_trait = grandmaester
+							has_variable = grandmaester
+						}
+					}
+					save_scope_as = grandmaester_candidate
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				any_living_maester = {
+					OR = {
+						has_inactive_trait = grandmaester
+						has_variable = grandmaester
+					}
+				}
+			}
+			random_living_maester = {
+				limit = {
+					OR = {
+						has_inactive_trait = grandmaester
+						has_variable = grandmaester
+					}
+				}
+				save_scope_as = grandmaester_candidate
+			}
+		}
+		else = {
+			agot_find_new_grandmaester_effect = yes
+		}
+	}
+
+	option = {
+		name = agot_maester.0002.a
+		custom_tooltip = agot_maester.0002.a.tt
+		hidden_effect = {
+			agot_progress_to_grandmaester_effect = { GRANDMAESTER_CANDIDATE = scope:grandmaester_candidate }
+		}
+	}
+
+	after = {
+		if = {
+			limit = {
+				exists = scope:current_maester
+				scope:current_maester = {
+					has_opinion_modifier = {
+						modifier = revoked_court_position_opinion
+						target = root
+					}
+				}
+			}
+			scope:current_maester = {
+				remove_opinion = {
+					modifier = revoked_court_position_opinion
+					target = root
+				}
+			}
+		}
+	}
+}
+
+agot_maester.0003 = { #Produce 1 link
+	hidden = yes
+	type = character_event
+
+	trigger = {
+		agot_any_maester_in_citadel = yes
+		has_trait = maester
+		has_trait_xp = {
+			trait = maester
+			value < 100
+		}
+	}
+
+	immediate = {
+		agot_random_maester_in_location_effect = { LOCATION = global_var:citadel_title.title_province }
+
+		agot_add_chain_link_effect = { OWNER = root MAESTER = scope:maester }
+	}
+
+}
+
+# Event to form full chain. Used for maester templates and debug
+agot_maester.0004 = {
+	hidden = yes
+	type = character_event
+
+	immediate = {
+		agot_complete_chain_effect = yes
+	}
+}
+
+# Dan TODO: These need to be moved
+# A Disgraced maester Appears
+agot_maester.0005 = {
+	title = agot_maester.0005.t
+	desc = agot_maester.0005.desc
+	theme = learning_scholarship_focus
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	right_portrait = {
+		character = scope:new_maester
+		animation = spymaster
+	}
+
+	trigger = {
+		trigger_if = {
+			limit = {
+				is_landed = yes
+			}
+			exists = capital_province
+		}
+		is_playable_character = yes
+		NOT = {
+			any_court_position_holder = {
+				type = maester_court_position
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				is_landed = yes
+			}
+			capital_province = {
+				save_scope_as = capital
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					is_landless_administrative = yes
+					is_landless_adventurer = yes
+				}
+			}
+			domicile ?= {
+				domicile_location ?= {
+					save_scope_as = capital
+				}
+			}
+		}
+		capital_province = { save_scope_as = capital }
+		if = { #find disgraced maester in court
+			limit = {
+				any_pool_character = {
+					province = scope:capital
+					has_trait = disgraced_maester
+					is_adult = yes
+				}
+			}
+			random_pool_character = {
+				province = scope:capital
+				limit = {
+					has_trait = disgraced_maester
+					is_adult = yes
+				}
+				save_scope_as = new_maester
+			}
+		}
+		else = {
+			create_character = {
+				location = scope:capital
+				template = disgraced_maester_character
+				save_scope_as = new_maester
+				age = { 18 50 }
+				dynasty = none
+			}
+		}
+	}
+
+	option = {
+		name = agot_maester.0005.a
+		remove_short_term_gold = high_skill_court_physician_cost
+		set_court_physician_effect = {
+			EMPLOYER = root
+			PHYSICIAN = scope:new_maester
+		}
+
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	option = { #You're not in the budget
+		name = agot_maester.0005.b
+
+		add_prestige = miniscule_prestige_loss
+		add_piety = miniscule_piety_loss
+		hidden_effect = {
+			scope:new_maester = {
+				death = {
+					death_reason = death_vanished
+				}
+			}
+		}
+	}
+}
+
+# A Traveling Maester Appears
+agot_maester.0006 = { # A maester arrives from the Citadel
+	title = agot_maester.0001.t
+	desc = agot_maester.0006.desc
+	theme = learning_scholarship_focus
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	right_portrait = {
+		character = scope:new_maester
+		animation = personality_rational
+	}
+
+	trigger = {
+		trigger_if = {
+			limit = {
+				is_landed = yes
+			}
+			exists = capital_province
+		}
+		is_playable_character = yes
+		NOT = {
+			any_court_position_holder = {
+				type = maester_court_position
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				is_landed = yes
+			}
+			capital_province = {
+				save_scope_as = capital
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					is_landless_administrative = yes
+					is_landless_adventurer = yes
+				}
+			}
+			domicile ?= {
+				domicile_location ?= {
+					save_scope_as = capital
+				}
+			}
+		}
+		if = { #find maester
+			limit = {
+				any_pool_character = {
+					province = scope:capital
+					has_trait_xp = {
+						trait = maester
+						value = 100
+					}
+					NOT = {
+						has_trait = archmaester
+					}
+					is_adult = yes
+				}
+			}
+			random_pool_character = {
+				province = scope:capital
+				limit = {
+					has_trait_xp = {
+						trait = maester
+						value = 100
+					}
+					NOT = {
+						has_trait = archmaester
+					}
+					is_adult = yes
+				}
+				save_scope_as = new_maester
+			}
+		}
+		else_if = {
+			limit = {
+				global_var:citadel_title.holder = {
+					any_courtier_or_guest = {
+						has_trait_xp = {
+							trait = maester
+							value = 100
+						}
+						NOR = {
+							has_trait = archmaester
+							has_character_flag = maester_researcher
+						}
+						is_adult = yes
+					}
+				}
+				OR = {
+					highest_held_title_tier > tier_county
+					is_ai = no
+				}
+			}
+			global_var:citadel_title.holder = {
+				random_courtier_or_guest = {
+					limit = {
+						has_trait_xp = {
+							trait = maester
+							value = 100
+						}
+						NOR = {
+							has_trait = archmaester
+							has_character_flag = maester_researcher
+						}
+						is_adult = yes
+					}
+					save_scope_as = new_maester
+					if = {
+						limit = {
+							has_character_flag = blocked_from_leaving
+						}
+						remove_character_flag = blocked_from_leaving
+					}
+				}
+			}
+		}
+		else = {
+			create_character = {
+				location = scope:capital
+				template = maester_character
+				save_scope_as = new_maester
+				age = { 18 50 }
+				dynasty = none
+			}
+		}
+	}
+
+	option = { # Hire maester
+		name = agot_maester.0001.a
+		remove_short_term_gold = high_skill_court_physician_cost
+		set_court_physician_effect = {
+			EMPLOYER = root
+			PHYSICIAN = scope:new_maester
+		}
+
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	option = { #You're not in the budget
+		name = agot_maester.0001.b
+
+		add_prestige = miniscule_prestige_loss
+		add_piety = miniscule_piety_loss
+
+		if = {
+			limit = {
+				NOT = { scope:new_maester.employer ?= global_var:citadel_title.holder }
+			}
+			global_var:citadel_title.holder = {
+				add_courtier ?= scope:new_maester
+			}
+		}
+	}
+}
+
+# No one appears ;-;
+agot_maester.0007 = { # A maester arrives from the Citadel
+	title = agot_maester.0007.t
+	desc = agot_maester.0007.desc
+	theme = learning_scholarship_focus
+
+	right_portrait = {
+		character = root
+		animation = sadness
+	}
+
+	trigger = {
+		trigger_if = {
+			limit = {
+				is_landed = yes
+			}
+			exists = capital_province
+		}
+		is_playable_character = yes
+		NOT = {
+			any_court_position_holder = {
+				type = maester_court_position
+			}
+		}
+	}
+	immediate = {
+		if = {
+			limit = {
+				is_landed = yes
+			}
+			capital_province = {
+				save_scope_as = capital
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					is_landless_administrative = yes
+					is_landless_adventurer = yes
+				}
+			}
+			primary_title ?= {
+				save_scope_as = capital
+			}
+		}
+	}
+	option = {
+		name = agot_maester.0007.a
+	}
+}
+
+# A former acolyte appears
+agot_maester.0008 = {
+	title = agot_maester.0008.t
+	desc = agot_maester.0008.desc
+	theme = learning_scholarship_focus
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	right_portrait = {
+		character = scope:acolyte
+		animation = personality_rational
+	}
+
+	trigger = {
+		trigger_if = {
+			limit = {
+				is_landed = yes
+			}
+			exists = capital_province
+		}
+		NOT = {
+			any_court_position_holder = {
+				type = maester_court_position
+			}
+		}
+	}
+
+	immediate = {
+		agot_make_former_acolyte_effect = yes
+	}
+
+	option = { # Hire maester
+		name = agot_maester.0008.a
+		remove_short_term_gold = low_skill_court_physician_cost
+		set_court_physician_effect = {
+			EMPLOYER = root
+			PHYSICIAN = scope:acolyte
+		}
+
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	option = { #You're not in the budget
+		name = agot_maester.0008.b
+		add_prestige = miniscule_prestige_loss
+		scope:acolyte = {
+			add_opinion = {
+				target = root
+				modifier = annoyed_opinion
+				opinion = -10
+			}
+			hidden_effect = {
+				death = {
+					death_reason = death_vanished
+				}
+			}
+		}
+	}
+}
+
+#Adds some links to root
+agot_maester.0009 = {
+	hidden = yes
+	type = character_event
+
+	immediate = {
+		agot_add_partial_chain_effect = yes
+	}
+}
+
+agot_maester.0010 = {
+	hidden = yes
+	immediate = {
+		title:h_the_iron_throne.holder = {
+			trigger_event = agot_maester.1003
+		}
+	}
+}
+
+agot_maester.0020 = {
+	hidden = yes
+	immediate = {
+		every_character_artifact = {
+			limit = {
+				OR = {
+					artifact_type = maester_link_collection
+					artifact_type = maester_chain
+				}
+				any_artifact_house_claimant = { exists = this }
+			}
+			every_artifact_house_claimant = {
+				remove_house_artifact_claim = prev
+			}
+		}
+	}
+}
+
+scripted_trigger maester_1000_candidate_trigger = {
+	is_ruler = no
+	is_male = yes
+	age = { 7 16 }
+	is_courtier_of = root
+	culture = { agot_is_wildling_culture = no }
+	NOR = {
+		has_trait = nightswatch
+		has_trait = kingsguard
+		has_trait = maester
+		has_trait = squire
+		has_character_modifier = training_for_kingsguard
+		agot_has_religious_trait = no
+	}
+	#Personality is maester compatible
+	AND = {
+		OR = {
+			has_trait = pensive
+			has_trait = curious
+			has_trait = intellect_good
+		}
+		NOR = {
+			has_trait = rowdy
+			has_trait = impatient
+			has_trait = arrogant
+		}
+	}
+}
+
+agot_maester.1000 = { #Child wishes to join the maesters
+	type = character_event
+	title = agot_maester.1000.t
+	desc = agot_maester.1000.desc
+
+	left_portrait = root
+	right_portrait = scope:child
+	lower_right_portrait = scope:archmaester
+
+	theme = learning
+	override_background = {
+		reference = sitting_room
+	}
+
+	trigger = {
+		NOR = {
+			has_character_flag = had_event_maester_1000
+			has_character_flag = had_event_maester_1005
+		}
+		exists = global_var:citadel_title.holder #cant go where there ain't
+		culture = {
+			has_innovation = innovation_maesters
+		}
+		OR = {
+			AND = {
+				is_landed = yes
+				capital_province = {
+					geographical_region = world_westeros_seven_kingdoms
+				}
+			}
+			AND = {
+				exists = liege_or_court_owner
+				liege_or_court_owner.capital_province = {
+					geographical_region = world_westeros_seven_kingdoms
+				}
+			}
+		}
+		any_child = {
+			maester_1000_candidate_trigger = yes
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 0.5
+			any_child = {
+				maester_1000_candidate_trigger = yes
+				OR = {
+					NOT = { is_heir_of = root }
+					root.primary_title = {
+						place_in_line_of_succession = {
+							target = prev
+							value > 4
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			add = -0.5
+			any_child = {
+				is_male = yes
+				count < 2
+			}
+		}
+		modifier = { #Reach has Historic ties with Oldtown
+			add = 0.5
+			exists = liege_or_court_owner
+			liege_or_court_owner.capital_province = { geographical_region = world_westeros_the_reach }
+			any_child = {
+				maester_1000_candidate_trigger = yes
+			}
+		}
+		modifier = { #Northerners DGAF about the Grey Rats
+			add = -0.5
+			exists = liege_or_court_owner
+			liege_or_court_owner.capital_province = { geographical_region = world_westeros_the_north }
+			any_child = {
+				maester_1000_candidate_trigger = yes
+			}
+		}
+		modifier = { #Iron Islanders DGAF about the Grey Rats
+			add = -0.5
+			exists = liege_or_court_owner
+			liege_or_court_owner.capital_province = { geographical_region = world_westeros_the_iron_islands }
+			any_child = {
+				maester_1000_candidate_trigger = yes
+			}
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_maester_1000
+			years = 20
+		}
+		global_var:citadel_title.holder = {
+			save_scope_as = archmaester
+		}
+		random_child = {
+			limit = {
+				maester_1000_candidate_trigger = yes
+			}
+			weight = {
+				base = 1
+				modifier = {
+					add = 1
+					OR = {
+						NOT = { is_heir_of = root }
+						root.primary_title = {
+							place_in_line_of_succession = {
+								target = prev
+								value >= 4
+							}
+						}
+					}
+				}
+				modifier = {
+					add = 0.5
+					OR = {
+						NOT = { is_heir_of = root }
+						root.primary_title = {
+							place_in_line_of_succession = {
+								target = prev
+								value >= 5
+							}
+						}
+					}
+				}
+				modifier = { #Grab Pensive kids
+					add = 1
+					has_trait = pensive
+				}
+				modifier = {
+					add = 1
+					has_trait = education_learning
+				}
+			}
+			save_scope_as = child
+		}
+		scope:child = {
+			assign_quirk_effect = yes
+		}
+	}
+
+	#Yes, go
+	option = {
+		name = agot_maester.1000.a
+		add_prestige = minor_prestige_loss
+		scope:child = {
+			add_opinion = {
+				target = root
+				modifier = grateful_opinion
+				opinion = 30
+			}
+		}
+		scope:child = {
+			agot_send_to_citadel_effect = { MAESTER_CANDIDATE = scope:child }
+		}
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 0
+				scope:child = {
+					is_primary_heir_of = root
+				}
+			}
+		}
+	}
+
+	#I have other plans for you
+	option = {
+		name = agot_maester.1000.b
+		scope:child = {
+			add_opinion = {
+				target = root
+				modifier = refusal_opinion
+				opinion = -50
+			}
+		}
+		ai_chance = {
+			base = 30
+			modifier = { #Meanies won't let their kids be happy
+				add = 70
+				ai_compassion <= low_negative_compassion
+			}
+		}
+	}
+}
+
+
+############################
+# Maester Events for Liege #
+############################
+
+# Your maester is nominated for the archmaester position
+agot_maester.1001 = {
+	title = agot_maester.1001.t
+	type = character_event
+	theme = university
+
+	left_portrait = {
+		character = scope:archmaester_candidate
+		animation = happiness
+	}
+
+	right_portrait = {
+		character = root
+		animation = thinking
+	}
+
+	desc = agot_maester.1001.desc
+
+	immediate = {
+		remove_character_flag = recently_employed_maester
+	}
+
+	option = {
+		name = agot_maester.1001.a
+		flavor = agot_maester.1001.a.tt
+	}
+}
+
+# The conclave have chosen the new grandmaester
+agot_maester.1002 = {
+	title = agot_maester.1002.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { exists = scope:old_grandmaester }
+				desc = agot_maester.1002.desc_death
+			}
+			triggered_desc = {
+				trigger = { exists = scope:disgraced_maester }
+				desc = agot_maester.1002.desc_disgraced
+			}
+			desc = agot_maester.1002.desc_disgraced
+		}
+		desc = agot_maester.1002.desc
+	}
+
+	type = character_event
+	theme = learning_scholarship_focus
+
+	left_portrait = root
+	right_portrait = scope:grandmaester_candidate
+
+	immediate = {
+		scope:grandmaester_candidate = {
+			add_character_flag = traveling_grandmaester
+			make_trait_inactive = grandmaester
+
+			if = {
+				limit = {
+					has_character_flag = blocked_from_leaving
+				}
+				remove_character_flag = blocked_from_leaving
+			}
+
+			start_travel_plan = {
+				players_use_planner = no
+				destination = title:h_the_iron_throne.holder.capital_province
+				on_arrival_destinations = last
+				on_arrival_event = agot_maester.0010
+				return_trip = no # One way
+			}
+		}
+	}
+
+	option = {
+		name = agot_maester.1002.a
+	}
+
+	option = {
+		name = agot_maester.1002.b
+	}
+}
+
+# New Grand Maester has arrived at court
+agot_maester.1003 = {
+	title = agot_maester.1003.t
+	desc = agot_maester.1003.desc
+
+	type = character_event
+	theme = learning_scholarship_focus
+	left_portrait = root
+	right_portrait = scope:grandmaester_candidate
+
+	immediate = {
+		agot_progress_to_grandmaester_effect = { GRANDMAESTER_CANDIDATE = scope:grandmaester_candidate }
+		scope:grandmaester_candidate = {
+			remove_character_flag = traveling_grandmaester
+		}
+	}
+
+	option = {
+		name = agot_maester.0002.a
+		custom_tooltip = agot_maester.0002.a.tt
+	}
+
+	option = {
+		name = agot_maester.1003.a
+		custom_tooltip = agot_maester.0002.a.tt
+	}
+}
+
+#New Grandmaester died in route to capital
+agot_maester.1004 = {
+	title = agot_maester.1004.t
+	desc = agot_maester.1004.desc
+
+	type = character_event
+	theme = learning_scholarship_focus
+	left_portrait = root
+	right_portrait = scope:old_grandmaester
+
+	immediate = {
+
+	}
+
+	option = {
+		name = agot_maester.1004.a
+	}
+}
+
+#Maester thinks child is qualified for maestership
+agot_maester.1005 = {
+	title = agot_maester.1005.t
+	desc = agot_maester.1005.desc
+	type = character_event
+
+	theme = learning
+	override_background = {
+		reference = sitting_room
+	}
+
+	left_portrait = root
+	center_portrait = scope:child
+	right_portrait = scope:maester
+
+	trigger = {
+		NOR = {
+			has_character_flag = had_event_maester_1000
+			has_character_flag = had_event_maester_1005
+		}
+		exists = global_var:citadel_title.holder #cant go where there ain't
+		culture = {
+			has_innovation = innovation_maesters
+		}
+		OR = {
+			AND = {
+				is_landed = yes
+				capital_province = {
+					geographical_region = world_westeros_seven_kingdoms
+				}
+			}
+			AND = {
+				exists = liege_or_court_owner
+				liege_or_court_owner.capital_province = {
+					geographical_region = world_westeros_seven_kingdoms
+				}
+			}
+		}
+		any_child = {
+			maester_1000_candidate_trigger = yes
+		}
+		any_court_position_holder = {
+			type = maester_court_position
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 0.5
+			any_child = {
+				maester_1000_candidate_trigger = yes
+				OR = {
+					NOT = { is_heir_of = root }
+					root.primary_title = {
+						place_in_line_of_succession = {
+							target = prev
+							value > 3
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			add = -0.5
+			any_child = {
+				count < 3
+			}
+		}
+		modifier = { #Reach has Historic ties with Oldtown
+			add = 0.5
+			exists = liege_or_court_owner
+			liege_or_court_owner.capital_province = { geographical_region = world_westeros_the_reach }
+			any_child = {
+				maester_1000_candidate_trigger = yes
+			}
+		}
+		modifier = { #Northerners DGAF about the Grey Rats
+			add = -0.5
+			exists = liege_or_court_owner
+			liege_or_court_owner.capital_province = { geographical_region = world_westeros_the_north }
+			any_child = {
+				maester_1000_candidate_trigger = yes
+			}
+		}
+		modifier = { #Iron Islanders DGAF about the Grey Rats
+			add = -0.5
+			exists = liege_or_court_owner
+			liege_or_court_owner.capital_province = { geographical_region = world_westeros_the_iron_islands }
+			any_child = {
+				maester_1000_candidate_trigger = yes
+			}
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_maester_1005
+			years = 20
+		}
+
+		random_court_position_holder = {
+			type = maester_court_position
+			save_scope_as = maester
+		}
+
+		random_child = {
+			limit = {
+				maester_1000_candidate_trigger = yes
+			}
+			weight = {
+				base = 1
+				modifier = {
+					add = 1
+					OR = {
+						NOT = { is_heir_of = root }
+						root.primary_title = {
+							place_in_line_of_succession = {
+								target = prev
+								value >= 4
+							}
+						}
+					}
+				}
+				modifier = {
+					add = 0.5
+					OR = {
+						NOT = { is_heir_of = root }
+						root.primary_title = {
+							place_in_line_of_succession = {
+								target = prev
+								value >= 5
+							}
+						}
+					}
+				}
+				modifier = { #Grab Pensive kids
+					add = 1
+					has_trait = pensive
+				}
+				modifier = {
+					add = 1
+					has_trait = education_learning
+				}
+			}
+			save_scope_as = child
+		}
+		scope:child = {
+			assign_quirk_effect = yes
+		}
+	}
+
+	#Yes, go
+	option = {
+		name = agot_maester.1005.a
+		add_prestige = minor_prestige_loss
+		scope:maester = {
+			add_opinion = {
+				target = root
+				modifier = grateful_opinion
+				opinion = 30
+			}
+		}
+		scope:child = {
+			agot_send_to_citadel_effect = { MAESTER_CANDIDATE = scope:child }
+		}
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 0
+				scope:child = {
+					is_primary_heir_of = root
+				}
+			}
+		}
+	}
+
+	#I have other plans for you
+	option = {
+		name = agot_maester.1005.b
+		scope:maester = {
+			add_opinion = {
+				target = root
+				modifier = refusal_opinion
+				opinion = -50
+			}
+		}
+		ai_chance = {
+			base = 30
+			modifier = { #Meanies won't let their kids be happy
+				add = 70
+				ai_compassion <= low_negative_compassion
+			}
+		}
+	}
+}
+
+# Your Maester is expelled - currently not used for grand maesters
+agot_maester.1006 = {
+	title = agot_maester.1006.t
+	desc = agot_maester.1006.desc
+
+	type = character_event
+	theme = secret
+	left_portrait = root
+	right_portrait = scope:disgraced_maester
+
+	immediate = {
+	}
+
+	option = {
+		name = agot_maester.1006.a
+		custom_tooltip = agot_maester.1006.a.tt
+		hidden_effect = {
+			if = {
+				limit = {
+					is_imprisoned = no
+					is_incapable = no
+				}
+				random_county_in_region = {
+					region = world_essos
+					limit = {
+						NOT = {
+							scope:disgraced_maester.liege_or_court_owner.capital_province ?= this.title_province
+						}
+					}
+					title_province = {
+						save_scope_as = exile_title
+					}
+				}
+				scope:disgraced_maester = {
+					add_character_flag = {
+						years = 50
+						flag = exiled_from_iron_throne
+					}
+					move_to_pool_at = scope:exile_title
+				}
+			}
+			trigger_event = agot_maester.9016 # Finds new maester, prevents calling for one for time being
+		}
+
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	option = {
+		name = agot_maester.1006.b
+		custom_tooltip = agot_maester.1006.b.tt
+		hidden_effect = {
+			imprison = {
+				target = scope:disgraced_maester
+				type = dungeon
+			}
+			trigger_event = agot_maester.9016 # Finds new maester, prevents calling for one for time being
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+
+	option = {
+		name = agot_maester.1006.c
+		custom_tooltip = agot_maester.1006.c.tt
+		ai_chance = {
+			base = 0
+		}
+
+		#Add opinion
+		scope:disgraced_maester = {
+			add_opinion = {
+				target = root
+				modifier = grateful_opinion
+				opinion = 20
+			}
+		}
+	}
+}
+
+###acceptance letter
+agot_maester.2000 = {
+	type = letter_event
+	opening = {
+		desc = religious_interaction.1.opening
+	}
+	desc = agot_the_citadel.1000.desc
+	sender = {
+		character = scope:recipient
+		animation = personality_rational
+	}
+
+	immediate = {
+		agot_send_to_citadel_effect = { MAESTER_CANDIDATE = scope:recipient }
+	}
+
+	option = {
+		name = agot_the_citadel.1000.positive
+	}
+}
+
+###rejection letter
+agot_maester.2001 = {
+	type = letter_event
+	opening = {
+		desc = religious_interaction.1.opening
+	}
+	desc = agot_the_citadel.1001.desc
+	sender = {
+		character = scope:recipient
+		animation = dismissal
+	}
+
+	immediate = {
+		show_as_tooltip = {
+			scope:recipient = {
+				add_opinion = {
+					target = scope:actor
+					modifier = tried_to_send_me_to_citadel_opinion
+					years = 10
+				}
+			}
+		}
+	}
+
+	option = {
+		name = agot_the_citadel.1001.negative
+	}
+}
+
+###########################
+# MAINTENANCE EVENTS 99## #
+###########################
+
+#Expel the maester
+agot_maester.9901 = {
+	hidden = yes
+	type = character_event
+
+	immediate = {
+		agot_expel_appropriate_maester_effect = yes
+	}
+}
+
+# Seneschal succession event. Is called on death or at the start of each year.
+agot_maester.9904 = {
+	hidden = yes
+	type = character_event
+
+	trigger = { # This just makes it so that the archmaester gets at least a full term
+		NOT = { has_character_flag = election_death }
+	}
+	immediate = { # The meat of the succession
+		agot_seneschal_election_effect = { CURRENT_SENESCHAL = root }
+	}
+}
+
+#When the iron thrones is disolved, remove grand maester, but save them for later
+agot_maester.9010 = {
+	hidden = yes
+	trigger = {
+		scope:landed_title = {
+			has_variable = grandmaester
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				scope:landed_title = title:h_the_iron_throne
+			}
+
+			random_court_position_holder = {
+				limit = {
+					has_inactive_trait = grandmaester
+				}
+				make_trait_active = grandmaester
+				remove_trait = grandmaester
+				add_character_flag = grandmaester
+
+				random_character_artifact = {
+					limit = {
+						artifact_type = grandmaester_chain
+					}
+					set_owner = {
+						target = global_var:citadel_title.holder
+						generate_history = no
+					}
+				}
+			}
+		}
+	}
+}
+
+#Delete Archmaester artifacts event
+agot_maester.9011 = {
+	hidden = yes
+
+	immediate = {
+		every_character_artifact = {
+			limit = {
+				OR = {
+					artifact_type = archmaester_mask
+					artifact_type = archmaester_ring
+					artifact_type = archmaester_rod
+				}
+			}
+			destroy_artifact = this
+		}
+	}
+}
+
+#Pick a new archmaester
+agot_maester.9012 = {
+	hidden = yes
+
+	immediate = {
+		save_scope_as = old_archmaester
+
+		random_living_maester = {
+			limit = {
+				agot_is_archmaester_candidate = yes
+				OR = {
+					agot_is_field_qualified = yes
+					agot_is_field_qualified_lesser = yes
+				}
+			}
+
+			weight = {
+				base = 10
+
+				modifier = {
+					add = 50
+
+					has_character_flag = maester_researcher
+				}
+
+				modifier = {
+					add = learning
+				}
+
+				modifier = { #Prioritize people with 2 links over 1
+					add = 1000
+					agot_is_field_qualified = yes
+				}
+
+				modifier = {
+					factor = 50
+					exists = dynasty
+					dynasty ?= { any_dynasty_member = { count > 1 } }
+				}
+			}
+			save_scope_as = archmaester_candidate
+		}
+
+		if = { # If somehow there isn't an applicable maester anywhere
+			limit = {
+				NOT = { exists = scope:archmaester_candidate }
+			}
+			create_character = {
+				location = root.capital_province
+				template = archmaester_character
+				save_scope_as = archmaester_candidate
+				age = { 40 75 }
+				dynasty = none
+			}
+		}
+		else = {
+			agot_progress_to_archmaester_effect = { ARCHMAESTER_CANDIDATE = scope:archmaester_candidate }
+		}
+
+		if = {
+			limit = {
+				NOT = { scope:archmaester_candidate.employer ?= global_var:citadel_title.holder }
+			}
+			scope:archmaester_candidate.employer ?= {
+				trigger_event = agot_maester.1001
+			}
+		}
+	}
+}
+
+#Remove hidden archmaester traits
+agot_maester.9013 = {
+	hidden = yes
+
+	trigger = {
+		is_alive = yes
+	}
+	immediate = {
+		switch = {
+			trigger = has_inactive_trait
+			archmaester_black_iron = {
+				make_trait_active = archmaester_black_iron
+				remove_trait = archmaester_black_iron
+			}
+			archmaester_brass = {
+				make_trait_active = archmaester_brass
+				remove_trait = archmaester_brass
+			}
+			archmaester_bronze = {
+				make_trait_active = archmaester_bronze
+				remove_trait = archmaester_bronze
+			}
+			archmaester_copper = {
+				make_trait_active = archmaester_copper
+				remove_trait = archmaester_copper
+			}
+			archmaester_electrum = {
+				make_trait_active = archmaester_electrum
+				remove_trait = archmaester_electrum
+			}
+			archmaester_yellow_gold = {
+				make_trait_active = archmaester_yellow_gold
+				remove_trait = archmaester_yellow_gold
+			}
+			archmaester_red_gold = {
+				make_trait_active = archmaester_red_gold
+				remove_trait = archmaester_red_gold
+			}
+			archmaester_iron = {
+				make_trait_active = archmaester_iron
+				remove_trait = archmaester_iron
+			}
+			archmaester_lead = {
+				make_trait_active = archmaester_lead
+				remove_trait = archmaester_lead
+			}
+			archmaester_pewter = {
+				make_trait_active = archmaester_pewter
+				remove_trait = archmaester_pewter
+			}
+			archmaester_platinum = {
+				make_trait_active = archmaester_platinum
+				remove_trait = archmaester_platinum
+			}
+			archmaester_silver = {
+				make_trait_active = archmaester_silver
+				remove_trait = archmaester_silver
+			}
+			archmaester_steel = {
+				make_trait_active = archmaester_black_iron
+				remove_trait = archmaester_steel
+			}
+			archmaester_tin = {
+				make_trait_active = archmaester_tin
+				remove_trait = archmaester_tin
+			}
+			archmaester_bismuth = {
+				make_trait_active = archmaester_bismuth
+				remove_trait = archmaester_bismuth
+			}
+			archmaester_cast_iron = {
+				make_trait_active = archmaester_cast_iron
+				remove_trait = archmaester_cast_iron
+			}
+			archmaester_antimony = {
+				make_trait_active = archmaester_antimony
+				remove_trait = archmaester_antimony
+			}
+			archmaester_nickel = {
+				make_trait_active = archmaester_nickel
+				remove_trait = archmaester_nickel
+			}
+			archmaester_white_copper = {
+				make_trait_active = archmaester_white_copper
+				remove_trait = archmaester_white_copper
+			}
+			archmaester_aluminum = {
+				make_trait_active = archmaester_aluminum
+				remove_trait = archmaester_aluminum
+			}
+			archmaester_zinc = {
+				make_trait_active = archmaester_zinc
+				remove_trait = archmaester_zinc
+			}
+			archmaester_vs = {
+				make_trait_active = archmaester_vs
+				remove_trait = archmaester_vs
+			}
+		}
+	}
+}
+
+#Debug event for testing citadel explosions
+agot_maester.9100 = {
+	hidden = yes
+	orphan = yes
+
+	immediate = {
+		random_in_global_list = {
+			variable = living_dragons
+			save_scope_as = sieging_dragon
+		}
+		global_var:citadel_title.title_province = {
+			save_scope_as = sieging_location
+		}
+		agot_dragon_siege_fort_damage_massive_effect = yes
+	}
+}
+
+agot_maester.9015 = {
+	#Don't forget, you're here forever
+	hidden = yes
+
+	trigger = {
+		has_inactive_trait = grandmaester
+		scope:old_employer ?= title:h_the_iron_throne.holder
+
+		NOT = { is_ruler = yes }
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_character_flag = blocked_from_leaving
+			}
+			remove_character_flag = blocked_from_leaving
+		}
+		scope:old_employer = {
+			add_courtier ?= root
+		}
+		add_character_flag = blocked_from_leaving
+
+		set_court_physician_effect = {
+			EMPLOYER = scope:old_employer
+			PHYSICIAN = root
+		}
+	}
+}
+
+agot_maester.9016 = {
+	#Don't forget, you're here forever
+	hidden = yes
+	trigger = {
+		can_employ_court_position_type = maester_court_position
+	}
+	immediate = {
+		add_character_flag = {
+			flag = recently_employed_maester
+			days = 60
+		}
+
+		trigger_event = {
+			id = agot_maester.0001
+			days = 7
+		}
+	}
+}
