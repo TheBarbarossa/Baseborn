@@ -1937,6 +1937,107 @@ agot_create_artifact_baseborn_mormont_artifact_effect = {
 	}
 }
 
+### IRON ISLANDS ###
+agot_create_artifact_baseborn_goodbrother_artifact_effect = { # edited 08/02 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+		set_artifact_rarity_famed = yes
+			create_artifact = {
+			name = baseborn_goodbrother_artifact_name
+			creator = character:Goodbrother_37 # Remove this line from the code if the creator is unknown
+			description = baseborn_goodbrother_artifact_description
+			visuals = dragon_horn
+			type = miscellaneous
+			wealth = scope:wealth
+			quality = scope:quality
+			template = baseborn_goodbrother_artifact_template # Remove this line from the code if the artifact has no restrictions
+			
+			history = {
+				type = created
+				date = 6497.1.1 # Date the artifact was created
+				recipient = character:Goodbrother_37 # First character to use the artifact
+				location = province:2756 # Location of the first character to use the artifact
+			}
+		modifier = baseborn_goodbrother_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}	
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Goodbrother.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7841.1.1
+		RECIPIENT = character:Goodbrother_39 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7883.1.1
+		RECIPIENT = character:Goodbrother_43 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7913.1.1
+		RECIPIENT = character:Goodbrother_45 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7962.1.1
+		RECIPIENT = character:Goodbrother_121 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7993.1.1
+		RECIPIENT = character:Goodbrother_93 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7994.1.1
+		RECIPIENT = character:Goodbrother_46 # Torwold Goodbrother
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8000.2.1
+		RECIPIENT = character:Goodbrother_96 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8027.1.1
+		RECIPIENT = character:Goodbrother_108 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8034.1.1
+		RECIPIENT = character:Goodbrother_110 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8103.1.1
+		RECIPIENT = character:Goodbrother_50 # Rodrik Goodbrother
+		}
+	
+	}
+		
+}
+
 ### RIVERLANDS ###
 agot_create_artifact_baseborn_darry_artifact_effect = {
 	$OWNER$ = {
