@@ -1713,7 +1713,27 @@
 				if = {
 					limit = {
 						culture = culture:ironborn
-						primary_title.tier <= tier_duchy
+						primary_title.tier = tier_duchy
+					}
+					set_variable = { name = mw_obl_feudal_taxes value = 1 }
+					set_variable = { name = mw_obl_feudal_levies value = 0 }
+					set_variable = { name = mw_obl_war_declaration_rights value = 1 }
+					set_variable = { name = mw_obl_fortification_rights value = 1 }
+					set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+					add_character_flag = {
+						flag = startup_contracts
+						days = 1
+					}
+					agot_mw_reset_vassal_contract = yes
+				}
+			}
+		}
+		title:e_the_iron_islands = {
+			every_de_jure_county_holder = {
+				if = {
+					limit = {
+						culture = culture:ironborn
+						primary_title.tier = tier_county
 					}
 					set_variable = { name = mw_obl_feudal_taxes value = 1 }
 					set_variable = { name = mw_obl_feudal_levies value = 3 }
@@ -1727,7 +1747,7 @@
 					agot_mw_reset_vassal_contract = yes
 				}
 			}
-		}
+		}		
 		title:d_lonely_light.holder ?= {
 			set_variable = { name = mw_obl_feudal_levies value = 1 }
 			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
