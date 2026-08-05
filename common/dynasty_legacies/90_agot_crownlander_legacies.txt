@@ -6,3 +6,20 @@
 		}
 	}
 }
+
+#Added by Brad & Ultra & Thulius 05/08/2026 Dynastic Legacy for Westrosi Valyrians
+westerosi_valyrian_legacy_track = {
+    is_shown = {
+        OR = {
+            culture = {
+                OR = {
+                    this = culture:westerosi_valyrian
+                    any_parent_culture_or_above = {
+                        this = culture:westerosi_valyrian
+                    }
+                }
+            }
+            dynasty = { has_dynasty_perk = westerosi_valyrian_legacy_1 }
+        }
+    }
+}
