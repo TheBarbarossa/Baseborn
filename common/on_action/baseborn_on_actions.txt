@@ -251,35 +251,238 @@ baseborn_setup = {
 			}
 		}
 
-		# every_county_in_region = {
-		# 	region = world_westeros_the_reach
-		# 	limit = {
-		# 		holder = { is_ai = yes }
-		# 	}
-		# 	holder = {
-		# 		add_trait = bb_inactive
-		# 		house = {
-		# 			every_house_member = { 
-		# 				add_trait = bb_inactive
-		# 				limit = { 
-		# 					NOT = { has_character_flag = bb_active_character } 
-		# 				}
-		# 			}
-		# 		}
-		# 	}
-		# }
-		# every_county_in_region = {
-		# 	region = world_westeros_dorne
-		# 	limit = {
-		# 		holder = { is_ai = yes }
-		# 	}
-		# 	holder = {
-		# 		add_trait = bb_inactive
-		# 		house = {
-		# 			every_house_member = { add_trait = bb_inactive }
-		# 		}
-		# 	}
-		# }
+		# AFTERMATH OF THE DANCE
+
+		every_county_in_region = {
+			region = world_westeros_the_crownlands
+				limit = {
+					OR = {
+						target_is_de_jure_liege_or_above = title:d_rosby
+						target_is_de_jure_liege_or_above = title:d_stokeworth
+						target_is_de_jure_liege_or_above = title:d_hayford
+						target_is_de_jure_liege_or_above = title:d_deerfield
+					}
+				}
+				add_county_modifier = {
+					modifier = baseborn_war_ravaged_1_modifier
+					years = 30
+				}
+		}
+
+		every_county_in_region = {
+			region = world_westeros_the_crownlands
+				limit = {
+					target_is_de_jure_liege_or_above = title:d_duskendale
+				}
+				add_county_modifier = {
+					modifier = baseborn_war_ravaged_2_modifier
+					years = 30
+				}
+		}		
+
+		every_county_in_region = {
+			region = world_westeros_the_crownlands
+				limit = {
+					target_is_de_jure_liege_or_above = title:d_rooks_rest
+				}
+				add_county_modifier = {
+					modifier = baseborn_war_ravaged_3_modifier
+					years = 30
+				}
+		}
+	
+		every_county_in_region = {
+			region = world_westeros_the_crownlands
+				limit = {
+					this = title:c_driftmark
+				}
+				add_county_modifier = {
+					modifier = baseborn_trade_crash
+					years = 15
+				}
+		}
+
+		every_county_in_region = {
+			region = world_westeros_the_crownlands
+				limit = {
+					this = title:c_kings_landing
+				}
+				add_county_modifier = {
+					modifier = baseborn_war_ravaged_1_modifier
+					years = 15
+				}
+				add_county_modifier = {
+					modifier = baseborn_urban_unrest_1_modifier
+					years = 15
+				}
+		}
+
+		every_county_in_region = {
+			region = world_westeros_the_stormlands
+				limit = {
+					OR = {
+						target_is_de_jure_liege_or_above = title:d_nightsong
+						target_is_de_jure_liege_or_above = title:d_marchfields
+						target_is_de_jure_liege_or_above = title:d_blackhaven
+					}
+				}
+				add_county_modifier = {
+					modifier = baseborn_border_skirmishes_modifier
+					years = 15
+				}
+				add_county_modifier = {
+					modifier = baseborn_scorched_earth_1_modifier
+					years = 15
+				}
+		}
+
+		every_county_in_region = {
+			region = world_westeros_the_reach
+				limit = {
+					OR = {
+						target_is_de_jure_liege_or_above = title:d_oldhills
+						target_is_de_jure_liege_or_above = title:d_the_westmarch
+						target_is_de_jure_liege_or_above = title:d_palemarch
+					}
+				}
+				add_county_modifier = {
+					modifier = baseborn_border_skirmishes_modifier
+					years = 15
+				}
+				add_county_modifier = {
+					modifier = baseborn_scorched_earth_1_modifier
+					years = 15
+				}
+		}
+
+		every_county_in_region = {
+			region = world_westeros_the_reach
+			limit = {
+				OR = {
+				target_is_de_jure_liege_or_above = title:k_oldtown
+				target_is_de_jure_liege_or_above = title:d_the_westmarch
+				target_is_de_jure_liege_or_above = title:d_shield_islands
+				target_is_de_jure_liege_or_above = title:d_the_ocean_road
+				target_is_de_jure_liege_or_above = title:d_goldengrove
+				target_is_de_jure_liege_or_above = title:d_the_northmarch
+				target_is_de_jure_liege_or_above = title:d_red_front
+				target_is_de_jure_liege_or_above = title:d_fullharvest
+				}
+			}
+			add_county_modifier = {
+				modifier = baseborn_war_ravaged_1_modifier
+				years = 30
+			}
+		}
+
+		every_county_in_region = {
+			region = world_westeros_the_reach
+			limit = {
+				target_is_de_jure_liege_or_above = title:d_bitterbridge
+			}
+			add_county_modifier = {
+				modifier = baseborn_war_ravaged_2_modifier
+				years = 30
+			}
+		}
+		
+		every_county_in_region = {
+			region = world_westeros_the_reach
+			limit = {
+				target_is_de_jure_liege_or_above = title:d_tumbleton
+			}
+			add_county_modifier = {
+				modifier = baseborn_war_ravaged_3_modifier
+				years = 30
+			}
+		}
+
+		every_county_in_region = {
+			region = world_westeros_the_westerlands
+			limit = {
+				OR = {
+					this = title:c_provence
+					this = title:c_golden_hills
+					this = title:c_darrows
+					this = title:c_wyndemere
+					this = title:c_fearby
+					this = title:c_banefort
+					this = title:c_eldress
+					this = title:c_the_crag
+					this = title:c_castamere
+					this = title:c_lowell
+					this = title:c_seven_points
+					this = title:c_borrenline
+					target_is_de_jure_liege_or_above = title:d_lanns_point
+					this = title:c_trembley
+					this = title:c_lannisport
+					this = title:c_biltmore
+					this = title:c_forthane
+					this = title:c_crakehall
+					target_is_de_jure_liege_or_above = title:d_fair_isle
+				}
+			}
+			add_county_modifier = {
+				modifier = baseborn_ironborn_raids_1_modifier
+				years = 15
+			}
+		}
+		
+		every_county_in_region = {
+			region = world_westeros_the_westerlands
+			limit = {
+				OR = {
+					this = title:c_lannisport
+					this = title:c_faircastle
+					target_is_de_jure_liege_or_above = title:d_the_gold_road
+				}
+			}
+			add_county_modifier = {
+				modifier = baseborn_war_ravaged_1_modifier
+				years = 15
+			}
+		}
+
+		every_county_in_region = {
+			region = world_westeros_the_riverlands
+			limit = {
+				NOR = {
+					target_is_de_jure_liege_or_above = title:d_cape_of_eagles
+					target_is_de_jure_liege_or_above = title:d_the_crossing
+					target_is_de_jure_liege_or_above = title:d_tridents_mouth
+					this = title:c_harroway
+					this = title:c_honeytree
+					this = title:c_rutting
+					this = title:c_mudgrave
+					this = title:c_runnymudd
+					this = title:c_spiderwood
+				}
+			}
+			add_county_modifier = {
+				modifier = baseborn_war_ravaged_1_modifier
+				years = 15
+			}
+		}
+		
+		every_county_in_region = {
+			region = world_westeros_the_riverlands
+			limit = {
+				OR = { 
+					target_is_de_jure_liege_or_above = title:d_tridents_mouth
+					this = title:c_harroway
+					this = title:c_honeytree
+					this = title:c_rutting
+					this = title:c_mudgrave
+					this = title:c_runnymudd
+					this = title:c_spiderwood
+				}
+			}	
+			add_county_modifier = {
+				modifier = baseborn_war_ravaged_3_modifier
+				years = 15
+			}
+		}			
+
 		# Baseborn artifacts
 		baseborn_historical_house_artifacts_setup = yes
 		# Mountain Clans modifier
