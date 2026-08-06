@@ -2491,6 +2491,109 @@ agot_create_artifact_baseborn_lefford_artifact_effect = { # edited 08/06 slambro
 
 	}
 }
+agot_create_artifact_baseborn_marbrand_artifact_effect = { # edited 08/06 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_marbrand_artifact_name
+		description = baseborn_marbrand_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_marbrand_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7834.1.1 # Date the artifact was created
+			recipient = character:Marbrand_10 # First character to use the artifact
+			location = province:3092 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_marbrand_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Marbrand.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7885.1.1
+			RECIPIENT = character:Marbrand_11 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7896.1.1
+			RECIPIENT = character:Marbrand_20 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7943.1.1
+			RECIPIENT = character:Marbrand_72 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7980.1.1
+			RECIPIENT = character:Marbrand_76 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8009.1.1
+			RECIPIENT = character:Marbrand_77 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8017.1.1
+			RECIPIENT = character:Marbrand_85 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8047.1.1
+			RECIPIENT = character:Marbrand_19 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8059.1.1
+			RECIPIENT = character:Marbrand_90 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8107.1.1
+			RECIPIENT = character:Marbrand_21 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8130.2.21
+			RECIPIENT = character:Marbrand_22 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8130.2.24
+			RECIPIENT = character:Marbrand_27 # Next user of the artfact
+		}
+
+	}
+}
 
 ### RIVERLANDS ###
 agot_create_artifact_baseborn_darry_artifact_effect = {
