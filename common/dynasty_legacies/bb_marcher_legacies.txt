@@ -1,0 +1,16 @@
+#Added by Thulius 07/08/2026 Dynastic Legacy for Marcher
+marcher_legacy_track = {
+    is_shown = {
+        OR = {
+            culture = {
+                OR = {
+                    this = culture:marcher
+                    any_parent_culture_or_above = {
+                        this = culture:marcher
+                    }
+                }
+            }
+            dynasty = { has_dynasty_perk = marcher_legacy_1 }
+        }
+    }
+}
