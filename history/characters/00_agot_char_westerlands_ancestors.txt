@@ -23753,7 +23753,7 @@ Broome_69 = { # Edited, Cafe, 24/06
 		death = { death_reason = death_cancer }
 	}
 }
-Broome_70 = {
+Broome_70 = { # edited 08/06 slambroski
 	name = Tyta
 	dynasty = dynn_Broome
 	female = yes
@@ -23765,7 +23765,8 @@ Broome_70 = {
 	mother = Wythers_56
 
 	8097.1.1 = { birth = yes }
-	8127.1.1 = { death = yes }
+	8117.1.1 = { add_matrilineal_spouse = Blackbar_34 } # Steffon Blackbar
+	8127.1.1 = { death = { death_reason = death_childbirth } }
 }
 Broome_71 = {
 	name = Renna # married Edmund Vance of Atranta
@@ -23816,6 +23817,41 @@ Broome_73 = {
 	8186.1.1 = {
 		trait = ill
 		death = { death_reason = death_ill }
+	}
+}
+### Issue of Tyta
+Broome_70_A = { # edited 08/06 slambroski
+	name = Creston
+	dynasty = dynn_Broome
+
+	religion = fots_seven
+	culture = westerman_main
+
+	father = Blackbar_34
+	mother = Broome_70
+
+	trait = sickly
+
+	8120.1.1 = { birth = yes }
+	8120.3.1 = { death = { death_reason = death_sickly } }
+}
+Broome_70_B = { # edited 08/06 slambroski
+	name = Merlon
+	dynasty = dynn_Broome
+
+	religion = fots_seven
+	culture = westerman_main
+
+	father = Blackbar_34
+	mother = Broome_70
+
+	8127.1.1 = { 
+		birth = yes 
+		employer = Broome_69
+	}
+	8133.3.1 = { 
+		trait = ill
+		death = { death_reason = death_ill } 
 	}
 }
 ### Issue of Daric
