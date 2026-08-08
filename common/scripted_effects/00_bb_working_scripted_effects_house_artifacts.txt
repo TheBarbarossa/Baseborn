@@ -2997,6 +2997,99 @@ agot_create_artifact_baseborn_tarbeck_artifact_effect = { # edited 08/08 slambro
 
 	}
 }
+agot_create_artifact_baseborn_plumm_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_plumm_artifact_name
+		creator = character:Plumm_6 # Remove this line from the code if the creator is unknown
+		description = baseborn_plumm_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_plumm_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7854.1.1 # Date the artifact was created
+			recipient = character:Plumm_6 # First character to use the artifact
+			location = province:2941 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_plumm_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Plumm.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7880.1.1
+			RECIPIENT = character:Plumm_7 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7896.1.1
+			RECIPIENT = character:Plumm_10 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7947.1.1
+			RECIPIENT = character:Plumm_11 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7965.1.1
+			RECIPIENT = character:Plumm_14 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8004.1.1
+			RECIPIENT = character:Plumm_35 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8036.1.1
+			RECIPIENT = character:Plumm_37 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8083.1.1
+			RECIPIENT = character:Plumm_15 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8115.1.1
+			RECIPIENT = character:Plumm_16 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8121.1.1
+			RECIPIENT = character:Plumm_17 # Next user of the artfact
+		}
+
+
+	}
+}
 
 ### RIVERLANDS ###
 agot_create_artifact_baseborn_darry_artifact_effect = {
