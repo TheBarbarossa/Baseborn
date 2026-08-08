@@ -690,13 +690,13 @@ bubonic_plague = {
 				# }
 				if = {
 					limit = {
-						current_date >= 8132.1.1
-						current_date <= 8135.1.1
+						current_date >= 8132.3.6
+						current_date <= 8134.3.6
 						has_game_rule = bd_occurrence_historical
 						NOT = {
 							has_global_variable = black_death_happened
 						}
-						geographical_region = world_westeros_the_north_whiteharbor
+						geographical_region = great_spring_sickness_init_region
 					}
 					add = 100
 				}
@@ -740,8 +740,8 @@ bubonic_plague = {
 					limit = {
 						has_game_rule = bd_occurrence_historical
 						OR = {
-							current_date < 8209.1.1
-							current_date > 8220.1.1
+							current_date < 8132.3.1
+							current_date > 8132.5.1
 							NOT = {
 								geographical_region = great_spring_sickness_init_region
 							}
@@ -767,6 +767,8 @@ bubonic_plague = {
 			spread_chance = {
 				value = spread_chance_epidemics_default_value
 				multiply = spread_chance_epidemics_mult_value
+
+				multiply = 1.2
 
 				#Exclusions for historical Milan and Poland, husariaaaa
 				#AGOT Disabled
