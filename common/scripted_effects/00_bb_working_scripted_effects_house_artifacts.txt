@@ -2725,6 +2725,10 @@ agot_create_artifact_baseborn_farman_artifact_effect = { # edited 08/08 slambros
 			name = historical_unique_artifact
 			value = yes
 		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Farman.dynasty_founder.house
+		}
 		agot_add_artifact_history = {
 			ARTIFACT = this
 			TYPE = inherited
@@ -2826,6 +2830,104 @@ agot_create_artifact_baseborn_farman_artifact_effect = { # edited 08/08 slambros
 			TYPE = inherited
 			DATE = 8132.1.1
 			RECIPIENT = character:Farman_28 # Next user of the artfact
+		}
+		
+
+	}
+}
+agot_create_artifact_baseborn_westerling_artifact_effect = { # edited 08/08 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_westerling_artifact_name
+		description = baseborn_westerling_artifact_description
+		visuals = armor
+		type = armor_mail
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_westerling_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7837.1.1 # Date the artifact was created
+			recipient = character:Westerling_6 # First character to use the artifact
+			location = province:3161 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_westerling_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Westerling.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7878.1.1
+			RECIPIENT = character:Westerling_7 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7909.1.1
+			RECIPIENT = character:Westerling_58 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7920.1.1
+			RECIPIENT = character:Westerling_66 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7949.1.1
+			RECIPIENT = character:Westerling_72 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7987.1.1
+			RECIPIENT = character:Westerling_11 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7996.1.1
+			RECIPIENT = character:Westerling_13 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8034.1.1
+			RECIPIENT = character:Westerling_15 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8059.2.1
+			RECIPIENT = character:Westerling_19 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8077.1.1
+			RECIPIENT = character:Westerling_22 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8098.1.1
+			RECIPIENT = character:Westerling_24 # Next user of the artfact
 		}
 		
 
