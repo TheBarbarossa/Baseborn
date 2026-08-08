@@ -2694,6 +2694,143 @@ agot_create_artifact_baseborn_broome_artifact_effect = {
 
 	}
 }
+agot_create_artifact_baseborn_farman_artifact_effect = { # edited 08/08 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_farman_artifact_name
+		creator = character:Farman_8 # Remove this line from the code if the creator is unknown
+		description = baseborn_farman_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_farman_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 6330.1.1 # Date the artifact was created
+			recipient = character:Farman_8 # First character to use the artifact
+			location = province:3223 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_farman_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 6348.1.1
+			RECIPIENT = character:Farman_85 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 6357.1.1
+			RECIPIENT = character:Farman_86 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 6390.1.1
+			RECIPIENT = character:Farman_87 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 6436.1.1
+			RECIPIENT = character:Farman_88 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 6440.1.1
+			RECIPIENT = character:Farman_10 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7809.1.1
+			RECIPIENT = character:Farman_11 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7863.1.1
+			RECIPIENT = character:Farman_13 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7911.1.1
+			RECIPIENT = character:Farman_14 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7930.1.1
+			RECIPIENT = character:Farman_18 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7941.1.1 
+			RECIPIENT = character:Farman_64 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7990.1.1
+			RECIPIENT = character:Farman_65 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7991.1.1
+			RECIPIENT = character:Farman_19 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8043.11.2
+			RECIPIENT = character:Farman_21 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8050.1.15
+			RECIPIENT = character:Farman_22 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8088.1.1
+			RECIPIENT = character:Farman_25 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8104.1.1
+			RECIPIENT = character:Farman_27 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8132.1.1
+			RECIPIENT = character:Farman_28 # Next user of the artfact
+		}
+		
+
+	}
+}
 
 ### RIVERLANDS ###
 agot_create_artifact_baseborn_darry_artifact_effect = {
