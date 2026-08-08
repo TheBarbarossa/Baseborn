@@ -1,0 +1,98 @@
+﻿
+on_game_start = {
+	on_actions = {
+		baseborn_setup
+	}
+}
+
+baseborn_setup = {
+	effect = {
+		every_county_in_region = {
+			region = world_essos
+			limit = {
+				NOR = {
+					target_is_de_jure_liege_or_above = title:k_braavos
+					target_is_de_jure_liege_or_above = title:k_lys
+					target_is_de_jure_liege_or_above = title:k_the_stepstones
+				}
+			}
+			make_settlement_county_wilderness = { COUNTY = this }
+		}
+		# Lobotomise NPRs
+		every_county_in_region = {
+			region = world_westeros_the_north
+			limit = {
+				holder = {
+					is_ai = yes
+					NOR = {
+						primary_title = title:c_far_stone
+					}
+				}
+			}
+			holder = {
+				add_trait = bb_inactive
+				house = {
+					every_house_member = { 
+						add_trait = bb_inactive 
+						limit = { 
+							NOT = { has_character_flag = bb_active_character } 
+						}
+					}
+				}
+			}
+		}
+		every_county_in_region = {
+			region = world_westeros_beyond_the_wall
+			limit = {
+				holder = {
+					is_ai = yes
+				}
+			}
+			holder = {
+				add_trait = bb_inactive
+				house = {
+					every_house_member = { 
+						add_trait = bb_inactive
+						limit = { 
+							NOT = { has_character_flag = bb_active_character } 
+						}
+					}
+				}
+			}
+		}
+		# every_county_in_region = {
+		# 	region = world_westeros_the_reach
+		# 	limit = {
+		# 		holder = { is_ai = yes }
+		# 	}
+		# 	holder = {
+		# 		add_trait = bb_inactive
+		# 		house = {
+		# 			every_house_member = { 
+		# 				add_trait = bb_inactive
+		# 				limit = { 
+		# 					NOT = { has_character_flag = bb_active_character } 
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# }
+		# every_county_in_region = {
+		# 	region = world_westeros_dorne
+		# 	limit = {
+		# 		holder = { is_ai = yes }
+		# 	}
+		# 	holder = {
+		# 		add_trait = bb_inactive
+		# 		house = {
+		# 			every_house_member = { add_trait = bb_inactive }
+		# 		}
+		# 	}
+		# }
+
+		# Mountain Clans modifier
+		title:c_the_bloody_gate = {
+			every_county_province = { add_province_modifier = baseborn_mountain_clans_modifier }
+		}
+	}
+}
