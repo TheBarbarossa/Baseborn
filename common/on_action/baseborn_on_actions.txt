@@ -18,19 +18,6 @@ baseborn_setup = {
 			}
 			make_settlement_county_wilderness = { COUNTY = this }
 		}
-		# No colonisation, county modifier just didn't work
-		every_ruler = {
-			set_variable = {
-				name = colonization_cooldown
-				years = 200
-			}
-			every_courtier_or_guest = {
-				set_variable = {
-					name = colonization_cooldown
-					years = 200
-				}
-			}
-		}
 		# Lobotomise NPRs
 		every_county_in_region = {
 			region = world_westeros_the_north

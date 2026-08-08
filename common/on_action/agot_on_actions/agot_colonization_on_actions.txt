@@ -1,0 +1,351 @@
+﻿yearly_global_pulse = {
+	on_actions = {
+		agot_pirate_colonization
+	}
+}
+
+agot_pirate_colonization = {
+	effect = {
+		every_county_in_region = {
+			region = historical_pirate_region
+			if = {
+				limit = {
+					holder = { government_has_flag = government_is_wilderness }
+				}
+				random = {
+					chance = 10
+
+					save_scope_as = wilderness_county
+					holder = {
+						trigger_event = {
+							id = agot_pirate_events.9100
+							days = { 1 364 }
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					holder = { is_ai = yes }
+				}
+				random = {
+					chance = 10
+
+					holder = {
+						trigger_event = {
+							id = agot_pirate_events.9200
+							days = { 1 364 }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+random_yearly_playable_pulse = {
+	on_actions = {
+		random_yearly_playable_pulse_colonization
+	}
+}
+
+random_yearly_playable_pulse_colonization = {
+	# Only for AI, 50% of chance to considering colonization once a year
+	random_events = {
+		chance_of_no_event = {
+			value = 100
+		}
+	}
+}
+
+yearly_playable_pulse = {
+	on_actions = {
+		agot_filler_colonization_events
+	}
+}
+
+agot_filler_colonization_events = {
+	trigger = {
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+		}
+	}
+
+	random_events = {
+		chance_to_happen = 17
+		## Terrain-Specific Events ##
+		10 = 0 #fallback
+		50 = agot_filler_colonization.0001 # [Forest] The Squirrel
+		50 = agot_filler_colonization.0002 # [Forest] The White Hart
+		200 = agot_filler_colonization.0003 # [Highlands] Hard Scrabble
+		200 = agot_filler_colonization.0100 # [Chroyane] Greyscale Outbreak
+		200 = agot_filler_colonization.0101 # [Rhoyne] Dothraki Host
+		## Generic Events ##
+		100 = agot_filler_colonization.1001 # Recruitment Drive
+		100 = agot_filler_colonization.1002 # A New Life
+		100 = agot_filler_colonization.1003 # The Blaze
+		100 = agot_filler_colonization.1004 # A Den of Sin
+		100 = agot_filler_colonization.1005 # Thick as Thieves
+		100 = agot_filler_colonization.1006 # Colonial Feud
+		100 = agot_filler_colonization.1007 # Boycott
+		10 = agot_filler_colonization.1008 # Plague
+		100 = agot_filler_colonization.1009 # Prospecting
+		100 = agot_filler_colonization.1010 # Lupine Threat
+		100 = agot_filler_colonization.1011 # Bandit Country
+		100 = agot_filler_colonization.1012 # A Plea from the Settlers
+		100 = agot_filler_colonization.1013 # Astonishing Progress
+		100 = agot_filler_colonization.1014 # Heresy Outbreak
+	}
+}
+
+# root = domicile
+# scope:owner = <character> owner of domicile
+on_domicile_building_started = {
+	on_actions = {
+		on_domicile_building_started_colonization
+	}
+}
+
+on_domicile_building_started_colonization = {
+	effect = {
+		if = {
+			limit = { NOT = { has_domicile_building_or_higher = settlement_supplies_01 } }
+			set_variable = {
+				name = settlement_building_flag
+				value = flag:settlement_supplies_01
+			}
+		}
+		else_if = {
+			limit = { has_domicile_building = settlement_supplies_01 }
+			set_variable = {
+				name = settlement_building_flag
+				value = flag:settlement_supplies_02
+			}
+		}
+		else_if = {
+			limit = { has_domicile_building = settlement_supplies_02 }
+			set_variable = {
+				name = settlement_building_flag
+				value = flag:settlement_supplies_03
+			}
+		}
+		else_if = {
+			limit = { has_domicile_building = settlement_supplies_03 }
+			set_variable = {
+				name = settlement_building_flag
+				value = flag:settlement_supplies_04
+			}
+		}
+		else_if = {
+			limit = { has_domicile_building = settlement_supplies_04 }
+			set_variable = {
+				name = settlement_building_flag
+				value = flag:settlement_supplies_05
+			}
+		}
+		else_if = {
+			limit = { has_domicile_building = settlement_supplies_05 }
+			set_variable = {
+				name = settlement_building_flag
+				value = flag:settlement_supplies_06
+			}
+		}
+	}
+}
+
+# root = domicile
+# scope:owner = <character> owner of domicile
+on_domicile_building_cancelled = {
+	on_actions = {
+		on_domicile_building_cancelled_colonization
+	}
+}
+
+on_domicile_building_cancelled_colonization = {
+	effect = {
+		if = {
+			limit = {
+				has_variable = settlement_building_flag
+				NOR = {
+					AND = {
+						var:settlement_building_flag = flag:settlement_supplies_01
+						has_domicile_building = settlement_supplies_01
+					}
+					AND = {
+						var:settlement_building_flag = flag:settlement_supplies_02
+						has_domicile_building = settlement_supplies_02
+					}
+					AND = {
+						var:settlement_building_flag = flag:settlement_supplies_03
+						has_domicile_building = settlement_supplies_03
+					}
+					AND = {
+						var:settlement_building_flag = flag:settlement_supplies_04
+						has_domicile_building = settlement_supplies_04
+					}
+					AND = {
+						var:settlement_building_flag = flag:settlement_supplies_05
+						has_domicile_building = settlement_supplies_05
+					}
+					AND = {
+						var:settlement_building_flag = flag:settlement_supplies_06
+						has_domicile_building = settlement_supplies_06
+					}
+				}
+			}
+			remove_variable = settlement_building_flag
+		}
+	}
+}
+
+
+# root = domicile
+# scope:owner = <character> owner of domicile
+on_domicile_building_completed = {
+	on_actions = {
+		on_domicile_building_completed_colonization
+	}
+}
+
+on_domicile_building_completed_colonization = {
+	effect = {
+		if = {
+			limit = {
+				has_variable = settlement_building_flag
+				has_domicile_building_or_higher = settlement_supplies_01
+			}
+			if = {
+				limit = {
+					var:settlement_building_flag = flag:settlement_supplies_01
+					has_domicile_building = settlement_supplies_01
+				}
+				agot_increase_settler_maa = { CHARACTER = scope:owner SIZE = 2 }
+			}
+			else_if = {
+				limit = {
+					var:settlement_building_flag = flag:settlement_supplies_02
+					has_domicile_building = settlement_supplies_02
+				}
+				agot_increase_settler_maa = { CHARACTER = scope:owner SIZE = 2 }
+			}
+			else_if = {
+				limit = {
+					var:settlement_building_flag = flag:settlement_supplies_03
+					has_domicile_building = settlement_supplies_03
+				}
+				agot_increase_settler_maa = { CHARACTER = scope:owner SIZE = 2 }
+			}
+			else_if = {
+				limit = {
+					var:settlement_building_flag = flag:settlement_supplies_04
+					has_domicile_building = settlement_supplies_04
+				}
+				agot_increase_settler_maa = { CHARACTER = scope:owner SIZE = 2 }
+			}
+			else_if = {
+				limit = {
+					var:settlement_building_flag = flag:settlement_supplies_05
+					has_domicile_building = settlement_supplies_05
+				}
+				agot_increase_settler_maa = { CHARACTER = scope:owner SIZE = 2 }
+			}
+			else_if = {
+				limit = {
+					var:settlement_building_flag = flag:settlement_supplies_06
+					has_domicile_building = settlement_supplies_06
+				}
+				agot_increase_settler_maa = { CHARACTER = scope:owner SIZE = 2 }
+			}
+		}
+		else_if = {
+			limit = {
+				has_variable = settlement_building_flag
+				NOT = { has_domicile_building_or_higher = settlement_supplies_01 }
+			}
+			remove_variable = settlement_building_flag
+			scope:owner = {
+				every_maa_regiment = {
+					limit = { is_maa_type = laamp_settler_maa }
+					destroy_maa_regiment = yes
+				}
+			}
+		}
+		else = { remove_variable = settlement_building_flag }
+	}
+}
+
+# Arrival in a destination province during travel (a travel plan can have multiple sequential destinations)
+on_travel_plan_arrival = {
+	on_actions = {
+		on_travel_plan_arrival_colonization
+	}
+}
+
+on_travel_plan_arrival_colonization = {
+	effect = {
+		if = {
+			limit = {
+				any_maa_regiment = { is_maa_type = laamp_settler_maa }
+				current_travel_plan = { is_travel_with_domicile = yes }
+				current_travel_plan.current_location = { has_holding = yes }
+				NOT = { current_travel_plan.current_location = { has_holding_type = wilderness_holding } }
+				NOT = { current_travel_plan.current_location = { has_variable = no_more_settlers } }
+			}
+			random_maa_regiment = {
+				limit = { is_maa_type = laamp_settler_maa }
+				change_maa_troops_count = 50
+			}
+			current_travel_plan.current_location = { set_variable = { name = no_more_settlers value = yes months = 6 } }
+		}
+	}
+}
+
+# A title is transferred to a new character
+# root = the new holder
+# scope:title = the title that changes hands
+# scope:previous_holder = previous holder. Might be dead
+on_title_gain = {
+	on_actions = {
+		on_title_gain_colonization
+	}
+}
+
+on_title_gain_colonization = {
+	effect = {
+		if = {
+			limit = {
+				any_maa_regiment = { is_maa_type = laamp_settler_maa }
+			}
+			random_maa_regiment = {
+				limit = { is_maa_type = laamp_settler_maa }
+				destroy_maa_regiment = yes
+			}
+		}
+	}
+}
+
+# Arrival in any province during travel
+on_travel_plan_movement = {
+	on_actions = {
+		on_travel_plan_movement_colonization
+	}
+}
+
+on_travel_plan_movement_colonization = {
+	effect = {
+		if = {
+			limit = {
+				any_maa_regiment = { is_maa_type = laamp_settler_maa }
+				current_travel_plan = { is_travel_with_domicile = yes }
+				current_travel_plan.current_location = { has_holding = yes }
+				NOT = { current_travel_plan.current_location = { has_holding_type = wilderness_holding } }
+				NOT = { current_travel_plan.current_location = { has_variable = no_more_settlers } }
+			}
+			random_maa_regiment = {
+				limit = { is_maa_type = laamp_settler_maa }
+				change_maa_troops_count = 50
+			}
+			current_travel_plan.current_location = { set_variable = { name = no_more_settlers value = yes months = 6 } }
+		}
+	}
+}

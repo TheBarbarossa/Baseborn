@@ -1,0 +1,52 @@
+﻿agot_county_holder_is_wilderness = {
+	scope = province
+
+	is_shown = {
+		trigger_if = {
+			limit = {
+				exists = county
+				NOR = {
+					county.tier = tier_duchy
+					county.tier = tier_kingdom
+					county.tier = tier_empire
+				}
+			}
+		}
+		county.holder ?= { has_trait = wilderness }
+	}
+}
+
+agot_can_colonize = {
+	scope = character
+
+	# Triggered at yearly_on_action.txt -> and then agot_colonization_events.0006 at agot_colonization_events.txt
+	ai_is_valid = { always = no }
+
+	is_valid = { always = no }
+}
+
+agot_settlement_count = {
+	scope = character
+
+	is_valid = {
+		trigger_if = {
+			limit = { exists = root }
+			trigger_if = {
+				limit = { is_alive = yes }
+				has_variable = num_settled_wilderness
+				var:num_settled_wilderness > settlement_title_tier_limit
+			}
+		}
+	}
+
+	is_shown = {
+		trigger_if = {
+			limit = { exists = root }
+			trigger_if = {
+				limit = { is_alive = yes }
+				has_variable = num_settled_wilderness
+				var:num_settled_wilderness > 0
+			}
+		}
+	}
+}
