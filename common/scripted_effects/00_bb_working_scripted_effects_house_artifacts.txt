@@ -3090,6 +3090,103 @@ agot_create_artifact_baseborn_plumm_artifact_effect = {
 
 	}
 }
+agot_create_artifact_baseborn_payne_artifact_effect = { # edited 08/08 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_payne_artifact_name
+		description = baseborn_payne_artifact_description
+		visuals = mace
+		type = mace
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_payne_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7868.1.1 # Date the artifact was created
+			recipient = character:Payne_17 # First character to use the artifact
+			location = province:3023 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_payne_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Payne.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7899.1.1
+			RECIPIENT = character:Payne_18 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7909.1.1
+			RECIPIENT = character:Payne_21 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7931.1.1
+			RECIPIENT = character:Payne_25 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7957.1.1
+			RECIPIENT = character:Payne_28 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8002.1.1
+			RECIPIENT = character:Payne_29 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8028.1.1
+			RECIPIENT = character:Payne_31 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8037.1.1
+			RECIPIENT = character:Payne_36 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8076.1.1
+			RECIPIENT = character:Payne_38 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8094.1.1
+			RECIPIENT = character:Payne_40 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8097.1.1
+			RECIPIENT = character:Payne_45 # Next user of the artfact
+		}
+
+	}
+}
 
 ### RIVERLANDS ###
 agot_create_artifact_baseborn_darry_artifact_effect = {
