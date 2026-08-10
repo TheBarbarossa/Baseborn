@@ -1,8 +1,184 @@
 ﻿yearly_global_pulse = {
 	on_actions = {
 		on_dragon_lay_master_on_action
+		# on_dragon_cooldown_pass # Edited, Robin, 10/08/26
 	}
 }
+
+# on_dragon_cooldown_pass = {
+# 	effect = {
+# 		if = {
+# 			limit = {
+# 				agot_dragon_population_alive = yes
+# 			}
+# 			every_artifact = {
+# 				limit = {
+# 					has_variable = dragon_egg
+# 					has_variable = cradled_egg
+# 					NOT = { has_variable = dud_egg }
+
+# 					AND = {
+# 						exists = var:cradled_egg_year
+# 						var:cradled_egg_year < current_year
+# 					}
+# 					artifact_owner = {
+# 						NOT = {
+# 							any_relation = {
+# 								type = agot_dragon
+# 							}
+# 						}
+# 						NOT = { has_trait = dragonwidowed }
+# 						NOT = { has_character_modifier = agot_dragon_disinterest }
+# 					}
+# 				}
+# 				save_scope_as = egg
+# 				random_list = {
+# 					44 = { }
+
+# 					0 = {
+# 						modifier = {
+# 							add = 46
+# 						}
+# 						modifier = {
+# 							add = {
+# 								value = 0
+# 								subtract = dragon_egg_years_hatching
+# 								subtract = dragon_egg_years_hatching
+# 							}
+# 						}
+# 						modifier = {
+# 							factor = artifact_owner.dragon_blood_factor
+# 						}
+# 						modifier = {
+# 							OR = {
+# 								artifact_owner.capital_county.title_province ?= {
+# 									OR = {
+# 										geographical_region = world_westeros_beyond_the_wall
+# 										geographical_region = world_westeros_the_wall
+# 									}
+# 								}
+# 								artifact_owner.liege_or_court_owner.domicile.domicile_location ?= {
+# 									OR = {
+# 										geographical_region = world_westeros_beyond_the_wall
+# 										geographical_region = world_westeros_the_wall
+# 									}
+# 								}
+# 								AND = {
+# 									exists = artifact_owner.liege_or_court_owner
+# 									OR = {
+# 										AND = {
+# 											exists = artifact_owner.liege_or_court_owner.capital_county.title_province
+# 											artifact_owner.liege_or_court_owner.capital_county.title_province ?= {
+# 												OR = {
+# 													geographical_region = world_westeros_beyond_the_wall
+# 													geographical_region = world_westeros_the_wall
+# 												}
+# 											}
+# 										}
+# 										AND = {
+# 											exists = artifact_owner.liege_or_court_owner.domicile
+# 											artifact_owner.liege_or_court_owner.domicile.domicile_location ?= {
+# 												OR = {
+# 													geographical_region = world_westeros_beyond_the_wall
+# 													geographical_region = world_westeros_the_wall
+# 												}
+# 											}
+# 										}
+# 									}
+# 								}
+# 							}
+# 							factor = 0
+# 						}
+
+# 						artifact_owner = {
+# 							save_scope_as = cradlemate
+# 							trigger_event = {
+# 								id = agot_dragon_egg_cradling_birth.0001
+# 								days = { 0 364 }
+# 							}
+# 						}
+# 					}
+
+# 					0 = {
+# 						modifier = {
+# 							add = 10
+# 						}
+# 						modifier = {
+# 							add = dragon_egg_years_hatching
+# 						}
+# 						modifier = {
+# 							add = dragon_egg_years_hatching
+# 						}
+# 						modifier = {
+# 							artifact_owner = { agot_has_canon_cradle_egg = yes }
+# 							factor = 0
+# 						}
+
+# 						save_scope_as = dud_egg
+
+# 						artifact_owner = {
+# 							trigger_event = {
+# 								id = agot_dragon_egg_cradling.1000
+# 								days = { 0 364 }
+# 							}
+# 						}
+# 					}
+# 				}
+# 			}
+# 			every_artifact = {
+# 				limit = {
+# 					has_variable = dragon_egg
+# 					has_variable = pitted_egg
+# 					exists = var:pitted_egg.holder
+# 					NOT = { has_variable = dud_egg }
+# 				}
+# 				save_scope_as = egg
+# 				artifact_owner = { save_scope_as = head_dragonkeeper }
+# 				if = {
+# 					limit = {
+# 						agot_canon_dragons_enabled = yes
+# 						agot_is_valid_unpaired_canon_dragon_birth = { EGG = scope:egg }
+# 					}
+# 					var:pitted_egg.holder = {
+# 						trigger_event = {
+# 							id = agot_dragon_pits.2005
+# 							days = { 0 364 }
+# 						}
+# 					}
+# 					agot_set_reserved_canon_egg_scope = { EGG = scope:egg }
+# 				}
+# 				else = {
+# 					random_list = {
+# 						97 = { }
+
+# 						2 = {
+# 							modifier = {
+# 								add = 1
+# 								var:pitted_egg = title:c_dragonstone
+# 							}
+
+# 							var:pitted_egg.holder = {
+# 								trigger_event = {
+# 									id = agot_dragon_pits.2005
+# 									days = { 0 364 }
+# 								}
+# 							}
+# 						}
+
+# 						1 = {
+# 							var:pitted_egg.holder = {
+# 								trigger_event = {
+# 									id = agot_dragon_pits.2004
+# 									days = { 0 364 }
+# 								}
+# 							}
+# 						}
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
+# }
 
 on_dragon_lay_master_on_action = {
 	effect = {
