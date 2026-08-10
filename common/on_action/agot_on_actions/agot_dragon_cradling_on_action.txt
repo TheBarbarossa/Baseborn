@@ -1,0 +1,357 @@
+﻿yearly_global_pulse = {
+	on_actions = {
+		on_dragon_lay_master_on_action
+		on_dragon_cooldown_pass
+	}
+}
+
+on_dragon_cooldown_pass = {
+	effect = {
+		if = {
+			limit = {
+				agot_dragon_population_alive = yes
+			}
+			every_artifact = {
+				limit = {
+					has_variable = dragon_egg
+					has_variable = cradled_egg
+					NOT = { has_variable = dud_egg }
+
+					AND = {
+						exists = var:cradled_egg_year
+						var:cradled_egg_year < current_year
+					}
+					artifact_owner = {
+						NOT = {
+							any_relation = {
+								type = agot_dragon
+							}
+						}
+						NOT = { has_trait = dragonwidowed }
+						NOT = { has_character_modifier = agot_dragon_disinterest }
+					}
+				}
+				save_scope_as = egg
+				random_list = {
+					44 = { }
+
+					0 = {
+						modifier = {
+							add = 46
+						}
+						modifier = {
+							add = {
+								value = 0
+								subtract = dragon_egg_years_hatching
+								subtract = dragon_egg_years_hatching
+							}
+						}
+						modifier = {
+							factor = artifact_owner.dragon_blood_factor
+						}
+						modifier = {
+							OR = {
+								artifact_owner.capital_county.title_province ?= {
+									OR = {
+										geographical_region = world_westeros_beyond_the_wall
+										geographical_region = world_westeros_the_wall
+									}
+								}
+								artifact_owner.liege_or_court_owner.domicile.domicile_location ?= {
+									OR = {
+										geographical_region = world_westeros_beyond_the_wall
+										geographical_region = world_westeros_the_wall
+									}
+								}
+								AND = {
+									exists = artifact_owner.liege_or_court_owner
+									OR = {
+										AND = {
+											exists = artifact_owner.liege_or_court_owner.capital_county.title_province
+											artifact_owner.liege_or_court_owner.capital_county.title_province ?= {
+												OR = {
+													geographical_region = world_westeros_beyond_the_wall
+													geographical_region = world_westeros_the_wall
+												}
+											}
+										}
+										AND = {
+											exists = artifact_owner.liege_or_court_owner.domicile
+											artifact_owner.liege_or_court_owner.domicile.domicile_location ?= {
+												OR = {
+													geographical_region = world_westeros_beyond_the_wall
+													geographical_region = world_westeros_the_wall
+												}
+											}
+										}
+									}
+								}
+							}
+							factor = 0
+						}
+
+						artifact_owner = {
+							save_scope_as = cradlemate
+							trigger_event = {
+								id = agot_dragon_egg_cradling_birth.0001
+								days = { 0 364 }
+							}
+						}
+					}
+
+					0 = {
+						modifier = {
+							add = 10
+						}
+						modifier = {
+							add = dragon_egg_years_hatching
+						}
+						modifier = {
+							add = dragon_egg_years_hatching
+						}
+						modifier = {
+							artifact_owner = { agot_has_canon_cradle_egg = yes }
+							factor = 0
+						}
+
+						save_scope_as = dud_egg
+
+						artifact_owner = {
+							trigger_event = {
+								id = agot_dragon_egg_cradling.1000
+								days = { 0 364 }
+							}
+						}
+					}
+				}
+			}
+			every_artifact = {
+				limit = {
+					has_variable = dragon_egg
+					has_variable = pitted_egg
+					exists = var:pitted_egg.holder
+					NOT = { has_variable = dud_egg }
+				}
+				save_scope_as = egg
+				artifact_owner = { save_scope_as = head_dragonkeeper }
+				if = {
+					limit = {
+						agot_canon_dragons_enabled = yes
+						agot_is_valid_unpaired_canon_dragon_birth = { EGG = scope:egg }
+					}
+					var:pitted_egg.holder = {
+						trigger_event = {
+							id = agot_dragon_pits.2005
+							days = { 0 364 }
+						}
+					}
+					agot_set_reserved_canon_egg_scope = { EGG = scope:egg }
+				}
+				else = {
+					random_list = {
+						97 = { }
+
+						2 = {
+							modifier = {
+								add = 1
+								var:pitted_egg = title:c_dragonstone
+							}
+
+							var:pitted_egg.holder = {
+								trigger_event = {
+									id = agot_dragon_pits.2005
+									days = { 0 364 }
+								}
+							}
+						}
+
+						1 = {
+							var:pitted_egg.holder = {
+								trigger_event = {
+									id = agot_dragon_pits.2004
+									days = { 0 364 }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+on_dragon_lay_master_on_action = {
+	effect = {
+		every_in_global_list = {
+			variable = living_dragons
+			limit = { # Only owned/tamed dragons, wild dragons are handled by event or assumed to be not found
+				has_character_flag = owned_dragon
+				is_female = yes
+				age >= 10
+			}
+			random = {
+				chance = 2
+				# humming one is the loneliest number
+				modifier = {
+					agot_dragon_population_low = yes
+					add = 12
+				}
+				# Dragon bond increases chance of laying egg
+				modifier = {
+					var:current_rider ?= {
+						has_trait_xp = {
+							trait = dragonrider
+							track = dragon_bond
+							value >= 65
+						}
+					}
+					add = 1
+				}
+				modifier = {
+					var:current_rider ?= {
+						has_trait_xp = {
+							trait = dragonrider
+							track = dragon_bond
+							value >= 100
+						}
+					}
+					add = 1
+				}
+				modifier = {
+					OR = {
+						has_trait = dragon_fertile
+						AND = {
+							has_inactive_trait = dragon_fertile
+							has_variable = dragon_is_fertile
+						}
+					}
+					add = 4
+				}
+				modifier = {
+					any_relation = {
+						type = soulmate
+						OR = {
+							has_trait = dragon_fertile
+							has_inactive_trait = dragon_fertile # Males won't be visibly fertile necessarily
+						}
+					}
+					add = 2
+				}
+				modifier = {
+					any_relation = {
+						type = soulmate
+						count > 0
+					}
+					add = 2
+				}
+				modifier = {
+					exists = var:clutches
+					var:clutches > 1
+					NOR = {
+						has_trait = dragon_fertile
+						AND = {
+							has_inactive_trait = dragon_fertile
+							has_variable = dragon_is_fertile
+						}
+					}
+					add = clutches_subtract_script_val
+				}
+				modifier = {
+					exists = var:clutches
+					var:clutches > 2
+					OR = {
+						has_trait = dragon_fertile
+						AND = {
+							has_inactive_trait = dragon_fertile
+							has_variable = dragon_is_fertile
+						}
+					}
+					add = clutches_subtract_script_val
+				}
+				modifier = {
+					has_character_flag = recently_laid_eggs
+					factor = 0
+				}
+
+				save_scope_as = dragon_parent
+				add_character_flag = {
+					flag = recently_laid_eggs
+					years = { 4 20 }
+				}
+				if = {
+					limit = {
+						NOT = { exists = var:clutches }
+					}
+					set_variable = { name = clutches value = 1 }
+				}
+				else = {
+					change_variable = { name = clutches add = 1 }
+				}
+
+				#Tamed Dragon, rider family to employer
+				if = {
+					limit = {
+						exists = var:current_rider
+						exists = employer
+						employer = {
+							OR = {
+								is_spouse_of = prev.var:current_rider
+								is_close_family_of = prev.var:current_rider
+								house ?= prev.var:current_rider.house
+							}
+						}
+					}
+					employer = { save_scope_as = egg_receiver }
+				}
+				#Tamed Dragon, rider not family to employer
+				else_if = {
+					limit = {
+						exists = var:current_rider
+					}
+					var:current_rider = { save_scope_as = egg_receiver }
+				}
+				#Owned Dragon
+				else_if = {
+					limit = {
+						exists = employer
+					}
+					employer = { save_scope_as = egg_receiver }
+				}
+				#Fallback, something went wrong
+				else = {
+					change_variable = { name = clutches add = -1 }
+					remove_character_flag = recently_laid_eggs
+				}
+
+				scope:egg_receiver ?= {
+					random_list = {
+						1 = {
+							trigger = {
+								scope:dragon_parent = {
+									NOR = {
+										has_trait = dragon_fertile
+										AND = {
+											has_inactive_trait = dragon_fertile
+											has_variable = dragon_is_fertile
+										}
+									}
+								}
+								agot_dragon_population_low = no
+							}
+							trigger_event = {
+								id = agot_dragon_egg_lay.0001
+								days = { 1 364 }
+							}
+						}
+						9 = {
+							trigger_event = {
+								id = agot_dragon_egg_lay.0002
+								days = { 1 364 }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
