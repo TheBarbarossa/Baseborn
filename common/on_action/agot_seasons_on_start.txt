@@ -5,14 +5,14 @@
 }
 
 agot_seasons_start = {
-	events = { season_events.009 }
+	events = { season_events.001 }
 	effect = {
 		set_global_variable = {
 			name = AGOT_seasons_is_loaded
 			value = yes
 		}
 		seasons_map_startup = yes
-		#set_AGOT_Season_Winter_Startup = yes
+		#set_AGOT_Season_spring_Startup = yes
 	#	if = {
 		#	limit = {
 		#		has_game_rule = seasons_storm_enabled
@@ -30,10 +30,10 @@ agot_seasons_start = {
 	#	}
 		if = {
 			limit = { has_game_rule = agot_sandbox_seasons }
-			set_AGOT_season_winter_start = yes
+			set_AGOT_season_spring_start = yes
 			start_situation = {
 				type = agot_seasons
-				start_phase = seasons_winter_phase
+				start_phase = seasons_spring_phase
 				save_scope_as = seasons_situation_yay
 			}
 			set_global_variable = {
@@ -43,10 +43,10 @@ agot_seasons_start = {
 		}
 		if = {
 			limit = { has_game_rule = agot_historical_seasons }
-			#set_AGOT_season_winter_start = yes
+			#set_AGOT_season_spring_start = yes
 			start_situation = {
 				type = agot_seasons
-				start_phase = seasons_winter_phase
+				start_phase = seasons_spring_phase
 				save_scope_as = seasons_situation_yay
 			}
 			set_global_variable = {
