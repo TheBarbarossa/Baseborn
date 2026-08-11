@@ -1,0 +1,135 @@
+﻿seasons_map_startup = {
+		if = {
+		#	limit = { NOT = { global_var:seasons_map_mode = flag:seasons_map_flag } }
+			set_global_variable = {
+				name = seasons_map_mode_changing
+				value = 1
+			}
+			set_global_variable = {
+				name = seasons_map_mode
+				value = flag:seasons_map_flag
+			}
+			every_barony = {
+				if = { #Normal Season
+					limit = { 
+						OR = {
+							title_province = { has_province_modifier = winter_southern_modifier }
+							title_province = { has_province_modifier = spring_modifier }
+							title_province = { has_province_modifier = summer_modifier }
+							title_province = { has_province_modifier = autumn_modifier }
+						}
+					}
+					set_color_from_title = title:d_bitterbridge # Green When Normal Season
+				}
+				else_if = {
+					limit = {
+						title_province = { has_province_modifier = winter_normal_modifier_1 }
+					}
+					set_color_from_title = title:d_atranta
+				}
+				else_if = { #Light Winter
+					limit = { 
+						OR = {
+							title_province = { has_province_modifier = winter_light_modifier }
+							title_province = { has_province_modifier = cool_spring_modifier }
+						}
+					}
+					set_color_from_title = title:d_eastweald #Light blue light/cool season
+				}							
+				else_if = { #Cold Season
+					limit = { 
+						OR = {
+							title_province = { has_province_modifier = winter_cold_modifier }
+							title_province = { has_province_modifier = winter_north_modifier }
+							title_province = { has_province_modifier = cold_spring_modifier }
+							title_province = { has_province_modifier = northern_summer_modifier }
+							title_province = { has_province_modifier = cold_autumn_modifier }
+						}
+					}
+					set_color_from_title = title:d_pinkmaiden #Dark blue cold
+				}
+				
+				else_if = { #Hot Season
+					limit = {
+						OR = {
+
+							title_province = { has_province_modifier = hot_spring_modifier }
+							title_province = { has_province_modifier = hot_summer_modifier }
+						
+						
+						}
+					}
+					set_color_from_title = title:e_the_westerlands #Hot Red
+				}				
+				else_if = { #Wet Season
+					limit = {
+						OR = {
+							title_province = { has_province_modifier = wet_spring_modifier }
+							title_province = { has_province_modifier = wet_summer_modifier }
+							title_province = { has_province_modifier = wet_autumn_modifier }
+						}
+					}
+					set_color_from_title = title:d_ridgeview #Dark Green Wet
+				}				
+				else_if = { #Dry Season
+					limit = {
+						OR = {
+							title_province = { has_province_modifier = dry_autumn_modifier }
+							title_province = { has_province_modifier = dry_summer_modifier }
+							title_province = { has_province_modifier = dry_spring_modifier }
+						}
+					}
+					set_color_from_title = title:d_sunspear #Orange Dry
+				}
+				else = {
+					set_color_from_title = title:h_the_iron_throne # Red where it does not
+				}
+			}
+			remove_global_variable = seasons_map_mode_changing
+		}
+}
+
+#riverlands_are_normal_flooded = {
+#	every_province = {
+#		limit = {
+#			OR = {
+#				geographical_region = trident
+##				geographical_region = gods_eye_rivers
+	#			geographical_region = crossing_flood
+	#			geographical_region = riverrun_flood
+	#			geographical_region = the_neck_flood
+	#		}
+	#	}	
+	#	#add_province_modifier = river_flood_mody
+	#}
+#}
+#riverlands_are_no_longer_flooded = {
+#	every_province = {
+#		limit = {
+#			OR = {
+#				geographical_region = trident
+#				geographical_region = gods_eye_rivers
+#				geographical_region = crossing_flood
+#				geographical_region = riverrun_flood
+#				geographical_region = the_neck_flood
+#			}
+#		}	
+#		#remove_province_modifier = river_flood_mody
+#		#remove_province_modifier = river_very_flood
+#	}
+#}
+#riverlands_are_very_flooded = {
+#	every_province = {
+#		limit = {
+#			OR = {
+#				geographical_region = trident
+#				geographical_region = gods_eye_rivers
+#				geographical_region = crossing_flood
+#				geographical_region = riverrun_flood
+#				geographical_region = the_neck_flood
+#			}
+#		}	
+#		#remove_province_modifier = river_flood
+#		#add_province_modifier = river_very_flood
+#	}
+#}

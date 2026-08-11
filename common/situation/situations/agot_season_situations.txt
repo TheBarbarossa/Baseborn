@@ -1,0 +1,2559 @@
+﻿agot_seasons = {
+	window = the_great_steppe
+	gui_window_name = "window_the_great_steppe"
+	map_mode = sub_regions
+	situation_group_type = major
+	#keep_full_history = yes
+	#gui_participation_window_name = window_situation_participation
+	
+	is_unique = yes
+	sub_regions = {
+		#If you want to add your own region, add it below!
+		
+		##EXAMPLE : 
+		##I use the format of "CONTINENT_GEOGRAPHICregionKEY" for the 
+		## id for the subregion, such as "westeros_barrowlands" for "world_barrowlands_seasons"
+		## but you can name yours whatever you want.  
+		## You can make your own region, which is really tedious, or you can just add an existing geographical_regions 
+		## to an existing subregion, which is really easy
+		# essos_exampleland = {
+		#   #you want to make sure you give it a map color, in rgb : 
+		#	map_color = { R G B }
+		#	#then add the geographic regions you want in, you can find a list of them in
+		# 	#map_data in the main mod file. 
+		#	geographical_regions = { world_exampleland } #Replace exampleland with your desired region(s)
+		# }
+		#	#If you chose to make your own subregion, you'll need to go to 
+		#	#08_seasons_scripted_effects.txt and then either follow the guide in there once I make it
+		#	#or just copy paste the effects for an existing subregion and then geographic region
+		#	#and then swap out the keys.
+		#	#For adding in, just scroll down to whichever region is closest
+		# 	#So it would read something like : 
+		#	#geographical_regions = { world_western_exampleland world_eastern_exampleland }
+		#
+		##END EXAMPLE
+		westeros_tarth_and_estermont = {
+			map_color = { 19 168 13 }
+			geographical_regions = { world_tarth_and_estermont }
+		}
+		westeros_rainwood = {
+			map_color = { 19 78 33 }
+			geographical_regions = { world_rainwood }
+			
+		}
+		westeros_stormlands = {
+			map_color = { 89 218 33 }
+			geographical_regions = { world_central_stormlands }		
+		}
+		westeros_dragonstone_and_claw = {
+			map_color = { 4 186 25 }
+			geographical_regions = { world_the_gullet }
+		}
+		####END STORMLANDS
+
+		####THE NORTH oh boy this isnt fun :((
+		westeros_the_neck = {
+			map_color = { 90 200 260 }
+			geographical_regions = { world_the_neck_seasons }
+		
+		}
+		westeros_barrowlands = {
+			map_color = { 122 206 245 }	
+			geographical_regions = {world_barrowlands_seasons }	
+		}
+		westeros_stoney_shore = {
+			map_color = { 122 206 245 }	
+			geographical_regions = { world_stoney_shore_seasons }	
+		}
+		westeros_wolfswood = {
+			map_color = { 122 256 225 }	
+			geographical_regions = { world_wolfswood_seasons }	
+		}
+		westeros_whiteknife = {
+			map_color = { 102 196 215  }	
+			geographical_regions = { world_whiteknife_seasons }			
+		}
+		westeros_winterfell = {
+			map_color = {  122 206 245 }	
+			geographical_regions = { world_winterfell_seasons }			
+		}
+		westeros_northern_mountains = {
+			map_color = { 102 226 215 }	
+			geographical_regions = { world_northern_mountains_seasons }			
+		}
+		westeros_lonely_hills = {
+			map_color = {152 216 225  }	
+			geographical_regions = { world_lonely_hills }			
+		}
+		westeros_sheepshead_hills = {
+			map_color = { 122 206 245 }	
+			geographical_regions = { world_sheepshead_hills }			
+		}
+		westeros_skagos = {
+			map_color = {122 206 245  }	
+			geographical_regions = { world_skagos_seasons }			
+		}
+		westeros_the_wall = {
+			map_color = {  102 130 235 }	
+			geographical_regions = { world_wall_seasons }			
+		}
+		westeros_beyond_the_wall_region = {
+			map_color = {  112 100 135 }		
+			geographical_regions = { world_westeros_beyond_the_wall }
+		}
+	#Removed until integration with long night and better winter system	
+	#	####END THE NORTH
+	#	####BEYOND THE WALL
+	#	westeros_haunted_forest = {
+	#		map_color = {90 200 250}	
+	#		geographical_regions = { world_haunted_forest }			
+	#	}
+	#	westeros_thenn_valley = {
+	#		map_color = { 20 200 250 }	
+	#		geographical_regions = {  world_thenn_valley_seasons }			
+	#	
+	#	}
+	#	westeros_frost_frangs = {
+	#		map_color = { 90 100 250 }	
+	#		geographical_regions = {  world_frost_fangs_seasons }			
+	#	}
+	#	westeros_frozen_shore = {
+	#		map_color = { 190 200 250 }	
+	#		geographical_regions = {  world_frozen_shore_seasons }			
+	#	}
+	#	#### END BEYOND WALL
+		####THE VALE
+		westeros_the_fingers = {
+			map_color = { 54 200 250 }	
+			geographical_regions = { world_the_fingers_seasons }				
+		}
+		westeros_upper_vale = {
+			map_color = { 11 210 200 }	
+			geographical_regions = {  world_upper_vale_seasons }				
+			
+		}
+		westeros_lower_vale = {
+			map_color = { 10 230 180 }	
+			geographical_regions = {  world_lower_vale_seasons }			
+		
+		}
+		####
+		####THE ISLES
+		westeros_iron_islands = {
+			map_color = { 102 175 222 } #MARIO KART FOR WII
+			geographical_regions = { world_iron_isles }
+		}
+		westeros_kraken_bay = {
+			map_color = { 73 175 182 }
+			geographical_regions = { world_kraken_bay }
+			
+		}
+		
+		
+		####END THE ISLES
+		####THE WEST
+		
+		westeros_westerlands_low = {
+			map_color = { 70 245 12 }
+			geographical_regions = { world_westerlands_low }
+		
+		}
+		westeros_westerlands_high = { #$ West Highlands
+			map_color = { 0 145 12 } 
+			geographical_regions = { world_westerlands_high }
+		}
+		#### END THE WEST
+		
+		#### THE RIVERLANDS
+		westeros_gods_eye = {
+			map_color =  { 42 189 122 }
+			geographical_regions = { world_gods_eye_region }
+		}
+		westeros_upper_crownlands = {
+			map_color = { 32 129 122 }
+			geographical_regions = { world_upper_crown	}
+		}		
+		westeros_riverlands = {
+			map_color = { 12 89 92 }
+			geographical_regions = { world_riverlands_central }
+		}
+	####END THE RIVERLANDS
+		####THE REACH :
+		westeros_upper_reach = {
+			map_color = { 0 175 16 }
+			geographical_regions = { world_upper_reach }
+		}
+		westeros_honey_lands = {
+			map_color = { 70 255 16  }
+			geographical_regions = { world_honey_lands }
+		}
+		westeros_the_shield_islands = {
+			map_color = { 150 100 56 }
+			geographical_regions = { world_the_shield_islands }
+		}
+		westeros_the_arbor = {
+			map_color = { 120 225 16 }
+			geographical_regions = { world_the_arbor }
+		}
+		westeros_dornish_marches = {
+			map_color = { 120 175 16 }
+			geographical_regions = { world_dornish_marches_seasons }
+		}
+		####END THE REACH
+		
+		####DORNE : 
+		westeros_broken_arm_woods = {
+			map_color = { 135 206 50 } 
+			geographical_regions = { world_broken_arm_woods }
+		}
+		westeros_dorne_north_coast = {
+			map_color = { 135 126 0 }
+			geographical_regions = { world_dorne_north_coast }
+		}
+		westeros_green_blood_river = {
+			map_color = { 200 106 10 } #$Not quite RGB or RBG
+			geographical_regions = { world_green_blood_river }
+		}
+		westeros_dorne_south_coast = {
+			map_color = { 205 106 40 }
+			geographical_regions = { world_dorne_south_coast }
+		}	
+		westeros_dorne_desert = {
+			map_color = { 235 126 0 } #what designated driver? Dragon Driver??? Designated Dragon Driver?? WHAAATTTT?? I am so fucking bored i don't want to do my actual work and this is my busy work to escape writing a fucking paper on the ROV submarine I'm building
+			 geographical_regions = { world_dorne_desert }
+		}
+		westeros_starfall = {
+			map_color = { 135 106 10 }
+			geographical_regions = { world_star_fall }
+		}
+		step_stones = {
+			map_color = { 245 216 66 } 
+			geographical_regions = { world_stepstones }
+		}
+		essos_dothraki = { #placeholder ;)
+			map_color = { 255 30 18 } 
+			geographical_regions = { world_essos_valyria world_essos_rhoyne world_essos_yi_ti world_essos_painted_mountains world_essos_moraq world_essos_great_grass_sea world_essos_qarth world_essos_qohor world_essos_hyrkoon }
+		}		
+		####ESSOS REGIONS : 
+		essos_andalosi_coast = {
+			map_color = { 201 247 218 }
+			geographical_regions = { world_andalosi_coast }
+		}
+		essos_andal_hills = {
+			map_color = { 87 247 228 }
+			geographical_regions = { world_andal_hills }
+		}
+		essos_braavosi_mountains = {
+			map_color = { 87 247 248 }
+			geographical_regions = { world_braavosi_mountains }	
+		}
+		essos_pentoshi_coast_lowlands = {
+			map_color = { 87 247 178 }
+			geographical_regions = { world_pentoshi_coast_lowlands }
+		}
+		essos_pentoshi_inland_lowlands = {
+			map_color = { 53 197 198 }
+			geographical_regions = { world_pentoshi_inland_lowlands }
+		}
+		essos_pentoshi_highlands = {
+			map_color = { 17 227 198 }
+			geographical_regions = { world_pentoshi_highlands }
+		}
+		essos_north_myr = {
+			map_color = { 41 247 114 }
+			geographical_regions = { world_myr_north_lands } 
+		}
+		##SOUTH ESSOS
+		essos_south_myr = {
+			map_color = {  111 255 114  }
+			geographical_regions = { world_myr_south_lands }
+		}
+		essos_disputed_lands = {
+			map_color = {  141 187 54  }
+			geographical_regions = { world_disputed_lands_hills }
+		}
+		essos_lys_mangroves = {
+			map_color = {  241 247 214  } #No electric light orchestra? ELO???
+			geographical_regions = { world_lys_and_mangroves }
+		}		
+		
+	}
+	
+	#Groups
+	
+	participant_groups = {
+		ruler_in_region = { #Everyone. For now...
+			icon = "gfx/interface/icons/situations/situation_modifier_military.dds"
+			require_capital_in_sub_region = yes
+			auto_add_rulers = yes
+			auto_add_landless_rulers = yes
+			require_domain_in_sub_region = yes
+			require_realm_in_sub_region = yes
+			is_character_valid = {
+				always = yes
+				#is_ruler = yes
+				#is_playable_character = yes
+			}
+			map_color = { 255 127 80 }
+		}
+		character_in_region = { #Landless and Others
+			#require_capital_in_sub_region = yes
+			auto_add_rulers = yes
+			auto_add_landless_rulers = yes
+			is_character_valid = {
+				is_landed = no
+				is_ruler = no
+				#highest_held_title_tier >= tier_county
+				#NOT = { has_government = nomad_government }
+			}
+			map_color = { 100 20 120 }
+		}
+		#has_territory_in_region = {
+		#	require_capital_in_sub_region = no
+		#	auto_add_rulers = yes
+		##	require_domain_in_sub_region = yes
+		#	require_realm_in_sub_region = yes
+		#	is_character_valid = {
+		#		always = no
+		#	}
+		#	map_color = { 100 20 120 }
+		#}
+	}
+	
+	#phases
+	start_phase = seasons_spring_phase
+	
+	phases = {
+		seasons_spring_phase = {
+			icon = "gfx/interface/icons/modifiers/spring_modifier.dds"
+			illustration = "gfx/interface/illustrations/terrain_types/mpo_season_abudant_grazing.dds"
+			on_start = {
+				set_global_variable = {
+					name = what_season_is_it
+					value = 0
+				}
+			}
+			future_phases = {
+				seasons_dry_summer_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_dry_summer = 1000
+					}
+				}
+				seasons_hot_summer_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_hot_summer = 1000
+					}
+				}
+				seasons_wet_summer_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_wet_summer = 1000
+					}
+				}
+				seasons_summer_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_summer = 1000
+					}
+				}
+				seasons_dornish_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					#catalysts = {
+					#	catalyst_winter = 1000
+					#}
+				}
+				seasons_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_winter = 1000
+					}
+				}
+				seasons_light_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_light_winter = 1000
+					}
+				}
+				seasons_cold_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_cold_winter = 1000
+					}
+				}
+			}	
+		modifier_sets = {
+			situation_season_war_effects = {
+			icon = "gfx/interface/icons/struggle_effects/war.dds"
+				ruler_in_region = {
+					character_modifier = {
+						#movement_speed = -0.10 #Wet Wet Wet				
+						#desert_attrition_mult = -0.25
+						#wetlands_attrition_mult = 0.25		
+						men_at_arms_recruitment_cost = -0.33 #Counteract Winter Loss
+					}
+				}		
+			
+			
+			}
+			situation_season_land_effects = {
+			icon = "gfx/interface/icons/situations/situation_modifier_fertility.dds"
+				ruler_in_region = {
+					character_modifier = {
+						#development_growth_factor = 0.05
+						#domain_tax_mult = 0.20 #Balance winter
+					}		
+				}
+						
+			}
+			situation_season_people_effects = {
+			icon = "gfx/interface/icons/situations/situation_modifier_character.dds"
+					ruler_in_region = {
+						character_modifier = {
+							life_expectancy = 5 #balance the winter
+							fertility = 0.10 #more babie in spring.
+							health = 0.15 #much of this is to counter balance the other stuff. 						
+						}					
+					}					
+				}
+			}
+		}
+		seasons_wet_spring_phase = {
+			icon = "gfx/interface/icons/modifiers/wet_spring.dds"
+			illustration = "gfx/interface/illustrations/terrain_types/mpo_season_abudant_grazing.dds"
+			on_start = {
+				set_global_variable = {
+					name = what_season_is_it
+					value = 0
+				}
+			}
+			map_province_effect = flood
+			map_province_effect_intensity = 0.25
+			future_phases = {
+				#seasons_dry_summer_phase = {
+				#	takeover_type = points
+				#	takeover_points = 1000
+				#	catalysts = {
+				#		catalyst_dry_summer = 1000
+				#	}
+				#}
+				seasons_hot_summer_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_hot_summer = 1000
+					}
+				}
+				seasons_wet_summer_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_wet_summer = 1000
+					}
+				}
+				seasons_summer_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_summer = 1000
+					}
+				}
+				seasons_dornish_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					#catalysts = {
+					#	catalyst_winter = 1000
+					#}
+				}
+				seasons_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_winter = 1000
+					}
+				}
+				seasons_light_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_light_winter = 1000
+					}
+				}
+				seasons_cold_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_cold_winter = 1000
+					}
+				}
+			}	
+			modifier_sets = {
+				situation_season_war_effects = {
+				icon = "gfx/interface/icons/struggle_effects/war.dds"
+					ruler_in_region = {
+						character_modifier = {
+						#	movement_speed = -0.10 #Wet Wet Wet				
+							#desert_attrition_mult = -0.25
+							#wetlands_attrition_mult = 0.25		
+						men_at_arms_recruitment_cost = -0.33 #Counteract Winter Loss
+						}
+					}		
+				
+				
+				}
+				situation_season_land_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_fertility.dds"
+					ruler_in_region = {
+						character_modifier = {
+						#	development_growth_factor = 0.03
+						#	domain_tax_mult = 0.17 #Balance winter
+						}				
+					}				
+					#has_territory_in_region = {
+					#	character_modifier = {
+					#		development_growth_factor = 0.03
+					#		domain_tax_mult = 0.17 #Balance winter
+					#	}				
+					#}				
+				}
+				situation_season_people_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_character.dds"
+					ruler_in_region = {
+						character_modifier = {
+							life_expectancy = 5 #balance the winter
+							fertility = 0.15 #more babie in spring.
+							health = 0.15 #much of this is to counter balance the other stuff. 						
+						}					
+					}					
+				}
+			}
+		}
+		seasons_cool_spring_phase = {
+			icon = "gfx/interface/icons/modifiers/cool_spring.dds"
+			illustration = "gfx/interface/illustrations/terrain_types/mpo_season_abudant_grazing.dds"
+			on_start = {
+				set_global_variable = {
+					name = what_season_is_it
+					value = 0
+				}
+			}
+			map_province_effect = snownew
+			map_province_effect_intensity = 0.025
+			future_phases = {
+				seasons_dry_summer_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_dry_summer = 1000
+					}
+				}
+				#seasons_hot_summer_phase = {
+				#	takeover_type = points
+				#	takeover_points = 1000
+				##	catalysts = {
+				#		catalyst_hot_summer = 1000
+				#	}
+				#}
+				seasons_wet_summer_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_wet_summer = 1000
+					}
+				}
+				seasons_summer_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_summer = 1000
+					}
+				}
+				seasons_dornish_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					#catalysts = {
+					#	catalyst_winter = 1000
+					#}
+				}
+				seasons_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_winter = 1000
+					}
+				}
+				seasons_light_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_light_winter = 1000
+					}
+				}
+				seasons_cold_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_cold_winter = 1000
+					}
+				}
+			}	
+			modifier_sets = {
+				situation_season_war_effects = {
+				icon = "gfx/interface/icons/struggle_effects/war.dds"
+					ruler_in_region = {
+						character_modifier = {
+						#	movement_speed = -0.07 #Wet Wet Wet				
+						#	desert_attrition_mult = -0.35
+							#wetlands_attrition_mult = 0.45		
+							men_at_arms_recruitment_cost = -0.33 #Counteract Winter Loss
+						}
+					}		
+				
+				
+				}
+				situation_season_land_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_fertility.dds"
+					ruler_in_region = {
+						character_modifier = {
+						#	development_growth_factor = 0.02
+						#	domain_tax_mult = 0.10 #Balance winter
+						}				
+					}				
+					#has_territory_in_region = {
+					#	character_modifier = {
+					#		development_growth_factor = 0.02
+					#		domain_tax_mult = 0.10 #Balance winter
+					#	}				
+					#}				
+				}
+				situation_season_people_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_character.dds"
+					ruler_in_region = {
+						character_modifier = {
+							life_expectancy = 5 #balance the winter
+							fertility = 0.10 #more babie in spring.
+							health = 0.15 #much of this is to counter balance the other stuff. 						
+						}					
+					}					
+				}
+			}
+		}
+		seasons_cold_spring_phase = {
+			icon = "gfx/interface/icons/modifiers/cold_spring.dds"
+			illustration = "gfx/interface/illustrations/terrain_types/mpo_season_abudant_grazing.dds"
+			on_start = {
+				set_global_variable = {
+					name = what_season_is_it
+					value = 0
+				}
+			}
+			map_province_effect = snownew
+			map_province_effect_intensity = 0.25
+			future_phases = {
+				seasons_dry_summer_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_dry_summer = 1000
+					}
+				}
+				#seasons_hot_summer_phase = {
+				#	takeover_type = points
+				#	takeover_points = 1000
+				##	catalysts = {
+				#		catalyst_hot_summer = 1000
+				#	}
+				#}
+				seasons_wet_summer_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_wet_summer = 1000
+					}
+				}
+				seasons_summer_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_summer = 1000
+					}
+				}
+				seasons_dornish_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					#catalysts = {
+					#	catalyst_winter = 1000
+					#}
+				}
+				seasons_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_winter = 1000
+					}
+				}
+				seasons_light_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_light_winter = 1000
+					}
+				}
+				seasons_cold_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_cold_winter = 1000
+					}
+				}
+			}	
+			modifier_sets = {
+				situation_season_war_effects = {
+				icon = "gfx/interface/icons/struggle_effects/war.dds"
+					ruler_in_region = {
+						character_modifier = {
+						#	movement_speed = -0.07 #Wet Wet Wet				
+						#	desert_attrition_mult = -0.35
+							#wetlands_attrition_mult = 0.45	
+							men_at_arms_recruitment_cost = -0.33 #Counteract Winter Loss							
+						}
+					}		
+				
+				
+				}
+				situation_season_land_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_fertility.dds"
+					ruler_in_region = {
+						character_modifier = {
+						#	development_growth_factor = 0.02
+						#	domain_tax_mult = 0.10 #Balance winter
+						}				
+					}				
+					#has_territory_in_region = {
+					#	character_modifier = {
+					#		development_growth_factor = 0.02
+					#		domain_tax_mult = 0.10 #Balance winter
+					#	}				
+					#}				
+				}
+				situation_season_people_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_character.dds"
+					ruler_in_region = {
+						character_modifier = {
+							life_expectancy = 5 #balance the winter
+							fertility = 0.10 #more babie in spring.
+							health = 0.15 #much of this is to counter balance the other stuff. 						
+						}					
+					}					
+				}
+			}		
+		}
+		seasons_hot_spring_phase = {
+			icon = "gfx/interface/icons/modifiers/hot_spring.dds"
+			illustration = "gfx/interface/illustrations/terrain_types/mpo_season_abudant_grazing.dds"
+			on_start = {
+				set_global_variable = {
+					name = what_season_is_it
+					value = 0
+				}
+			}
+			future_phases = {
+				seasons_dry_summer_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_dry_summer = 1000
+					}
+				}
+				#seasons_hot_summer_phase = {
+				#	takeover_type = points
+				#	takeover_points = 1000
+				#	catalysts = {
+				#		catalyst_hot_summer = 1000
+				#	}
+				#}
+				seasons_wet_summer_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_wet_summer = 1000
+					}
+				}
+				seasons_summer_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_summer = 1000
+					}
+				}
+				seasons_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_winter = 1000
+					}
+				}
+				seasons_dornish_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					#catalysts = {
+					#	catalyst_winter = 1000
+					#}
+				}
+				seasons_light_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_light_winter = 1000
+					}
+				}
+				seasons_cold_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_cold_winter = 1000
+					}
+				}
+			}	
+			modifier_sets = {
+				situation_season_war_effects = {
+				icon = "gfx/interface/icons/struggle_effects/war.dds"
+					ruler_in_region = {
+						character_modifier = {
+							#movement_speed = -0.10 #Wet Wet Wet				
+							#desert_attrition_mult = -0.25
+							#wetlands_attrition_mult = 0.25		
+							men_at_arms_recruitment_cost = -0.33 #Counteract Winter Loss
+						}
+					}		
+				
+				
+				}
+				situation_season_land_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_fertility.dds"
+					ruler_in_region = {
+						character_modifier = {
+							#development_growth_factor = 0.02
+							#domain_tax_mult = 0.22 #Balance winter
+						}				
+					}				
+					#has_territory_in_region = {
+					#	character_modifier = {
+					#		development_growth_factor = 0.02
+					#		domain_tax_mult = 0.22 #Balance winter
+					#	}				
+					#}					
+				}
+				situation_season_people_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_character.dds"
+					ruler_in_region = {
+						character_modifier = {
+							life_expectancy = 5 #balance the winter
+							fertility = 0.125 #more babie in spring.
+							health = 0.1 #much of this is to counter balance the other stuff. 						
+						}					
+					}					
+				}
+			}
+		}
+		seasons_dry_spring_phase = {
+			icon = "gfx/interface/icons/modifiers/dry_spring.dds"
+			illustration = "gfx/interface/illustrations/terrain_types/mpo_season_abudant_grazing.dds"
+			on_start = {
+				set_global_variable = {
+					name = what_season_is_it
+					value = 0
+				}
+			}
+			map_province_effect = drought
+			map_province_effect_intensity = 0.10
+			future_phases = {
+				seasons_dry_summer_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_dry_summer = 1000
+					}
+				}
+				seasons_hot_summer_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_hot_summer = 1000
+					}
+				}
+				#seasons_wet_summer_phase = {
+				#	takeover_type = points
+				#	takeover_points = 1000
+				#	catalysts = {
+				#		catalyst_wet_summer = 1000
+				#	}
+				#}
+				seasons_summer_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_summer = 1000
+					}
+				}
+				seasons_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_winter = 1000
+					}
+				}
+				seasons_dornish_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					#catalysts = {
+					#	catalyst_winter = 1000
+					#}
+				}
+				seasons_light_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_light_winter = 1000
+					}
+				}
+				seasons_cold_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_cold_winter = 1000
+					}
+				}
+			}	
+			modifier_sets = {
+				situation_season_war_effects = {
+				icon = "gfx/interface/icons/struggle_effects/war.dds"
+					ruler_in_region = {
+						character_modifier = {
+						#	movement_speed = -0.10 #Wet Wet Wet				
+							#desert_attrition_mult = -0.25
+							#wetlands_attrition_mult = 0.25
+							men_at_arms_recruitment_cost = -0.33 #Counteract Winter Loss							
+						}
+					}		
+				
+				
+				}
+				situation_season_land_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_fertility.dds"
+					ruler_in_region = {
+						character_modifier = {
+							#development_growth_factor = 0.02
+							#domain_tax_mult = 0.125 #Balance winter
+						}	
+						#county_modifier = {
+						#	fort_level = 10
+						#}
+					}				
+					#has_territory_in_region = {
+					#	character_modifier = {
+					#		development_growth_factor = 0.02
+					#		domain_tax_mult = 0.125 #Balance winter
+					#	}				
+					#}				
+				}
+				situation_season_people_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_character.dds"
+					ruler_in_region = {
+						character_modifier = {
+							life_expectancy = 5 #balance the winter
+							fertility = 0.10 #more babie in spring.
+							health = 0.05 #much of this is to counter balance the other stuff. 						
+						}					
+					}					
+				}
+			}
+		}
+	seasons_dry_summer_phase = {
+			icon = "gfx/interface/icons/modifiers/dry_summer.dds"
+			illustration = "gfx/interface/illustrations/terrain_types/mpo_season_severe_drought.dds"
+			on_start = {
+				set_global_variable = {
+					name = what_season_is_it
+					value = 1
+				}
+			}
+			map_province_effect = drought
+			map_province_effect_intensity = 0.07
+			future_phases = {
+				seasons_dry_autumn_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_dry_autumn = 1000
+					}
+				}
+				seasons_cold_autumn_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_cold_autumn = 1000
+					}				
+				}
+				#seasons_autumn_phase = {
+				#	takeover_type = points
+				#	takeover_points = 1000
+				#	catalysts = {
+				#		catalyst_autumn = 1000
+				#	}
+				#}
+				#seasons_wet_autumn_phase = {
+				##	takeover_type = points
+				#	takeover_points = 1000
+				#	catalysts = {
+				#		catalyst_wet_autumn = 1000
+				#	}				
+				#}
+			}	
+		modifier_sets = {
+			situation_season_war_effects = {
+			icon = "gfx/interface/icons/struggle_effects/war.dds"
+				ruler_in_region = {
+					character_modifier = {
+						#plains_attrition_mult = -0.10
+						#farmlands_attrition_mult = -0.15 
+						#hills_attrition_mult = -0.15
+						#mountains_attrition_mult = -0.1
+						#desert_attrition_mult = 0.80
+						#oasis_attrition_mult = -0.075
+						#jungle_attrition_mult = 0.20
+						#forest_attrition_mult = -0.25 
+						#taiga_attrition_mult = -0.20
+						#wetlands_attrition_mult = 0.10 #I got stuck in a fucking bog in scotland but it was spring in winter it would probably be hell
+						#steppe_attrition_mult = -0.15 #Winter is Coming (Cold Northern Winters)
+						#floodplains_attrition_mult = -0.25 #Flood plains!!
+						#drylands_attrition_mult = 0.10			
+						#movement_speed = 0.10
+						monthly_war_income_mult = 0.05 #War Tax incentivize war in summer	
+						men_at_arms_maintenance = -0.125
+						levy_reinforcement_rate = 0.2
+						supply_duration = -0.10				
+					}				
+				}
+			}
+			situation_season_land_effects = {
+			icon = "gfx/interface/icons/situations/situation_modifier_fertility.dds"
+				ruler_in_region = {
+					character_modifier = {
+					#	church_holding_build_gold_cost = -0.05
+					#	castle_holding_build_gold_cost = -0.05
+					#	city_holding_build_gold_cost = -0.05
+						#build_speed = -0.05	
+						#domain_tax_mult = 0.2
+					}
+				}
+				#has_territory_in_region = {
+				#	character_modifier = {
+				#		church_holding_build_gold_cost = -0.05
+				#		castle_holding_build_gold_cost = -0.05
+				#		city_holding_build_gold_cost = -0.05
+				#		build_speed = -0.05	
+				#		domain_tax_mult = 0.2
+				#	}
+				#}
+			}
+			situation_season_people_effects = {
+			icon = "gfx/interface/icons/situations/situation_modifier_character.dds"
+					ruler_in_region = {
+						character_modifier = {
+							happy_powerful_vassal_tax_contribution_mult = 0.01
+							character_travel_speed_mult = 0.15
+							max_personal_schemes_add = 1 #Social Summer						
+						}					
+					}					
+				}
+			}
+		}
+	seasons_hot_summer_phase = {
+			icon = "gfx/interface/icons/modifiers/hot_summer.dds"
+			illustration = "gfx/interface/illustrations/terrain_types/mpo_season_everlasting_summer.dds"
+			on_start = {
+				set_global_variable = {
+					name = what_season_is_it
+					value = 1
+				}
+			}
+			map_province_effect = summer
+			map_province_effect_intensity = 0.6
+			future_phases = {
+				seasons_dry_autumn_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_dry_autumn = 1000
+					}
+				}
+				#seasons_cold_autumn_phase = {
+				#	takeover_type = points
+				#	takeover_points = 1000
+				#	catalysts = {
+				#		catalyst_cold_autumn = 1000
+				#	}				
+				#}
+				seasons_autumn_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_autumn = 1000
+					}
+				}
+				seasons_wet_autumn_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_wet_autumn = 1000
+					}				
+				}
+			}	
+		modifier_sets = {
+			situation_season_war_effects = {
+			icon = "gfx/interface/icons/struggle_effects/war.dds"
+				ruler_in_region = {
+					character_modifier = {
+						#plains_attrition_mult = -0.05
+						#farmlands_attrition_mult = -0.05
+						#hills_attrition_mult = -0.10
+						#mountains_attrition_mult = -0.1
+						#desert_attrition_mult = 0.70 
+						#oasis_attrition_mult = -0.075
+						#jungle_attrition_mult = 0.20
+						##forest_attrition_mult = -0.25 
+						#taiga_attrition_mult = -0.20
+						#wetlands_attrition_mult = 0.10 #I got stuck in a fucking bog in scotland but it was spring in winter it would probably be hell
+						#steppe_attrition_mult = -0.15 #Winter is Coming (Cold Northern Winters)
+						#floodplains_attrition_mult = -0.25 #Flood plains!!
+						#drylands_attrition_mult = 0.50			
+						men_at_arms_maintenance = -0.175
+						levy_reinforcement_rate = 0.3
+					#	supply_duration = 0.10	
+					#	movement_speed = 0.05
+						monthly_war_income_mult = 0.05 #War Tax incentivize war in summer	
+						#men_at_arms_maintenance = -0.125
+						levy_reinforcement_rate = 0.2
+						supply_duration = -0.10								
+					}		
+				}			
+			}
+			situation_season_land_effects = {
+			icon = "gfx/interface/icons/situations/situation_modifier_fertility.dds"
+				ruler_in_region = {	
+					character_modifier = {
+					#	domain_tax_mult = 0.3
+					#	church_holding_build_gold_cost = -0.05
+					#	castle_holding_build_gold_cost = -0.05
+					#	city_holding_build_gold_cost = -0.05
+					#	build_speed = -0.05							
+					}
+				}
+				#has_territory_in_region = {	
+				#	character_modifier = {
+				#		domain_tax_mult = 0.3
+				#		church_holding_build_gold_cost = -0.05
+				#		castle_holding_build_gold_cost = -0.05
+				#		city_holding_build_gold_cost = -0.05
+				#		build_speed = -0.05							
+				#	}
+				#}					
+			}
+			situation_season_people_effects = {
+			icon = "gfx/interface/icons/situations/situation_modifier_character.dds"
+				ruler_in_region = {
+					character_modifier = {
+						happy_powerful_vassal_tax_contribution_mult = 0.01
+						character_travel_speed_mult = 0.15
+						max_personal_schemes_add = 1 #Social Summer								
+					}									
+				}						
+			}
+		}
+	}			
+	seasons_wet_summer_phase = {
+			icon = "gfx/interface/icons/modifiers/wet_summer.dds"
+			illustration = "gfx/interface/illustrations/terrain_types/mpo_season_abudant_grazing.dds"
+			on_start = {
+				set_global_variable = {
+					name = what_season_is_it
+					value = 1
+				}
+			}
+			map_province_effect = summer
+			map_province_effect_intensity = 0.9
+			future_phases = {
+				#seasons_dry_autumn_phase = {
+				#	takeover_type = points
+				#	takeover_points = 1000
+				#	catalysts = {
+				#		catalyst_dry_autumn = 1000
+				#	}
+				#}
+				seasons_cold_autumn_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_cold_autumn = 1000
+					}				
+				}
+				seasons_autumn_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_autumn = 1000
+					}
+				}
+				seasons_wet_autumn_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_wet_autumn = 1000
+					}				
+				}
+			}	
+			modifier_sets = {
+				situation_season_war_effects = {
+				icon = "gfx/interface/icons/struggle_effects/war.dds"
+					ruler_in_region = {
+						character_modifier = {
+							#Attrition Rates for Summer
+						#	plains_attrition_mult = -0.10
+						#	farmlands_attrition_mult = -0.15 
+						#	hills_attrition_mult = -0.15
+						#	mountains_attrition_mult = -0.1
+						#	desert_attrition_mult = 0.40 
+						#	oasis_attrition_mult = -0.075
+						#	jungle_attrition_mult = 0.20
+						#	forest_attrition_mult = -0.25 
+						#	taiga_attrition_mult = -0.20
+						#	wetlands_attrition_mult = 0.10 #I got stuck in a fucking bog in scotland but it was spring in winter it would probably be hell
+						#	steppe_attrition_mult = -0.15 #Winter is Coming (Cold Northern Winters)
+						#	floodplains_attrition_mult = -0.25 #Flood plains!!
+						#	drylands_attrition_mult = 0.10
+							#End Attrition Rates for Summer
+							men_at_arms_maintenance = -0.25
+							levy_reinforcement_rate = 0.45
+							supply_duration = 0.45
+							monthly_war_income_mult = 0.05 #War Tax incentivize war in summer	
+						}
+					}	
+				}
+				situation_season_land_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_fertility.dds"
+					ruler_in_region = {
+						#character_modifier = {					
+						###	movement_speed = 0.05
+						#E	happy_powerful_vassal_tax_contribution_mult = 0.25
+						#	#character_travel_speed_mult = 0.05
+						#}
+						character_modifier = {
+							#church_holding_build_gold_cost = -0.25
+							#castle_holding_build_gold_cost = -0.25
+						#	city_holding_build_gold_cost = -0.25
+							#build_speed = -0.10				
+							#domain_tax_mult = 0.45
+							#development_growth_factor = 0.10
+						}
+					}
+					#has_territory_in_region = {
+					#	character_modifier = {					
+					#		movement_speed = 0.05
+					#		happy_powerful_vassal_tax_contribution_mult = 0.25
+					#		character_travel_speed_mult = 0.05
+					#	}
+					#	character_modifier = {
+					#		church_holding_build_gold_cost = -0.25
+					#		castle_holding_build_gold_cost = -0.25
+					#		city_holding_build_gold_cost = -0.25
+					#		build_speed = -0.10				
+					#		domain_tax_mult = 0.45
+					#		development_growth_factor = 0.10
+					#	}
+					#}						
+				}
+				situation_season_people_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_character.dds"
+					ruler_in_region = {
+						character_modifier = {
+							max_personal_schemes_add = 1 #Social Summer								
+						}	
+					}					
+				}
+			}
+		}		
+		seasons_summer_phase = {
+			icon = "gfx/interface/icons/struggle_types/seasons_summer_phase.dds"	
+			illustration = "gfx/interface/illustrations/terrain_types/mpo_season_blessing_blue_sky.dds"
+			on_start = {
+				set_global_variable = {
+					name = what_season_is_it
+					value = 1
+				}
+			}
+			map_province_effect = summer
+			map_province_effect_intensity = 0.6
+			future_phases = {
+				seasons_autumn_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_autumn = 1000
+					}
+				}
+				seasons_wet_autumn_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_wet_autumn = 1000
+					}
+				}
+				seasons_dry_autumn_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_dry_autumn = 1000
+					}
+				}
+				seasons_cold_autumn_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_cold_autumn = 1000
+					}				
+				}
+			}	
+		modifier_sets = {
+			situation_season_war_effects = {
+			icon = "gfx/interface/icons/struggle_effects/war.dds"
+				ruler_in_region = {
+
+					character_modifier = {
+						#Attrition Rates for Summer
+						#plains_attrition_mult = -0.10
+						#farmlands_attrition_mult = -0.15 
+						#hills_attrition_mult = -0.15
+						#mountains_attrition_mult = -0.1
+						#desert_attrition_mult = 0.40 
+						#oasis_attrition_mult = -0.075
+						#jungle_attrition_mult = 0.20
+						#forest_attrition_mult = -0.25 
+						#taiga_attrition_mult = -0.20
+						#wetlands_attrition_mult = 0.10 #I got stuck in a fucking bog in scotland but it was spring in winter it would probably be hell
+						#steppe_attrition_mult = -0.15 #Winter is Coming (Cold Northern Winters)
+						#floodplains_attrition_mult = -0.25 #Flood plains!!
+						#drylands_attrition_mult = 0.10
+						#End Attrition Rates for Summer		
+						men_at_arms_maintenance = -0.33
+						levy_reinforcement_rate = 0.4
+						supply_duration = 0.20
+						monthly_war_income_mult = 0.05 #War Tax incentivize war in summer
+					}
+				}			
+			}
+			situation_season_land_effects = {
+			icon = "gfx/interface/icons/situations/situation_modifier_fertility.dds"
+				ruler_in_region = {
+					character_modifier = {
+						#movement_speed = 0.125
+						happy_powerful_vassal_tax_contribution_mult = 0.15
+						character_travel_speed_mult = 0.10
+					}
+					character_modifier = {
+						#church_holding_build_gold_cost = -0.20
+						#castle_holding_build_gold_cost = -0.20
+						#city_holding_build_gold_cost = -0.20
+						#build_speed = -0.15
+						##development_growth_factor = 0.10		
+						#domain_tax_mult = 0.40						
+					}
+				}
+				#has_territory_in_region = {
+				#	character_modifier = {
+				#		movement_speed = 0.125
+				#		happy_powerful_vassal_tax_contribution_mult = 0.15
+				#		character_travel_speed_mult = 0.10
+				#	}
+				#	character_modifier = {
+				#		church_holding_build_gold_cost = -0.20
+				#		castle_holding_build_gold_cost = -0.20
+				#		city_holding_build_gold_cost = -0.20
+				#		build_speed = -0.15
+				#		development_growth_factor = 0.10		
+				#		domain_tax_mult = 0.40						
+				#	}
+				#}					
+			}
+			situation_season_people_effects = {
+			icon = "gfx/interface/icons/situations/situation_modifier_character.dds"
+					ruler_in_region = {
+						character_modifier = {					
+							max_personal_schemes_add = 1 #Social Summer						
+						}
+					}					
+				}
+			}
+		}		
+		seasons_autumn_phase = {
+			icon = "gfx/interface/icons/struggle_types/seasons_autumn_phase.dds"
+			illustration = "gfx/interface/illustrations/terrain_types/taiga.dds"
+
+			on_start = {
+				set_global_variable = {
+					name = what_season_is_it
+					value = 2
+				}
+			}
+			map_province_effect = autumn
+			map_province_effect_intensity = 1.00
+			future_phases = {
+				seasons_light_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_light_winter = 1000
+					}
+				}
+				seasons_dornish_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					#catalysts = {
+					#	catalyst_winter = 1000
+					#}
+				}
+				seasons_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_winter = 1000
+					}
+				}
+				seasons_cold_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_cold_winter = 1000
+					}
+				}						
+			}	
+			modifier_sets = {
+				situation_season_war_effects = {
+				icon = "gfx/interface/icons/struggle_effects/war.dds"
+					ruler_in_region = {
+						character_modifier = {
+							levy_reinforcement_rate = 0.45
+							supply_duration = 0.25
+
+							#Attrition Rates for Autumn
+							#plains_attrition_mult = -0.05
+							#farmlands_attrition_mult = -0.30 
+							#hills_attrition_mult = 0.05
+							#mountains_attrition_mult = 0.05
+							#desert_attrition_mult = 0.10 
+							#oasis_attrition_mult = -0.075
+							#jungle_attrition_mult = -0.10
+							#forest_attrition_mult = 0.05 
+							#taiga_attrition_mult = -0.10
+							#wetlands_attrition_mult = 0.10 
+							#steppe_attrition_mult = -0.15
+							#floodplains_attrition_mult = -0.33 #Flood plains!!
+							#drylands_attrition_mult = 0.12
+							#End Attrition Rates for Autumn
+							men_at_arms_maintenance = -0.20								
+						}
+					}		
+				}
+				situation_season_land_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_fertility.dds"
+					ruler_in_region = {
+						character_modifier = {
+						#	domain_tax_mult = 0.50
+
+						#	development_growth_factor = 0.12
+						#	church_holding_build_gold_cost = -0.12
+						#	castle_holding_build_gold_cost = -0.12
+						#	city_holding_build_gold_cost = -0.12
+						#	build_speed = -0.10	
+							
+						}
+					}	
+					#has_territory_in_region = {
+					#	character_modifier = {
+					#		domain_tax_mult = 0.50
+					#
+					#		development_growth_factor = 0.12
+					#		church_holding_build_gold_cost = -0.12
+					#		castle_holding_build_gold_cost = -0.12
+					#		city_holding_build_gold_cost = -0.12
+					#		build_speed = -0.10	
+					#		
+					#	}
+					#}					
+				}
+				situation_season_people_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_character.dds"
+					ruler_in_region = {
+						character_modifier = {
+							character_travel_speed_mult = 0.15
+							happy_powerful_vassal_tax_contribution_mult = 0.05
+							#movement_speed = 0.15
+						}	
+					}
+				}
+			}
+		}
+		seasons_cold_autumn_phase = {
+			icon = "gfx/interface/icons/struggle_types/cold_autumn_phase.dds"
+			illustration = "gfx/interface/illustrations/terrain_types/mpo_season_cold_zud.dds"
+
+			on_start = {
+				set_global_variable = {
+					name = what_season_is_it
+					value = 2
+				}
+			}
+			map_province_effect = snownew
+			map_province_effect_intensity = 0.10
+			future_phases = {
+				seasons_light_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_light_winter = 1000
+					}
+				}
+				seasons_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_winter = 1000
+					}
+				}
+				seasons_dornish_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					#catalysts = {
+					#	catalyst_winter = 1000
+					#}
+				}
+				seasons_cold_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_cold_winter = 1000
+					}
+				}						
+			}	
+			modifier_sets = {
+				situation_season_war_effects = {
+				icon = "gfx/interface/icons/struggle_effects/war.dds"
+					ruler_in_region = {
+						character_modifier = {
+							levy_reinforcement_rate = 0.45
+							supply_duration = 0.25
+
+							#Attrition Rates for Autumn
+						#	plains_attrition_mult = -0.05
+							#farmlands_attrition_mult = -0.30 
+							#hills_attrition_mult = 0.05
+							#mountains_attrition_mult = 0.05
+							#desert_attrition_mult = 0.10 
+							#oasis_attrition_mult = -0.075
+							#jungle_attrition_mult = -0.10
+							#forest_attrition_mult = 0.05 
+							#taiga_attrition_mult = -0.10
+							#wetlands_attrition_mult = 0.10 
+							#steppe_attrition_mult = -0.15
+							#floodplains_attrition_mult = -0.33 #Flood plains!!
+							#drylands_attrition_mult = 0.12
+							#End Attrition Rates for Autumn
+							men_at_arms_maintenance = -0.20								
+						}
+					}		
+				}
+				situation_season_land_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_fertility.dds"
+					ruler_in_region = {
+						character_modifier = {
+							#domain_tax_mult = 0.30
+
+							#development_growth_factor = 0.075
+
+							#church_holding_build_gold_cost = -0.12
+							#castle_holding_build_gold_cost = -0.12
+							#city_holding_build_gold_cost = -0.12
+							#build_speed = -0.10	
+							
+						}
+					}
+#					has_territory_in_region = {
+#						character_modifier = {
+#							domain_tax_mult = 0.50
+#
+#							development_growth_factor = 0.12
+#
+					#		church_holding_build_gold_cost = -0.12
+					#		castle_holding_build_gold_cost = -0.12
+					#		city_holding_build_gold_cost = -0.12
+					#		build_speed = -0.10	
+					#		
+					#	}
+					#}						
+				}
+				situation_season_people_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_character.dds"
+					ruler_in_region = {
+						character_modifier = {
+							character_travel_speed_mult = 0.15
+							#movement_speed = 0.15
+							happy_powerful_vassal_tax_contribution_mult = 0.05
+						}	
+					}
+				}
+			}
+		}
+		seasons_dry_autumn_phase = {
+			icon = "gfx/interface/icons/struggle_types/dry_autumn_phase.dds"
+			illustration = "gfx/interface/illustrations/terrain_types/steppe.dds"
+			
+			on_start = {
+				set_global_variable = {
+					name = what_season_is_it
+					value = 2
+				}
+			}
+			map_province_effect = dry_autumn
+			map_province_effect_intensity = 1.00
+			future_phases = {
+				seasons_light_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_light_winter = 1000
+					}
+				}
+				seasons_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_winter = 1000
+					}
+				}
+				seasons_dornish_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					#catalysts = {
+					#	catalyst_winter = 1000
+					#}
+				}
+				seasons_cold_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_cold_winter = 1000
+					}
+				}						
+			}	
+			modifier_sets = {
+				situation_season_war_effects = {
+				icon = "gfx/interface/icons/struggle_effects/war.dds"
+					ruler_in_region = {
+						character_modifier = {
+							levy_reinforcement_rate = 0.45
+							supply_duration = 0.25
+
+							#Attrition Rates for Autumn
+						#	plains_attrition_mult = -0.05
+						#	farmlands_attrition_mult = -0.30 
+						#	hills_attrition_mult = 0.05
+						#	mountains_attrition_mult = 0.05
+							#desert_attrition_mult = 0.10 
+							#oasis_attrition_mult = -0.075
+							#jungle_attrition_mult = -0.10
+							#forest_attrition_mult = 0.05 
+							#taiga_attrition_mult = -0.10
+							#wetlands_attrition_mult = 0.10 
+							#steppe_attrition_mult = -0.15
+							#floodplains_attrition_mult = -0.33 #Flood plains!!
+							#drylands_attrition_mult = 0.12
+							#End Attrition Rates for Autumn
+							men_at_arms_maintenance = -0.20								
+						}
+					}		
+				}
+				situation_season_land_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_fertility.dds"
+					ruler_in_region = {
+						character_modifier = {
+							#domain_tax_mult = 0.25
+
+							#development_growth_factor = 0.025
+
+							#church_holding_build_gold_cost = -0.12
+							#castle_holding_build_gold_cost = -0.12
+							#city_holding_build_gold_cost = -0.12
+							#build_speed = -0.10	
+							
+						}
+					}					
+					#has_territory_in_region = {
+					#	#character_modifier = {
+					#	#domain_tax_mult = 0.25
+
+					#		development_growth_factor = 0.025
+					#
+					#		church_holding_build_gold_cost = -0.12
+					#		castle_holding_build_gold_cost = -0.12
+					#		city_holding_build_gold_cost = -0.12
+					#		build_speed = -0.10	
+					#		
+					#	}
+					#}				
+				}
+				situation_season_people_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_character.dds"
+					ruler_in_region = {
+						character_modifier = {
+							#movement_speed = 0.15
+							character_travel_speed_mult = 0.15
+							happy_powerful_vassal_tax_contribution_mult = 0.05
+						}	
+					}
+				}
+			}
+		}
+		seasons_wet_autumn_phase = {
+			icon = "gfx/interface/icons/struggle_types/wet_autumn_phase.dds"
+			illustration = "gfx/interface/illustrations/terrain_types/wetlands.dds"
+			on_start = {
+				set_global_variable = {
+					name = what_season_is_it
+					value = 2
+				}
+			}
+			map_province_effect = wet_autumn
+			map_province_effect_intensity = 1.00
+			future_phases = {
+				seasons_light_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_light_winter = 1000
+					}
+				}
+				seasons_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_winter = 1000
+					}
+				}
+				seasons_dornish_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					#catalysts = {
+					#	catalyst_winter = 1000
+					#}
+				}
+				seasons_cold_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_cold_winter = 1000
+					}
+				}				
+			}	
+			modifier_sets = {
+				situation_season_war_effects = {
+				icon = "gfx/interface/icons/struggle_effects/war.dds"
+					ruler_in_region = {
+						character_modifier = {
+							levy_reinforcement_rate = 0.45
+							supply_duration = 0.25
+
+							#Attrition Rates for Autumn
+						#	plains_attrition_mult = -0.05
+						#	farmlands_attrition_mult = -0.30 
+							#hills_attrition_mult = 0.05
+							#mountains_attrition_mult = 0.05
+							#desert_attrition_mult = 0.10 
+						#	oasis_attrition_mult = -0.075
+							#jungle_attrition_mult = -0.10
+							#forest_attrition_mult = 0.05 
+							#taiga_attrition_mult = -0.10
+							#wetlands_attrition_mult = 0.10 
+							#steppe_attrition_mult = -0.15
+							#floodplains_attrition_mult = -0.33 #Flood plains!!
+							#drylands_attrition_mult = 0.12
+							#End Attrition Rates for Autumn
+							men_at_arms_maintenance = -0.20								
+						}
+					}		
+				}
+				situation_season_land_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_fertility.dds"
+					ruler_in_region = {
+						character_modifier = {
+							##domain_tax_mult = 0.50
+							#development_growth_factor = 0.07
+
+						#	church_holding_build_gold_cost = -0.12
+							#castle_holding_build_gold_cost = -0.12
+							#city_holding_build_gold_cost = -0.12
+							#build_speed = -0.10	
+							
+						}
+					}
+					#has_territory_in_region = {
+					#	character_modifier = {
+					#		domain_tax_mult = 0.50
+					#		development_growth_factor = 0.07
+					#
+					#		church_holding_build_gold_cost = -0.12
+					#		castle_holding_build_gold_cost = -0.12
+					#		city_holding_build_gold_cost = -0.12
+					#		build_speed = -0.10	
+					#		
+					#	}
+					#}						
+				}
+				situation_season_people_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_character.dds"
+					ruler_in_region = {
+						character_modifier = {
+							character_travel_speed_mult = 0.15
+							happy_powerful_vassal_tax_contribution_mult = 0.05
+							#movement_speed = 0.15
+
+						}	
+					}
+				}
+			}
+		}
+		seasons_light_winter_phase = {
+			icon = "gfx/interface/icons/modifiers/winter_light.dds"
+			illustration = "gfx/interface/illustrations/terrain_types/mpo_season_cold_zud.dds"
+			map_province_effect = snownew
+			map_province_effect_intensity = 0.5
+			on_start = {
+				set_global_variable = {
+					name = what_season_is_it
+					value = 3
+				}
+				#add_province_modifier = winter_mild_modifier
+			}			
+			future_phases = {
+				seasons_wet_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_dry_summer = 1000
+					}
+				}
+				seasons_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_spring = 1000
+					}
+				}
+				seasons_hot_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_hot_spring = 1000
+					}
+				}
+				seasons_cool_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_hot_spring = 1000
+					}
+				}				
+			}	
+			modifier_sets = {
+				situation_season_war_effects = {
+				icon = "gfx/interface/icons/struggle_effects/war.dds"
+					ruler_in_region = {
+						character_modifier = {
+							ai_war_chance = -1.5
+							ai_war_cooldown = 0.9
+							#Winter Attrition Rates	
+						#	plains_attrition_mult = 0.25 #Not much pretty empty cold no cover but still
+						#	farmlands_attrition_mult = 0.15 #cold but still some left over supplies
+						#	hills_attrition_mult = 0.5
+						#	mountains_attrition_mult = 1.0 #We cross the misty mountains!
+						#	desert_attrition_mult = 0.10 #Warmer dornish Winters
+						#	oasis_attrition_mult = 0.075 #warm oasis?
+							#jungle_attrition_mult = -0.10 #Jungle won't freeze (probably)
+							#forest_attrition_mult = 0.25 #Cold but some supplies even if further north like bark humans probably eat bark
+							#taiga_attrition_mult = 0.75	#Cold Northern Winters
+							#wetlands_attrition_mult = 0.33 #I got stuck in a fucking bog in scotland but it was spring in winter it would probably be hell
+							#steppe_attrition_mult = 0.75 #Winter is Coming (Cold Northern Winters)
+							#floodplains_attrition_mult = 0.25 #Flood plains!!
+							#drylands_attrition_mult = 0.20 #Cold but could be warm balanced level. 
+							#End Winter Attrition Rates
+							movement_speed = -0.5 #Snow snow snow
+							defender_advantage = 5 #It's bloody cold
+							attacker_advantage = -5
+							supply_duration = -0.3 #Might need to fix to a whole integer
+							levy_reinforcement_rate = -0.6 #Why would I war in winter?
+							men_at_arms_maintenance = 0.25 #Why would I be a soldier if the war seems to be lessened during winter? Pay me more ya feckin' bastard!
+							monthly_war_income_mult = -0.4 #Heavily penalise war.
+							embarkation_cost_mult = 0.45 #BOAT EXPENSIVE
+							siege_phase_time = 5 #MORE SIEGE TIME							
+						}
+						parameters = {
+							white_peace_acceptance_winter_seasons = yes
+							unlocks_enforce_truces_interaction_seasons = yes		
+							apply_truce_when_sending_ward = yes
+							invasion_conquest_war_cannot_be_declared = yes		
+							#struggle_cb_cost_major = yes					
+							seasons_cb_cost_massive = yes
+						}
+					}		
+				}
+				situation_season_land_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_fertility.dds"
+					ruler_in_region = {		
+						character_modifier = {
+							#supply_limit_mult = -0.4
+							#domain_tax_mult = -0.25
+							#development_growth_factor = -0.10
+							church_holding_build_gold_cost = 0.40
+							castle_holding_build_gold_cost = 0.40
+							city_holding_build_gold_cost = 0.4
+							#build_speed = 0.3
+							#provisions_use_mult = 0.10
+						}
+					}		
+					#has_territory_in_region = {
+					#	character_modifier = {
+					#		supply_limit_mult = -0.4
+					#		domain_tax_mult = -0.25
+					#		development_growth_factor = -0.10
+					#		church_holding_build_gold_cost = 0.40
+					#		castle_holding_build_gold_cost = 0.40
+					#		city_holding_build_gold_cost = 0.4
+					#		build_speed = 0.3
+					#		provisions_use_mult = 0.10
+					#	}
+					#}
+				}
+				situation_season_people_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_character.dds"
+					ruler_in_region = {	
+						
+					}
+					
+				}
+			}
+		}
+		seasons_winter_phase = {
+			icon = "gfx/interface/icons/modifiers/winter_normal.dds"
+			illustration = "gfx/interface/illustrations/terrain_types/mpo_season_white_zud.dds"
+			on_start = {
+				set_global_variable = {
+					name = what_season_is_it
+					value = 3
+				}
+				###trigger_event = seasons_winter_start.01
+			}
+			map_province_effect = snownew
+			map_province_effect_intensity = 0.9
+			future_phases = {
+				seasons_wet_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_wet_spring = 1000
+					}
+				}
+				seasons_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_spring = 1000
+					}
+				}
+				seasons_hot_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_hot_spring = 1000
+					}
+				}
+				seasons_cool_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_cool_spring = 1000
+					}
+				}
+				seasons_dry_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_dry_spring = 1000
+					}
+				}					
+			}	
+			modifier_sets = {
+			
+				situation_season_war_effects = {
+				icon = "gfx/interface/icons/struggle_effects/war.dds"
+					ruler_in_region = {
+						character_modifier = {
+							ai_war_chance = -2
+							ai_war_cooldown = 0.9						
+							vassal_tax_contribution_mult = -0.5 #Less likely to give money
+							#Winter is low tax and low income to simulate the much lower productivity. If I wanted to be realistic I could set at -0.75 or -0.9 but then I think people would be sad.
+						#	life_expectancy = -5 #Old people die in  winter
+						#	fertility = -0.75 #Why would you want to have a child in winter? Gael was a bit of an exception as the 'winter child?'
+						#	health = -0.10 #Small penalty it's cold.
+							monthly_piety_from_buildings_mult = 0.43 #A bit of game based balance. 
+							monthly_prestige_gain_per_happy_powerful_vassal_add = 0.01 #Happy vassal happy life_expectancy
+							opinion_of_same_culture = 15 #we're in this together type of mentality
+							close_relative_opinion = 10 #Stuck in the same house
+							movement_speed = -0.60 #Snow snow snow
+							intimidated_vassal_tax_contribution_mult = 0.24 #but you're scary so here's my gold
+							owned_personal_scheme_success_chance_add = 15 #Winter befriending
+							monthly_county_control_growth_factor = 0.20 #Not gonna rob in winter...
+							character_travel_speed_mult = -0.20 #Snow
+
+							#Winter Attrition Rates	
+							#plains_attrition_mult = 0.25 #Not much pretty empty cold no cover but still
+							#farmlands_attrition_mult = 0.15 #cold but still some left over supplies
+							#hills_attrition_mult = 0.5
+							#mountains_attrition_mult = 1.0 #We cross the misty mountains!
+							#desert_attrition_mult = 0.10 #Warmer dornish Winters
+							#oasis_attrition_mult = 0.075 #warm oasis?
+							#jungle_attrition_mult = -0.10 #Jungle won't freeze (probably)
+							#forest_attrition_mult = 0.25 #Cold but some supplies even if further north like bark humans probably eat bark
+							#taiga_attrition_mult = 0.75	#Cold Northern Winters
+							#wetlands_attrition_mult = 0.33 #I got stuck in a fucking bog in scotland but it was spring in winter it would probably be hell
+							#steppe_attrition_mult = 0.75 #Winter is Coming (Cold Northern Winters)
+							#floodplains_attrition_mult = 0.25 #Flood plains!!
+							#drylands_attrition_mult = 0.20 #Cold but could be warm balanced level. 
+							#End Winter Attrition Rates
+
+		
+							defender_advantage = 5 #It's bloody cold
+							attacker_advantage = -5
+							supply_duration = -0.4 #Might need to fix to a whole integer
+							levy_reinforcement_rate = -0.65 #Why would I war in winter?
+							men_at_arms_maintenance = 0.4 #Why would I be a soldier if the war seems to be lessened during winter? Pay me more ya feckin' bastard!
+							monthly_war_income_mult = -0.5 #Heavily penalise war.
+							embarkation_cost_mult = 0.75 #BOAT EXPENSIVE
+							siege_phase_time = 5 #MORE SIEGE TIME										
+						}
+						parameters = {
+							white_peace_acceptance_winter_seasons = yes
+							unlocks_enforce_truces_interaction_seasons = yes		
+							apply_truce_when_sending_ward = yes
+							invasion_conquest_war_cannot_be_declared = yes		
+							struggle_cb_cost_major = yes								
+								
+						}
+					}		
+				}
+				situation_season_land_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_fertility.dds"
+					ruler_in_region = {
+						character_modifier = {
+							#supply_limit_mult = -0.5
+							#domain_tax_mult = -0.50
+							#development_growth_factor = -0.2
+							#build_speed = 0.80
+							church_holding_build_gold_cost = 0.60
+							castle_holding_build_gold_cost = 0.60
+							city_holding_build_gold_cost = 0.60		
+							#provisions_use_mult = 0.2
+						}
+					}
+					#has_territory_in_region = {
+					#	character_modifier = {
+					#		supply_limit_mult = -0.4
+					#		domain_tax_mult = -0.25
+					#		development_growth_factor = -0.10
+					#		church_holding_build_gold_cost = 0.40
+					#		castle_holding_build_gold_cost = 0.40
+					#		city_holding_build_gold_cost = 0.4
+					#		build_speed = 0.3
+					#		provisions_use_mult = 0.10
+					#	}
+					#}					
+				}
+				situation_season_people_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_character.dds"
+					ruler_in_region = {
+						
+					}
+				}
+			}
+		}
+		seasons_dornish_winter_phase = {
+			icon = "gfx/interface/icons/struggle_types/winter_south_phase.dds"
+			illustration = "gfx/interface/illustrations/terrain_types/mpo_season_cold_zud.dds"
+			on_start = {
+				set_global_variable = {
+					name = what_season_is_it
+					value = 3
+				}
+		#		trigger_event = seasons_winter_start.01
+			}
+			map_province_effect = snownew
+			map_province_effect_intensity = 0.015
+			#map_province_effect = snownew
+			#map_province_effect_intensity = 0.9
+			future_phases = {
+				seasons_wet_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_wet_spring = 1000
+					}
+				}
+				seasons_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_spring = 1000
+					}
+				}
+				seasons_hot_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_hot_spring = 1000
+					}
+				}
+				seasons_cool_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_cool_spring = 1000
+					}
+				}
+				seasons_dry_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_dry_spring = 1000
+					}
+				}					
+			}	
+			modifier_sets = {
+				situation_season_war_effects = {
+				icon = "gfx/interface/icons/struggle_effects/war.dds"
+					ruler_in_region = {
+						character_modifier = {
+							ai_war_chance = -0.75
+							ai_war_cooldown = 0.5
+							vassal_tax_contribution_mult = -0.25 #Less likely to give money
+							#Winter is low tax and low income to simulate the much lower productivity. If I wanted to be realistic I could set at -0.75 or -0.9 but then I think people would be sad.
+						#	life_expectancy = -5 #Old people die in  winter
+						#	fertility = -0.75 #Why would you want to have a child in winter? Gael was a bit of an exception as the 'winter child?'
+						#	health = -0.10 #Small penalty it's cold.
+							monthly_piety_from_buildings_mult = 0.20 #A bit of game based balance. 
+							monthly_prestige_gain_per_happy_powerful_vassal_add = 0.01 #Happy vassal happy life_expectancy
+							opinion_of_same_culture = 7 #we're in this together type of mentality
+							close_relative_opinion = 5 #Stuck in the same house
+							movement_speed = -0.20 #Snow snow snow
+							intimidated_vassal_tax_contribution_mult = 0.12 #but you're scary so here's my gold
+							owned_personal_scheme_success_chance_add = 7 #Winter befriending
+							monthly_county_control_growth_factor = 0.10 #Not gonna rob in winter...
+							character_travel_speed_mult = -0.10 #Snow
+
+							
+							#Winter Attrition Rates	
+						#	plains_attrition_mult = 0.25 #Not much pretty empty cold no cover but still
+						#	farmlands_attrition_mult = 0.15 #cold but still some left over supplies
+						#	hills_attrition_mult = 0.5
+						#	mountains_attrition_mult = 1.0 #We cross the misty mountains!
+						#	desert_attrition_mult = 0.10 #Warmer dornish Winters
+							#oasis_attrition_mult = 0.075 #warm oasis?
+						#	jungle_attrition_mult = -0.10 #Jungle won't freeze (probably)
+							#forest_attrition_mult = 0.25 #Cold but some supplies even if further north like bark humans probably eat bark
+						#	taiga_attrition_mult = 0.75	#Cold Northern Winters
+						#	wetlands_attrition_mult = 0.33 #I got stuck in a fucking bog in scotland but it was spring in winter it would probably be hell
+							#steppe_attrition_mult = 0.75 #Winter is Coming (Cold Northern Winters)
+							#floodplains_attrition_mult = 0.25 #Flood plains!!
+						#	drylands_attrition_mult = 0.20 #Cold but could be warm balanced level. 
+							#End Winter Attrition Rates
+
+							defender_advantage = 2 #It's bloody cold
+							attacker_advantage = -2
+							supply_duration = -0.2 #Might need to fix to a whole integer
+							levy_reinforcement_rate = -0.25 #Why would I war in winter?
+							men_at_arms_maintenance = 0.12 #Why would I be a soldier if the war seems to be lessened during winter? Pay me more ya feckin' bastard!
+							monthly_war_income_mult = -0.25 #Heavily penalise war.
+							embarkation_cost_mult = 0.30 #BOAT EXPENSIVE
+							siege_phase_time = 2 #MORE SIEGE TIME										
+						}
+						parameters = {
+							white_peace_acceptance_winter_seasons = yes
+							unlocks_enforce_truces_interaction_seasons = yes		
+							apply_truce_when_sending_ward = yes
+							invasion_conquest_war_cannot_be_declared = yes		
+							struggle_cb_cost_major = yes									
+						}
+					}		
+				}
+				situation_season_land_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_fertility.dds"
+					ruler_in_region = {	
+						character_modifier = {
+							#domain_tax_mult = -0.25
+							#supply_limit_mult = -0.15
+							#provisions_use_mult = 0.10
+							#development_growth_factor = -0.10						
+							church_holding_build_gold_cost = 0.30
+							castle_holding_build_gold_cost = 0.30
+							#build_speed = 0.30
+							city_holding_build_gold_cost = 0.30
+						}
+					}							
+					#has_territory_in_region = {	
+					#	character_modifier = {
+					#		domain_tax_mult = -0.25
+					#		supply_limit_mult = -0.15
+					#		provisions_use_mult = 0.10
+					#		development_growth_factor = -0.10						
+					#		church_holding_build_gold_cost = 0.30
+					#		castle_holding_build_gold_cost = 0.30
+					#		build_speed = 0.30
+					#		city_holding_build_gold_cost = 0.30
+					#	}
+					#}					
+				}
+				situation_season_people_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_character.dds"
+					ruler_in_region = {
+						
+					}
+					
+				}
+			}
+		}
+		seasons_cold_winter_phase = {
+			icon = "gfx/interface/icons/modifiers/winter_cold.dds"
+			illustration = "gfx/interface/illustrations/terrain_types/mpo_season_havsarsan_zud.dds"
+			map_province_effect = snownew
+			map_province_effect_intensity = 0.99
+			on_start = {
+				set_global_variable = {
+					name = what_season_is_it
+					value = 3
+				}
+				#every_province = {
+				#	limit = {
+				#		any_situation_sub_region = {
+				#			sub_region_current_phase = seasons_cold_winter_phase
+				#			situation_sub_region_has_county = $COUNTY$	
+				#			
+				#		}
+				#	}
+				#	add_province_modifier = seasons_all_tax
+				#}
+			}
+			future_phases = {
+				seasons_wet_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_wet_spring = 1000
+					}
+				}
+				seasons_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_spring = 1000
+					}
+				}
+				seasons_hot_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_hot_spring = 1000
+					}
+				}
+				seasons_cool_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_cool_spring = 1000
+					}
+				}
+				seasons_dry_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_dry_spring = 1000
+					}
+				}					
+			}	
+			modifier_sets = {
+				situation_season_war_effects = {
+				icon = "gfx/interface/icons/struggle_effects/war.dds"
+					ruler_in_region = {
+						character_modifier = {
+							ai_war_chance = -5
+							ai_war_cooldown = 2
+							vassal_tax_contribution_mult = -0.65 #Less likely to give money
+							#Winter is low tax and low income to simulate the much lower productivity. If I wanted to be realistic I could set at -0.75 or -0.9 but then I think people would be sad.
+						#	life_expectancy = -5 #Old people die in  winter
+						#	fertility = -0.75 #Why would you want to have a child in winter? Gael was a bit of an exception as the 'winter child?'
+						#	health = -0.10 #Small penalty it's cold.
+							monthly_piety_from_buildings_mult = 0.33 #A bit of game based balance. 
+							monthly_prestige_gain_per_happy_powerful_vassal_add = 0.01 #Happy vassal happy life_expectancy
+							opinion_of_same_culture = 15 #we're in this together type of mentality
+							close_relative_opinion = 10 #Stuck in the same house
+							movement_speed = -0.65 #Snow snow snow
+							intimidated_vassal_tax_contribution_mult = 0.30 #but you're scary so here's my gold
+							owned_personal_scheme_success_chance_add = 15 #Winter befriending
+							monthly_county_control_growth_factor = 0.50 #Not gonna rob in winter...
+							character_travel_speed_mult = -0.4 #Snow
+
+							#Winter Attrition Rates	
+							#plains_attrition_mult = 0.25 #Not much pretty empty cold no cover but still
+							#farmlands_attrition_mult = 0.15 #cold but still some left over supplies
+							#hills_attrition_mult = 0.5
+							#mountains_attrition_mult = 1.0 #We cross the misty mountains!
+							#desert_attrition_mult = 0.10 #Warmer dornish Winters
+							#oasis_attrition_mult = 0.075 #warm oasis?
+							#jungle_attrition_mult = -0.10 #Jungle won't freeze (probably)
+							#forest_attrition_mult = 0.25 #Cold but some supplies even if further north like bark humans probably eat bark
+							#taiga_attrition_mult = 0.75	#Cold Northern Winters
+							#wetlands_attrition_mult = 0.33 #I got stuck in a fucking bog in scotland but it was spring in winter it would probably be hell
+							#steppe_attrition_mult = 0.75 #Winter is Coming (Cold Northern Winters)
+							#floodplains_attrition_mult = 0.25 #Flood plains!!
+							#drylands_attrition_mult = 0.20 #Cold but could be warm balanced level. 
+							#End Winter Attrition Rates
+
+					
+							defender_advantage = 5 #It's bloody cold
+							attacker_advantage = -5
+							supply_duration = -0.4 #Might need to fix to a whole integer
+							levy_reinforcement_rate = -0.75 #Why would I war in winter?
+							men_at_arms_maintenance = 0.4 #Why would I be a soldier if the war seems to be lessened during winter? Pay me more ya feckin' bastard!
+							monthly_war_income_mult = -0.66 #Heavily penalise war.
+							embarkation_cost_mult = 0.75 #BOAT EXPENSIVE
+							siege_phase_time = 5 #MORE SIEGE TIME									
+						}
+						parameters = {
+							white_peace_acceptance_winter_seasons = yes
+							unlocks_enforce_truces_interaction_seasons = yes		
+							apply_truce_when_sending_ward = yes
+							invasion_conquest_war_cannot_be_declared = yes		
+							struggle_cb_cost_major = yes									
+						}
+					}		
+				}
+				situation_season_land_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_fertility.dds"
+					ruler_in_region = {
+						character_modifier = {
+							#fort_level = 4
+							#domain_tax_mult = -0.60
+							#build_speed = 0.80
+							#supply_limit_mult = -0.50
+							#provisions_use_mult = 0.33
+							#development_growth_factor = -0.20	
+							church_holding_build_gold_cost = 0.70
+							castle_holding_build_gold_cost = 0.70
+							city_holding_build_gold_cost = 0.70						
+						}						
+					}					
+					#has_territory_in_region = {
+					#	character_modifier = {
+					#		fort_level = 4
+					#		domain_tax_mult = -0.60
+					#		build_speed = 0.80
+					#		supply_limit_mult = -0.50
+					#		provisions_use_mult = 0.33
+					#		development_growth_factor = -0.20	
+					#		church_holding_build_gold_cost = 0.70
+					#		castle_holding_build_gold_cost = 0.70
+					#		city_holding_build_gold_cost = 0.70						
+					#	}						
+					#}					
+				}
+				situation_season_people_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_character.dds"
+					ruler_in_region = {
+						
+					}
+				}
+			}
+		}
+		seasons_northern_winter_phase = {
+			icon = "gfx/interface/icons/modifiers/winter_north.dds"
+			illustration = "gfx/interface/illustrations/terrain_types/mpo_season_white_zud.dds"
+			map_province_effect = snownew
+			map_province_effect_intensity = 0.99
+			on_start = {
+				set_global_variable = {
+					name = what_season_is_it
+					value = 3
+				}
+			}
+			future_phases = {
+				seasons_wet_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_wet_spring = 1000
+					}
+				}
+				seasons_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_spring = 1000
+					}
+				}
+				seasons_cool_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_cool_spring = 1000
+					}
+				}
+				seasons_dry_spring_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_dry_spring = 1000
+					}
+				}					
+			}	
+			modifier_sets = {
+				situation_season_war_effects = {
+				icon = "gfx/interface/icons/struggle_effects/war.dds"
+					ruler_in_region = {
+						character_modifier = {
+							ai_war_chance = -5
+							ai_war_cooldown = 0.9
+							vassal_tax_contribution_mult = -0.65 #Less likely to give money
+							#Winter is low tax and low income to simulate the much lower productivity. If I wanted to be realistic I could set at -0.75 or -0.9 but then I think people would be sad.
+						#	life_expectancy = -5 #Old people die in  winter
+						#	fertility = -0.75 #Why would you want to have a child in winter? Gael was a bit of an exception as the 'winter child?'
+						#	health = -0.10 #Small penalty it's cold.
+							monthly_piety_from_buildings_mult = 0.33 #A bit of game based balance. 
+							monthly_prestige_gain_per_happy_powerful_vassal_add = 0.01 #Happy vassal happy life_expectancy
+							opinion_of_same_culture = 15 #we're in this together type of mentality
+							close_relative_opinion = 10 #Stuck in the same house
+							movement_speed = -0.65 #Snow snow snow
+							intimidated_vassal_tax_contribution_mult = 0.30 #but you're scary so here's my gold
+							owned_personal_scheme_success_chance_add = 15 #Winter befriending
+							monthly_county_control_growth_factor = 0.50 #Not gonna rob in winter...
+							character_travel_speed_mult = -0.4 #Snow
+
+							#Winter Attrition Rates	
+							#plains_attrition_mult = 0.25 #Not much pretty empty cold no cover but still
+							#farmlands_attrition_mult = 0.15 #cold but still some left over supplies
+							#hills_attrition_mult = 0.5
+							#mountains_attrition_mult = 1.0 #We cross the misty mountains!
+							#desert_attrition_mult = 0.10 #Warmer dornish Winters
+							#oasis_attrition_mult = 0.075 #warm oasis?
+							#jungle_attrition_mult = -0.10 #Jungle won't freeze (probably)
+							#forest_attrition_mult = 0.25 #Cold but some supplies even if further north like bark humans probably eat bark
+							#taiga_attrition_mult = 0.75	#Cold Northern Winters
+							#wetlands_attrition_mult = 0.33 #I got stuck in a fucking bog in scotland but it was spring in winter it would probably be hell
+							#steppe_attrition_mult = 0.75 #Winter is Coming (Cold Northern Winters)
+							#floodplains_attrition_mult = 0.25 #Flood plains!!
+							#drylands_attrition_mult = 0.20 #Cold but could be warm balanced level. 
+							#End Winter Attrition Rates
+
+					
+							defender_advantage = 20 #It's bloody cold
+							attacker_advantage = -2
+							supply_duration = -0.4 #Might need to fix to a whole integer
+							levy_reinforcement_rate = -0.45 #Why would I war in winter?
+							men_at_arms_maintenance = 0.35 #Why would I be a soldier if the war seems to be lessened during winter? Pay me more ya feckin' bastard!
+							monthly_war_income_mult = -0.35 #Heavily penalise war.
+							embarkation_cost_mult = 0.75 #BOAT EXPENSIVE
+							siege_phase_time = 5 #MORE SIEGE TIME									
+						}
+					}		
+				}
+				situation_season_land_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_fertility.dds"
+					ruler_in_region = {
+						character_modifier = {
+							#fort_level = 4
+							#domain_tax_mult = -0.35
+							#build_speed = 0.65
+							#supply_limit_mult = -0.55
+							#provisions_use_mult = 0.2
+							#development_growth_factor = -0.20	
+							church_holding_build_gold_cost = 0.70
+							castle_holding_build_gold_cost = 0.70
+							city_holding_build_gold_cost = 0.70						
+						}						
+					}									
+				}
+				situation_season_people_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_character.dds"
+					ruler_in_region = {
+						
+					}
+				}
+			}
+		}
+		seasons_always_winter_phase = {
+			icon = "gfx/interface/icons/modifiers/winter_north.dds"
+			illustration = "gfx/interface/illustrations/terrain_types/mpo_season_white_zud.dds"
+			on_start = {
+				set_global_variable = {
+					name = what_season_is_it
+					value = 3
+				}
+			}
+			future_phases = {
+				seasons_northern_winter_phase = {
+					takeover_type = points
+					takeover_points = 1000
+					catalysts = {
+						catalyst_spring = 1000
+					}
+				}
+			}
+			modifier_sets = {
+				situation_season_war_effects = {
+				icon = "gfx/interface/icons/struggle_effects/war.dds"
+	
+				}
+				situation_season_land_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_fertility.dds"
+					ruler_in_region = {						
+					}									
+				}
+				situation_season_people_effects = {
+				icon = "gfx/interface/icons/situations/situation_modifier_character.dds"
+					ruler_in_region = {
+						
+					}
+				}
+			}
+		}
+	}
+}
+
+
+#PLAN : 
+#Northern Big Region : 
+# N

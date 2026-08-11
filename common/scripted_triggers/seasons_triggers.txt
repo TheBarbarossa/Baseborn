@@ -1,0 +1,145 @@
+﻿#Look I know this causes errors, but it for whatever reason works. I don't know why. But it does. Changing it always causes actual issues instead of an error log error. So itkk st
+#This is by far the most baffling thing I've ever seen. If I don't have it this way, it literally crashes to desktop when you click on a character. I have no idea. 
+#The alternate code I had to check what season it is works literally everywhere else except here. It breaks it here. I have no idea why
+#so to whomever is reading this I am aware that this causes errors I just cant fix it here for somereason. Its a load bearing error.
+
+
+##This was removed temporarily as I found a different method of checking the season
+##check weather triggers for alternate.
+##it instead checks if a province has the seasonal modifier, closer to vanilla. 
+
+#is_it_winter = {
+#	any_character_situation = {
+#		OR = {
+#			any_situation_sub_region = {
+#				sub_region_current_phase = seasons_winter_phase
+#				situation_sub_region_has_county = $COUNTY$
+#			}
+#			any_situation_sub_region = {
+#				sub_region_current_phase = seasons_light_winter_phase
+#				situation_sub_region_has_county = $COUNTY$
+#			}
+#			any_situation_sub_region = {
+#				sub_region_current_phase = seasons_cold_winter_phase
+#				situation_sub_region_has_county = $COUNTY$
+#			}			
+#			any_situation_sub_region = {
+#				sub_region_current_phase = seasons_dornish_winter_phase
+#				situation_sub_region_has_county = $COUNTY$
+#			}
+#		}
+#	}
+#}
+#is_it_harsh_winter = {
+#	any_character_situation = {
+#		any_situation_sub_region = {
+#			sub_region_current_phase = seasons_cold_winter_phase
+#			situation_sub_region_has_county = $COUNTY$
+#		}			
+#	}
+#}
+
+#is_it_normal_winter = {
+#	any_character_situation = {
+#		any_situation_sub_region = {
+#			sub_region_current_phase = seasons_winter_phase
+#			situation_sub_region_has_county = $COUNTY$
+#		}
+#	}
+#}
+#is_it_light_winter = {
+
+#	any_character_situation = {
+#		any_situation_sub_region = {
+#			sub_region_current_phase = seasons_light_winter_phase
+#			situation_sub_region_has_county = $COUNTY$
+#		}
+#	}
+
+#}
+
+#is_it_spring = {
+#	any_character_situation = {
+#		OR = {
+#			any_situation_sub_region = {
+#				sub_region_current_phase = seasons_spring_phase
+#				situation_sub_region_has_county = $COUNTY$
+#			}			
+#			any_situation_sub_region = {
+#				sub_region_current_phase = seasons_wet_spring_phase
+#				situation_sub_region_has_county = $COUNTY$
+#			}
+#			any_situation_sub_region = {
+#				sub_region_current_phase = seasons_cool_spring_phase
+#				situation_sub_region_has_county = $COUNTY$
+#			}
+#			any_situation_sub_region = {
+#				sub_region_current_phase = seasons_hot_spring_phase
+#				situation_sub_region_has_county = $COUNTY$
+#			}			
+#			any_situation_sub_region = {
+#				sub_region_current_phase = seasons_dry_spring_phase
+#				situation_sub_region_has_county = $COUNTY$
+#			}
+#		}
+#	}
+#}
+#is_it_summer = {
+#	any_character_situation = {
+#		OR = {
+#			any_situation_sub_region = {
+#				sub_region_current_phase = seasons_hot_summer_phase
+#				situation_sub_region_has_county = $COUNTY$
+#			}			
+#			any_situation_sub_region = {
+#				sub_region_current_phase = seasons_dry_summer_phase
+#				situation_sub_region_has_county = $COUNTY$
+#			}
+#			any_situation_sub_region = {
+#				sub_region_current_phase = seasons_wet_summer_phase
+#				situation_sub_region_has_county = $COUNTY$
+#			}
+#			any_situation_sub_region = {
+#				sub_region_current_phase = seasons_summer_phase
+#				situation_sub_region_has_county = $COUNTY$
+#			}
+#		}
+#	}	
+#}
+#is_it_autumn = {
+#	any_character_situation = {
+#		OR = {
+#			any_situation_sub_region = {
+#				sub_region_current_phase = seasons_wet_autumn_phase
+#				situation_sub_region_has_county = $COUNTY$
+#			}
+#			any_situation_sub_region = {
+#				sub_region_current_phase = seasons_dry_autumn_phase
+#				situation_sub_region_has_county = $COUNTY$
+#			}		
+#			any_situation_sub_region = {
+#				sub_region_current_phase = seasons_cold_autumn_phase
+#				situation_sub_region_has_county = $COUNTY$
+#			}
+#			any_situation_sub_region = {
+#				sub_region_current_phase = seasons_autumn_phase
+#				situation_sub_region_has_county = $COUNTY$
+#			}
+#		}
+#	}
+#}
+
+
+is_this_stormlands_or_stepstones = {	
+	OR = {
+		geographical_region = world_stepstones
+		geographical_region = world_westeros_the_stormlands
+	}
+}
+
+no_bonus_check = {
+	has_game_rule = no_season_bonus
+}
+has_bonus_check = {
+	has_game_rule = yes_season_bonus
+}

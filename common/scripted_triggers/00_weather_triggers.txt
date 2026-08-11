@@ -1,0 +1,626 @@
+﻿
+##################################################
+# Winter Triggers
+county_has_winter_trigger = {
+	title_province = {
+		has_winter_trigger = yes
+	}
+}
+
+character_capital_has_winter_trigger = {
+	capital_county = { county_has_winter_trigger = yes }
+}
+
+#AGOT Disabled, any place this is used should be examined case by case
+# culture_uses_frequent_winter_transportation_trigger = {
+# 	OR = {
+# 		culture = { has_cultural_pillar = heritage_balto_finnic }
+# 		culture = { has_cultural_pillar = heritage_north_germanic }
+# 		has_cultural_parameter = winter_trait_bonuses
+# 		# We exclude Normans as being pretty distant from this part of their heritage.
+# 	}
+# }
+
+location_has_harsh_winter_trigger = {
+	location = {
+		OR = {
+			has_province_modifier = winter_cold_modifier
+			has_province_modifier = winter_north_modifier
+		}
+	}
+}
+
+location_has_normal_or_worse_winter_trigger = {
+	location = {
+		OR = {
+			has_province_modifier = winter_normal_modifier
+			has_province_modifier = winter_harsh_modifier
+			has_province_modifier = winter_cold_modifier
+			has_province_modifier = winter_north_modifier
+			has_province_modifier = winter_normal_modifier_1
+			#has_county_modifier = normal_winter_seasons
+			#has_county_modifier = cold_winter_seasons
+		}
+	}
+}
+
+location_has_winter_trigger = {
+	location = {
+		has_winter_trigger = yes
+	}
+}
+
+has_winter_trigger = {
+	OR = {
+		has_province_modifier = winter_mild_modifier
+		has_province_modifier = winter_normal_modifier
+		#SEASONS Added
+		has_province_modifier = winter_north_modifier
+		has_province_modifier = winter_normal_modifier_1
+		has_province_modifier = winter_harsh_modifier
+		has_province_modifier = winter_cold_modifier
+		has_province_modifier = winter_light_modifier
+		has_province_modifier = winter_southern_modifier
+		#root = { is_it_winter = { COUNTY = root.location.county } }
+		#AGOT Added, "permanent" winter
+		AND = {
+			geographical_region = world_westeros_the_north
+			NOT = { geographical_region = world_westeros_the_neck }
+		}
+		geographical_region = world_westeros_beyond_the_wall
+	}
+}
+
+has_winter_combat_trigger = {
+	OR = {
+		location = {
+			#Seasons Added, northern winter combat
+			has_province_modifier = winter_north_modifier
+			has_province_modifier = winter_mild_modifier
+			has_province_modifier = winter_normal_modifier
+			has_province_modifier = winter_harsh_modifier
+			has_province_modifier = winter_normal_modifier_1
+			has_province_modifier = winter_harsh_modifier
+			has_province_modifier = winter_cold_modifier
+			has_province_modifier = winter_light_modifier
+			has_province_modifier = winter_southern_modifier
+		}
+		#root = { is_it_winter = { COUNTY = root.location.county } }
+		#has_county_modifier = normal_winter_seasons
+		#has_county_modifier = light_winter_seasons
+		#has_county_modifier = cold_winter_seasons	
+	}
+}
+
+##################################################
+# Seasonal Triggers
+
+middle_of_year_season_trigger = {
+	#root = { is_it_summer = yes }
+	#is_it_summer = yes
+	#current_month >= 2
+	#current_month <= 12
+	current_season_spring = yes
+	current_season_summer = yes
+	current_season_autumn = autumn
+}
+
+end_of_year_season_trigger = {
+	current_season_winter = yes
+}
+
+temperate_seasons_trigger = {
+	$LOCATION$ = {
+		OR = {
+			#AGOT Modified
+			# geographical_region = world_europe
+			# geographical_region = world_asia_minor
+			# geographical_region = world_middle_east
+			# geographical_region = world_india_rajastan
+			# geographical_region = world_india_bengal
+			# geographical_region = world_africa_north
+			# geographical_region = world_steppe
+			# geographical_region = world_tibet
+			geographical_region = world_westeros_beyond_the_wall
+			geographical_region = world_westeros_seven_kingdoms_without_dorne
+		}
+	}
+}
+
+tropical_seasons_trigger = {
+	$LOCATION$ = {
+		tropical_seasons_region_trigger = yes
+	}
+}
+
+tropical_seasons_region_trigger = {
+	OR = {
+		#AGOT Modified
+		# geographical_region = world_africa_west
+		# geographical_region = world_africa_east
+		# geographical_region = world_india_deccan
+		# geographical_region = world_burma
+		geographical_region = world_westeros_dorne
+	}
+}
+
+is_nice_season_to_be_outside_trigger = {
+	OR = {
+		# Temperate zones like to be out in summer.
+		AND = {
+			temperate_seasons_trigger = { LOCATION = $LOCATION$ }
+			middle_of_year_season_trigger = yes
+		}
+		# Tropical zones like to be out in winter.
+		AND = {
+			tropical_seasons_trigger = { LOCATION = $LOCATION$ }
+			end_of_year_season_trigger = yes
+		}
+	}
+}
+
+is_nice_season_to_be_inside_trigger = {
+	OR = {
+		# Temperate zones like to be inside in winter.
+		AND = {
+			temperate_seasons_trigger = { LOCATION = $LOCATION$ }
+			end_of_year_season_trigger = yes
+		}
+		# Tropical zones like to be inside in summer.
+		AND = {
+			tropical_seasons_trigger = { LOCATION = $LOCATION$ }
+			middle_of_year_season_trigger = yes
+		}
+	}
+}
+
+
+
+#Season scripted trigger tied into custom loc, can be used for backgrounds and VFX
+#Format like current_season_winter = yes
+#AGOT Needs Reflavor
+
+current_season_trigger = {
+	current_season_$SEASON$ = yes
+}
+
+current_season_winter = {
+	#AGOT Modified
+	##southern region with rainy/dry seasons
+	#trigger_if = {
+	#	limit = {
+	#		location = {
+	#			geographical_region = seasonal_region_deccan
+	#		}
+	#	}
+	#	OR = {
+	#		current_month >= 11
+	#		current_month < 3
+	#	}
+	#}
+	#trigger_else_if = {
+	#	limit = {
+	#		location = {
+	#			geographical_region = seasonal_region_rajasthan
+	#		}
+	#	}
+	#	OR = {
+	#		current_month >= 12
+	#		current_month < 4
+	#	}
+	#}
+	#trigger_else_if = {
+	#	limit = {
+	#		location = {
+	#			geographical_region = seasonal_region_bengal
+	#		}
+	#	}
+	#	OR = {
+	#		current_month >= 11
+	#		current_month < 2
+	#	}
+	#}
+	#trigger_else_if = {
+	#	limit = {
+	#		location = {
+	#			geographical_region = seasonal_region_burma
+	#		}
+	#	}
+	#	OR = {
+	#		current_month >= 11
+	#		current_month < 3
+	#	}
+	#}
+	#trigger_else = {
+	#	#Generic Northern Hemisphere
+	#	OR = {
+	#		current_month >= 12
+	#		current_month < 3
+	#	}
+	#	#Not present/has different name in these regions
+	#	location = {
+	#		NOR = {
+	#			geographical_region = seasonal_region_east_africa
+	#			geographical_region = seasonal_region_west_africa
+	#		}
+	#	}
+	#}
+	OR = {
+		#current_month >= 9
+		#current_month < 3
+		#global_var:what_season_is_it = 3
+		location = {
+			OR = {
+				has_province_modifier = winter_normal_modifier_1
+				has_province_modifier = winter_harsh_modifier
+				has_province_modifier = winter_cold_modifier
+				has_province_modifier = winter_light_modifier
+				has_province_modifier = winter_southern_modifier
+				has_province_modifier = winter_north_modifier
+			}
+		}
+		#root = { is_it_winter = { COUNTY = root.location.county } }
+		location = {
+			geographical_region = world_westeros_beyond_the_wall
+		}
+	}
+}
+
+current_season_autumn = {
+	#AGOT Modified
+	##southern region with rainy/dry seasons
+	#trigger_if = {
+	#	limit = {
+	#		location = {
+	#			geographical_region = seasonal_region_rajasthan
+	#		}
+	#	}
+	#	current_month >= 10
+	#	current_month < 12
+	#}
+	#trigger_else_if = {
+	#	limit = {
+	#		location = {
+	#			geographical_region = seasonal_region_bengal
+	#		}
+	#	}
+	#	current_month >= 8
+	#	current_month < 11
+	#}
+	#trigger_else_if = {
+	#	limit = {
+	#		location = {
+	#			geographical_region = seasonal_region_east_africa
+	#		}
+	#	}
+	#	current_month >= 9
+	#	current_month < 11
+	#}
+	#trigger_else = {
+	#	#Generic Northern Hemisphere
+	#	current_month >= 9
+	#	current_month < 12
+	#	#Not present/has different name in these regions
+	#	location = {
+	#		NOR = {
+	#			geographical_region = seasonal_region_west_africa
+	#			geographical_region = seasonal_region_deccan
+	#			geographical_region = seasonal_region_burma
+	#		}
+	#	}
+	#}
+	#OR = {
+		#current_month >= 9
+		#current_month < 12
+		global_var:what_season_is_it = 2
+	#}
+	location = {
+		OR = {
+			has_province_modifier = autumn_modifier
+			has_province_modifier = cold_autumn_modifier
+			has_province_modifier = dry_autumn_modifier
+			has_province_modifier = wet_autumn_modifier
+		}
+	}
+	#root = { is_it_autumn = { COUNTY = root.location.county } }
+	NOT = {
+		location = {
+			geographical_region = world_westeros_beyond_the_wall
+		}
+	}
+}
+
+current_season_summer = {
+	#AGOT Modified
+	#southern region with rainy/dry seasons
+	#trigger_if = {
+	#	limit = {
+	#		location = {
+	#			geographical_region = seasonal_region_deccan
+	#		}
+	#	}
+	#	current_month >= 3
+	#	current_month < 6
+	#}
+	#trigger_else_if = {
+	#	limit = {
+	#		location = {
+	#			geographical_region = seasonal_region_rajasthan
+	#		}
+	#	}
+	#	current_month >= 4
+	#	current_month < 7
+	#}
+	#trigger_else_if = {
+	#	limit = {
+	#		location = {
+	#			geographical_region = seasonal_region_bengal
+	#		}
+	#	}
+	#	current_month >= 4
+	#	current_month < 6
+	#}
+	#trigger_else_if = {
+	#	limit = {
+	#		location = {
+	#			geographical_region = seasonal_region_burma
+	#		}
+	#	}
+	#	current_month >= 3
+	#	current_month < 5
+	#}
+	#trigger_else = {
+	#	#Generic Northern Hemisphere
+	#	current_month >= 6
+	#	current_month < 9
+	#	#Not present/has different name in these regions
+	#	location = {
+	#		NOR = {
+	#			geographical_region = seasonal_region_west_africa
+	#			geographical_region = seasonal_region_east_africa
+	#		}
+	#	}
+	#}
+	location = {
+		OR = {
+			has_province_modifier = dry_summer_modifier
+			has_province_modifier = hot_summer_modifier
+			has_province_modifier = wet_summer_modifier
+			has_province_modifier = summer_modifier
+			has_province_modifier = northern_summer_modifier			
+			has_province_modifier = dry_summer_modifier_s
+			has_province_modifier = hot_summer_modifier_s
+			has_province_modifier = wet_summer_modifier_s
+			has_province_modifier = summer_modifier_s
+			has_province_modifier = northern_summer_modifier_s
+		}
+	}
+	#root = { is_it_summer = { COUNTY = root.location.county } }
+	NOT = {
+		location = {
+			geographical_region = world_westeros_beyond_the_wall
+		}
+	}
+}
+
+current_season_spring = {
+	#AGOT Modified
+	##southern region with rainy/dry seasons
+	#trigger_if = {
+	#	limit = {
+	#		location = {
+	#			geographical_region = seasonal_region_bengal
+	#		}
+	#	}
+	#	current_month >= 2
+	#	current_month < 4
+	#}
+	#trigger_else_if = {
+	#	limit = {
+	#		location = {
+	#			geographical_region = seasonal_region_east_africa
+	#		}
+	#	}
+	#	current_month >= 3
+	#	current_month < 6
+	#}
+	#trigger_else = {
+	#	#Generic Northern Hemisphere
+	#	current_month >= 3
+	#	current_month < 6
+	#	#Not present/has different name in these regions
+	#	location = {
+	#		NOR = {
+	#			geographical_region = seasonal_region_west_africa
+	#			geographical_region = seasonal_region_rajasthan
+	#			geographical_region = seasonal_region_deccan
+	#			geographical_region = seasonal_region_burma
+	#		}
+	#	}
+	#}
+	location = {
+		OR = {
+			has_province_modifier = spring_modifier
+			has_province_modifier = cool_spring_modifier
+			has_province_modifier = cold_spring_modifier
+			has_province_modifier = wet_spring_modifier
+			has_province_modifier = hot_spring_modifier
+			has_province_modifier = dry_spring_modifier			
+			has_province_modifier = spring_modifier_s
+			has_province_modifier = cool_spring_modifier_s
+			has_province_modifier = cold_spring_modifier_s
+			has_province_modifier = wet_spring_modifier_s
+			has_province_modifier = hot_spring_modifier_s
+			has_province_modifier = dry_spring_modifier_s
+		}
+	}
+#	root = { is_it_spring = { COUNTY = root.location.county } }
+	NOT = {
+		location = {
+			geographical_region = world_westeros_beyond_the_wall
+		}
+	}
+}
+
+current_season_dry_season = {
+	#AGOT Modified
+	#southern region with rainy/dry seasons
+	#location = {
+	#	OR = {
+	#		geographical_region = seasonal_region_west_africa
+	#		geographical_region = seasonal_region_east_africa
+	#	}
+	#}
+	#trigger_if = {
+	#	limit = {
+	#		location = { geographical_region = seasonal_region_west_africa }
+	#	}
+	#	OR = {
+	#		current_month >= 11
+	#		current_month < 5
+	#	}
+	#}
+	#trigger_else = {
+	#	location = {
+	#		geographical_region = seasonal_region_east_africa
+	#	}
+	#	OR = {
+	#		current_month >= 12
+	#		current_month < 3
+	#	}
+	#}
+	location = {
+		OR = {
+			has_province_modifier = dry_autumn_modifier
+			has_province_modifier = dry_summer_modifier
+			has_province_modifier = dry_spring_modifier			
+			has_province_modifier = dry_autumn_modifier_s
+			has_province_modifier = dry_summer_modifier_s
+			has_province_modifier = dry_spring_modifier_s
+		}
+	}
+	#always = no
+}
+
+current_season_rainy_season = {
+	#AGOT Modified
+	##Jasons triggers here
+	#location = {
+	#	OR = {
+	#		geographical_region = seasonal_region_deccan
+	#		geographical_region = seasonal_region_rajasthan
+	#		geographical_region = seasonal_region_bengal
+	#		geographical_region = seasonal_region_burma
+	#		geographical_region = seasonal_region_west_africa
+	#		geographical_region = seasonal_region_east_africa
+	#	}
+	#}
+	##southern region with rainy/dry seasons
+	#trigger_if = {
+	#	limit = {
+	#		location = {
+	#			geographical_region = seasonal_region_deccan
+	#		}
+	#	}
+	#	current_month >= 6
+	#	current_month < 11
+	#}
+	#trigger_else_if = {
+	#	limit = {
+	#		location = {
+	#			geographical_region = seasonal_region_rajasthan
+	#		}
+	#	}
+	#	current_month >= 7
+	#	current_month < 10
+	#}
+	#trigger_else_if = {
+	#	limit = {
+	#		location = {
+	#			geographical_region = seasonal_region_bengal
+	#		}
+	#	}
+	#	current_month >= 6
+	#	current_month < 8
+	#}
+	#trigger_else_if = {
+	#	limit = {
+	#		location = {
+	#			geographical_region = seasonal_region_burma
+	#		}
+	#	}
+	#	current_month >= 5
+	#	current_month < 11
+	#}
+	#trigger_else_if = {
+	#	limit = {
+	#		location = {
+	#			geographical_region = seasonal_region_west_africa
+	#		}
+	#	}
+	#	current_month >= 5
+	#	current_month < 11
+	#}
+	#trigger_else = {
+	#	location = {
+	#		geographical_region = seasonal_region_east_africa
+	#	}
+	#	current_month >= 6
+	#	current_month < 9
+	#}
+	#always = no
+	location = {
+		OR = {
+			has_province_modifier = wet_autumn_modifier
+			has_province_modifier = wet_spring_modifier
+			has_province_modifier = wet_summer_modifier			
+			has_province_modifier = wet_autumn_modifier_s
+			has_province_modifier = wet_spring_modifier_s
+			has_province_modifier = wet_summer_modifier_s
+		}
+	}
+}
+
+current_season_hot_season = {
+	OR = {
+		#AND = {
+		#	location = {
+		#		OR = {
+		#			geographical_region = seasonal_region_east_africa
+		#			geographical_region = seasonal_region_west_africa
+		#		}
+		#	}
+		#	current_season_rainy_season = yes
+		#}
+		current_season_summer = yes
+		location = {
+			has_province_modifier = hot_spring_modifier
+		}
+	}
+}
+current_season_cold_season = {
+	OR = {
+		current_season_winter = yes
+		#current_season_dry_season = yes
+		location = {
+			OR = {
+				has_province_modifier = cold_autumn_modifier
+				has_province_modifier = cold_spring_modifier		
+				has_province_modifier = cold_autumn_modifier_s
+				has_province_modifier = cold_spring_modifier_s
+			}
+		}
+	}
+}
+current_season_wet = {
+	#location = {
+		#current_season_spring = yes
+		current_season_rainy_season = yes
+	#}
+}
+current_season_dry = {
+	# = {
+		#current_season_summer = yes
+		current_season_dry_season = yes
+	#}
+}
