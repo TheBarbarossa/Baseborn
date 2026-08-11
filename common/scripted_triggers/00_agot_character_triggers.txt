@@ -1,0 +1,188 @@
+﻿is_human = {
+	NOT = { has_trait = dragon }
+	NOT = { agot_is_dummy_character = yes }
+	trigger_if = {
+		limit = { exists = top_liege }
+		NOT = { agot_is_dummy_character = yes }
+	}
+	trigger_if = {
+		limit = { exists = employer }
+		NOT = {
+			employer = { agot_is_dummy_character = yes }
+		}
+		trigger_if = {
+			limit = { exists = employer.top_liege }
+			NOT = {
+				employer.top_liege = { agot_is_dummy_character = yes }
+			}
+		}
+	}
+}
+
+agot_is_dummy_character = {
+	OR = {
+		has_trait = ruin
+		has_trait = unknown
+		has_trait = wilderness
+		has_trait = agot_dummy_trait
+		has_trait = game_master # Edited, Robin, 10/08/26
+	}
+}
+
+agot_is_available_for_anything = {
+	custom_description = {
+		text = "whereabouts_unknown"
+		NOT = { has_character_flag = agot_is_at_unknown_place }
+	}
+}
+
+agot_boring_character_trigger = {
+	is_ruler = no
+	pool_character_is_pruneable_trigger = yes
+	is_councillor = no
+	has_any_court_position = no
+	is_knight = no
+	NOT = {
+		any_relation = {
+			type = agot_squire
+			exists = this
+		}
+	}
+	NOT = {
+		any_relation = {
+			type = ward
+			exists = this
+		}
+	}
+	trigger_if = {
+		limit = { exists = court_owner }
+		court_owner = { is_ai = yes }
+	}
+}
+
+agot_secret_character_eligible = {
+	AND = {
+		is_alive = yes
+		is_playable_character = no
+		is_adult = no
+		is_married = no
+		is_concubine = no
+		NOT = { has_trait = bastard }
+		NOT = { has_trait = denounced }
+		NOT = { has_trait = dragonrider }
+		NOT = {
+			any_relation = {
+				type = agot_dragon
+			}
+		}
+		is_human = yes
+	}
+}
+
+agot_exceptionalism_incest_allowed = {
+	OR = {
+		dynasty ?= { has_variable = agot_doctrine_of_exceptionalism_incest_exemption }
+		house ?= { has_variable = agot_doctrine_of_exceptionalism_incest_exemption }
+	}
+	faith = { has_doctrine = agot_exceptionalism_doctrine }
+	NOT = {
+		house = { has_house_modifier = disavowed_incest_house_modifier }
+	}
+}
+
+worthy_sword_of_the_morning_trigger = {
+	dynasty = dynasty:dynn_Dayne
+	OR = {
+		has_trait = education_martial_prowess_4
+		has_trait = education_martial_prowess_5
+		AND = {
+			is_agot_knight_trigger = yes
+			has_trait = lifestyle_blademaster
+			age < 16
+		}
+	}
+	prowess >= 20
+	OR = {
+		has_trait = just
+		has_trait = brave
+	}
+	NOR = {
+		has_trait = murderer
+		has_trait = kinslayer
+		has_trait = gluttonous
+		has_trait = greedy
+		has_trait = lazy
+		has_trait = callous
+		has_trait = sadistic
+		has_trait = deceitful
+		has_trait = drunkard
+		has_trait = craven
+		has_trait = arbitrary
+		has_trait = torturer
+		has_trait = physique_bad
+	}
+}
+
+agot_pentos_braavos_treaty_character_trigger = {
+	has_character_modifier = agot_pentos_braavos_treaty
+}
+
+agot_btw_merc_hiring_block = {
+	trigger_if = {
+		limit = {
+			capital_province ?= {
+				geographical_region = world_westeros_seven_kingdoms
+			}
+			title:k_the_wall.holder ?= {
+				government_has_flag = government_is_nw
+			}
+		}
+		NOT = {
+			$MERC_COMPANY$ ?= { capital_province ?= { geographical_region = world_westeros_beyond_the_wall } }
+		}
+	}
+}
+
+can_gain_pet_trigger = {
+	NOR = {
+		has_character_modifier = cat_story_modifier
+		has_character_modifier = dog_story_modifier
+	}
+}
+
+agot_has_fake_dynasty = {
+	NOT = { is_from_ruler_designer = yes }
+	this = dynasty.dynast
+	NOR = {
+		has_character_flag = canon_status_canon
+		has_character_flag = canon_status_semicanon
+		has_character_flag = canon_status_mentioned
+	}
+	NOT = { exists = mother }
+	NOT = { exists = father }
+	NOT = { exists = real_father }
+	dynasty = {
+		any_dynasty_member = {
+			count = 1
+		}
+	}
+}
+
+agot_has_any_sexuality_flags = {
+	OR = {
+		has_character_flag = sexuality_ensure_heterosexual
+		has_character_flag = sexuality_ensure_homosexual
+		has_character_flag = sexuality_ensure_bisexual
+		has_character_flag = sexuality_ensure_asexual
+		has_character_flag = sexuality_ensure_equal_chance
+		has_character_flag = sexuality_ensure_not_heterosexual
+		has_character_flag = sexuality_ensure_not_homosexual
+		has_character_flag = sexuality_ensure_not_bisexual
+		has_character_flag = sexuality_ensure_not_asexual
+		has_character_flag = sexuality_raise_chance_heterosexual
+		has_character_flag = sexuality_raise_chance_homosexual
+		has_character_flag = sexuality_raise_chance_bisexual
+		has_character_flag = sexuality_raise_chance_asexual
+		has_character_flag = sexuality_being_assigned
+	}
+}

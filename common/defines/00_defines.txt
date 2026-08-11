@@ -729,12 +729,12 @@ NArmy = {
 
 	FULL_SUPPLY = 100								# Fully supplied units' supply value
 	SUPPLY_LOSS_AT_SEA = 8							# This is the supply loss at sea after the ATTRITION_AFTER_DAYS grace period
-	SUPPLY_LOSS_PER_SOLDIER_ABOVE_LIMIT = 0.001		# Each check's supply loss per every soldier over the province's supply limit
+	SUPPLY_LOSS_PER_SOLDIER_ABOVE_LIMIT = 0.0025		# Each check's supply loss per every soldier over the province's supply limit
 	SUPPLY_LOSS_MINIMUM = 5							# This is the minimum supply limit loss (before commander effects)
-	SUPPLY_LOSS_MAXIMUM = 10						# This is the maximum supply limit loss (after commander effects)
-	SUPPLY_GAIN_BELOW_LIMIT = 20					# Each check's supply gain under or at the province's supply limit
-	SUPPLY_OWN_REALM = 0.15							# Extra supply within top realm
-	SUPPLY_OWN_SUB_REALM = 0.3						# Extra supply within subrealm
+	SUPPLY_LOSS_MAXIMUM = 100						# This is the maximum supply limit loss (after commander effects)
+	SUPPLY_GAIN_BELOW_LIMIT = 10					# Each check's supply gain under or at the province's supply limit
+	SUPPLY_OWN_REALM = 0.0							# Extra supply within top realm
+	SUPPLY_OWN_SUB_REALM = 0.0						# Extra supply within subrealm
 	#AGOT Modified to allow for extremely low supply limits
 	#MINIMUM_SUPPLY_LIMIT = 1000						# Supply limit will never ever be lower than this
 	MINIMUM_SUPPLY_LIMIT = 4						# Supply limit will never ever be lower than this
@@ -1079,12 +1079,12 @@ NCounty = {
 NProvince = {
 	#AGOT Modified, increase base supply limit to support bigger armies
 	# BASE_SUPPLY_LIMIT = 2000					# The unmodified base supply limit of a province
-	BASE_SUPPLY_LIMIT = 4000					# The unmodified base supply limit of a province
+	BASE_SUPPLY_LIMIT = 1000					# The unmodified base supply limit of a province
 	BARONY_BUILDING_SLOTS = 2
 	COUNTY_BUILDING_SLOTS = 3
 	#AGOT Modified, more supply per development since it's slower
 	# SUPPLY_PER_DEVELOPMENT = 150				# Each development adds this much sto the supply limit
-	SUPPLY_PER_DEVELOPMENT = 800				# Each development adds this much sto the supply limit
+	SUPPLY_PER_DEVELOPMENT = 150				# Each development adds this much sto the supply limit
 	ACROSS_WATER_PROVINCE_MAX_DISTANCE = 2		# Maximum number of (traversable) water provinces between provinces to be considered "connected across water"
 	WINTER_LEVEL_THRESHOLD_MILD = 0.2			# Determines when the mild winter level takes effect, should be a value between 0.0 .. 1.0
 	WINTER_LEVEL_THRESHOLD_NORMAL = 0.5			# Determines when the normal winter level takes effect, which ranges between WINTER_LEVEL_THRESHOLD_MILD .. 1.0

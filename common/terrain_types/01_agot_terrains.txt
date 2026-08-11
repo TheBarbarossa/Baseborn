@@ -1,0 +1,1946 @@
+﻿@provisions_cost_minimal = 25
+@provisions_cost_light = 50
+@provisions_cost_medium = 80
+@provisions_cost_high = 100
+@provisions_cost_extreme = 150
+
+majorroad_plains = {
+	color = hsv { 0.1 0.5 0.8 }
+	travel_danger_color = hsv { 0.1 0.5 0.8 }
+	travel_danger_score = majorroad_plains_danger_value
+	provision_cost = @provisions_cost_minimal
+	county_fertility = 28
+
+	province_modifier = {
+		supply_limit_mult = 0.5
+		travel_danger = majorroad_plains_danger_value
+		county_fertility_growth_add = plains_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.1
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_plains
+		image = defender_majorroad_plains
+		advantage = 0
+	}
+
+	movement_speed = 2.00
+	combat_width = 1.00
+
+	audio_parameter = 1.00
+}
+minorroad_plains = {
+	color = hsv { 0.1 0.5 0.8 }
+	travel_danger_color = hsv { 0.1 0.5 0.8 }
+	travel_danger_score = minorroad_plains_danger_value
+	provision_cost = @provisions_cost_minimal
+	county_fertility = 30
+
+	province_modifier = {
+		supply_limit_mult = 0.25
+		travel_danger = minorroad_plains_danger_value
+		county_fertility_growth_add = plains_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.05
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_plains
+		image = defender_minorroad_plains
+		advantage = 0
+	}
+
+	movement_speed = 1.50
+	combat_width = 1.00
+
+	audio_parameter = 1.00
+}
+majorroad_farmlands = {
+	color = hsv { 0 1 1 }
+	travel_danger_color = hsv { 0 1 1 }
+	travel_danger_score = majorroad_farmlands_danger_value
+	provision_cost = @provisions_cost_minimal
+	county_fertility = 38
+
+	province_modifier = {
+		supply_limit_mult = 0.75
+		travel_danger = majorroad_farmlands_danger_value
+		county_fertility_growth_add = farmlands_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.3
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_farmlands
+		image = defender_majorroad_farmlands
+		advantage = 0
+	}
+
+	movement_speed = 2.00
+	combat_width = 1.00
+
+	audio_parameter = 1.00
+}
+minorroad_farmlands = {
+	color = hsv { 0 1 1 }
+	travel_danger_color = hsv { 0 1 1 }
+	travel_danger_score = minorroad_farmlands_danger_value
+	provision_cost = @provisions_cost_minimal
+	county_fertility = 40
+
+	province_modifier = {
+		supply_limit_mult = 0.40
+		travel_danger = minorroad_farmlands_danger_value
+		county_fertility_growth_add = farmlands_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.2
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_farmlands
+		image = defender_minorroad_farmlands
+		advantage = 0
+	}
+
+	movement_speed = 1.50
+	combat_width = 1.00
+
+	audio_parameter = 1.00
+}
+majorroad_hills = {
+	color = hsv { 29 0.867 0.353 }
+	travel_danger_color = hsv { 29 0.867 0.353 }
+	travel_danger_score = majorroad_hills_danger_value
+	provision_cost = @provisions_cost_light
+	county_fertility = 18
+
+	province_modifier = {
+		supply_limit_mult = 0.40
+		travel_danger = majorroad_hills_danger_value
+		county_fertility_growth_add = hills_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.08
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_hills
+		image = defender_majorroad_hills
+		advantage = 5
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.075
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.15
+	}
+
+	movement_speed = 1.60
+	combat_width = 0.80
+
+	audio_parameter = 1.00
+}
+minorroad_hills = {
+	color = hsv { 29 0.867 0.353 }
+	travel_danger_color = hsv { 29 0.867 0.353 }
+	travel_danger_score = minorroad_hills_danger_value
+	provision_cost = @provisions_cost_light
+	county_fertility = 20
+
+	province_modifier = {
+		supply_limit_mult = 0.15
+		travel_danger = minorroad_hills_danger_value
+		county_fertility_growth_add = hills_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.03
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_hills
+		image = defender_minorroad_hills
+		advantage = 5
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.075
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.15
+	}
+
+	movement_speed = 1.20
+	combat_width = 0.80
+
+	audio_parameter = 1.00
+}
+majorroad_mountains = {
+	color = hsv { 0 0 0.392 }
+	travel_danger_color = hsv { 0 0 0.392 }
+	travel_danger_score = majorroad_mountains_danger_value
+	provision_cost = @provisions_cost_light
+	county_fertility = 13
+
+	province_modifier = {
+		supply_limit_mult = 0.15
+		travel_danger = majorroad_mountains_danger_value
+		county_fertility_growth_add = mountains_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.05
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_mountains
+		image = defender_majorroad_mountains
+		advantage = 12
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.15
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.3
+	}
+
+	movement_speed = 1.00
+	combat_width = 0.50
+
+	audio_parameter = 6.00
+}
+minorroad_mountains = {
+	color = hsv { 0 0 0.392 }
+	travel_danger_color = hsv { 0 0 0.392 }
+	travel_danger_score = minorroad_mountains_danger_value
+	provision_cost = @provisions_cost_medium
+	county_fertility = 15
+
+	province_modifier = {
+		supply_limit_mult = -0.40
+		travel_danger = minorroad_mountains_danger_value
+		county_fertility_growth_add = mountains_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.00
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_mountains
+		image = defender_minorroad_mountains
+		advantage = 12
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.15
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.3
+	}
+
+	movement_speed = 0.75
+	combat_width = 0.50
+
+	audio_parameter = 6.00
+}
+majorroad_desert = {
+	color = hsv { 0.15 1 1 }
+	travel_danger_color = hsv { 0.15 1 1 }
+	travel_danger_score = majorroad_desert_danger_value
+	provision_cost = @provisions_cost_medium
+	county_fertility = 18
+
+	province_modifier = {
+		supply_limit_mult = 0.10
+		travel_danger = majorroad_desert_danger_value
+		county_fertility_growth_add = desert_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.00
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_desert
+		image = defender_majorroad_desert
+		advantage = 0
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.25
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.5
+	}
+
+	movement_speed = 1.40
+	combat_width = 1.00
+
+	audio_parameter = 2.00
+}
+minorroad_desert = {
+	color = hsv { 0.15 1 1 }
+	travel_danger_color = hsv { 0.15 1 1 }
+	travel_danger_score = minorroad_desert_danger_value
+	provision_cost = @provisions_cost_high
+	county_fertility = 20
+
+	province_modifier = {
+		supply_limit_mult = -0.60
+		travel_danger = minorroad_desert_danger_value
+		county_fertility_growth_add = desert_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = -0.25
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_desert
+		image = defender_minorroad_desert
+		advantage = 0
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.25
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.5
+	}
+
+	movement_speed = 1.05
+	combat_width = 1.00
+
+	audio_parameter = 2.00
+}
+majorroad_desert_mountains = {
+	color = hsv { 0.7 0.5 0.15 }
+	travel_danger_color = hsv { 0.7 0.5 0.15 }
+	travel_danger_score = majorroad_desert_mountains_danger_value
+	provision_cost = @provisions_cost_high
+	county_fertility = 18
+
+	province_modifier = {
+		supply_limit_mult = 0.15
+		travel_danger = majorroad_desert_mountains_danger_value
+		county_fertility_growth_add = desert_mountains_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.00
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_desert_mountains
+		image = defender_majorroad_desert_mountains
+		advantage = 12
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.15
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.3
+	}
+
+	movement_speed = 1.00
+	combat_width = 0.50
+
+	audio_parameter = 7.00
+}
+minorroad_desert_mountains = {
+	color = hsv { 0.7 0.5 0.15 }
+	travel_danger_color = hsv { 0.7 0.5 0.15 }
+	travel_danger_score = minorroad_desert_mountains_danger_value
+	provision_cost = @provisions_cost_extreme
+	county_fertility = 20
+
+	province_modifier = {
+		supply_limit_mult = -0.40
+		travel_danger = minorroad_desert_mountains_danger_value
+		county_fertility_growth_add = desert_mountains_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = -0.25
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_desert_mountains
+		image = defender_minorroad_desert_mountains
+		advantage = 12
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.15
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.3
+	}
+
+	movement_speed = 0.75
+	combat_width = 0.50
+
+	audio_parameter = 7.00
+}
+majorroad_oasis = {
+	color = hsv { 0.7 0.3 0.8 }
+	travel_danger_color = hsv { 0.7 0.3 0.8 }
+	travel_danger_score = majorroad_oasis_danger_value
+	provision_cost = @provisions_cost_medium
+	county_fertility = 28
+
+	province_modifier = {
+		supply_limit_mult = 0.40
+		travel_danger = majorroad_oasis_danger_value
+		county_fertility_growth_add = oasis_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.15
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_oasis
+		image = defender_majorroad_oasis
+		advantage = 0
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.25
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.5
+	}
+
+	movement_speed = 2.00
+	combat_width = 1.00
+
+	audio_parameter = 10.00
+}
+minorroad_oasis = {
+	color = hsv { 0.7 0.3 0.8 }
+	travel_danger_color = hsv { 0.7 0.3 0.8 }
+	travel_danger_score = minorroad_oasis_danger_value
+	provision_cost = @provisions_cost_medium
+	county_fertility = 30
+
+	province_modifier = {
+		supply_limit_mult = 0.15
+		travel_danger = minorroad_oasis_danger_value
+		county_fertility_growth_add = oasis_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.1
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_oasis
+		image = defender_minorroad_oasis
+		advantage = 0
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.25
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.5
+	}
+
+	movement_speed = 1.50
+	combat_width = 1.00
+
+	audio_parameter = 10.00
+}
+majorroad_jungle = {
+	color = { 10 60 35 }
+	travel_danger_color = { 10 60 35 }
+	travel_danger_score = majorroad_jungle_danger_value
+	provision_cost = @provisions_cost_light
+	county_fertility = 12
+
+	province_modifier = {
+		supply_limit_mult = 0.25
+		travel_danger = majorroad_jungle_danger_value
+		county_fertility_growth_add = jungle_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.02
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_jungle
+		image = defender_majorroad_jungle
+		advantage = 6
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.2
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.4
+	}
+
+	movement_speed = 1.00
+	combat_width = 0.70
+
+	audio_parameter = 8.00
+}
+minorroad_jungle = {
+	color = { 10 60 35 }
+	travel_danger_color = { 10 60 35 }
+	travel_danger_score = minorroad_jungle_danger_value
+	provision_cost = @provisions_cost_medium
+	county_fertility = 10
+
+	province_modifier = {
+		supply_limit_mult = -0.10
+		travel_danger = minorroad_jungle_danger_value
+		county_fertility_growth_add = jungle_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = -0.15
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_jungle
+		image = defender_minorroad_jungle
+		advantage = 6
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.2
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.4
+	}
+
+	movement_speed = 0.75
+	combat_width = 0.70
+
+	audio_parameter = 8.00
+}
+majorroad_forest = {
+	color = hsv { 0.3 0.75 0.7 }
+	travel_danger_color = hsv { 0.3 0.75 0.7 }
+	travel_danger_score = majorroad_forest_danger_value
+	provision_cost = @provisions_cost_light
+	county_fertility = 17
+
+	province_modifier = {
+		supply_limit_mult = 0.40
+		travel_danger = majorroad_forest_danger_value
+		county_fertility_growth_add = forest_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.08
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_forest
+		image = defender_majorroad_forest
+		advantage = 3
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.2
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.4
+	}
+
+	movement_speed = 1.60
+	combat_width = 0.90
+
+	audio_parameter = 4.00
+}
+minorroad_forest = {
+	color = hsv { 0.3 0.75 0.7 }
+	travel_danger_color = hsv { 0.3 0.75 0.7 }
+	travel_danger_score = minorroad_forest_danger_value
+	provision_cost = @provisions_cost_medium
+	county_fertility = 15
+
+	province_modifier = {
+		supply_limit_mult = 0.15
+		travel_danger = minorroad_forest_danger_value
+		county_fertility_growth_add = forest_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.03
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_forest
+		image = defender_minorroad_forest
+		advantage = 3
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.2
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.4
+	}
+
+	movement_speed = 1.20
+	combat_width = 0.90
+
+	audio_parameter = 4.00
+}
+majorroad_taiga = {
+	color = hsv { 0.4 0.7 0.6 }
+	travel_danger_color = hsv { 0.4 0.7 0.6 }
+	travel_danger_score = majorroad_taiga_danger_value
+	provision_cost = @provisions_cost_medium
+	county_fertility = 13
+
+	province_modifier = {
+		supply_limit_mult = 0.30
+		travel_danger = majorroad_taiga_danger_value
+		county_fertility_growth_add = taiga_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.04
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_taiga
+		image = defender_majorroad_taiga
+		advantage = 4
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.2
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.4
+	}
+
+	movement_speed = 1.60
+	combat_width = 0.80
+
+	audio_parameter = 9.00
+}
+minorroad_taiga = {
+	color = hsv { 0.4 0.7 0.6 }
+	travel_danger_color = hsv { 0.4 0.7 0.6 }
+	travel_danger_score = minorroad_taiga_danger_value
+	provision_cost = @provisions_cost_high
+	county_fertility = 15
+
+	province_modifier = {
+		supply_limit_mult = 0.075
+		travel_danger = minorroad_taiga_danger_value
+		county_fertility_growth_add = taiga_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = -0.05
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_taiga
+		image = defender_minorroad_taiga
+		advantage = 4
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.2
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.4
+	}
+
+	movement_speed = 1.20
+	combat_width = 0.80
+
+	audio_parameter = 9.00
+}
+majorroad_wetlands = {
+	color = hsv { 0.5 0.5 0.6 }
+	travel_danger_color = hsv { 0.5 0.5 0.6 }
+	travel_danger_score = majorroad_wetlands_danger_value
+	provision_cost = @provisions_cost_medium
+	county_fertility = 18
+
+	province_modifier = {
+		supply_limit_mult = 0.30
+		travel_danger = majorroad_wetlands_danger_value
+		county_fertility_growth_add = wetlands_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.05
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_wetlands
+		image = defender_majorroad_wetlands
+		advantage = 5
+	}
+
+	attacker_modifier = {
+		hard_casualty_modifier = 0.2
+		retreat_losses = 0.25
+	}
+
+	defender_modifier = {
+		hard_casualty_modifier = 0.2
+		retreat_losses = 0.25
+	}
+
+	movement_speed = 1.40
+	combat_width = 0.60
+
+	audio_parameter = 3.00
+}
+minorroad_wetlands = {
+	color = hsv { 0.5 0.5 0.6 }
+	travel_danger_color = hsv { 0.5 0.5 0.6 }
+	travel_danger_score = minorroad_wetlands_danger_value
+	provision_cost = @provisions_cost_medium
+	county_fertility = 20
+
+	province_modifier = {
+		supply_limit_mult = 0.075
+		travel_danger = minorroad_wetlands_danger_value
+		county_fertility_growth_add = wetlands_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.00
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_wetlands
+		image = defender_minorroad_wetlands
+		advantage = 5
+	}
+
+	attacker_modifier = {
+		hard_casualty_modifier = 0.2
+		retreat_losses = 0.25
+	}
+
+	defender_modifier = {
+		hard_casualty_modifier = 0.2
+		retreat_losses = 0.25
+	}
+
+	movement_speed = 1.05
+	combat_width = 0.60
+
+	audio_parameter = 3.00
+}
+majorroad_steppe = {
+	color = { 200 100 25 }
+	travel_danger_color = { 200 100 25 }
+	travel_danger_score = majorroad_steppe_danger_value
+	provision_cost = @provisions_cost_light
+	county_fertility = 28
+
+	province_modifier = {
+		supply_limit_mult = 0.5
+		travel_danger = majorroad_steppe_danger_value
+		county_fertility_growth_add = steppe_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.04
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_steppe
+		image = defender_majorroad_steppe
+		advantage = 0
+	}
+
+	movement_speed = 2.00
+	combat_width = 1.00
+
+	audio_parameter = 5.00
+}
+minorroad_steppe = {
+	color = { 200 100 25 }
+	travel_danger_color = { 200 100 25 }
+	travel_danger_score = minorroad_steppe_danger_value
+	provision_cost = @provisions_cost_medium
+	county_fertility = 30
+
+	province_modifier = {
+		supply_limit_mult = 0.25
+		travel_danger = minorroad_steppe_danger_value
+		county_fertility_growth_add = steppe_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = -0.05
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_steppe
+		image = defender_minorroad_steppe
+		advantage = 0
+	}
+
+	movement_speed = 1.50
+	combat_width = 1.00
+
+	audio_parameter = 5.00
+}
+majorroad_floodplains = {
+	color = hsv { 0.7 0.8 0.6 }
+	travel_danger_color = hsv { 0.7 0.8 0.6 }
+	travel_danger_score = majorroad_floodplains_danger_value
+	provision_cost = @provisions_cost_minimal
+	county_fertility = 28
+
+	province_modifier = {
+		supply_limit_mult = 0.6
+		travel_danger = majorroad_floodplains_danger_value
+		county_fertility_growth_add = floodplains_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.3
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_floodplains
+		image = defender_majorroad_floodplains
+		advantage = 0
+	}
+
+	attacker_modifier = {
+		retreat_losses = 0.15
+	}
+
+	defender_modifier = {
+		retreat_losses = 0.15
+	}
+
+	movement_speed = 2.00
+	combat_width = 0.75
+
+	audio_parameter = 2.00
+}
+minorroad_floodplains = {
+	color = hsv { 0.7 0.8 0.6 }
+	travel_danger_color = hsv { 0.7 0.8 0.6 }
+	travel_danger_score = minorroad_floodplains_danger_value
+	provision_cost = @provisions_cost_minimal
+	county_fertility = 30
+
+	province_modifier = {
+		supply_limit_mult = 0.35
+		travel_danger = minorroad_floodplains_danger_value
+		county_fertility_growth_add = floodplains_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.2
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_floodplains
+		image = defender_minorroad_floodplains
+		advantage = 0
+	}
+
+	attacker_modifier = {
+		retreat_losses = 0.15
+	}
+
+	defender_modifier = {
+		retreat_losses = 0.15
+	}
+
+	movement_speed = 1.50
+	combat_width = 0.75
+
+	audio_parameter = 2.00
+}
+majorroad_drylands = {
+	color = { 220 45 120 }
+	travel_danger_color = { 220 45 120 }
+	travel_danger_score = majorroad_drylands_danger_value
+	provision_cost = @provisions_cost_medium
+	county_fertility = 23
+
+	province_modifier = {
+		supply_limit_mult = 0.25
+		travel_danger = majorroad_drylands_danger_value
+		county_fertility_growth_add = drylands_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.02
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_drylands
+		image = defender_majorroad_drylands
+		advantage = 0
+	}
+
+	movement_speed = 2.00
+	combat_width = 1.00
+
+	audio_parameter = 1.00
+}
+minorroad_drylands = {
+	color = { 220 45 120 }
+	travel_danger_color = { 220 45 120 }
+	travel_danger_score = minorroad_drylands_danger_value
+	provision_cost = @provisions_cost_medium
+	county_fertility = 25
+
+	province_modifier = {
+		supply_limit_mult = -0.1
+		travel_danger = minorroad_drylands_danger_value
+		county_fertility_growth_add = drylands_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = -0.15
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_drylands
+		image = defender_minorroad_drylands
+		advantage = 0
+	}
+
+	movement_speed = 1.50
+	combat_width = 1.00
+
+	audio_parameter = 1.00
+}
+frozen_flats = {
+	color = { 116 201 237 }
+	travel_danger_color = { 116 201 237 }
+	travel_danger_score = frozen_flats_danger_value
+	provision_cost = @provisions_cost_extreme
+	county_fertility = 10
+
+	province_modifier = {
+		supply_limit_mult = -0.80
+		travel_danger = frozen_flats_danger_value
+		county_fertility_growth_add = frozen_flats_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = -0.50
+	}
+
+	defender_combat_effects = {
+		name = combat_frozen_flats
+		image = defender_frozen_flats
+		advantage = 0
+	}
+
+	movement_speed = 0.80
+	combat_width = 1.00
+
+	audio_parameter = 1.00
+}
+majorroad_frozen_flats = {
+	color = { 116 201 237 }
+	travel_danger_color = { 116 201 237 }
+	travel_danger_score = majorroad_frozen_flats_danger_value
+	provision_cost = @provisions_cost_high
+	county_fertility = 8
+
+	province_modifier = {
+		supply_limit_mult = 0.20
+		travel_danger = majorroad_frozen_flats_danger_value
+		county_fertility_growth_add = frozen_flats_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.00
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_frozen_flats
+		image = defender_majorroad_frozen_flats
+		advantage = 0
+	}
+
+	movement_speed = 1.60
+	combat_width = 1.00
+
+	audio_parameter = 1.00
+}
+minorroad_frozen_flats = {
+	color = { 116 201 237 }
+	travel_danger_color = { 116 201 237 }
+	travel_danger_score = minorroad_frozen_flats_danger_value
+	provision_cost = @provisions_cost_extreme
+	county_fertility = 10
+
+	province_modifier = {
+		supply_limit_mult = -0.20
+		travel_danger = minorroad_frozen_flats_danger_value
+		county_fertility_growth_add = frozen_flats_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = -0.25
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_frozen_flats
+		image = defender_minorroad_frozen_flats
+		advantage = 0
+	}
+
+	movement_speed = 1.20
+	combat_width = 1.00
+
+	audio_parameter = 1.00
+}
+glacier = {
+	color = { 7 170 240 }
+	travel_danger_color = { 7 170 240 }
+	travel_danger_score = glacier_danger_value
+	provision_cost = @provisions_cost_extreme
+	county_fertility = 5
+
+	province_modifier = {
+		supply_limit_mult = -0.90
+		travel_danger = glacier_danger_value
+		county_fertility_growth_add = glacier_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = -0.70
+	}
+
+	defender_combat_effects = {
+		name = combat_glacier
+		image = defender_glacier
+		advantage = 6
+	}
+
+	attacker_modifier = {
+		hard_casualty_modifier = 0.3
+		retreat_losses = 0.4
+	}
+
+	defender_modifier = {
+		hard_casualty_modifier = 0.3
+		retreat_losses = 0.4
+	}
+
+	movement_speed = 0.30
+	combat_width = 0.30
+
+	audio_parameter = 1.00
+}
+majorroad_glacier = {
+	color = { 7 170 240 }
+	travel_danger_color = { 7 170 240 }
+	travel_danger_score = majorroad_glacier_danger_value
+	provision_cost = @provisions_cost_high
+	county_fertility = 3
+
+	province_modifier = {
+		supply_limit_mult = 0.10
+		travel_danger = majorroad_glacier_danger_value
+		county_fertility_growth_add = glacier_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = -0.20
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_glacier
+		image = defender_majorroad_glacier
+		advantage = 6
+	}
+
+	attacker_modifier = {
+		hard_casualty_modifier = 0.3
+		retreat_losses = 0.4
+	}
+
+	defender_modifier = {
+		hard_casualty_modifier = 0.3
+		retreat_losses = 0.4
+	}
+
+	movement_speed = 0.60
+	combat_width = 0.30
+
+	audio_parameter = 1.00
+}
+minorroad_glacier = {
+	color = { 7 170 240 }
+	travel_danger_color = { 7 170 240 }
+	travel_danger_score = minorroad_glacier_danger_value
+	provision_cost = @provisions_cost_extreme
+	county_fertility = 5
+
+	province_modifier = {
+		supply_limit_mult = -0.60
+		travel_danger = minorroad_glacier_danger_value
+		county_fertility_growth_add = glacier_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = -0.45
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_glacier
+		image = defender_minorroad_glacier
+		advantage = 6
+	}
+
+	attacker_modifier = {
+		hard_casualty_modifier = 0.3
+		retreat_losses = 0.4
+	}
+
+	defender_modifier = {
+		hard_casualty_modifier = 0.3
+		retreat_losses = 0.4
+	}
+
+	movement_speed = 0.45
+	combat_width = 0.30
+
+	audio_parameter = 1.00
+}
+canyon = {
+	color = { 245 136 73 }
+	travel_danger_color = { 245 136 73 }
+	travel_danger_score = canyon_danger_value
+	provision_cost = @provisions_cost_medium
+	county_fertility = 15
+
+	province_modifier = {
+		supply_limit_mult = -0.80
+		travel_danger = canyon_danger_value
+		county_fertility_growth_add = canyon_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = -0.20
+	}
+
+	defender_combat_effects = {
+		name = combat_canyon
+		image = defender_canyon
+		advantage = 10
+	}
+
+	movement_speed = 0.60
+	combat_width = 0.50
+
+	audio_parameter = 1.00
+}
+majorroad_canyon = {
+	color = { 245 136 73 }
+	travel_danger_color = { 245 136 73 }
+	travel_danger_score = majorroad_canyon_danger_value
+	provision_cost = @provisions_cost_light
+	county_fertility = 13
+
+	province_modifier = {
+		supply_limit_mult = 0.20
+		travel_danger = majorroad_canyon_danger_value
+		county_fertility_growth_add = canyon_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.06
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_canyon
+		image = defender_majorroad_canyon
+		advantage = 10
+	}
+
+	movement_speed = 1.20
+	combat_width = 0.50
+
+	audio_parameter = 1.00
+}
+minorroad_canyon = {
+	color = { 245 136 73 }
+	travel_danger_color = { 245 136 73 }
+	travel_danger_score = minorroad_canyon_danger_value
+	provision_cost = @provisions_cost_light
+	county_fertility = 15
+
+	province_modifier = {
+		supply_limit_mult = -0.20
+		travel_danger = minorroad_canyon_danger_value
+		county_fertility_growth_add = canyon_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.01
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_canyon
+		image = defender_minorroad_canyon
+		advantage = 10
+	}
+
+	movement_speed = 0.90
+	combat_width = 0.50
+
+	audio_parameter = 1.00
+}
+cloudforest = {
+	color = { 1 50 30 }
+	travel_danger_color = { 1 50 30 }
+	travel_danger_score = cloudforest_danger_value
+	provision_cost = @provisions_cost_medium
+	county_fertility = 10
+
+	province_modifier = {
+		supply_limit_mult = -0.60
+		travel_danger = cloudforest_danger_value
+		county_fertility_growth_add = cloudforest_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = -0.20
+	}
+
+	defender_combat_effects = {
+		name = combat_cloudforest
+		image = defender_cloudforest
+		advantage = 8
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.2
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.4
+	}
+
+	movement_speed = 0.70
+	combat_width = 0.80
+
+	audio_parameter = 4.00
+}
+majorroad_cloudforest = {
+	color = { 1 50 30 }
+	travel_danger_color = { 1 50 30 }
+	travel_danger_score = majorroad_cloudforest_danger_value
+	provision_cost = @provisions_cost_medium
+	county_fertility = 12
+
+	province_modifier = {
+		supply_limit_mult = 0.30
+		travel_danger = majorroad_cloudforest_danger_value
+		county_fertility_growth_add = cloudforest_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.06
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_cloudforest
+		image = defender_majorroad_cloudforest
+		advantage = 8
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.2
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.4
+	}
+
+	movement_speed = 1.40
+	combat_width = 0.80
+
+	audio_parameter = 4.00
+}
+minorroad_cloudforest = {
+	color = { 1 50 30 }
+	travel_danger_color = { 1 50 30 }
+	travel_danger_score = minorroad_cloudforest_danger_value
+	provision_cost = @provisions_cost_medium
+	county_fertility = 10
+
+	province_modifier = {
+		supply_limit_mult = 0.05
+		travel_danger = minorroad_cloudforest_danger_value
+		county_fertility_growth_add = cloudforest_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.01
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_cloudforest
+		image = defender_minorroad_cloudforest
+		advantage = 8
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.2
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.4
+	}
+
+	movement_speed = 1.05
+	combat_width = 0.80
+
+	audio_parameter = 4.00
+}
+highlands = {
+	color = { 13 138 7 }
+	travel_danger_color = { 13 138 7 }
+	travel_danger_score = highlands_danger_value
+	provision_cost = @provisions_cost_medium
+	county_fertility = 20
+
+	province_modifier = {
+		supply_limit_mult = -0.50
+		travel_danger = highlands_danger_value
+		county_fertility_growth_add = highlands_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = -0.30
+	}
+
+	defender_combat_effects = {
+		name = combat_highlands
+		image = defender_highlands
+		advantage =0
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.3
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.3
+	}
+
+	movement_speed = 0.80
+	combat_width = 1.00
+
+	audio_parameter = 4.00
+}
+majorroad_highlands = {
+	color = { 13 138 7 }
+	travel_danger_color = { 13 138 7 }
+	travel_danger_score = majorroad_highlands_danger_value
+	provision_cost = @provisions_cost_minimal
+	county_fertility = 18
+
+	province_modifier = {
+		supply_limit_mult = 0.30
+		travel_danger = majorroad_highlands_danger_value
+		county_fertility_growth_add = highlands_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.04
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_highlands
+		image = defender_majorroad_highlands
+		advantage = 0
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.3
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.3
+	}
+
+	movement_speed = 1.60
+	combat_width = 1.00
+
+	audio_parameter = 4.00
+}
+minorroad_highlands = {
+	color = { 13 138 7 }
+	travel_danger_color = { 13 138 7 }
+	travel_danger_score = minorroad_highlands_danger_value
+	provision_cost = @provisions_cost_light
+	county_fertility = 20
+
+	province_modifier = {
+		supply_limit_mult = 0.10
+		travel_danger = minorroad_highlands_danger_value
+		county_fertility_growth_add = highlands_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = -0.05
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_highlands
+		image = defender_minorroad_highlands
+		advantage = 0
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.3
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.3
+	}
+
+	movement_speed = 1.20
+	combat_width = 1.00
+
+	audio_parameter = 4.00
+}
+taiga_bog = {
+	color = { 11 43 11 }
+	travel_danger_color = { 11 43 11 }
+	travel_danger_score = taiga_bog_danger_value
+	provision_cost = @provisions_cost_high
+	county_fertility = 10
+
+	province_modifier = {
+		supply_limit_mult = -0.80
+		travel_danger = taiga_bog_danger_value
+		county_fertility_growth_add = taiga_bog_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = -0.50
+	}
+
+	defender_combat_effects = {
+		name = combat_taiga_bog
+		image = defender_taiga_bog
+		advantage = 12
+	}
+
+	attacker_modifier = {
+		hard_casualty_modifier = 0.2
+		retreat_losses = 0.5
+	}
+
+	defender_modifier = {
+		hard_casualty_modifier = 0.2
+		retreat_losses = 0.5
+	}
+
+	movement_speed = 0.40
+	combat_width = 0.80
+
+	audio_parameter = 4.00
+}
+majorroad_taiga_bog = {
+	color = { 11 43 11 }
+	travel_danger_color = { 11 43 11 }
+	travel_danger_score = majorroad_taiga_bog_danger_value
+	provision_cost = @provisions_cost_light
+	county_fertility = 12
+
+	province_modifier = {
+		supply_limit_mult = 0.30
+		travel_danger = majorroad_taiga_bog_danger_value
+		county_fertility_growth_add = taiga_bog_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.00
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_taiga_bog
+		image = defender_majorroad_taiga_bog
+		advantage = 12
+	}
+
+	attacker_modifier = {
+		hard_casualty_modifier = 0.2
+		retreat_losses = 0.5
+	}
+
+	defender_modifier = {
+		hard_casualty_modifier = 0.2
+		retreat_losses = 0.5
+	}
+
+	movement_speed = 0.80
+	combat_width = 0.80
+
+	audio_parameter = 4.00
+}
+minorroad_taiga_bog = {
+	color = { 11 43 11 }
+	travel_danger_color = { 11 43 11 }
+	travel_danger_score = minorroad_taiga_bog_danger_value
+	provision_cost = @provisions_cost_medium
+	county_fertility = 10
+
+	province_modifier = {
+		supply_limit_mult = 0.05
+		travel_danger = minorroad_taiga_bog_danger_value
+		county_fertility_growth_add = taiga_bog_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = -0.25
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_taiga_bog
+		image = defender_minorroad_taiga_bog
+		advantage = 12
+	}
+
+	attacker_modifier = {
+		hard_casualty_modifier = 0.2
+		retreat_losses = 0.5
+	}
+
+	defender_modifier = {
+		hard_casualty_modifier = 0.2
+		retreat_losses = 0.5
+	}
+
+	movement_speed = 0.60
+	combat_width = 0.80
+
+	audio_parameter = 4.00
+}
+urban = {
+	color = { 184 129 114 }
+	travel_danger_color = { 184 129 114 }
+	travel_danger_score = urban_danger_value
+	provision_cost = @provisions_cost_minimal
+	county_fertility = 5
+
+	province_modifier = {
+		supply_limit_mult = 0.25
+		travel_danger = urban_danger_value
+		county_fertility_growth_add = urban_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.5
+	}
+
+	defender_combat_effects = {
+		name = combat_urban
+		image = defender_urban
+		advantage = 2
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.05
+	}
+
+	defender_modifier = {
+		retreat_losses = 0.4
+	}
+
+	movement_speed = 0.50
+	combat_width = 0.70
+
+	audio_parameter = 1.00
+}
+majorroad_urban = {
+	color = { 184 129 114 }
+	travel_danger_color = { 184 129 114 }
+	travel_danger_score = majorroad_urban_danger_value
+	provision_cost = @provisions_cost_minimal
+	county_fertility = 3
+
+	province_modifier = {
+		supply_limit_mult = 0.75
+		travel_danger = majorroad_urban_danger_value
+		county_fertility_growth_add = urban_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 1.0
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_urban
+		image = defender_majorroad_urban
+		advantage = 2
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.05
+	}
+
+	defender_modifier = {
+		retreat_losses = 0.4
+	}
+
+	movement_speed = 1.00
+	combat_width = 0.70
+
+	audio_parameter = 1.00
+}
+minorroad_urban = {
+	color = { 184 129 114 }
+	travel_danger_color = { 184 129 114 }
+	travel_danger_score = minorroad_urban_danger_value
+	provision_cost = @provisions_cost_minimal
+	county_fertility = 5
+
+	province_modifier = {
+		supply_limit_mult = 0.5
+		travel_danger = minorroad_urban_danger_value
+		county_fertility_growth_add = urban_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.75
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_urban
+		image = defender_minorroad_urban
+		advantage = 2
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.05
+	}
+
+	defender_modifier = {
+		retreat_losses = 0.4
+	}
+
+	movement_speed = 0.75
+	combat_width = 0.70
+
+	audio_parameter = 1.00
+}
+the_bog = {
+	color = { 1 20 20 }
+	travel_danger_color = { 1 20 20 }
+	travel_danger_score = the_bog_danger_value
+	provision_cost = @provisions_cost_extreme
+	county_fertility = 10
+
+	province_modifier = {
+		supply_limit_mult = -3.00
+		travel_danger = the_bog_danger_value
+		county_fertility_growth_add = the_bog_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = -0.60
+	}
+
+	defender_combat_effects = {
+		name = combat_the_bog
+		image = defender_the_bog
+		advantage = 5
+	}
+
+	attacker_modifier = {
+		hard_casualty_modifier = 0.2
+		retreat_losses = 0.5
+	}
+
+	defender_modifier = {
+		hard_casualty_modifier = 0.2
+		retreat_losses = 0.5
+	}
+
+	movement_speed = 0.50
+	combat_width = 0.10
+
+	audio_parameter = 3.00
+}
+majorroad_the_bog = {
+	color = { 1 20 20 }
+	travel_danger_color = { 1 20 20 }
+	travel_danger_score = majorroad_the_bog_danger_value
+	provision_cost = @provisions_cost_high
+	county_fertility = 12
+
+	province_modifier = {
+		supply_limit_mult = -2.00
+		travel_danger = majorroad_the_bog_danger_value
+		county_fertility_growth_add = the_bog_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = -0.10
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_the_bog
+		image = defender_majorroad_the_bog
+		advantage = 5
+	}
+
+	attacker_modifier = {
+		hard_casualty_modifier = 0.2
+		retreat_losses = 0.5
+	}
+
+	defender_modifier = {
+		hard_casualty_modifier = 0.2
+		retreat_losses = 0.5
+	}
+
+	movement_speed = 1.00
+	combat_width = 0.10
+
+	audio_parameter = 3.00
+}
+minorroad_the_bog = {
+	color = { 1 20 20 }
+	travel_danger_color = { 1 20 20 }
+	travel_danger_score = minorroad_the_bog_danger_value
+	provision_cost = @provisions_cost_extreme
+	county_fertility = 10
+
+	province_modifier = {
+		supply_limit_mult = -2.50
+		travel_danger = minorroad_the_bog_danger_value
+		county_fertility_growth_add = the_bog_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = -0.35
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_the_bog
+		image = defender_minorroad_the_bog
+		advantage = 5
+	}
+
+	attacker_modifier = {
+		hard_casualty_modifier = 0.2
+		retreat_losses = 0.5
+	}
+
+	defender_modifier = {
+		hard_casualty_modifier = 0.2
+		retreat_losses = 0.5
+	}
+
+	movement_speed = 0.75
+	combat_width = 0.10
+
+	audio_parameter = 3.00
+}
+hotsprings = {
+	color = { 0 100 255 }
+	travel_danger_color = { 0 100 255 }
+	travel_danger_score = hotsprings_danger_value
+	provision_cost = @provisions_cost_medium
+	county_fertility = 30
+
+	province_modifier = {
+		supply_limit_mult = 0.15
+		travel_danger = hotsprings_danger_value
+		county_fertility_growth_add = hotspring_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.10
+	}
+
+	defender_combat_effects = {
+		name = combat_hotsprings
+		image = defender_hotsprings
+		advantage = 0
+	}
+
+	movement_speed = 1.00
+	combat_width = 1.00
+
+	audio_parameter = 5.00
+}
+majorroad_hotsprings = {
+	color = { 0 100 255 }
+	travel_danger_color = { 0 100 255 }
+	travel_danger_score = majorroad_hotsprings_danger_value
+	provision_cost = @provisions_cost_medium
+	county_fertility = 28
+
+	province_modifier = {
+		supply_limit_mult = 0.5
+		travel_danger = majorroad_hotsprings_danger_value
+		county_fertility_growth_add = hotspring_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.14
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_hotsprings
+		image = defender_majorroad_hotsprings
+		advantage = 0
+	}
+
+	movement_speed = 2.00
+	combat_width = 1.00
+
+	audio_parameter = 5.00
+}
+minorroad_hotsprings = {
+	color = { 0 100 255 }
+	travel_danger_color = { 0 100 255 }
+	travel_danger_score = minorroad_hotsprings_danger_value
+	provision_cost = @provisions_cost_medium
+	county_fertility = 30
+
+	province_modifier = {
+		supply_limit_mult = 0.3
+		travel_danger = minorroad_hotsprings_danger_value
+		county_fertility_growth_add = hotspring_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.09
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_hotsprings
+		image = defender_minorroad_hotsprings
+		advantage = 0
+	}
+
+	movement_speed = 1.50
+	combat_width = 1.00
+
+	audio_parameter = 5.00
+}
+#AUH TODO
+majorroad_terraced_hills = {
+	color = hsv { 29 0.867 0.353 }
+	travel_danger_color = hsv { 29 0.867 0.353 }
+	travel_danger_score = majorroad_hills_danger_value
+	provision_cost = @provisions_cost_light
+	county_fertility = 18
+
+	province_modifier = {
+		supply_limit_mult = 0.4
+		travel_danger = majorroad_hills_danger_value
+		county_fertility_growth_add = hills_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.08
+	}
+
+	defender_combat_effects = {
+		name = combat_majorroad_hills
+		image = defender_majorroad_hills
+		advantage = 5
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.075
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.15
+	}
+
+	movement_speed = 1.60
+	combat_width = 0.80
+
+	audio_parameter = 1.00
+}
+minorroad_terraced_hills = {
+	color = hsv { 29 0.867 0.353 }
+	travel_danger_color = hsv { 29 0.867 0.353 }
+	travel_danger_score = minorroad_hills_danger_value
+	provision_cost = @provisions_cost_light
+	county_fertility = 20
+
+	province_modifier = {
+		supply_limit_mult = 0.15
+		travel_danger = minorroad_hills_danger_value
+		county_fertility_growth_add = hills_county_fertility_value
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = 0.03
+	}
+
+	defender_combat_effects = {
+		name = combat_minorroad_hills
+		image = defender_minorroad_hills
+		advantage = 5
+	}
+
+	attacker_modifier = {
+		retreat_losses = -0.075
+	}
+
+	defender_modifier = {
+		retreat_losses = -0.15
+	}
+
+	movement_speed = 1.20
+	combat_width = 0.80
+
+	audio_parameter = 1.00
+}
+
