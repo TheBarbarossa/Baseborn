@@ -4,9 +4,9 @@ Includes = {
 	
 	"jomini/map_lighting.fxh"
 	"jomini/jomini_fog.fxh"
-	# MOD(godherja)
+	# MOD(agot)
 	#"jomini/jomini_fog_of_war.fxh"
-	"gh_atmospheric.fxh"
+	"agot_atmospheric.fxh"
 	# END MOD
 	"jomini/jomini_mapobject.fxh"
 	"bordercolor.fxh"
@@ -18,12 +18,12 @@ Includes = {
 	"clouds.fxh"
 	"province_effects.fxh"
 	"standardfuncsgfx.fxh"
-	# MOD(godherja)
+	# MOD(agot)
 	"jomini/portrait_user_data.fxh"
-	"gh_portrait_constants.fxh"
-	"gh_portrait_decals_shared.fxh"
-	"gh_dynamic_terrain.fxh"
-	"gh_tree.fxh"
+	"agot_portrait_constants.fxh"
+	"agot_portrait_decals_shared.fxh"
+	"agot_dynamic_terrain.fxh"
+	"agot_tree.fxh"
 	# END MOD
 }
 
@@ -116,8 +116,8 @@ VertexStruct VS_OUTPUT_TREE
 	float3 	WorldSpacePos	: TEXCOORD5;
 	uint	InstanceIndex	: TEXCOORD6;
 	float3	Scale_Seed_Yaw	: TEXCOORD7;
-	# MOD(godherja)
-	int GH_TerrainVariantIndex : TEXCOORD8;
+	# MOD(agot)
+	int AGOT_TerrainVariantIndex : TEXCOORD8;
 	# END MOD
 }
 
@@ -154,12 +154,12 @@ VertexShader =
 			PDX_MAIN
 			{				
 				VS_OUTPUT_TREE Out = ConvertOutput( PdxMeshVertexShaderStandard( Input ) );
-				// MOD(godherja)
-				float4x4 GH_WorldMatrix = PdxMeshGetWorldMatrix(Input.InstanceIndices.y);
-				GH_RETRIEVE_AND_FILTER_TERRAIN_VARIANT(GH_WorldMatrix);
+				// MOD(agot)
+				float4x4 AGOT_WorldMatrix = PdxMeshGetWorldMatrix(Input.InstanceIndices.y);
+				AGOT_RETRIEVE_AND_FILTER_TERRAIN_VARIANT(AGOT_WorldMatrix);
 
 				//FinalizeOutput( Out, Input.InstanceIndices.y, PdxMeshGetWorldMatrix( Input.InstanceIndices.y ) );
-				FinalizeOutput( Out, Input.InstanceIndices.y, GH_WorldMatrix );
+				FinalizeOutput( Out, Input.InstanceIndices.y, AGOT_WorldMatrix );
 				// END MOD
 				return Out;
 			}
@@ -175,8 +175,8 @@ VertexShader =
 			{				
 				float4x4 WorldMatrix = UnpackAndGetMapObjectWorldMatrix( Input.InstanceIndex24_Opacity8 );
 				VS_OUTPUT_TREE Out = ConvertOutput( PdxMeshVertexShader( PdxMeshConvertInput( Input ), Input.InstanceIndex24_Opacity8, WorldMatrix ) );
-				// MOD(godherja)
-				GH_RETRIEVE_AND_FILTER_TERRAIN_VARIANT(WorldMatrix);
+				// MOD(agot)
+				AGOT_RETRIEVE_AND_FILTER_TERRAIN_VARIANT(WorldMatrix);
 				// END MOD
 				FinalizeOutput( Out, Input.InstanceIndex24_Opacity8, WorldMatrix );
 				return Out;
@@ -226,7 +226,7 @@ PixelShader =
 			clip( Alpha - AdjustedThreshold );
 		}
 
-		// MOD(godherja)
+		// MOD(agot)
 		//float3 CalculateLighting( float2 MapCoords, in VS_OUTPUT_TREE Input, in float4 Diffuse, in float3 Normal, in float4 Properties, in float SnowHighlight )
 		float3 CalculateLighting( float2 MapCoords, in VS_OUTPUT_TREE Input, in float4 Diffuse, in float3 Normal, in float4 Properties, in float SnowHighlight, in int TerrainVariantIndex )
 		// END MOD
@@ -268,7 +268,10 @@ PixelShader =
 				ApplyTreeDiseaseDiffuse( Color, MapCoords );
 			#endif
 
-			Color = GH_ApplyAtmosphericEffects( Color, WorldSpacePos, FogOfWarAlpha, GH_MakeAtmosphericEffectParamsGeneric(TerrainVariantIndex) );
+			// MOD(agot)
+			//Color = ApplyFogOfWar( Color, WorldSpacePos, FogOfWarAlpha );
+			Color = AGOT_ApplyAtmosphericEffects( Color, WorldSpacePos, FogOfWarAlpha, AGOT_MakeAtmosphericEffectParamsGeneric(TerrainVariantIndex) );
+			// END MOD
 			Color = ApplyMapDistanceFogWithoutFoW( Color, WorldSpacePos );
 
 			Color.rgb = lerp( Color.rgb, BorderColor, BorderPostLightingBlend );
@@ -340,8 +343,8 @@ PixelShader =
 				}
 
 				Diffuse.rgb = lerp( Diffuse.rgb, Diffuse.rgb * 1.5f, SnowHighlight );
-				// MOD(godherja)
-				Diffuse.rgb = ApplyDynamicMasksDiffuse( Diffuse.rgb, Normal, ColorMapCoords, SnowHighlight, Input.GH_TerrainVariantIndex );
+				// MOD(agot)
+				Diffuse.rgb = ApplyDynamicMasksDiffuse( Diffuse.rgb, Normal, ColorMapCoords, SnowHighlight, Input.AGOT_TerrainVariantIndex );
 				// END MOD
 #if defined( PDX_OSX ) && defined( PDX_OPENGL )
 				// The amount of texture samplers is limited on Mac, so we don't read the data for the ColorMap directly
@@ -353,9 +356,9 @@ PixelShader =
 #endif
 				Diffuse.rgb = Overlay( ColorMap, Diffuse.rgb );
 
-				// MOD(godherja)
+				// MOD(agot)
 				//float3 Color = CalculateLighting( ColorMapCoords, Input, Diffuse, Normal, Properties, SnowHighlight );
-				float3 Color = CalculateLighting( ColorMapCoords, Input, Diffuse, Normal, Properties, SnowHighlight, Input.GH_TerrainVariantIndex );
+				float3 Color = CalculateLighting( ColorMapCoords, Input, Diffuse, Normal, Properties, SnowHighlight, Input.AGOT_TerrainVariantIndex );
 				// END MOD
 				
 				return float4( Color, Diffuse.a );								

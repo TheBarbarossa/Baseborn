@@ -15,7 +15,13 @@ struct EffectIntensities
 	float _WetAutumn;
 	float _SnowNew;
 };
-
+Code
+[[
+	// MOD(agot)
+	// Moved out of the PixelShader section, since we now also happen to need it in vertex shaders.
+	static const float SKIP_VALUE = 0.001f;
+	// END MOD
+]]
 PixelShader =
 {
 	TextureSampler ProvinceEffectsNoise
@@ -45,8 +51,10 @@ PixelShader =
 		// #define DEBUG_PROVINCE_EFFECT_MASK_SNOWNEW
 
 		static const float3 UP_VECTOR = float3( 0.0f, 1.0f, 0.0f );
-		static const float SKIP_VALUE = 0.001f;
-
+		// MOD(agot)
+		// Moved out of the PixelShader section, since we now also happen to need it in vertex shaders.
+		//static const float SKIP_VALUE = 0.001f;
+		// END MOD
 		void DebugCondition( inout float3 Diffuse, EffectIntensities ConditionData )
 		{
 			#if defined( DEBUG_PROVINCE_EFFECT_MASK_DROUGHT )
