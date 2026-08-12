@@ -12,7 +12,6 @@ agot_seasons_start = {
 			value = yes
 		}
 		seasons_map_startup = yes
-		#set_AGOT_Season_Winter_Startup = yes
 	#	if = {
 		#	limit = {
 		#		has_game_rule = seasons_storm_enabled
@@ -30,10 +29,10 @@ agot_seasons_start = {
 	#	}
 		if = {
 			limit = { has_game_rule = agot_sandbox_seasons }
-			set_AGOT_season_spring_start = yes
+			set_AGOT_Season_Winter_Startup = yes
 			start_situation = {
 				type = agot_seasons
-				start_phase = seasons_spring_phase
+				start_phase = seasons_winter_phase
 				save_scope_as = seasons_situation_yay
 			}
 			set_global_variable = {
