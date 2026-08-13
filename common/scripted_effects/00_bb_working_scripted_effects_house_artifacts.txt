@@ -3980,6 +3980,10 @@ agot_create_artifact_baseborn_sunderland_artifact_effect = { # edited 08/12 slam
 			name = historical_unique_artifact
 			value = yes
 		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Sunderland.dynasty_founder.house
+		}
 		agot_add_artifact_history = {
 			ARTIFACT = this
 			TYPE = inherited
@@ -4051,6 +4055,10 @@ agot_create_artifact_baseborn_lynderly_artifact_effect = { # edited 08/12 slambr
 			name = historical_unique_artifact
 			value = yes
 		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Lynderly.dynasty_founder.house
+		}
 		agot_add_artifact_history = {
 			ARTIFACT = this
 			TYPE = inherited
@@ -4109,7 +4117,7 @@ agot_create_artifact_baseborn_lynderly_artifact_effect = { # edited 08/12 slambr
 
 	}
 }
-agot_create_artifact_baseborn_hersy_artifact_effect = {
+agot_create_artifact_baseborn_hersy_artifact_effect = { # edited 08/13 slambroski
 	$OWNER$ = {
 		save_scope_as = owner
 	}
@@ -4139,6 +4147,10 @@ agot_create_artifact_baseborn_hersy_artifact_effect = {
 		set_variable = {
 			name = historical_unique_artifact
 			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Hersy.dynasty_founder.house
 		}
 		agot_add_artifact_history = {
 			ARTIFACT = this
@@ -4204,7 +4216,7 @@ agot_create_artifact_baseborn_hersy_artifact_effect = {
 
 	}
 }
-agot_create_artifact_baseborn_hunter_artifact_effect = {
+agot_create_artifact_baseborn_hunter_artifact_effect = { # edited 08/13 slambroski
 	$OWNER$ = {
 		save_scope_as = owner
 	}
@@ -4234,6 +4246,10 @@ agot_create_artifact_baseborn_hunter_artifact_effect = {
 		set_variable = {
 			name = historical_unique_artifact
 			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Hunter.dynasty_founder.house
 		}
 		agot_add_artifact_history = {
 			ARTIFACT = this
@@ -4294,6 +4310,99 @@ agot_create_artifact_baseborn_hunter_artifact_effect = {
 			TYPE = inherited
 			DATE = 8086.1.1
 			RECIPIENT = character:Hunter_25 # Next user of the artfact
+		}
+
+
+	}
+}
+agot_create_artifact_baseborn_melcolm_artifact_effect = { # edited 08/12 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_melcolm_artifact_name
+		creator = character:Melcolm_6 # Remove this line from the code if the creator is unknown
+		description = baseborn_melcolm_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_melcolm_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7885.1.1 # Date the artifact was created
+			recipient = character:Melcolm_6 # First character to use the artifact
+			location = province:2372 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_melcolm_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Melcolm.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7890.1.1
+			RECIPIENT = character:Melcolm_48 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7910.1.1
+			RECIPIENT = character:Melcolm_51 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7945.1.1
+			RECIPIENT = character:Melcolm_53 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7976.1.1
+			RECIPIENT = character:Melcolm_54 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8004.1.1
+			RECIPIENT = character:Melcolm_56 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8015.1.1
+			RECIPIENT = character:Melcolm_61 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8057.1.1
+			RECIPIENT = character:Melcolm_14 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8085.1.1
+			RECIPIENT = character:Melcolm_15 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8095.1.1
+			RECIPIENT = character:Melcolm_16 # Next user of the artfact
 		}
 
 
