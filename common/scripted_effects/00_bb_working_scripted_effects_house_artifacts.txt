@@ -4109,6 +4109,101 @@ agot_create_artifact_baseborn_lynderly_artifact_effect = { # edited 08/12 slambr
 
 	}
 }
+agot_create_artifact_baseborn_hersy_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_hersy_artifact_name
+		creator = character:Hersy_12 # Remove this line from the code if the creator is unknown
+		description = baseborn_hersy_artifact_description
+		visuals = goblet
+		type = miscellaneous
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_hersy_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7857.1.1 # Date the artifact was created
+			recipient = character:Hersy_12 # First character to use the artifact
+			location = province:2650
+		}
+		modifier = baseborn_hersy_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7890.1.1
+			RECIPIENT = character:Hersy_14 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7927.1.1
+			RECIPIENT = character:Hersy_19 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7947.1.1
+			RECIPIENT = character:Hersy_26 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7973.1.1
+			RECIPIENT = character:Hersy_29 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7977.1.1
+			RECIPIENT = character:Hersy_32 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7996.1.1
+			RECIPIENT = character:Hersy_33 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8020.1.1
+			RECIPIENT = character:Hersy_35 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8055.1.1
+			RECIPIENT = character:Hersy_40 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8081.1.1
+			RECIPIENT = character:Hersy_43 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8085.1.1
+			RECIPIENT = character:Hersy_44 # Next user of the artfact
+		}
+
+
+	}
+}
 
 # agot_create_artifact_baseborn_mallister_artifact_effect = {
 #	$OWNER$ = {
