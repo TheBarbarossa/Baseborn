@@ -4782,6 +4782,99 @@ agot_create_artifact_baseborn_coldwater_artifact_effect = { # edited 08/13 slamb
 
 	}
 }
+agot_create_artifact_baseborn_egen_artifact_effect = { # edited 08/13 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_egen_artifact_name
+		creator = character:Egen_7 # Remove this line from the code if the creator is unknown
+		description = baseborn_egen_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_egen_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7871.1.1 # Date the artifact was created
+			recipient = character:Egen_7 # First character to use the artifact
+			location = province:2494 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_egen_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Egen.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7878.1.1
+			RECIPIENT = character:Egen_32 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7928.1.1
+			RECIPIENT = character:Egen_34 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7949.1.1
+			RECIPIENT = character:Egen_35 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7972.1.1
+			RECIPIENT = character:Egen_36 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7984.1.1
+			RECIPIENT = character:Egen_38 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8032.1.1
+			RECIPIENT = character:Egen_41 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8055.1.1
+			RECIPIENT = character:Egen_43 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8072.1.1
+			RECIPIENT = character:Egen_44 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8089.1.1
+			RECIPIENT = character:Egen_46 # Next user of the artfact
+		}
+
+
+	}
+}
 
 # agot_create_artifact_baseborn_mallister_artifact_effect = {
 #	$OWNER$ = {
