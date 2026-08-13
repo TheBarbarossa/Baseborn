@@ -1,0 +1,1085 @@
+﻿agot_birth_effects = {
+	hidden_effect = {
+		agot_assign_strong_seed_effect = yes
+		agot_birth_dynasty_effect = yes
+		agot_birth_magic_traits_effect = yes
+		agot_children_of_bastard_surname_effect = yes
+		agot_birth_random_traits_effect = yes
+		agot_heir_designation_effect = yes
+		agot_dragon_parent_effect = yes
+		agot_bittercringe_effect = yes
+		agot_dynastic_name_birth_effect = yes
+		agot_wildling_milk_name_birth_effect = yes
+	}
+}
+
+agot_birth_dynasty_effect = {
+	if = {
+		limit = {
+			exists = scope:child.dynasty
+			scope:child.dynasty = { has_dynasty_perk = umber_legacy_1 }
+			OR = { # The child must have a real parent of the Dynasty...
+				scope:mother.dynasty = scope:child.dynasty
+				scope:real_father.dynasty = scope:child.dynasty
+			}
+			NOR = {
+				has_trait = physique_good
+				has_trait = physique_bad
+			}
+		}
+		random = {
+			chance = blood_legacy_4_chance
+			add_trait = physique_good_1
+		}
+	}
+	if = {
+		limit = {
+			exists = scope:child.dynasty
+			scope:child.dynasty = { has_dynasty_modifier = valyrian_heritage_dynasty_modifier }
+			OR = { # The child must have a real parent of the Dynasty...
+				scope:mother.dynasty = scope:child.dynasty
+				scope:real_father.dynasty = scope:child.dynasty
+			}
+			NOR = {
+				has_trait = beauty_good
+				has_trait = beauty_bad
+			}
+		}
+		random = {
+			chance = blood_legacy_4_chance
+			add_trait = beauty_good_1
+		}
+	}
+	if = {
+		limit = {
+			exists = scope:child.dynasty
+			scope:child.dynasty = { has_dynasty_perk = borrell_legacy_1 }
+			OR = { # The child must have a real parent of the Dynasty...
+				scope:mother.dynasty = scope:child.dynasty
+				scope:real_father.dynasty = scope:child.dynasty
+			}
+		}
+		add_trait = the_mark
+	}
+	if = { #Added by Brad & Ultra & Thulius 05/08/2026 Dynastic Legacy for Westrosi Valyrians
+		limit = {
+			exists = scope:child.dynasty
+			scope:child.dynasty = { has_dynasty_perk = westerosi_valyrian_legacy_5 }
+			OR = { # The child must have a real parent of the Dynasty...
+				scope:mother.dynasty = scope:child.dynasty
+				scope:real_father.dynasty = scope:child.dynasty
+			}
+			NOR = {
+				has_trait = beauty_good
+				has_trait = beauty_bad
+			}
+		}
+		random = {
+			chance = blood_legacy_4_chance
+			add_trait = beauty_good_1
+		}
+	}
+}
+
+agot_birth_magic_traits_effect = {
+	random_list = {
+		9949 = {
+			#you win nothing sir, good day
+		}
+		50 = {
+			trigger = {
+				any_ancestor = {
+					dynasty ?= dynasty:dynn_Targaryen
+				}
+			}
+			modifier = {
+				dynasty ?= dynasty:dynn_Targaryen
+				factor = 5
+			}
+			modifier = {
+				culture = {
+					has_cultural_parameter = dragon_dreams_more_common
+				}
+				factor = 3
+			}
+			modifier = {
+				AND = {
+					mother.dynasty ?= dynasty:dynn_Targaryen
+					real_father.dynasty ?= dynasty:dynn_Targaryen
+				}
+				factor = 2
+			}
+			add_character_flag = dragon_dreams
+		}
+		1 = {
+			trigger = {
+				any_ancestor = {
+					OR = {
+						faith = { has_doctrine_parameter = increased_chance_of_greenseers }
+						culture = culture:crannogman
+					}
+				}
+			}
+			modifier = {
+				faith = { has_doctrine_parameter = increased_chance_of_greenseers }
+				factor = 5
+			}
+			modifier = {
+				culture = { has_cultural_parameter = greensight_more_common }
+				factor = 5
+			}
+			modifier = {
+				culture = { agot_is_wildling_culture = yes }
+				factor = 3
+			}
+			modifier = {
+				has_culture = culture:crannogman
+				factor = 50
+			}
+			modifier = {
+				AND = {
+					mother ?= {
+						OR = {
+							faith = { has_doctrine_parameter = increased_chance_of_greenseers }
+							culture = culture:crannogman
+							culture = { agot_is_wildling_culture = yes }
+						}
+					}
+					real_father ?= {
+						OR = {
+							faith = { has_doctrine_parameter = increased_chance_of_greenseers }
+							culture = culture:crannogman
+							culture = { agot_is_wildling_culture = yes }
+						}
+					}
+				}
+				factor = 2
+			}
+			add_character_flag = greensight
+		}
+	}
+}
+
+agot_birth_random_traits_effect = {
+	if = {
+		limit = {
+			OR = {
+				scope:child.faith = { has_doctrine_parameter = more_likely_born_with_mark }
+				scope:child.culture = { has_cultural_parameter = cul_more_likely_born_with_mark }
+			}
+		}
+		random_list = {
+			98 = {
+				#you win nothing sir, good day
+			}
+			2 = {
+				add_trait = the_mark
+			}
+		}
+	}
+}
+
+agot_heir_designation_effect = {
+	save_scope_as = potential_heir
+	if = {
+		limit = {
+			scope:father = character:Arryn_3
+			scope:is_bastard = no
+			exists = scope:father.designated_heir
+		}
+		#if the child dies it will snap back to Elbert's wife, let's try to avoid that
+		remove_trait = sickly
+		scope:father = { clear_designated_heir = yes }
+	}
+	else_if = {
+		limit = {
+			scope:father = character:Targaryen_60
+			character:Targaryen_60 = { has_character_flag = designated_rhaenyra_heir }
+			character:Targaryen_60.primary_heir = {
+				OR = {
+					this = character:Targaryen_63
+					this = scope:potential_heir
+				}
+			}
+			character:Targaryen_63 = { is_alive = yes }
+			is_alive = yes
+			is_male = yes
+			NOT = { has_trait = bastard }
+		}
+		character:Targaryen_60 = {
+			clear_designated_heir = yes
+			set_designated_heir = character:Targaryen_63
+			remove_character_flag = designated_rhaenyra_heir
+			if = {
+				limit = {
+					NOT = {
+						has_game_rule = agot_story_sandbox
+					}
+				}
+				trigger_event = {
+					id = agot_scenario_trp.1036
+					days = 1
+				}
+			}
+		}
+	}
+}
+
+agot_dragon_parent_effect = {
+	if = {
+		limit = {
+			OR = {
+				scope:real_father ?= { has_trait = dragon }
+				scope:mother ?= { has_trait = dragon }
+			}
+			NOT = { has_trait = dragon }
+		}
+		add_trait = scaly
+		if = {
+			limit = {
+				scope:real_father ?= {
+					has_trait = dragon
+				}
+			}
+			set_culture = scope:mother.culture
+			set_character_faith = scope:mother.faith
+		}
+		else_if = {
+			limit = {
+				scope:mother ?= {
+					has_trait = dragon
+				}
+			}
+			set_culture = scope:real_father.culture
+			set_character_faith = scope:real_father.faith
+		}
+	}
+}
+
+agot_bittercringe_effect = {
+	if = {
+		limit = {
+			scope:father ?= {
+				this = character:Targaryen_95
+				house ?= dynasty:dynn_Targaryen.dynasty_founder.house
+				NOT = {
+					has_character_flag = had_bittersteel_house_decision
+				}
+			}
+		}
+		scope:father ?= {
+			trigger_event = agot_birth_events.1000
+		}
+	}
+}
+
+agot_dynastic_name_birth_effect = {
+	if = {
+		limit = { house ?= dynasty:dynn_Lannister.dynasty_founder.house }
+		agot_lannister_name_effect = yes
+	}
+	else_if = {
+		limit = { house ?= dynasty:dynn_Gardener.dynasty_founder.house }
+		agot_gardener_name_effect = yes
+	}
+	else_if = {
+		limit = { house ?= dynasty:dynn_Durrandon.dynasty_founder.house }
+		agot_durrandon_name_effect = yes
+	}
+	else_if = {
+		limit = { house ?= dynasty:dynn_Hoare.dynasty_founder.house }
+		agot_hoare_name_effect = yes
+	}
+	else_if = {
+		limit = { house ?= dynasty:dynn_Stark.dynasty_founder.house }
+		agot_stark_name_effect = yes
+	}
+	else_if = {
+		limit = { house ?= dynasty:dynn_Royce.dynasty_founder.house }
+		agot_royce_name_effect = yes
+	}
+	else_if = {
+		limit = { house ?= dynasty:dynn_Reyne.dynasty_founder.house }
+		agot_reyne_name_effect = yes
+	}
+}
+
+agot_lannister_name_effect = {
+	if = {
+		limit = {
+			is_female = no
+			NOT = {
+				any_in_global_list = {
+					variable = agot_born_canon_children_scopes
+					this = scope:child
+				}
+			}
+		}
+		random_list = {
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Loreon
+						}
+					}
+				}
+				change_first_name = Loreon
+			}
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tywin
+						}
+					}
+				}
+				change_first_name = Tywin
+			}
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tyrion
+						}
+					}
+				}
+				change_first_name = Tyrion
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tywell
+						}
+					}
+				}
+				change_first_name = Tywell
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tyrek
+						}
+					}
+				}
+				change_first_name = Tyrek
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tywald
+						}
+					}
+				}
+				change_first_name = Tywald
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tytos
+						}
+					}
+				}
+				change_first_name = Tytos
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tymos
+						}
+					}
+				}
+				change_first_name = Tymos
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tymond
+						}
+					}
+				}
+				change_first_name = Tymond
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tyler
+						}
+					}
+				}
+				change_first_name = Tyler
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tyland
+						}
+					}
+				}
+				change_first_name = Tyland
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tygett
+						}
+					}
+				}
+				change_first_name = Tygett
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tybert
+						}
+					}
+				}
+				change_first_name = Tybert
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tybald
+						}
+					}
+				}
+				change_first_name = Tybald
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tion
+						}
+					}
+				}
+				change_first_name = Tion
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Damon
+						}
+					}
+				}
+				change_first_name = Damon
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Gerold
+						}
+					}
+				}
+				change_first_name = Gerold
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Lancel
+						}
+					}
+				}
+				change_first_name = Lancel
+			}
+			61 = { }
+		}
+	}
+	else_if = {
+		limit = {
+			is_female = yes
+			NOT = {
+				any_in_global_list = {
+					variable = agot_born_canon_children_scopes
+					this = scope:child
+				}
+			}
+		}
+		random_list = {
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tyshara
+						}
+					}
+				}
+				change_first_name = Tyshara
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tysha
+						}
+					}
+				}
+				change_first_name = Tysha
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tyta
+						}
+					}
+				}
+				change_first_name = Tyta
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tysane
+						}
+					}
+				}
+				change_first_name = Tysane
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tyana
+						}
+					}
+				}
+				change_first_name = Tyana
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Cerelle
+						}
+					}
+				}
+				change_first_name = Cerelle
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tyanne
+						}
+					}
+				}
+				change_first_name = Tyanne
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tyrianne
+						}
+					}
+				}
+				change_first_name = Tyrianne
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tya
+						}
+					}
+				}
+				change_first_name = Tya
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Tiona
+						}
+					}
+				}
+				change_first_name = Tiona
+			}
+			80 = { }
+		}
+	}
+}
+
+agot_gardener_name_effect = {
+	if = {
+		limit = {
+			is_female = no
+			NOT = {
+				any_in_global_list = {
+					variable = agot_born_canon_children_scopes
+					this = scope:child
+				}
+			}
+		}
+		random_list = {
+			10 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Garth
+						}
+					}
+				}
+				change_first_name = Garth
+			}
+			5 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Mern
+						}
+					}
+				}
+				change_first_name = Mern
+			}
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Garse
+						}
+					}
+				}
+				change_first_name = Garse
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Gareth
+						}
+					}
+				}
+				change_first_name = Gareth
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Greydon
+						}
+					}
+				}
+				change_first_name = Greydon
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Garlan
+						}
+					}
+				}
+				change_first_name = Garlan
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Garland
+						}
+					}
+				}
+				change_first_name = Garland
+			}
+			2 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Gyles
+						}
+					}
+				}
+				change_first_name = Gyles
+			}
+			72 = { }
+		}
+	}
+}
+
+agot_durrandon_name_effect = {
+	if = {
+		limit = {
+			is_female = no
+			NOT = {
+				any_in_global_list = {
+					variable = agot_born_canon_children_scopes
+					this = scope:child
+				}
+			}
+		}
+		random_list = {
+			15 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Durran
+						}
+					}
+				}
+				change_first_name = Durran
+			}
+			85 = { }
+		}
+	}
+}
+
+agot_hoare_name_effect = {
+	if = {
+		limit = {
+			is_female = no
+			NOT = {
+				any_in_global_list = {
+					variable = agot_born_canon_children_scopes
+					this = scope:child
+				}
+			}
+		}
+		random_list = {
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Harrag
+						}
+					}
+				}
+				change_first_name = Harrag
+			}
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Harras
+						}
+					}
+				}
+				change_first_name = Harras
+			}
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Harmund
+						}
+					}
+				}
+				change_first_name = Harmund
+			}
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Harlan
+						}
+					}
+				}
+				change_first_name = Harlan
+			}
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Harwyn
+						}
+					}
+				}
+				change_first_name = Harwyn
+			}
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Halleck
+						}
+					}
+				}
+				change_first_name = Halleck
+			}
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Harren
+						}
+					}
+				}
+				change_first_name = Harren
+			}
+			79 = { }
+		}
+	}
+}
+
+agot_stark_name_effect = {
+	if = {
+		limit = {
+			is_female = no
+			NOT = {
+				any_in_global_list = {
+					variable = agot_born_canon_children_scopes
+					this = scope:child
+				}
+			}
+		}
+		random_list = {
+			10 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Brandon
+						}
+					}
+				}
+				change_first_name = Brandon
+			}
+			90 = { }
+		}
+	}
+}
+
+agot_royce_name_effect = {
+	if = {
+		limit = {
+			is_female = no
+			NOT = {
+				any_in_global_list = {
+					variable = agot_born_canon_children_scopes
+					this = scope:child
+				}
+			}
+		}
+		random_list = {
+			4 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Robar
+						}
+					}
+				}
+				change_first_name = Robar
+			}
+			96 = { }
+		}
+	}
+}
+
+agot_reyne_name_effect = {
+	if = {
+		limit = {
+			is_female = no
+			NOT = {
+				any_in_global_list = {
+					variable = agot_born_canon_children_scopes
+					this = scope:child
+				}
+			}
+		}
+		random_list = {
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Rafford
+						}
+					}
+				}
+				change_first_name = Rafford
+			}
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Raymun
+						}
+					}
+				}
+				change_first_name = Raymun
+			}
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Raynald
+						}
+					}
+				}
+				change_first_name = Raynald
+			}
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Raynard
+						}
+					}
+				}
+				change_first_name = Raynard
+			}
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Regenard
+						}
+					}
+				}
+				change_first_name = Regenard
+			}
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Reginald
+						}
+					}
+				}
+				change_first_name = Reginald
+			}
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Reylon
+						}
+					}
+				}
+				change_first_name = Reylon
+			}
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Reynard
+						}
+					}
+				}
+				change_first_name = Reynard
+			}
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Robb
+						}
+					}
+				}
+				change_first_name = Robb
+			}
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Robert
+						}
+					}
+				}
+				change_first_name = Robert
+			}
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Robin
+						}
+					}
+				}
+				change_first_name = Robin
+			}
+			3 = {
+				trigger = {
+					NOT = {
+						any_sibling = {
+							even_if_dead = yes
+							has_first_name = Rodmund
+						}
+					}
+				}
+				change_first_name = Rodmund
+			}
+			64 = { }
+		}
+	}
+}
+
+agot_wildling_milk_name_birth_effect = {
+	if = {
+		limit = {
+			agot_uses_milk_names = yes
+		}
+		agot_assign_milk_name_effect = yes
+	}
+}
