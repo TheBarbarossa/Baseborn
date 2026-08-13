@@ -4509,6 +4509,93 @@ agot_create_artifact_baseborn_grafton_artifact_effect = { # edited 08/12 slambro
 
 	}
 }
+agot_create_artifact_baseborn_redfort_artifact_effect = { # edited 08/12 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_redfort_artifact_name
+		creator = character:Redfort_9 # Remove this line from the code if the creator is unknown
+		description = baseborn_redfort_artifact_description
+		visuals = bow
+		type = bow
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_redfort_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7845.1.1 # Date the artifact was created
+			recipient = character:Redfort_9 # First character to use the artifact
+			location = province:2277 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_redfort_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Redfort.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7867.1.1
+			RECIPIENT = character:Redfort_10 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7903.1.1
+			RECIPIENT = character:Redfort_14 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7934.1.1
+			RECIPIENT = character:Redfort_15 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7955.1.1
+			RECIPIENT = character:Redfort_38 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8007.1.1
+			RECIPIENT = character:Redfort_41 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8039.1.1
+			RECIPIENT = character:Redfort_19 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8064.1.1
+			RECIPIENT = character:Redfort_20 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8100.1.1
+			RECIPIENT = character:Redfort_22 # Next user of the artfact
+		}
+
+
+	}
+}
 
 # agot_create_artifact_baseborn_mallister_artifact_effect = {
 #	$OWNER$ = {
