@@ -2014,22 +2014,14 @@
 				situation_season_war_effects = {
 				icon = "gfx/interface/icons/struggle_effects/war.dds"
 					ruler_in_region = {
-						character_modifier = {
-							ai_war_chance = -2
-							ai_war_cooldown = 0.9						
+						character_modifier = {			
 							vassal_tax_contribution_mult = -0.5 #Less likely to give money
 							#Winter is low tax and low income to simulate the much lower productivity. If I wanted to be realistic I could set at -0.75 or -0.9 but then I think people would be sad.
 						#	life_expectancy = -5 #Old people die in  winter
 						#	fertility = -0.75 #Why would you want to have a child in winter? Gael was a bit of an exception as the 'winter child?'
 						#	health = -0.10 #Small penalty it's cold.
-							monthly_piety_from_buildings_mult = 0.43 #A bit of game based balance. 
-							monthly_prestige_gain_per_happy_powerful_vassal_add = 0.01 #Happy vassal happy life_expectancy
-							opinion_of_same_culture = 15 #we're in this together type of mentality
-							close_relative_opinion = 10 #Stuck in the same house
 							movement_speed = -0.60 #Snow snow snow
-							intimidated_vassal_tax_contribution_mult = 0.24 #but you're scary so here's my gold
-							owned_personal_scheme_success_chance_add = 15 #Winter befriending
-							monthly_county_control_growth_factor = 0.20 #Not gonna rob in winter...
+							monthly_county_control_growth_factor = -0.20 #Not gonna rob in winter...
 							character_travel_speed_mult = -0.20 #Snow
 
 							#Winter Attrition Rates	
@@ -2159,21 +2151,14 @@
 				icon = "gfx/interface/icons/struggle_effects/war.dds"
 					ruler_in_region = {
 						character_modifier = {
-							ai_war_chance = -0.75
-							ai_war_cooldown = 0.5
+
 							vassal_tax_contribution_mult = -0.25 #Less likely to give money
 							#Winter is low tax and low income to simulate the much lower productivity. If I wanted to be realistic I could set at -0.75 or -0.9 but then I think people would be sad.
 						#	life_expectancy = -5 #Old people die in  winter
 						#	fertility = -0.75 #Why would you want to have a child in winter? Gael was a bit of an exception as the 'winter child?'
 						#	health = -0.10 #Small penalty it's cold.
-							monthly_piety_from_buildings_mult = 0.20 #A bit of game based balance. 
-							monthly_prestige_gain_per_happy_powerful_vassal_add = 0.01 #Happy vassal happy life_expectancy
-							opinion_of_same_culture = 7 #we're in this together type of mentality
-							close_relative_opinion = 5 #Stuck in the same house
 							movement_speed = -0.20 #Snow snow snow
-							intimidated_vassal_tax_contribution_mult = 0.12 #but you're scary so here's my gold
-							owned_personal_scheme_success_chance_add = 7 #Winter befriending
-							monthly_county_control_growth_factor = 0.10 #Not gonna rob in winter...
+							monthly_county_control_growth_factor = -0.10 #Not gonna rob in winter...
 							character_travel_speed_mult = -0.10 #Snow
 
 							
@@ -2193,11 +2178,11 @@
 						#	drylands_attrition_mult = 0.20 #Cold but could be warm balanced level. 
 							#End Winter Attrition Rates
 
-							defender_advantage = 2 #It's bloody cold
-							attacker_advantage = -2
+							defender_advantage = 5 #It's bloody cold
+							attacker_advantage = -5
 							supply_duration = -0.2 #Might need to fix to a whole integer
 							levy_reinforcement_rate = -0.25 #Why would I war in winter?
-							men_at_arms_maintenance = 0.12 #Why would I be a soldier if the war seems to be lessened during winter? Pay me more ya feckin' bastard!
+							men_at_arms_maintenance = 0.25 #Why would I be a soldier if the war seems to be lessened during winter? Pay me more ya feckin' bastard!
 							monthly_war_income_mult = -0.25 #Heavily penalise war.
 							embarkation_cost_mult = 0.30 #BOAT EXPENSIVE
 							siege_phase_time = 2 #MORE SIEGE TIME										
@@ -2310,21 +2295,13 @@
 				icon = "gfx/interface/icons/struggle_effects/war.dds"
 					ruler_in_region = {
 						character_modifier = {
-							ai_war_chance = -5
-							ai_war_cooldown = 2
 							vassal_tax_contribution_mult = -0.65 #Less likely to give money
 							#Winter is low tax and low income to simulate the much lower productivity. If I wanted to be realistic I could set at -0.75 or -0.9 but then I think people would be sad.
 						#	life_expectancy = -5 #Old people die in  winter
 						#	fertility = -0.75 #Why would you want to have a child in winter? Gael was a bit of an exception as the 'winter child?'
 						#	health = -0.10 #Small penalty it's cold.
-							monthly_piety_from_buildings_mult = 0.33 #A bit of game based balance. 
-							monthly_prestige_gain_per_happy_powerful_vassal_add = 0.01 #Happy vassal happy life_expectancy
-							opinion_of_same_culture = 15 #we're in this together type of mentality
-							close_relative_opinion = 10 #Stuck in the same house
 							movement_speed = -0.65 #Snow snow snow
-							intimidated_vassal_tax_contribution_mult = 0.30 #but you're scary so here's my gold
-							owned_personal_scheme_success_chance_add = 15 #Winter befriending
-							monthly_county_control_growth_factor = 0.50 #Not gonna rob in winter...
+							monthly_county_control_growth_factor = -0.50 #Not gonna rob in winter...
 							character_travel_speed_mult = -0.4 #Snow
 
 							#Winter Attrition Rates	
@@ -2344,8 +2321,8 @@
 							#End Winter Attrition Rates
 
 					
-							defender_advantage = 5 #It's bloody cold
-							attacker_advantage = -5
+							defender_advantage = 10 #It's bloody cold
+							attacker_advantage = -10
 							supply_duration = -0.4 #Might need to fix to a whole integer
 							levy_reinforcement_rate = -0.75 #Why would I war in winter?
 							men_at_arms_maintenance = 0.4 #Why would I be a soldier if the war seems to be lessened during winter? Pay me more ya feckin' bastard!
@@ -2445,21 +2422,13 @@
 				icon = "gfx/interface/icons/struggle_effects/war.dds"
 					ruler_in_region = {
 						character_modifier = {
-							ai_war_chance = -5
-							ai_war_cooldown = 0.9
 							vassal_tax_contribution_mult = -0.65 #Less likely to give money
 							#Winter is low tax and low income to simulate the much lower productivity. If I wanted to be realistic I could set at -0.75 or -0.9 but then I think people would be sad.
 						#	life_expectancy = -5 #Old people die in  winter
 						#	fertility = -0.75 #Why would you want to have a child in winter? Gael was a bit of an exception as the 'winter child?'
 						#	health = -0.10 #Small penalty it's cold.
-							monthly_piety_from_buildings_mult = 0.33 #A bit of game based balance. 
-							monthly_prestige_gain_per_happy_powerful_vassal_add = 0.01 #Happy vassal happy life_expectancy
-							opinion_of_same_culture = 15 #we're in this together type of mentality
-							close_relative_opinion = 10 #Stuck in the same house
 							movement_speed = -0.65 #Snow snow snow
-							intimidated_vassal_tax_contribution_mult = 0.30 #but you're scary so here's my gold
-							owned_personal_scheme_success_chance_add = 15 #Winter befriending
-							monthly_county_control_growth_factor = 0.50 #Not gonna rob in winter...
+							monthly_county_control_growth_factor = -0.50 #Not gonna rob in winter...
 							character_travel_speed_mult = -0.4 #Snow
 
 							#Winter Attrition Rates	
