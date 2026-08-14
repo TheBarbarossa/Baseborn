@@ -4069,8 +4069,12 @@ agot_assign_starting_family_weapons_effect = {
 		}
 	}
 	if = { # Black Blood - Valyrian Steel greataxe of house Hoare
-		limit = { game_start_date < 7999.8.15 }
+	limit = { always = yes }
 		if = {
+			limit = game_start_date >= 8132.1.1 }
+			character:Salt_1 ?= { agot_create_artifact_vs_black_blood_effect = { OWNER = THIS } }
+		}
+		else_if = {
 			limit = { game_start_date >= 7960.1.1 }
 			character:Hoare_31 ?= { agot_create_artifact_vs_black_blood_effect = { OWNER = THIS } }
 		}
