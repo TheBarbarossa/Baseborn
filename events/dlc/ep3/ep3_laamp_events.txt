@@ -565,7 +565,7 @@ ep3_laamps.0010 = {
 		first_valid = {
 			triggered_desc = {
 				trigger = {
-					any_sibling = { count >= 2 }
+					always = no
 				}
 				desc = ep3_laamps.0010.multi
 			}
@@ -730,7 +730,7 @@ ep3_laamps.0011 = {
 				debug_log = "AI became adventurer by succession"
 				debug_log_scopes = yes
 			}
-			else = { trigger_event = ep3_laamps.0010 }
+			else = { add_gold = 1 }
 		}
 	}
 }
