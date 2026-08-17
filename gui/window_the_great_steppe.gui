@@ -1,0 +1,789 @@
+﻿window = {
+	name = "window_the_great_steppe"
+	widgetid = "window_the_great_steppe"
+	datacontext = "[SteppeWindow.GetSituation]"
+	datacontext = "[SteppeWindow.GetHerdLeaderboardWindow]"
+	#datacontext = "[SteppeWindow.]"
+	#datacontext = "[GetVariableSystem]"
+	datacontext = "[GetPlayer]"
+	parentanchor = top|right
+	layer = windows_layer
+	allow_outside = yes
+	movable = no
+
+	using = Window_Size_MainTab
+	using = sound_situation_panel
+
+	state = {
+		name = _show
+		using = Animation_FadeIn_Quick
+		using = Sound_WindowShow_Standard
+		using = Window_Position_MainTab
+	}
+
+	state = {
+		name = _hide
+		using = Animation_FadeOut_Quick
+		using = Sound_WindowHide_Standard
+		using = Window_Position_MainTab_Hide
+	}
+
+	margin_widget = {
+		size = { 100% 100% }
+		margin = { 0 30 }
+		margin_right = 13
+
+		widget = {
+			size = { 100% 100% }
+
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+
+				using = Window_Margins
+
+				using = Animation_Tab_Switch
+
+				header_pattern = {
+					layoutpolicy_horizontal = expanding
+
+					blockoverride "header_text"
+					{
+						text = "THE_GREAT_STEPPE_WINDOW_HEADER"
+						datacontext = "[SteppeWindow.GetSituation]"
+					}
+
+					blockoverride "button_close"
+					{
+						onclick = "[SteppeWindow.Close]"
+					}
+				}
+
+				hbox = {
+					layoutpolicy_horizontal = expanding
+
+					margin = { 5 5 }
+
+					background = {
+						using = Background_Area_Dark
+					}
+
+					### SUB_REGION CARDS ###
+					datamodel = [Situation.GetSubRegions]
+
+					item = {
+						vbox_season_tab = {}
+					}
+				}
+
+				vbox_season_contents = {
+					datacontext = "[SteppeWindow.GetSelectedSubRegion]"
+				}
+
+				#vbox_nomads_of_situation = {}
+
+				expand = {}
+			}
+		}
+	}
+
+	situation_mini_map_mode = {}
+
+	window_herd_leaderboard = {
+		datacontext = "[SteppeWindow.GetCharacterList]"
+		visible = "[HerdLeaderboard.IsVisible]"
+	}
+	#window_seasons_regions = {
+	##	datacontext = "[SteppeWindow.GetCharacterList]"
+	#	datacontext = "[SteppeWindow.GetSituation]"
+	#	datamodel = [Situation.GetSubRegions]
+	#	
+	#}
+}
+
+types SituationTypes
+{
+	#This is where the bug is?
+	type button_situation_subregion_2 = button_standard {
+		minimumsize = { 527 50 }
+
+		layoutpolicy_horizontal = expanding
+			state = {
+				name = _mouse_click
+				on_finish = "[SteppeWindow.SelectSubRegion( SituationSubRegion.Self )]"
+			}
+		#onclick = "[SteppeWindow.SetSelectedSubRegion( SituationSubRegion.Self )]"
+		down = "[ObjectsEqual( SteppeWindow.GetSelectedSubRegion.Self, SituationSubRegion.Self )]"
+
+		hbox = {
+			layoutpolicy_vertical = expanding
+			layoutpolicy_horizontal = expanding
+
+			margin = { 4 0 }
+			margin_right = 16
+			spacing = 5
+
+			icon = {
+				size = { 40 40 }
+				texture = "[SituationSubRegion.GetIcon]"
+			}
+
+			vbox = {
+				layoutpolicy_vertical = expanding
+				layoutpolicy_horizontal = expanding
+
+				spacing = -3
+				minimumsize = { 150 -1 }
+
+				expand = {}
+
+				text_single = {
+					layoutpolicy_horizontal = expanding
+					#
+					text = "[SituationSubRegion.GetNameNoTooltip]"
+					default_format = "#clickable"
+					align = nobaseline
+				}
+
+				text_single = {
+					layoutpolicy_horizontal = expanding
+					size = { 460 40 }
+					text = "SITUATION_WINDOW_SUB_GROUP_SUBTITLE"
+					align = nobaseline
+				}
+
+				expand = {}
+			}
+
+
+
+			widget = {
+				size = { 40 40 }
+
+				widget_level_marker = {
+					blockoverride "visible_inactive" {
+						visible = no
+					}
+
+					icon = {
+						size = { 40 40 }
+						texture = "[SituationSubRegion.GetCurrentPhase.GetType.GetIcon]"
+						parentanchor = center
+					}
+				}
+			}
+
+			#text_single = {
+			#	size = { 30 20 }
+			#	text = "[SituationSubRegion.GetCurrentPhase.GetRelativeProgress|0%]"
+			#	autoresize = no
+			#	align = center|nobaseline
+			#}
+
+			widget = {
+				size = { 40 40 }
+
+				widget_level_marker = {
+					blockoverride "highlight_addon" {
+						visible = no
+					}
+
+					icon = {
+						size = { 40 40 }
+						texture = "[SituationSubRegion.GetCurrentPhase.GetLeadingPhaseType.GetIcon]"
+						parentanchor = center
+					}
+				}
+			}
+		}
+	}
+#TEMP STORE
+		#button_standard_small = {
+		#	layoutpolicy_horizontal = expanding
+		#	onclick = "[PdxGuiTriggerAllAnimations( 'subregion_refresh' )]"
+		#	state = {
+		#		name = _mouse_click
+		#		on_finish = "[SteppeWindow.SelectSubRegion( SituationSubRegion.Self )]"
+		#	}
+		#}
+
+
+	type vbox_season_tab = vbox {
+		layoutpolicy_horizontal = expanding
+
+		spacer = {
+			visible = "[SteppeWindow.IsSubRegionSelected( SituationSubRegion.Self )]"
+			size = { 890 0 }
+
+			state = {
+				name = _show
+				size = { 550 0 }
+				duration = 0.3
+			}
+
+			state = {
+				name = _hide
+				size = { 0 0 }
+				duration = 0.3
+			}
+		}
+
+		### Note: To change height just replace all 521 below
+		button = {
+			layoutpolicy_horizontal = expanding
+			size = { 0 521 }
+			
+			scissor = yes
+
+			#state = {
+
+			#}
+
+			highlight_icon = {
+				parentanchor = center
+				size = { 618 521 }
+				texture = "[SituationSubRegion.GetCurrentPhase.GetType.GetIllustration]"
+				using = Mask_Rough_Edges
+
+				modify_texture = {
+					texture = "gfx/interface/component_masks/mask_culture_era_tab.dds"
+					blend_mode = alphamultiply
+					alpha = 0.9
+				}
+			}
+
+			highlight_icon = {
+				visible = "[Not( SteppeWindow.IsSubRegionSelected( SituationSubRegion.Self ) )]"
+				parentanchor = left
+				size = { 248 521 }
+				texture = "[SituationSubRegion.GetCurrentPhase.GetType.GetIllustration]"
+				tintcolor = { 0 0 0 0.5 }
+			}
+
+			### FRAYED EDGES ###
+			widget = {
+				parentanchor = left
+				size = { 6 521 }
+
+				background = {
+					using = Background_Area_Solid
+					spriteType = Corneredtiled
+					spriteborder = { 20 20 }
+					spriteborder_right = 11
+					margin = { 0 20 }
+					margin_left = 10
+				}
+			}
+
+			widget = {
+				parentanchor = right
+				size = { 6 521 }
+
+				background = {
+					using = Background_Area_Solid
+					mirror = horizontal
+					spriteType = Corneredtiled
+					spriteborder = { 20 20 }
+					spriteborder_right = 11
+					margin = { 0 20 }
+					margin_right = 10
+				}
+			}
+
+			### Name of SubRegion ###
+			text_single = {
+				parentanchor = top|hcenter
+				visible = "[SteppeWindow.IsSubRegionSelected( SituationSubRegion.Self )]"
+
+				state = {
+					name = _show
+					using = Animation_FadeIn_Standard
+				}
+
+				state = {
+					name = _hide
+					using = Animation_FadeOut_Standard
+				}
+
+				text = "THE_GREAT_STEPPE_WINDOW_SUB_REGION_NAME"
+			}
+
+			text_label_center = {
+				visible = "[And( ObjectsEqual( SituationSubRegion.Self, SteppeWindow.GetPlayerSubRegion.Self ), Not( SteppeWindow.IsSubRegionSelected( SituationSubRegion.Self ) ) )]"
+				parentanchor = bottom|hcenter
+				position = { 0 -8 }
+				
+				text = "THE_GREAT_STEPPE_WINDOW_SEASON_REGION_HOME"
+				default_format = "#low"
+			}
+
+			text_label_center = {
+				visible = "[And( ObjectsEqual( SituationSubRegion.Self, SteppeWindow.GetPlayerSubRegion.Self ), SteppeWindow.IsSubRegionSelected( SituationSubRegion.Self ) )]"
+				parentanchor = bottom|hcenter
+				position = { 0 -8 }
+
+				text = "THE_GREAT_STEPPE_WINDOW_SEASON_REGION_HOME"
+				default_format = "#high"
+			}
+		}
+		
+	}
+
+	type vbox_season_contents = vbox {
+		layoutpolicy_horizontal = expanding
+
+		state = {
+			name = "subregion_refresh"
+			using = Animation_Refresh_FadeOut
+		}
+		state = {
+			using = Animation_Refresh_FadeIn
+		}
+		#SEASONS VIEW ALL REGIONS
+
+		### LOCATION INFO ###
+		hbox = {
+
+
+			margin = { 15 10 }
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+
+			vbox = {
+				layoutpolicy_vertical = expanding
+
+				text_single = {
+					margin_bottom = 4
+					layoutpolicy_horizontal = expanding
+					max_width = 280
+					min_width = 280
+
+					text = "[SteppeWindow.GetSubRegionTitle]"
+					using = Font_Size_Medium
+					align = nobaseline
+				}
+
+				### LOCATION CURRENT PHASE & END ###
+				text_single = {
+					layoutpolicy_horizontal = expanding
+					max_width = 280
+					min_width = 280
+
+					text = "[SteppeWindow.GetSelectedRegionSeasonName]"
+					align = nobaseline
+				}
+
+				text_multi = {
+					layoutpolicy_horizontal = expanding
+					max_width = 280
+					min_width = 280
+					#SEASONS TO DO : 
+					#Have flags set for rough seasonal length, and end dates
+					text = SEASONS_END_INDEFINITE_DESC
+					default_format = "#Weak"
+					align = nobaseline
+				}
+
+			}
+
+			expand = {}
+
+			### LOCATION EFFECTS & PREDICITON ###
+			vbox = {
+				name = "situations_header"
+				layoutpolicy_vertical = expanding
+
+				expand = {}
+
+				text_single = {
+					margin_bottom = 5
+					layoutpolicy_horizontal = expanding
+
+					text = "THE_GREAT_STEPPE_WINDOW_SEASON_EFFECTS"
+					align = nobaseline
+				}
+
+				fixedgridbox = {
+					name = "task_items"
+					datamodel = "[SteppeWindow.GetSeasonEffects( SteppeWindow.GetSelectedSubRegion.Self )]"
+
+					addcolumn = 50
+					addrow = 48
+					setitemsizefromcell = yes
+					datamodel_wrap = 6
+					maxhorizontalslots = 6
+					maxverticalslots = 2
+					flipdirection = yes
+
+					item = {
+						button_situation_phase_effect_item = {}
+					}
+				}
+			}
+
+		}
+		button_standard = {
+			size = { 500 40}
+			text = "SEASONS_ALL_REGIONS_TEXT"
+
+			onclick = "[HerdLeaderboard.Toggle]"
+
+			using = tooltip_ne
+		}
+		vbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+
+			min_height = 75
+
+			margin = { 15 15 }
+
+			datacontext = "[SituationSubRegion.GetCharacterParticipantGroup( GetPlayer )]"
+
+			background = {
+				using = Background_Area
+			}
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+
+				text_multi = {
+					visible = "[Not( SituationParticipantGroup.IsValid )]"
+					layoutpolicy_horizontal = expanding
+
+					text = "SITUATION_WINDOW_NO_REGION_PARTICIPANT_GROUP"
+					default_format = "#low"
+					align = nobaseline
+				}
+
+				icon = {
+					visible = "[SituationParticipantGroup.IsValid]"
+
+					size = { 40 40 }
+					texture = "[SituationParticipantGroup.GetType.GetIcon]"
+
+					background = {
+						texture = "gfx/interface/buttons/button_lifestyles_base.dds"
+						margin = { 5 5 }
+					}
+				}
+
+				vbox = {
+					visible = "[SituationParticipantGroup.IsValid]"
+
+					margin_left = 10
+					text_single = {
+						layoutpolicy_horizontal = expanding
+						text = "[SituationParticipantGroup.GetName]"
+						align = nobaseline
+					}
+
+					text_single = {
+						layoutpolicy_horizontal = expanding
+
+						text = "[SelectLocalization( Situation.HasMultipleSubRegions, 'SITUATION_WINDOW_YOUR_PARTICIPANT_GROUP_MULTI_SUBREGION', 'SITUATION_WINDOW_YOUR_PARTICIPANT_GROUP' ) ]"
+
+						align = nobaseline
+						default_format = "#Weak"
+					}
+				}
+
+				expand = {}
+
+
+			}
+		}
+		vbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+
+			margin = { 15 15 }
+			margin_top = 10
+
+			background = {
+				using = Background_Area
+			}
+
+			vbox = {
+				name = "current_phase_widget"
+				datacontext = "[SituationSubRegion.GetCurrentPhase]"
+				datacontext = "[GetPlayer]"
+				layoutpolicy_horizontal = expanding
+
+				text_label_center = {
+					layoutpolicy_horizontal = expanding
+					raw_text = "All possible next Season Types"
+				}
+
+				vbox = {
+					layoutpolicy_horizontal = expanding
+
+					vbox = {
+						layoutpolicy_horizontal = expanding
+						datamodel = "[SituationPhase.GetFuturePhases]"
+
+						item = {
+							vbox = {
+								layoutpolicy_horizontal = expanding
+								min_height = 45
+
+								hbox = {
+									layoutpolicy_horizontal = expanding
+									layoutpolicy_vertical = expanding
+
+									icon = {
+										size = { 30 30 }
+										texture = "[FutureSituationPhase.GetType.GetIcon]"
+										
+										background = {
+											texture = "gfx/interface/window_regency/regency_level_bg.dds"
+											margin = { 2 2 }
+										}
+									}
+
+									text_single = {
+										layoutpolicy_horizontal = expanding
+										layoutpolicy_vertical = expanding
+
+										margin_left = 175
+
+										text = "[FutureSituationPhase.GetType.GetName]"
+										max_width = 430
+										align = nobaseline
+									}
+
+									expand = {}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		### ASTROLOGER CARD ###
+		#vbox_court_astrologer_card = {}
+	}
+	type button_situation_subregion_2 = button_standard {
+		minimumsize = { 527 50 }
+
+		layoutpolicy_horizontal = expanding
+		
+		#onclick = "[SteppeWindow.SetSelectedSubRegion( SituationSubRegion.Self )]"
+		down = "[ObjectsEqual( SteppeWindow.GetSelectedSubRegion.Self, SituationSubRegion.Self )]"
+		onclick = "[PdxGuiTriggerAllAnimations( 'subregion_refresh' )]"
+		state = {
+			name = _mouse_click
+			on_finish = "[SteppeWindow.SelectSubRegion( SituationSubRegion.Self )]"
+		}
+		hbox = {
+			layoutpolicy_vertical = expanding
+			layoutpolicy_horizontal = expanding
+
+			margin = { 4 0 }
+			margin_right = 16
+			spacing = 5
+
+			icon = {
+				size = { 40 40 }
+				texture = "[SituationSubRegion.GetIcon]"
+			}
+
+			vbox = {
+				layoutpolicy_vertical = expanding
+				layoutpolicy_horizontal = expanding
+
+				spacing = -3
+				minimumsize = { 150 -1 }
+
+				expand = {}
+
+				text_single = {
+					layoutpolicy_horizontal = expanding
+
+					text = "[SituationSubRegion.GetNameNoTooltip]"
+					default_format = "#clickable"
+					align = nobaseline
+				}
+
+				text_single = {
+					layoutpolicy_horizontal = expanding
+
+					text = "SITUATION_WINDOW_SUB_GROUP_SUBTITLE"
+					align = nobaseline
+				}
+
+				expand = {}
+			}
+
+
+
+			widget = {
+				size = { 40 40 }
+
+				widget_level_marker = {
+					blockoverride "visible_inactive" {
+						visible = no
+					}
+
+					icon = {
+						size = { 40 40 }
+						texture = "[SituationSubRegion.GetCurrentPhase.GetType.GetIcon]"
+						parentanchor = center
+					}
+				}
+			}
+
+			#text_single = {
+			#	size = { 30 20 }
+			#	text = "[SituationSubRegion.GetCurrentPhase.GetRelativeProgress|0%]"
+			#	autoresize = no
+			#	align = center|nobaseline
+			#}
+
+			widget = {
+				size = { 40 40 }
+
+				widget_level_marker = {
+					blockoverride "highlight_addon" {
+						visible = no
+					}
+
+					icon = {
+						size = { 40 40 }
+						texture = "[SituationSubRegion.GetCurrentPhase.GetLeadingPhaseType.GetIcon]"
+						parentanchor = center
+					}
+				}
+			}
+		}
+	}
+	type button_situation_phase_effect_item = icon {
+		datacontext = "[GetPlayer]"
+
+		icon = {
+			parentanchor = center
+			size = { 50 50 }
+			texture = "gfx/interface/icons/struggle_banners/icon_background_dark.dds"
+		}
+
+		proportional_icon = {
+			size = { 75% 75% }
+			position = { 0 0 }
+			parentanchor = center
+			alwaystransparent = yes
+			texture = "[SituationModifierNamedSet.GetIcon]"
+		}
+
+		tooltipwidget = {
+			using = situation_modifier_named_set_tooltip
+		}
+	}
+	type window_herd_leaderboard = window  {
+		name = "herd_leaderboard_window"
+		widgetanchor = right
+		position = { 10 70 }
+		size = { 750 82% }
+
+		layer = middle
+		movable = yes
+
+		using = Window_Background
+		using = Window_Decoration_Spike
+		using = Window_Size_CharacterList
+
+		state = {
+			name = _show
+			using = Animation_FadeIn_Quick
+		}
+
+		state = {
+			name = _hide
+			using = Animation_FadeOut_Quick
+		}
+
+		vbox = {
+			using = Window_Margins
+
+			header_pattern = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				blockoverride "header_text"
+				{
+					text = "SEASONS_ALL_REGIONS_TEXT"
+				}
+
+				blockoverride "button_close"
+				{
+					onclick = "[HerdLeaderboard.Close]"
+				}
+			}
+			scrollbox = {
+				name = "sub_region_scrollbox"
+
+				visible = "[Situation.HasMultipleSubRegions]"
+
+				using = Animation_Tab_Switch
+
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+
+				min_height = 895
+				max_height = 895
+
+				blockoverride "scrollbox_content"
+				{
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+
+					vbox = {
+						name = "sub_regions"
+						layoutpolicy_horizontal = expanding
+						spacing = 2
+
+						datamodel = "[Situation.GetSubRegions]"
+
+						item = {
+							button_situation_subregion_2 = { }
+						}
+					}
+
+					blockoverride "scrollbox_expand" {
+						expand = {}
+					}
+				}
+			}
+		}
+	}
+
+	type situation_mini_map_mode = mini_map_mode {
+		parentanchor = bottom|left
+		widgetanchor = bottom|right
+		position = { -250 -25 }
+
+		blockoverride "widget_size"
+		{
+			size = { 360 80 }
+		}
+
+		blockoverride "map_mode_buttons"
+		{
+			icon_button_mapmode = {
+				blockoverride = "mm_datacontext"
+				{
+					datacontext = "[GetMapMode( 'realms' )]"
+				}
+			}
+
+			icon_button_mapmode = {
+				blockoverride = "mm_datacontext"
+				{
+					datacontext = "[GetMapMode( 'situation' )]"
+				}
+			}
+
+			seasons_map_mode_button_2 = {}
+			#seasons_map_mode_button_3 = {}
+		}
+	}
+}

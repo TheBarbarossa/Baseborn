@@ -1,0 +1,115 @@
+﻿# #seasons_ending_decision = {
+# #	is_shown = {
+# #		always = no
+# #	}
+# #	#place holder so as to not break. 
+# #
+# #}
+
+# #Is less than 50 gold and will likely run out can take emergency steps to get more gold or supplies if adventurer
+# #will trigger event to get some more supplies either more taxes from locals loan from a lord with a lot of gold 
+# #Iron bank of Braavos if more taxes then increased discontent and a timed event for when summer comes along for problems
+# #Will give them up to 18 months worth of income
+# #seasons_winter_survive_decision = {
+# #	is_shown = {
+# 		#Shown only in Winter
+# #	}
+
+# #}
+# #Summer Store income this will set aside about 1/2 of your treasury in the "Iron Bank" and then
+# #When Winter comes along you'll get 1.5x to 3.5x your money for free. But you need atleast 1000 gold stored up
+
+# #Increases your income by 15% and if you're the king by 20% but it will add -20 popular opinion or -15 opinion with vassals
+
+# seasons_levy_extra_tax = {
+# 	picture = {
+# 		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+# 	}	
+	
+# 	ai_check_interval = 10
+
+# 	is_shown = {
+# 		any_character_situation = {
+# 			OR = {
+# 				any_situation_sub_region = {
+# 					sub_region_current_phase = seasons_winter_phase
+# 				}
+# 				any_situation_sub_region = {
+# 					sub_region_current_phase = seasons_light_winter_phase
+# 				}
+# 				any_situation_sub_region = {
+# 					sub_region_current_phase = seasons_cold_winter_phase
+# 				}
+# 			}
+# 		}
+# 	}
+# 	ai_will_do = {
+# 		base = 0
+# 		modifier = {
+# 			add = 100
+# 			has_trait = greedy
+# 		}
+# 		modifier = {
+# 			add = 20
+# 			monthly_character_income <= 0
+# 		}
+# 	}
+# 	cooldown = { years = 1 }
+# 	effect = {
+# 		custom_tooltip = levy_winter_tax_tt
+# 		trigger_event = season_flavor_events.00125
+# 	}
+
+# }
+
+
+# seasons_manual_start = {
+# 	picture = {
+# 		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+# 	}	
+# 	is_shown = {
+# 		NOT = {
+# 			global_var:AGOT_seasons_is_loaded = yes
+# 		}
+# 		is_ai = no
+# 	}
+	
+# 	effect = {
+# 		set_global_variable = {
+# 			name = AGOT_seasons_is_loaded
+# 			value = yes
+# 		}
+# 		seasons_map_startup = yes		
+# 		trigger_event = season_events.001
+# 		set_AGOT_season_spring_start = yes
+# 		start_situation = {
+# 			type = agot_seasons
+# 			start_phase = seasons_spring_phase
+# 			save_scope_as = seasons_situation_yay
+# 		}
+# 	}
+# }
+
+# #seasons_debt_bailout_decision = {
+# 	#is_shown = {
+# 	#	is_ai = yes
+# 	#	gold <= -1500
+# 	#	has_gamerule = ai_can_bailout
+# 	#}	
+
+# 	#add_gold = 500
+	
+# #}
+# #seasons_how_much_more_are_we_there_yet = {
+
+# #	ai_check_interval = 120
+# #	is_shown = {
+# #		is_ai = no
+# #	
+# #	}
+
+# #	effect = {
+# #		custom_tooltip = seasons_time_left
+# #		trigger_event = season_flavor_events.00125
+# #	}
+# #}

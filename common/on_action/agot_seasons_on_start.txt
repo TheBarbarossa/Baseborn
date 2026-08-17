@@ -1,0 +1,58 @@
+﻿on_game_start = {
+	on_actions = {
+		agot_seasons_start
+	}
+}
+
+agot_seasons_start = {
+	events = { season_events.001 }
+	effect = {
+		set_global_variable = {
+			name = AGOT_seasons_is_loaded
+			value = yes
+		}
+		seasons_map_startup = yes
+	#	if = {
+		#	limit = {
+		#		has_game_rule = seasons_storm_enabled
+		#	}
+		#	start_situation = {
+		#		type = river_situation
+		#		start_phase = river_normal_phase
+		#		save_scope_as = rivers_yay #River Song! Hello Sweetie. Yeah i'm a giant fucking nerd I know. 
+		#	}
+			#start_situation = {
+			#	type = storm_situation
+			#	start_phase = storm_normal_phase
+			#	save_scope_as = storms_yay
+			#}
+	#	}
+		if = {
+			limit = { has_game_rule = agot_sandbox_seasons }
+			set_AGOT_Season_Winter_Startup = yes
+			start_situation = {
+				type = agot_seasons
+				start_phase = seasons_winter_phase
+				save_scope_as = seasons_situation_yay
+			}
+			set_global_variable = {
+				name = what_season_is_it
+				value = 3
+			}
+		}
+		if = {
+			limit = { has_game_rule = agot_historical_seasons }
+			#set_AGOT_season_spring_start = yes
+			start_situation = {
+				type = agot_seasons
+				start_phase = seasons_spring_phase
+				save_scope_as = seasons_situation_yay
+			}
+			set_global_variable = {
+				name = what_season_is_it
+				value = 0
+			}			
+		}
+	}
+}
+

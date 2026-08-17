@@ -1,0 +1,293 @@
+﻿namespace = season_flavor_events
+
+
+#Seasonal Nicknames
+season_flavor_events.00015 = {
+	#title = season_flavor_events.00015.t
+	#desc = season_flavor_events.00015.desc
+	type = character_event
+	hidden = yes
+	
+	trigger = {
+			OR = {
+				any_parent = {  has_title = title:h_the_iron_throne }
+				any_parent = {  has_title = title:k_dragonstone }
+				any_parent = {	has_title = title:e_the_stormlands }
+				any_parent = { 	has_title = title:e_the_riverlands }
+				any_parent = {	has_title = title:e_the_north }
+				any_parent = {	has_title = title:e_the_reach }
+				any_parent = {  has_title = title:e_the_westerlands }
+				any_parent = {	has_title = title:e_dorne }
+				any_parent = {	has_title = title:e_the_vale }
+			}
+	}
+	immediate = {
+		if = {
+			limit = {
+				situation:agot_seasons = {
+					situation_sub_region:westeros_riverlands = {
+						OR = {
+							sub_region_current_phase = seasons_summer_phase
+							sub_region_current_phase = seasons_wet_summer_phase
+							sub_region_current_phase = seasons_dry_summer_phase
+							sub_region_current_phase = seasons_hot_summer_phase
+						}
+					}
+				}
+			}
+			random_list = {
+				10 = {
+					random_list = {
+						40 = { 
+							give_nickname = AGOT_seasons_sweet_summer_child	
+						}
+						30 = {
+							give_nickname = AGOT_seasons_solsticeborn 
+						}
+						10 = {
+							give_nickname = AGOT_seasons_sunborn
+						}
+						15 = {
+							if = {
+								limit = {
+									OR = {
+										any_parent = {	has_title = title:h_the_iron_throne }
+										any_parent = {	has_title = title:k_dragonstone }
+									}								
+								}
+								if = {
+									limit = {
+										is_female = yes
+									}
+									give_nickname = AGOT_seasons_midsummer_princess
+								}
+								else = {
+									give_nickname = AGOT_seasons_midsummer_prince
+								}
+							}
+							else = {
+								give_nickname = AGOT_seasons_midsummer_dreamer
+							}
+						}
+						
+					}
+				}
+				90 = {
+					add_prestige = 1
+				}
+			}
+		}
+		if = {
+			limit = {
+				situation:agot_seasons = {
+					situation_sub_region:westeros_riverlands = {
+						OR = {
+							sub_region_current_phase = seasons_light_winter_phase
+							sub_region_current_phase = seasons_winter_phase
+							sub_region_current_phase = seasons_cold_winter_phase
+						}
+					}
+				}
+			}
+			random_list = {
+				10 = {
+					random_list = {
+						50 = {
+							give_nickname = AGOT_seasons_winter_child	
+						}
+						20 = {
+							give_nickname = AGOT_seasons_winter_rose
+						}
+						10 = {
+							give_nickname = AGOT_seasons_blue_rose
+						}
+						10 = {
+							give_nickname = AGOT_seasons_frostborn
+						}
+					}
+				}
+				90 = {
+					add_prestige = 1
+				}
+			}
+		}
+		if = {
+			limit = {
+				situation:agot_seasons = {
+					situation_sub_region:westeros_riverlands = {
+						OR = {
+							sub_region_current_phase = seasons_spring_phase
+							sub_region_current_phase = seasons_cool_spring_phase
+							sub_region_current_phase = seasons_wet_spring_phase
+							sub_region_current_phase = seasons_dry_spring_phase			
+							sub_region_current_phase = seasons_hot_spring_phase
+						}
+					}
+				}
+			}
+			random_list = {
+				10 = {
+					if = {
+						limit = {
+							OR = {
+								any_parent = {	has_title = title:h_the_iron_throne }
+								any_parent = {	has_title = title:k_dragonstone }
+							}
+						}
+						if = {
+							limit = {
+								is_female = yes
+							}
+							random_list = {
+								30 = {
+									give_nickname = AGOT_seasons_spring_princess
+								}
+								30 = {
+									give_nickname = AGOT_seasons_blossoms_princess
+								}
+							}
+						}
+						else = {
+							random_list = {
+								50 = { 
+									give_nickname = AGOT_seasons_spring_prince
+								}
+								25 = {
+									give_nickname = AGOT_seasons_blossoms_prince
+								}
+							}
+						}
+					}
+					else = {
+						give_nickname = AGOT_seasons_spring_child
+					}
+				}
+				90 = {
+					add_prestige = 1
+				}
+			}
+		}
+		if = {
+			limit = {
+				situation:agot_seasons = {
+					situation_sub_region:westeros_riverlands = {
+						OR = {
+							sub_region_current_phase = seasons_autumn_phase
+							sub_region_current_phase = seasons_wet_autumn_phase
+							sub_region_current_phase = seasons_dry_autumn_phase
+							sub_region_current_phase = seasons_cold_autumn_phase
+						}
+					}
+				}
+			}
+			random_list = {
+				10 = {
+					if = {
+						limit = {
+								OR = {
+									any_parent = { has_title = title:h_the_iron_throne }
+									any_parent = { has_title = title:k_dragonstone }
+								}
+							}
+						if = {
+							limit = {
+								is_female = yes
+							}
+							random_list = {
+								50 = {
+									give_nickname = AGOT_seasons_autumn_princess
+								}
+								10 = {
+									give_nickname = AGOT_seasons_stormborn
+								}
+								20 = {
+									give_nickname = AGOT_seasons_stormchild
+								}
+								20 = {
+									give_nickname = AGOT_seasons_autumnborn
+								}
+							}
+						}
+						else = {
+							random_list = {
+								50 = {
+									give_nickname = AGOT_seasons_autumn_prince
+								}
+								10 = {
+									give_nickname = AGOT_seasons_stormborn
+								}
+								20 = {
+									give_nickname = AGOT_seasons_stormchild
+								}
+								20 = {
+									give_nickname = AGOT_seasons_autumnborn
+								}
+							}
+						}
+					}
+					else = {
+						random_list = {
+							50 = {
+								give_nickname = AGOT_seasons_autumn_child
+							}
+							10 = {
+								give_nickname = AGOT_seasons_stormborn
+							}
+							20 = {
+								give_nickname = AGOT_seasons_stormchild
+							}
+							20 = {
+								give_nickname = AGOT_seasons_autumnborn
+							}
+						}
+					}
+				}
+				90 = {
+					add_prestige = 1
+				}
+			}
+		}
+	}
+}
+
+
+season_flavor_events.00125 = {
+	title = season_flavor_events.060.t
+	desc = season_flavor_events.060.desc
+	type = character_event
+	theme = stewardship
+	lower_right_portrait = {
+		character = ROOT
+	}
+	#Peasant Tax
+	option = {
+		name = season_flavor_events.060.a
+		add_character_modifier = {
+			modifier = seasons_peasant_tax
+			years = 1
+		}
+		#later have it go to the let them eat cake event..
+	}
+
+	#Noble Tax
+	option = {
+		name = season_flavor_events.060.b
+		add_character_modifier = {
+			modifier = seasons_noble_tax
+			years = 1
+		}		
+	
+	}
+	#both!
+	option = {
+		name = season_flavor_events.060.d
+		add_character_modifier = {
+			modifier = seasons_all_tax
+			years = 1
+		}
+	}
+	#I've changed my mind
+	option = {
+		name = season_flavor_events.060.c
+	}
+}
