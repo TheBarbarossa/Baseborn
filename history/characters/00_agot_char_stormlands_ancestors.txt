@@ -10727,7 +10727,7 @@ Errol_57 = {
 	}
 }
 ### Issue of Serwyn
-Errol_16 = {
+Errol_16 = { # edited 08/06 slambroski
 	name = Bowen # a lord
 	dynasty = dynn_Errol
 
@@ -10737,11 +10737,19 @@ Errol_16 = {
 	father = Errol_15
 	mother = Hasty_16_B
 
+	trait = education_diplomacy_2
+	trait = humble
+	trait = gluttonous
+	trait = honest
+	trait = journaller
+
+	disallow_random_traits = yes 
+
 	8095.1.1 = { birth = yes }
 	8115.1.1 = { add_spouse = Leed_30 } # Rosamund Leed
 	8134.1.1 = { death = yes }
 }
-Errol_29 = {
+Errol_29 = { # edited 08/06 slambroski
 	name = Edgar
 	dynasty = dynn_Errol
 
@@ -10751,7 +10759,11 @@ Errol_29 = {
 	father = Errol_15
 	mother = Hasty_16_B
 
+	trait = fickle
+	trait = chaste
+
 	8101.1.1 = { birth = yes }
+	8119.1.1 = { trait = knight }
 	8152.1.1 = { death = yes }
 }
 Errol_68 = { # edited by BoomBler 24.7.2026
@@ -10786,6 +10798,8 @@ Errol_17 = {
 
 	father = Errol_16
 	mother = Leed_30
+
+	trait = paranoid
 
 	8119.1.1 = { birth = yes }
 	8136.1.1 = { trait = knight }
@@ -16701,12 +16715,15 @@ Herston_45 = {
 	father = Herston_43
 	mother = Bolling_59
 
+	trait = content
+	trait = just
+
 	8094.1.1 = { birth = yes }
 	8150.1.1 = {
 		death = { death_reason = death_fire }
 	}
 }
-Herston_46 = {
+Herston_46 = { # edited 08/06 slambroski
 	name = Arianne # married Robin Peasebury
 	dynasty = dynn_Herston
 	female = yes
@@ -16716,6 +16733,14 @@ Herston_46 = {
 
 	father = Herston_43
 	mother = Bolling_59
+
+	trait = friendly_face
+	trait = education_stewardship_2
+	trait = ambitious
+	trait = calm
+	trait = deceitful
+
+	disallow_random_traits = yes 
 
 	8095.1.1 = { birth = yes }
 	8157.1.1 = {
@@ -21730,7 +21755,7 @@ Peasebury_42 = {
 	}
 }
 ### Issue of Rolland
-Peasebury_14 = {
+Peasebury_14 = { # edited 08/05 slambroski
 	name = Robin # a lord
 	dynasty = dynn_Peasebury
 
@@ -21739,6 +21764,11 @@ Peasebury_14 = {
 
 	father = Peasebury_13
 	mother = Footly_15_B
+
+	trait = education_martial_2
+	trait = education_martial_prowess_2
+	trait = brave
+	trait = calm
 
 	8091.1.1 = { birth = yes }
 	8107.1.1 = { trait = knight }
@@ -21750,7 +21780,7 @@ Peasebury_14 = {
         }
     }
 }
-Peasebury_15 = {
+Peasebury_15 = { # edited 08/05 slambroski
 	name = Jother # Semi-Canon
 	dynasty = dynn_Peasebury
 
@@ -21760,12 +21790,17 @@ Peasebury_15 = {
 	father = Peasebury_13
 	mother = Footly_15_B
 
+	trait = vengeful
+	trait = ambitious
+	trait = greedy
+
 	8096.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
 	}
 	8112.1.1 = { trait = knight }
 	8126.1.1 = { add_spouse = Rogers_17 } # Rella Rogers
+	8131.1.9 = { trait = burned }
 	8178.1.1 = { death = yes }
 }
 ### Issue of Jother
@@ -21804,7 +21839,7 @@ Peasebury_17 = {
 	8200.1.1 = { death = yes }
 }
 ### Issue of Robin
-Peasebury_18 = {
+Peasebury_18 = { # edited 08/06 slambroski
 	name = Raymund # a lord
 	dynasty = dynn_Peasebury
 
@@ -21813,6 +21848,14 @@ Peasebury_18 = {
 
 	father = Peasebury_14
 	mother = Herston_46
+
+	trait = friendly_face
+	trait = calm
+	trait = lazy
+	trait = gregarious
+	trait = charming
+
+	disallow_random_traits = yes 
 
 	8118.1.1 = { birth = yes }
 	8134.1.1 = { trait = knight }
@@ -29713,7 +29756,7 @@ Tudbury_41 = {
 		death = { death_reason = death_ill }
 	}
 }
-Tudbury_42 = {
+Tudbury_42 = { # edited 07/31 slambroski
 	name = Maella
 	dynasty = dynn_Tudbury
 	female = yes
@@ -29725,6 +29768,7 @@ Tudbury_42 = {
 	mother = Uffering_64
 
 	8085.1.1 = { birth = yes }
+	8115.1.1 = { add_matrilineal_spouse = Farring_74 } # Carsten Farring
 	8151.1.1 = {
 		death = { death_reason = death_horse_riding_accident }
 	}
@@ -29764,6 +29808,60 @@ Tudbury_22 = {
 		add_character_flag = canon_status_semicanon
 	}
 	8180.1.1 = { death = yes }
+}
+### Issue of Maella
+Tudbury_42_A = { # edited 07/31 slambroski
+	name = Shireen
+	dynasty = dynn_Tudbury
+	female = yes
+
+	religion = fots_seven
+	culture = stormlander_main
+
+	father = Farring_74
+	mother = Tudbury_42
+
+	trait = twin
+
+	8118.1.1 = { birth = yes }
+	8133.3.1 = {
+		trait = ill
+		death = { death_reason = death_ill }
+	}
+}
+Tudbury_42_B = { # edited 07/31 slambroski
+	name = Duram
+	dynasty = dynn_Tudbury
+
+	religion = fots_seven
+	culture = stormlander_main
+
+	father = Farring_74
+	mother = Tudbury_42
+
+	trait = twin
+
+	8118.1.1 = { birth = yes }
+	8136.1.1 = { trait = knight }
+	8158.1.1 = {
+		death = { death_reason = death_battle }
+	}
+}
+Tudbury_42_C = { # edited 07/31 slambroski
+	name = Brienne
+	dynasty = dynn_Tudbury
+	female = yes 
+
+	religion = fots_seven
+	culture = stormlander_main
+
+	father = Farring_74
+	mother = Tudbury_42
+
+	8122.1.1 = { birth = yes }
+	8145.1.1 = {
+		death = { death_reason = death_accident }
+	}
 }
 ### Issue of Sarmion
 Tudbury_44 = {
@@ -41414,7 +41512,7 @@ Crowell_34 = {
 		death = { death_reason = death_heart_attack }
 	}
 }
-Crowell_35 = {
+Crowell_35 = { # edited 07/31 slambroski
 	name = Ralph
 	dynasty = dynn_Crowell
 
@@ -41427,11 +41525,17 @@ Crowell_35 = {
 	8099.1.1 = { birth = yes }
 	8115.1.1 = { add_spouse = Bullock_44 } # Malla Bullock
 	8117.1.1 = { trait = knight }
-	8153.1.1 = {
-		death = { death_reason = death_natural_causes }
+	8131.1.9 = {
+		death = {
+			death_reason = death_battle_kingsroad # Battle of the Kingsroad
+			killer = Rushmoor_45 # Davin Rushmoor
+		}
 	}
+	# 8153.1.1 = {
+	#	death = { death_reason = death_natural_causes }
+	# }
 }
-Crowell_36 = {
+Crowell_36 = { # edited 07/31 slambroski
 	name = Rondon
 	dynasty = dynn_Crowell
 
@@ -41444,9 +41548,15 @@ Crowell_36 = {
 	8100.1.1 = { birth = yes }
 	8116.1.1 = { trait = knight }
 	8124.1.1 = { add_spouse = Ripping_44 } # Mylessa Ripping
-	8154.1.1 = {
-		death = { death_reason = death_mysterious }
+	8131.1.9 = {
+		death = {
+			death_reason = death_battle_kingsroad # Battle of the Kingsroad
+			killer = Vypren_14 # Vyman Vypren
+		}
 	}
+	# 8154.1.1 = {
+	#	death = { death_reason = death_mysterious }
+	# }
 }
 Crowell_37 = {
 	name = Brienne # married Maynard Lannister of Lannisport
@@ -79920,9 +80030,10 @@ Bolander_43 = {
 	8099.1.1 = { birth = yes }
 	8116.1.1 = { trait = knight }
 	8119.1.1 = { add_spouse = Gayle_76 } # Tarianne Gayle
-	8176.1.1 = {
-		death = { death_reason = death_old_age }
-	}
+	8130.1.1 = { death = { death_reason = death_battle_dragon_fire }}
+	# 8176.1.1 = {
+	#	death = { death_reason = death_old_age }
+	# }
 }
 Bolander_44 = {
 	name = Bariya # married Qarlton Pointe
@@ -113247,7 +113358,7 @@ Wenton_49 = {
 		death = { death_reason = death_ill }
 	}
 }
-Wenton_50 = {
+Wenton_50 = { # edited 07/31 slambroski
 	name = Ormund
 	dynasty = dynn_Wenton
 
@@ -113260,9 +113371,13 @@ Wenton_50 = {
 	8104.1.1 = { birth = yes }
 	8122.1.1 = { trait = knight }
 	8125.1.1 = { add_spouse = Ran_Cammon_27 } # Oryssa Ran Cammon
-	8171.1.1 = {
-		death = { death_reason = death_natural_causes }
+	8130.1.1 = { 
+		trait = burned
+		death = { death_reason = death_battle_dragon_fire } 
 	}
+	# 8171.1.1 = {
+	#	death = { death_reason = death_natural_causes }
+	# }
 }
 ### Issue of Balon
 Wenton_55 = {
@@ -126755,4 +126870,86 @@ Sulk_59 = {
 
 	8257.1.1 = { birth = yes }
 	8297.1.1 = { death = yes }
+}
+
+###### Lowborn Sellswords
+############################
+###
+###
+Big_Alard_1 = { # created 08/15 slambroski
+	name = Alard # C9 tourney winner, 2nd place, Slaya
+	dna = Big_Alard_1
+
+	diplomacy = 5
+	martial = 8
+	stewardship = 8
+	intrigue = 1
+	learning = 4
+	prowess = 8
+
+	religion = fots_seven
+	culture = stormlander_main
+
+	trait = education_martial_1
+	trait = education_martial_prowess_3
+	trait = giant
+	trait = intellect_bad_2
+	trait = brave
+	trait = compassionate
+	trait = trusting
+	trait = shy
+
+	trait = strong
+	trait = gallant
+
+	disallow_random_traits = yes 
+
+	8099.1.1 = { birth = yes }
+	8130.1.1 = {
+		trait = knight
+		give_nickname = nick_agot_historical_big_Hogg_12
+		effect = {
+			agot_create_personal_coa_for_historical_ai = { ACTOR = character:Big_Alard_1 COA_KEY = big_alard_personal_coa }
+		}
+	}
+	8132.1.1 = { employer = Grandison_19 } # Lorent Grandison
+	8150.1.1 = { death = yes }
+}
+Lightningstruck_1 = {
+	name = Eddison # C9 tourney winner, 4th place, Indy
+	# Indy did not give DNA
+
+	diplomacy = 2
+	martial = 10
+	stewardship = 1
+	intrigue = 1
+	learning = 1
+	prowess = 10
+
+	religion = fots_seven
+	culture = stormlander_main
+
+	trait = education_martial_2
+	trait = education_martial_prowess_2
+	trait = lunatic_1
+	trait = brave
+	trait = ambitious
+	trait = zealous
+
+	disallow_random_traits = yes 
+
+	8104.1.1 = { birth = yes }
+	8130.1.1 = {
+		trait = knight 
+		trait = reckless
+		trait = scarred
+		trait = lifestyle_blademaster
+		trait = lifestyle_hunter
+		give_nickname = nick_agot_historical_lightningstruck
+		effect = {
+			agot_create_personal_coa_for_historical_ai = { ACTOR = character:Lightningstruck_1 COA_KEY = lightningstruck_personal_coa }
+		}
+	}
+	8132.1.1 = { employer = Fossoway_36 } # Oswell Fossoway
+	8135.1.1 = { death = yes }
 }

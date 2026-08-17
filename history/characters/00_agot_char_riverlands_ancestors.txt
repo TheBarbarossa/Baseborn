@@ -24325,7 +24325,7 @@ Lychester_38 = {
 	mother = Corne_91
 
 	8085.1.1 = { birth = yes }
-	8110.1.1 = { add_matrilineal_spouse = Dunstable_96 } # Ronel Dunstable
+	8109.1.1 = { add_matrilineal_spouse = Dunstable_96 } # Ronel Dunstable
 	8149.1.1 = {
 		death = { death_reason = death_drank_to_death }
 	}
@@ -24347,6 +24347,25 @@ Lychester_39 = {
 	8152.1.1 = {
 		trait = ill
 		death = { death_reason = death_ill }
+	}
+}
+Lychester_39_A = { # created 08/02 slambroski
+	name = Jon
+	dynasty = dynn_Lychester
+
+	religion = fots_seven
+	culture = riverman_main
+
+	father = Dunstable_96
+	mother = Lychester_38
+
+	8110.1.1 = { birth = yes }
+	8128.1.1 = { trait = knight }
+	8131.9.1 = {
+		death = {
+			death_reason = death_battle_kingsroad # Battle of the Kingsroad
+			killer = Hickory_57 # Elmar Hickory
+		}
 	}
 }
 ### Issue of Mellara
@@ -38583,6 +38602,8 @@ Mandrake_73_B = { # created 07/27 slambroski
 	father = Mandrake_71
 	mother = Myshkin_94
 
+	trait = humble
+
 	8090.1.1 = { birth = yes }
 	8108.1.1 = { trait = knight }
 	8133.1.1 = {
@@ -38591,7 +38612,7 @@ Mandrake_73_B = { # created 07/27 slambroski
 	}
 }
 ### Issue of Masart
-Mandrake_74 = {
+Mandrake_74 = { # edited 08/13 slambroski
 	name = Cassella # a lord
 	dynasty = dynn_Mandrake
 	female = yes
@@ -38602,7 +38623,15 @@ Mandrake_74 = {
 	father = Mandrake_73
 	mother = Shreeve_28
 
+	trait = education_diplomacy_2
+	trait = silver_tongued
+	trait = zealous
+	trait = temperate
+
+	disallow_random_traits = yes 
+
 	8115.1.1 = { birth = yes }
+	8129.1.1 = { trait = chaste }
 	8141.1.1 = { add_matrilineal_spouse = Wayn_91 } # Euson Wayn
 	8172.1.1 = {
 		death = { death_reason = death_natural_causes }
@@ -42212,6 +42241,20 @@ Chambers_48 = {
 	8131.1.1 = {
 		death = { death_reason = death_accident }
 	}
+}
+### Issue of Devon
+Chambers_47_A = { # created 08/05 slambroski
+	name = Jacaerys
+	dynasty = dynn_Chambers
+
+	religion = fots_seven
+	culture = riverman_main
+
+	father = Chambers_47
+	mother = Wydman_57
+
+	8119.1.1 = { birth = yes }
+	8138.1.1 = { death = { death_reason = death_murder }}
 }
 ### Issue of Garrett
 Chambers_70 = {
@@ -49431,7 +49474,7 @@ Butterwell_56 = {
 	}
 }
 ### Issue of Otho
-Butterwell_19 = {
+Butterwell_19 = { # edited 08/13 slambroski
 	name = Symond # a lord
 	dynasty = dynn_Butterwell
 
@@ -49441,9 +49484,18 @@ Butterwell_19 = {
 	father = Butterwell_18
 	mother = Mooton_71
 
+	trait = education_learning_1 
+	trait = education_martial_prowess_1
+	trait = craven
+	trait = fickle
+	trait = patient
+
+	disallow_random_traits = yes 
+
 	8092.1.1 = { birth = yes }
 	8110.1.1 = { trait = knight }
 	8111.1.1 = { add_spouse = Wayn_105 } # Alette Wayn
+	8132.1.1 = { trait = reclusive }
 	8154.1.1 = { death = yes }
 }
 Butterwell_20 = {
@@ -49515,7 +49567,7 @@ Butterwell_21 = {
 	}
 	8183.1.1 = { death = yes }
 }
-Butterwell_22 = {
+Butterwell_22 = { # edited 08/01 slambroski
 	name = Ambrose # Semi-Canon, a lord, Hand of the King
 	dynasty = dynn_Butterwell
 
@@ -49527,10 +49579,10 @@ Butterwell_22 = {
 
 	trait = education_stewardship_3
 	trait = intellect_good_2
-	trait = diligent
+	# trait = diligent
 	trait = arbitrary
-	trait = greedy
-	trait = callous
+	# trait = greedy
+	# trait = callous
 	trait = curious
 
 	disallow_random_traits = yes
@@ -60063,7 +60115,7 @@ Penny_73 = {
 	}
 }
 ### Issue of Kendron
-Penny_74 = {
+Penny_74 = { # edited 07/31 slambroski
 	name = Edmyn
 	dynasty = dynn_Penny
 
@@ -60074,7 +60126,9 @@ Penny_74 = {
 	mother = Stackspear_61
 
 	8108.1.1 = { birth = yes }
-	8127.1.1 = { trait = knight }
+	8121.1.1 = { trait = septon }
+	# 8127.1.1 = { trait = knight }
+	8131.1.1 = { employer = Brax_28 } # Tommen Brax
 	8176.1.1 = {
 		death = { death_reason = death_treatment }
 	}
@@ -91156,6 +91210,29 @@ Gleaner_36 = {
 		death = { death_reason = death_accident }
 	}
 }
+Gleaner_35_B = { # created 07/31 slambroski
+	name = Igon
+	dynasty = dynn_Gleaner
+
+	religion = fots_seven
+	culture = riverman_main
+
+	father = Taves_109
+	mother = Gleaner_33
+
+	8096.1.1 = { birth = yes }
+	8114.1.1 = {
+		trait = knight
+		add_spouse = Payne_66 # Dorcas Payne
+	}
+	8130.1.1 = {
+		trait = burned
+		trait = one_handed
+	}
+	8166.1.1 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
 ### Issue of Davin
 Gleaner_37 = {
 	name = Tothmure
@@ -91172,6 +91249,44 @@ Gleaner_37 = {
 	8139.1.1 = { add_spouse = Common_76 } # Bethany Common
 	8153.1.1 = {
 		death = { death_reason = death_accident }
+	}
+}
+### Issue of Igon
+Gleaner_35_C = { # created 07/31 slambroski
+	name = Willit
+	dynasty = dynn_Gleaner
+
+	religion = fots_seven
+	culture = riverman_main
+
+	father = Gleaner_35_B
+	mother = Payne_66
+
+	trait = twin
+
+	8115.1.1 = { birth = yes }
+	8131.1.1 = { trait = knight }
+	8166.1.1 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+Gleaner_35_D = { # created 07/31 slambroski
+	name = Sefton
+	dynasty = dynn_Gleaner
+
+	religion = fots_seven
+	culture = riverman_main
+
+	father = Gleaner_35_B
+	mother = Payne_66
+
+	trait = twin
+
+	8115.1.1 = { birth = yes }
+	8131.1.1 = { trait = knight }
+	8133.1.1 = {
+		trait = ill
+		death = { death_reason = death_ill }
 	}
 }
 ### Issue of Tothmure
@@ -107393,6 +107508,23 @@ Banbeck_40 = {
 		death = { death_reason = death_tumultuous_guts }
 	}
 }
+Banbeck_40_B = { # created 08/08 slambroski
+	name = Bethany
+	dynasty = dynn_Banbeck
+	female = yes
+
+	religion = fots_seven
+	culture = riverman_main
+
+	father = Banbeck_39
+	mother = Dronigan_43
+
+	8060.1.1 = { birth = yes }
+	8105.1.1 = {
+		trait = ill
+		death = { death_reason = death_ill}
+	}
+}
 ### Issue of Barbara
 Banbeck_42 = {
 	name = Jonara # married Omer Leek
@@ -120037,7 +120169,7 @@ Whett_39 = {
 		death = { death_reason = death_ill }
 	}
 }
-Whett_40 = {
+Whett_40 = { # edited 08/01 slambroski
 	name = Sarra
 	dynasty = dynn_Whett
 	female = yes
@@ -120049,6 +120181,7 @@ Whett_40 = {
 	mother = Ire_20
 
 	8090.1.1 = { birth = yes }
+	8110.1.1 = { add_matrilineal_spouse = Chambers_71 } # Gillam Chambers
 	8141.1.1 = {
 		death = { death_reason = death_accident }
 	}
@@ -120205,6 +120338,40 @@ Whett_55 = {
 	8179.1.1 = {
 		trait = pneumonic
 		death = { death_reason = death_pneumonic }
+	}
+}
+### Issue of Sarra
+Whett_40_A = { # created 08/02 slambroski
+	name = Golda
+	dynasty = dynn_Whett
+	female = yes
+
+	religion = fots_seven
+	culture = riverman_main
+
+	father = Chambers_71
+	mother = Whett_40
+
+	8114.1.1 = { birth = yes }
+	8133.1.1 = {
+		trait = ill
+		death = { death_reason = death_treatment }
+	}
+}
+Whett_40_B = { # created 08/02 slambroski
+	name = Jostyn
+	dynasty = dynn_Whett
+
+	religion = fots_seven
+	culture = riverman_main
+
+	father = Chambers_71
+	mother = Whett_40
+
+	8119.1.1 = { birth = yes }
+	8135.1.1 = { trait = knight }
+	8146.1.1 = {
+		death = { death_reason = death_accident }
 	}
 }
 ### Issue of Morlan
@@ -132485,7 +132652,7 @@ Common_67 = {
 	}
 }
 ### Issue of Wendel
-Common_68 = {
+Common_68 = { # edited 08/02 slambroski
 	name = Terin
 	dynasty = dynn_Common
 
@@ -132500,9 +132667,10 @@ Common_68 = {
 		add_spouse = Brune_56 # Ermesande Brune
 		trait = knight
 	}
-	8135.1.1 = {
-		death = { death_reason = death_accident }
-	}
+	8131.1.9 = { death = { death_reason = death_battle_dragon_fire } }
+	# 8135.1.1 = {
+	#	death = { death_reason = death_accident }
+	# }
 }
 Common_69 = {
 	name = Glendon

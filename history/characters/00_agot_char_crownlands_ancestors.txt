@@ -6353,7 +6353,7 @@ Staunton_24 = {
 	}
 	8182.1.1 = { death = yes }
 }
-Staunton_25 = {
+Staunton_25 = { # edited 08/01 slambroski
 	name = Ossifer # Semi-Canon, a lord
 	dynasty = dynn_Staunton
 
@@ -6366,7 +6366,7 @@ Staunton_25 = {
 	trait = education_intrigue_1
 	trait = ambitious
 	trait = arbitrary
-	trait = deceitful
+	# trait = deceitful
 	trait = bossy
 
 	disallow_random_traits = yes
@@ -10204,6 +10204,8 @@ Leek_17 = {
 	father = Leek_12
 	mother = Egen_47
 
+	trait = wheezing
+
 	8099.1.1 = { birth = yes }
 	8118.1.1 = { trait = knight }
 	8129.1.1 = {
@@ -10266,7 +10268,7 @@ Leek_20 = {
 	8154.1.1 = { death = yes }
 }
 ### Issue of Omer
-Leek_15 = {
+Leek_15 = { # edited 08/08 slambroski
 	name = Steffon
 	dynasty = dynn_Leek
 
@@ -10279,9 +10281,15 @@ Leek_15 = {
 	8096.1.1 = { birth = yes }
 	8112.1.1 = { add_spouse = Warl_52 } # Riona Warl
 	8114.1.1 = { trait = knight }
-	8159.1.1 = {
-		death = { death_reason = death_heart_attack }
+	8129.10.3 = {
+		death = {
+			death_reason = death_battle # Battle of Duskendale
+			killer = Thorne_16 # Adrian Thorne
+		}
 	}
+	# 8159.1.1 = {
+	#	death = { death_reason = death_heart_attack }
+	# }
 }
 ### Issue of Steffon
 Leek_27 = {
@@ -11013,6 +11021,20 @@ Darke_9 = {
 	}
 	8132.1.1 = { add_spouse = Crews_51 } # Alannys Crews
 	8156.6.1 = { death = yes }
+}
+Darke_9_B = { # created 08/08 slambroski
+	name = Alessa
+	dynasty_house = house_Darke
+	female = yes 
+
+	religion = fots_seven
+	culture = riverman_main
+
+	father = Darke_6
+	mother = Branfield_40
+
+	8120.1.1 = { birth = yes }
+	8139.6.1 = { death = yes }
 }
 ### Issue of Ronnel
 Darke_10 = {
@@ -12077,6 +12099,39 @@ Darkwood_17 = {
 	8139.1.1 = { add_spouse = Hollard_67 } # Sallei Hollard
 	8152.1.1 = {
 		death = { death_reason = death_accident }
+	}
+}
+Darkwood_17_B = { # created 08/08 slambroski
+	name = Joyeuse
+	dynasty_house = house_Darkwood
+	female = yes 
+
+	religion = fots_seven
+	culture = crownlander
+
+	father = Darkwood_14
+	mother = Terrick_35
+
+	8117.1.1 = { birth = yes }
+	8133.1.1 = {
+		trait = ill
+		death = { death_reason = death_ill }
+	}
+}
+Darkwood_17_C = { # created 08/08 slambroski
+	name = Harwyn
+	dynasty_house = house_Darkwood
+
+	religion = fots_seven
+	culture = crownlander
+
+	father = Darkwood_14
+	mother = Terrick_35
+
+	8119.1.1 = { birth = yes }
+	8133.1.1 = {
+		trait = ill
+		death = { death_reason = death_ill }
 	}
 }
 ### Issue of Owain
@@ -29917,7 +29972,7 @@ Wendwater_14b = {
 	8132.1.1 = { death = yes }
 }
 ### Issue of Roger
-Wendwater_15 = {
+Wendwater_15 = { # edited 08/13 slambroski
 	name = Borros # a lord
 	dynasty = dynn_Wendwater
 
@@ -29926,6 +29981,14 @@ Wendwater_15 = {
 
 	father = Wendwater_13
 	mother = Byrne_45
+
+	trait = education_stewardship_1
+	trait = education_martial_prowess_3
+	trait = greedy
+	trait = lazy
+	trait = cynical
+
+	disallow_random_traits = yes 
 
 	8104.1.1 = { birth = yes }
 	8125.1.1 = { add_spouse = Graves_52 } # Celessa Graves
@@ -31115,7 +31178,7 @@ Rosby_21 = {
 	}
 	8174.1.1 = { death = yes }
 }
-Rosby_22 = {
+Rosby_22 = { # edited 08/01 slambroski
 	name = Haric # Semi-Canon, a lord
 	dynasty = dynn_Rosby
 
@@ -31132,8 +31195,8 @@ Rosby_22 = {
 	trait = education_martial_1
 	trait = arrogant
 	trait = wrathful
-	trait = ambitious
-	trait = brave
+	# trait = ambitious
+	# trait = brave
 	trait = bossy
 
 	disallow_random_traits = yes
@@ -45729,7 +45792,7 @@ Correy_44 = {
 		death = { death_reason = death_pneumonic }
 	}
 }
-Correy_45 = {
+Correy_45 = { # edited 07/31 slambroski
 	name = Matrice
 	dynasty = dynn_Correy
 	female = yes
@@ -45743,6 +45806,7 @@ Correy_45 = {
 	trait = twin
 
 	8088.1.1 = { birth = yes }
+	8115.1.1 = { add_matrilineal_spouse = Follard_16 } # Robert Follard 
 	8130.1.1 = {
 		death = { death_reason = death_horse_riding_accident }
 	}
@@ -45781,6 +45845,23 @@ Correy_49 = {
 	8139.1.1 = { add_matrilineal_spouse = Rust_21 } # Jonos Rust
 	8176.1.1 = {
 		death = { death_reason = death_natural_causes }
+	}
+}
+### Issue of Matrice
+Correy_45_A = { # edited 07/31 slambroski
+	name = Willam
+	dynasty = dynn_Correy
+
+	religion = fots_seven
+	culture = crownlander
+
+	father = Follard_16
+	mother = Correy_45
+
+	8121.1.1 = { birth = yes } 
+	8134.1.1 = {
+		trait = ill
+		death = { death_reason = death_ill }
 	}
 }
 ### Issue of Lymond
@@ -47381,7 +47462,7 @@ Shreeve_27 = {
 		death = { death_reason = death_ill }
 	}
 }
-Shreeve_28 = {
+Shreeve_28 = { # edited 08/08 slambroski
 	name = Barra # married Masart Mandrake
 	dynasty = dynn_Shreeve
 	female = yes
@@ -47393,6 +47474,7 @@ Shreeve_28 = {
 	mother = Shreeve_26
 
 	8092.1.1 = { birth = yes }
+	8124.1.1 = { trait = widowed }
 	8147.1.1 = {
 		death = { death_reason = death_natural_causes }
 	}
@@ -47493,6 +47575,23 @@ Shreeve_34 = {
 	8121.1.1 = { birth = yes }
 	8198.1.1 = {
 		death = { death_reason = death_old_age }
+	}
+}
+Shreeve_34_B = { # created 08/08 slambroski
+	name = Marilda
+	dynasty = dynn_Shreeve
+	female = yes
+
+	religion = fots_seven
+	culture = crownlander
+
+	father = Shreeve_27
+	mother = Morrison_72
+
+	8128.1.1 = { birth = yes }
+	8167.1.1 = {
+		trait = cancer
+		death = { death_reason = death_cancer }
 	}
 }
 ### Issue of Balon
@@ -64493,7 +64592,7 @@ Brune_55 = {
 	8124.1.1 = { death = yes }
 }
 ### Issue of Florian
-Brune_56 = {
+Brune_56 = { # edited 08/02 slambroski
 	name = Ermesande # married Terin Common
 	dynasty = dynn_Brune
 	female = yes
@@ -64507,6 +64606,7 @@ Brune_56 = {
 	trait = twin
 
 	8100.1.1 = { birth = yes }
+	8131.1.9 = { trait = widowed }
 	8168.1.1 = {
 		trait = consumption
 		death = { death_reason = death_consumption }
@@ -78979,6 +79079,25 @@ Shallows_35 = {
 		death = { death_reason = death_training_accident }
 	}
 }
+Shallows_35_B = { # created 07/31 slambroski
+	name = Clarence
+	dynasty_house = house_Shallows
+
+	religion = fots_seven
+	culture = crownlander
+
+	father = Shallows_27
+	mother = Barrett_52
+
+	8094.1.1 = { birth = yes }
+	8114.1.1 = { 
+		trait = knight 
+		add_spouse = Hutcheson_48 # Elenda Hutchenson
+	}
+	8131.1.9 = {
+		death = { death_reason = death_battle_dragon_fire }
+	}
+}
 ### Issue of Luthor
 Shallows_36 = {
 	name = Adya # a lord
@@ -78995,6 +79114,40 @@ Shallows_36 = {
 	8140.1.1 = { add_matrilineal_spouse = Langward_61 } # Orstos Langward
 	8163.1.1 = {
 		death = { death_reason = death_accident }
+	}
+}
+### Issue of Clarence
+Shallows_35_C = { # created 07/31 slambroski
+	name = Mordane
+	dynasty_house = house_Shallows
+	female = yes 
+
+	religion = fots_seven
+	culture = crownlander
+
+	father = Shallows_35_B
+	mother = Hutcheson_48
+
+	8120.1.1 = { birth = yes }
+	8153.1.1 = {
+		trait = cancer
+		death = { death_reason = death_cancer }
+	}
+}
+Shallows_35_D = { # created 07/31 slambroski
+	name = Selyse
+	dynasty_house = house_Shallows
+	female = yes 
+
+	religion = fots_seven
+	culture = crownlander
+
+	father = Shallows_35_B
+	mother = Hutcheson_48
+
+	8124.1.1 = { birth = yes }
+	8188.1.1 = {
+		death = { death_reason = death_natural_causes }
 	}
 }
 ### Issue of Adya

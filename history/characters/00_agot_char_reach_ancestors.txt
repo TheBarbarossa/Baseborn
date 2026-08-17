@@ -10729,7 +10729,7 @@ Hightower_101 = {
 	}
 	8183.1.1 = { death = yes }
 }
-Hightower_102 = { # Edited by BoomBler 24.7.2026
+Hightower_102 = { # Edited by BoomBler 24.7.2026, edited 08/13 slambroski
 	name = Lyonel # Canon, a lord
 	dynasty = dynn_Hightower
 	dna = Hightower_102
@@ -10747,6 +10747,7 @@ Hightower_102 = { # Edited by BoomBler 24.7.2026
 	trait = vengeful # wanted to continue the war
 	trait = arbitrary # did not care about the High Septon
 	trait = stubborn # continued sleeping with Sam
+	trait = lustful
 
 	disallow_random_traits = yes
 
@@ -10772,11 +10773,12 @@ Hightower_102 = { # Edited by BoomBler 24.7.2026
 			agot_safe_reveal_lovers_history_effect = yes
 		}
 	}
+	8131.6.1 = { trait = incestuous }
 	8132.3.6 = {
 		effect = {
 			remove_short_term_gold = 1160
 		}
-	}	
+	}
 	8144.1.1 = {
 		effect = { remove_trait = fornicator }
 		add_spouse = Tarly_28 # Samantha Tarly
@@ -20399,7 +20401,7 @@ Mullendore_37 = {
 	8079.1.1 = { birth = yes }
 	8100.1.1 = { death = yes }
 }
-Mullendore_38 = {
+Mullendore_38 = { # edited 08/16 slambroski
 	name = Mace # a lord
 	dynasty = dynn_Mullendore
 
@@ -20408,6 +20410,14 @@ Mullendore_38 = {
 
 	father = Ashford_57
 	mother = Mullendore_36
+
+	trait = education_learning_4
+	trait = education_prowess_2
+	trait = inquisitive
+	trait = brave
+	trait = generous
+
+	disallow_random_traits = yes 
 
 	8081.1.1 = { birth = yes }
 	8098.1.1 = { trait = knight }
@@ -27701,7 +27711,7 @@ Tarly_61 = {
 	}
 }
 ### Issue of Pearse
-Tarly_62 = {
+Tarly_62 = { # edited 07/31 slambroski
 	name = Eldon
 	dynasty = dynn_Tarly
 
@@ -27712,7 +27722,9 @@ Tarly_62 = {
 	mother = Bar_Emmon_84
 
 	8087.1.1 = { birth = yes }
-	8103.1.1 = { trait = knight }
+	# 8103.1.1 = { trait = knight }
+	8103.1.1 = { trait = maester_historical }
+	8131.1.1 = { employer = Merryweather_21 } # Marq Merryweather
 	8144.1.1 = {
 		death = { death_reason = death_natural_causes }
 	}
@@ -27907,7 +27919,7 @@ Tarly_30 = { #Edited by Boombler 24.7.2026
 	8127.1.1 = { add_spouse = Selmy_30 }
 	8189.1.1 = { death = yes }
 }
-Tarly_28 = { #Edited by Boombler 24.7.2026
+Tarly_28 = { #Edited by Boombler 24.7.2026, edited 08/13 slambroski
 	name = Samantha # Canon, married Ormund and Lyonel Hightower
 	dynasty = dynn_Tarly
 	female = yes
@@ -27926,6 +27938,7 @@ Tarly_28 = { #Edited by Boombler 24.7.2026
 	trait = diligent
 	trait = ambitious
 	trait = brave
+	trait = arrogant
 	trait = rowdy
 
 	disallow_random_traits = yes
@@ -27937,7 +27950,10 @@ Tarly_28 = { #Edited by Boombler 24.7.2026
 		add_character_flag = sexuality_ensure_not_homosexual
 		add_character_flag = sexuality_ensure_not_asexual
 	}
-	8127.1.1 = { trait = lustful }
+	# 8127.1.1 = { trait = lustful }
+	8129.1.1 = { employer = Hightower_92 } # Ormond Hightower
+	8130.4.28 = { employer = Hightower_102 } # Lyonel Hightower
+	8131.6.1 = { trait = incestuous }
 	# 8132.1.1 = { trait = fornicator } # Disabled until Imprisonment by AI bug is fixed
 	8178.1.1 = { death = yes }
 }
@@ -38281,7 +38297,7 @@ Hutcheson_40 = {
 	}
 }
 ### Issue of Titus
-Hutcheson_44 = {
+Hutcheson_44 = { # edited 08/16 slambroski
 	name = Aric
 	dynasty = dynn_Hutcheson
 
@@ -38294,9 +38310,12 @@ Hutcheson_44 = {
 	8084.1.1 = { birth = yes }
 	8103.1.1 = { trait = knight }
 	8111.1.1 = { add_spouse = Morles_30 } # Bonessa Morles
-	8144.1.1 = {
-		death = { death_reason = death_treatment }
+	8129.9.1 = {
+		death = { death_reason = death_battle }
 	}
+	# 8144.1.1 = {
+	#	death = { death_reason = death_treatment }
+	# }
 }
 ### Issue of Anguy
 Hutcheson_51 = {
@@ -38439,7 +38458,7 @@ Hutcheson_41 = {
 	}
 }
 ### Issue of Hugh
-Hutcheson_45 = {
+Hutcheson_45 = { # edited 08/16 slambroski
 	name = Halbert
 	dynasty = dynn_Hutcheson
 
@@ -38452,10 +38471,13 @@ Hutcheson_45 = {
 	8100.1.1 = { birth = yes }
 	8118.1.1 = { trait = knight }
 	8120.1.1 = { add_spouse = Rosvenore_84 } # Gallisa Rosvenore
-	8161.1.1 = {
-		trait = ill
-		death = { death_reason = death_ill }
+	8130.1.1 = {
+		death = { death_reason = death_battle }
 	}
+	# 8161.1.1 = {
+	#	trait = ill
+	#	death = { death_reason = death_ill }
+	# }
 }
 Hutcheson_46 = {
 	name = Carmella # married Andros Bolling
@@ -52259,7 +52281,7 @@ Osgrey_38 = {
 		death = { death_reason = death_battle } # Battle of Honeywine
 	}
 }
-Osgrey_118 = {
+Osgrey_118 = { # edited 08/16 slambroski
 	name = George 
 	dynasty = dynn_Osgrey
 
@@ -52273,6 +52295,7 @@ Osgrey_118 = {
 
 	8093.1.1 = { birth = yes }
 	8112.1.1 = { trait = knight }
+	8116.1.1 = { add_spouse = Kidwell_47 } # Denyse Kidwell
 	8148.1.1 = {
 		death = { death_reason = death_horse }
 	}
@@ -52377,6 +52400,40 @@ Osgrey_39 = {
 		add_spouse = Dunn_61 # Kerena Dunn
 	}
 	8165.1.1 = { death = yes }
+}
+### Issue of George
+Osgrey_118_A = { # created 08/16 slambroski
+	name = Armoria
+	dynasty = dynn_Osgrey
+	female = yes 
+
+	religion = fots_seven
+	culture = reachman
+
+	father = Osgrey_118
+	mother = Kidwell_47
+
+	8117.1.1 = { birth = yes }
+	8155.1.1 = {
+		death = { death_reason = death_accident }
+	}
+}
+Osgrey_118_B = { # created 08/16 slambroski
+	name = Samantha
+	dynasty = dynn_Osgrey
+	female = yes 
+
+	religion = fots_seven
+	culture = reachman
+
+	father = Osgrey_118
+	mother = Kidwell_47
+
+	8123.1.1 = { birth = yes }
+	8137.1.1 = {
+		trait = ill
+		death = { death_reason = death_ill }
+	}
 }
 ### Issue of Edwyn
 Osgrey_40 = {
@@ -55537,7 +55594,7 @@ Risley_53 = {
 	8102.1.1 = { birth = yes }
 	8121.1.1 = { death = yes }
 }
-Risley_27 = {
+Risley_27 = { # edited 08/12 slambroski
 	name = Victor # Canon, a lord, one of the Caltrops
 	dynasty = dynn_Risley
 
@@ -55560,7 +55617,7 @@ Risley_27 = {
 	8121.1.1 = {
 		trait = drunkard
 		trait = knight
-		add_spouse = Leygood_29 # Alla Leygood
+		# add_spouse = Leygood_29 # Alla Leygood
 	}
 	8135.11.1 = {
 		effect = {
@@ -80440,7 +80497,7 @@ Graceford_38 = {
 	}
 }
 ### Issue of Lucas
-Graceford_15 = {
+Graceford_15 = { # edited 08/12 slambroski
 	name = Alyce # married Unwin Peake
 	dynasty = dynn_Graceford
 	female = yes
@@ -80454,6 +80511,11 @@ Graceford_15 = {
 	trait = twin
 
 	8094.1.1 = { birth = yes }
+	8119.1.1 = {
+		effect = {
+			add_character_modifier = no_more_children_modifier
+		}
+	}
 	8145.1.1 = { death = yes }
 }
 Graceford_16 = { # Dance of the Dragons
@@ -98297,7 +98359,7 @@ Conklyn_69 = {
 		death = { death_reason = death_horse }
 	}
 }
-Conklyn_70 = {
+Conklyn_70 = { # edited 08/16 slambroski
 	name = Lorcas
 	dynasty = dynn_Conklyn
 
@@ -98310,9 +98372,10 @@ Conklyn_70 = {
 	8084.1.1 = { birth = yes }
 	8103.1.1 = { trait = knight }
 	8110.1.1 = { add_spouse = Macey_53 } # Leona Macey
-	8142.1.1 = {
-		death = { death_reason = death_accident }
-	}
+	8129.9.1 = { death = { death_reason = death_battle } }
+	# 8142.1.1 = {
+	#	death = { death_reason = death_accident }
+	# }
 }
 ### Issue of Perceon
 Conklyn_66 = {
@@ -98594,6 +98657,22 @@ Conklyn_67 = {
 	8101.1.1 = { trait = knight }
 	8137.1.1 = {
 		death = { death_reason = death_murder }
+	}
+}
+Conklyn_67_B = { # created 08/16 slambroski
+	name = Garth
+	dynasty = dynn_Conklyn
+
+	religion = fots_seven
+	culture = reachman
+
+	father = Conklyn_52
+	mother = Astley_70
+
+	8085.1.1 = { birth = yes }
+	8103.1.1 = { trait = knight }
+	8130.1.1 = {
+		death = { death_reason = death_battle }
 	}
 }
 ### Issue of Tancred
@@ -99692,7 +99771,7 @@ Farrow_64 = {
 		death = { death_reason = death_ill }
 	}
 }
-Farrow_65 = {
+Farrow_65 = { # edited 08/16 slambroski
 	name = Aleyne
 	dynasty = dynn_Farrow
 	female = yes
@@ -99704,6 +99783,7 @@ Farrow_65 = {
 	mother = Larch_46
 
 	8087.1.1 = { birth = yes }
+	8104.1.1 = { add_matrilineal_spouse = Conklyn_67_B } # Garth Conklyn
 	8107.1.1 = { death = yes }
 }
 ### Issue of Nella
@@ -99723,6 +99803,21 @@ Farrow_66 = {
 	8182.1.1 = {
 		death = { death_reason = death_natural_causes }
 	}
+}
+### Issue of Aleyne
+Farrow_65_A = { # created 08/16 slambroski
+	name = Corett
+	dynasty = dynn_Farrow
+
+	religion = fots_seven
+	culture = reachman
+
+	father = Conklyn_67_B
+	mother = Farrow_65
+
+	8107.1.1 = { birth = yes }
+	8127.1.1 = { trait = knight }
+	8156.1.1 = { death = yes }
 }
 ### Issue of Rosamund
 Farrow_67 = {
@@ -142549,6 +142644,38 @@ Cask_59 = {
 		death = { death_reason = death_accident }
 	}
 }
+Cask_59_B = { # created 08/12 slambroski
+	name = Arys
+	dynasty = dynn_Cask
+
+	religion = fots_seven
+	culture = honeywiner
+
+	father = Cask_53
+	mother = Deadsing_39
+
+	8108.1.1 = { birth = yes }
+	8124.1.1 = { trait = knight }
+	8158.1.1 = {
+		death = { death_reason = death_battle }
+	}
+}
+Cask_59_C = { # created 08/12 slambroski
+	name = Elayne
+	dynasty = dynn_Cask
+	female = yes 
+
+	religion = fots_seven
+	culture = honeywiner
+
+	father = Cask_53
+	mother = Deadsing_39
+
+	8111.1.1 = { birth = yes }
+	8164.1.1 = {
+		death = { death_reason = death_accident }
+	}
+}
 ### Issue of Leomar
 Cask_55 = {
 	name = Benedict # married Miranda Kidwell
@@ -146766,6 +146893,23 @@ Quayle_67 = {
 	8142.1.1 = { add_spouse = Erdtree_57 } # Martyna Erdtree
 	8180.1.1 = {
 		death = { death_reason = death_natural_causes }
+	}
+}
+Quayle_67_B = { # created 08/12 slambroski
+	name = Kara
+	dynasty = dynn_Quayle
+	female = yes 
+
+	religion = fots_seven
+	culture = honeywiner
+
+	father = Quayle_65
+	mother = Harme_55
+
+	8119.1.1 = { birth = yes }
+	8171.1.1 = {
+		trait = ill
+		death = { death_reason = death_ill }
 	}
 }
 ### Issue of Orland
@@ -169876,7 +170020,7 @@ Rosvenore_91 = {
 	}
 }
 ### Issue of Branston
-Rosvenore_84 = {
+Rosvenore_84 = { # edited 08/16 slambroski
 	name = Gallisa # married Halbert Hutcheson
 	dynasty = dynn_Rosvenore
 	female = yes
@@ -169888,6 +170032,7 @@ Rosvenore_84 = {
 	mother = Givven_70
 
 	8104.1.1 = { birth = yes }
+	8130.1.1 = { trait = widowed }
 	8160.1.1 = {
 		trait = consumption
 		death = { death_reason = death_consumption }
@@ -213205,6 +213350,7 @@ Millendore_32 = {
 	8100.1.1 = { birth = yes }
 	8116.1.1 = { add_spouse = Ross_38 } # Elyse Ross
 	8119.1.1 = { trait = knight }
+	8122.1.1 = { trait = adulterer }
 	8163.1.1 = {
 		death = { death_reason = death_natural_causes }
 	}
@@ -213224,6 +213370,34 @@ Millendore_33 = {
 	8118.1.1 = { birth = yes }
 	8137.1.1 = { add_matrilineal_spouse = Macey_70 } # Bryce Macey
 	8164.1.1 = { death = yes }
+}
+Millendore_33_B = { # created 08/16 slambroski
+	name = Falia
+	dynasty_house = house_Millendore
+	female = yes
+
+	religion = fots_seven
+	culture = honeywiner
+
+	father = Millendore_32
+	mother = Ross_38
+
+	8123.1.1 = { birth = yes }
+	8187.1.1 = { death = yes }
+}
+Millendore_33_C = { # created 08/16 slambroski
+	name = Peremore
+	dynasty_house = house_Millendore
+
+	religion = fots_seven
+	culture = honeywiner
+
+	father = Millendore_32
+
+	trait = bastard
+
+	8122.1.1 = { birth = yes }
+	8133.1.1 = { death = yes }
 }
 ### Issue of Rylene
 Millendore_34 = {

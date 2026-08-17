@@ -10839,9 +10839,9 @@ Westerling_24 = { # Edited, Cafe, 24/06
 		trait = knight
 		add_spouse = Farman_26 # Elissa Farman
 	}
-	8132.3.6 = {
-		trait = ill
-	}
+	# 8132.3.6 = {
+	#	trait = ill
+	# }
 	8133.6.1 = {
 		#trait = winter_fever #winter fever AGOT TODO Trait
 		death = { death_reason = death_winter_fever }
@@ -23762,7 +23762,7 @@ Broome_69 = { # Edited, Cafe, 24/06
 		death = { death_reason = death_cancer }
 	}
 }
-Broome_70 = {
+Broome_70 = { # edited 08/06 slambroski
 	name = Tyta
 	dynasty = dynn_Broome
 	female = yes
@@ -23774,7 +23774,8 @@ Broome_70 = {
 	mother = Wythers_56
 
 	8097.1.1 = { birth = yes }
-	8127.1.1 = { death = yes }
+	8117.1.1 = { add_matrilineal_spouse = Blackbar_34 } # Steffon Blackbar
+	8127.1.1 = { death = { death_reason = death_childbirth } }
 }
 Broome_71 = {
 	name = Renna # married Edmund Vance of Atranta
@@ -23825,6 +23826,41 @@ Broome_73 = {
 	8186.1.1 = {
 		trait = ill
 		death = { death_reason = death_ill }
+	}
+}
+### Issue of Tyta
+Broome_70_A = { # edited 08/06 slambroski
+	name = Creston
+	dynasty = dynn_Broome
+
+	religion = fots_seven
+	culture = westerman_main
+
+	father = Blackbar_34
+	mother = Broome_70
+
+	trait = sickly
+
+	8120.1.1 = { birth = yes }
+	8120.3.1 = { death = { death_reason = death_sickly } }
+}
+Broome_70_B = { # edited 08/06 slambroski
+	name = Merlon
+	dynasty = dynn_Broome
+
+	religion = fots_seven
+	culture = westerman_main
+
+	father = Blackbar_34
+	mother = Broome_70
+
+	8127.1.1 = { 
+		birth = yes 
+		employer = Broome_69
+	}
+	8133.3.1 = { 
+		trait = ill
+		death = { death_reason = death_ill } 
 	}
 }
 ### Issue of Daric
@@ -36764,7 +36800,7 @@ Foote_49 = {
 		death = { death_reason = death_gout_ridden }
 	}
 }
-Foote_50 = {
+Foote_50 = { # edited 07/31 slambroski
 	name = Calynne
 	dynasty = dynn_Foote
 	female = yes
@@ -36776,6 +36812,7 @@ Foote_50 = {
 	mother = Redding_32
 
 	8094.1.1 = { birth = yes }
+	8114.1.1 = { add_matrilineal_spouse = Fayard_66 } # Manfryd Fayard
 	8141.1.1 = {
 		death = { death_reason = death_accident }
 	}
@@ -36875,6 +36912,25 @@ Foote_52 = {
 	8134.1.1 = { add_spouse = Avery_55 } # Roslyn Avery
 	8168.1.1 = {
 		death = { death_reason = death_natural_causes }
+	}
+}
+### Issue of Calynne
+Foote_50_A = { # edited 07/31 slambroski
+	name = Tion
+	dynasty = dynn_Foote
+
+	religion = fots_seven
+	culture = westerman_main
+
+	father = Fayard_66
+	mother = Foote_50
+
+	trait = agile
+
+	8117.1.1 = { birth = yes }
+	8133.1.1 = { trait = knight }
+	8148.1.1 = {
+		death = { death_reason = death_battle }
 	}
 }
 ### Issue of Farryl
@@ -37802,7 +37858,7 @@ Yew_66 = {
 		death = { death_reason = death_heart_attack }
 	}
 }
-Yew_67 = {
+Yew_67 = { # edited 08/08 slambroski
 	name = Balos
 	dynasty = dynn_Yew
 
@@ -37814,6 +37870,7 @@ Yew_67 = {
 
 	8055.1.1 = { birth = yes }
 	8073.1.1 = { trait = knight }
+	8080.1.1 = { add_spouse = Banbeck_40_B } # Bethany Banbeck
 	8116.1.1 = {
 		trait = ill
 		death = { death_reason = death_ill }
@@ -38012,6 +38069,27 @@ Yew_71 = {
 	8127.1.1 = {
 		trait = ill
 		death = { death_reason = death_ill }
+	}
+}
+### Issue of Balos
+Yew_67_A = { # created 08/08 slambroski
+	name = Berion
+	dynasty = dynn_Yew
+
+	religion = fots_seven
+	culture = westerman_main
+
+	father = Yew_67
+	mother = Banbeck_40_B
+
+	8084.1.1 = { birth = yes }
+	8104.1.1 = { trait = knight }
+	8130.1.1 = { 
+		trait = blind 
+		trait = scarred
+	}
+	8143.1.1 = {
+		death = { death_reason = death_drowned }
 	}
 }
 ### Issue of Lymond
@@ -38833,7 +38911,7 @@ Yarwyck_38 = {
 		death = { death_reason = death_accident }
 	}
 }
-Yarwyck_39 = {
+Yarwyck_39 = { # edited 07/31 slambroski
 	name = Teressa 
 	dynasty = dynn_Yarwyck
 	female = yes
@@ -38845,6 +38923,8 @@ Yarwyck_39 = {
 	mother = Weaf_49
 
 	8105.1.1 = { birth = yes }
+	8119.1.1 = { trait = septon }
+	8130.1.1 = { employer = Waynwood_52 } # Wayland Waynwood
 	8150.1.1 = {
 		death = { death_reason = death_natural_causes }
 	}
@@ -41174,7 +41254,7 @@ Ruttiger_47 = {
 		death = { death_reason = death_choked }
 	}
 }
-Ruttiger_48 = {
+Ruttiger_48 = { # edited 07/31 slambroski
 	name = Alfryn
 	dynasty = dynn_Ruttiger
 
@@ -41189,10 +41269,11 @@ Ruttiger_48 = {
 	8097.1.1 = { birth = yes }
 	8116.1.1 = { trait = knight }
 	8122.1.1 = { add_spouse = Lorch_100 } # Victoria Lorch
-	8149.1.1 = {
-		trait = ill
-		death = { death_reason = death_ill }
-	}
+	8130.3.5 = { death = { death_reason = death_battle } }
+	# 8149.1.1 = {
+	#	trait = ill
+	#	death = { death_reason = death_ill }
+	# }
 }
 Ruttiger_49 = {
 	name = Damon
@@ -93968,7 +94049,7 @@ Brockryn_38 = {
 		death = { death_reason = death_ill }
 	}
 }
-Brockryn_39 = {
+Brockryn_39 = { # edited 07/31 slambroski
 	name = Andron
 	dynasty = dynn_Brockryn
 
@@ -93983,7 +94064,13 @@ Brockryn_39 = {
 		add_spouse = Brockryn_rs_39
 		trait = knight
 	}
-	8141.1.1 = { death = yes }
+	8131.1.1 = {
+		death = { 
+			death_reason = death_battle 
+			killer = Goodbrother_51 # Gunthor Goodbrother
+		}
+	}
+	# 8141.1.1 = { death = yes }
 }
 Brockryn_rs_39 = {
 	name = Ibera
@@ -94029,7 +94116,7 @@ Brockryn_35 = {
 		death = { death_reason = death_ill }
 	}
 }
-Brockryn_36 = {
+Brockryn_36 = { # edited 07/31 slambroski
 	name = Ewan
 	dynasty = dynn_Brockryn
 
@@ -94042,9 +94129,10 @@ Brockryn_36 = {
 	8079.1.1 = { birth = yes }
 	8097.1.1 = { trait = knight }
 	8102.1.1 = { add_spouse = Brockryn_rs_36 }
-	8146.1.1 = {
-		death = { death_reason = death_accident }
-	}
+	8131.9.1 = { death = { death_reason = death_battle_dragon_fire } }
+	# 8146.1.1 = {
+	#	death = { death_reason = death_accident }
+	# }
 }
 Brockryn_rs_36 = {
 	name = Amena
@@ -94369,7 +94457,7 @@ Brockryn_73 = {
 		death = { death_reason = death_poison }
 	}
 }
-Brockryn_74 = {
+Brockryn_74 = { # edited 07/31 slambroski
 	name = Quenten
 	dynasty = dynn_Brockryn
 
@@ -94382,9 +94470,10 @@ Brockryn_74 = {
 	8105.1.1 = { birth = yes }
 	8121.1.1 = { trait = knight }
 	8126.1.1 = { add_spouse = Brockryn_rs_74 }
-	8169.1.1 = {
-		death = { death_reason = death_drank_to_death }
-	}
+	8131.9.1 = { death = { death_reason = death_battle_dragon_fire } }
+	# 8169.1.1 = {
+	#	death = { death_reason = death_drank_to_death }
+	# }
 }
 Brockryn_rs_74 = {
 	name = Ilenna
@@ -101690,6 +101779,38 @@ Trembley_33 = {
 	8136.1.1 = { add_spouse = Kidwell_58 } # Jeyne Kidwell
 	8148.1.1 = {
 		death = { death_reason = death_accident }
+	}
+}
+Trembley_33_B = { # created 08/08 slambroski
+	name = Lysa
+	dynasty = dynn_Trembley
+	female = yes 
+
+	religion = fots_seven
+	culture = westerman_main
+
+	father = Trembley_29
+	mother = Bander_66
+
+	8117.1.1 = { birth = yes }
+	8186.1.1 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
+Trembley_33_C = { # created 08/08 slambroski
+	name = Dorcas
+	dynasty = dynn_Trembley
+	female = yes 
+
+	religion = fots_seven
+	culture = westerman_main
+
+	father = Trembley_29
+	mother = Bander_66
+
+	8120.1.1 = { birth = yes }
+	8140.1.1 = {
+		death = { death_reason = death_murder }
 	}
 }
 ### Issue of Berion

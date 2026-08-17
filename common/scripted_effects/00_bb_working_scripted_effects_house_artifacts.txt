@@ -1937,6 +1937,1424 @@ agot_create_artifact_baseborn_mormont_artifact_effect = {
 	}
 }
 
+### IRON ISLANDS ###
+agot_create_artifact_baseborn_goodbrother_artifact_effect = { # edited 08/02 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+		set_artifact_rarity_famed = yes
+			create_artifact = {
+			name = baseborn_goodbrother_artifact_name
+			creator = character:Goodbrother_37 # Remove this line from the code if the creator is unknown
+			description = baseborn_goodbrother_artifact_description
+			visuals = dragon_horn
+			type = miscellaneous
+			wealth = scope:wealth
+			quality = scope:quality
+			template = baseborn_goodbrother_artifact_template # Remove this line from the code if the artifact has no restrictions
+			
+			history = {
+				type = created
+				date = 6497.1.1 # Date the artifact was created
+				recipient = character:Goodbrother_37 # First character to use the artifact
+				location = province:2756 # Location of the first character to use the artifact
+			}
+		modifier = baseborn_goodbrother_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}	
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Goodbrother.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7841.1.1
+		RECIPIENT = character:Goodbrother_39 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7883.1.1
+		RECIPIENT = character:Goodbrother_43 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7913.1.1
+		RECIPIENT = character:Goodbrother_45 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7962.1.1
+		RECIPIENT = character:Goodbrother_121 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7993.1.1
+		RECIPIENT = character:Goodbrother_93 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7994.1.1
+		RECIPIENT = character:Goodbrother_46 # Torwold Goodbrother
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8000.2.1
+		RECIPIENT = character:Goodbrother_96 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8027.1.1
+		RECIPIENT = character:Goodbrother_108 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8034.1.1
+		RECIPIENT = character:Goodbrother_110 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8103.1.1
+		RECIPIENT = character:Goodbrother_50 # Rodrik Goodbrother
+		}
+	
+	}
+		
+}
+agot_create_artifact_baseborn_farwynd_artifact_effect = { # edited 08/03 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+		set_artifact_rarity_famed = yes
+			create_artifact = {
+			name = baseborn_farwynd_artifact_name
+			description = baseborn_farwynd_artifact_description
+			visuals = dagger
+			type = dagger
+			wealth = scope:wealth
+			quality = scope:quality
+			template = baseborn_farwynd_artifact_template # Remove this line from the code if the artifact has no restrictions
+			
+			history = {
+				type = created
+				date = 7865.1.1 # Date the artifact was created
+				recipient = character:Farwynd_10 # First character to use the artifact
+				location = province:2854 # Location of the first character to use the artifact
+			}
+		modifier = baseborn_farwynd_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}	
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Farwynd.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7875.1.1
+		RECIPIENT = character:Farwynd_11 # Gylbert Farwynd I
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7888.1.1
+		RECIPIENT = character:FarwyndLL_5 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7915.1.1
+		RECIPIENT = character:FarwyndLL_7 # Urzen Farwynd
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7957.1.1
+		RECIPIENT = character:FarwyndLL_12 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7977.1.1
+		RECIPIENT = character:FarwyndLL_17 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7991.1.1
+		RECIPIENT = character:FarwyndLL_18 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8020.1.1
+		RECIPIENT = character:FarwyndLL_22 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8040.1.1
+		RECIPIENT = character:FarwyndLL_23 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8077.1.1
+		RECIPIENT = character:FarwyndLL_25 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8111.1.1
+		RECIPIENT = character:FarwyndLL_38 # Boremund Farwynd
+		}
+		
+	
+	}
+		
+}
+agot_create_artifact_baseborn_harlaw_artifact_effect = { # edited 08/03 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+		set_artifact_rarity_famed = yes
+			create_artifact = {
+			name = baseborn_harlaw_artifact_name
+			creator = character:Harlaw_30 # Remove this line from the code if the creator is unknown
+			description = baseborn_harlaw_artifact_description
+			visuals = axe
+			type = axe
+			wealth = scope:wealth
+			quality = scope:quality
+			template = baseborn_harlaw_artifact_template # Remove this line from the code if the artifact has no restrictions
+			
+			history = {
+				type = created
+				date = 6370.1.1 # Date the artifact was created
+				recipient = character:Harlaw_30 # First character to use the artifact
+				location = province:2823 # Location of the first character to use the artifact
+			}
+		modifier = baseborn_harlaw_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}	
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Harlaw.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 6396.1.1
+		RECIPIENT = character:Harlaw_31 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 6408.1.1
+		RECIPIENT = character:Harlaw_32 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7480.1.1
+		RECIPIENT = character:Harlaw_53 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7535.1.1
+		RECIPIENT = character:Harlaw_52 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7544.1.1
+		RECIPIENT = character:Harlaw_50 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7823.1.1 
+		RECIPIENT = character:Harlaw_33 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7874.1.1 
+		RECIPIENT = character:Harlaw_34 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7913.1.1
+		RECIPIENT = character:Harlaw_38 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7947.1.1
+		RECIPIENT = character:Harlaw_39 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7949.1.1
+		RECIPIENT = character:Harlaw_59 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7991.1.1
+		RECIPIENT = character:Harlaw_62 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8001.1.1
+		RECIPIENT = character:Harlaw_68 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8025.1.1
+		RECIPIENT = character:Harlaw_72 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8058.1.1
+		RECIPIENT = character:Harlaw_74 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8089.1.1
+		RECIPIENT = character:Harlaw_76 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8116.1.1 
+		RECIPIENT = character:Harlaw_78 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8124.1.1 
+		RECIPIENT = character:Harlaw_42 # Next user of the artfact
+		}
+		
+	
+	}
+		
+}
+agot_create_artifact_baseborn_blacktyde_artifact_effect = { # edited 08/05 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+		set_artifact_rarity_famed = yes
+			create_artifact = {
+			name = baseborn_blacktyde_artifact_name
+			creator = character:Blacktyde_10 # Remove this line from the code if the creator is unknown
+			description = baseborn_blacktyde_artifact_description
+			visuals = armor
+			type = armor_mail
+			wealth = scope:wealth
+			quality = scope:quality
+			template = baseborn_blacktyde_artifact_template # Remove this line from the code if the artifact has no restrictions
+			
+			history = {
+				type = created
+				date = 7880.1.1 # Date the artifact was created
+				recipient = character:Blacktyde_10 # First character to use the artifact
+				location = province:2815 # Location of the first character to use the artifact
+			}
+		modifier = baseborn_blacktyde_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}	
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Blacktyde.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7886.1.1
+		RECIPIENT = character:Blacktyde_11 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7931.1.1
+		RECIPIENT = character:Blacktyde_13 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7961.1.1
+		RECIPIENT = character:Blacktyde_16 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7990.1.1
+		RECIPIENT = character:Blacktyde_22 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7991.1.1
+		RECIPIENT = character:Blacktyde_23 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8034.1.1
+		RECIPIENT = character:Blacktyde_26 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8053.1.1
+		RECIPIENT = character:Blacktyde_33 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8095.1.1
+		RECIPIENT = character:Blacktyde_37 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8118.1.1
+		RECIPIENT = character:Blacktyde_41 # Rognar Blacktyde
+		}
+		
+	
+	}
+		
+}
+
+agot_create_artifact_baseborn_tawney_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+		set_artifact_rarity_famed = yes
+			create_artifact = {
+			name = baseborn_tawney_artifact_name
+			creator = character:Tawney_10 # Remove this line from the code if the creator is unknown
+			description = baseborn_tawney_artifact_description
+			visuals = dagger
+			type = dagger
+			wealth = scope:wealth
+			quality = scope:quality
+			template = baseborn_tawney_artifact_template # Remove this line from the code if the artifact has no restrictions
+			
+			history = {
+				type = created
+				date = 7948.1.1 # Date the artifact was created
+				recipient = character:Tawney_10 # First character to use the artifact
+				location = province:2802 # Location of the first character to use the artifact
+			}
+		modifier = baseborn_tawney_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}	
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Tawney.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 7973.1.1
+		RECIPIENT = character:Tawney_11 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8006.1.1
+		RECIPIENT = character:Tawney_12 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8020.1.1
+		RECIPIENT = character:Tawney_13 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8035.1.1
+		RECIPIENT = character:Tawney_14 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8080.1.1
+		RECIPIENT = character:Tawney_15 # Next user of the artfact
+		}	
+	}
+}	
+
+### WESTERLANDS ###
+agot_create_artifact_baseborn_lefford_artifact_effect = { # edited 08/06 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_lefford_artifact_name
+		creator = character:Lefford_94 # Remove this line from the code if the creator is unknown
+		description = baseborn_lefford_artifact_description
+		visuals = armor
+		type = armor_plate
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_lefford_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 6320.1.1 # Date the artifact was created
+			recipient = character:Lefford_6 # First character to use the artifact
+			location = province:3067 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_lefford_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Lefford.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 6350.1.1
+			RECIPIENT = character:Lefford_95 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 6380.1.1
+			RECIPIENT = character:Lefford_96 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7826.1.1 
+			RECIPIENT = character:Lefford_6 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7884.1.1
+			RECIPIENT = character:Lefford_8 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7906.1.1
+			RECIPIENT = character:Lefford_12 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7936.1.1
+			RECIPIENT = character:Lefford_13 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7943.1.1
+			RECIPIENT = character:Lefford_15 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7949.1.1
+			RECIPIENT = character:Lefford_52 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7983.1.1
+			RECIPIENT = character:Lefford_63 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8013.1.1
+			RECIPIENT = character:Lefford_69 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8059.1.1
+			RECIPIENT = character:Lefford_18 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8111.1.1
+			RECIPIENT = character:Lefford_20 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8130.3.5
+			RECIPIENT = character:Lefford_21 # Next user of the artfact
+		}
+
+
+	}
+}
+agot_create_artifact_baseborn_marbrand_artifact_effect = { # edited 08/06 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_marbrand_artifact_name
+		description = baseborn_marbrand_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_marbrand_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7834.1.1 # Date the artifact was created
+			recipient = character:Marbrand_10 # First character to use the artifact
+			location = province:3092 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_marbrand_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Marbrand.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7885.1.1
+			RECIPIENT = character:Marbrand_11 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7896.1.1
+			RECIPIENT = character:Marbrand_20 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7943.1.1
+			RECIPIENT = character:Marbrand_72 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7980.1.1
+			RECIPIENT = character:Marbrand_76 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8009.1.1
+			RECIPIENT = character:Marbrand_77 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8017.1.1
+			RECIPIENT = character:Marbrand_85 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8047.1.1
+			RECIPIENT = character:Marbrand_19 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8059.1.1
+			RECIPIENT = character:Marbrand_90 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8107.1.1
+			RECIPIENT = character:Marbrand_21 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8130.2.21
+			RECIPIENT = character:Marbrand_22 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8130.2.24
+			RECIPIENT = character:Marbrand_27 # Next user of the artfact
+		}
+
+	}
+}
+agot_create_artifact_baseborn_broome_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_broome_artifact_name
+		description = baseborn_broome_artifact_description
+		visuals = spear
+		type = spear
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_broome_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7875.1.1 # Date the artifact was created
+			recipient = character:Broome_6 # First character to use the artifact
+			location = province:3122 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_broome_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7884.1.1
+			RECIPIENT = character:Broome_9 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7900.1.1
+			RECIPIENT = character:Broome_14 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7925.1.1
+			RECIPIENT = character:Broome_16 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7945.1.1
+			RECIPIENT = character:Broome_20 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7975.1.1
+			RECIPIENT = character:Broome_37 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7996.1.1
+			RECIPIENT = character:Broome_42 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8007.1.1
+			RECIPIENT = character:Broome_52 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8069.1.1
+			RECIPIENT = character:Broome_53 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8075.1.1
+			RECIPIENT = character:Broome_54 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8105.1.1
+			RECIPIENT = character:Broome_63 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8122.1.1
+			RECIPIENT = character:Broome_69 # Next user of the artfact
+		}
+		
+
+	}
+}
+agot_create_artifact_baseborn_farman_artifact_effect = { # edited 08/08 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_farman_artifact_name
+		creator = character:Farman_8 # Remove this line from the code if the creator is unknown
+		description = baseborn_farman_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_farman_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 6330.1.1 # Date the artifact was created
+			recipient = character:Farman_8 # First character to use the artifact
+			location = province:3223 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_farman_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Farman.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 6348.1.1
+			RECIPIENT = character:Farman_85 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 6357.1.1
+			RECIPIENT = character:Farman_86 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 6390.1.1
+			RECIPIENT = character:Farman_87 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 6436.1.1
+			RECIPIENT = character:Farman_88 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 6440.1.1
+			RECIPIENT = character:Farman_10 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7809.1.1
+			RECIPIENT = character:Farman_11 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7863.1.1
+			RECIPIENT = character:Farman_13 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7911.1.1
+			RECIPIENT = character:Farman_14 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7930.1.1
+			RECIPIENT = character:Farman_18 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7941.1.1 
+			RECIPIENT = character:Farman_64 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7990.1.1
+			RECIPIENT = character:Farman_65 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7991.1.1
+			RECIPIENT = character:Farman_19 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8043.11.2
+			RECIPIENT = character:Farman_21 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8050.1.15
+			RECIPIENT = character:Farman_22 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8088.1.1
+			RECIPIENT = character:Farman_25 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8104.1.1
+			RECIPIENT = character:Farman_27 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8132.1.1
+			RECIPIENT = character:Farman_28 # Next user of the artfact
+		}
+		
+
+	}
+}
+agot_create_artifact_baseborn_westerling_artifact_effect = { # edited 08/08 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_westerling_artifact_name
+		description = baseborn_westerling_artifact_description
+		visuals = armor
+		type = armor_mail
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_westerling_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7837.1.1 # Date the artifact was created
+			recipient = character:Westerling_6 # First character to use the artifact
+			location = province:3161 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_westerling_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Westerling.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7878.1.1
+			RECIPIENT = character:Westerling_7 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7909.1.1
+			RECIPIENT = character:Westerling_58 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7920.1.1
+			RECIPIENT = character:Westerling_66 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7949.1.1
+			RECIPIENT = character:Westerling_72 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7987.1.1
+			RECIPIENT = character:Westerling_11 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7996.1.1
+			RECIPIENT = character:Westerling_13 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8034.1.1
+			RECIPIENT = character:Westerling_15 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8059.2.1
+			RECIPIENT = character:Westerling_19 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8077.1.1
+			RECIPIENT = character:Westerling_22 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8098.1.1
+			RECIPIENT = character:Westerling_24 # Next user of the artfact
+		}
+		
+
+	}
+}
+agot_create_artifact_baseborn_tarbeck_artifact_effect = { # edited 08/08 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_tarbeck_artifact_name
+		creator = character:Tarbeck_13 # Remove this line from the code if the creator is unknown
+		description = baseborn_tarbeck_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_tarbeck_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 8041.1.1 # Date the artifact was created
+			recipient = character:Tarbeck_13 # First character to use the artifact
+			location = province:3186 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_tarbeck_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Tarbeck.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8043.11.2
+			RECIPIENT = character:Tarbeck_15 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8059.2.1
+			RECIPIENT = character:Tarbeck_14 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8068.1.1
+			RECIPIENT = character:Tarbeck_16 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8093.1.1
+			RECIPIENT = character:Tarbeck_18 # Next user of the artfact
+		}
+		
+		
+
+	}
+}
+agot_create_artifact_baseborn_plumm_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_plumm_artifact_name
+		creator = character:Plumm_6 # Remove this line from the code if the creator is unknown
+		description = baseborn_plumm_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_plumm_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7854.1.1 # Date the artifact was created
+			recipient = character:Plumm_6 # First character to use the artifact
+			location = province:2941 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_plumm_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Plumm.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7880.1.1
+			RECIPIENT = character:Plumm_7 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7896.1.1
+			RECIPIENT = character:Plumm_10 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7947.1.1
+			RECIPIENT = character:Plumm_11 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7965.1.1
+			RECIPIENT = character:Plumm_14 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8004.1.1
+			RECIPIENT = character:Plumm_35 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8036.1.1
+			RECIPIENT = character:Plumm_37 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8083.1.1
+			RECIPIENT = character:Plumm_15 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8115.1.1
+			RECIPIENT = character:Plumm_16 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8121.1.1
+			RECIPIENT = character:Plumm_17 # Next user of the artfact
+		}
+
+
+	}
+}
+agot_create_artifact_baseborn_payne_artifact_effect = { # edited 08/08 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_payne_artifact_name
+		description = baseborn_payne_artifact_description
+		visuals = mace
+		type = mace
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_payne_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7868.1.1 # Date the artifact was created
+			recipient = character:Payne_17 # First character to use the artifact
+			location = province:3023 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_payne_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Payne.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7899.1.1
+			RECIPIENT = character:Payne_18 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7909.1.1
+			RECIPIENT = character:Payne_21 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7931.1.1
+			RECIPIENT = character:Payne_25 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7957.1.1
+			RECIPIENT = character:Payne_28 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8002.1.1
+			RECIPIENT = character:Payne_29 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8028.1.1
+			RECIPIENT = character:Payne_31 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8037.1.1
+			RECIPIENT = character:Payne_36 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8076.1.1
+			RECIPIENT = character:Payne_38 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8094.1.1
+			RECIPIENT = character:Payne_40 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8097.1.1
+			RECIPIENT = character:Payne_45 # Next user of the artfact
+		}
+
+	}
+}
+agot_create_artifact_baseborn_swyft_artifact_effect = { # edited 08/08 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_swyft_artifact_name
+		creator = character:Swyft_8 # Remove this line from the code if the creator is unknown
+		description = baseborn_swyft_artifact_description
+		visuals = dragon_horn
+		type = miscellaneous
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_swyft_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7866.1.1 # Date the artifact was created
+			recipient = character:Swyft_8 # First character to use the artifact
+			location = province:2916 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_swyft_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Swyft.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7879.1.1
+			RECIPIENT = character:Swyft_9 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7919.1.1
+			RECIPIENT = character:Swyft_12 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7961.1.1
+			RECIPIENT = character:Swyft_16 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7973.1.1
+			RECIPIENT = character:Swyft_17 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8000.1.1
+			RECIPIENT = character:Swyft_51 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8029.1.1
+			RECIPIENT = character:Swyft_58 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8058.1.1
+			RECIPIENT = character:Swyft_60 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8080.1.1
+			RECIPIENT = character:Swyft_62 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8106.1.1
+			RECIPIENT = character:Swyft_18 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8130.3.5
+			RECIPIENT = character:Swyft_19 # Next user of the artfact
+		}
+		
+
+	}
+}
+
 ### RIVERLANDS ###
 agot_create_artifact_baseborn_darry_artifact_effect = {
 	$OWNER$ = {
@@ -2178,14 +3596,14 @@ agot_create_artifact_baseborn_bracken_artifact_effect = {
 	}
 }
 
-agot_create_artifact_baseborn_piper_artifact_effect = {
+agot_create_artifact_baseborn_piper_artifact_effect = { # edited 08/12 slambroski
 	$OWNER$ = {
 		save_scope_as = owner
 	}
 	set_artifact_rarity_famed = yes
 	create_artifact = {
 		name = baseborn_piper_artifact_name
-		creator = character:Piper_11 # Remove this line from the code if the creator is unknown
+		creator = character:Piper_22 # Remove this line from the code if the creator is unknown
 		description = baseborn_piper_artifact_description
 		visuals = longsword
 		type = sword
@@ -2195,8 +3613,8 @@ agot_create_artifact_baseborn_piper_artifact_effect = {
 		
 		history = {
 			type = created
-			date = 7836.1.1 # Date the artifact was created
-			recipient = character:Piper_11 # First character to use the artifact
+			date = 8040.1.1 # Date the artifact was created
+			recipient = character:Piper_22 # First character to use the artifact
 			location = province:2102 # Location of the first character to use the artifact
 		}
 		modifier = baseborn_piper_artifact_modifier
@@ -2216,55 +3634,7 @@ agot_create_artifact_baseborn_piper_artifact_effect = {
 		agot_add_artifact_history = {
 			ARTIFACT = this
 			TYPE = inherited
-			DATE = 7901.1.1
-			RECIPIENT = character:Piper_51 # Next user of the artfact
-		}
-		agot_add_artifact_history = {
-			ARTIFACT = this
-			TYPE = inherited
-			DATE = 7917.1.1
-			RECIPIENT = character:Piper_63 # Next user of the artfact
-		}
-		agot_add_artifact_history = {
-			ARTIFACT = this
-			TYPE = inherited
-			DATE = 7931.1.1
-			RECIPIENT = character:Piper_64 # Next user of the artfact
-		}
-		agot_add_artifact_history = {
-			ARTIFACT = this
-			TYPE = inherited
-			DATE = 7949.1.1
-			RECIPIENT = character:Piper_69 # Next user of the artfact
-		}
-		agot_add_artifact_history = {
-			ARTIFACT = this
-			TYPE = inherited
-			DATE = 7981.1.1
-			RECIPIENT = character:Piper_16 # Next user of the artfact
-		}
-		agot_add_artifact_history = {
-			ARTIFACT = this
-			TYPE = inherited
-			DATE = 8008.1.1
-			RECIPIENT = character:Piper_18 # Next user of the artfact
-		}
-		agot_add_artifact_history = {
-			ARTIFACT = this
-			TYPE = inherited
-			DATE = 8037.1.1
-			RECIPIENT = character:Piper_19 # Next user of the artfact
-		}
-		agot_add_artifact_history = {
-			ARTIFACT = this
-			TYPE = inherited
-			DATE = 8040.1.1
-			RECIPIENT = character:Piper_20 # Next user of the artfact
-		}
-		agot_add_artifact_history = {
-			ARTIFACT = this
-			TYPE = inherited
-			DATE = 8043.1.1
+			DATE = 8043.11.2
 			RECIPIENT = character:Piper_24 # Next user of the artfact
 		}
 		agot_add_artifact_history = {
@@ -2594,6 +3964,1086 @@ agot_create_artifact_baseborn_tully_artifact_effect = {
 			DATE = 8300.1.1
 			RECIPIENT = character:Tully_9 # Next user of the artfact
 		}
+
+	}
+}
+
+### THE VALE ###
+agot_create_artifact_baseborn_sunderland_artifact_effect = { # edited 08/12 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_sunderland_artifact_name
+		creator = character:Sunderland_9 # Remove this line from the code if the creator is unknown
+		description = baseborn_sunderland_artifact_description
+		visuals = spear
+		type = spear
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_sunderland_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7975.1.1 # Date the artifact was created
+			recipient = character:Sunderland_16 # First character to use the artifact
+			location = province:2709 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_sunderland_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Sunderland.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8001.9.1
+			RECIPIENT = character:Sunderland_17 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8028.1.1
+			RECIPIENT = character:Sunderland_18 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8029.1.1
+			RECIPIENT = character:Sunderland_20 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8080.1.1
+			RECIPIENT = character:Sunderland_21 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8089.1.1
+			RECIPIENT = character:Sunderland_22 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8123.1.1
+			RECIPIENT = character:Sunderland_24 # Next user of the artfact
+		}
+		
+
+
+	}
+}
+agot_create_artifact_baseborn_lynderly_artifact_effect = { # edited 08/12 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_lynderly_artifact_name
+		description = baseborn_lynderly_artifact_description
+		visuals = flask
+		type = miscellaneous
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_lynderly_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7861.1.1 # Date the artifact was created
+			recipient = character:Lynderly_8 # First character to use the artifact
+			location = province:2579 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_lynderly_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Lynderly.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7900.1.1
+			RECIPIENT = character:Lynderly_32 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7925.1.1
+			RECIPIENT = character:Lynderly_35 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7944.1.1
+			RECIPIENT = character:Lynderly_36 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7972.1.1
+			RECIPIENT = character:Lynderly_37 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7977.1.1
+			RECIPIENT = character:Lynderly_44 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8012.1.1
+			RECIPIENT = character:Lynderly_51 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8038.1.1
+			RECIPIENT = character:Lynderly_63 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8075.1.1
+			RECIPIENT = character:Lynderly_66 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8117.1.1
+			RECIPIENT = character:Lynderly_67 # Next user of the artfact
+		}
+
+
+	}
+}
+agot_create_artifact_baseborn_hersy_artifact_effect = { # edited 08/13 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_hersy_artifact_name
+		creator = character:Hersy_12 # Remove this line from the code if the creator is unknown
+		description = baseborn_hersy_artifact_description
+		visuals = goblet
+		type = miscellaneous
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_hersy_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7857.1.1 # Date the artifact was created
+			recipient = character:Hersy_12 # First character to use the artifact
+			location = province:2650
+		}
+		modifier = baseborn_hersy_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Hersy.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7890.1.1
+			RECIPIENT = character:Hersy_14 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7927.1.1
+			RECIPIENT = character:Hersy_19 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7947.1.1
+			RECIPIENT = character:Hersy_26 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7973.1.1
+			RECIPIENT = character:Hersy_29 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7977.1.1
+			RECIPIENT = character:Hersy_32 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7996.1.1
+			RECIPIENT = character:Hersy_33 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8020.1.1
+			RECIPIENT = character:Hersy_35 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8055.1.1
+			RECIPIENT = character:Hersy_40 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8081.1.1
+			RECIPIENT = character:Hersy_43 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8085.1.1
+			RECIPIENT = character:Hersy_44 # Next user of the artfact
+		}
+
+
+	}
+}
+agot_create_artifact_baseborn_hunter_artifact_effect = { # edited 08/13 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_hunter_artifact_name
+		creator = character:Hunter_14 # Remove this line from the code if the creator is unknown
+		description = baseborn_hunter_artifact_description
+		visuals = bow
+		type = bow
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_hunter_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7854.1.1 # Date the artifact was created
+			recipient = character:Hunter_14 # First character to use the artifact
+			location = province:2392 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_hunter_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Hunter.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7883.1.1
+			RECIPIENT = character:Hunter_15 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7904.1.1
+			RECIPIENT = character:Hunter_63 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7937.1.1
+			RECIPIENT = character:Hunter_68 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7950.1.1
+			RECIPIENT = character:Hunter_69 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7983.1.1
+			RECIPIENT = character:Hunter_72 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7998.1.1
+			RECIPIENT = character:Hunter_73 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8016.1.1
+			RECIPIENT = character:Hunter_21 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8024.1.1
+			RECIPIENT = character:Hunter_22 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8042.1.1
+			RECIPIENT = character:Hunter_23 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8086.1.1
+			RECIPIENT = character:Hunter_25 # Next user of the artfact
+		}
+
+
+	}
+}
+agot_create_artifact_baseborn_melcolm_artifact_effect = { # edited 08/12 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_melcolm_artifact_name
+		creator = character:Melcolm_6 # Remove this line from the code if the creator is unknown
+		description = baseborn_melcolm_artifact_description
+		visuals = hammer
+		type = hammer
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_melcolm_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7885.1.1 # Date the artifact was created
+			recipient = character:Melcolm_6 # First character to use the artifact
+			location = province:2372 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_melcolm_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Melcolm.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7890.1.1
+			RECIPIENT = character:Melcolm_48 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7910.1.1
+			RECIPIENT = character:Melcolm_51 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7945.1.1
+			RECIPIENT = character:Melcolm_53 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7976.1.1
+			RECIPIENT = character:Melcolm_54 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8004.1.1
+			RECIPIENT = character:Melcolm_56 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8015.1.1
+			RECIPIENT = character:Melcolm_61 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8057.1.1
+			RECIPIENT = character:Melcolm_14 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8085.1.1
+			RECIPIENT = character:Melcolm_15 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8095.1.1
+			RECIPIENT = character:Melcolm_16 # Next user of the artfact
+		}
+
+
+	}
+}
+agot_create_artifact_baseborn_elesham_artifact_effect = { # edited 08/12 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_elesham_artifact_name
+		description = baseborn_elesham_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_elesham_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 8006.1.1 # Date the artifact was created
+			recipient = character:Elesham_56 # First character to use the artifact
+			location = province:2619 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_elesham_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Elesham.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8061.1.1
+			RECIPIENT = character:Elesham_57 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8080.1.1
+			RECIPIENT = character:Elesham_62 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8115.1.1
+			RECIPIENT = character:Elesham_63 # Next user of the artfact
+		}
+
+
+	}
+}
+agot_create_artifact_baseborn_grafton_artifact_effect = { # edited 08/12 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_grafton_artifact_name
+		creator = character:Grafton_14# Remove this line from the code if the creator is unknown
+		description = baseborn_grafton_artifact_description
+		visuals = dagger
+		type = dagger
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_grafton_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7850.1.1 # Date the artifact was created
+			recipient = character:Grafton_14 # First character to use the artifact
+			location = province:2433 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_grafton_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Grafton.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7881.1.1
+			RECIPIENT = character:Grafton_15 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7910.1.1
+			RECIPIENT = character:Grafton_18 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7957.1.1
+			RECIPIENT = character:Grafton_46 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7986.1.1
+			RECIPIENT = character:Grafton_49 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8023.1.1
+			RECIPIENT = character:Grafton_22 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8036.1.1
+			RECIPIENT = character:Grafton_23 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8087.1.1
+			RECIPIENT = character:Grafton_24 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8112.1.1
+			RECIPIENT = character:Grafton_25 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8122.1.1
+			RECIPIENT = character:Grafton_27 # Next user of the artfact
+		}
+
+
+	}
+}
+agot_create_artifact_baseborn_redfort_artifact_effect = { # edited 08/12 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_redfort_artifact_name
+		creator = character:Redfort_9 # Remove this line from the code if the creator is unknown
+		description = baseborn_redfort_artifact_description
+		visuals = bow
+		type = bow
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_redfort_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7845.1.1 # Date the artifact was created
+			recipient = character:Redfort_9 # First character to use the artifact
+			location = province:2277 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_redfort_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Redfort.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7867.1.1
+			RECIPIENT = character:Redfort_10 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7903.1.1
+			RECIPIENT = character:Redfort_14 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7934.1.1
+			RECIPIENT = character:Redfort_15 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7955.1.1
+			RECIPIENT = character:Redfort_38 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8007.1.1
+			RECIPIENT = character:Redfort_41 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8039.1.1
+			RECIPIENT = character:Redfort_19 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8064.1.1
+			RECIPIENT = character:Redfort_20 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8100.1.1
+			RECIPIENT = character:Redfort_22 # Next user of the artfact
+		}
+
+
+	}
+}
+agot_create_artifact_baseborn_donniger_artifact_effect = { # edited 08/12 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_donniger_artifact_name
+		creator = character:Donniger_5 # Remove this line from the code if the creator is unknown
+		description = baseborn_donniger_artifact_description
+		visuals = wall_shield
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_donniger_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7887.1.1 # Date the artifact was created
+			recipient = character:Donniger_5 # First character to use the artifact
+			location = province:2687 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_donniger_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Donniger.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7900.1.1
+			RECIPIENT = character:Donniger_6 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7926.1.1
+			RECIPIENT = character:Donniger_7 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7952.1.1
+			RECIPIENT = character:Donniger_11 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7968.1.1
+			RECIPIENT = character:Donniger_12 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7999.1
+			RECIPIENT = character:Donniger_29 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8040.1.1
+			RECIPIENT = character:Donniger_39 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8048.1.1
+			RECIPIENT = character:Donniger_46 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8071.1.1
+			RECIPIENT = character:Donniger_63 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8104.1.1
+			RECIPIENT = character:Donniger_76 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8123.1.1
+			RECIPIENT = character:Donniger_77 # Next user of the artfact
+		}
+
+
+	}
+}
+agot_create_artifact_baseborn_coldwater_artifact_effect = { # edited 08/13 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_coldwater_artifact_name
+		creator = character:Coldwater_6 # Remove this line from the code if the creator is unknown
+		description = baseborn_coldwater_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_coldwater_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7880.1.1 # Date the artifact was created
+			recipient = character:Coldwater_6 # First character to use the artifact
+			location = province:2476 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_coldwater_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Coldwater.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7900.1.1
+			RECIPIENT = character:Coldwater_7 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7921.1.1
+			RECIPIENT = character:Coldwater_8 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7946.1.1
+			RECIPIENT = character:Coldwater_9 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7953.1.1
+			RECIPIENT = character:Coldwater_11 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7994.1.1
+			RECIPIENT = character:Coldwater_13 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8049.1.1
+			RECIPIENT = character:Coldwater_46 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8080.1.1
+			RECIPIENT = character:Coldwater_49 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8114.1.1
+			RECIPIENT = character:Coldwater_20 # Next user of the artfact
+		}
+
+
+	}
+}
+agot_create_artifact_baseborn_egen_artifact_effect = { # edited 08/13 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_egen_artifact_name
+		creator = character:Egen_7 # Remove this line from the code if the creator is unknown
+		description = baseborn_egen_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_egen_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7871.1.1 # Date the artifact was created
+			recipient = character:Egen_7 # First character to use the artifact
+			location = province:2494 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_egen_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Egen.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7878.1.1
+			RECIPIENT = character:Egen_32 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7928.1.1
+			RECIPIENT = character:Egen_34 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7949.1.1
+			RECIPIENT = character:Egen_35 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7972.1.1
+			RECIPIENT = character:Egen_36 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7984.1.1
+			RECIPIENT = character:Egen_38 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8032.1.1
+			RECIPIENT = character:Egen_41 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8055.1.1
+			RECIPIENT = character:Egen_43 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8072.1.1
+			RECIPIENT = character:Egen_44 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8089.1.1
+			RECIPIENT = character:Egen_46 # Next user of the artfact
+		}
+
+
+	}
+}
+agot_create_artifact_baseborn_waxley_artifact_effect = { # edited 08/13 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_waxley_artifact_name
+		description = baseborn_waxley_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_waxley_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7878.1.1 # Date the artifact was created
+			recipient = character:Waxley_9 # First character to use the artifact
+			location = province:2307 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_waxley_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Waxley.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7891.1.1
+			RECIPIENT = character:Waxley_79 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7952.1.1
+			RECIPIENT = character:Waxley_81 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7957.1.1
+			RECIPIENT = character:Waxley_84 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7987.1.1
+			RECIPIENT = character:Waxley_86 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7999.1.1
+			RECIPIENT = character:Waxley_56 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8000.1.1
+			RECIPIENT = character:Waxley_58# Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8012.1.1
+			RECIPIENT = character:Waxley_59 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8042.1.1
+			RECIPIENT = character:Waxley_63 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8078.1.1
+			RECIPIENT = character:Waxley_66 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8101.1.1
+			RECIPIENT = character:Waxley_70 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8125.1.1
+			RECIPIENT = character:Waxley_21 # Next user of the artfact
+		}
+
 
 	}
 }
@@ -4615,4 +7065,3516 @@ agot_create_artifact_baseborn_whitehill_artifact_effect = {
 		}
 
 	}	
+}
+
+agot_create_artifact_baseborn_second_place_artifact_effect = { # created 08/17 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+		set_artifact_rarity_masterwork = yes
+			create_artifact = {
+			name = baseborn_second_place_artifact_name
+			description = baseborn_second_place_artifact_description
+			visuals = longsword
+			type = sword
+			wealth = scope:wealth
+			quality = scope:quality
+			template = baseborn_second_place_artifact_template # Remove this line from the code if the artifact has no restrictions
+			
+			history = {
+				type = created
+				date = 8132.1.1 # Date the artifact was created
+				recipient = character:Big_Alard_1 # First character to use the artifact
+				location = province:4194 # Location of the first character to use the artifact
+			}
+		modifier = baseborn_second_place_artifact_modifer
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}	
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8133.1.1
+		RECIPIENT = character:Big_Alard_1 # Next user of the artfact
+		}
+
+	}	
+}
+
+### THE REACH ###
+
+agot_create_artifact_baseborn_crane_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_crane_artifact_name
+		creator = character:Crane_7 # Remove this line from the code if the creator is unknown
+		description = baseborn_crane_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_crane_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 60.1.1 # Date the artifact was created
+			recipient = character:Crane_7 # First character to use the artifact
+			location = province:3655 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_crane_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Crane.dynasty_founder.house
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7850.1.1
+			RECIPIENT = character:Crane_9 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7870.1.1
+			RECIPIENT = character:Crane_10 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7925.1.1
+			RECIPIENT = character:Crane_11 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7948.1.1
+			RECIPIENT = character:Crane_18 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7977.1.1
+			RECIPIENT = character:Crane_19 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7994.1.1
+			RECIPIENT = character:Crane_52 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8037.1.1
+			RECIPIENT = character:Crane_53 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8043.1.1
+			RECIPIENT = character:Crane_57 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8084.1.1
+			RECIPIENT = character:Crane_22 # Next user of the artfact
+		}	
+	}
+}
+
+agot_create_artifact_baseborn_ball_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_ball_artifact_name
+		description = baseborn_ball_artifact_description
+		visuals = mace
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_ball_artifact_template # Remove this line from the code if the artifact has no restrictions
+
+		history = {
+			type = created
+			date = 7944.1.1 # Date the artifact was created
+			recipient = character:Ball_49 # First character to use the artifact
+			location = province:3886 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_ball_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Ball.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7993.1.1
+			RECIPIENT = character:Ball_50 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8025.1.1
+			RECIPIENT = character:Ball_53 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8057.1.1
+			RECIPIENT = character:Ball_56 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8079.1.1
+			RECIPIENT = character:Ball_64 # Next user of the artfact
+		}				
+	}
+}
+
+agot_create_artifact_baseborn_varner_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_varner_artifact_name
+		creator = character:Varner_4 # Remove this line from the code if the creator is unknown
+		description = baseborn_varner_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_varner_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 7856.1.1 # Date the artifact was created
+			recipient = character:Varner_4 # First character to use the artifact
+			location = province:3938 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_varner_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Varner.dynasty_founder.house
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7903.1.1
+			RECIPIENT = character:Varner_11 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7935.1.1
+			RECIPIENT = character:Varner_12 # Next user of the artfact
+		}
+		
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7940.1.1
+			RECIPIENT = character:Varner_29 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7999.1.1
+			RECIPIENT = character:Varner_31 # Next user of the artfact
+		}
+		
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8018.1.1
+			RECIPIENT = character:Varner_33 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8036.1.1
+			RECIPIENT = character:Varner_36 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8036.1.1
+			RECIPIENT = character:Varner_36 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8086.1.1
+			RECIPIENT = character:Varner_37 # Next user of the artfact
+		}
+	}
+}
+
+agot_create_artifact_baseborn_footly_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_footly_artifact_name
+		creator = character:Footly_36 # Remove this line from the code if the creator is unknown
+		description = baseborn_footly_artifact_description
+		visuals = mace
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_footly_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 7940.1.1 # Date the artifact was created
+			recipient = character:Footly_11 # First character to use the artifact
+			location = province:3966 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_footly_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Footly.dynasty_founder.house
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7966.1
+			RECIPIENT = character:Footly_12 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7974.1
+			RECIPIENT = character:Footly_36 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8005.1
+			RECIPIENT = character:Footly_39 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8028.1
+			RECIPIENT = character:Footly_47 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8049.1
+			RECIPIENT = character:Footly_52 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8099.1
+			RECIPIENT = character:Footly_14 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8101.1
+			RECIPIENT = character:Footly_16 # Next user of the artfact
+		}	
+	}
+}
+
+agot_create_artifact_baseborn_merryweather_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_merryweather_artifact_name
+		description = baseborn_merryweather_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_merryweather_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 7910.1.1 # Date the artifact was created
+			recipient = character:Merryweather_14 # First character to use the artifact
+			location = province:4072 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_merryweather_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Merryweather.dynasty_founder.house
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8095.1.1
+			RECIPIENT = character:Merryweather_20 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8078.1.1
+			RECIPIENT = character:Merryweather_34 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8044.1.1
+			RECIPIENT = character:Merryweather_31 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8030.1.1
+			RECIPIENT = character:Merryweather_30 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8013.1.1
+			RECIPIENT = character:Merryweather_29 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7975.1.1
+			RECIPIENT = character:Merryweather_28 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7950.1.1
+			RECIPIENT = character:Merryweather_16 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7950.1.1
+			RECIPIENT = character:Merryweather_16 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7918.1.1
+			RECIPIENT = character:Merryweather_15 # Next user of the artfact
+		}	
+	}
+}
+
+agot_create_artifact_baseborn_meadows_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_meadows_artifact_name
+		creator = character:Meadows_67 # Remove this line from the code if the creator is unknown
+		description = baseborn_meadows_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_meadows_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 7966.1.1 # Date the artifact was created
+			recipient = character:Meadows_67 # First character to use the artifact
+			location = province:4041 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_meadows_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Meadows.dynasty_founder.house
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8015.1.1
+			RECIPIENT = character:Meadows_71 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8021.1.1
+			RECIPIENT = character:Meadows_13 # Next user of the artfact
+		}
+		
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8042.1.1
+			RECIPIENT = character:Meadows_14 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8082.1.1
+			RECIPIENT = character:Meadows_15 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8088.1.1
+			RECIPIENT = character:Meadows_16 # Next user of the artfact
+		}	
+	}
+}
+
+agot_create_artifact_baseborn_caswell_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_caswell_artifact_name
+		description = baseborn_caswell_artifact_description
+		visuals = spear
+		type = spear
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_caswell_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 7964.1.1 # Date the artifact was created
+			recipient = character:Caswell_53 # First character to use the artifact
+			location = province:4005 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_caswell_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Caswell.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8000.1.1
+			RECIPIENT = character:Caswell_54 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8024.1.1
+			RECIPIENT = character:Caswell_57 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8054.1.1
+			RECIPIENT = character:Caswell_61 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8074.1.1
+			RECIPIENT = character:Caswell_38 # Next user of the artfact
+		}		
+	}
+}
+
+agot_create_artifact_baseborn_redfossoway_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_redfossoway_artifact_name
+		creator = character:Fossoway_8 # Remove this line from the code if the creator is unknown
+		description = baseborn_redfossoway_artifact_description
+		visuals = longbow
+		type = bow
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_redfossoway_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 60.1.1 # Date the artifact was created
+			recipient = character:Fossoway_8 # First character to use the artifact
+			location = province:3268 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_redfossoway_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Fossoway.dynasty_founder.house
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 80.1.1
+			RECIPIENT = character:Fossoway_9 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7805.1.1
+			RECIPIENT = character:Fossoway_11 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7838.1.1
+			RECIPIENT = character:Fossoway_68 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7900.1.1
+			RECIPIENT = character:Fossoway_71 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7930.1.1
+			RECIPIENT = character:Fossoway_80 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7957.1.1
+			RECIPIENT = character:Fossoway_82 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7982.1.1
+			RECIPIENT = character:Fossoway_18 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7994.1.1
+			RECIPIENT = character:Fossoway_22 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8008.1.1
+			RECIPIENT = character:Fossoway_23 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8043.1.1
+			RECIPIENT = character:Fossoway_25 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8074.1.1
+			RECIPIENT = character:Fossoway_30 # Next user of the artfact
+		}
+	}
+}
+
+agot_create_artifact_baseborn_webber_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_webber_artifact_name
+		creator = character:Webber_40 # Remove this line from the code if the creator is unknown
+		description = baseborn_webber_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_webber_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 8000.1.1 # Date the artifact was created
+			recipient = character:Webber_40 # First character to use the artifact
+			location = province:3627 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_webber_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Webber.dynasty_founder.house
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7949.1.1
+			RECIPIENT = character:Webber_42 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8012.1.1
+			RECIPIENT = character:Webber_43 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8015.1.1
+			RECIPIENT = character:Webber_45 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8061.1.1
+			RECIPIENT = character:Webber_48 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8072.1.1
+			RECIPIENT = character:Webber_52 # Next user of the artfact
+		}
+	}
+}
+
+agot_create_artifact_baseborn_ashford_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_ashford_artifact_name
+		creator = character:Ashford_22
+		description = baseborn_ashford_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_ashford_artifact_template
+
+
+		history = {
+			type = created
+			date = 7860.1.1 # Date the artifact was created
+			recipient = character:Ashford_5 # First character to use the artifact
+			location = province:3293 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_ashford_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Ashford.dynasty_founder.house
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7883.1.1
+			RECIPIENT = character:Ashford_8 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7928.1.1
+			RECIPIENT = character:Ashford_39 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7963.1.1
+			RECIPIENT = character:Ashford_40 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7976.1.1
+			RECIPIENT = character:Ashford_43 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8008.1.1
+			RECIPIENT = character:Ashford_45 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8035.1.1
+			RECIPIENT = character:Ashford_46 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8056.1.1
+			RECIPIENT = character:Ashford_51 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8091.1.1
+			RECIPIENT = character:Ashford_14 # Next user of the artfact
+		}
+	}
+}
+
+agot_create_artifact_baseborn_hewett_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_hewett_artifact_name
+		description = baseborn_hewett_artifact_description
+		visuals = wall_shield
+		type = armor_mail
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_hewett_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 7860.1.1 # Date the artifact was created
+			recipient = character:Hewett_15 # First character to use the artifact
+			location = province:4102 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_hewett_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Hewett.dynasty_founder.house
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7876.1.1
+			RECIPIENT = character:Hewett_16 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7890.1.1
+			RECIPIENT = character:Hewett_18 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7920.1.1
+			RECIPIENT = character:Hewett_23 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7951.1.1
+			RECIPIENT = character:Hewett_32 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8013.1.1
+			RECIPIENT = character:Hewett_38 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8050.1.1
+			RECIPIENT = character:Hewett_46 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8050.1.1
+			RECIPIENT = character:Hewett_46 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8062.1.1
+			RECIPIENT = character:Hewett_48 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8091.1.1
+			RECIPIENT = character:Hewett_50 # Next user of the artfact
+		}
+	}
+}
+
+agot_create_artifact_baseborn_bulwer_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_bulwer_artifact_name
+		description = baseborn_bulwer_artifact_description
+		visuals = crown
+		type = helmet
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_bulwer_artifact_template
+		history = {
+			type = created
+			date = 8120.1.1
+			recipient = character:Bulwer_54 # First character to use the artifact
+			location = province:3534 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_bulwer_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Bulwer.dynasty_founder.house
+		}
+	agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8204.1.1
+		RECIPIENT = character:Bulwer_32 # Next user of the artfact
+		}
+
+	agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8120.1.1
+		RECIPIENT = character:Bulwer_54 # Next user of the artfact
+		}
+	}
+}
+
+agot_create_artifact_baseborn_cuy_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_cuy_artifact_name
+		description = baseborn_cuy_artifact_description
+		visuals = pocket_goblet
+		type = brooch
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_cuy_artifact_template
+		history = {
+			type = created
+			date = 7850.1.1
+			recipient = character:Cuy_5 # First character to use the artifact
+			location = province:3461 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_cuy_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Cuy.dynasty_founder.house
+		}
+	agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8202.1.1
+		RECIPIENT = character:Cuy_21 # Next user of the artfact
+		}
+
+	agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8093.1.1
+		RECIPIENT = character:Cuy_37 # Next user of the artfact
+		}
+	}
+}
+
+agot_create_artifact_baseborn_costayne_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_costayne_artifact_name
+		description = baseborn_costayne_artifact_description
+		visuals = pocket_goblet
+		type = brooch
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_costayne_artifact_template
+		history = {
+			type = created
+			date = 8110.1.1
+			recipient = character:Costayne_22 # First character to use the artifact
+			location = province:3455 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_costayne_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Costayne.dynasty_founder.house
+		}
+	agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8196.1.1
+		RECIPIENT = character:Costayne_37 # Next user of the artfact
+		}
+
+	agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8110.1.1
+		RECIPIENT = character:Costayne_22 # Next user of the artfact
+		}
+	}
+}
+
+agot_create_artifact_baseborn_tyrell_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_tyrell_artifact_name
+		creator = character:Gardener_95 # Remove this line from the code if the creator is unknown
+		description = baseborn_tyrell_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_tyrell_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 7999.1.1 # Date the artifact was created
+			recipient = character:Gardener_95 # First character to use the artifact
+			location = province:3260 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_tyrell_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Tyrell.dynasty_founder.house
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7999.1.1
+			RECIPIENT = character:Tyrell_62 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8005.1.1
+			RECIPIENT = character:Tyrell_63 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8045.1.1
+			RECIPIENT = character:Tyrell_65 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8059.1.1
+			RECIPIENT = character:Tyrell_98 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8090.1.1
+			RECIPIENT = character:Tyrell_71 # Next user of the artfact
+		}	
+	}
+}
+
+
+agot_create_artifact_baseborn_grandison_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_grandison_artifact_name
+		creator = character:Grandison_55 # Remove this line from the code if the creator is unknown
+		description = baseborn_grandison_artifact_description
+		visuals = armor
+		type = armor_laminar
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_grandison_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 8080.1.1 # Date the artifact was created
+			recipient = character:Grandison_55 # First character to use the artifact
+			location = province:4495 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_grandison_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Grandison.dynasty_founder.house
+		}
+	}
+}
+
+agot_create_artifact_baseborn_wylde_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_wylde_artifact_name
+		creator = character:Durrandon_87 # Remove this line from the code if the creator is unknown
+		description = baseborn_wylde_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_wylde_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7980.1.1 # Date the artifact was created
+			recipient = character:Durrandon_87 # First character to use the artifact
+			location = province:4439 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_wylde_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Wylde.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7980.1.1
+			RECIPIENT = character:Wylde_74 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8027.1.1
+			RECIPIENT = character:Wylde_87 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8053.1.1
+			RECIPIENT = character:Wylde_21 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8065.1.1
+			RECIPIENT = character:Wylde_23 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8084.1.1
+			RECIPIENT = character:Wylde_26 # Next user of the artfact
+		}
+
+
+
+	}
+}
+
+agot_create_artifact_baseborn_fell_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_fell_artifact_name
+		creator = character:Fell_6 # Remove this line from the code if the creator is unknown
+		description = baseborn_fell_artifact_description
+		visuals = axe
+		type = axe
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_fell_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7837.1.1 # Date the artifact was created
+			recipient = character:Fell_6 # First character to use the artifact
+			location = province:4832 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_fell_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Fell.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7857.1.1
+			RECIPIENT = character:Fell_8 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7888.1.1
+			RECIPIENT = character:Fell_55 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7906.1.1
+			RECIPIENT = character:Fell_60 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7918.1.1
+			RECIPIENT = character:Fell_61 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7959.1.1
+			RECIPIENT = character:Fell_64 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7975.1.1
+			RECIPIENT = character:Fell_12 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8012.1.1
+			RECIPIENT = character:Fell_13 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8037.1.1
+			RECIPIENT = character:Fell_14 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8072.1.1
+			RECIPIENT = character:Fell_15 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8096.1.1
+			RECIPIENT = character:Fell_16 # Next user of the artfact
+		}
+
+	}
+}
+
+agot_create_artifact_baseborn_estermont_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_estermont_artifact_name
+		description = baseborn_estermont_artifact_description
+		visuals = armor
+		type = armor_mail
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_estermont_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7844.1.1 # Date the artifact was created
+			recipient = character:Estermont_11 # First character to use the artifact
+			location = province:4631 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_estermont_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Estermont.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7880.1.1
+			RECIPIENT = character:Estermont_12 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7920.1.1
+			RECIPIENT = character:Estermont_13 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7924.1.1
+			RECIPIENT = character:Estermont_16 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7962.1.1
+			RECIPIENT = character:Estermont_20 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7991.1.1
+			RECIPIENT = character:Estermont_46 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8006.1.1
+			RECIPIENT = character:Estermont_19 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8058.1.1
+			RECIPIENT = character:Estermont_69 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8094.1.1
+			RECIPIENT = character:Estermont_22 # Next user of the artfact
+		}
+
+	}
+}
+
+agot_create_artifact_baseborn_baratheon_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_baratheon_artifact_name
+		creator = character:Baratheon_20 # Remove this line from the code if the creator is unknown
+		description = baseborn_baratheon_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_baratheon_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 8051.1.1 # Date the artifact was created
+			recipient = character:Baratheon_20 # First character to use the artifact
+			location = province:4151 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_baratheon_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Baratheon.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8062.1.1
+			RECIPIENT = character:Baratheon_34 # Next user of the artfact
+		}
+
+	}
+}
+
+agot_create_artifact_baseborn_peasebury_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_peasebury_artifact_name
+		creator = character:Peasebury_13 # Remove this line from the code if the creator is unknown
+		description = baseborn_peasebury_artifact_description
+		visuals = dagger
+		type = dagger
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_peasebury_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7845.1.1 # Date the artifact was created
+			recipient = character:Peasebury_13 # First character to use the artifact
+			location = province:4803 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_peasebury_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Peasebury.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7860.1.1
+			RECIPIENT = character:Peasebury_6 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7911.1.1
+			RECIPIENT = character:Peasebury_9 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7929.1.1
+			RECIPIENT = character:Peasebury_10 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7971.1.1
+			RECIPIENT = character:Peasebury_27 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7992.1.1
+			RECIPIENT = character:Peasebury_30 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8014.1.1
+			RECIPIENT = character:Peasebury_35 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8044.1.1
+			RECIPIENT = character:Peasebury_36 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8047.1.1
+			RECIPIENT = character:Peasebury_37 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8084.1.1
+			RECIPIENT = character:Peasebury_13 # Next user of the artfact
+		}
+
+	}
+}
+
+agot_create_artifact_baseborn_errol_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_errol_artifact_name
+		creator = character:Errol_50 # Remove this line from the code if the creator is unknown
+		description = baseborn_errol_artifact_description
+		visuals = rock
+		type = miscellaneous
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_errol_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 8045.1.1 # Date the artifact was created
+			recipient = character:Errol_50 # First character to use the artifact
+			location = province:4875 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_errol_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = no
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Errol.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8046.1.1
+			RECIPIENT = character:Errol_51 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8073.1.1
+			RECIPIENT = character:Errol_56 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8095.1.1
+			RECIPIENT = character:Errol_15 # Next user of the artfact
+		}
+
+	}
+}
+
+agot_create_artifact_baseborn_connington_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_connington_artifact_name
+		creator = character:Connington_10 # Remove this line from the code if the creator is unknown
+		description = baseborn_connington_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_connington_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7876.1.1 # Date the artifact was created
+			recipient = character:Connington_10 # First character to use the artifact
+			location = province:4468 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_connington_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Connington.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7882.1.1
+			RECIPIENT = character:Connington_11 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7915.1.1
+			RECIPIENT = character:Connington_60 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7943.1.1
+			RECIPIENT = character:Connington_63 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7978.1.1
+			RECIPIENT = character:Connington_15 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8012.1.1
+			RECIPIENT = character:Connington_16 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8019.1.1
+			RECIPIENT = character:Connington_20 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8065.1.1
+			RECIPIENT = character:Connington_26 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8074.1.1
+			RECIPIENT = character:Connington_27 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8093.1.1
+			RECIPIENT = character:Connington_29 # Next user of the artfact
+		}
+
+	}
+}
+
+agot_create_artifact_baseborn_mertyns_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_mertyns_artifact_name
+		creator = character:Mertyns_8 # Remove this line from the code if the creator is unknown
+		description = baseborn_mertyns_artifact_description
+		visuals = armor
+		type = armor_mail
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_mertyns_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7828.1.1 # Date the artifact was created
+			recipient = character:Mertyns_8 # First character to use the artifact
+			location = province:4574 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_mertyns_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Mertyns.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7875.1.1
+			RECIPIENT = character:Mertyns_9 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7904.1.1
+			RECIPIENT = character:Mertyns_65 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7921.1.1
+			RECIPIENT = character:Mertyns_66 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7965.1.1
+			RECIPIENT = character:Mertyns_68 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7976.1.1
+			RECIPIENT = character:Mertyns_13 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8009.1.1
+			RECIPIENT = character:Mertyns_14 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8012.1.1
+			RECIPIENT = character:Mertyns_16 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8057.1.1
+			RECIPIENT = character:Mertyns_17 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8074.1.1
+			RECIPIENT = character:Mertyns_19 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8091.1.1
+			RECIPIENT = character:Mertyns_20 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8100.1.1
+			RECIPIENT = character:Mertyns_22 # Next user of the artfact
+		}
+
+	}
+}
+
+agot_create_artifact_baseborn_tarth_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_tarth_artifact_name
+		creator = character:Tarth_7 # Remove this line from the code if the creator is unknown
+		description = baseborn_tarth_artifact_description
+		visuals = mace
+		type = mace
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_tarth_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 3032.1.1 # Date the artifact was created
+			recipient = character:Tarth_7 # First character to use the artifact
+			location = province:4917 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_tarth_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Tarth.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7847.1.1
+			RECIPIENT = character:Tarth_10 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7853.1.1
+			RECIPIENT = character:Tarth_11 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7881.1.1
+			RECIPIENT = character:Tarth_45 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7897.1.1
+			RECIPIENT = character:Tarth_48 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7926.1.1
+			RECIPIENT = character:Tarth_14 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7944.1.1
+			RECIPIENT = character:Tarth_15 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7976.1.1
+			RECIPIENT = character:Tarth_16 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7988.1.1
+			RECIPIENT = character:Tarth_18 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8039.1.1
+			RECIPIENT = character:Tarth_19 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8072.1.1
+			RECIPIENT = character:Tarth_26 # Next user of the artfact
+		}
+
+	}
+}
+
+agot_create_artifact_baseborn_cafferen_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_cafferen_artifact_name
+		creator = character:Cafferen_5 # Remove this line from the code if the creator is unknown
+		description = baseborn_cafferen_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_cafferen_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7869.1.1 # Date the artifact was created
+			recipient = character:Cafferen_5 # First character to use the artifact
+			location = province:4744 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_cafferen_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Cafferen.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7880.1.1
+			RECIPIENT = character:Cafferen_7 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7911.1.1
+			RECIPIENT = character:Cafferen_15 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7951.1.1
+			RECIPIENT = character:Cafferen_25 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7973.1.1
+			RECIPIENT = character:Cafferen_36 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7984.1.1
+			RECIPIENT = character:Cafferen_37 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8006.1.1
+			RECIPIENT = character:Cafferen_38 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8012.1.1
+			RECIPIENT = character:Cafferen_39 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8040.1.1
+			RECIPIENT = character:Cafferen_41 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8091.1.1
+			RECIPIENT = character:Cafferen_26 # Next user of the artfact
+		}
+
+	}
+}
+
+agot_create_artifact_baseborn_dondarrion_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_dondarrion_artifact_name
+		creator = character:Dondarrion_5 # Remove this line from the code if the creator is unknown
+		description = baseborn_dondarrion_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_dondarrion_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7856.1.1 # Date the artifact was created
+			recipient = character:Dondarrion_5 # First character to use the artifact
+			location = province:4673 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_dondarrion_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Dondarrion.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7879.1.1
+			RECIPIENT = character:Dondarrion_6 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7917.1.1
+			RECIPIENT = character:Dondarrion_50 # Next user of the artfact
+
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7959.1.1
+			RECIPIENT = character:Dondarrion_51 # Next user of the artfact
+
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7977.1.1
+			RECIPIENT = character:Dondarrion_11 # Next user of the artfact
+
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8006.1.1
+			RECIPIENT = character:Dondarrion_12 # Next user of the artfact
+
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8040.1.1
+			RECIPIENT = character:Dondarrion_14 # Next user of the artfact
+
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8059.1.1
+			RECIPIENT = character:Dondarrion_16 # Next user of the artfact
+
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8086.1.1
+			RECIPIENT = character:Dondarrion_18 # Next user of the artfact
+		}
+
+
+	}
+}
+
+agot_create_artifact_baseborn_trant_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_trant_artifact_name
+		description = baseborn_trant_artifact_description
+		visuals = pocket_book
+		type = journal
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_trant_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 8110.1.1 # Date the artifact was created
+			recipient = character:Trant_22 # First character to use the artifact
+			location = province:4526 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_trant_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Trant.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8190.1.1
+			RECIPIENT = character:Trant_29 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8089.1.1
+			RECIPIENT = character:Trant_22 # Next user of the artfact
+		}
+	}
+}
+
+
+agot_create_artifact_baseborn_selmy_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_selmy_artifact_name
+		creator = character:Selmy_11 # Remove this line from the code if the creator is unknown
+		description = baseborn_selmy_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_selmy_artifact_template # Remove this line from the code if the artifact has no restrictions
+		
+		history = {
+			type = created
+			date = 7869.1.1 # Date the artifact was created
+			recipient = character:Selmy_11 # First character to use the artifact
+			location = province:4699 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_selmy_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Selmy.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7883.1.1
+			RECIPIENT = character:Selmy_12 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7925.1.1
+			RECIPIENT = character:Selmy_13 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7928.1.1
+			RECIPIENT = character:Selmy_14 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7933.1.1
+			RECIPIENT = character:Selmy_15 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7998.1.1
+			RECIPIENT = character:Selmy_17 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8029.1.1
+			RECIPIENT = character:Selmy_57 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8048.1.1
+			RECIPIENT = character:Selmy_66 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8067.1.1
+			RECIPIENT = character:Selmy_71 # Next user of the artfact
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8099.1.1
+			RECIPIENT = character:Selmy_19 # Next user of the artfact
+		}
+
+	}
+}
+
+### DORNE ###
+
+agot_create_artifact_baseborn_nymerosmartell_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_nymerosmartell_artifact_name
+		creator = character:Martell_65 # Remove this line from the code if the creator is unknown
+		description = baseborn_nymerosmartell_artifact_description
+		visuals = spear
+		type = spear
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_nymerosmartell_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 8106.1.1 # Date the artifact was created
+			recipient = character:Martell_65 # First character to use the artifact
+			location = province:4937 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_nymerosmartell_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Martell.dynasty_founder.house
+		}
+	}
+}
+
+agot_create_artifact_baseborn_yronwood_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_yronwood_artifact_name
+		description = baseborn_yronwood_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_yronwood_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 7850.1.1 # Date the artifact was created
+			recipient = character:Yronwood_18 # First character to use the artifact
+			location = province:5303 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_yronwood_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Yronwood.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7875.1.1
+			RECIPIENT = character:Yronwood_19 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7927.1.1
+			RECIPIENT = character:Yronwood_21 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7957.1.1
+			RECIPIENT = character:Yronwood_22 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7988.1.1
+			RECIPIENT = character:Yronwood_24 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8007.1.1
+			RECIPIENT = character:Yronwood_25 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8022.1.1
+			RECIPIENT = character:Yronwood_26 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8048.1.1
+			RECIPIENT = character:Yronwood_27 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8075.1.1
+			RECIPIENT = character:Yronwood_28 # Next user of the artfact
+		}
+	}
+}
+
+agot_create_artifact_baseborn_uller_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_uller_artifact_name
+		creator = character:Uller_29 # Remove this line from the code if the creator is unknown
+		description = baseborn_uller_artifact_description
+		visuals = bow
+		type = bow
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_uller_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 8004.1.1 # Date the artifact was created
+			recipient = character:Uller_19 # First character to use the artifact
+			location = province:5135 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_uller_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Uller.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8010.1.1
+			RECIPIENT = character:Uller_20 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8011.1.1
+			RECIPIENT = character:Uller_21 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8011.6.1
+			RECIPIENT = character:Uller_22 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8012.1.1
+			RECIPIENT = character:Uller_23 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8051.1.1
+			RECIPIENT = character:Uller_27 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8090.1.1
+			RECIPIENT = character:Uller_29 # Next user of the artfact
+		}
+	}
+}
+
+agot_create_artifact_baseborn_qorgyle_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_qorgyle_artifact_name
+		creator = character:Qorgyle_13 # Remove this line from the code if the creator is unknown
+		description = baseborn_qorgyle_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_qorgyle_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 7880.1.1 # Date the artifact was created
+			recipient = character:Qorgyle_13 # First character to use the artifact
+			location = province:5211 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_qorgyle_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Qorgyle.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7886.1.1
+			RECIPIENT = character:Qorgyle_14 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7905.1.1
+			RECIPIENT = character:Qorgyle_15 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7925.1.1
+			RECIPIENT = character:Qorgyle_16 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7961.1.1
+			RECIPIENT = character:Qorgyle_17 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7998.1.1
+			RECIPIENT = character:Qorgyle_18 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8006.1.1
+			RECIPIENT = character:Qorgyle_19 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8045.1.1
+			RECIPIENT = character:Qorgyle_20 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8059.1.1
+			RECIPIENT = character:Qorgyle_21 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8063.1.1
+			RECIPIENT = character:Qorgyle_22 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8066.1.1
+			RECIPIENT = character:Qorgyle_23 # Next user of the artfact
+		}
+	}
+}
+
+agot_create_artifact_baseborn_manwoody_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_manwoody_artifact_name
+		description = baseborn_manwoody_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_manwoody_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 7090.1.1 # Date the artifact was created
+			recipient = character:Manwoody_9 # First character to use the artifact
+			location = province:5412 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_manwoody_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Manwoody.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7856.1.1
+			RECIPIENT = character:Manwoody_11 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7870.1.1
+			RECIPIENT = character:Manwoody_12 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7901.1.1
+			RECIPIENT = character:Manwoody_13 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7930.1.1
+			RECIPIENT = character:Manwoody_14 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7968.1.1
+			RECIPIENT = character:Manwoody_15 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7990.1.1
+			RECIPIENT = character:Manwoody_16 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8002.1.1
+			RECIPIENT = character:Manwoody_18 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8012.1.1
+			RECIPIENT = character:Manwoody_19 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8061.1.1
+			RECIPIENT = character:Manwoody_20 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8081.1.1
+			RECIPIENT = character:Manwoody_21 # Next user of the artfact
+		}
+	}
+}
+
+agot_create_artifact_baseborn_jordayne_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_jordayne_artifact_name
+		creator = character:Jordayne_3 # Remove this line from the code if the creator is unknown
+		description = baseborn_jordayne_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_jordayne_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 7880.1.1 # Date the artifact was created
+			recipient = character:Jordayne_3 # First character to use the artifact
+			location = province:1000 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_jordayne_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Jordayne.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7881.1.1
+			RECIPIENT = character:Jordayne_4 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7949.1.1
+			RECIPIENT = character:Jordayne_5 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7964.1.1
+			RECIPIENT = character:Jordayne_6 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7982.1.1
+			RECIPIENT = character:Jordayne_7 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8004.1.1
+			RECIPIENT = character:Jordayne_8 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8036.1.1
+			RECIPIENT = character:Jordayne_9 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8058.1.1
+			RECIPIENT = character:Jordayne_10 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8086.1.1
+			RECIPIENT = character:Jordayne_13 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8096s.1.1
+			RECIPIENT = character:Jordayne_14 # Next user of the artfact
+		}
+	}
+}
+
+agot_create_artifact_baseborn_gargalen_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_gargalen_artifact_name
+		description = baseborn_gargalen_artifact_description
+		visuals = pelt
+		type = miscellaneous
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_gargalen_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 8000.1.1 # Date the artifact was created
+			recipient = character:Gargalen_7 # First character to use the artifact
+			location = province:4979 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_gargalen_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Gargalen.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7880.1.1
+			RECIPIENT = character:Gargalen_8 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7911.1.1
+			RECIPIENT = character:Gargalen_9 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7976.1.1
+			RECIPIENT = character:Gargalen_11 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8003.1.1
+			RECIPIENT = character:Gargalen_12 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8047.1.1
+			RECIPIENT = character:Gargalen_13 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8066.1.1
+			RECIPIENT = character:Gargalen_14 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8069.1.1
+			RECIPIENT = character:Gargalen_15 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8104.1.1
+			RECIPIENT = character:Gargalen_16 # Next user of the artfact
+		}
+	}
+}
+
+agot_create_artifact_baseborn_santagar_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_santagar_artifact_name
+		description = baseborn_santagar_artifact_description
+		visuals = axe
+		type = axe
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_santagar_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 7880.1.1 # Date the artifact was created
+			recipient = character:Santagar_8 # First character to use the artifact
+			location = province:5032 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_santagar_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Santagar.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7885.1.1
+			RECIPIENT = character:Santagar_9 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7915.1.1
+			RECIPIENT = character:Santagar_10 # Next user of the artfact
+		}
+		
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7950.1.1
+			RECIPIENT = character:Santagar_11 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7966.1.1
+			RECIPIENT = character:Santagar_12 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7988.1.1
+			RECIPIENT = character:Santagar_13 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8027.1.1
+			RECIPIENT = character:Santagar_14 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8055.1.1
+			RECIPIENT = character:Santagar_15 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8059.1.1
+			RECIPIENT = character:Santagar_16 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8099.1.1
+			RECIPIENT = character:Santagar_17 # Next user of the artfact
+		}
+	}
+}
+
+agot_create_artifact_baseborn_toland_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_toland_artifact_name
+		creator = character:Toland_8 # Remove this line from the code if the creator is unknown
+		description = baseborn_toland_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_toland_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 8000.1.1 # Date the artifact was created
+			recipient = character:Toland_8 # First character to use the artifact
+			location = province:1000 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_toland_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Toland.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7884.1.1
+			RECIPIENT = character:Toland_9 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7915.1.1
+			RECIPIENT = character:Toland_10 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7933.1.1
+			RECIPIENT = character:Toland_11 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7960.1.1
+			RECIPIENT = character:Toland_12 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7996.1.1
+			RECIPIENT = character:Toland_13 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8005.1.1
+			RECIPIENT = character:Toland_14 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8012.1.1
+			RECIPIENT = character:Toland_16 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8051.1.1
+			RECIPIENT = character:Toland_17 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8005.1.1
+			RECIPIENT = character:Toland_18 # Next user of the artfact
+		}
+	}
+}
+
+agot_create_artifact_baseborn_allyrion_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_allyrion_artifact_name
+		description = baseborn_allyrion_artifact_description
+		visuals = spear
+		type = spear
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_allyrion_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 7855.1.1 # Date the artifact was created
+			recipient = character:Allyrion_12 # First character to use the artifact
+			location = province:5002 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_allyrion_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Allyrion.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7866.1.1
+			RECIPIENT = character:Allyrion_13 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7903.1.1
+			RECIPIENT = character:Allyrion_14 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7922.1.1
+			RECIPIENT = character:Allyrion_15 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7943.1.1
+			RECIPIENT = character:Allyrion_16 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7958.1.1
+			RECIPIENT = character:Allyrion_17 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8003.1.1
+			RECIPIENT = character:Allyrion_18 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8015.1.1
+			RECIPIENT = character:Allyrion_20 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8028.1.1
+			RECIPIENT = character:Allyrion_21 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8059.1.1
+			RECIPIENT = character:Allyrion_22 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8091.1.1
+			RECIPIENT = character:Allyrion_23 # Next user of the artfact
+		}
+	}
+}
+
+agot_create_artifact_baseborn_blackmont_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_blackmont_artifact_name
+		description = baseborn_blackmont_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_blackmont_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 7936.1.1 # Date the artifact was created
+			recipient = character:Blackmont_14 # First character to use the artifact
+			location = province:5383 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_blackmont_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Blackmont.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7952.1.1
+			RECIPIENT = character:Blackmont_16 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7994.1.1
+			RECIPIENT = character:Blackmont_17 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8019.1.1
+			RECIPIENT = character:Blackmont_18 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8043.1.1
+			RECIPIENT = character:Blackmont_20 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8098.1.1
+			RECIPIENT = character:Blackmont_21 # Next user of the artfact
+		}
+	}
+}
+
+agot_create_artifact_baseborn_fowler_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_fowler_artifact_name
+		description = baseborn_fowler_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_fowler_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 7861.1.1 # Date the artifact was created
+			recipient = character:Fowler_13 # First character to use the artifact
+			location = province:5352 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_fowler_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Fowler.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7883.1.1
+			RECIPIENT = character:Fowler_14 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7917.1.1
+			RECIPIENT = character:Fowler_15 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7960.1.1
+			RECIPIENT = character:Fowler_16 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7988.1.1
+			RECIPIENT = character:Fowler_17 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8012.1.1
+			RECIPIENT = character:Fowler_18 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8032.1.1
+			RECIPIENT = character:Fowler_20 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8080.1.1
+			RECIPIENT = character:Fowler_21 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8102.1.1
+			RECIPIENT = character:Fowler_22 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8105.1.1
+			RECIPIENT = character:Fowler_28 # Next user of the artfact
+		}
+	}
+}
+
+agot_create_artifact_baseborn_dalt_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_dalt_artifact_name
+		description = baseborn_dalt_artifact_description
+		visuals = longsword
+		type = sword
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_dalt_artifact_template # Remove this line from the code if the artifact has no restrictions
+		history = {
+			type = created
+			date = 7860.1.1 # Date the artifact was created
+			recipient = character:Dalt_5 # First character to use the artifact
+			location = province:4960 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_dalt_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Dalt.dynasty_founder.house
+		}
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7881.1.1
+			RECIPIENT = character:Dalt_6 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7923.1.1
+			RECIPIENT = character:Dalt_7 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7931.1.1
+			RECIPIENT = character:Dalt_8 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 7959.1.1
+			RECIPIENT = character:Dalt_9 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8007.1.1
+			RECIPIENT = character:Dalt_11 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8021.1.1
+			RECIPIENT = character:Dalt_13 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8035.1.1
+			RECIPIENT = character:Dalt_14 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8062.1.1
+			RECIPIENT = character:Dalt_15 # Next user of the artfact
+		}
+
+		agot_add_artifact_history = {
+			ARTIFACT = this
+			TYPE = inherited
+			DATE = 8102.1.1
+			RECIPIENT = character:Dalt_20 # Next user of the artfact
+		}
+	}
 }

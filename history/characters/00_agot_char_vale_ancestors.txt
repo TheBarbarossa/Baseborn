@@ -9406,8 +9406,9 @@ Corbray_hh_5 = {
 	8172.3.28 = { employer = Targaryen_88 } # Aegon IV Targaryen
 	8177.1.1 = { death = yes }
 }
-Corbray_hh_6 = {
+Corbray_hh_6 = { # edited 08/15 slambroski
 	name = Beth # Semi-Canon
+	female = yes 
 
 	religion = fots_seven
 	culture = valeman_main
@@ -11331,7 +11332,7 @@ Ruthermont_74 = {
 	}
 }
 ### Issue of Gylbert
-Ruthermont_82 = {
+Ruthermont_82 = { # edited 07/31 slambroski
 	name = Alladar
 	dynasty = dynn_Ruthermont
 
@@ -11342,7 +11343,8 @@ Ruthermont_82 = {
 	mother = Dutton_71
 
 	8103.1.1 = { birth = yes }
-	8120.1.1 = { trait = knight }
+	# 8120.1.1 = { trait = knight }
+	8120.1.1 = { trait = septon }
 	8150.1.1 = { death = yes }
 }
 ### Issue of Terrance
@@ -22676,7 +22678,7 @@ Moore_73 = {
 	8106.1.1 = { trait = knight }
 	8131.1.1 = { death = yes }
 }
-Moore_74 = {
+Moore_74 = { # edited 07/31 slambroski
 	name = Garlan
 	dynasty = dynn_Moore
 
@@ -22687,7 +22689,9 @@ Moore_74 = {
 	mother = Warrick_74
 
 	8092.1.1 = { birth = yes }
-	8110.1.1 = { trait = knight }
+	# 8110.1.1 = { trait = knight }
+	8110.1.1 = { trait = septon }
+	8131.1.1 = { employer = Buckwell_26 } # Garett Buckwell 
 	8146.1.1 = {
 		death = { death_reason = death_natural_causes }
 	}
@@ -90001,7 +90005,7 @@ Halcott_19 = {
 	}
 }
 ### Issue of Pelion
-Halcott_20 = {
+Halcott_20 = { # edited 08/08 slambroski
 	name = Wayland
 	dynasty = dynn_Halcott
 
@@ -90014,9 +90018,10 @@ Halcott_20 = {
 	8082.1.1 = { birth = yes }
 	8098.1.1 = { trait = knight }
 	8106.1.1 = { add_spouse = Brimer_58 } # Iris Brimer
-	8147.1.1 = {
-		death = { death_reason = death_natural_causes }
-	}
+	8129.1.1 = { death = { death_reason = death_battle } }
+	# 8147.1.1 = {
+	# 	death = { death_reason = death_natural_causes }
+	# }
 }
 Halcott_21 = {
 	name = Uthor
@@ -123197,4 +123202,44 @@ Iron_Shield_1 = { # created 07/05 slambroski
 	8130.1.1 = { trait = scarred }
 	8132.3.6 = { employer = Velaryon_44 } # Alyn Oakenfist
 	8134.1.1 = { death = yes }
+}
+Dirk_1 = { # created 08/15 slambroski, C9 tourney winner, 3rd place, 13th
+	name = Dirk
+	dna = Dirk_1
+
+	diplomacy = 1
+	martial = 8
+	stewardship = 1
+	intrigue = 10
+	learning = 3
+	prowess = 10 
+
+	religion = fots_seven
+	culture = valeman_main
+
+	trait = education_intrigue_2
+	trait = education_martial_prowess_4
+	trait = beauty_bad_3
+	trait = albino
+	trait = strong
+	trait = sadistic
+	trait = paranoid
+	trait = rude
+	trait = vengeful
+
+	disallow_random_traits = yes 
+
+	8074.1.1 = { birth = yes }
+	8129.1.1 = {
+		trait = aggressive_attacker
+		trait = knight
+	}
+	8132.1.1 = { 
+		effect = {
+			add_gold = 25
+			agot_create_personal_coa_for_historical_ai = { ACTOR = character:Dirk_1 COA_KEY = dirk_personal_coa }
+		}
+		employer = Egen_46 # Arston Egen
+	} 
+	8135.1.1 = { death = yes }
 }
