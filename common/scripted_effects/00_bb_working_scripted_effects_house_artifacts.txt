@@ -7067,6 +7067,46 @@ agot_create_artifact_baseborn_whitehill_artifact_effect = {
 	}	
 }
 
+agot_create_artifact_baseborn_second_place_artifact_effect = { # created 08/17 slambroski
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+		set_artifact_rarity_masterwork = yes
+			create_artifact = {
+			name = baseborn_second_place_artifact_name
+			description = baseborn_second_place_artifact_description
+			visuals = longsword
+			type = sword
+			wealth = scope:wealth
+			quality = scope:quality
+			template = baseborn_second_place_artifact_template # Remove this line from the code if the artifact has no restrictions
+			
+			history = {
+				type = created
+				date = 8132.1.1 # Date the artifact was created
+				recipient = character:Big_Alard_1 # First character to use the artifact
+				location = province:4194 # Location of the first character to use the artifact
+			}
+		modifier = baseborn_second_place_artifact_modifer
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}	
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8133.1.1
+		RECIPIENT = character:Big_Alard_1 # Next user of the artfact
+		}
+
+	}	
+}
+
 ### THE REACH ###
 
 agot_create_artifact_baseborn_crane_artifact_effect = {
