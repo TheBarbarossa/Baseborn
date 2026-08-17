@@ -138,6 +138,22 @@
 				}
 			}
 		}
+
+		title:d_the_cut = {
+			every_de_jure_county_holder = {
+				if = {
+					limit = {
+						primary_title.tier = tier_county
+					}
+					set_variable = { name = mw_obl_feudal_levies value = 0 }
+					add_character_flag = {
+						flag = startup_contracts
+						days = 1
+					}					
+					agot_mw_reset_vassal_contract = yes
+				}
+			}
+		}		
 		
 		title:k_dragonstone.holder ?= {
 			set_variable = { name = mw_obl_feudal_levies value =  0 }
@@ -157,7 +173,7 @@
 			agot_mw_reset_vassal_contract = yes
 		}
 		title:d_duskendale.holder ?= {
-			set_variable = { name = mw_obl_feudal_levies value = 3 }
+			set_variable = { name = mw_obl_feudal_levies value = 0 }
 			set_variable = { name = mw_obl_feudal_taxes value = 3 }
 			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
 			add_character_flag = {
@@ -167,7 +183,7 @@
 			agot_mw_reset_vassal_contract = yes
 		}
 		title:d_rosby.holder ?= {
-			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_feudal_levies value = 0 }
 			set_variable = { name = mw_obl_feudal_taxes value = 3 }
 			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
 			add_character_flag = {
@@ -901,7 +917,7 @@
 			every_de_jure_county_holder = {
 				if = {
 					limit = { culture = culture:northern_clan }
-					set_variable = { name = mw_obl_feudal_levies value = 1 }
+					set_variable = { name = mw_obl_feudal_levies value = 0 }
 					set_variable = { name = mw_obl_feudal_taxes value = 1 }
 					set_variable = { name = mw_obl_title_revocation_rights value = 1 }
 					add_character_flag = {
@@ -943,7 +959,7 @@
 				if = {
 					limit = { culture = culture:crannogman }
 					set_variable = { name = mw_obl_feudal_taxes value = 1 }
-					set_variable = { name = mw_obl_feudal_levies value = 1 }
+					set_variable = { name = mw_obl_feudal_levies value = 0 }
 					set_variable = { name = mw_obl_title_revocation_rights value = 1 }
 					add_character_flag = {
 						flag = startup_contracts
@@ -958,7 +974,7 @@
 				if = {
 					limit = { culture = culture:crannogman }
 					set_variable = { name = mw_obl_feudal_taxes value = 1 }
-					set_variable = { name = mw_obl_feudal_levies value = 1 }
+					set_variable = { name = mw_obl_feudal_levies value = 0 }
 					set_variable = { name = mw_obl_title_revocation_rights value = 1 }
 					add_character_flag = {
 						flag = startup_contracts
@@ -973,7 +989,7 @@
 				if = {
 					limit = { culture = culture:crannogman }
 					set_variable = { name = mw_obl_feudal_taxes value = 1 }
-					set_variable = { name = mw_obl_feudal_levies value = 1 }
+					set_variable = { name = mw_obl_feudal_levies value = 0 }
 					set_variable = { name = mw_obl_title_revocation_rights value = 1 }
 					add_character_flag = {
 						flag = startup_contracts
@@ -986,7 +1002,7 @@
 
 		### THE VALE
 		title:d_gulltown.holder ?= {
-			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_feudal_levies value = 0 }
 			set_variable = { name = mw_obl_feudal_taxes value = 3 }
 			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
 			add_character_flag = {
@@ -996,7 +1012,7 @@
 			agot_mw_reset_vassal_contract = yes
 		}
 		title:d_grimholm.holder ?= {
-			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_feudal_levies value = 0 }
 			set_variable = { name = mw_obl_feudal_taxes value = 1 }
 			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
 			add_character_flag = {
@@ -1006,7 +1022,7 @@
 			agot_mw_reset_vassal_contract = yes
 		}
 		title:d_the_sisters.holder ?= {
-			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_feudal_levies value = 0 }
 			set_variable = { name = mw_obl_feudal_taxes value = 1 }
 			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
 			add_character_flag = {
@@ -1115,6 +1131,7 @@
 		title:c_wickenden.holder ?= {
 			set_variable = { name = mw_obl_special_contract value = 6 }
 			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_feudal_levies value = 0 }
 			add_character_flag = {
 				flag = startup_contracts
 				days = 1
@@ -1123,8 +1140,19 @@
 			additional_flavor_check_effect = yes
 			title:c_wickenden ?= { agot_landed_knight_posthistory_effect = yes }
 		}
+		title:c_crabs_shore.holder ?= {
+			set_variable = { name = mw_obl_feudal_levies value = 0 }
+			add_character_flag = {
+				flag = startup_contracts
+				days = 1
+			}
+			agot_mw_reset_vassal_contract = yes
+			additional_flavor_check_effect = yes
+			title:c_crabs_shore ?= { agot_landed_knight_posthistory_effect = yes }
+		}		
 		title:c_marbletoft.holder ?= {
 			set_variable = { name = mw_obl_special_contract value = 6 }
+			set_variable = { name = mw_obl_feudal_levies value = 0 }
 			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
 			add_character_flag = {
 				flag = startup_contracts
@@ -1271,6 +1299,7 @@
 		title:c_tammerlan.holder ?= {
 			set_variable = { name = mw_obl_special_contract value = 6 }
 			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+			set_variable = { name = mw_obl_feudal_levies value = 0 }
 			add_character_flag = {
 				flag = startup_contracts
 				days = 1
@@ -1732,6 +1761,14 @@
 			every_de_jure_county_holder = {
 				if = {
 					limit = {
+						any_in_de_jure_heirarchy = {
+							OR = {
+								this = title:d_harlaw
+								this = title:d_blacktyde
+								this = title:d_old_wyk
+								this = title:d_east_wyk
+							}
+						}
 						culture = culture:ironborn
 						primary_title.tier = tier_county
 					}
@@ -1747,9 +1784,37 @@
 					agot_mw_reset_vassal_contract = yes
 				}
 			}
-		}		
+		}
+
+		title:e_the_iron_islands = {
+			every_de_jure_county_holder = {
+				if = {
+					limit = {
+						any_in_de_jure_heirarchy = {
+							OR = {
+								this = title:d_orkmont
+								this = title:d_saltcliffe
+							}
+						}
+						culture = culture:ironborn
+						primary_title.tier = tier_county
+					}
+					set_variable = { name = mw_obl_feudal_taxes value = 1 }
+					set_variable = { name = mw_obl_feudal_levies value = 1 }
+					set_variable = { name = mw_obl_war_declaration_rights value = 1 }
+					set_variable = { name = mw_obl_fortification_rights value = 1 }
+					set_variable = { name = mw_obl_title_revocation_rights value = 1 }
+					add_character_flag = {
+						flag = startup_contracts
+						days = 1
+					}
+					agot_mw_reset_vassal_contract = yes
+				}
+			}
+		}
+		
 		title:d_lonely_light.holder ?= {
-			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_feudal_levies value = 0 }
 			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
 			add_character_flag = {
 				flag = startup_contracts
@@ -1918,7 +1983,7 @@
 		}
 		title:d_sterling.holder ?= {
 			set_variable = { name = mw_obl_feudal_taxes value = 3 }
-			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_feudal_levies value = 0 }
 			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
 			add_character_flag = {
 				flag = startup_contracts
@@ -1943,7 +2008,7 @@
 			if = {
 				limit = { game_start_date > 8250.1.1 }
 				title:d_castamere.holder ?= {
-					set_variable = { name = mw_obl_feudal_levies value = 1 }
+					set_variable = { name = mw_obl_feudal_levies value = 0 }
 					set_variable = { name = mw_obl_feudal_taxes value = 1 }
 					set_variable = { name = mw_obl_fortification_rights value = 1 }
 					set_variable = { name = mw_obl_coinage_rights value = 1 }
@@ -1963,7 +2028,7 @@
 				game_start_date < 8261.11.1
 			}
 			title:d_tarrich.holder ?= {
-				set_variable = { name = mw_obl_feudal_levies value = 1 }
+				set_variable = { name = mw_obl_feudal_levies value = 0 }
 				set_variable = { name = mw_obl_feudal_taxes value = 1 }
 				set_variable = { name = mw_obl_fortification_rights value = 1 }
 				set_variable = { name = mw_obl_coinage_rights value = 1 }
@@ -2720,7 +2785,7 @@
 		### The Northmarch
 		title:d_goldengrove.holder ?= {
 			set_variable = { name = mw_obl_feudal_taxes value = 1 }
-			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_feudal_levies value = 0 }
 			set_variable = { name = mw_obl_special_contract value = 2 }
 			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
 			add_character_flag = {
@@ -2764,7 +2829,7 @@
 		### Marchers
 		title:d_the_westmarch.holder ?= {
 			set_variable = { name = mw_obl_feudal_taxes value = 1 }
-			set_variable = { name = mw_obl_feudal_levies value = 1 }
+			set_variable = { name = mw_obl_feudal_levies value = 0 }
 			set_variable = { name = mw_obl_fortification_rights value = 1 }
 			set_variable = { name = mw_obl_special_contract value = 2 }
 			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
