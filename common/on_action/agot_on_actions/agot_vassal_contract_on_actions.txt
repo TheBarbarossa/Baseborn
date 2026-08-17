@@ -1812,7 +1812,68 @@
 				}
 			}
 		}
-		
+
+		title:h_the_iron_throne = {
+			every_de_jure_county_holder = {
+				if = {
+					limit = {
+						any_in_de_jure_heirarchy = {
+							OR = {
+								this = title:d_the_baywater_woods
+								this = title:d_the_blackwater_rush
+								this = title:d_crackclaw_point
+							}
+						}
+						primary_title.tier = tier_county
+					}
+					set_variable = { name = mw_obl_feudal_levies value = 0 }
+					add_character_flag = {
+						flag = startup_contracts
+						days = 1
+					}
+					agot_mw_reset_vassal_contract = yes
+				}
+			}
+		}
+		title:e_the_riverlands = {
+			every_de_jure_county_holder = {
+				if = {
+					limit = {
+						any_in_de_jure_heirarchy = {
+							this = title:d_three_forks
+						}
+						primary_title.tier = tier_county
+					}
+					set_variable = { name = mw_obl_feudal_levies value = 0 }
+					add_character_flag = {
+						flag = startup_contracts
+						days = 1
+					}
+					agot_mw_reset_vassal_contract = yes
+				}
+			}
+		}
+		title:e_the_reach = {
+			every_de_jure_county_holder = {
+				if = {
+					limit = {
+						any_in_de_jure_heirarchy = {
+							OR = {
+								this = title:d_the_roseroad
+								this = title:d_manderfields
+							}
+						}
+						primary_title.tier = tier_county
+					}
+					set_variable = { name = mw_obl_feudal_levies value = 0 }
+					add_character_flag = {
+						flag = startup_contracts
+						days = 1
+					}
+					agot_mw_reset_vassal_contract = yes
+				}
+			}
+		}		
 		title:d_lonely_light.holder ?= {
 			set_variable = { name = mw_obl_feudal_levies value = 0 }
 			set_variable = { name = mw_obl_title_revocation_rights value = 1 }
