@@ -1742,7 +1742,14 @@
 				if = {
 					limit = {
 						culture = culture:ironborn
-						primary_title.tier = tier_duchy
+						primary_title = {
+							tier <= tier_duchy
+							NOR = {
+								this = title:c_iron_holt
+								this = title:c_lordsport
+								this = title:c_seagrave
+							}
+						}
 					}
 					set_variable = { name = mw_obl_feudal_taxes value = 1 }
 					set_variable = { name = mw_obl_feudal_levies value = 0 }
@@ -1761,12 +1768,14 @@
 			every_de_jure_county_holder = {
 				if = {
 					limit = {
-						any_in_de_jure_heirarchy = {
-							OR = {
-								this = title:d_harlaw
-								this = title:d_blacktyde
-								this = title:d_old_wyk
-								this = title:d_east_wyk
+						primary_title = {
+							any_this_title_or_de_jure_above = {
+								OR = {
+									this = title:d_harlaw
+									this = title:d_blacktyde
+									this = title:d_old_wyk
+									this = title:d_east_wyk
+								}
 							}
 						}
 						culture = culture:ironborn
@@ -1786,42 +1795,17 @@
 			}
 		}
 
-		title:e_the_iron_islands = {
-			every_de_jure_county_holder = {
-				if = {
-					limit = {
-						any_in_de_jure_heirarchy = {
-							OR = {
-								this = title:d_orkmont
-								this = title:d_saltcliffe
-							}
-						}
-						culture = culture:ironborn
-						primary_title.tier = tier_county
-					}
-					set_variable = { name = mw_obl_feudal_taxes value = 1 }
-					set_variable = { name = mw_obl_feudal_levies value = 1 }
-					set_variable = { name = mw_obl_war_declaration_rights value = 1 }
-					set_variable = { name = mw_obl_fortification_rights value = 1 }
-					set_variable = { name = mw_obl_title_revocation_rights value = 1 }
-					add_character_flag = {
-						flag = startup_contracts
-						days = 1
-					}
-					agot_mw_reset_vassal_contract = yes
-				}
-			}
-		}
-
 		title:h_the_iron_throne = {
 			every_de_jure_county_holder = {
 				if = {
 					limit = {
-						any_in_de_jure_heirarchy = {
-							OR = {
-								this = title:d_the_baywater_woods
-								this = title:d_the_blackwater_rush
-								this = title:d_crackclaw_point
+						primary_title = {
+							any_this_title_or_de_jure_above = {
+								OR = {
+									this = title:d_the_baywater_woods
+									this = title:d_the_blackwater_rush
+									this = title:d_crackclaw_point
+								}
 							}
 						}
 						primary_title.tier = tier_county
@@ -1839,8 +1823,10 @@
 			every_de_jure_county_holder = {
 				if = {
 					limit = {
-						any_in_de_jure_heirarchy = {
-							this = title:d_three_forks
+						primary_title = {
+							any_this_title_or_de_jure_above = {
+								this = title:d_three_forks
+							}
 						}
 						primary_title.tier = tier_county
 					}
@@ -1857,10 +1843,12 @@
 			every_de_jure_county_holder = {
 				if = {
 					limit = {
-						any_in_de_jure_heirarchy = {
-							OR = {
-								this = title:d_the_roseroad
-								this = title:d_manderfields
+						primary_title = {
+							any_this_title_or_de_jure_above = {
+								OR = {
+									this = title:d_the_roseroad
+									this = title:d_manderfields
+								}
 							}
 						}
 						primary_title.tier = tier_county
