@@ -2227,9 +2227,12 @@ Lannister_91 = {
 	dynasty = dynn_Lannister
 	dna = Lannister_91
 
-	diplomacy = 7
+	diplomacy = 10
 	martial = 8
 	stewardship = 12
+	intrigue = 6
+	learning = 8
+	prowess = 4
 
 	religion = fots_seven
 	culture = westerman_main
@@ -2329,6 +2332,13 @@ Lannister_95 = {
 	name = Rickard # Semi-Canon
 	dynasty = dynn_Lannister
 	dna = Lannister_95
+	
+	diplomacy = 4
+	martial = 6
+	stewardship = 8
+	intrigue = 0
+	learning = 6
+	prowess = 6
 
 	religion = fots_seven
 	culture = westerman_main
@@ -2337,9 +2347,11 @@ Lannister_95 = {
 	mother = Lydden_23
 
 	trait = education_stewardship_2
+	trait = education_martial_prowess_3
 	trait = temperate
 	trait = inquisitive
 	trait = patient
+	trait = brave
 	trait = curious
 
 	disallow_random_traits = yes
@@ -2356,7 +2368,7 @@ Lannister_95 = {
 		add_spouse = Ferren_17 # Sandria Ferren
 	}
 	8130.2.20 = {
-		trait = one_legged
+		trait = one_eyed
 		effect = {
 			agot_safe_imprison_in_castle_history_effect = {
 				CASTLE = title:e_the_iron_islands
@@ -2411,11 +2423,25 @@ Lannister_98 = {
 	dynasty = dynn_Lannister
 	female = yes
 
+	diplomacy = 8
+	martial = 4
+	stewardship = 5
+	intrigue = 2
+	learning = 6
+	prowess = 0
+
 	religion = fots_seven
 	culture = westerman_main
 
 	father = Lannister_90
 	mother = Westerling_28
+
+	trait = trusting
+	trait = diligent
+	trait = gregarious
+	trait = depressed_1
+
+	trait = education_learning_3
 
 	8114.1.1 = {
 		birth = yes
@@ -2435,6 +2461,12 @@ Lannister_99 = {
 
 	father = Lannister_90
 	mother = Westerling_28
+
+	trait = gregarious
+	trait = chaste
+	trait = impatient
+
+	trait = education_diplomacy_2
 
 	8116.1.1 = {
 		birth = yes
@@ -2457,19 +2489,19 @@ Lannister_100 = {
 	father = Lannister_90
 	mother = Westerling_28
 
+	trait = lustful
+	trait = gregarious
+	trait = ambitious
+	trait = charming
+
+	disallow_random_traits = yes
+
 	8118.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		make_trait_inactive = emerald_eyes
 		make_trait_inactive = gold_hair
 		add_character_flag = canon_status_canon
-	}
-	8131.1.28 = { # Hostage after Dance of the Dragons
-		effect = {
-			agot_safe_set_hostage_history_effect = {
-				WARDEN = title:h_the_iron_throne.holder
-			}
-		}
 	}
 	8133.12.1 = { trait = fornicator } # Fabricated by Unwin Peake
 	8134.1.1 = {
@@ -2490,19 +2522,19 @@ Lannister_101 = {
 	father = Lannister_90
 	mother = Westerling_28
 
+	trait = content
+	trait = gluttonous
+	trait = compassionate
+	trait = pensive
+
+	disallow_random_traits = yes
+
 	8119.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
 		make_trait_inactive = emerald_eyes
 		make_trait_inactive = gold_hair
 		add_character_flag = canon_status_canon
-	}
-	8131.1.28 = { # Hostage after Dance of the Dragons
-		effect = {
-			agot_safe_set_hostage_history_effect = {
-				WARDEN = title:h_the_iron_throne.holder
-			}
-		}
 	}
 	8136.1.1 = {
 		effect = { agot_safe_return_hostage_history_effect = yes }
@@ -2521,6 +2553,12 @@ Lannister_102 = {
 
 	father = Lannister_90
 	mother = Westerling_28
+
+	trait = stubborn
+	trait = forgiving
+	trait = bossy
+
+	disallow_random_traits = yes
 
 	8120.1.1 = {
 		birth = yes
@@ -2542,7 +2580,13 @@ Lannister_97 = {
 	father = Lannister_90
 	mother = Lannister_rs_2 # Jason's Mistress
 
+	trait = gregarious
+	trait = patient
+	trait = depressed_1
+	trait = charming
 	trait = bastard
+
+	disallow_random_traits = yes
 
 	8120.1.1 = {
 		birth = yes
@@ -2578,7 +2622,12 @@ Lannister_96 = {
 	father = Lannister_90
 	mother = Lannister_rs_2 # Jason's Mistress
 
+	trait = vengeful
+	trait = depressed_1
+	trait = rowdy
 	trait = bastard
+
+	disallow_random_traits = yes
 
 	8122.1.1 = {
 		birth = yes
@@ -2689,6 +2738,12 @@ Lannister_105 = {
 	father = Lannister_95
 	mother = Ferren_17
 
+	trait = gregarious
+	trait = honest
+	trait = curious
+
+	disallow_random_traits = yes
+
 	8123.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
@@ -2725,6 +2780,10 @@ Lannister_106 = {
 	trait = education_martial_2
 	trait = strong
 	trait = arrogant
+	trait = brave
+	trait = rowdy
+
+	disallow_random_traits = yes
 
 	8126.1.1 = {
 		birth = yes
@@ -4634,6 +4693,13 @@ LannisterLP_30 = {
 	father = LannisterLP_28
 	mother = Greenfield_36
 
+	trait = rude
+	trait = deceitful
+	trait = stubborn
+
+	trait = education_stewardship_2
+	trait = education_martial_prowess_1
+
 	8073.1.1 = {
 		birth = yes
 		make_trait_inactive = emerald_eyes
@@ -4694,6 +4760,10 @@ LannisterLP_34 = {
 
 	father = LannisterLP_30
 	mother = Inchfield_28
+
+	trait = brave
+	trait = temperate
+	trait = vengeful
 
 	8102.1.1 = {
 		birth = yes
@@ -5887,6 +5957,13 @@ Tarbeck_18 = { # Dance of the Dragons
 	name = Tion # Mentioned, a lord
 	dynasty = dynn_Tarbeck
 
+	diplomacy = 1
+	martial = 3
+	stewardship = 5
+	intrigue = 6
+	learning = 3
+	prowess = 2
+
 	religion = fots_seven
 	culture = westerman_main
 
@@ -5898,6 +5975,9 @@ Tarbeck_18 = { # Dance of the Dragons
 	trait = sadistic
 	trait = zealous
 	trait = arrogant
+
+	trait = education_stewardship_2
+	trait = education_martial_prowess_1
 
 	8083.1.1 = {
 		birth = yes
@@ -6015,6 +6095,13 @@ Tarbeck_71 = {
 Tarbeck_20 = { # Conquest of Dorne # Edited, Cafe, 24/06
 	name = Robert # Semi-Canon, mentioned, a lord
 	dynasty = dynn_Tarbeck
+
+	diplomacy = 6
+	martial = 8
+	stewardship = 5
+	intrigue = 2
+	learning = 4
+	prowess = 5
 
 	religion = fots_seven
 	culture = westerman_main
@@ -7250,7 +7337,12 @@ Reyne_26 = {
 	father = Reyne_22
 	mother = LannisterLP_29
 
+	trait = lustful
+	trait = compassionate
+	trait = gluttonous
 	trait = fecund
+
+	trait = education_intrigue_3
 
 	8102.1.1 = {
 		birth = yes
@@ -7319,6 +7411,12 @@ Reyne_61 = {
 	father = Reyne_24
 	mother = Brax_27
 
+	trait = lustful
+	trait = brave
+	trait = patient
+
+	trait = education_diplomacy_3
+
 	8112.1.1 = {
 		birth = yes
 		make_trait_inactive = red_hair
@@ -7331,6 +7429,13 @@ Reyne_27 = { # Conquest of Dorne
 	name = Bertrand # Semi-Canon, a lord
 	dynasty = dynn_Reyne
 	dna = Reyne_27
+
+	diplomacy = 4
+	martial = 6
+	stewardship = 4
+	intrigue = 4
+	learning = 6
+	prowess = 6
 
 	religion = fots_seven
 	culture = westerman_main
@@ -7404,6 +7509,11 @@ Reyne_29 = {
 	dna = Reyne_29
 
 	prowess = 8
+	diplomacy = 4
+	martial = 6
+	stewardship = 4
+	intrigue = 6
+	learning = 4
 
 	religion = fots_seven
 	culture = westerman_main
@@ -7452,6 +7562,13 @@ Reyne_33 = {
 
 	father = Reyne_24
 	mother = Brax_27
+
+	trait = arrogant
+	trait = compassionate
+	trait = patient
+	trait = charming
+
+	disallow_random_traits = yes
 
 	8118.1.1 = {
 		birth = yes
@@ -10812,6 +10929,13 @@ Westerling_24 = { # Edited, Cafe, 24/06
 	father = Westerling_22
 	mother = Hetherspoon_27
 
+	diplomacy = 8
+	martial = 4
+	stewardship = 4
+	intrigue = 4
+	learning = 6
+	prowess = 2
+
 	trait = just
 	trait = calm
 	trait = ambitious
@@ -10894,6 +11018,13 @@ Westerling_27 = { # Edited, Cafe, 24/06
 	father = Westerling_24
 	mother = Farman_26
 
+	diplomacy = 2
+	martial = 4
+	stewardship = 4
+	intrigue = 2
+	learning = 4
+	prowess = 4
+
 	trait = lazy
 	trait = arbitrary
 	trait = compassionate
@@ -10924,6 +11055,7 @@ Westerling_28 = {
 	stewardship = 9
 	intrigue = 6
 	learning = 7
+	prowess = 6
 
 	religion = fots_seven
 	culture = westerman_main
@@ -10970,6 +11102,10 @@ Westerling_29 = {
 	father = Westerling_24
 	mother = Farman_26
 
+	trait = ambitious
+	trait = authoritative
+	trait = patient
+
 	8101.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
@@ -11002,6 +11138,9 @@ Westerling_31 = {
 
 	martial = 8
 	prowess = 8
+	diplomacy = 4
+	intrigue = 0
+	learning = 6
 
 	religion = fots_seven
 	culture = westerman_main
@@ -11047,6 +11186,11 @@ Westerling_32 = { # Edited, Cafe, 24/06
 	dynasty = dynn_Westerling
 
 	diplomacy = 7
+	martial = 6
+	stewardship = 6
+	intrigue = 3
+	learning = 5
+	prowess = 5
 
 	religion = fots_seven
 	culture = westerman_main
@@ -11082,6 +11226,12 @@ Westerling_33 = {
 	father = Westerling_27
 	mother = Talbot_47
 
+	trait = generous
+	trait = trusting
+	trait = ambitious
+
+	disallow_random_traits = yes
+
 	8118.1.1 = {
 		birth = yes
 		make_trait_inactive = scripted_appearance
@@ -11098,6 +11248,11 @@ Westerling_34 = {
 
 	father = Westerling_27
 	mother = Talbot_47
+
+	trait = calm
+	trait = charming
+
+	disallow_random_traits = yes
 
 	8123.1.1 = {
 		birth = yes
@@ -14425,6 +14580,11 @@ Lefford_21 = { # Edited, Cafe, 24/06
 	dna = Lefford_21
 
 	martial = 2
+	diplomacy = 4
+	stewardship = 2
+	intrigue = 6
+	learning = 6
+	prowess = 2
 
 	religion = fots_seven
 	culture = westerman_main
@@ -14470,6 +14630,13 @@ Lefford_22 = {
 Lefford_23 = { # Edited, Cafe, 24/06
 	name = Leo
 	dynasty = dynn_Lefford
+
+	diplomacy = 4
+	martial = 6
+	stewardship = 6
+	intrigue = 4
+	learning = 5
+	prowess = 2
 
 	religion = fots_seven
 	culture = westerman_main
@@ -14697,6 +14864,11 @@ Lefford_30 = {
 
 	father = Lefford_23
 	mother = Estren_57
+
+	trait = temperate
+	trait = inquisitive
+	trait = curious
+	disallow_random_traits = yes
 
 	8120.1.1 = {
 		birth = yes
@@ -16002,6 +16174,13 @@ Lydden_25 = { # Edited, Cafe, 25/06
 	name = Cyril # Semi-Canon, a lord
 	dynasty = dynn_Lydden
 
+	diplomacy = 4
+	martial = 2
+	stewardship = 4
+	intrigue = 8
+	learning = 6
+	prowess = 5
+
 	dna = Lydden_25
 
 	religion = fots_seven
@@ -16040,6 +16219,13 @@ Lydden_26 = {
 
 	father = Lydden_24
 	mother = Merrell_63
+
+	trait = diligent
+	trait = compassionate
+	trait = just
+
+	trait = education_stewardship_3
+	trait = education_martial_prowess_1
 
 	8098.1.1 = {
 		birth = yes
@@ -16246,6 +16432,11 @@ Lydden_29 = {
 	father = Lydden_28
 	mother = Frey_118
 
+	trait = honest
+	trait = content
+	trait = pensive
+	disallow_random_traits = yes
+
 	8120.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
@@ -16272,6 +16463,10 @@ Lydden_57 = {
 
 	father = Lydden_28
 	mother = Frey_118
+
+	trait = brave
+	trait = bossy
+	disallow_random_traits = yes
 
 	8123.1.1 = {
 		birth = yes
@@ -16347,6 +16542,12 @@ Lydden_32 = {
 	father = Lydden_25
 	mother = Lannister_93 # Allise Lannister
 
+	trait = rude
+	trait = brave
+	trait = rowdy
+
+	disallow_random_traits = yes
+
 	8120.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
@@ -16367,6 +16568,10 @@ Lydden_33 = {
 
 	father = Lydden_25
 	mother = Lannister_93 # Allise Lannister
+
+	trait = content
+	trait = charming
+	disallow_random_traits = yes
 
 	8121.1.1 = {
 		birth = yes
@@ -17847,6 +18052,12 @@ Crakehall_28 = { # Dance of the Dragons # Edited, Cafe, 24/06
 	dynasty = dynn_Crakehall
 	female = yes
 
+	diplomacy = 6
+	martial = 5
+	stewardship = 6
+	intrigue = 0 
+	learning = 6
+
 	religion = fots_seven
 	culture = westerman_main
 
@@ -17882,6 +18093,13 @@ Crakehall_28 = { # Dance of the Dragons # Edited, Cafe, 24/06
 Crakehall_29 = { # Conquest of Dorne # Edited, Cafe, 24/06
 	name = Jonos # Semi-Canon, a lord
 	dynasty = dynn_Crakehall
+
+	diplomacy = 5
+	martial = 5
+	stewardship = 4
+	intrigue = 0
+	learning = 5
+	prowess = 5
 
 	religion = fots_seven
 	culture = westerman_main
@@ -17957,11 +18175,25 @@ Crakehall_32 = {
 	name = Jothor # Semi-Canon
 	dynasty = dynn_Crakehall
 
+	diplomacy = 4
+	martial = 6
+	stewardship = 2
+	intrigue = 4
+	learning = 4
+	prowess = 6
+
 	religion = fots_seven
 	culture = westerman_main
 
 	father = Crakehall_29
 	mother = Selmy_21
+
+	trait = arrogant
+	trait = content
+	trait = brave
+
+	trait = education_martial_2
+	trait = education_martial_prowess_2
 
 	8107.1.1 = {
 		birth = yes
@@ -17980,6 +18212,7 @@ Crakehall_33 = {
 	dynasty = dynn_Crakehall
 
 	stewardship = 9
+	prowess = 6
 
 	religion = fots_seven
 	culture = westerman_main
@@ -17989,6 +18222,13 @@ Crakehall_33 = {
 
 	trait = education_stewardship_4
 	trait = physique_good_2
+
+	trait = vengeful
+	trait = gluttonous
+	trait = wrathful
+
+	trait = education_stewardship_4
+	trait = education_martial_prowess_2
 
 	8111.1.1 = {
 		birth = yes
@@ -18023,6 +18263,12 @@ Crakehall_34 = {
 	father = Crakehall_29
 	mother = Selmy_21
 
+	trait = education_diplomacy_2
+
+	trait = wrathful
+	trait = impatient
+	trait = gregarious
+
 	8116.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
@@ -18039,6 +18285,11 @@ Crakehall_35 = {
 
 	father = Crakehall_29
 	mother = Selmy_21
+
+	trait = brave
+	trait = wrathful
+	trait = rowdy
+	disallow_random_traits = yes
 
 	8120.1.1 = {
 		birth = yes
@@ -18102,6 +18353,9 @@ Crakehall_60 = {
 	father = Crakehall_31
 	mother = Stackspear_16
 
+	trait = inquisitive
+	trait = content
+	trait = pensive
 	trait = education_martial_2
 	trait = physique_good_2
 
@@ -18403,6 +18657,12 @@ Crakehall_68 = {
 
 	father = Crakehall_67
 	mother = Grell_50
+
+	trait = just
+	trait = lustful
+	trait = brave
+	trait = education_diplomacy_3
+	trait = education_martial_prowess_3
 
 	8099.1.1 = { birth = yes }
 	8119.1.1 = { trait = knight }
@@ -19992,6 +20252,13 @@ Marbrand_27 = { # Edited, Cafe, 24/06
 	name = Seldon # Semi-Canon, a lord
 	dynasty = dynn_Marbrand
 
+	diplomacy = 4
+	martial = 5
+	stewardship = 3
+	intrigue = 4
+	learning = 2
+	prowess = 6
+
 	religion = fots_seven
 	culture = westerman_main
 
@@ -20081,6 +20348,10 @@ Marbrand_30 = {
 
 	father = Marbrand_22
 	mother = Darkwood_13
+
+	trait = just
+	trait = vengeful
+	trait = zealous
 
 	8112.1.1 = {
 		birth = yes
@@ -20463,6 +20734,12 @@ Marbrand_35 = {
 	father = Marbrand_27
 	mother = Westerling_29
 
+	trait = stubborn
+	trait = brave
+	trait = bossy
+
+	disallow_random_traits = yes
+
 	8120.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
@@ -20482,6 +20759,11 @@ Marbrand_36 = {
 
 	father = Marbrand_27
 	mother = Westerling_29
+
+	trait = humble
+	trait = charming
+
+	disallow_random_traits = yes
 
 	8123.1.1 = {
 		birth = yes
@@ -29669,6 +29951,11 @@ Brax_27 = {
 	father = Brax_25
 	mother = Tinpenny_48
 
+	trait = wrathful
+	trait = authoritative
+	trait = deceitful
+	trait = education_martial_2
+
 	religion = fots_seven
 	culture = westerman_main
 
@@ -29688,6 +29975,11 @@ Brax_38 = {
 
 	father = Brax_37
 	mother = Westbrook_46
+
+	trait = ambitious
+	trait = charming
+
+	disallow_random_traits = yes
 
 	8123.1.1 = {
 		birth = yes
@@ -29851,6 +30143,13 @@ Brax_40 = {
 Brax_28 = {
 	name = Tommen # Semi-Canon, a lord
 	dynasty = dynn_Brax
+
+	diplomacy = 8
+	martial = 8
+	stewardship = 3
+	intrigue = 2
+	learning = 6
+	prowess = 6
 
 	religion = fots_seven
 	culture = westerman_main
@@ -32644,6 +32943,13 @@ Serrett_61 = {
 Serrett_62 = { # Edited, Cafe, 25/06
 	name = Byron # a lord
 	dynasty = dynn_Serrett
+
+	diplomacy = 5
+	martial = 9
+	stewardship = 4
+	intrigue = 4
+	learning = 5
+	prowess = 5
 
 	religion = fots_seven
 	culture = westerman_main
@@ -39882,11 +40188,25 @@ Payne_64 = {
 	name = Orbert
 	dynasty = dynn_Payne
 
+	diplomacy = 8
+	martial = 1
+	stewardship = 8
+	intrigue = 1
+	learning = 6
+	prowess = 1
+
 	religion = fots_seven
 	culture = westerman_main
 
 	father = Payne_41
 	mother = Brax_80
+
+	trait = fickle
+	trait = compassionate
+	trait = diligent
+
+	trait = education_diplomacy_3
+	trait = education_martial_prowess_1
 
 	8094.1.1 = { birth = yes }
 	8113.1.1 = { trait = knight }
@@ -40002,11 +40322,25 @@ Payne_73 = {
 	name = Alan 
 	dynasty = dynn_Payne
 
+	diplomacy = 1
+	martial = 6
+	stewardship = 2
+	intrigue = 1 
+	learning = 1 
+	prowess = 8
+
 	religion = fots_seven
 	culture = westerman_main
 
 	father = Payne_65
 	mother = Banefort_99
+
+	trait = impatient
+	trait = brave
+	trait = stubborn
+
+	trait = education_martial_2
+	trait = education_martial_prowess_3
 
 	8116.1.1 = { birth = yes }
 	8133.1.1 = { trait = knight }
@@ -40052,6 +40386,13 @@ Payne_45 = { # Edited, Cafe, 25/06
 	name = Josmyn # a lord
 	dynasty = dynn_Payne
 
+	diplomacy = 4
+	martial = 8
+	stewardship = 2
+	intrigue = 6
+	learning = 5
+	prowess = 6
+
 	religion = fots_seven
 	culture = westerman_main
 
@@ -40096,6 +40437,10 @@ Payne_46 = {
 
 	father = Payne_45
 	mother = Ferren_42
+
+	trait = generous
+	trait = charming
+	disallow_random_traits = yes
 
 	8124.1.1 = { birth = yes }
 	8150.1.1 = { add_matrilineal_spouse = Hall_75 } # Garwen Hall
@@ -52683,6 +53028,13 @@ Plumm_18 = {
 	dynasty = dynn_Plumm
 	dna = Plumm_18
 
+	diplomacy = 10
+	martial = 3
+	stewardship = 10
+	intrigue = 3
+	learning = 6
+	prowess = 2
+
 	religion = fots_seven
 	culture = westerman_main
 
@@ -52690,6 +53042,7 @@ Plumm_18 = {
 	mother = Lugus_102
 
 	trait = education_stewardship_3
+	trait = education_martial_prowess_1
 	trait = infertile
 	trait = ambitious # married a princess
 	trait = gregarious
@@ -52724,7 +53077,12 @@ Plumm_19 = { # Edited, Cafe, 25/06
 	name = Alfryn # Semi-Canon, a temporary lord
 	dynasty = dynn_Plumm
 
+	diplomacy = 4
 	martial = 8
+	stewardship = 4
+	intrigue = 1
+	learning = 6
+	prowess = 8
 
 	religion = fots_seven
 	culture = westerman_main
@@ -52732,7 +53090,7 @@ Plumm_19 = { # Edited, Cafe, 25/06
 	father = Plumm_17
 	mother = Lugus_102
 
-	trait = education_martial_2
+	trait = education_martial_3
 	trait = education_martial_prowess_3
 	trait = impatient
 	trait = wrathful
@@ -54102,7 +54460,12 @@ Swyft_19 = { # Edited, Cafe, 25/06
 	name = Tommard # Semi-Canon, a lord
 	dynasty = dynn_Swyft
 
+	diplomacy = 10
 	martial = 8
+	stewardship = 8
+	intrigue = 3
+	learning = 8
+	prowess = 6
 
 	religion = fots_seven
 	culture = westerman_main
@@ -54142,6 +54505,9 @@ Swyft_20 = { # Edited, Cafe, 25/06
 	father = Swyft_18
 	mother = Farman_76
 
+	trait = education_stewardship_2
+	trait = education_martial_prowess_2
+
 	8100.1.1 = {
 		birth = yes
 		add_character_flag = canon_status_semicanon
@@ -54151,6 +54517,8 @@ Swyft_20 = { # Edited, Cafe, 25/06
 	8116.1.1 = {
 		trait = lifestyle_reveler
 		trait = lustful
+		trait = sadistic
+		trait = deceitful
 		trait = knight
 		add_spouse = Foote_24 # Orena Foote
 	}
@@ -54219,6 +54587,12 @@ Swyft_23 = {
 
 	father = Swyft_20
 	mother = Foote_24
+
+	trait = honest
+	trait = paranoid
+	trait = rowdy
+	
+	disallow_random_traits = yes
 
 	8120.1.1 = {
 		birth = yes
@@ -54337,8 +54711,13 @@ Swyft_26 = {
 Swyft_27 = { # Conquest of Dorne # Edited, Cafe, 25/06
 	name = Ingram # Semi-Canon, a lord
 	dynasty = dynn_Swyft
-
-	prowess = 7
+	
+	diplomacy = 8
+	martial = 8
+	stewardship = 2
+	intrigue = 0
+	learning = 4
+	prowess = 10
 
 	religion = fots_seven
 	culture = westerman_main
@@ -54362,7 +54741,7 @@ Swyft_27 = { # Conquest of Dorne # Edited, Cafe, 25/06
 		add_trait_xp = {
 			trait = tourney_participant
 			track = horse
-			value = 65
+			value = 100
 		}
 		give_nickname = nick_agot_historical_bluespur
 	}
@@ -54411,6 +54790,11 @@ Swyft_33 = {
 
 	father = Swyft_19
 	mother = Reyne_26
+
+	trait = impatient
+	trait = rowdy
+
+	disallow_random_traits = yes
 
 	8122.1.1 = {
 		birth = yes
@@ -66906,7 +67290,12 @@ Stackspear_15 = { # Edited, Cafe, 25/06
 	name = Lancel # Semi-Canon
 	dynasty = dynn_Stackspear
 
+	diplomacy = 6
 	martial = 8
+	stewardship = 2
+	intrigue = 1
+	learning = 4
+	prowess = 10
 
 	religion = fots_seven
 	culture = westerman_main
@@ -66958,6 +67347,12 @@ Stackspear_18 = {
 
 	father = Stackspear_17
 	mother = Farman_82
+
+	trait = greedy
+	trait = diligent
+	trait = bossy
+
+	disallow_random_traits = yes
 
 	8120.1.1 = { birth = yes }
 	8140.1.1 = { trait = knight }
