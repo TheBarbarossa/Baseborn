@@ -1008,6 +1008,30 @@ baseborn_rollingford_artifact_template = {
         }
 	}
 }
+baseborn_wendwater_artifact_template = { # created 08/22 slambroski
+	can_equip = {
+		always = yes
+	}
+	# can this character benefit from the full modifiers of the artifact?
+	can_benefit = {
+		dynasty = dynasty:dynn_Wendwater
+	}
+	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
+	fallback = {
+        prowess_no_portrait = 2 # change this number to the amount of prowess given by the weapon
+        general_opinion = -15
+	}
+	unique = yes
+	ai_score = {
+        value = 0
+        if = {
+            limit = {
+                dynasty ?= dynasty:dynn_Wendwater
+            }
+            add = 100
+        }
+	}
+}
 baseborn_sunderland_artifact_template = {
 	can_equip = {
 		always = yes
