@@ -2136,6 +2136,49 @@ agot_create_artifact_baseborn_farwynd_artifact_effect = { # edited 08/03 slambro
 	}
 		
 }
+agot_create_artifact_baseborn_merlyn_artifact_effect = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	set_artifact_rarity_famed = yes
+	create_artifact = {
+		name = baseborn_merlyn_artifact_name
+		description = baseborn_merlyn_artifact_description
+		visuals = crown
+		type = helmet
+		wealth = scope:wealth
+		quality = scope:quality
+		template = baseborn_merlyn_artifact_template
+		history = {
+			type = created
+			date = 7840.1.1
+			recipient = character:Merlyn_5 # First character to use the artifact
+			location = province:2740 # Location of the first character to use the artifact
+		}
+		modifier = baseborn_merlyn_artifact_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact ?= {
+		equip_artifact_to_owner_replace = yes
+		set_variable = {
+			name = historical_unique_artifact
+			value = yes
+		}
+		set_variable = {
+			name = traditional_house_owner
+			value = dynasty:dynn_Merlyn.dynasty_founder.house
+		}
+	agot_add_artifact_history = {
+		ARTIFACT = this
+		TYPE = inherited
+		DATE = 8090.1.1
+		RECIPIENT = character:Merlyn_54 # Next user of the artfact
+		}
+
+
+	}
+}
 agot_create_artifact_baseborn_harlaw_artifact_effect = { # edited 08/03 slambroski
 	$OWNER$ = {
 		save_scope_as = owner
