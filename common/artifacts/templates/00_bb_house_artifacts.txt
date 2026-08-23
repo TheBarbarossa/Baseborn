@@ -3108,31 +3108,6 @@ baseborn_merryweather_artifact_template = {
 	}
 }
 
-baseborn_mullendore_artifact_template = { # creatted 08/22 slambroski
-	can_equip = {
-		always = yes
-	}
-	# can this character benefit from the full modifiers of the artifact?
-	can_benefit = {
-		dynasty = dynasty:dynn_Merryweather
-	}
-	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
-	fallback = {
-        prowess_no_portrait = 3 # change this number to the amount of prowess given by the weapon
-        general_opinion = -15
-	}
-	unique = yes
-	ai_score = {
-        value = 0
-        if = {
-            limit = {
-                dynasty ?= dynasty:dynn_Mullendore
-            }
-            add = 100
-        }
-	}
-}
-
 
 baseborn_eorl_artifact_template = {
 	can_equip = {
