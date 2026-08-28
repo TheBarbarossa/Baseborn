@@ -40,6 +40,7 @@
 		scope:recipient = {
 			OR = {
 				is_allied_to = scope:actor
+				is_vassal_of = scope:actor # Added, Robin, 26/07/26
 				AND = {
 					this ?= scope:actor.diarch
 					scope:actor = {
