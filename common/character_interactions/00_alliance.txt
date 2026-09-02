@@ -1241,6 +1241,8 @@ negotiate_alliance_interaction = {
 			}
 		}
 
+		
+
 		scope:recipient = {
 			custom_tooltip = negotiate_alliance_effect_recipient_tooltip
 		}
@@ -1441,6 +1443,15 @@ negotiate_alliance_interaction = {
 						hostage_oath_of_friendship_trigger = yes
 					}
 				}
+				scope:actor = {
+					create_alliance = {
+						target = scope:recipient
+						allied_through_owner = scope:actor
+						allied_through_target = scope:recipient
+					}
+				}
+			}
+			else = {
 				scope:actor = {
 					create_alliance = {
 						target = scope:recipient
